@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'app_theme.dart';
 import 'data/anitabi_image_source_scope.dart';
 import 'data/pilgrimage_repository.dart';
-import 'data/sample_pilgrimage_repository.dart';
 import 'map/pilgrimage_map_screen.dart';
 import 'plan/add_points_screen.dart';
 import 'plan/plan_manager_screen.dart';
@@ -17,14 +16,21 @@ import 'plan_transfer/incoming_plan_file.dart';
 import 'plan_transfer/plan_import_file_stub.dart'
     if (dart.library.io) 'plan_transfer/plan_import_file_io.dart';
 import 'plan_transfer/plan_import_preview_screen.dart';
+import 'l10n/app_localizations.dart';
 import 'records/records_screen.dart';
 import 'settings/settings_screen.dart';
 
 class AppShell extends StatefulWidget {
-  AppShell({PilgrimageRepository? repository, super.key})
-    : repository = repository ?? SamplePilgrimageRepository();
+  const AppShell({
+    required this.repository,
+    required this.settings,
+    required this.onSettingsChanged,
+    super.key,
+  });
 
   final PilgrimageRepository repository;
+  final AppSettings settings;
+  final ValueChanged<AppSettings> onSettingsChanged;
 
   @override
   State<AppShell> createState() => _AppShellState();
@@ -40,8 +46,23 @@ class _AppShellState extends State<AppShell> {
   @override
   void initState() {
     super.initState();
+    _settings = widget.settings;
     _incomingPlanFiles.listen(_importPlanFromPath);
     _initializeApp();
+  }
+
+  @override
+  void didUpdateWidget(AppShell oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.settings != oldWidget.settings) {
+      final languageChanged = widget.settings.language != oldWidget.settings.language;
+      setState(() {
+        _settings = widget.settings;
+      });
+      if (languageChanged) {
+        _loadActivePlan();
+      }
+    }
   }
 
   @override
@@ -68,8 +89,8 @@ class _AppShellState extends State<AppShell> {
           plan: plan,
           visitRepository: widget.repository,
         );
-        _settings = settings;
       });
+      widget.onSettingsChanged(settings);
     } catch (error, stackTrace) {
       debugPrint('Failed to load active pilgrimage plan: $error');
       debugPrint(stackTrace.toString());
@@ -159,9 +180,7 @@ class _AppShellState extends State<AppShell> {
   }
 
   Future<void> _saveSettings(AppSettings settings) async {
-    setState(() {
-      _settings = settings;
-    });
+    widget.onSettingsChanged(settings);
     await widget.repository.saveAppSettings(settings);
   }
 
@@ -297,26 +316,26 @@ class _AppShellState extends State<AppShell> {
                           _selectedIndex = index;
                         });
                       },
-                      destinations: const [
+                      destinations: [
                         NavigationDestination(
-                          icon: Icon(Icons.checklist_outlined),
-                          selectedIcon: Icon(Icons.checklist),
-                          label: '计划',
+                          icon: const Icon(Icons.checklist_outlined),
+                          selectedIcon: const Icon(Icons.checklist),
+                          label: AppLocalizations.of(context)!.tabPlan,
                         ),
                         NavigationDestination(
-                          icon: Icon(Icons.map_outlined),
-                          selectedIcon: Icon(Icons.map),
-                          label: '地图',
+                          icon: const Icon(Icons.map_outlined),
+                          selectedIcon: const Icon(Icons.map),
+                          label: AppLocalizations.of(context)!.tabMap,
                         ),
                         NavigationDestination(
-                          icon: Icon(Icons.collections_bookmark_outlined),
-                          selectedIcon: Icon(Icons.collections_bookmark),
-                          label: '记录',
+                          icon: const Icon(Icons.collections_bookmark_outlined),
+                          selectedIcon: const Icon(Icons.collections_bookmark),
+                          label: AppLocalizations.of(context)!.tabRecords,
                         ),
                         NavigationDestination(
-                          icon: Icon(Icons.settings_outlined),
-                          selectedIcon: Icon(Icons.settings),
-                          label: '设置',
+                          icon: const Icon(Icons.settings_outlined),
+                          selectedIcon: const Icon(Icons.settings),
+                          label: AppLocalizations.of(context)!.tabSettings,
                         ),
                       ],
                     ),

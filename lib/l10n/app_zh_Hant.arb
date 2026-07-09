@@ -1,0 +1,1185 @@
+{
+  "@@locale": "zh_Hant",
+  "tabPlan": "計劃",
+  "tabMap": "地圖",
+  "tabRecords": "記錄",
+  "tabSettings": "設置",
+  "settingsTitle": "設置",
+  "languageSetting": "語言設置",
+  "languageSystem": "跟隨系統",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "labelWork": "作品",
+  "labelScene": "場景",
+  "labelCoordinates": "坐標",
+  "labelArea": "片區",
+  "labelReference": "參考",
+  "labelSource": "來源",
+  "labelId": "ID",
+  "labelLink": "鏈接",
+  "btnChange": "更改",
+  "btnReplace": "替換",
+  "labelLocalRecords": "本點記錄",
+  "labelAll": "全部",
+  "btnNavigate": "導航",
+  "btnOverlay": "拍攝參考",
+  "btnSetTarget": "設為當前",
+  "btnMarkDone": "標記完成",
+  "btnEditPoint": "編輯點位",
+  "settingsAppearance": "外觀設置",
+  "settingsAppearanceSubtitle": "主題色、縮放、顯示等",
+  "settingsCamera": "拍攝設置",
+  "settingsCameraSubtitle": "照片比例、參考圖比例、備份等",
+  "settingsExport": "對比圖設置",
+  "settingsExportSubtitle": "導出樣式、自動保存到相冊",
+  "settingsDataSource": "數據源設置",
+  "settingsDataSourceSubtitle": "地圖源、圖片源等",
+  "settingsClearCache": "清除緩存",
+  "settingsClearCacheSubtitle": "完整參考圖緩存",
+  "settingsAbout": "關於 MiriaGo",
+  "settingsAboutSubtitle": "版本信息、開源許可等",
+  "btnCancel": "取消",
+  "btnConfirm": "確定",
+  "btnSave": "保存",
+  "labelManualEntry": "手動錄入",
+  "labelRevertCompleted": "撤回打卡",
+  "labelUnassignedGroup": "未分入片區",
+  "labelUnknownGroup": "未知片區",
+  "labelNoAnchor": "未設置關鍵点",
+  "labelStatusCurrent": "當前目標",
+  "labelStatusCompleted": "已完成",
+  "labelStatusPending": "待訪問",
+  "settingsReset": "恢復初始設置",
+  "settingsResetConfirmSubtitle": "所有外觀、拍攝和地圖設置將恢復為默認值。",
+  "settingsThemeColor": "主題色",
+  "settingsThemeColorSubtitle": "影響應用整體配色",
+  "settingsThemeMode": "主題模式",
+  "settingsThemeLight": "淺色模式",
+  "settingsThemeDark": "深色模式",
+  "settingsThemeSystem": "跟隨系統",
+  "settingsUiScale": "頁面縮放",
+  "settingsUiScaleSubtitle": "調整界面整體大小（不影響參考圖）",
+  "settingsCameraRatio": "拍攝圖片比例",
+  "settingsCameraZoom": "相機縮放",
+  "settingsPhotoBackup": "照片備份",
+  "settingsPhotoBackupSubtitle": "保存巡禮照片到相冊",
+  "settingsAutoSaveComparison": "自動保存對比圖",
+  "settingsAutoSaveComparisonSubtitle": "保存記錄時保存到相冊",
+  "settingsDesktop": "桌面端",
+  "settingsDesktopSubtitle": "啟動器、數據目錄等",
+  "desktopLauncherChecking": "桌面啟動器 檢查中",
+  "desktopLauncherUnavailable": "桌面啟動器 不可用",
+  "desktopSystemDataDir": "系統數據目錄",
+  "desktopPortableDir": "便攜目錄",
+  "desktopAppDataDir": "應用數據目錄",
+  "desktopLauncherAvailable": "桌面啟動器 可用",
+  "settingsFontSmall": "小",
+  "settingsFontStandard": "標準",
+  "settingsFontLarge": "大",
+  "settingsFontHuge": "特大",
+  "msgReplacingRef": "正在替換參考圖...",
+  "msgReplaceRefFailed": "參考圖替換失敗，請稍後重試。",
+  "msgReplaceRefSuccess": "已替換參考圖",
+  "msgCannotOpenMap": "無法打開 Google Maps。",
+  "titleMoveToGroup": "移動到片區",
+  "copyLabelPointName": "點位名稱",
+  "copyLabelGroupAnchor": "片區關鍵點",
+  "labelNote": "備註",
+  "themeClassicGreen": "經典綠",
+  "themeDeepBlue": "深邃藍",
+  "themeCherryPink": "櫻花粉",
+  "themeTwilightPurple": "暮光紫",
+  "themeMiriaYellow": "琥珀橙",
+  "themeGraphite": "石墨黑",
+  "themeAurora": "自定義",
+  "aspectAuto": "自動",
+  "aspectNative": "原生比例",
+  "aspectCustom": "自定義",
+  "aspectAutoHint": "推薦",
+  "aspectNativeHint": "原生",
+  "aspectLandscape16x9Hint": "寬屏",
+  "aspectCinema21x9Hint": "電影",
+  "aspectStandard4x3Hint": "經典",
+  "aspectPhoto3x2Hint": "相機",
+  "aspectPortrait9x16Hint": "豎屏",
+  "aspectPortrait9x21Hint": "全面屏",
+  "aspectPortrait3x4Hint": "豎幅",
+  "aspectPortrait2x3Hint": "豎幅",
+  "aspectSquare1x1Hint": "方形",
+  "aspectCustomHint": "自定",
+  "mapProviderOpenFreeMap": "OpenFreeMap",
+  "mapProviderOpenFreeMapDesc": "默認地圖，使用 MapLibre style。",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "使用 OpenStreetMap 標準 XYZ 瓦片。",
+  "mapProviderCustomXyz": "自定義 XYZ",
+  "mapProviderCustomXyzDesc": "使用包含 {z}/{x}/{y} 的柵格瓦片 URL。",
+  "mapProviderCustomMapLibre": "自定義 MapLibre",
+  "mapProviderCustomMapLibreDesc": "使用自定義 MapLibre style URL。",
+  "mapStyleLibertyDesc": "默認樣式，信息密度較高。",
+  "mapStyleBrightDesc": "明亮標準樣式。",
+  "mapStylePositronDesc": "淺色低干擾樣式。",
+  "mapStyleDarkDesc": "深色地圖樣式。",
+  "mapStyleFiordDesc": "柔和地形風格。",
+  "imageSourceAuto": "自動選擇",
+  "imageSourceOfficial": "官方默認",
+  "imageSourceMirror": "備用源",
+  "imageSourceAutoDesc": "優先使用 image.anitabi.cn；如果下載到錯誤頁或被攔截，會嘗試 img-tc.anitabi.cn。",
+  "imageSourceOfficialDesc": "固定使用 image.anitabi.cn，保留 Anitabi 官方默認圖片源。",
+  "imageSourceMirrorDesc": "固定使用 img-tc.anitabi.cn，適合官方默認源經常被攔截時使用。",
+  "mapProviderRecommendedDefault": "推薦默認",
+  "mapProviderStandardTiles": "標準瓦片",
+  "mapProviderTileTemplate": "瓦片模板",
+  "mapProviderStyleUrl": "樣式 URL",
+  "cameraCaptureRatioSection": "拍攝圖片比例",
+  "cameraCaptureRatioDesc": "自動會優先跟隨參考圖比例；選擇固定比例後會按該比例拍攝。",
+  "cameraFallbackRatioSection": "無參考圖時比例",
+  "cameraFallbackRatioDesc": "拍攝圖片比例為自動、且沒有參考圖可對齊時使用。",
+  "cameraReferenceScaleSection": "參考圖顯示",
+  "cameraZoomSection": "相機縮放",
+  "cameraBackupDetailDesc": "保存記錄時同時備份一張巡禮照片。",
+  "mapSourceSection": "地圖源",
+  "mapOpenFreeMapStyleSection": "OpenFreeMap 樣式",
+  "mapCustomXyzUrlNotSet": "未設置自定義 XYZ URL",
+  "mapCustomXyzUrlTitle": "自定義 XYZ URL",
+  "mapCustomXyzUrlHelper": "URL 需要包含 {z}、{x}、{y}。",
+  "mapCustomXyzUrlInvalid": "URL 格式無效",
+  "mapCustomMapLibreUrlNotSet": "未設置 MapLibre style URL",
+  "mapCustomMapLibreUrlTitle": "MapLibre style URL",
+  "mapCustomMapLibreUrlHelper": "URL 需要指向可公開讀取的 style JSON。",
+  "mapAnitabiImageSourceSection": "Anitabi 圖片源",
+  "mapThumbnailSection": "地圖縮略圖",
+  "mapThumbnailThresholdTitle": "縮略圖顯示閾值",
+  "mapThumbnailThresholdDesc": "視圖內點位不超過 {threshold} 個時顯示縮略圖；超過時僅顯示圓點。",
+  "mapConcurrentLoadsTitle": "圖片同時請求數",
+  "mapConcurrentLoadsDesc": "用於地圖縮略圖顯示、導入點位時緩存縮略圖，以及批量緩存參考圖。數值越大速度可能越快，但網絡壓力也更高。",
+  "mapThumbnailThresholdZeroHint": "閾值為 0 時不會在地圖上顯示縮略圖。",
+  "mapNavigationAppSection": "導航軟件",
+  "mapNavigationAppHint": "僅保留界面選項，暫不接入實際導航跳轉。",
+  "desktopLauncherSection": "啟動器",
+  "aboutAppInfoSection": "應用信息",
+  "aboutAppDescription": "動漫聖地巡禮計劃與拍攝參考工具",
+  "aboutVersionLabel": "當前版本",
+  "aboutLoadingText": "讀取中",
+  "aboutAuthorLabel": "作者",
+  "aboutContactEmailLabel": "聯繫郵箱",
+  "aboutSourceCodeRepositoryLabel": "開源倉庫",
+  "aboutLicenseLabel": "開源許可",
+  "aboutCopyrightSection": "數據與版權",
+  "aboutCopyrightDescription": "地圖可使用 OpenFreeMap、OpenStreetMap 或自定義服務；作品搜索使用 Bangumi；巡禮點位與參考圖來自 Anitabi。圖片源設置只影響訪問域名，遠端鏈接會統一保留 Anitabi 默認格式。第三方數據、截圖和圖片版權歸原平台、貢獻者或權利方所有。",
+  "mapThumbnailCountLabel": "{count} 個",
+  "btnDecrease": "減少",
+  "btnIncrease": "增加",
+  "settingsExportDefaultConfig": "默認配置",
+  "cachePlanSection": "計劃",
+  "cacheLoadPlansFailed": "計劃列表讀取失敗",
+  "cacheSelectPlanSection": "選擇計劃",
+  "cacheClearButton": "清除完整參考圖快取",
+  "btnRetry": "重試",
+  "tooltipSelectAll": "全選",
+  "tooltipClear": "清空",
+  "cacheClearFuncPlaceholder": "清除快取功能尚未接入，僅展示界面。",
+  "cacheSelectedPlansCount": "已選擇 {selected} / {total} 個計劃",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "{area} / {count} 個點位",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "快取內容",
+  "cacheReferenceType": "完整參考圖快取",
+  "cacheReferenceDesc": "清除相機參考和大圖查看使用的完整參考圖。縮略圖快取會保留，以保持列表和地圖載入速度。",
+  "gpsDisabled": "定位服務未開啟。",
+  "gpsPermissionRequired": "需要定位權限來顯示當前位置。",
+  "gpsTimeout": "定位超時，請稍後重試。",
+  "gpsFailed": "定位失敗，請檢查權限和定位服務。",
+  "planActions": "計劃操作",
+  "planSwitch": "切換計劃",
+  "planAddPoint": "添加點位",
+  "planManage": "管理計劃",
+  "planMemo": "計劃備忘錄",
+  "planImportExport": "導入導出",
+  "cacheDownloading": "正在快取完整參考圖...",
+  "cacheNoImagesToDownload": "當前計劃沒有需要快取的參考圖",
+  "cacheTitle": "快取完整參考圖",
+  "cacheConfirmMessage": "將快取當前計劃中 {count} 張完整參考圖，可能需要較長時間和網路流量。",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "開始快取",
+  "cacheStarted": "已開始快取完整參考圖",
+  "groupPrev": "上一個片區",
+  "groupNext": "下一個片區",
+  "mapCollapse": "收起地圖",
+  "labelPointsCount": "{count} 個點位",
+  "labelCompletedCount": "完成",
+  "labelOrderMode": "模式",
+  "sortModeDefault": "默認計劃順序",
+  "sortModeDistance": "按距離當前位置",
+  "sortModeDefaultShort": "默認計劃",
+  "sortModeDistanceShort": "按距離",
+  "sortOrderDesc": "反序",
+  "sortOrderAsc": "正序",
+  "sortOrderFarToNear": "遠到近",
+  "sortOrderNearToFar": "近到遠",
+  "tooltipHideLocation": "隱藏當前位置",
+  "tooltipShowLocation": "顯示當前位置",
+  "labelCompleted": "完成",
+  "planNoPointsTitle": "還沒有點位",
+  "planNoPointsSubtitle": "先從 Anitabi 或手動錄入添加巡禮點，之後這裡會顯示當前目標和完成進度。",
+  "planWorksCount": "{count} 部作品",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "已拍 {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} 個點位 / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "點位詳情",
+  "btnCameraReference": "拍攝參考",
+  "tooltipRevertCompleted": "撤回打卡",
+  "tooltipMarkCompleted": "標記完成",
+  "tooltipSetTarget": "設為當前目標",
+  "recordsUnassignedDesc": "還沒有放入片區的記錄",
+  "recordsOrphanedTitle": "孤立記錄",
+  "recordsOrphanedDesc": "對應點位已不在當前計劃中",
+  "recordsAllRecords": "全部記錄",
+  "recordsFilterConditionsCount": "{count} 個篩選條件",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "篩選",
+  "recordsSearchPoints": "搜索點位",
+  "recordsSearchHint": "點位、作品、場景、集數、坐標",
+  "tooltipClearSearch": "清空搜索",
+  "recordsFilterStatus": "狀態",
+  "recordsFilterCompletedPoints": "已完成點位",
+  "recordsFilterPendingPoints": "未完成點位",
+  "recordsPhotoTitle": "巡礼照片",
+  "recordsEntriesCount": "{count} 條",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "{count} 條巡禮記錄",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "完成 {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "還沒有巡禮記錄。拍攝成功後會自動出現在這裡。",
+  "groupOrderModePending": "待整理",
+  "groupOrderModeManual": "手動",
+  "groupOrderModeNone": "無序",
+  "groupAnchorPending": "等待分入片區",
+  "groupAnchorNameLabel": "關鍵點：{name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "當前計劃還沒有點位。",
+  "tooltipLocation": "定位",
+  "tooltipUseIconMarkers": "使用圖標標記",
+  "tooltipShowThumbnailMarkers": "顯示縮略圖標記",
+  "tooltipPoint": "巡禮點",
+  "copyLabelPointInfo": "點位信息",
+  "mapNoPointsMessage": "當前計劃還沒有點位。添加點位後會在地圖上顯示標記。",
+  "labelEditPointNotSupported": "當前環境無法編輯點位。",
+  "tooltipGoToTarget": "當前目標",
+  "planDefaultNewName": "新巡禮計劃 {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "未設置區域",
+  "msgDeletePlanAtLeastOne": "至少需要保留一個計劃",
+  "dialogDeletePlanTitle": "刪除計劃",
+  "dialogDeletePlanMessage": "將刪除「{name}」及其中的點位、片區、作品和巡禮記錄。此操作無法撤銷。",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "刪除",
+  "dialogEditPlanTitle": "編輯計劃信息",
+  "labelPlanName": "計劃名稱",
+  "labelPlanArea": "地區 / 區域",
+  "btnNewPlan": "新建計劃",
+  "statusTextCurrentPlan": "當前計劃",
+  "statusTextSwitchable": "可切換",
+  "labelPlanInfo": "計劃信息",
+  "planInfoCopyContent": "{name}\n{area}\n{points} 個點位\n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "切換",
+  "btnReloadPlan": "重新載入計劃",
+  "importExportImportSection": "導入",
+  "importExportImportDescMobile": "從文件、聊天、瀏覽器或網盤等位置用 MiriaGo 打開 .sjhplan。",
+  "importExportImportDescWeb": "選擇 .sjhplan 文件，先預覽內容再導入。",
+  "importExportStatusReading": "讀取中...",
+  "importExportOpenFromApp": "從其他 App 打開 .sjhplan",
+  "importExportImportFileTitle": "導入 MiriaGo 文件",
+  "importExportOpenFromAppDesc": "在文件、聊天、瀏覽器下載頁或網盤中選擇 .sjhplan，然後分享或用 MiriaGo 打開。",
+  "importExportImportFileDesc": "支持 v2 數據包和舊版 v1 JSON 計劃包。",
+  "importExportZipDesc": "新版 .sjhplan，內部為 zip，包含 manifest.json。",
+  "importExportMyMapsDesc": "導出點位 CSV。圖片寫成鏈接，可按 Type 列設置樣式。",
+  "importExportMyMapsTitle": "導出 My Maps CSV",
+  "importExportMyMapsDetails": "前 6 列貼近示例格式，作品、集數、來源等拆成獨立列。",
+  "msgExportCancelled": "已取消導出",
+  "msgImportReadFailed": "導入文件讀取失敗",
+  "dialogOpenFromAppTitle": "從其他 App 打開 .sjhplan",
+  "dialogOpenFromAppMessage": "請在文件、聊天、瀏覽器下載頁、網盤或其他保存位置找到 .sjhplan 文件，然後點開文件，或使用分享/更多菜單選擇 MiriaGo。\n\nMiriaGo 收到文件後會自動進入導入預覽頁面。若列表裡沒有 MiriaGo，可以先把文件保存到“文件”App，再長按文件選擇分享或打開方式。",
+  "btnGotIt": "知道了",
+  "exportShareLabel": "MiriaGo數據包：{name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "數據包已導出",
+  "dialogMissingResourcesTitle": "部分本地資源缺失",
+  "dialogMissingResourcesMessage": "這些資源不會進入數據包，導入後對應圖片可能無法顯示。",
+  "btnContinueExport": "繼續導出",
+  "msgExportMyMapsSuccess": "My Maps CSV 已導出",
+  "msgExporting": "正在導出...",
+  "msgExportFailed": "導出失敗",
+  "warningMissingPart": "{fallback}，部分資源未能加入",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} 張本地上傳參考圖缺失",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "{count} 張縮略圖未加入",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} 張完整參考圖下載失敗",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} 張完整參考圖缺失",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} 張巡禮照片缺失",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "{count} 張調色照片缺失",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "{groups} 個片區 / {points} 個點位",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "純計劃",
+  "btnPlanAndRecords": "計劃+記錄",
+  "importExportIncludeCache": "包含完整參考圖快取",
+  "importExportIncludeCacheDesc": "默認仍會包含縮略圖和用戶自己添加的參考圖。",
+  "btnExportDataPackage": "導出 MiriaGo 數據包",
+  "btnExportingDataPackage": "導出中...",
+  "importExportEstimateEstimating": "正在估算數據包大小...",
+  "importExportEstimateFailed": "預計數據包大小：暫時無法估算",
+  "importExportEstimateResult": "預計數據包大小：{label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "本地上傳參考圖",
+  "dialogVisitPhotoMissing": "巡禮照片",
+  "dialogGradedPhotoMissing": "調色照片",
+  "estimateThumbnailNotCached": "{count} 張縮略圖未快取，不會進入數據包",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} 張完整參考圖將在導出時下載",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} 張本地上傳參考圖文件缺失，導出後無法恢復",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "{count} 張巡禮照片文件缺失",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "{count} 張調色照片文件缺失",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "部分本地資源無法讀取，實際包體可能變化",
+  "estimateLabelAtLeast": "預計數據包大小：至少約 {size}，{details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "預計數據包大小：約 {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "返回",
+  "importExportDataPackageHeader": "MiriaGo 數據包",
+  "addPointsTitle": "添加內容",
+  "addPointsAddToPlan": "加入到：{planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "作品管理",
+  "addPointsWorkManagerDesc": "管理計劃作品，支持 Bangumi 搜索、手動添加和刪除作品。",
+  "addPointsImportFromWorkMapTitle": "從作品地圖導入點位",
+  "addPointsImportFromWorkMapDesc": "在 Anitabi 地圖上查看作品點位，點擊縮略圖詳情後加入計劃。",
+  "addPointsImportFromLinkTitle": "從 Anitabi 鏈接導入",
+  "addPointsImportFromLinkDesc": "粘貼 Anitabi 作品或點位鏈接，快速打開對應作品地圖。",
+  "addPointsManualTitle": "手動添加點位",
+  "addPointsManualDesc": "選擇已添加作品，再輸入名稱、坐標和場景信息。",
+  "addPointsActionLabelUnavailable": "不可用",
+  "addPointsActionLabelManage": "管理",
+  "addPointsActionLabelOpen": "打開",
+  "addPointsActionLabelInput": "輸入",
+  "addPointsActionLabelAdd": "添加",
+  "msgWorkAdded": "已添加「{title}」。",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "作品添加失敗，請稍後重試。",
+  "bangumiSearchTitle": "搜索 Bangumi",
+  "bangumiSearchLabel": "作品名稱",
+  "bangumiSearchHint": "例如 輕音少女",
+  "bangumiSearchBtn": "搜索作品",
+  "bangumiSearchBtnSearching": "搜索中",
+  "bangumiSearchFailed": "Bangumi 搜索失敗，請檢查網絡後重試。",
+  "bangumiSearchEmptyHelp": "輸入作品名後搜索，選擇結果即可加入當前計劃。",
+  "anitabiLinkImportTitle": "Anitabi 鏈接導入",
+  "anitabiLinkImportLabel": "Anitabi 鏈接",
+  "anitabiLinkImportHint": "例如 https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "如果鏈接裡包含作品 ID，會只加載對應作品；如果還包含點位 ID，會自動選中該點位。沒有作品 ID 的鏈接需要先在 Anitabi 中進入對應作品後重新複製。",
+  "anitabiLinkImportBtn": "打開 Anitabi 點位",
+  "anitabiLinkImportEmptyErr": "請輸入 Anitabi 鏈接",
+  "anitabiLinkImportInvalidErr": "請輸入有效的 Anitabi 地圖鏈接",
+  "anitabiLinkImportNoWorkIdErr": "鏈接缺少作品 ID，請先在 Anitabi 進入對應作品後複製鏈接",
+  "msgPointAdded": "已添加「{title}」。",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "點位保存失敗，請稍後重試。",
+  "msgWorkSaveFailed": "作品保存失敗，請稍後重試。",
+  "manualAddWorkTitle": "手動添加作品",
+  "manualAddWorkName": "作品名稱",
+  "manualAddWorkOriginalName": "作品原名",
+  "manualAddWorkOriginalNameHint": "可選",
+  "manualAddWorkArea": "主要地區",
+  "manualAddWorkAreaHint": "可選，默認 {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "保存作品",
+  "manualAddWorkBtnSaving": "保存中",
+  "manualAddWorkRequiredField": "請填寫此項",
+  "msgReferenceImageReadFailed": "參考圖讀取失敗，請重新選擇。",
+  "msgClipboardCoordinatesInvalid": "剪切板中沒有可識別的坐標。",
+  "msgClipboardCoordinatesApplied": "已填入剪切板坐標。",
+  "manualAddPointTitleAdd": "手動添加點位",
+  "manualAddPointTitleEdit": "編輯點位",
+  "manualAddPointStatusEdit": "修改：{name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "所屬作品",
+  "manualAddPointSelectWorkErr": "請選擇作品",
+  "manualAddPointWorkName": "動畫/作品名稱",
+  "manualAddPointWorkOriginalName": "作品原名",
+  "manualAddPointWorkOriginalNameHint": "可選",
+  "manualAddPointWorkArea": "作品主要地區",
+  "manualAddPointWorkAreaHint": "可選，默認 {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "點位名稱",
+  "manualAddPointPositionDesc": "位置說明",
+  "manualAddPointEpisodeLabel": "集數/場景標籤",
+  "manualAddPointSource": "參考來源",
+  "manualAddPointMemo": "備註",
+  "manualAddPointMemoHint": "可選，例如閉店、翻修、拍攝建議",
+  "manualAddPointSelectCoordsBtn": "從地圖選擇坐標",
+  "manualAddPointPasteCoordsBtn": "粘貼剪切板坐標",
+  "manualAddPointLatitude": "緯度",
+  "manualAddPointLatitudeHint": "例如 34.8917",
+  "manualAddPointLongitude": "經度",
+  "manualAddPointLongitudeHint": "例如 135.8077",
+  "manualAddPointBtnSaving": "保存中",
+  "manualAddPointBtnSaveEdit": "保存修改",
+  "manualAddPointBtnSaveAdd": "保存點位",
+  "manualAddPointRequiredField": "請填寫此項",
+  "manualAddPointRequiredLatitude": "請填寫緯度",
+  "manualAddPointRequiredLongitude": "請填寫經度",
+  "manualAddPointInvalidCoordinate": "請輸入有效坐標",
+  "manualAddPointSelectCoordsTitle": "選擇點位坐標",
+  "manualAddPointSelectCoordsTooltipActive": "關閉地圖選點",
+  "manualAddPointSelectCoordsTooltipInactive": "在地圖上選點",
+  "manualAddPointSelectCoordsHelpActive": "點擊地圖任意位置設置點位坐標",
+  "manualAddPointSelectCoordsHelpInactive": "先點擊右上角選點按鈕，再點擊地圖設置坐標",
+  "manualAddPointSelectCoordsAdjustHelp": "點擊地圖可繼續調整位置",
+  "manualAddPointSelectCoordsDialogTitle": "地圖選點",
+  "manualAddPointSelectCoordsBtnUse": "使用",
+  "addPointsNoWorksHelp": "當前計劃還沒有作品。先添加作品，後續可按作品導入點位。",
+  "addPointsHasWorksHelp": "當前計劃已有 {count} 部作品：{list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "查看大圖",
+  "addPointsRefImageTooltipEmpty": "暫無參考圖",
+  "addPointsRefImageHeader": "參考圖片",
+  "addPointsRefImageHelpSelected": "已選擇新圖片，保存後生效。",
+  "addPointsRefImageHelpCurrent": "當前參考圖，重新選擇後需保存才會生效。",
+  "addPointsRefImageHelpEmpty": "可選，保存時會複製到 App 本地目錄。",
+  "addPointsRefImageBtnReselect": "重新選擇",
+  "addPointsRefImageBtnUpload": "上傳參考圖",
+  "addPointsRefImageBtnRemove": "移除",
+  "addPointsPointBtnAdded": "已添加",
+  "addPointsPointBtnAdd": "加入",
+  "managePlanTitle": "管理計劃",
+  "managePlanSelectedCount": "已選 {count}",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "片區管理",
+  "managePlanCachingProgress": "正在緩存完整參考圖",
+  "managePlanCacheFullReference": "緩存完整參考圖",
+  "managePlanTooltipExitSelection": "退出多選",
+  "managePlanTooltipSelection": "多選",
+  "msgNoAnchorForUnassigned": "未分配點位沒有關鍵點。",
+  "msgAreaNotExist": "片區不存在。",
+  "msgSaveAnchorFailed": "關鍵點保存失敗。",
+  "msgNoOrderForUnassigned": "未分配點位不需要排序方式。",
+  "managePlanAreaOrderTitle": "片區內順序",
+  "msgSaveOrderModeFailed": "排序方式保存失敗。",
+  "msgMoveAreaFailed": "移動片區失敗。",
+  "msgOpenCameraFromPlanOrMap": "請從計劃頁或地圖頁打開拍攝。",
+  "msgSaveReferenceImageFailed": "參考圖保存失敗。",
+  "labelUnknownArea": "未知片區",
+  "managePlanMoveToAreaTitle": "移動到片區",
+  "msgSavePointOrderFailed": "點位順序保存失敗。",
+  "dialogDeletePointTitle": "刪除點位",
+  "dialogDeletePointMsg": "確定從計劃中刪除「{name}」嗎？",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "點位刪除失敗。",
+  "dialogBulkDeletePointsTitle": "批量刪除點位",
+  "dialogBulkDeletePointsMsg": "確定從計劃中刪除 {count} 個點位嗎？",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "批量刪除失敗。",
+  "msgSaveCurrentTargetFailed": "當前目標保存失敗。",
+  "msgSaveCompletionStatusFailed": "完成狀態保存失敗。",
+  "msgSavePointStatusFailed": "點位狀態保存失敗。",
+  "msgBulkCompleteFailed": "批量完成失敗。",
+  "msgBulkResetFailed": "批量重置失敗。",
+  "msgFullReferenceCacheStarted": "已開始緩存完整參考圖。",
+  "msgCachingFullReferenceProgress": "正在緩存完整參考圖...",
+  "msgNoReferenceToCache": "當前計劃沒有需要緩存的參考圖。",
+  "dialogCacheFullReferenceTitle": "緩存完整參考图",
+  "dialogCacheFullReferenceMsg": "將緩存當前計劃中 {count} 張完整參考圖，可能需要較長時間和網絡流量。",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "開始緩存",
+  "labelAnchorNotSet": "未設置",
+  "tooltipPrevArea": "上一個片區",
+  "tooltipNextArea": "下一個片區",
+  "managePlanPointsPending": "{count} 個點位等待整理",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "{count} 個點位 · 已完成 {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "關鍵點：{label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "最近分配",
+  "btnBoxSelectAssign": "框選分配",
+  "statusCurrent": "當前",
+  "statusCompleted": "已完成",
+  "statusPending": "待訪問",
+  "tooltipPointActions": "點位操作",
+  "btnMoveToArea": "移動到片區",
+  "btnSetAsCurrent": "設為當前",
+  "btnCancelCompletion": "取消完成",
+  "btnMarkCompletion": "標記完成",
+  "btnDeletePoint": "刪除點位",
+  "refStatusNone": "無參考圖",
+  "refStatusLocal": "本地上傳",
+  "refStatusCached": "已緩存",
+  "refStatusRemote": "未緩存",
+  "tooltipClearSelection": "清空",
+  "tooltipMoveArea": "移動片區",
+  "tooltipReset": "重置",
+  "dialogSelectAnchorTitle": "選擇關鍵點",
+  "btnClear": "清除",
+  "tooltipCloseMapSelect": "關閉地圖點選",
+  "tooltipSelectOnMap": "在地圖上選點",
+  "tooltipInputCoordinates": "輸入經緯度",
+  "dialogInputCoordinatesTitle": "輸入經緯度",
+  "labelManualAnchor": "手動關鍵點",
+  "tooltipSelectPoint": "選擇點位",
+  "labelAnchorNotSelected": "尚未選擇關鍵點",
+  "msgClickMapToSetAnchor": "點擊地圖任意位置設置關鍵點",
+  "msgSelectAnchorMethods": "可點選點位、地圖或輸入經緯度",
+  "managePlanNoPoints": "還沒有可以管理的點位",
+  "dialogDiscardMemoTitle": "放棄未保存內容？",
+  "dialogDiscardMemoMsg": "當前備忘錄還有未保存的修改。",
+  "btnKeepEditing": "繼續編輯",
+  "btnDiscard": "放棄",
+  "msgMemoSaved": "計劃備忘錄已保存。",
+  "msgMemoSaveFailed": "計劃備忘錄保存失敗。",
+  "msgTodoStatusSaveFailed": "待辦狀態保存失敗。",
+  "memoPlaceholderHeading": "標題",
+  "memoPlaceholderBold": "加粗文字",
+  "memoPlaceholderListItem": "列表項",
+  "memoPlaceholderTodo": "待辦事項",
+  "memoPlaceholderQuote": "引用內容",
+  "memoPlaceholderLinkText": "鏈接文字",
+  "memoPlaceholderCode": "代碼",
+  "msgInvalidLinkFormat": "鏈接格式不正確。",
+  "msgUnableToOpenLink": "無法打開鏈接。",
+  "planMemoTitle": "計劃備忘錄",
+  "labelMemoContent": "備忘錄內容",
+  "hintMemoContent": "可以記錄交通、預約、補拍事項、同行安排等。",
+  "tooltipHeading": "標題",
+  "tooltipBold": "加粗",
+  "tooltipList": "列表",
+  "tooltipTodo": "待辦",
+  "tooltipQuote": "引用",
+  "tooltipDivider": "分割線",
+  "tooltipLink": "鏈接",
+  "tooltipCode": "代碼",
+  "tooltipUncheck": "取消勾選",
+  "msgMemoImageNotSupported": "備忘錄不支持圖片：{label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "還沒有寫計劃備忘",
+  "memoEmptySubtitle": "點擊右上角編輯，記錄交通、預約、補拍事項或其他準備內容。",
+  "msgInvalidRatio": "請輸入有效比例。",
+  "dialogCustomRatioTitle": "自定義比例",
+  "labelWidth": "寬",
+  "labelHeight": "高",
+  "msgColorNameRequired": "請輸入顏色名稱。",
+  "dialogCustomThemeColorTitle": "自定義主題色",
+  "labelColorName": "名稱",
+  "labelColorHex": "色號",
+  "btnAdd": "添加",
+  "navAppGoogleMaps": "Google Maps",
+  "navAppAmap": "高德地圖",
+  "navAppAppleMaps": "Apple Maps",
+  "navAppBaiduMaps": "百度地圖",
+  "navAppTencentMaps": "騰訊地圖",
+  "navAppBrowser": "瀏覽器",
+  "navAppGoogleMapsSub": "默認選項",
+  "navAppAmapSub": "國內常用",
+  "navAppAppleMapsSub": "iOS 原生",
+  "navAppBaiduMapsSub": "城市導航",
+  "navAppTencentMapsSub": "輕量備選",
+  "navAppBrowserSub": "網頁打開",
+  "comparisonBorderColorWhite": "白色",
+  "comparisonBorderColorBlack": "黑色",
+  "comparisonBorderColorTheme": "主題色",
+  "comparisonWidthLabel": "寬度 {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "無邊框",
+  "comparisonBorderPercent": "邊框 {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "顯示標籤",
+  "comparisonHideLabels": "不顯示標籤",
+  "comparisonPilgrimName": "巡禮者 {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "外觀",
+  "comparisonFieldBorderWidth": "邊框寬度",
+  "comparisonBorderWidthNone": "無",
+  "comparisonFieldBorderColor": "邊框顏色",
+  "comparisonFieldOutputWidth": "輸出寬度",
+  "comparisonLabelShowLabel": "顯示標籤",
+  "comparisonSectionMetadata": "元資料",
+  "comparisonFieldPilgrimName": "巡禮者名字",
+  "comparisonShowPilgrimRight": "在右側顯示巡禮者",
+  "comparisonShowGradingBottom": "底部顯示調色參數",
+  "comparisonLabelReference": "參考",
+  "comparisonLabelCaptured": "巡禮",
+  "comparisonLabelPilgrim": "巡禮者",
+  "comparisonExportTitle": "導出對比圖",
+  "tooltipClose": "關閉",
+  "comparisonExporting": "導出中...",
+  "comparisonExport": "導出",
+  "comparisonWidthAuto": "自動",
+  "comparisonMetaCapturedAt": "拍攝時間",
+  "comparisonMetaWork": "作品",
+  "comparisonMetaPoint": "地點",
+  "comparisonMetaCoordinates": "坐標",
+  "comparisonMetaEpisode": "場景",
+  "comparisonErrRefUnavailable": "參考圖不可用，無法導出對比圖片。",
+  "comparisonErrCapturedUnavailable": "巡禮圖不可用，無法導出對比圖片。",
+  "comparisonErrRenderFailed": "導出失敗，請稍後重試。",
+  "cameraFallbackRatioTitle": "無參考圖時比例",
+  "btnEdit": "編輯",
+  "cameraRefModeOverlay": "疊影",
+  "cameraRefModeSplit": "上下",
+  "cameraRefModePinned": "小窗",
+  "cameraWebPreviewWarning": "Web 預覽不啟動即時相機。",
+  "workManagerEmptyHelp": "當前計劃還沒有作品。",
+  "dialogDeleteWorkTitle": "刪除作品",
+  "dialogDeleteWorkConfirmSingle": "確定刪除「{name}」嗎？",
+  "dialogDeleteWorkConfirmMultiple": "確定刪除「{name}」嗎？這會同時移除 {count} 個相關點位和對應記錄。",
+  "msgDeleteWorkFailed": "作品刪除失敗",
+  "tooltipDeleteWork": "刪除作品",
+  "labelWorkTitleText": "作品名稱",
+  "labelWorkInfoText": "作品信息",
+  "btnManualAdd": "手動添加",
+  "subjectTypeBook": "書籍",
+  "subjectTypeAnime": "動畫",
+  "subjectTypeMusic": "音樂",
+  "subjectTypeGame": "遊戲",
+  "subjectTypeReal": "三次元",
+  "labelPoints": "點位",
+  "btnBangumiSearch": "Bangumi",
+  "labelBangumiSource": "Bangumi #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportTitle": "從作品地圖導入",
+  "mapImportRefreshingCache": "正在清除緩存並重新載入 Anitabi 點位…",
+  "mapImportManualWorkNoBangumiId": "手動添加的作品沒有 Bangumi ID，無法從 Anitabi 地圖導入點位。",
+  "mapImportPointAddedMsg": "已加入計劃，可繼續選擇點位。",
+  "mapImportPointAddFailedMsg": "點位導入失敗，請稍後重試。",
+  "mapImportAllAddedMsg": "已添加所有未加入的點位。",
+  "mapImportBatchFailedMsg": "批次導入失敗，請稍後重試。",
+  "mapImportBoxSelectionEmptyMsg": "框選範圍內沒有可添加點位",
+  "mapImportBoxAddedMsg": "已添加框選點位。",
+  "mapImportBoxFailedMsg": "框選點位導入失敗，請稍後重試。",
+  "mapImportImportingMsg": "正在導入 {count} 個點位…",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "正在緩存縮圖 {processed}/{total}，成功 {succeeded}",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "已導入 {count} 個點位，縮圖緩存 {cached}/{total}，其餘稍後會自動補齊。",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "添加所有點位",
+  "mapImportAddAllDialogMsg": "將把當前作品中 {count} 個還不在計劃裡的點位加入計劃，並暫時放在未分組。",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "添加全部",
+  "mapImportAddBoxDialogTitle": "添加框選點位",
+  "mapImportAddBoxDialogMsg": "將把框選範圍內 {count} 個還不在計劃裡的點位加入計劃，並暫時放在未分組。",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "添加框選",
+  "mapImportAddBoxBtnWithCount": "添加 {count} 個",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "整理剛導入的點位",
+  "mapImportOrganizeDialogMsg": "已導入 {count} 個點位，並暫時放在未分組。可以先創建片區和關鍵點，再按最近關鍵點快速分配。",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "最近分配",
+  "mapImportOrganizeGroupManager": "片區管理",
+  "mapImportOrganizeLater": "稍後",
+  "mapImportRefreshTooltip": "清除緩存並重新載入 Anitabi 點位",
+  "mapImportMarkerTooltip": "Anitabi 點位",
+  "mapImportErrDataUnavailable": "Anitabi 地圖資料無法載入",
+  "mapImportErrPartialData": "Anitabi 點位只載入到一部分",
+  "mapImportErrNotFound": "這個 Bangumi 條目暫無 Anitabi 地圖資料",
+  "mapImportErrLoadFailed": "Anitabi 點位載入失敗",
+  "mapImportErrDataUnavailableDetailWeb": "可能是 Anitabi 地圖資料緩存版本不一致，或當前預覽服務網絡請求被攔截。請清除緩存並重新載入 Anitabi 點位。",
+  "mapImportErrDataUnavailableDetail": "無法讀取 Anitabi 地圖索引。請檢查網絡連接，或清除緩存並重新載入 Anitabi 點位。",
+  "mapImportErrPartialDataDetail": "當前只取得 {loaded} / 共 {expected} 個點位。請重新載入，或檢查網絡是否能訪問 Anitabi 地圖資料。",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "可以嘗試在作品管理中添加同名的原作、遊戲或其他關聯條目。",
+  "mapImportErrLoadFailedDetail": "請檢查網絡後重試，或稍後再重新載入。",
+  "mapImportProgressImporting": "正在導入 {total} 個點位…",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "正在緩存縮圖 {processed}/{total}，成功 {succeeded}",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "已導入點位",
+  "mapImportMarkerAvailableTooltip": "可導入點位",
+  "mapImportSummaryLoading": "正在載入 Anitabi 點位",
+  "mapImportSummaryStats": "已導入 {imported} / 當前顯示 {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": " / 共 {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "添加所有點位",
+  "mapImportSummaryTooltipBoxExit": "退出框選",
+  "mapImportSummaryTooltipBoxStart": "框選點位",
+  "mapImportPointNameLabel": "點位名稱",
+  "mapImportPointInfoLabel": "點位資訊",
+  "mapImportPointOriginLabel": "來源",
+  "mapImportPointDetailBtn": "詳情",
+  "mapImportPointJoinedBtn": "已加入",
+  "mapImportPointJoinBtn": "加入計劃",
+  "mapImportDetailSceneLabel": "場景",
+  "mapImportDetailNoteLabel": "備註",
+  "mapImportDetailCoordLabel": "座標",
+  "mapImportDetailJoinedBtn": "已加入計劃",
+  "mapImportNoPointSelectedHint": "點擊地圖上的點位查看縮圖和詳情。",
+  "mapImportNoImportablePoints": "當前作品沒有可導入的 Anitabi 點位。",
+  "mapImportNoImagePoints": "當前作品共有 {count} 個點位，但沒有可導入的帶圖參考點位。",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "當前計劃還沒有 Bangumi 作品。請先到作品管理添加 Bangumi 作品。",
+  "mapImportManualWorkState": "手動添加的作品沒有 Bangumi ID，無法從 Anitabi 地圖導入點位。\n\n請通過 Bangumi/Anitabi 搜尋添加作品，或使用手動添加點位。",
+  "mapImportLoadingWorksAndPoints": "正在載入 Anitabi 作品和點位"
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:file_selector/file_selector.dart' as file_selector;
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
 import '../platform/platform_flags_stub.dart'
     if (dart.library.io) '../platform/platform_flags_io.dart';
@@ -68,11 +69,11 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: AppLocalizations.of(context)!.tooltipBack,
             onPressed: _handleBack,
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('导入导出'),
+          title: Text(AppLocalizations.of(context)!.planImportExport),
         ),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -81,10 +82,10 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
             const SizedBox(height: 16),
             _SectionTitle(
               icon: Icons.import_export_outlined,
-              title: '导入',
+              title: AppLocalizations.of(context)!.importExportImportSection,
               subtitle: _usesExternalIosImport
-                  ? '从文件、聊天、浏览器或网盘等位置用 MiriaGo 打开 .sjhplan。'
-                  : '选择 .sjhplan 文件，先预览内容再导入。',
+                  ? AppLocalizations.of(context)!.importExportImportDescMobile
+                  : AppLocalizations.of(context)!.importExportImportDescWeb,
             ),
             const SizedBox(height: 10),
             _ActionTile(
@@ -94,13 +95,13 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
                   ? Icons.open_in_new_outlined
                   : Icons.import_export_outlined,
               title: _importing
-                  ? '读取中...'
+                  ? AppLocalizations.of(context)!.importExportStatusReading
                   : _usesExternalIosImport
-                  ? '从其他 App 打开 .sjhplan'
-                  : '导入 MiriaGo 文件',
+                  ? AppLocalizations.of(context)!.importExportOpenFromApp
+                  : AppLocalizations.of(context)!.importExportImportFileTitle,
               subtitle: _usesExternalIosImport
-                  ? '在文件、聊天、浏览器下载页或网盘中选择 .sjhplan，然后分享或用 MiriaGo 打开。'
-                  : '支持 v2 数据包和旧版 v1 JSON 计划包。',
+                  ? AppLocalizations.of(context)!.importExportOpenFromAppDesc
+                  : AppLocalizations.of(context)!.importExportImportFileDesc,
               enabled: !_exporting && !_importing,
               onTap: _usesExternalIosImport
                   ? _showExternalIosImportHelp
@@ -109,8 +110,8 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
             const SizedBox(height: 20),
             _SectionTitle(
               icon: Icons.inventory_2_outlined,
-              title: 'MiriaGo 数据包',
-              subtitle: '新版 .sjhplan，内部为 zip，包含 manifest.json。',
+              title: AppLocalizations.of(context)!.importExportDataPackageHeader,
+              subtitle: AppLocalizations.of(context)!.importExportZipDesc,
             ),
             const SizedBox(height: 10),
             _BackupOptions(
@@ -133,15 +134,15 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
             _SectionTitle(
               icon: Icons.map_outlined,
               title: 'Google My Maps',
-              subtitle: '导出点位 CSV。图片写成链接，可按 Type 列设置样式。',
+              subtitle: AppLocalizations.of(context)!.importExportMyMapsDesc,
             ),
             const SizedBox(height: 10),
             _ActionTile(
               icon: _exporting
                   ? Icons.hourglass_empty_outlined
                   : Icons.table_chart_outlined,
-              title: '导出 My Maps CSV',
-              subtitle: '前 6 列贴近示例格式，作品、集数、来源等拆成独立列。',
+              title: AppLocalizations.of(context)!.importExportMyMapsTitle,
+              subtitle: AppLocalizations.of(context)!.importExportMyMapsDetails,
               enabled: !_exporting && !_importing,
               onTap: _exportMyMapsCsv,
             ),
@@ -156,7 +157,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
     if (_exporting) {
       _exportGeneration++;
       setState(() => _exporting = false);
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('已取消导出')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgExportCancelled)));
     }
     Navigator.of(context).pop();
   }
@@ -214,7 +215,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         return;
       }
       messenger.showReplacingSnackBar(
-        const SnackBar(content: Text('导入文件读取失败')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.msgImportReadFailed)),
       );
     } finally {
       if (mounted) {
@@ -227,15 +228,14 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
     await showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('从其他 App 打开 .sjhplan'),
-        content: const Text(
-          '请在文件、聊天、浏览器下载页、网盘或其他保存位置找到 .sjhplan 文件，然后点开文件，或使用分享/更多菜单选择 MiriaGo。\n\n'
-          'MiriaGo 收到文件后会自动进入导入预览页面。若列表里没有 MiriaGo，可以先把文件保存到“文件”App，再长按文件选择分享或打开方式。',
+        title: Text(AppLocalizations.of(context)!.dialogOpenFromAppTitle),
+        content: Text(
+          AppLocalizations.of(context)!.dialogOpenFromAppMessage,
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('知道了'),
+            child: Text(AppLocalizations.of(context)!.btnGotIt),
           ),
         ],
       ),
@@ -289,7 +289,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         fileName: package.fileName,
         mimeType: miriagoExportPackageMimeType,
         shareSubject: widget.plan.name,
-        shareText: 'MiriaGo数据包：${widget.plan.name}',
+        shareText: AppLocalizations.of(context)!.exportShareLabel(widget.plan.name),
         extension: seichiPlanFileExtension,
         destination: destination,
       );
@@ -298,7 +298,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         package.warnings,
         package.warningCounts,
       );
-    }, successMessage: '数据包已导出');
+    }, successMessage: AppLocalizations.of(context)!.msgExportSuccess);
   }
 
   Future<bool> _confirmExportResourceRisks({
@@ -317,27 +317,29 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       return true;
     }
 
-    final messages = estimate.detailMessages
-        .where(
-          (message) =>
-              message.contains('本地上传参考图') ||
-              message.contains('巡礼照片') ||
-              message.contains('调色照片'),
-        )
-        .toList(growable: false);
+    final messages = <String>[];
+    if (estimate.missingUserReferenceCount > 0) {
+      messages.add(AppLocalizations.of(context)!.estimateUserReferenceMissing(estimate.missingUserReferenceCount));
+    }
+    if (estimate.missingVisitPhotoCount > 0) {
+      messages.add(AppLocalizations.of(context)!.estimateVisitPhotoMissing(estimate.missingVisitPhotoCount));
+    }
+    if (estimate.missingGradedPhotoCount > 0) {
+      messages.add(AppLocalizations.of(context)!.estimateGradedPhotoMissing(estimate.missingGradedPhotoCount));
+    }
     final shouldExport = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('部分本地资源缺失'),
-        content: Text([...messages, '这些资源不会进入数据包，导入后对应图片可能无法显示。'].join('\n')),
+        title: Text(AppLocalizations.of(context)!.dialogMissingResourcesTitle),
+        content: Text([...messages, AppLocalizations.of(context)!.dialogMissingResourcesMessage].join('\n')),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.btnCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('继续导出'),
+            child: Text(AppLocalizations.of(context)!.btnContinueExport),
           ),
         ],
       ),
@@ -404,7 +406,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         destination: destination,
       );
       return _PlanExportRunResult(result);
-    }, successMessage: 'My Maps CSV 已导出');
+    }, successMessage: AppLocalizations.of(context)!.msgExportMyMapsSuccess);
   }
 
   Future<void> _runExport(
@@ -414,24 +416,24 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
     final messenger = ScaffoldMessenger.of(context);
     final generation = ++_exportGeneration;
     setState(() => _exporting = true);
-    messenger.showReplacingSnackBar(const SnackBar(content: Text('正在导出...')));
+    messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgExporting)));
     try {
       final result = await action(generation);
       if (!_isCurrentExport(generation)) {
         return;
       }
       if (result.delivery.action == PlanExportDeliveryAction.canceled) {
-        messenger.showReplacingSnackBar(const SnackBar(content: Text('已取消导出')));
+        messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgExportCancelled)));
         return;
       }
       messenger.showReplacingSnackBar(
-        SnackBar(content: Text(result.successMessage(successMessage))),
+        SnackBar(content: Text(result.successMessage(context, successMessage))),
       );
     } on PlanExportCanceledException {
       if (!_isCurrentExport(generation)) {
         return;
       }
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('已取消导出')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgExportCancelled)));
     } on _ExportAbortedException {
       return;
     } catch (error, stackTrace) {
@@ -440,7 +442,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       if (!_isCurrentExport(generation)) {
         return;
       }
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('导出失败')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgExportFailed)));
     } finally {
       if (_isCurrentExport(generation)) {
         setState(() => _exporting = false);
@@ -468,34 +470,34 @@ class _PlanExportRunResult {
   final List<String> warnings;
   final Map<String, int> warningCounts;
 
-  String successMessage(String fallback) {
+  String successMessage(BuildContext context, String fallback) {
     if (warnings.isEmpty) {
       return fallback;
     }
-    final summary = _warningSummary(warningCounts);
+    final summary = _warningSummary(context, warningCounts);
     if (summary.isEmpty) {
-      return '$fallback，部分资源未能加入';
+      return AppLocalizations.of(context)!.warningMissingPart(fallback);
     }
     return '$fallback，$summary';
   }
 }
 
-String _warningSummary(Map<String, int> counts) {
+String _warningSummary(BuildContext context, Map<String, int> counts) {
   final parts = <String>[];
 
   void add(PlanExportWarningType type, String label) {
     final count = counts[type.key] ?? 0;
     if (count > 0) {
-      parts.add('$count $label');
+      parts.add(label);
     }
   }
 
-  add(PlanExportWarningType.userReferenceMissing, '张本地上传参考图缺失');
-  add(PlanExportWarningType.thumbnailMissing, '张缩略图未加入');
-  add(PlanExportWarningType.fullReferenceDownloadFailed, '张完整参考图下载失败');
-  add(PlanExportWarningType.fullReferenceMissing, '张完整参考图缺失');
-  add(PlanExportWarningType.visitPhotoMissing, '张巡礼照片缺失');
-  add(PlanExportWarningType.gradedPhotoMissing, '张调色照片缺失');
+  add(PlanExportWarningType.userReferenceMissing, AppLocalizations.of(context)!.warningUserReferenceMissing(counts[PlanExportWarningType.userReferenceMissing.key] ?? 0));
+  add(PlanExportWarningType.thumbnailMissing, AppLocalizations.of(context)!.warningThumbnailMissing(counts[PlanExportWarningType.thumbnailMissing.key] ?? 0));
+  add(PlanExportWarningType.fullReferenceDownloadFailed, AppLocalizations.of(context)!.warningFullReferenceDownloadFailed(counts[PlanExportWarningType.fullReferenceDownloadFailed.key] ?? 0));
+  add(PlanExportWarningType.fullReferenceMissing, AppLocalizations.of(context)!.warningFullReferenceMissing(counts[PlanExportWarningType.fullReferenceMissing.key] ?? 0));
+  add(PlanExportWarningType.visitPhotoMissing, AppLocalizations.of(context)!.warningVisitPhotoMissing(counts[PlanExportWarningType.visitPhotoMissing.key] ?? 0));
+  add(PlanExportWarningType.gradedPhotoMissing, AppLocalizations.of(context)!.warningGradedPhotoMissing(counts[PlanExportWarningType.gradedPhotoMissing.key] ?? 0));
 
   return parts.isEmpty ? '' : parts.join('，');
 }
@@ -542,7 +544,7 @@ class _PlanExportSummary extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '${plan.groups.length} 个片区 / ${plan.points.length} 个点位',
+                  AppLocalizations.of(context)!.importExportStats(plan.groups.length, plan.points.length),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 13,
@@ -639,16 +641,16 @@ class _BackupOptions extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           SegmentedButton<PlanExportV2Mode>(
-            segments: const [
+            segments: [
               ButtonSegment(
                 value: PlanExportV2Mode.planOnly,
-                icon: Icon(Icons.route_outlined),
-                label: Text('纯计划'),
+                icon: const Icon(Icons.route_outlined),
+                label: Text(AppLocalizations.of(context)!.btnPlanOnly),
               ),
               ButtonSegment(
                 value: PlanExportV2Mode.planWithRecords,
-                icon: Icon(Icons.collections_bookmark_outlined),
-                label: Text('计划+记录'),
+                icon: const Icon(Icons.collections_bookmark_outlined),
+                label: Text(AppLocalizations.of(context)!.btnPlanAndRecords),
               ),
             ],
             selected: {mode},
@@ -659,11 +661,11 @@ class _BackupOptions extends StatelessWidget {
           const SizedBox(height: 10),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text(
-              '包含完整参考图缓存',
+            title: Text(
+              AppLocalizations.of(context)!.importExportIncludeCache,
               style: TextStyle(fontWeight: FontWeight.w800, letterSpacing: 0),
             ),
-            subtitle: const Text('默认仍会包含缩略图和用户自己添加的参考图。'),
+            subtitle: Text(AppLocalizations.of(context)!.importExportIncludeCacheDesc),
             value: includeFullReferenceCache,
             onChanged: exporting ? null : onFullReferenceChanged,
           ),
@@ -682,7 +684,7 @@ class _BackupOptions extends StatelessWidget {
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
                 : const Icon(Icons.ios_share_outlined, size: 18),
-            label: Text(exporting ? '导出中...' : '导出 MiriaGo 数据包'),
+            label: Text(exporting ? AppLocalizations.of(context)!.btnExportingDataPackage : AppLocalizations.of(context)!.btnExportDataPackage),
           ),
         ],
       ),
@@ -718,7 +720,7 @@ class _ExportSizeEstimateRow extends StatelessWidget {
         const SizedBox(width: 8),
         Expanded(
           child: Text(
-            estimating ? '正在估算数据包大小...' : estimate?.label ?? '预计数据包大小：暂时无法估算',
+            estimating ? AppLocalizations.of(context)!.importExportEstimateEstimating : (estimate != null ? estimate!.label(context) : AppLocalizations.of(context)!.importExportEstimateFailed),
             style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 12,

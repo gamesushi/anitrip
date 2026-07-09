@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:miriago/l10n/app_localizations.dart';
 import 'package:miriago/plan/pilgrimage_models.dart';
 import 'package:miriago/records/comparison_export_config.dart';
 import 'package:miriago/records/comparison_export_config_editor.dart';
@@ -50,13 +51,30 @@ void main() {
     expect(restored.pilgrimName, '巡礼者');
   });
 
-  test('summarizes default comparison export config', () {
+  testWidgets('summarizes default comparison export config', (WidgetTester tester) async {
     const config = ComparisonExportConfig(
       outputWidth: ComparisonOutputWidth.w1920,
       borderWidthPercent: 1,
       showLabels: true,
     );
 
-    expect(comparisonExportConfigSummary(config), '宽度 1920px / 边框 1.0% / 显示标签');
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Builder(
+          builder: (BuildContext context) {
+            final localizations = AppLocalizations.of(context)!;
+            final expected = [
+              localizations.comparisonWidthLabel('1920px'),
+              localizations.comparisonBorderPercent('1.0'),
+              localizations.comparisonShowLabels,
+            ].join(' / ');
+            expect(comparisonExportConfigSummary(context, config), expected);
+            return const Placeholder();
+          },
+        ),
+      ),
+    );
   });
 }

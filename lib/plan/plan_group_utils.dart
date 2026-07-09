@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import 'pilgrimage_models.dart';
+import '../l10n/app_localizations.dart';
 
 enum PointSortMode { plan, distance }
 
@@ -62,22 +63,31 @@ class PlanGroupBucket {
 
   bool get isManualOrder => group?.orderMode == PlanGroupOrderMode.manual;
 
-  String get orderModeLabel {
+  String orderModeLabel(BuildContext context) {
     if (isUngrouped) {
-      return '待整理';
+      return AppLocalizations.of(context)!.groupOrderModePending;
     }
-    return isManualOrder ? '手动' : '无序';
+    return isManualOrder
+        ? AppLocalizations.of(context)!.groupOrderModeManual
+        : AppLocalizations.of(context)!.groupOrderModeNone;
   }
 
-  String get anchorLabel {
+  String anchorLabel(BuildContext context) {
     if (isUngrouped) {
-      return '等待分入片区';
+      return AppLocalizations.of(context)!.groupAnchorPending;
     }
     final anchorName = group?.anchorName;
     if (anchorName == null || anchorName.trim().isEmpty) {
-      return '未设置关键点';
+      return AppLocalizations.of(context)!.labelNoAnchor;
     }
-    return '关键点：$anchorName';
+    return AppLocalizations.of(context)!.groupAnchorNameLabel(anchorName);
+  }
+
+  String getName(BuildContext context) {
+    if (isUngrouped) {
+      return AppLocalizations.of(context)!.labelUnassignedGroup;
+    }
+    return name;
   }
 }
 

@@ -4290,6 +4290,18 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         requiredDuringInsert: false,
         defaultValue: const Constant(10),
       );
+  static const VerificationMeta _languageMeta = const VerificationMeta(
+    'language',
+  );
+  @override
+  late final GeneratedColumn<String> language = GeneratedColumn<String>(
+    'language',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('system'),
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -4320,6 +4332,7 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
     customCameraAspectRatioHeight,
     mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads,
+    language,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -4572,6 +4585,12 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         ),
       );
     }
+    if (data.containsKey('language')) {
+      context.handle(
+        _languageMeta,
+        language.isAcceptableOrUnknown(data['language']!, _languageMeta),
+      );
+    }
     return context;
   }
 
@@ -4693,6 +4712,10 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         DriftSqlType.int,
         data['${effectivePrefix}map_thumbnail_concurrent_loads'],
       )!,
+      language: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}language'],
+      )!,
     );
   }
 
@@ -4732,6 +4755,7 @@ class AppSettingsEntry extends DataClass
   final double customCameraAspectRatioHeight;
   final int mapThumbnailVisibleThreshold;
   final int mapThumbnailConcurrentLoads;
+  final String language;
   const AppSettingsEntry({
     required this.id,
     required this.uiScale,
@@ -4761,6 +4785,7 @@ class AppSettingsEntry extends DataClass
     required this.customCameraAspectRatioHeight,
     required this.mapThumbnailVisibleThreshold,
     required this.mapThumbnailConcurrentLoads,
+    required this.language,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -4813,6 +4838,7 @@ class AppSettingsEntry extends DataClass
     map['map_thumbnail_concurrent_loads'] = Variable<int>(
       mapThumbnailConcurrentLoads,
     );
+    map['language'] = Variable<String>(language);
     return map;
   }
 
@@ -4846,6 +4872,7 @@ class AppSettingsEntry extends DataClass
       customCameraAspectRatioHeight: Value(customCameraAspectRatioHeight),
       mapThumbnailVisibleThreshold: Value(mapThumbnailVisibleThreshold),
       mapThumbnailConcurrentLoads: Value(mapThumbnailConcurrentLoads),
+      language: Value(language),
     );
   }
 
@@ -4915,6 +4942,7 @@ class AppSettingsEntry extends DataClass
       mapThumbnailConcurrentLoads: serializer.fromJson<int>(
         json['mapThumbnailConcurrentLoads'],
       ),
+      language: serializer.fromJson<String>(json['language']),
     );
   }
   @override
@@ -4969,6 +4997,7 @@ class AppSettingsEntry extends DataClass
       'mapThumbnailConcurrentLoads': serializer.toJson<int>(
         mapThumbnailConcurrentLoads,
       ),
+      'language': serializer.toJson<String>(language),
     };
   }
 
@@ -5001,6 +5030,7 @@ class AppSettingsEntry extends DataClass
     double? customCameraAspectRatioHeight,
     int? mapThumbnailVisibleThreshold,
     int? mapThumbnailConcurrentLoads,
+    String? language,
   }) => AppSettingsEntry(
     id: id ?? this.id,
     uiScale: uiScale ?? this.uiScale,
@@ -5040,6 +5070,7 @@ class AppSettingsEntry extends DataClass
         mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads:
         mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+    language: language ?? this.language,
   );
   AppSettingsEntry copyWithCompanion(AppSettingsEntriesCompanion data) {
     return AppSettingsEntry(
@@ -5119,6 +5150,7 @@ class AppSettingsEntry extends DataClass
       mapThumbnailConcurrentLoads: data.mapThumbnailConcurrentLoads.present
           ? data.mapThumbnailConcurrentLoads.value
           : this.mapThumbnailConcurrentLoads,
+      language: data.language.present ? data.language.value : this.language,
     );
   }
 
@@ -5158,7 +5190,8 @@ class AppSettingsEntry extends DataClass
           ..write(
             'mapThumbnailVisibleThreshold: $mapThumbnailVisibleThreshold, ',
           )
-          ..write('mapThumbnailConcurrentLoads: $mapThumbnailConcurrentLoads')
+          ..write('mapThumbnailConcurrentLoads: $mapThumbnailConcurrentLoads, ')
+          ..write('language: $language')
           ..write(')'))
         .toString();
   }
@@ -5193,6 +5226,7 @@ class AppSettingsEntry extends DataClass
     customCameraAspectRatioHeight,
     mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads,
+    language,
   ]);
   @override
   bool operator ==(Object other) =>
@@ -5231,7 +5265,8 @@ class AppSettingsEntry extends DataClass
           other.mapThumbnailVisibleThreshold ==
               this.mapThumbnailVisibleThreshold &&
           other.mapThumbnailConcurrentLoads ==
-              this.mapThumbnailConcurrentLoads);
+              this.mapThumbnailConcurrentLoads &&
+          other.language == this.language);
 }
 
 class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
@@ -5263,6 +5298,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
   final Value<double> customCameraAspectRatioHeight;
   final Value<int> mapThumbnailVisibleThreshold;
   final Value<int> mapThumbnailConcurrentLoads;
+  final Value<String> language;
   final Value<int> rowid;
   const AppSettingsEntriesCompanion({
     this.id = const Value.absent(),
@@ -5293,6 +5329,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     this.customCameraAspectRatioHeight = const Value.absent(),
     this.mapThumbnailVisibleThreshold = const Value.absent(),
     this.mapThumbnailConcurrentLoads = const Value.absent(),
+    this.language = const Value.absent(),
     this.rowid = const Value.absent(),
   });
   AppSettingsEntriesCompanion.insert({
@@ -5324,6 +5361,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     this.customCameraAspectRatioHeight = const Value.absent(),
     this.mapThumbnailVisibleThreshold = const Value.absent(),
     this.mapThumbnailConcurrentLoads = const Value.absent(),
+    this.language = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id);
   static Insertable<AppSettingsEntry> custom({
@@ -5355,6 +5393,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     Expression<double>? customCameraAspectRatioHeight,
     Expression<int>? mapThumbnailVisibleThreshold,
     Expression<int>? mapThumbnailConcurrentLoads,
+    Expression<String>? language,
     Expression<int>? rowid,
   }) {
     return RawValuesInsertable({
@@ -5402,6 +5441,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
         'map_thumbnail_visible_threshold': mapThumbnailVisibleThreshold,
       if (mapThumbnailConcurrentLoads != null)
         'map_thumbnail_concurrent_loads': mapThumbnailConcurrentLoads,
+      if (language != null) 'language': language,
       if (rowid != null) 'rowid': rowid,
     });
   }
@@ -5435,6 +5475,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     Value<double>? customCameraAspectRatioHeight,
     Value<int>? mapThumbnailVisibleThreshold,
     Value<int>? mapThumbnailConcurrentLoads,
+    Value<String>? language,
     Value<int>? rowid,
   }) {
     return AppSettingsEntriesCompanion(
@@ -5479,6 +5520,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
           mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
       mapThumbnailConcurrentLoads:
           mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+      language: language ?? this.language,
       rowid: rowid ?? this.rowid,
     );
   }
@@ -5600,6 +5642,9 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
         mapThumbnailConcurrentLoads.value,
       );
     }
+    if (language.present) {
+      map['language'] = Variable<String>(language.value);
+    }
     if (rowid.present) {
       map['rowid'] = Variable<int>(rowid.value);
     }
@@ -5643,6 +5688,7 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
             'mapThumbnailVisibleThreshold: $mapThumbnailVisibleThreshold, ',
           )
           ..write('mapThumbnailConcurrentLoads: $mapThumbnailConcurrentLoads, ')
+          ..write('language: $language, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -8475,6 +8521,7 @@ typedef $$AppSettingsEntriesTableCreateCompanionBuilder =
       Value<double> customCameraAspectRatioHeight,
       Value<int> mapThumbnailVisibleThreshold,
       Value<int> mapThumbnailConcurrentLoads,
+      Value<String> language,
       Value<int> rowid,
     });
 typedef $$AppSettingsEntriesTableUpdateCompanionBuilder =
@@ -8507,6 +8554,7 @@ typedef $$AppSettingsEntriesTableUpdateCompanionBuilder =
       Value<double> customCameraAspectRatioHeight,
       Value<int> mapThumbnailVisibleThreshold,
       Value<int> mapThumbnailConcurrentLoads,
+      Value<String> language,
       Value<int> rowid,
     });
 
@@ -8656,6 +8704,11 @@ class $$AppSettingsEntriesTableFilterComposer
 
   ColumnFilters<int> get mapThumbnailConcurrentLoads => $composableBuilder(
     column: $table.mapThumbnailConcurrentLoads,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get language => $composableBuilder(
+    column: $table.language,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -8810,6 +8863,11 @@ class $$AppSettingsEntriesTableOrderingComposer
     column: $table.mapThumbnailConcurrentLoads,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<String> get language => $composableBuilder(
+    column: $table.language,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$AppSettingsEntriesTableAnnotationComposer
@@ -8954,6 +9012,9 @@ class $$AppSettingsEntriesTableAnnotationComposer
     column: $table.mapThumbnailConcurrentLoads,
     builder: (column) => column,
   );
+
+  GeneratedColumn<String> get language =>
+      $composableBuilder(column: $table.language, builder: (column) => column);
 }
 
 class $$AppSettingsEntriesTableTableManager
@@ -9027,6 +9088,7 @@ class $$AppSettingsEntriesTableTableManager
                     const Value.absent(),
                 Value<int> mapThumbnailVisibleThreshold = const Value.absent(),
                 Value<int> mapThumbnailConcurrentLoads = const Value.absent(),
+                Value<String> language = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => AppSettingsEntriesCompanion(
                 id: id,
@@ -9057,6 +9119,7 @@ class $$AppSettingsEntriesTableTableManager
                 customCameraAspectRatioHeight: customCameraAspectRatioHeight,
                 mapThumbnailVisibleThreshold: mapThumbnailVisibleThreshold,
                 mapThumbnailConcurrentLoads: mapThumbnailConcurrentLoads,
+                language: language,
                 rowid: rowid,
               ),
           createCompanionCallback:
@@ -9092,6 +9155,7 @@ class $$AppSettingsEntriesTableTableManager
                     const Value.absent(),
                 Value<int> mapThumbnailVisibleThreshold = const Value.absent(),
                 Value<int> mapThumbnailConcurrentLoads = const Value.absent(),
+                Value<String> language = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => AppSettingsEntriesCompanion.insert(
                 id: id,
@@ -9122,6 +9186,7 @@ class $$AppSettingsEntriesTableTableManager
                 customCameraAspectRatioHeight: customCameraAspectRatioHeight,
                 mapThumbnailVisibleThreshold: mapThumbnailVisibleThreshold,
                 mapThumbnailConcurrentLoads: mapThumbnailConcurrentLoads,
+                language: language,
                 rowid: rowid,
               ),
           withReferenceMapper: (p0) => p0

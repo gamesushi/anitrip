@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/anitabi_image_source_scope.dart';
 import '../widgets/snackbar_helper.dart';
 import '../records/gallery_saver_stub.dart'
@@ -118,6 +119,9 @@ class _VisitRecordConfirmationScreenState
         settings: widget.settings,
         pointReferenceFullImagePath: widget.referenceImagePath,
         pointReferenceImageUrl: widget.referenceImageUrl,
+        labelReference: AppLocalizations.of(context)!.comparisonLabelReference,
+        labelCaptured: AppLocalizations.of(context)!.comparisonLabelCaptured,
+        labelPilgrim: AppLocalizations.of(context)!.comparisonLabelPilgrim,
       );
     }
 

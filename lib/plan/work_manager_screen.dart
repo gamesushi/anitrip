@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/bangumi_api_client.dart';
 import '../data/pilgrimage_repository.dart';
 import '../widgets/copyable_text.dart';
@@ -45,11 +46,11 @@ class _WorkManagerScreenState extends State<WorkManagerScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: AppLocalizations.of(context)!.tooltipBack,
             onPressed: () => Navigator.of(context).pop(_didUpdate),
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('作品管理'),
+          title: Text(AppLocalizations.of(context)!.addPointsWorkManagerTitle),
         ),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
@@ -113,21 +114,21 @@ class _WorkManagerScreenState extends State<WorkManagerScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除作品'),
+        title: Text(AppLocalizations.of(context)!.dialogDeleteWorkTitle),
         content: Text(
           pointCount == 0
-              ? '确定删除「${work.title}」吗？'
-              : '确定删除「${work.title}」吗？这会同时移除 $pointCount 个相关点位和对应记录。',
+              ? AppLocalizations.of(context)!.dialogDeleteWorkConfirmSingle(work.title)
+              : AppLocalizations.of(context)!.dialogDeleteWorkConfirmMultiple(work.title, pointCount),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.btnCancel),
           ),
           FilledButton.icon(
             onPressed: () => Navigator.of(context).pop(true),
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: const Text('删除'),
+            label: Text(AppLocalizations.of(context)!.btnDelete),
           ),
         ],
       ),
@@ -159,7 +160,7 @@ class _WorkManagerScreenState extends State<WorkManagerScreen> {
       setState(() => _isSaving = false);
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('作品删除失败')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgDeleteWorkFailed)));
     }
   }
 
@@ -210,7 +211,7 @@ class _AddWorkPanel extends StatelessWidget {
             child: FilledButton.icon(
               onPressed: onBangumi,
               icon: const Icon(Icons.search, size: 18),
-              label: const Text('Bangumi'),
+              label: Text(AppLocalizations.of(context)!.btnBangumiSearch),
             ),
           ),
           const SizedBox(width: 8),
@@ -218,7 +219,7 @@ class _AddWorkPanel extends StatelessWidget {
             child: OutlinedButton.icon(
               onPressed: onManual,
               icon: const Icon(Icons.edit_note, size: 18),
-              label: const Text('手动添加'),
+              label: Text(AppLocalizations.of(context)!.btnManualAdd),
             ),
           ),
         ],
@@ -243,15 +244,16 @@ class _WorkManageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sourceText = work.bangumiId == null
-        ? '手动添加'
-        : 'Bangumi #${work.bangumiId}';
-    final typeText = work.displayBangumiSubjectType?.label;
+        ? AppLocalizations.of(context)!.btnManualAdd
+        : AppLocalizations.of(context)!.labelBangumiSource(work.bangumiId!);
+    final typeText = work.displayBangumiSubjectType?.getName(context);
+    final pointsCountText = AppLocalizations.of(context)!.labelPointsCount(pointCount);
     final infoText = [
       work.subtitle,
-      ?typeText,
+      typeText,
       sourceText,
-      '$pointCount 个点位',
-    ].where((value) => value.trim().isNotEmpty).join(' / ');
+      pointsCountText,
+    ].whereType<String>().where((value) => value.trim().isNotEmpty).join(' / ');
 
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 12, 6, 12),
@@ -270,7 +272,7 @@ class _WorkManageCard extends StatelessWidget {
               children: [
                 CopyableText(
                   text: work.title,
-                  copyLabel: '作品名称',
+                  copyLabel: AppLocalizations.of(context)!.labelWorkTitleText,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -285,11 +287,11 @@ class _WorkManageCard extends StatelessWidget {
                   copyText: [
                     work.title,
                     work.subtitle,
-                    ?typeText,
+                    typeText,
                     sourceText,
-                    '$pointCount 个点位',
-                  ].where((value) => value.trim().isNotEmpty).join('\n'),
-                  copyLabel: '作品信息',
+                    pointsCountText,
+                  ].whereType<String>().where((value) => value.trim().isNotEmpty).join('\n'),
+                  copyLabel: AppLocalizations.of(context)!.labelWorkInfoText,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -302,7 +304,7 @@ class _WorkManageCard extends StatelessWidget {
             ),
           ),
           IconButton(
-            tooltip: '删除作品',
+            tooltip: AppLocalizations.of(context)!.tooltipDeleteWork,
             onPressed: disabled ? null : onDelete,
             icon: const Icon(Icons.delete_outline),
           ),
@@ -324,9 +326,9 @@ class _EmptyWorkPanel extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.border),
       ),
-      child: const Text(
-        '当前计划还没有作品。',
-        style: TextStyle(
+      child: Text(
+        AppLocalizations.of(context)!.workManagerEmptyHelp,
+        style: const TextStyle(
           color: AppColors.textSecondary,
           fontSize: 14,
           letterSpacing: 0,

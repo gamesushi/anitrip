@@ -1,0 +1,1185 @@
+{
+  "@@locale": "ko",
+  "tabPlan": "계획",
+  "tabMap": "지도",
+  "tabRecords": "기록",
+  "tabSettings": "설정",
+  "settingsTitle": "설정",
+  "languageSetting": "언어 설정",
+  "languageSystem": "시스템 언어",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "labelWork": "작품",
+  "labelScene": "장면",
+  "labelCoordinates": "좌표",
+  "labelArea": "구역",
+  "labelReference": "참고",
+  "labelSource": "출처",
+  "labelId": "ID",
+  "labelLink": "링크",
+  "btnChange": "변경",
+  "btnReplace": "교체",
+  "labelLocalRecords": "기록",
+  "labelAll": "전체",
+  "btnNavigate": "길찾기",
+  "btnOverlay": "촬영 참고",
+  "btnSetTarget": "현재 목표 설정",
+  "btnMarkDone": "완료 표시",
+  "btnEditPoint": "지점 편집",
+  "settingsAppearance": "화면 설정",
+  "settingsAppearanceSubtitle": "테마 색상, 확대/축소, 화면 구성 등",
+  "settingsCamera": "촬영 설정",
+  "settingsCameraSubtitle": "사진 비율, 참고 사진 비율, 백업 설정 등",
+  "settingsExport": "비교 사진 설정",
+  "settingsExportSubtitle": "내보내기 스타일, 앨범 자동 저장 등",
+  "settingsDataSource": "데이터 소스 설정",
+  "settingsDataSourceSubtitle": "지도 타일, 이미지 미러 설정 등",
+  "settingsClearCache": "캐시 지우기",
+  "settingsClearCacheSubtitle": "참고 사진 캐시 비우기",
+  "settingsAbout": "MiriaGo 정보",
+  "settingsAboutSubtitle": "버전 정보, 오픈소스 라이선스 등",
+  "btnCancel": "취소",
+  "btnConfirm": "확인",
+  "btnSave": "저장",
+  "labelManualEntry": "수동 입력",
+  "labelRevertCompleted": "체크인 취소",
+  "labelUnassignedGroup": "구역 미지정",
+  "labelUnknownGroup": "알 수 없는 구역",
+  "labelNoAnchor": "설정된 기준점 없음",
+  "labelStatusCurrent": "현재 목표",
+  "labelStatusCompleted": "완료됨",
+  "labelStatusPending": "대기 중",
+  "settingsReset": "초기화",
+  "settingsResetConfirmSubtitle": "모든 모양, 카메라 및 지도 설정이 기본값으로 복원됩니다.",
+  "settingsThemeColor": "테마 색상",
+  "settingsThemeColorSubtitle": "전체 색상 구성표에 영향",
+  "settingsThemeMode": "테마 모드",
+  "settingsThemeLight": "라이트 모드",
+  "settingsThemeDark": "다크 모드",
+  "settingsThemeSystem": "시스템",
+  "settingsUiScale": "UI 배율",
+  "settingsUiScaleSubtitle": "UI 크기 조정 (참고 이미지 영향 없음)",
+  "settingsCameraRatio": "카메라 비율",
+  "settingsCameraZoom": "카메라 확대",
+  "settingsPhotoBackup": "사진 백업",
+  "settingsPhotoBackupSubtitle": "성지순례 사진을 갤러리에 저장",
+  "settingsAutoSaveComparison": "비교 사진 자동 저장",
+  "settingsAutoSaveComparisonSubtitle": "기록할 때 갤러리에 저장",
+  "settingsDesktop": "데스크톱",
+  "settingsDesktopSubtitle": "런처, 데이터 디렉토리 등",
+  "desktopLauncherChecking": "런처 확인 중...",
+  "desktopLauncherUnavailable": "런처 사용 불가",
+  "desktopSystemDataDir": "시스템 데이터 폴더",
+  "desktopPortableDir": "포터블 폴더",
+  "desktopAppDataDir": "앱 데이터 폴더",
+  "desktopLauncherAvailable": "런처 사용 가능",
+  "settingsFontSmall": "작게",
+  "settingsFontStandard": "표준",
+  "settingsFontLarge": "크게",
+  "settingsFontHuge": "아주 크게",
+  "msgReplacingRef": "참고 이미지 교체 중...",
+  "msgReplaceRefFailed": "교체 실패. 나중에 다시 시도해주세요.",
+  "msgReplaceRefSuccess": "참고 이미지 교체 완료",
+  "msgCannotOpenMap": "Google 지도를 열 수 없습니다.",
+  "titleMoveToGroup": "그룹으로 이동",
+  "copyLabelPointName": "위치 이름",
+  "copyLabelGroupAnchor": "그룹 앵커",
+  "labelNote": "메모",
+  "themeClassicGreen": "클래식 그린",
+  "themeDeepBlue": "딥 블루",
+  "themeCherryPink": "체리 핑크",
+  "themeTwilightPurple": "트와일라잇 퍼플",
+  "themeMiriaYellow": "앰버 오렌지",
+  "themeGraphite": "그래파이트",
+  "themeAurora": "사용자 정의",
+  "aspectAuto": "자동",
+  "aspectNative": "원본 비율",
+  "aspectCustom": "사용자 정의",
+  "aspectAutoHint": "추천",
+  "aspectNativeHint": "원본",
+  "aspectLandscape16x9Hint": "와이드",
+  "aspectCinema21x9Hint": "시네마",
+  "aspectStandard4x3Hint": "클래식",
+  "aspectPhoto3x2Hint": "카메라",
+  "aspectPortrait9x16Hint": "세로",
+  "aspectPortrait9x21Hint": "전체 화면",
+  "aspectPortrait3x4Hint": "세로형",
+  "aspectPortrait2x3Hint": "세로형",
+  "aspectSquare1x1Hint": "정사각형",
+  "aspectCustomHint": "사용자 정의",
+  "mapProviderOpenFreeMap": "OpenFreeMap",
+  "mapProviderOpenFreeMapDesc": "기본 지도, MapLibre 스타일 사용.",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "표준 OpenStreetMap XYZ 타일 사용.",
+  "mapProviderCustomXyz": "사용자 정의 XYZ",
+  "mapProviderCustomXyzDesc": "{z}/{x}/{y}가 포함된 래스터 타일 URL 사용.",
+  "mapProviderCustomMapLibre": "사용자 정의 MapLibre",
+  "mapProviderCustomMapLibreDesc": "사용자 정의 MapLibre 스타일 URL 사용.",
+  "mapStyleLibertyDesc": "기본 스타일, 정보 밀도 높음.",
+  "mapStyleBrightDesc": "밝은 표준 스타일.",
+  "mapStylePositronDesc": "밝은 저대비 스타일.",
+  "mapStyleDarkDesc": "어두운 지도 스타일.",
+  "mapStyleFiordDesc": "부드러운 지형 스타일.",
+  "imageSourceAuto": "자동 선택",
+  "imageSourceOfficial": "공식 기본",
+  "imageSourceMirror": "대체 소스",
+  "imageSourceAutoDesc": "image.anitabi.cn을 우선 사용하며, 차단 시 img-tc.anitabi.cn으로 전환합니다.",
+  "imageSourceOfficialDesc": "항상 image.anitabi.cn을 사용하여 공식 기본 소스를 유지합니다.",
+  "imageSourceMirrorDesc": "항상 img-tc.anitabi.cn을 사용하여 공식 소스가 자주 차단되는 경우 유용합니다.",
+  "mapProviderRecommendedDefault": "추천 기본",
+  "mapProviderStandardTiles": "표준 타일",
+  "mapProviderTileTemplate": "타일 템플릿",
+  "mapProviderStyleUrl": "스타일 URL",
+  "cameraCaptureRatioSection": "촬영 사진 비율",
+  "cameraCaptureRatioDesc": "자동 선택 시 참고 이미지 비율이 우선 적용되며, 고정 비율 선택 시 해당 비율로 촬영합니다.",
+  "cameraFallbackRatioSection": "참고 이미지 없을 때 비율",
+  "cameraFallbackRatioDesc": "촬영 사진 비율이 자동이고 맞출 참고 이미지가 없을 때 사용됩니다.",
+  "cameraReferenceScaleSection": "참고 이미지 표시",
+  "cameraZoomSection": "카메라 확대",
+  "cameraBackupDetailDesc": "기록을 저장할 때 성지순례 사진을 갤러리에 함께 백업합니다.",
+  "mapSourceSection": "지도 소스",
+  "mapOpenFreeMapStyleSection": "OpenFreeMap 스타일",
+  "mapCustomXyzUrlNotSet": "사용자 정의 XYZ URL 설정되지 않음",
+  "mapCustomXyzUrlTitle": "사용자 정의 XYZ URL",
+  "mapCustomXyzUrlHelper": "URL에 {z}, {x}, {y}가 포함되어야 합니다.",
+  "mapCustomXyzUrlInvalid": "유효하지 않은 URL 형식",
+  "mapCustomMapLibreUrlNotSet": "MapLibre 스타일 URL 설정되지 않음",
+  "mapCustomMapLibreUrlTitle": "MapLibre 스타일 URL",
+  "mapCustomMapLibreUrlHelper": "URL은 공개적으로 읽을 수 있는 style JSON을 가리켜야 합니다.",
+  "mapAnitabiImageSourceSection": "Anitabi 이미지 소스",
+  "mapThumbnailSection": "지도 섬네일",
+  "mapThumbnailThresholdTitle": "섬네일 표시 임계값",
+  "mapThumbnailThresholdDesc": "뷰 내 포인트가 {threshold}개 이하일 때 섬네일을 표시하고, 초과 시 원형 점만 표시합니다.",
+  "mapConcurrentLoadsTitle": "동시 이미지 요청 수",
+  "mapConcurrentLoadsDesc": "지도 섬네일 표시, 가져올 때 섬네일 캐시, 배치 참고 이미지 캐싱에 사용됩니다. 값이 클수록 속도는 빨라지지만 네트워크 부하가 증가합니다.",
+  "mapThumbnailThresholdZeroHint": "임계값이 0일 때는 지도에 섬네일이 표시되지 않습니다.",
+  "mapNavigationAppSection": "내비게이션 앱",
+  "mapNavigationAppHint": "인터페이스 옵션일 뿐이며 실제 내비게이션 연동은 아직 활성화되지 않았습니다.",
+  "desktopLauncherSection": "런처",
+  "aboutAppInfoSection": "앱 정보",
+  "aboutAppDescription": "애니메이션 성지순례 계획 및 촬영 참고 도구",
+  "aboutVersionLabel": "현재 버전",
+  "aboutLoadingText": "불러오는 중...",
+  "aboutAuthorLabel": "제작자",
+  "aboutContactEmailLabel": "연락처 이메일",
+  "aboutSourceCodeRepositoryLabel": "오픈소스 저장소",
+  "aboutLicenseLabel": "오픈소스 라이선스",
+  "aboutCopyrightSection": "데이터 및 저작권",
+  "aboutCopyrightDescription": "지도는 OpenFreeMap, OpenStreetMap 또는 사용자 정의 서비스를 사용할 수 있습니다. 작품 검색은 Bangumi를 사용하며 성지순례 포인트와 참고 이미지는 Anitabi에서 제공됩니다. 이미지 소스 설정은 접속 도메인에만 영향을 미치며, 원격 링크는 Anitabi 기본 형식을 그대로 유지합니다. 제3자 데이터, 스크린샷 및 이미지 저작권은 해당 플랫폼, 기여자 또는 권리자에게 있습니다.",
+  "mapThumbnailCountLabel": "{count}개",
+  "btnDecrease": "감소",
+  "btnIncrease": "증가",
+  "settingsExportDefaultConfig": "기본 설정",
+  "cachePlanSection": "계획",
+  "cacheLoadPlansFailed": "계획 목록을 불러오지 못했습니다.",
+  "cacheSelectPlanSection": "계획 선택",
+  "cacheClearButton": "전체 참조 이미지 캐시 지우기",
+  "btnRetry": "다시 시도",
+  "tooltipSelectAll": "전체 선택",
+  "tooltipClear": "비우기",
+  "cacheClearFuncPlaceholder": "캐시 지우기 기능은 아직 구현되지 않았으며, 레이아웃만 표시됩니다.",
+  "cacheSelectedPlansCount": "선택됨 {selected} / {total} 개 계획",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "{area} / {count} 개 위치",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "캐시 내용",
+  "cacheReferenceType": "전체 참조 이미지 캐시",
+  "cacheReferenceDesc": "카메라 참조 및 상세 보기에서 사용하는 전체 참조 이미지를 지웁니다. 목록 및 지도 로딩 속도를 유지하기 위해 섬네일 캐시는 유지됩니다.",
+  "gpsDisabled": "위치 서비스가 비활성화되어 있습니다.",
+  "gpsPermissionRequired": "현재 위치를 표시하려면 위치 권한이 필요합니다.",
+  "gpsTimeout": "위치 요청 시간이 초과되었습니다. 나중에 다시 시도해 주세요.",
+  "gpsFailed": "위치를 가져오지 못했습니다. 권한 및 위치 서비스를 확인해 주세요.",
+  "planActions": "계획 작업",
+  "planSwitch": "계획 변경",
+  "planAddPoint": "위치 추가",
+  "planManage": "계획 관리",
+  "planMemo": "계획 메모",
+  "planImportExport": "가져오기/내보내기",
+  "cacheDownloading": "전체 참조 이미지 캐싱 중...",
+  "cacheNoImagesToDownload": "이 계획에 캐싱할 참조 이미지가 없습니다.",
+  "cacheTitle": "전체 참조 이미지 캐싱",
+  "cacheConfirmMessage": "이 계획에 대한 {count}개의 전체 참조 이미지를 캐싱합니다. 이 작업은 시간이 걸리고 데이터가 소비될 수 있습니다.",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "캐싱 시작",
+  "cacheStarted": "전체 참조 이미지 캐싱이 시작되었습니다.",
+  "groupPrev": "이전 구역",
+  "groupNext": "다음 구역",
+  "mapCollapse": "지도 접기",
+  "labelPointsCount": "{count}개 포인트",
+  "labelCompletedCount": "완료",
+  "labelOrderMode": "모드",
+  "sortModeDefault": "기본 계획 순서",
+  "sortModeDistance": "현재 위치와의 거리 기준",
+  "sortModeDefaultShort": "기본 계획",
+  "sortModeDistanceShort": "거리 기준",
+  "sortOrderDesc": "내림차순",
+  "sortOrderAsc": "올림차순",
+  "sortOrderFarToNear": "먼 곳부터",
+  "sortOrderNearToFar": "가까운 곳부터",
+  "tooltipHideLocation": "현재 위치 숨기기",
+  "tooltipShowLocation": "현재 위치 표시",
+  "labelCompleted": "완료",
+  "planNoPointsTitle": "아직 위치가 없습니다",
+  "planNoPointsSubtitle": "Anitabi에서 위치를 추가하거나 수동으로 먼저 등록해 주세요. 목표 위치와 완료 진행 상황이 여기에 표시됩니다.",
+  "planWorksCount": "{count} 개 작품",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "촬영됨 {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} 개 위치 / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "위치 상세 정보",
+  "btnCameraReference": "촬영 참조",
+  "tooltipRevertCompleted": "체크인 취소",
+  "tooltipMarkCompleted": "완료로 표시",
+  "tooltipSetTarget": "현재 목표로 설정",
+  "recordsUnassignedDesc": "아직 구역에 할당되지 않은 기록",
+  "recordsOrphanedTitle": "고립된 기록",
+  "recordsOrphanedDesc": "해당 위치가 현재 계획에 없습니다",
+  "recordsAllRecords": "전체 기록",
+  "recordsFilterConditionsCount": "{count} 개 필터 조건",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "필터",
+  "recordsSearchPoints": "위치 검색",
+  "recordsSearchHint": "위치, 작품, 장면, 화수, 좌표",
+  "tooltipClearSearch": "검색 비우기",
+  "recordsFilterStatus": "상태",
+  "recordsFilterCompletedPoints": "완료된 위치",
+  "recordsFilterPendingPoints": "대기 중인 위치",
+  "recordsPhotoTitle": "순례 사진",
+  "recordsEntriesCount": "{count} 개 항목",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "{count} 개 순례 기록",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "완료 {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "아직 순례 기록이 없습니다. 촬영이 성공하면 여기에 자동으로 표시됩니다.",
+  "groupOrderModePending": "대기 중",
+  "groupOrderModeManual": "수동",
+  "groupOrderModeNone": "정렬 없음",
+  "groupAnchorPending": "구역 할당 대기 중",
+  "groupAnchorNameLabel": "기준점: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "현재 계획에 위치가 없습니다.",
+  "tooltipLocation": "위치 측정",
+  "tooltipUseIconMarkers": "아이콘 마커 사용",
+  "tooltipShowThumbnailMarkers": "썸네일 마커 표시",
+  "tooltipPoint": "순례지",
+  "copyLabelPointInfo": "위치 정보",
+  "mapNoPointsMessage": "현재 계획에 위치가 없습니다. 위치를 추가하면 지도에 마커가 표시됩니다.",
+  "labelEditPointNotSupported": "현재 환경에서는 위치를 편집할 수 없습니다.",
+  "tooltipGoToTarget": "현재 목표",
+  "planDefaultNewName": "새 순례 계획 {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "지역 미설정",
+  "msgDeletePlanAtLeastOne": "최소 하나의 계획은 보존해야 합니다.",
+  "dialogDeletePlanTitle": "계획 삭제",
+  "dialogDeletePlanMessage": "\"{name}\" 및 그 안의 위치, 구역, 작품, 순례 기록이 삭제됩니다. 이 작업은 취소할 수 없습니다.",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "삭제",
+  "dialogEditPlanTitle": "계획 정보 편집",
+  "labelPlanName": "계획 이름",
+  "labelPlanArea": "지역 / 구역",
+  "btnNewPlan": "새 계획",
+  "statusTextCurrentPlan": "현재 계획",
+  "statusTextSwitchable": "전환 가능",
+  "labelPlanInfo": "계획 정보",
+  "planInfoCopyContent": "{name}\n{area}\n{points} 개 위치\n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "전환",
+  "btnReloadPlan": "계획 다시 로드",
+  "importExportImportSection": "가져오기",
+  "importExportImportDescMobile": "파일, 채팅, 브라우저 또는 클라우드 드라이브 등에서 MiriaGo로 .sjhplan을 엽니다.",
+  "importExportImportDescWeb": ".sjhplan 파일을 선택하여 내용을 미리 본 후 가져옵니다.",
+  "importExportStatusReading": "읽는 중...",
+  "importExportOpenFromApp": "다른 앱에서 .sjhplan 열기",
+  "importExportImportFileTitle": "MiriaGo 파일 가져오기",
+  "importExportOpenFromAppDesc": "파일, 채팅, 브라우저 다운로드 또는 클라우드 드라이브에서 .sjhplan을 선택한 다음 공유하거나 MiriaGo로 엽니다.",
+  "importExportImportFileDesc": "v2 데이터 패키지 및 기존 v1 JSON 계획 패키지를 지원합니다.",
+  "importExportZipDesc": "새로운 .sjhplan 형식, 내부에 manifest.json을 포함하는 zip 파일입니다.",
+  "importExportMyMapsDesc": "위치를 CSV로 내보냅니다. 이미지는 링크로 작성되며, Type 열 기준으로 스타일을 설정할 수 있습니다.",
+  "importExportMyMapsTitle": "My Maps CSV 내보내기",
+  "importExportMyMapsDetails": "처음 6개 열은 샘플 형식과 유사하며 작품, 화수, 출처 등이 별도의 열로 분할됩니다.",
+  "msgExportCancelled": "내보내기가 취소되었습니다.",
+  "msgImportReadFailed": "가져오기 파일을 읽지 못했습니다.",
+  "dialogOpenFromAppTitle": "다른 앱에서 .sjhplan 열기",
+  "dialogOpenFromAppMessage": "파일, 채팅, 브라우저 다운로드 페이지, 클라우드 드라이브 또는 기타 저장 위치에서 .sjhplan 파일을 찾은 다음 파일을 클릭하거나 공유/더보기 메뉴를 사용하여 MiriaGo를 선택하세요.\n\nMiriaGo가 파일을 받으면 자동으로 가져오기 미리보기 페이지로 이동합니다. 목록에 MiriaGo가 없는 경우 파일을 먼저 '파일' 앱에 저장한 다음 파일을 길게 누르고 공유 또는 열기 방법을 선택할 수 있습니다.",
+  "btnGotIt": "확인",
+  "exportShareLabel": "MiriaGo 데이터 패키지: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "데이터 패키지가 내보내졌습니다.",
+  "dialogMissingResourcesTitle": "일부 로컬 리소스 누락",
+  "dialogMissingResourcesMessage": "이 리소스들은 데이터 패키지에 포함되지 않으며, 가져온 후 해당 이미지가 표시되지 않을 수 있습니다.",
+  "btnContinueExport": "내보내기 계속",
+  "msgExportMyMapsSuccess": "My Maps CSV가 내보내졌습니다.",
+  "msgExporting": "내보내는 중...",
+  "msgExportFailed": "내보내기 실패",
+  "warningMissingPart": "{fallback}, 일부 리소스를 추가할 수 없습니다",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} 개의 로컬 업로드 참조 이미지 누락",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "{count} 개의 썸네일 추가되지 않음",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} 개의 전체 참조 이미지 다운로드 실패",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} 개의 전체 참조 이미지 누락",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} 개의 순례 사진 누락",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "{count} 개의 보정된 사진 누락",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "{groups} 개의 구역 / {points} 개의 위치",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "계획만",
+  "btnPlanAndRecords": "계획 + 기록",
+  "importExportIncludeCache": "전체 참조 이미지 캐시 포함",
+  "importExportIncludeCacheDesc": "썸네일과 사용자 추가 참조 이미지는 기본적으로 여전히 포함됩니다.",
+  "btnExportDataPackage": "MiriaGo 데이터 패키지 내보내기",
+  "btnExportingDataPackage": "내보내는 중...",
+  "importExportEstimateEstimating": "데이터 패키지 크기 추정 중...",
+  "importExportEstimateFailed": "예상 크기: 일시적으로 사용 불가",
+  "importExportEstimateResult": "예상 크기: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "로컬 업로드 참조 이미지",
+  "dialogVisitPhotoMissing": "순례 사진",
+  "dialogGradedPhotoMissing": "보정된 사진",
+  "estimateThumbnailNotCached": "{count} 개의 썸네일 캐싱되지 않음, 데이터 패키지에 포함되지 않습니다",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} 개의 전체 참조 이미지가 내보낼 때 다운로드됩니다",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} 개의 로컬 업로드 참조 이미지 파일 누락, 내보낸 후 복구할 수 없습니다",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "{count} 개의 순례 사진 파일 누락",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "{count} 개의 보정된 사진 파일 누락",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "일부 로컬 리소스를 읽을 수 없어 실제 크기가 다를 수 있습니다",
+  "estimateLabelAtLeast": "예상 크기: 최소 {size}, {details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "예상 크기: 약 {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "뒤로",
+  "importExportDataPackageHeader": "MiriaGo 데이터 패키지",
+  "addPointsTitle": "콘텐츠 추가",
+  "addPointsAddToPlan": "추가 대상: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "작품 관리",
+  "addPointsWorkManagerDesc": "계획 작품 관리, Bangumi 검색, 수동 추가 및 삭제 기능 제공.",
+  "addPointsImportFromWorkMapTitle": "작품 지도에서 포인트 가져오기",
+  "addPointsImportFromWorkMapDesc": "Anitabi 지도에서 작품 포인트를 확인하고 계획에 추가.",
+  "addPointsImportFromLinkTitle": "Anitabi 링크에서 가져오기",
+  "addPointsImportFromLinkDesc": "Anitabi 작품 또는 포인트 링크를 붙여넣어 해당 작품 지도를 빠르게 열기.",
+  "addPointsManualTitle": "수동으로 포인트 추가",
+  "addPointsManualDesc": "추가된 작품을 선택한 후 이름, 좌표 및 장면 정보 입력.",
+  "addPointsActionLabelUnavailable": "사용 불가",
+  "addPointsActionLabelManage": "관리",
+  "addPointsActionLabelOpen": "열기",
+  "addPointsActionLabelInput": "입력",
+  "addPointsActionLabelAdd": "추가",
+  "msgWorkAdded": "\"{title}\" 작품이 추가되었습니다.",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "작품 추가에 실패했습니다. 나중에 다시 시도해 주세요.",
+  "bangumiSearchTitle": "Bangumi 검색",
+  "bangumiSearchLabel": "작품 이름",
+  "bangumiSearchHint": "예: 케이온!",
+  "bangumiSearchBtn": "검색",
+  "bangumiSearchBtnSearching": "검색 중...",
+  "bangumiSearchFailed": "Bangumi 검색 실패. 네트워크를 확인하고 다시 시도해 주세요.",
+  "bangumiSearchEmptyHelp": "작품명을 검색한 뒤 결과를 선택하여 계획에 추가해 주세요.",
+  "anitabiLinkImportTitle": "Anitabi 링크 가져오기",
+  "anitabiLinkImportLabel": "Anitabi 링크",
+  "anitabiLinkImportHint": "예: https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "링크에 작품 ID가 포함되어 있으면 해당 작품만 로드되며, 포인트 ID가 있는 경우 해당 포인트가 자동 선택됩니다.",
+  "anitabiLinkImportBtn": "Anitabi 포인트 열기",
+  "anitabiLinkImportEmptyErr": "Anitabi 링크를 입력해 주세요",
+  "anitabiLinkImportInvalidErr": "유효한 Anitabi 지도 링크를 입력해 주세요",
+  "anitabiLinkImportNoWorkIdErr": "링크에 작품 ID가 누락되었습니다. 다시 복사하여 입력해 주세요.",
+  "msgPointAdded": "\"{title}\" 포인트가 추가되었습니다.",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "포인트 저장에 실패했습니다. 나중에 다시 시도해 주세요.",
+  "msgWorkSaveFailed": "작품 저장에 실패했습니다. 나중에 다시 시도해 주세요.",
+  "manualAddWorkTitle": "수동으로 작품 추가",
+  "manualAddWorkName": "작품 이름",
+  "manualAddWorkOriginalName": "원어 이름",
+  "manualAddWorkOriginalNameHint": "선택 사항",
+  "manualAddWorkArea": "주요 지역",
+  "manualAddWorkAreaHint": "선택 사항, 기본값: {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "작품 저장",
+  "manualAddWorkBtnSaving": "저장 중...",
+  "manualAddWorkRequiredField": "필수 입력 항목입니다",
+  "msgReferenceImageReadFailed": "참조 이미지를 불러오지 못했습니다. 다시 선택해 주세요.",
+  "msgClipboardCoordinatesInvalid": "클립보드에 인식 가능한 좌표가 없습니다.",
+  "msgClipboardCoordinatesApplied": "클립보드 좌표를 입력했습니다.",
+  "manualAddPointTitleAdd": "수동으로 포인트 추가",
+  "manualAddPointTitleEdit": "포인트 편집",
+  "manualAddPointStatusEdit": "수정: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "소속 작품",
+  "manualAddPointSelectWorkErr": "작품을 선택해 주세요",
+  "manualAddPointWorkName": "작품 이름",
+  "manualAddPointWorkOriginalName": "원어 이름",
+  "manualAddPointWorkOriginalNameHint": "선택 사항",
+  "manualAddPointWorkArea": "작품 주요 지역",
+  "manualAddPointWorkAreaHint": "선택 사항, 기본값: {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "포인트 이름",
+  "manualAddPointPositionDesc": "위치 설명",
+  "manualAddPointEpisodeLabel": "화수/장면 태그",
+  "manualAddPointSource": "참조 출처",
+  "manualAddPointMemo": "메모",
+  "manualAddPointMemoHint": "선택 사항 (예: 영업 종료, 리모델링, 촬영 팁 등)",
+  "manualAddPointSelectCoordsBtn": "지도에서 좌표 선택",
+  "manualAddPointPasteCoordsBtn": "클립보드 좌표 붙여넣기",
+  "manualAddPointLatitude": "위도",
+  "manualAddPointLatitudeHint": "예: 34.8917",
+  "manualAddPointLongitude": "경도",
+  "manualAddPointLongitudeHint": "예: 135.8077",
+  "manualAddPointBtnSaving": "저장 중...",
+  "manualAddPointBtnSaveEdit": "변경사항 저장",
+  "manualAddPointBtnSaveAdd": "포인트 저장",
+  "manualAddPointRequiredField": "필수 입력 항목입니다",
+  "manualAddPointRequiredLatitude": "위도를 입력해 주세요",
+  "manualAddPointRequiredLongitude": "경도를 입력해 주세요",
+  "manualAddPointInvalidCoordinate": "유효한 좌표를 입력해 주세요",
+  "manualAddPointSelectCoordsTitle": "포인트 좌표 선택",
+  "manualAddPointSelectCoordsTooltipActive": "지도 핀 모드 종료",
+  "manualAddPointSelectCoordsTooltipInactive": "지도에서 선택",
+  "manualAddPointSelectCoordsHelpActive": "지도의 아무 곳이나 클릭하여 좌표를 설정하세요",
+  "manualAddPointSelectCoordsHelpInactive": "우측 상단 핀 버튼을 클릭하고 지도에서 좌표를 클릭하세요",
+  "manualAddPointSelectCoordsAdjustHelp": "지도를 클릭하여 위치를 미세 조정할 수 있습니다",
+  "manualAddPointSelectCoordsDialogTitle": "지도 좌표 선택",
+  "manualAddPointSelectCoordsBtnUse": "사용",
+  "addPointsNoWorksHelp": "현재 계획에 등록된 작품이 없습니다. 먼저 작품을 추가해 주세요.",
+  "addPointsHasWorksHelp": "현재 계획에 등록된 작품 {count}개: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "크게 보기",
+  "addPointsRefImageTooltipEmpty": "참조 이미지 없음",
+  "addPointsRefImageHeader": "참조 이미지",
+  "addPointsRefImageHelpSelected": "새 이미지가 선택되었습니다. 저장 후 적용됩니다.",
+  "addPointsRefImageHelpCurrent": "현재 참조 이미지입니다. 변경 후 저장해야 반영됩니다.",
+  "addPointsRefImageHelpEmpty": "선택 사항이며, 저장 시 앱 로컬 디렉터리에 복사됩니다.",
+  "addPointsRefImageBtnReselect": "다시 선택",
+  "addPointsRefImageBtnUpload": "참조 이미지 업로드",
+  "addPointsRefImageBtnRemove": "삭제",
+  "addPointsPointBtnAdded": "추가됨",
+  "addPointsPointBtnAdd": "추가",
+  "managePlanTitle": "계획 관리",
+  "managePlanSelectedCount": "{count}개 선택됨",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "구역 관리",
+  "managePlanCachingProgress": "전체 참조 이미지 캐싱 중",
+  "managePlanCacheFullReference": "전체 참조 이미지 캐싱",
+  "managePlanTooltipExitSelection": "다중 선택 종료",
+  "managePlanTooltipSelection": "선택",
+  "msgNoAnchorForUnassigned": "미분류 포인트에는 기준점이 없습니다.",
+  "msgAreaNotExist": "구역이 존재하지 않습니다.",
+  "msgSaveAnchorFailed": "기준점 저장에 실패했습니다.",
+  "msgNoOrderForUnassigned": "미분류 포인트는 정렬 방식이 필요하지 않습니다.",
+  "managePlanAreaOrderTitle": "구역 내 순서",
+  "msgSaveOrderModeFailed": "정렬 방식 저장에 실패했습니다.",
+  "msgMoveAreaFailed": "구역 이동에 실패했습니다.",
+  "msgOpenCameraFromPlanOrMap": "계획 페이지나 지도 페이지에서 카메라를 실행해 주세요.",
+  "msgSaveReferenceImageFailed": "참조 이미지 저장에 실패했습니다.",
+  "labelUnknownArea": "알 수 없는 구역",
+  "managePlanMoveToAreaTitle": "구역으로 이동",
+  "msgSavePointOrderFailed": "포인트 순서 저장에 실패했습니다.",
+  "dialogDeletePointTitle": "포인트 삭제",
+  "dialogDeletePointMsg": "계획에서 \"{name}\" 포인트를 삭제하시겠습니까?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "포인트 삭제에 실패했습니다.",
+  "dialogBulkDeletePointsTitle": "포인트 일괄 삭제",
+  "dialogBulkDeletePointsMsg": "계획에서 포인트 {count}개를 삭제하시겠습니까?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "일괄 삭제에 실패했습니다.",
+  "msgSaveCurrentTargetFailed": "현재 목표 저장에 실패했습니다.",
+  "msgSaveCompletionStatusFailed": "완료 상태 저장에 실패했습니다.",
+  "msgSavePointStatusFailed": "포인트 상태 저장에 실패했습니다.",
+  "msgBulkCompleteFailed": "일괄 완료 처리 실패.",
+  "msgBulkResetFailed": "일괄 초기화 실패.",
+  "msgFullReferenceCacheStarted": "전체 참조 이미지 캐싱이 시작되었습니다.",
+  "msgCachingFullReferenceProgress": "전체 참조 이미지 캐싱 중...",
+  "msgNoReferenceToCache": "현재 계획에 캐싱이 필요한 참조 이미지가 없습니다.",
+  "dialogCacheFullReferenceTitle": "전체 참조 이미지 캐싱",
+  "dialogCacheFullReferenceMsg": "현재 계획의 전체 참조 이미지 {count}장을 캐싱합니다. 데이터와 시간이 다소 소요될 수 있습니다.",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "캐싱 시작",
+  "labelAnchorNotSet": "설정 안 됨",
+  "tooltipPrevArea": "이전 구역",
+  "tooltipNextArea": "다음 구역",
+  "managePlanPointsPending": "{count}개의 포인트 정리 대기 중",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "포인트 {count}개 · 완료 {completed}개 · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "기준점: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "가장 가까운 곳 배정",
+  "btnBoxSelectAssign": "영역 지정 배정",
+  "statusCurrent": "현재",
+  "statusCompleted": "완료",
+  "statusPending": "방문 예정",
+  "tooltipPointActions": "포인트 작업",
+  "btnMoveToArea": "구역으로 이동",
+  "btnSetAsCurrent": "현재 목표로 설정",
+  "btnCancelCompletion": "완료 취소",
+  "btnMarkCompletion": "완료로 표시",
+  "btnDeletePoint": "포인트 삭제",
+  "refStatusNone": "참조 없음",
+  "refStatusLocal": "로컬 업로드",
+  "refStatusCached": "캐싱됨",
+  "refStatusRemote": "캐싱 안 됨",
+  "tooltipClearSelection": "선택 해제",
+  "tooltipMoveArea": "구역 이동",
+  "tooltipReset": "초기화",
+  "dialogSelectAnchorTitle": "기준점 선택",
+  "btnClear": "지우기",
+  "tooltipCloseMapSelect": "지도 선택 종료",
+  "tooltipSelectOnMap": "지도에서 선택",
+  "tooltipInputCoordinates": "좌표 입력",
+  "dialogInputCoordinatesTitle": "좌표 입력",
+  "labelManualAnchor": "수동 기준점",
+  "tooltipSelectPoint": "포인트 선택",
+  "labelAnchorNotSelected": "기준점이 선택되지 않음",
+  "msgClickMapToSetAnchor": "지도의 아무 곳이나 클릭하여 기준점을 설정하세요",
+  "msgSelectAnchorMethods": "지도에서 클릭하거나, 포인트를 지정하거나, 좌표를 입력하세요",
+  "managePlanNoPoints": "관리할 포인트가 없습니다",
+  "dialogDiscardMemoTitle": "수정사항을 폐기할까요?",
+  "dialogDiscardMemoMsg": "저장하지 않은 수정사항이 있습니다.",
+  "btnKeepEditing": "계속 편집",
+  "btnDiscard": "폐기",
+  "msgMemoSaved": "메모가 저장되었습니다.",
+  "msgMemoSaveFailed": "메모 저장에 실패했습니다.",
+  "msgTodoStatusSaveFailed": "할 일 상태 저장에 실패했습니다.",
+  "memoPlaceholderHeading": "제목",
+  "memoPlaceholderBold": "굵은 글씨",
+  "memoPlaceholderListItem": "목록 항목",
+  "memoPlaceholderTodo": "할 일 목록",
+  "memoPlaceholderQuote": "인용구",
+  "memoPlaceholderLinkText": "링크 텍스트",
+  "memoPlaceholderCode": "코드",
+  "msgInvalidLinkFormat": "올바르지 않은 링크 형식입니다.",
+  "msgUnableToOpenLink": "링크를 열 수 없습니다.",
+  "planMemoTitle": "계획 메모",
+  "labelMemoContent": "메모 내용",
+  "hintMemoContent": "교통편, 예약 내용, 추가 촬영 정보 등을 적을 수 있습니다.",
+  "tooltipHeading": "제목",
+  "tooltipBold": "굵게",
+  "tooltipList": "목록",
+  "tooltipTodo": "할 일",
+  "tooltipQuote": "인용",
+  "tooltipDivider": "구분선",
+  "tooltipLink": "링크",
+  "tooltipCode": "코드",
+  "tooltipUncheck": "체크 해제",
+  "msgMemoImageNotSupported": "메모에는 이미지를 포함할 수 없습니다: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "작성된 메모가 없습니다",
+  "memoEmptySubtitle": "우측 상단의 편집 버튼을 클릭해 교통, 예약, 촬영 팁 등의 준비 사항을 메모해 보세요.",
+  "msgInvalidRatio": "올바른 비율을 입력해 주세요.",
+  "dialogCustomRatioTitle": "사용자 지정 비율",
+  "labelWidth": "너비",
+  "labelHeight": "높이",
+  "msgColorNameRequired": "색상 이름을 입력해 주세요.",
+  "dialogCustomThemeColorTitle": "사용자 지정 테마 색상",
+  "labelColorName": "이름",
+  "labelColorHex": "색상 코드",
+  "btnAdd": "추가",
+  "navAppGoogleMaps": "구글 지도",
+  "navAppAmap": "고덕 지도",
+  "navAppAppleMaps": "애플 지도",
+  "navAppBaiduMaps": "바이두 지도",
+  "navAppTencentMaps": "텐센트 지도",
+  "navAppBrowser": "브라우저",
+  "navAppGoogleMapsSub": "기본 옵션",
+  "navAppAmapSub": "중국 내 범용",
+  "navAppAppleMapsSub": "iOS 기본",
+  "navAppBaiduMapsSub": "도시 내비게이션",
+  "navAppTencentMapsSub": "가벼운 대체제",
+  "navAppBrowserSub": "웹 브라우저",
+  "comparisonBorderColorWhite": "화이트",
+  "comparisonBorderColorBlack": "블랙",
+  "comparisonBorderColorTheme": "테마 색상",
+  "comparisonWidthLabel": "너비 {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "테두리 없음",
+  "comparisonBorderPercent": "테두리 {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "라벨 표시",
+  "comparisonHideLabels": "라벨 숨김",
+  "comparisonPilgrimName": "순례자 {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "외관",
+  "comparisonFieldBorderWidth": "테두리 너비",
+  "comparisonBorderWidthNone": "없음",
+  "comparisonFieldBorderColor": "테두리 색상",
+  "comparisonFieldOutputWidth": "출력 너비",
+  "comparisonLabelShowLabel": "라벨 표시",
+  "comparisonSectionMetadata": "메타데이터",
+  "comparisonFieldPilgrimName": "순례자 이름",
+  "comparisonShowPilgrimRight": "우측에 순례자 표시",
+  "comparisonShowGradingBottom": "하단에 보정 매개변수 표시",
+  "comparisonLabelReference": "참조",
+  "comparisonLabelCaptured": "순례",
+  "comparisonLabelPilgrim": "순례자",
+  "comparisonExportTitle": "비교 사진 내보내기",
+  "tooltipClose": "닫기",
+  "comparisonExporting": "내보내는 중...",
+  "comparisonExport": "내보내기",
+  "comparisonWidthAuto": "자동",
+  "comparisonMetaCapturedAt": "촬영 시간",
+  "comparisonMetaWork": "작품명",
+  "comparisonMetaPoint": "위치",
+  "comparisonMetaCoordinates": "좌표",
+  "comparisonMetaEpisode": "장면",
+  "comparisonErrRefUnavailable": "참조 이미지가 없어 비교 이미지를 내보낼 수 없습니다.",
+  "comparisonErrCapturedUnavailable": "순례 이미지가 없어 비교 이미지를 내보낼 수 없습니다.",
+  "comparisonErrRenderFailed": "내보내기에 실패했습니다. 나중에 다시 시도해 주세요.",
+  "cameraFallbackRatioTitle": "참조 이미지 없을 때 비율",
+  "btnEdit": "편집",
+  "cameraRefModeOverlay": "겹치기",
+  "cameraRefModeSplit": "상하 분할",
+  "cameraRefModePinned": "PIP",
+  "cameraWebPreviewWarning": "웹 미리보기에서는 실시간 카메라를 지원하지 않습니다.",
+  "workManagerEmptyHelp": "현재 계획에 등록된 작품이 없습니다.",
+  "dialogDeleteWorkTitle": "작품 삭제",
+  "dialogDeleteWorkConfirmSingle": "\"{name}\"을(를) 삭제하시겠습니까?",
+  "dialogDeleteWorkConfirmMultiple": "\"{name}\"을((를) 삭제하시겠습니까? 관련 포인트 {count}개와 방문 기록도 함께 삭제됩니다.",
+  "msgDeleteWorkFailed": "작품 삭제 실패",
+  "tooltipDeleteWork": "작품 삭제",
+  "labelWorkTitleText": "작품명",
+  "labelWorkInfoText": "작품 정보",
+  "btnManualAdd": "수동 추가",
+  "subjectTypeBook": "도서",
+  "subjectTypeAnime": "애니메이션",
+  "subjectTypeMusic": "음악",
+  "subjectTypeGame": "게임",
+  "subjectTypeReal": "실사",
+  "labelPoints": "포인트",
+  "btnBangumiSearch": "Bangumi",
+  "labelBangumiSource": "Bangumi #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportTitle": "작품 지도에서 가져오기",
+  "mapImportRefreshingCache": "캐시를 지우고 Anitabi 포인트를 다시 불러오는 중…",
+  "mapImportManualWorkNoBangumiId": "수동으로 추가한 작품은 Bangumi ID가 없어 Anitabi 지도에서 가져올 수 없습니다.",
+  "mapImportPointAddedMsg": "계획에 추가되었습니다. 계속해서 포인트를 선택할 수 있습니다.",
+  "mapImportPointAddFailedMsg": "포인트 추가에 실패했습니다. 나중에 다시 시도하세요.",
+  "mapImportAllAddedMsg": "추가되지 않은 모든 포인트를 추가했습니다.",
+  "mapImportBatchFailedMsg": "일괄 가져오기에 실패했습니다. 나중에 다시 시도하세요.",
+  "mapImportBoxSelectionEmptyMsg": "선택한 영역에 추가할 포인트가 없습니다",
+  "mapImportBoxAddedMsg": "상자 선택 포인트를 추가했습니다.",
+  "mapImportBoxFailedMsg": "상자 선택 포인트 가져오기에 실패했습니다. 나중에 다시 시도하세요.",
+  "mapImportImportingMsg": "{count}개의 포인트를 가져오는 중…",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "썸네일 캐싱 중 {processed}/{total}, 성공 {succeeded}",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "{count}개의 포인트를 가져왔습니다. 썸네일 {cached}/{total} 캐싱 완료, 나머지는 나중에 자동으로 채워집니다.",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "모든 포인트 추가",
+  "mapImportAddAllDialogMsg": "현재 작품에서 계획에 없는 포인트 {count}개를 그룹 미지정 상태로 임시 추가합니다.",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "모두 추가",
+  "mapImportAddBoxDialogTitle": "상자 선택 포인트 추가",
+  "mapImportAddBoxDialogMsg": "선택 영역 내 포인트 {count}개를 그룹 미지정 상태로 임시 추가합니다.",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "선택 영역 추가",
+  "mapImportAddBoxBtnWithCount": "{count}개 추가",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "가져온 포인트 정리",
+  "mapImportOrganizeDialogMsg": "포인트 {count}개를 가져와 그룹 미지정 상태로 임시 배치했습니다. 먼저 구역과 핵심 지점을 만든 뒤 가장 가까운 핵심 지점으로 할당할 수 있습니다.",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "가장 가까운 할당",
+  "mapImportOrganizeGroupManager": "구역 관리",
+  "mapImportOrganizeLater": "나중에",
+  "mapImportRefreshTooltip": "캐시 지우고 Anitabi 포인트 다시 불러오기",
+  "mapImportMarkerTooltip": "Anitabi 포인트",
+  "mapImportErrDataUnavailable": "Anitabi 지도 데이터를 불러오지 못했습니다",
+  "mapImportErrPartialData": "Anitabi 포인트를 일부만 불러왔습니다",
+  "mapImportErrNotFound": "이 Bangumi 항목에는 Anitabi 지도 데이터가 없습니다",
+  "mapImportErrLoadFailed": "Anitabi 포인트 불러오기에 실패했습니다",
+  "mapImportErrDataUnavailableDetailWeb": "Anitabi 지도 데이터 캐시 버전이 일치하지 않거나 미리보기 서비스의 네트워크 요청이 차단되었을 수 있습니다. 캐시를 지우고 Anitabi 포인트를 다시 불러오세요.",
+  "mapImportErrDataUnavailableDetail": "Anitabi 지도 인덱스를 읽을 수 없습니다. 네트워크 연결을 확인하거나 캐시를 지우고 Anitabi 포인트를 다시 불러오세요.",
+  "mapImportErrPartialDataDetail": "포인트 {loaded} / 전체 {expected}개만 가져왔습니다. 다시 불러오거나 네트워크가 Anitabi 지도 데이터에 접근 가능한지 확인하세요.",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "작품 관리에서 같은 이름의 원작, 게임 또는 관련 항목을 추가해 보세요.",
+  "mapImportErrLoadFailedDetail": "네트워크를 확인하고 다시 시도하거나 나중에 다시 불러오세요.",
+  "mapImportProgressImporting": "{total}개의 포인트를 가져오는 중…",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "썸네일 캐싱 중 {processed}/{total}, 성공 {succeeded}",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "가져온 포인트",
+  "mapImportMarkerAvailableTooltip": "가져올 수 있는 포인트",
+  "mapImportSummaryLoading": "Anitabi 포인트 불러오는 중",
+  "mapImportSummaryStats": "가져옴 {imported} / 표시 중 {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": " / 전체 {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "모든 포인트 추가",
+  "mapImportSummaryTooltipBoxExit": "상자 선택 종료",
+  "mapImportSummaryTooltipBoxStart": "상자로 포인트 선택",
+  "mapImportPointNameLabel": "포인트 이름",
+  "mapImportPointInfoLabel": "포인트 정보",
+  "mapImportPointOriginLabel": "출처",
+  "mapImportPointDetailBtn": "상세",
+  "mapImportPointJoinedBtn": "추가됨",
+  "mapImportPointJoinBtn": "계획에 추가",
+  "mapImportDetailSceneLabel": "장면",
+  "mapImportDetailNoteLabel": "메모",
+  "mapImportDetailCoordLabel": "좌표",
+  "mapImportDetailJoinedBtn": "계획에 추가됨",
+  "mapImportNoPointSelectedHint": "지도의 포인트를 탭하여 썸네일과 상세를 확인하세요.",
+  "mapImportNoImportablePoints": "이 작품에는 가져올 수 있는 Anitabi 포인트가 없습니다.",
+  "mapImportNoImagePoints": "이 작품에는 포인트 {count}개가 있지만 가져올 수 있는 참조 이미지가 없습니다.",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "이 계획에는 아직 Bangumi 작품이 없습니다. 먼저 작품 관리에서 Bangumi 작품을 추가하세요.",
+  "mapImportManualWorkState": "수동으로 추가한 작품은 Bangumi ID가 없어 Anitabi 지도에서 가져올 수 없습니다.\n\nBangumi/Anitabi 검색으로 작품을 추가하거나 수동 포인트 추가를 사용하세요.",
+  "mapImportLoadingWorksAndPoints": "Anitabi 작품 및 포인트 불러오는 중"
+}

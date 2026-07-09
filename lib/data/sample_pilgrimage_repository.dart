@@ -1,6 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
 import '../plan/pilgrimage_models.dart';
+import '../utils/web_storage_stub.dart' if (dart.library.js_util) '../utils/web_storage_web.dart';
 import 'pilgrimage_repository.dart';
 
 class SamplePilgrimageRepository implements PilgrimageRepository {
@@ -11,7 +12,7 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
     String? activePlanId,
   }) : _plans = List.of(plans ?? [samplePilgrimagePlan]),
        _visitRecords = List.of(visitRecords ?? _sampleVisitRecords),
-       _settings = settings ?? const AppSettings(),
+       _settings = loadWebSettings(settings ?? const AppSettings()),
        _activePlanId =
            activePlanId ?? (plans?.firstOrNull?.id ?? samplePilgrimagePlan.id);
 
@@ -736,7 +737,7 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
 
   @override
   Future<void> saveAppSettings(AppSettings settings) async {
-    _settings = settings.copyWith(
+    final updated = settings.copyWith(
       uiScale: settings.uiScale.clamp(0.8, 1.0),
       fontScale: settings.fontScale.clamp(0.7, 1.4),
       themeMode: settings.themeMode,
@@ -780,7 +781,10 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
         1,
         30,
       ),
+      language: settings.language,
     );
+    _settings = updated;
+    saveWebSettings(updated);
   }
 
   List<PilgrimageWork> _appendWorkIfMissing(

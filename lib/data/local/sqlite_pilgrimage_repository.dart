@@ -1,8 +1,10 @@
 import 'package:drift/drift.dart';
 import 'dart:convert';
+import 'dart:developer';
 import 'package:latlong2/latlong.dart';
 
 import '../../plan/pilgrimage_models.dart';
+import '../anitabi_client.dart';
 import '../anitabi_image_url.dart';
 import '../app_managed_file_paths_stub.dart'
     if (dart.library.io) '../app_managed_file_paths_io.dart';
@@ -18,11 +20,13 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
 
   final AppDatabase _database;
   bool _visitRecordPathRepairAttempted = false;
+  bool _anitabiSubtitleRepairAttempted = false;
 
   @override
   Future<List<PilgrimagePlan>> loadPlans() async {
     await _seedIfNeeded();
     await _repairVisitRecordManagedFilePathsIfNeeded();
+    await _repairAnitabiSubtitlesIfNeeded();
     final planRows = await (_database.select(
       _database.plans,
     )..orderBy([(table) => OrderingTerm.asc(table.createdAt)])).get();
@@ -34,6 +38,7 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
   Future<PilgrimagePlan> loadActivePlan() async {
     await _seedIfNeeded();
     await _repairVisitRecordManagedFilePathsIfNeeded();
+    await _repairAnitabiSubtitlesIfNeeded();
     final activePlan =
         await (_database.select(_database.plans)
               ..where((table) => table.active.equals(true))
@@ -99,6 +104,7 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
         200,
       ),
       mapThumbnailConcurrentLoads: row.mapThumbnailConcurrentLoads.clamp(1, 30),
+      language: row.language,
     );
   }
 
@@ -977,6 +983,7 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
             mapThumbnailConcurrentLoads: Value(
               settings.mapThumbnailConcurrentLoads.clamp(1, 30),
             ),
+            language: Value(settings.language),
           ),
         );
   }
@@ -1059,6 +1066,102 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
         hasPotentiallyRebasableAppManagedFilePath(row.originalPhotoPath) ||
         hasPotentiallyRebasableAppManagedFilePath(row.gradedPhotoPath) ||
         hasPotentiallyRebasableAppManagedFilePath(row.referenceImagePath);
+  }
+
+  /// One-time repair for Anitabi-sourced points whose [Points.subtitle] was
+  /// stored as a Chinese translation instead of the original Japanese name.
+  ///
+  /// Detection is heuristic: a correct Japanese subtitle always contains
+  /// hiragana/katakana, while a wrong Chinese-only subtitle contains CJK
+  /// ideographs but no kana. After repair the subtitle becomes Japanese (with
+  /// kana), so subsequent loads skip network entirely — naturally idempotent.
+  Future<void> _repairAnitabiSubtitlesIfNeeded() async {
+    if (_anitabiSubtitleRepairAttempted) {
+      return;
+    }
+    _anitabiSubtitleRepairAttempted = true;
+
+    try {
+      final points = await (_database.select(_database.points)
+            ..where((tbl) => tbl.source.equals('anitabi'))
+            ..where((tbl) => tbl.sourceId.isNotNull()))
+          .get();
+      final candidates = points.where((p) => _isChineseOnly(p.subtitle)).toList();
+      if (candidates.isEmpty) {
+        return;
+      }
+
+      final works = await _database.select(_database.works).get();
+      final bangumiByWork = <String, int?>{
+        for (final w in works) w.id: w.bangumiId,
+      };
+
+      final byBangumi = <int, List<Point>>{};
+      for (final p in candidates) {
+        final bangumiId = bangumiByWork[p.workId];
+        if (bangumiId == null) {
+          continue;
+        }
+        byBangumi.putIfAbsent(bangumiId, () => []).add(p);
+      }
+      if (byBangumi.isEmpty) {
+        return;
+      }
+
+      final client = AnitabiClient();
+      for (final entry in byBangumi.entries) {
+        try {
+          final fetched = await client.fetchPoints(entry.key);
+          final byId = <String, AnitabiPoint>{
+            for (final f in fetched) f.id: f,
+          };
+          for (final p in entry.value) {
+            final sourceId = p.sourceId;
+            if (sourceId == null) {
+              continue;
+            }
+            final anitabi = byId[sourceId];
+            if (anitabi == null) {
+              continue;
+            }
+            final original = anitabi.subtitle;
+            if (original.isEmpty ||
+                original == p.subtitle ||
+                original == 'Anitabi 点位') {
+              continue;
+            }
+            await (_database.update(_database.points)
+                  ..where((tbl) => tbl.id.equals(p.id)))
+                .write(PointsCompanion(subtitle: Value(original)));
+          }
+        } catch (e) {
+          // Network/parse failure for this work: skip it, retry next launch.
+          log('[repair] anitabi subtitle repair failed for bangumi '
+              '${entry.key}: $e');
+        }
+      }
+    } catch (e) {
+      log('[repair] anitabi subtitle repair skipped: $e');
+    }
+  }
+
+  /// Returns true when [s] contains CJK ideographs but no Japanese kana,
+  /// which indicates a Chinese translation rather than the original Japanese.
+  static bool _isChineseOnly(String s) {
+    if (s.isEmpty) {
+      return false;
+    }
+    var hasCjk = false;
+    var hasKana = false;
+    for (final rune in s.runes) {
+      if (rune >= 0x3040 && rune <= 0x30FF) {
+        hasKana = true;
+      } else if ((rune >= 0x3400 && rune <= 0x9FFF) ||
+          (rune >= 0xF900 && rune <= 0xFAFF)) {
+        hasCjk = true;
+      }
+    }
+    return hasCjk && !hasKana;
   }
 
   Future<String?> _rebasedPathOrNull(String? path) async {

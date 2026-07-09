@@ -38,6 +38,9 @@ Future<ComparisonExportImageResult> exportComparisonImage({
   required ComparisonExportConfig config,
   required Map<ComparisonMetadataField, String> metadata,
   required String? colorGradingSummary,
+  required String labelReference,
+  required String labelCaptured,
+  required String labelPilgrim,
 }) async {
   Uint8List? refBytes;
   if (referenceImagePath != null) {
@@ -89,6 +92,9 @@ Future<ComparisonExportImageResult> exportComparisonImage({
     config: config,
     metadata: metadata,
     colorGradingSummary: colorGradingSummary,
+    labelReference: labelReference,
+    labelCaptured: labelCaptured,
+    labelPilgrim: labelPilgrim,
   );
 
   if (outputBytes == null) {

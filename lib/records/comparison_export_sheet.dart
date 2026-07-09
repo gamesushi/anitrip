@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
 import '../plan/pilgrimage_models.dart';
 import '../widgets/image_viewer_screen.dart';
@@ -171,6 +172,9 @@ class _ComparisonExportSheetState extends State<ComparisonExportSheet> {
       config: _config,
       metadata: widget.metadata,
       colorGradingSummary: widget.colorGradingSummary,
+      labelReference: AppLocalizations.of(context)!.comparisonLabelReference,
+      labelCaptured: AppLocalizations.of(context)!.comparisonLabelCaptured,
+      labelPilgrim: AppLocalizations.of(context)!.comparisonLabelPilgrim,
     );
 
     if (!mounted) return;
@@ -188,10 +192,10 @@ class _ComparisonExportSheetState extends State<ComparisonExportSheet> {
 
   String _failureMessage(ComparisonExportImageResult result) {
     return switch (result.failureReason) {
-      ComparisonExportFailureReason.referenceUnavailable => '参考图不可用，无法导出对比图片。',
+      ComparisonExportFailureReason.referenceUnavailable => AppLocalizations.of(context)!.comparisonErrRefUnavailable,
       ComparisonExportFailureReason.capturedPhotoUnavailable =>
-        '巡礼图不可用，无法导出对比图片。',
-      ComparisonExportFailureReason.renderFailed || null => '导出失败，请稍后重试。',
+        AppLocalizations.of(context)!.comparisonErrCapturedUnavailable,
+      ComparisonExportFailureReason.renderFailed || null => AppLocalizations.of(context)!.comparisonErrRenderFailed,
     };
   }
 }
@@ -207,10 +211,10 @@ class _SheetHeader extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 0, 12, 10),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: Text(
-              '导出对比图',
-              style: TextStyle(
+              AppLocalizations.of(context)!.comparisonExportTitle,
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
                 letterSpacing: 0,
@@ -218,7 +222,7 @@ class _SheetHeader extends StatelessWidget {
             ),
           ),
           IconButton(
-            tooltip: '关闭',
+            tooltip: AppLocalizations.of(context)!.tooltipClose,
             onPressed: exporting ? null : () => Navigator.of(context).pop(),
             icon: const Icon(Icons.close),
           ),
@@ -253,7 +257,7 @@ class _SheetFooter extends StatelessWidget {
             Expanded(
               child: OutlinedButton(
                 onPressed: exporting ? null : () => Navigator.of(context).pop(),
-                child: const Text('取消'),
+                child: Text(AppLocalizations.of(context)!.btnCancel),
               ),
             ),
             const SizedBox(width: 12),
@@ -271,7 +275,7 @@ class _SheetFooter extends StatelessWidget {
                         ),
                       )
                     : const Icon(Icons.download, size: 18),
-                label: Text(exporting ? '导出中...' : '导出'),
+                label: Text(exporting ? AppLocalizations.of(context)!.comparisonExporting : AppLocalizations.of(context)!.comparisonExport),
                 style: FilledButton.styleFrom(
                   minimumSize: const Size.fromHeight(46),
                 ),

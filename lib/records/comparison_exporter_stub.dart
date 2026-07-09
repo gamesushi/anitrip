@@ -28,6 +28,9 @@ Future<ComparisonExportImageResult> exportComparisonImage({
   required ComparisonExportConfig config,
   required Map<ComparisonMetadataField, String> metadata,
   required String? colorGradingSummary,
+  required String labelReference,
+  required String labelCaptured,
+  required String labelPilgrim,
 }) async {
   return const ComparisonExportImageResult.failure(
     ComparisonExportFailureReason.renderFailed,

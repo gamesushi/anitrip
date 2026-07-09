@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 import '../plan/pilgrimage_models.dart';
 
@@ -29,6 +30,14 @@ extension ComparisonOutputWidthValue on ComparisonOutputWidth {
     ComparisonOutputWidth.w2560 => '2560px',
     ComparisonOutputWidth.w3840 => '3840px',
   };
+
+  String getLocalizedLabel(BuildContext context) => switch (this) {
+    ComparisonOutputWidth.auto => AppLocalizations.of(context)!.comparisonWidthAuto,
+    ComparisonOutputWidth.w1080 => '1080px',
+    ComparisonOutputWidth.w1920 => '1920px',
+    ComparisonOutputWidth.w2560 => '2560px',
+    ComparisonOutputWidth.w3840 => '3840px',
+  };
 }
 
 extension ComparisonMetadataFieldLabel on ComparisonMetadataField {
@@ -39,6 +48,15 @@ extension ComparisonMetadataFieldLabel on ComparisonMetadataField {
     ComparisonMetadataField.coordinates => '坐标',
     ComparisonMetadataField.anitabiId => 'Anitabi ID',
     ComparisonMetadataField.episodeLabel => '场景',
+  };
+
+  String getLocalizedLabel(BuildContext context) => switch (this) {
+    ComparisonMetadataField.capturedAt => AppLocalizations.of(context)!.comparisonMetaCapturedAt,
+    ComparisonMetadataField.workTitle => AppLocalizations.of(context)!.comparisonMetaWork,
+    ComparisonMetadataField.pointName => AppLocalizations.of(context)!.comparisonMetaPoint,
+    ComparisonMetadataField.coordinates => AppLocalizations.of(context)!.comparisonMetaCoordinates,
+    ComparisonMetadataField.anitabiId => 'Anitabi ID',
+    ComparisonMetadataField.episodeLabel => AppLocalizations.of(context)!.comparisonMetaEpisode,
   };
 }
 

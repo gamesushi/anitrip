@@ -119,10 +119,33 @@ async function serveAnitabiStatic(url, response) {
   }
 }
 
+// MiriaGo dev preview: replace Flutter's service worker with a no-op one so
+// the browser never caches main.dart.js between rebuilds. Flutter ships a
+// constant service-worker version, so the real SW keeps serving stale code
+// even when the server sends `no-store`. A no-op SW has no `fetch` handler,
+// which forces every request straight to the network.
+const NOOP_SERVICE_WORKER = `// MiriaGo dev preview: caching disabled.
+self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
+// No fetch handler on purpose: all requests hit the network directly.
+`;
+
+function serveNoopServiceWorker(response) {
+  response.writeHead(200, {
+    'content-type': 'application/javascript; charset=utf-8',
+    'cache-control': 'no-store',
+  });
+  response.end(NOOP_SERVICE_WORKER);
+}
+
 const server = createServer((request, response) => {
   const url = new URL(request.url ?? '/', `http://${host}:${port}`);
   if (url.pathname.startsWith('/__anitabi_static__/')) {
     void serveAnitabiStatic(url, response);
+    return;
+  }
+  if (url.pathname.endsWith('/flutter_service_worker.js')) {
+    serveNoopServiceWorker(response);
     return;
   }
   void serveStatic(request, response);

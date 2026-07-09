@@ -46,6 +46,9 @@ void main() {
       config: const ComparisonExportConfig(),
       metadata: const {},
       colorGradingSummary: null,
+      labelReference: 'Reference',
+      labelCaptured: 'Captured',
+      labelPilgrim: 'Pilgrim',
     );
 
     expect(result.isSuccess, isFalse);

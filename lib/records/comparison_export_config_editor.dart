@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import 'comparison_export_config.dart';
 
 class ComparisonExportConfigEditor extends StatelessWidget {
@@ -21,7 +22,7 @@ class ComparisonExportConfigEditor extends StatelessWidget {
     AppColors.accent,
   ];
 
-  static const borderColorLabels = <String>['白色', '黑色', '主题色'];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class ComparisonExportConfigEditor extends StatelessWidget {
         ComparisonAppearanceSection(
           config: config,
           borderColorOptions: borderColorOptions,
-          borderColorLabels: borderColorLabels,
+          borderColorLabels: [AppLocalizations.of(context)!.comparisonBorderColorWhite, AppLocalizations.of(context)!.comparisonBorderColorBlack, AppLocalizations.of(context)!.comparisonBorderColorTheme],
           onChanged: onChanged,
         ),
         const SizedBox(height: 18),
@@ -45,16 +46,14 @@ class ComparisonExportConfigEditor extends StatelessWidget {
   }
 }
 
-String comparisonExportConfigSummary(ComparisonExportConfig config) {
+String comparisonExportConfigSummary(BuildContext context, ComparisonExportConfig config) {
   final labels = <String>[
-    '宽度 ${config.outputWidth.label}',
-    config.borderWidthPercent == 0
-        ? '无边框'
-        : '边框 ${config.borderWidthPercent.toStringAsFixed(1)}%',
-    config.showLabels ? '显示标签' : '不显示标签',
+    AppLocalizations.of(context)!.comparisonWidthLabel(config.outputWidth.getLocalizedLabel(context)),
+    config.borderWidthPercent == 0 ? AppLocalizations.of(context)!.comparisonNoBorder : AppLocalizations.of(context)!.comparisonBorderPercent(config.borderWidthPercent.toStringAsFixed(1)),
+    config.showLabels ? AppLocalizations.of(context)!.comparisonShowLabels : AppLocalizations.of(context)!.comparisonHideLabels,
   ];
   if (config.showPilgrimName && config.pilgrimName.trim().isNotEmpty) {
-    labels.add('巡礼者 ${config.pilgrimName.trim()}');
+    labels.add(AppLocalizations.of(context)!.comparisonPilgrimName(config.pilgrimName.trim()));
   }
   return labels.join(' / ');
 }
@@ -78,15 +77,15 @@ class ComparisonAppearanceSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _SectionLabel('外观'),
+        _SectionLabel(AppLocalizations.of(context)!.comparisonSectionAppearance),
         const SizedBox(height: 8),
         Row(
           children: [
-            const _FieldLabel('边框宽度'),
+            _FieldLabel(AppLocalizations.of(context)!.comparisonFieldBorderWidth),
             const Spacer(),
             Text(
               config.borderWidthPercent == 0
-                  ? '无'
+                  ? AppLocalizations.of(context)!.comparisonBorderWidthNone
                   : '${config.borderWidthPercent.toStringAsFixed(1)}%',
               style: TextStyle(
                 color: AppColors.accent,
@@ -104,7 +103,7 @@ class ComparisonAppearanceSection extends StatelessWidget {
           onChanged: (v) => onChanged(config.copyWith(borderWidthPercent: v)),
         ),
         const SizedBox(height: 12),
-        const _FieldLabel('边框颜色'),
+        _FieldLabel(AppLocalizations.of(context)!.comparisonFieldBorderColor),
         const SizedBox(height: 6),
         Wrap(
           spacing: 10,
@@ -122,7 +121,7 @@ class ComparisonAppearanceSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        const _FieldLabel('输出宽度'),
+        _FieldLabel(AppLocalizations.of(context)!.comparisonFieldOutputWidth),
         const SizedBox(height: 6),
         Wrap(
           spacing: 8,
@@ -130,7 +129,7 @@ class ComparisonAppearanceSection extends StatelessWidget {
           children: ComparisonOutputWidth.values
               .map((ow) {
                 return _OptionChip(
-                  label: ow.label,
+                  label: ow.getLocalizedLabel(context),
                   selected: config.outputWidth == ow,
                   onSelected: () => onChanged(config.copyWith(outputWidth: ow)),
                 );
@@ -140,8 +139,8 @@ class ComparisonAppearanceSection extends StatelessWidget {
         const SizedBox(height: 16),
         Row(
           children: [
-            const Text(
-              '显示标签',
+            Text(
+              AppLocalizations.of(context)!.comparisonLabelShowLabel,
               style: TextStyle(fontSize: 14, letterSpacing: 0),
             ),
             const Spacer(),
@@ -173,13 +172,13 @@ class ComparisonMetadataSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const _SectionLabel('元数据'),
+        _SectionLabel(AppLocalizations.of(context)!.comparisonSectionMetadata),
         const SizedBox(height: 8),
         TextFormField(
           controller: pilgrimNameController,
-          decoration: const InputDecoration(
-            labelText: '巡礼者名字',
-            prefixIcon: Icon(Icons.person_outline),
+          decoration: InputDecoration(
+            labelText: AppLocalizations.of(context)!.comparisonFieldPilgrimName,
+            prefixIcon: const Icon(Icons.person_outline),
           ),
           textInputAction: TextInputAction.done,
           onChanged: (value) => onChanged(config.copyWith(pilgrimName: value)),
@@ -187,9 +186,9 @@ class ComparisonMetadataSection extends StatelessWidget {
         const SizedBox(height: 8),
         Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Text(
-                '在右侧显示巡礼者',
+                AppLocalizations.of(context)!.comparisonShowPilgrimRight,
                 style: TextStyle(fontSize: 14, letterSpacing: 0),
               ),
             ),
@@ -202,9 +201,9 @@ class ComparisonMetadataSection extends StatelessWidget {
         const SizedBox(height: 8),
         Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Text(
-                '底部显示调色参数',
+                AppLocalizations.of(context)!.comparisonShowGradingBottom,
                 style: TextStyle(fontSize: 14, letterSpacing: 0),
               ),
             ),
@@ -253,7 +252,7 @@ class ComparisonMetadataSection extends StatelessWidget {
                           ),
                           Expanded(
                             child: Text(
-                              field.label,
+                              field.getLocalizedLabel(context),
                               style: const TextStyle(
                                 fontSize: 14,
                                 letterSpacing: 0,
@@ -379,7 +378,7 @@ class _ColorOption extends StatelessWidget {
 }
 
 class _SectionLabel extends StatelessWidget {
-  const _SectionLabel(this.label);
+  _SectionLabel(this.label);
 
   final String label;
 
@@ -397,7 +396,7 @@ class _SectionLabel extends StatelessWidget {
 }
 
 class _FieldLabel extends StatelessWidget {
-  const _FieldLabel(this.label);
+  _FieldLabel(this.label);
 
   final String label;
 

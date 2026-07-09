@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../plan/pilgrimage_models.dart';
 import '../plan/pilgrimage_plan_controller.dart';
 import '../plan/plan_group_utils.dart';
@@ -37,7 +38,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
     final sections = _groupedRecords(controller, records);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('记录')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.tabRecords)),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         children: [
@@ -196,8 +197,8 @@ class _RecordsScreenState extends State<RecordsScreen> {
       groups.add(
         _RecordGroup(
           id: _ungroupedRecordFilterId,
-          title: '未分组',
-          subtitle: '还没有放入片区的记录',
+          title: AppLocalizations.of(context)!.labelUnassignedGroup,
+          subtitle: AppLocalizations.of(context)!.recordsUnassignedDesc,
           icon: Icons.inventory_2_outlined,
           entries: _sortEntries(ungroupedEntries),
         ),
@@ -208,8 +209,8 @@ class _RecordsScreenState extends State<RecordsScreen> {
       groups.add(
         _RecordGroup(
           id: _orphanRecordFilterId,
-          title: '孤立记录',
-          subtitle: '对应点位已不在当前计划中',
+          title: AppLocalizations.of(context)!.recordsOrphanedTitle,
+          subtitle: AppLocalizations.of(context)!.recordsOrphanedDesc,
           icon: Icons.link_off_outlined,
           entries: _sortEntries(orphanRecords),
         ),
@@ -298,19 +299,19 @@ class _RecordsScreenState extends State<RecordsScreen> {
   String _groupNameFor(PilgrimagePoint point) {
     final groupId = point.groupId;
     if (groupId == null) {
-      return '未分组';
+      return AppLocalizations.of(context)!.labelUnassignedGroup;
     }
     return widget.controller.plan.groups
             .where((group) => group.id == groupId)
             .firstOrNull
             ?.name ??
-        '未知片区';
+        AppLocalizations.of(context)!.labelUnknownGroup;
   }
 
   String _groupAnchorLabel(PilgrimagePlanGroup group) {
     final anchorName = group.anchorName;
     if (anchorName == null || anchorName.trim().isEmpty) {
-      return '未设置关键点';
+      return AppLocalizations.of(context)!.labelNoAnchor;
     }
     return anchorName;
   }
@@ -350,8 +351,8 @@ class _RecordFilters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final summary = activeFilterCount == 0
-        ? '全部记录'
-        : '$activeFilterCount 个筛选条件';
+        ? AppLocalizations.of(context)!.recordsAllRecords
+        : AppLocalizations.of(context)!.recordsFilterConditionsCount(activeFilterCount);
 
     return Container(
       decoration: BoxDecoration(
@@ -371,9 +372,9 @@ class _RecordFilters extends StatelessWidget {
                 children: [
                   Icon(Icons.filter_list, color: AppColors.accentDark),
                   const SizedBox(width: 8),
-                  const Expanded(
+                  Expanded(
                     child: Text(
-                      '筛选',
+                      AppLocalizations.of(context)!.recordsFilterTitle,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w800,
@@ -488,13 +489,13 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
         TextField(
           controller: _searchController,
           decoration: InputDecoration(
-            labelText: '搜索点位',
+            labelText: AppLocalizations.of(context)!.recordsSearchPoints,
             prefixIcon: const Icon(Icons.search),
-            hintText: '点位、作品、场景、集数、坐标',
+            hintText: AppLocalizations.of(context)!.recordsSearchHint,
             suffixIcon: _searchController.text.isEmpty
                 ? null
                 : IconButton(
-                    tooltip: '清空搜索',
+                    tooltip: AppLocalizations.of(context)!.tooltipClearSearch,
                     onPressed: () {
                       _searchController.clear();
                       widget.onSearchChanged('');
@@ -509,8 +510,8 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           },
         ),
         const SizedBox(height: 14),
-        const Text(
-          '作品',
+        Text(
+          AppLocalizations.of(context)!.labelWork,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w800,
@@ -523,7 +524,7 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           child: Row(
             children: [
               _FilterChipButton(
-                label: '全部',
+                label: AppLocalizations.of(context)!.labelAll,
                 selected: widget.selectedWorkId == null,
                 onSelected: () => widget.onWorkSelected(null),
               ),
@@ -539,8 +540,8 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           ),
         ),
         const SizedBox(height: 12),
-        const Text(
-          '片区',
+        Text(
+          AppLocalizations.of(context)!.labelArea,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w800,
@@ -553,7 +554,7 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           child: Row(
             children: [
               _FilterChipButton(
-                label: '全部',
+                label: AppLocalizations.of(context)!.labelAll,
                 selected: widget.selectedGroupFilterId == null,
                 onSelected: () => widget.onGroupSelected(null),
               ),
@@ -567,7 +568,7 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
               ],
               const SizedBox(width: 8),
               _FilterChipButton(
-                label: '未分组',
+                label: AppLocalizations.of(context)!.labelUnassignedGroup,
                 selected:
                     widget.selectedGroupFilterId == _ungroupedRecordFilterId,
                 onSelected: () =>
@@ -575,7 +576,7 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
               ),
               const SizedBox(width: 8),
               _FilterChipButton(
-                label: '孤立记录',
+                label: AppLocalizations.of(context)!.recordsOrphanedTitle,
                 selected: widget.selectedGroupFilterId == _orphanRecordFilterId,
                 onSelected: () => widget.onGroupSelected(_orphanRecordFilterId),
               ),
@@ -583,8 +584,8 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           ),
         ),
         const SizedBox(height: 12),
-        const Text(
-          '状态',
+        Text(
+          AppLocalizations.of(context)!.recordsFilterStatus,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w800,
@@ -597,19 +598,19 @@ class _ExpandedRecordFiltersState extends State<_ExpandedRecordFilters> {
           runSpacing: 8,
           children: [
             _FilterChipButton(
-              label: '全部',
+              label: AppLocalizations.of(context)!.labelAll,
               selected: widget.statusFilter == _RecordStatusFilter.all,
               onSelected: () =>
                   widget.onStatusSelected(_RecordStatusFilter.all),
             ),
             _FilterChipButton(
-              label: '已完成点位',
+              label: AppLocalizations.of(context)!.recordsFilterCompletedPoints,
               selected: widget.statusFilter == _RecordStatusFilter.completed,
               onSelected: () =>
                   widget.onStatusSelected(_RecordStatusFilter.completed),
             ),
             _FilterChipButton(
-              label: '未完成点位',
+              label: AppLocalizations.of(context)!.recordsFilterPendingPoints,
               selected: widget.statusFilter == _RecordStatusFilter.pending,
               onSelected: () =>
                   widget.onStatusSelected(_RecordStatusFilter.pending),
@@ -692,9 +693,9 @@ class _RecordsSectionHeader extends StatelessWidget {
         : '$visibleCount/$totalCount';
     return Row(
       children: [
-        const Expanded(
+        Expanded(
           child: Text(
-            '巡礼照片',
+            AppLocalizations.of(context)!.recordsPhotoTitle,
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,
@@ -795,7 +796,7 @@ class _RecordGroupSection extends StatelessWidget {
                           vertical: 4,
                         ),
                         child: Text(
-                          '${section.entries.length} 条',
+                          AppLocalizations.of(context)!.recordsEntriesCount(section.entries.length),
                           style: const TextStyle(
                             color: AppColors.textSecondary,
                             fontSize: 12,
@@ -862,7 +863,7 @@ class _RecordsSummary extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${controller.visitRecords.length} 条巡礼记录',
+                  AppLocalizations.of(context)!.recordsTotalCount(controller.visitRecords.length),
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w800,
@@ -871,7 +872,7 @@ class _RecordsSummary extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  '完成 ${controller.completedCount}/${controller.totalCount}',
+                  AppLocalizations.of(context)!.recordsCompletedProgress(controller.completedCount, controller.totalCount),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 13,
@@ -1042,7 +1043,7 @@ class _EmptyRecords extends StatelessWidget {
           SizedBox(width: 10),
           Expanded(
             child: Text(
-              '还没有巡礼记录。拍摄成功后会自动出现在这里。',
+              AppLocalizations.of(context)!.recordsEmptyMessage,
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 14,

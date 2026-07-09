@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
 import '../map/map_tile_config.dart';
 import '../data/reference_cache_file_stub.dart'
@@ -109,12 +110,12 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: AppLocalizations.of(context)!.tooltipBack,
             onPressed: () => Navigator.of(context).pop(_didUpdate),
             icon: const Icon(Icons.arrow_back),
           ),
           title: Text(
-            _selectionMode ? '已选 ${_selectedPointIds.length}' : '管理计划',
+            _selectionMode ? AppLocalizations.of(context)!.managePlanSelectedCount(_selectedPointIds.length) : AppLocalizations.of(context)!.managePlanTitle,
           ),
           actions: [
             if (_isSaving)
@@ -128,15 +129,15 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
               )
             else if (_plan.points.isNotEmpty)
               IconButton(
-                tooltip: '片区管理',
+                tooltip: AppLocalizations.of(context)!.managePlanTooltipAreas,
                 onPressed: _openGroupManager,
                 icon: const Icon(Icons.account_tree_outlined),
               ),
             if (!_isSaving && _plan.points.isNotEmpty)
               IconButton(
                 tooltip: _isCachingFullReferences
-                    ? _fullReferenceCacheProgress?.label ?? '正在缓存完整参考图'
-                    : '缓存完整参考图',
+                    ? _fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.managePlanCachingProgress
+                    : AppLocalizations.of(context)!.managePlanCacheFullReference,
                 onPressed: _selectionMode ? null : _handleReferenceCachePressed,
                 icon: _isCachingFullReferences
                     ? const SizedBox(
@@ -148,7 +149,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
               ),
             if (!_isSaving && _plan.points.isNotEmpty)
               IconButton(
-                tooltip: _selectionMode ? '退出多选' : '多选',
+                tooltip: _selectionMode ? AppLocalizations.of(context)!.managePlanTooltipExitSelection : AppLocalizations.of(context)!.managePlanTooltipSelection,
                 onPressed: _toggleSelectionMode,
                 icon: Icon(
                   _selectionMode ? Icons.close : Icons.checklist_rtl_outlined,
@@ -480,7 +481,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         anchorLongitude: selection.position?.longitude,
         anchorPointId: selection.pointId,
       ),
-      failureMessage: '关键点保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSaveAnchorFailed,
     );
   }
 
@@ -502,9 +503,9 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
             children: [
-              const _SheetTitle(title: '片区内顺序'),
+              _SheetTitle(title: AppLocalizations.of(context)!.managePlanAreaOrderTitle),
               _OrderModeTile(
-                title: '无序',
+                title: AppLocalizations.of(context)!.groupOrderModeNone,
                 selected: mode == PlanGroupOrderMode.unordered,
                 onTap: () async {
                   Navigator.of(context).pop();
@@ -513,12 +514,12 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
                       group.group!,
                       orderMode: PlanGroupOrderMode.unordered,
                     ),
-                    failureMessage: '排序方式保存失败',
+                    failureMessage: AppLocalizations.of(context)!.msgSaveOrderModeFailed,
                   );
                 },
               ),
               _OrderModeTile(
-                title: '手动排序',
+                title: AppLocalizations.of(context)!.groupOrderModeManual,
                 selected: mode == PlanGroupOrderMode.manual,
                 onTap: () async {
                   Navigator.of(context).pop();
@@ -527,7 +528,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
                       group.group!,
                       orderMode: PlanGroupOrderMode.manual,
                     ),
-                    failureMessage: '排序方式保存失败',
+                    failureMessage: AppLocalizations.of(context)!.msgSaveOrderModeFailed,
                   );
                 },
               ),
@@ -596,7 +597,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         pointIds: pointIds,
         groupId: groupId,
       ),
-      failureMessage: '移动片区失败',
+      failureMessage: AppLocalizations.of(context)!.msgMoveAreaFailed,
     );
   }
 
@@ -611,7 +612,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         pointIds: {point.id},
         groupId: groupId,
       ),
-      failureMessage: '移动片区失败',
+      failureMessage: AppLocalizations.of(context)!.msgMoveAreaFailed,
     );
   }
 
@@ -622,7 +623,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         pointIds: {point.id},
         groupId: groupId,
       ),
-      failureMessage: '移动片区失败',
+      failureMessage: AppLocalizations.of(context)!.msgMoveAreaFailed,
     );
   }
 
@@ -635,7 +636,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
       point: currentPoint,
       status: _statusFor(currentPoint),
       onSetCurrent: () => _setCurrent(currentPoint),
-      onOpenCamera: () => _showInfo('请从计划页或地图页打开拍摄。'),
+      onOpenCamera: () => _showInfo(AppLocalizations.of(context)!.msgOpenCameraFromPlanOrMap),
       onComplete: () => _statusFor(currentPoint) == VisitStatus.completed
           ? _reopen(currentPoint)
           : _complete(currentPoint),
@@ -682,21 +683,21 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
           referenceFullImagePath: image.fullImagePath,
         ),
       ),
-      failureMessage: '参考图保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSaveReferenceImageFailed,
     );
   }
 
   String _groupNameForPoint(PilgrimagePoint point) {
     final groupId = point.groupId;
     if (groupId == null) {
-      return '未分配点位';
+      return AppLocalizations.of(context)!.labelUnassignedGroup;
     }
     return _plan.groups
         .firstWhere(
           (group) => group.id == groupId,
           orElse: () => PilgrimagePlanGroup(
             id: groupId,
-            name: '未知片区',
+            name: AppLocalizations.of(context)!.labelUnknownArea,
             orderIndex: 0,
             createdAt: DateTime.fromMillisecondsSinceEpoch(0),
           ),
@@ -720,9 +721,9 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
             children: [
-              const _SheetTitle(title: '移动到片区'),
+              _SheetTitle(title: AppLocalizations.of(context)!.managePlanMoveToAreaTitle),
               _MoveTargetTile(
-                title: '未分配点位',
+                title: AppLocalizations.of(context)!.labelUnassignedGroup,
                 selected: currentGroupId == null,
                 onTap: () => Navigator.of(context).pop(_ungroupedGroupMove),
               ),
@@ -815,16 +816,16 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         groupId: group.id,
         pointIds: [for (final candidate in points) candidate.id],
       ),
-      failureMessage: '点位顺序保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSavePointOrderFailed,
     );
   }
 
   Future<void> _confirmDelete(PilgrimagePoint point) async {
     final confirmed = await showConfirmActionDialog(
       context,
-      title: '删除点位',
-      message: '确定从计划中删除「${point.name}」吗？',
-      confirmLabel: '删除',
+      title: AppLocalizations.of(context)!.dialogDeletePointTitle,
+      message: AppLocalizations.of(context)!.dialogDeletePointMsg(point.name),
+      confirmLabel: AppLocalizations.of(context)!.btnDelete,
       icon: Icons.delete_outline,
       destructive: true,
     );
@@ -836,7 +837,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         planId: _plan.id,
         pointId: point.id,
       ),
-      failureMessage: '点位删除失败',
+      failureMessage: AppLocalizations.of(context)!.msgDeletePointFailed,
     );
   }
 
@@ -846,9 +847,9 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
     }
     final confirmed = await showConfirmActionDialog(
       context,
-      title: '批量删除点位',
-      message: '确定从计划中删除 ${_selectedPointIds.length} 个点位吗？',
-      confirmLabel: '删除',
+      title: AppLocalizations.of(context)!.dialogBulkDeletePointsTitle,
+      message: AppLocalizations.of(context)!.dialogBulkDeletePointsMsg(_selectedPointIds.length),
+      confirmLabel: AppLocalizations.of(context)!.btnDelete,
       icon: Icons.delete_outline,
       destructive: true,
     );
@@ -861,7 +862,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         planId: _plan.id,
         pointIds: pointIds,
       ),
-      failureMessage: '批量删除失败',
+      failureMessage: AppLocalizations.of(context)!.msgBulkDeleteFailed,
     );
   }
 
@@ -871,7 +872,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         planId: _plan.id,
         pointId: point.id,
       ),
-      failureMessage: '当前目标保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSaveCurrentTargetFailed,
     );
   }
 
@@ -890,7 +891,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         pointId: point.id,
         nextCurrentPointId: nextCurrentPointId,
       ),
-      failureMessage: '完成状态保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSaveCompletionStatusFailed,
     );
   }
 
@@ -898,7 +899,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
     await _saveStatusChange(
       action: () =>
           widget.repository.reopenPoint(planId: _plan.id, pointId: point.id),
-      failureMessage: '点位状态保存失败',
+      failureMessage: AppLocalizations.of(context)!.msgSavePointStatusFailed,
     );
   }
 
@@ -912,7 +913,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         planId: _plan.id,
         pointIds: pointIds,
       ),
-      failureMessage: '批量完成失败',
+      failureMessage: AppLocalizations.of(context)!.msgBulkCompleteFailed,
     );
   }
 
@@ -924,7 +925,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
     await _saveStatusChange(
       action: () =>
           widget.repository.reopenPoints(planId: _plan.id, pointIds: pointIds),
-      failureMessage: '批量重置失败',
+      failureMessage: AppLocalizations.of(context)!.msgBulkResetFailed,
     );
   }
 
@@ -1017,7 +1018,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
       _fullReferenceCacheProgress = null;
     });
     messenger.showReplacingSnackBar(
-      const SnackBar(content: Text('已开始缓存完整参考图')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.msgFullReferenceCacheStarted)),
     );
     try {
       await cacheFullReferenceImages(
@@ -1060,25 +1061,25 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
 
   Future<void> _handleReferenceCachePressed() async {
     if (_isCachingFullReferences) {
-      return _showInfo(_fullReferenceCacheProgress?.label ?? '正在缓存完整参考图...');
+      return _showInfo(_fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.msgCachingFullReferenceProgress);
     }
     final points = pointsNeedingFullReferenceCache(_plan.points);
     if (points.isEmpty) {
-      return _showInfo('当前计划没有需要缓存的参考图');
+      return _showInfo(AppLocalizations.of(context)!.msgNoReferenceToCache);
     }
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('缓存完整参考图'),
-        content: Text('将缓存当前计划中 ${points.length} 张完整参考图，可能需要较长时间和网络流量。'),
+        title: Text(AppLocalizations.of(context)!.dialogCacheFullReferenceTitle),
+        content: Text(AppLocalizations.of(context)!.dialogCacheFullReferenceMsg(points.length)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.btnCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('开始缓存'),
+            child: Text(AppLocalizations.of(context)!.btnStartCache),
           ),
         ],
       ),
@@ -1134,7 +1135,7 @@ class _PlanManagerHeader extends StatelessWidget {
     final orderLabel = group.group?.orderMode == PlanGroupOrderMode.manual
         ? '手动排序'
         : '无序';
-    final anchorLabel = group.group?.anchorName ?? '未设置';
+    final anchorLabel = group.group?.anchorName ?? AppLocalizations.of(context)!.labelAnchorNotSet;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -1151,7 +1152,7 @@ class _PlanManagerHeader extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  tooltip: '上一个片区',
+                  tooltip: AppLocalizations.of(context)!.tooltipPrevArea,
                   onPressed: selectionMode ? null : onPreviousGroup,
                   icon: const Icon(Icons.chevron_left),
                 ),
@@ -1172,7 +1173,7 @@ class _PlanManagerHeader extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  tooltip: '下一个片区',
+                  tooltip: AppLocalizations.of(context)!.tooltipNextArea,
                   onPressed: selectionMode ? null : onNextGroup,
                   icon: const Icon(Icons.chevron_right),
                 ),
@@ -1181,8 +1182,8 @@ class _PlanManagerHeader extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               group.isUngrouped
-                  ? '${group.points.length} 个点位等待整理'
-                  : '${group.points.length} 个点位 · 已完成 ${group.completedCount} · $groupNumber/$groupCount',
+                  ? AppLocalizations.of(context)!.managePlanPointsPending(group.points.length)
+                  : AppLocalizations.of(context)!.managePlanPointsStats(group.points.length, group.completedCount, groupNumber, groupCount),
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: AppColors.textSecondary,
@@ -1203,7 +1204,7 @@ class _PlanManagerHeader extends StatelessWidget {
                   Expanded(
                     child: _HeaderPillButton(
                       icon: Icons.flag_outlined,
-                      label: '关键点：$anchorLabel',
+                      label: AppLocalizations.of(context)!.managePlanAnchorLabel(anchorLabel),
                       onTap: selectionMode ? null : onAnchorTap,
                     ),
                   ),
@@ -1238,7 +1239,7 @@ class _UngroupedActionRow extends StatelessWidget {
         Expanded(
           child: _HeaderPillButton(
             icon: Icons.auto_fix_high_outlined,
-            label: '最近分配',
+            label: AppLocalizations.of(context)!.btnNearestAssign,
             onTap: () => onNearestAssign(),
           ),
         ),
@@ -1246,7 +1247,7 @@ class _UngroupedActionRow extends StatelessWidget {
         Expanded(
           child: _HeaderPillButton(
             icon: Icons.select_all_outlined,
-            label: '框选分配',
+            label: AppLocalizations.of(context)!.btnBoxSelectAssign,
             onTap: () => onBoxAssign(),
           ),
         ),
@@ -1325,9 +1326,9 @@ class _PointManagerTile extends StatelessWidget {
       VisitStatus.pending => AppColors.accentDark,
     };
     final statusText = switch (status) {
-      VisitStatus.current => '当前',
-      VisitStatus.completed => '已完成',
-      VisitStatus.pending => '待访问',
+      VisitStatus.current => AppLocalizations.of(context)!.statusCurrent,
+      VisitStatus.completed => AppLocalizations.of(context)!.statusCompleted,
+      VisitStatus.pending => AppLocalizations.of(context)!.statusPending,
     };
 
     return Material(
@@ -1417,7 +1418,7 @@ class _PointManagerTile extends StatelessWidget {
               ),
               if (!selectionMode)
                 PopupMenuButton<String>(
-                  tooltip: '点位操作',
+                  tooltip: AppLocalizations.of(context)!.tooltipPointActions,
                   enabled: !isBusy,
                   onSelected: (value) {
                     switch (value) {
@@ -1434,19 +1435,19 @@ class _PointManagerTile extends StatelessWidget {
                     }
                   },
                   itemBuilder: (context) => [
-                    const PopupMenuItem(value: 'move', child: Text('移动到片区')),
+                    PopupMenuItem(value: 'move', child: Text(AppLocalizations.of(context)!.btnMoveToArea)),
                     if (status != VisitStatus.current)
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'current',
-                        child: Text('设为当前'),
+                        child: Text(AppLocalizations.of(context)!.btnSetAsCurrent),
                       ),
                     PopupMenuItem(
                       value: 'complete',
                       child: Text(
-                        status == VisitStatus.completed ? '取消完成' : '标记完成',
+                        status == VisitStatus.completed ? AppLocalizations.of(context)!.btnCancelCompletion : AppLocalizations.of(context)!.btnMarkCompletion,
                       ),
                     ),
-                    const PopupMenuItem(value: 'delete', child: Text('删除点位')),
+                    PopupMenuItem(value: 'delete', child: Text(AppLocalizations.of(context)!.btnDeletePoint)),
                   ],
                 ),
             ],
@@ -1473,10 +1474,10 @@ class _CacheStatusPill extends StatelessWidget {
       fullCacheIsCurrent: fullCached,
     );
     final label = switch (status) {
-      ReferenceImageStatus.none => '无参考图',
-      ReferenceImageStatus.localUpload => '本地上传',
-      ReferenceImageStatus.fullCached => '已缓存',
-      ReferenceImageStatus.remote => '未缓存',
+      ReferenceImageStatus.none => AppLocalizations.of(context)!.refStatusNone,
+      ReferenceImageStatus.localUpload => AppLocalizations.of(context)!.refStatusLocal,
+      ReferenceImageStatus.fullCached => AppLocalizations.of(context)!.refStatusCached,
+      ReferenceImageStatus.remote => AppLocalizations.of(context)!.refStatusRemote,
     };
     final color = switch (status) {
       ReferenceImageStatus.none => AppColors.textSecondary,
@@ -1598,7 +1599,7 @@ class _BatchActionBar extends StatelessWidget {
         child: Row(
           children: [
             IconButton(
-              tooltip: allSelected ? '清空' : '全选',
+              tooltip: allSelected ? AppLocalizations.of(context)!.tooltipClearSelection : AppLocalizations.of(context)!.tooltipSelectAll,
               onPressed: isBusy
                   ? null
                   : allSelected
@@ -1614,22 +1615,22 @@ class _BatchActionBar extends StatelessWidget {
             ),
             const Spacer(),
             IconButton(
-              tooltip: '移动片区',
+              tooltip: AppLocalizations.of(context)!.tooltipMoveArea,
               onPressed: isBusy || !hasSelection ? null : onMove,
               icon: const Icon(Icons.drive_file_move_outlined),
             ),
             IconButton(
-              tooltip: '标记完成',
+              tooltip: AppLocalizations.of(context)!.tooltipMarkCompleted,
               onPressed: isBusy || !hasSelection ? null : onComplete,
               icon: const Icon(Icons.check_outlined),
             ),
             IconButton(
-              tooltip: '重置',
+              tooltip: AppLocalizations.of(context)!.tooltipReset,
               onPressed: isBusy || !hasSelection ? null : onReopen,
               icon: const Icon(Icons.restart_alt),
             ),
             IconButton(
-              tooltip: '删除',
+              tooltip: AppLocalizations.of(context)!.btnDelete,
               onPressed: isBusy || !hasSelection ? null : onDelete,
               icon: const Icon(Icons.delete_outline),
             ),
@@ -1788,12 +1789,12 @@ class _GroupAnchorMapPickerScreenState
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('选择关键点'),
+        title: Text(AppLocalizations.of(context)!.dialogSelectAnchorTitle),
         actions: [
           TextButton(
             onPressed: () =>
                 Navigator.of(context).pop(const _GroupAnchorSelection.clear()),
-            child: const Text('清除'),
+            child: Text(AppLocalizations.of(context)!.btnClear),
           ),
         ],
       ),
@@ -1853,7 +1854,7 @@ class _GroupAnchorMapPickerScreenState
               child: Column(
                 children: [
                   _MapToolButton(
-                    tooltip: _manualPickMode ? '关闭地图点选' : '在地图上选点',
+                    tooltip: _manualPickMode ? AppLocalizations.of(context)!.tooltipCloseMapSelect : AppLocalizations.of(context)!.tooltipSelectOnMap,
                     selected: _manualPickMode,
                     onTap: () {
                       setState(() {
@@ -1864,7 +1865,7 @@ class _GroupAnchorMapPickerScreenState
                   ),
                   const SizedBox(height: 8),
                   _MapToolButton(
-                    tooltip: '输入经纬度',
+                    tooltip: AppLocalizations.of(context)!.tooltipInputCoordinates,
                     selected: false,
                     onTap: _showCoordinateInput,
                     icon: Icons.edit_location_alt_outlined,
@@ -1927,7 +1928,7 @@ class _GroupAnchorMapPickerScreenState
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('输入经纬度'),
+          title: Text(AppLocalizations.of(context)!.dialogInputCoordinatesTitle),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -1937,7 +1938,7 @@ class _GroupAnchorMapPickerScreenState
                   signed: true,
                   decimal: true,
                 ),
-                decoration: const InputDecoration(labelText: '纬度'),
+                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointLatitude),
               ),
               const SizedBox(height: 8),
               TextField(
@@ -1946,14 +1947,14 @@ class _GroupAnchorMapPickerScreenState
                   signed: true,
                   decimal: true,
                 ),
-                decoration: const InputDecoration(labelText: '经度'),
+                decoration: InputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointLongitude),
               ),
             ],
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.btnCancel),
             ),
             FilledButton(
               onPressed: () {
@@ -1973,7 +1974,7 @@ class _GroupAnchorMapPickerScreenState
                 }
                 Navigator.of(context).pop(LatLng(latitude, longitude));
               },
-              child: const Text('确定'),
+              child: Text(AppLocalizations.of(context)!.btnConfirm),
             ),
           ],
         );
@@ -2010,7 +2011,7 @@ class _GroupAnchorMapPickerScreenState
     }
     Navigator.of(context).pop(
       _GroupAnchorSelection(
-        name: '手动关键点',
+        name: AppLocalizations.of(context)!.labelManualAnchor,
         position: manualPosition,
         pointId: null,
       ),
@@ -2027,7 +2028,7 @@ class _AnchorPointMarker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      tooltip: '选择点位',
+      tooltip: AppLocalizations.of(context)!.tooltipSelectPoint,
       onPressed: onTap,
       style: IconButton.styleFrom(
         backgroundColor: selected ? AppColors.accent : AppColors.surface,
@@ -2106,9 +2107,9 @@ class _AnchorSelectionCard extends StatelessWidget {
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     final point = selectedPoint;
     final position = point?.position ?? manualPosition;
-    final title = point?.name ?? (position == null ? '尚未选择关键点' : '手动关键点');
+    final title = point?.name ?? (position == null ? AppLocalizations.of(context)!.labelAnchorNotSelected : AppLocalizations.of(context)!.labelManualAnchor);
     final subtitle = point == null
-        ? (manualPickMode ? '点击地图任意位置设置关键点' : '可点选点位、地图或输入经纬度')
+        ? (manualPickMode ? AppLocalizations.of(context)!.msgClickMapToSetAnchor : AppLocalizations.of(context)!.msgSelectAnchorMethods)
         : '${groupNameForPoint(point)} / ${point.subtitle}';
 
     return Container(
@@ -2155,7 +2156,7 @@ class _AnchorSelectionCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          FilledButton(onPressed: onSave, child: const Text('保存')),
+          FilledButton(onPressed: onSave, child: Text(AppLocalizations.of(context)!.btnSave)),
         ],
       ),
     );
@@ -2167,10 +2168,10 @@ class _EmptyPlanManager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
-        '还没有可以管理的点位',
-        style: TextStyle(
+        AppLocalizations.of(context)!.managePlanNoPoints,
+        style: const TextStyle(
           color: AppColors.textSecondary,
           fontSize: 15,
           letterSpacing: 0,

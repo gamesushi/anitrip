@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'package:latlong2/latlong.dart';
 
 const Object _unset = Object();
@@ -29,6 +31,18 @@ enum BangumiSubjectType {
       }
     }
     return null;
+  }
+}
+
+extension BangumiSubjectTypeExtension on BangumiSubjectType {
+  String getName(BuildContext context) {
+    return switch (this) {
+      BangumiSubjectType.book => AppLocalizations.of(context)!.subjectTypeBook,
+      BangumiSubjectType.anime => AppLocalizations.of(context)!.subjectTypeAnime,
+      BangumiSubjectType.music => AppLocalizations.of(context)!.subjectTypeMusic,
+      BangumiSubjectType.game => AppLocalizations.of(context)!.subjectTypeGame,
+      BangumiSubjectType.real => AppLocalizations.of(context)!.subjectTypeReal,
+    };
   }
 }
 
@@ -144,6 +158,17 @@ enum NavigationApp {
       NavigationApp.browser => '\u6d4f\u89c8\u5668',
     };
   }
+
+  String getLocalizedLabel(BuildContext context) {
+    return switch (this) {
+      NavigationApp.googleMaps => AppLocalizations.of(context)!.navAppGoogleMaps,
+      NavigationApp.amap => AppLocalizations.of(context)!.navAppAmap,
+      NavigationApp.appleMaps => AppLocalizations.of(context)!.navAppAppleMaps,
+      NavigationApp.baiduMaps => AppLocalizations.of(context)!.navAppBaiduMaps,
+      NavigationApp.tencentMaps => AppLocalizations.of(context)!.navAppTencentMaps,
+      NavigationApp.browser => AppLocalizations.of(context)!.navAppBrowser,
+    };
+  }
 }
 
 class AppSettings {
@@ -175,6 +200,7 @@ class AppSettings {
     this.customCameraAspectRatioHeight = 1,
     this.mapThumbnailVisibleThreshold = 40,
     this.mapThumbnailConcurrentLoads = 10,
+    this.language = 'system',
   });
 
   final double uiScale;
@@ -204,6 +230,7 @@ class AppSettings {
   final double customCameraAspectRatioHeight;
   final int mapThumbnailVisibleThreshold;
   final int mapThumbnailConcurrentLoads;
+  final String language;
 
   AppSettings copyWith({
     double? uiScale,
@@ -233,6 +260,7 @@ class AppSettings {
     double? customCameraAspectRatioHeight,
     int? mapThumbnailVisibleThreshold,
     int? mapThumbnailConcurrentLoads,
+    String? language,
   }) {
     return AppSettings(
       uiScale: uiScale ?? this.uiScale,
@@ -275,6 +303,7 @@ class AppSettings {
           mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
       mapThumbnailConcurrentLoads:
           mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+      language: language ?? this.language,
     );
   }
 }

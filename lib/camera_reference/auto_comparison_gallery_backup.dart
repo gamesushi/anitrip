@@ -39,6 +39,9 @@ typedef AutoComparisonExporter =
       required ComparisonExportConfig config,
       required Map<ComparisonMetadataField, String> metadata,
       required String? colorGradingSummary,
+      required String labelReference,
+      required String labelCaptured,
+      required String labelPilgrim,
     });
 
 typedef AutoComparisonGallerySaver = Future<bool> Function(String filePath);
@@ -57,6 +60,9 @@ Future<AutoComparisonGalleryResult> autoSaveComparisonImageToGallery({
   required AppSettings settings,
   required String? pointReferenceFullImagePath,
   required String? pointReferenceImageUrl,
+  required String labelReference,
+  required String labelCaptured,
+  required String labelPilgrim,
   AutoComparisonConfigLoader loadConfig = loadComparisonExportConfig,
   AutoComparisonExporter exporter = exportComparisonImage,
   AutoComparisonGallerySaver gallerySaver = saveImageToGallery,
@@ -86,6 +92,9 @@ Future<AutoComparisonGalleryResult> autoSaveComparisonImageToGallery({
     config: config,
     metadata: comparisonMetadataForRecord(record: record, point: point),
     colorGradingSummary: null,
+    labelReference: labelReference,
+    labelCaptured: labelCaptured,
+    labelPilgrim: labelPilgrim,
   );
 
   if (!result.isSuccess) {

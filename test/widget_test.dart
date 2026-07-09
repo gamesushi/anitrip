@@ -11,16 +11,28 @@ import 'package:miriago/plan/plan_group_manager_screen.dart';
 import 'package:miriago/plan/pilgrimage_models.dart';
 import 'package:miriago/widgets/constrained_menu_anchor.dart';
 import 'package:miriago/widgets/reference_image_placeholder.dart';
+import 'package:miriago/l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> _pumpApp(WidgetTester tester) async {
-  await tester.pumpWidget(MiriaGoApp(repository: SamplePilgrimageRepository()));
+  await tester.pumpWidget(MiriaGoApp(
+    repository: SamplePilgrimageRepository(
+      settings: const AppSettings(language: 'zh'),
+    ),
+    initialSettings: const AppSettings(language: 'zh'),
+  ));
   await tester.pumpAndSettle();
 }
 
 Future<void> _pumpAppWithEmptyPlan(WidgetTester tester) async {
-  final repository = SamplePilgrimageRepository();
+  final repository = SamplePilgrimageRepository(
+    settings: const AppSettings(language: 'zh'),
+  );
   await repository.createPlan(name: '新巡礼计划 2', area: '未设置区域');
-  await tester.pumpWidget(MiriaGoApp(repository: repository));
+  await tester.pumpWidget(MiriaGoApp(
+    repository: repository,
+    initialSettings: const AppSettings(language: 'zh'),
+  ));
   await tester.pumpAndSettle();
 }
 
@@ -136,7 +148,7 @@ void main() {
     await tester.tap(find.widgetWithText(FilledButton, '保存'));
     await tester.pumpAndSettle();
 
-    expect(find.text('计划备忘录已保存'), findsOneWidget);
+    expect(find.textContaining('计划备忘录已保存'), findsOneWidget);
     expect(find.text('第一天先去宇治站，下午整理补拍点。'), findsOneWidget);
   });
 
@@ -271,6 +283,14 @@ void main() {
     );
     await tester.pumpWidget(
       MaterialApp(
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: const Locale('zh'),
         home: Scaffold(
           body: Builder(
             builder: (context) {
@@ -494,7 +514,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('手动添加作品'), findsOneWidget);
-    await tester.pageBack();
+    await tester.tap(find.byType(BackButton));
     await tester.pumpAndSettle();
 
     expect(find.text('原创短片'), findsOneWidget);
@@ -536,7 +556,7 @@ void main() {
     await tester.tap(find.text('保存点位'));
     await tester.pumpAndSettle();
 
-    expect(find.text('未分组'), findsWidgets);
+    expect(find.text('未分入片区'), findsWidgets);
     expect(find.text('鸭川三条'), findsWidgets);
     expect(find.text('轻音少女 / 鸭川沿岸 / 自定义场景 1'), findsWidgets);
   });

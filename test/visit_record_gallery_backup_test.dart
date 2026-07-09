@@ -85,6 +85,9 @@ void main() {
       ),
       pointReferenceFullImagePath: null,
       pointReferenceImageUrl: null,
+      labelReference: 'Reference',
+      labelCaptured: 'Captured',
+      labelPilgrim: 'Pilgrim',
       loadConfig: () async => const ComparisonExportConfig(),
       exporter:
           ({
@@ -94,6 +97,9 @@ void main() {
             required config,
             required metadata,
             required colorGradingSummary,
+            required labelReference,
+            required labelCaptured,
+            required labelPilgrim,
           }) async {
             expect(referenceImagePath, isNull);
             expect(referenceImageUrl, 'https://example.com/ref.jpg');
@@ -130,6 +136,9 @@ void main() {
         settings: const AppSettings(autoSaveComparisonToGallery: true),
         pointReferenceFullImagePath: null,
         pointReferenceImageUrl: null,
+        labelReference: 'Reference',
+        labelCaptured: 'Captured',
+        labelPilgrim: 'Pilgrim',
         loadConfig: () async => const ComparisonExportConfig(),
         exporter:
             ({
@@ -139,6 +148,9 @@ void main() {
               required config,
               required metadata,
               required colorGradingSummary,
+              required labelReference,
+              required labelCaptured,
+              required labelPilgrim,
             }) async {
               return const ComparisonExportImageResult.failure(
                 ComparisonExportFailureReason.referenceUnavailable,

@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/anitabi_image_fetcher.dart';
 import '../data/anitabi_image_url.dart';
 import '../plan/pilgrimage_models.dart';
@@ -40,6 +41,14 @@ extension AwesomeReferenceModeLabel on AwesomeReferenceMode {
       AwesomeReferenceMode.overlay => '叠影',
       AwesomeReferenceMode.split => '上下',
       AwesomeReferenceMode.pinned => '小窗',
+    };
+  }
+
+  String getName(BuildContext context) {
+    return switch (this) {
+      AwesomeReferenceMode.overlay => AppLocalizations.of(context)!.cameraRefModeOverlay,
+      AwesomeReferenceMode.split => AppLocalizations.of(context)!.cameraRefModeSplit,
+      AwesomeReferenceMode.pinned => AppLocalizations.of(context)!.cameraRefModePinned,
     };
   }
 }
@@ -2635,9 +2644,9 @@ class _ModeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const modes = [
-      (AwesomeReferenceMode.overlay, Icons.layers_outlined, '叠影'),
-      (AwesomeReferenceMode.split, Icons.splitscreen_outlined, '上下'),
+    final modes = [
+      (AwesomeReferenceMode.overlay, Icons.layers_outlined),
+      (AwesomeReferenceMode.split, Icons.splitscreen_outlined),
     ];
 
     return LayoutBuilder(
@@ -2659,7 +2668,7 @@ class _ModeSelector extends StatelessWidget {
                   child: _ModeChip(
                     selected: mode == entry.$1,
                     icon: entry.$2,
-                    label: entry.$3,
+                    label: entry.$1.getName(context),
                     compact: compact,
                     onTap: () => onChanged(entry.$1),
                   ),
@@ -2685,9 +2694,9 @@ class _ModeColumnSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const modes = [
-      (AwesomeReferenceMode.overlay, Icons.layers_outlined, '叠影'),
-      (AwesomeReferenceMode.split, Icons.splitscreen_outlined, '上下'),
+    final modes = [
+      (AwesomeReferenceMode.overlay, Icons.layers_outlined),
+      (AwesomeReferenceMode.split, Icons.splitscreen_outlined),
     ];
 
     return Column(
@@ -2697,7 +2706,7 @@ class _ModeColumnSelector extends StatelessWidget {
             metrics: metrics,
             selected: mode == entry.$1,
             icon: entry.$2,
-            label: entry.$3,
+            label: entry.$1.getName(context),
             onTap: () => onChanged(entry.$1),
           ),
           SizedBox(height: metrics.modeGap),
@@ -3572,8 +3581,8 @@ class _FallbackPreview extends StatelessWidget {
             Icon(Icons.photo_camera_outlined, color: AppColors.accentDark),
             SizedBox(height: 8),
             Text(
-              'Web 预览不启动实时相机',
-              style: TextStyle(
+              AppLocalizations.of(context)!.cameraWebPreviewWarning,
+              style: const TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 14,
                 letterSpacing: 0,

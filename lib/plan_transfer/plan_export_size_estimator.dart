@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 import 'dart:convert';
 
 import '../data/local_asset_size_stub.dart'
@@ -30,36 +32,36 @@ class PlanExportSizeEstimate {
       missingVisitPhotoCount > 0 ||
       missingGradedPhotoCount > 0;
 
-  List<String> get detailMessages {
+  List<String> detailMessages(BuildContext context) {
     final messages = <String>[];
     if (missingThumbnailCount > 0) {
-      messages.add('$missingThumbnailCount 张缩略图未缓存，不会进入数据包');
+      messages.add(AppLocalizations.of(context)!.estimateThumbnailNotCached(missingThumbnailCount));
     }
     if (missingFullReferenceCount > 0) {
-      messages.add('$missingFullReferenceCount 张完整参考图将在导出时下载');
+      messages.add(AppLocalizations.of(context)!.estimateFullReferenceWillDownload(missingFullReferenceCount));
     }
     if (missingUserReferenceCount > 0) {
-      messages.add('$missingUserReferenceCount 张本地上传参考图文件缺失，导出后无法恢复');
+      messages.add(AppLocalizations.of(context)!.estimateUserReferenceMissing(missingUserReferenceCount));
     }
     if (missingVisitPhotoCount > 0) {
-      messages.add('$missingVisitPhotoCount 张巡礼照片文件缺失');
+      messages.add(AppLocalizations.of(context)!.estimateVisitPhotoMissing(missingVisitPhotoCount));
     }
     if (missingGradedPhotoCount > 0) {
-      messages.add('$missingGradedPhotoCount 张调色照片文件缺失');
+      messages.add(AppLocalizations.of(context)!.estimateGradedPhotoMissing(missingGradedPhotoCount));
     }
     if (hasUnknownLocalAssets) {
-      messages.add('部分本地资源无法读取，实际包体可能变化');
+      messages.add(AppLocalizations.of(context)!.estimateUnknownLocalAssets);
     }
     return messages;
   }
 
-  String get label {
+  String label(BuildContext context) {
     final size = _formatBytes(knownBytes);
-    final details = detailMessages;
+    final details = detailMessages(context);
     if (details.isNotEmpty) {
-      return '预计数据包大小：至少约 $size，${details.join('；')}';
+      return AppLocalizations.of(context)!.estimateLabelAtLeast(size, details.join('；'));
     }
-    return '预计数据包大小：约 $size';
+    return AppLocalizations.of(context)!.estimateLabelAbout(size);
   }
 }
 

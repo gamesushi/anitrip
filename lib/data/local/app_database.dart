@@ -147,6 +147,7 @@ class AppSettingsEntries extends Table {
       integer().withDefault(const Constant(40))();
   IntColumn get mapThumbnailConcurrentLoads =>
       integer().withDefault(const Constant(10))();
+  TextColumn get language => text().withDefault(const Constant('system'))();
 
   @override
   Set<Column<Object>> get primaryKey => {id};
@@ -159,7 +160,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 27;
+  int get schemaVersion => 28;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -419,6 +420,15 @@ class AppDatabase extends _$AppDatabase {
           'map_thumbnail_concurrent_loads',
           appSettingsEntries,
           appSettingsEntries.mapThumbnailConcurrentLoads,
+        );
+      }
+      if (from < 28) {
+        await _addColumnIfMissing(
+          migrator,
+          'app_settings_entries',
+          'language',
+          appSettingsEntries,
+          appSettingsEntries.language,
         );
       }
     },

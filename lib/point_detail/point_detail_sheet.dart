@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../l10n/app_localizations.dart';
 
 import '../app_theme.dart';
 import '../data/user_reference_image_stub.dart'
@@ -112,16 +113,18 @@ class PointDetailSheet extends StatelessWidget {
     }
 
     messenger.showReplacingSnackBar(
-      const SnackBar(content: Text('正在替换参考图...')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.msgReplacingRef)),
     );
     final stored = await storeUserReferenceImage(
       sourcePath: picked.path,
       pointId: point.id,
     );
     if (stored == null || !context.mounted) {
-      messenger.showReplacingSnackBar(
-        const SnackBar(content: Text('参考图替换失败，请稍后重试。')),
-      );
+      if (context.mounted) {
+        messenger.showReplacingSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.msgReplaceRefFailed)),
+        );
+      }
       return;
     }
 
@@ -130,7 +133,7 @@ class PointDetailSheet extends StatelessWidget {
       return;
     }
 
-    messenger.showReplacingSnackBar(const SnackBar(content: Text('已替换参考图')));
+    messenger.showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgReplaceRefSuccess)));
     navigator.pop();
   }
 
@@ -138,7 +141,7 @@ class PointDetailSheet extends StatelessWidget {
     final opened = await navigationLauncher.openGoogleMapsWalking(point);
     if (!opened && context.mounted) {
       ScaffoldMessenger.of(context).showReplacingSnackBar(
-        const SnackBar(content: Text('无法打开 Google Maps。')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.msgCannotOpenMap)),
       );
     }
   }
@@ -161,9 +164,9 @@ class PointDetailSheet extends StatelessWidget {
             shrinkWrap: true,
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
             children: [
-              const Text(
-                '移动到片区',
-                style: TextStyle(
+              Text(
+                AppLocalizations.of(context)!.titleMoveToGroup,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w800,
                   letterSpacing: 0,
@@ -171,7 +174,7 @@ class PointDetailSheet extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               _GroupOptionTile(
-                title: '未分入片区',
+                title: AppLocalizations.of(context)!.labelUnassignedGroup,
                 selected: point.groupId == null,
                 onTap: () => Navigator.of(context).pop(''),
               ),
@@ -231,7 +234,7 @@ class PointDetailSheet extends StatelessWidget {
                           const SizedBox(height: 8),
                           CopyableText(
                             text: point.name,
-                            copyLabel: '点位名称',
+                            copyLabel: AppLocalizations.of(context)!.copyLabelPointName,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -259,26 +262,26 @@ class PointDetailSheet extends StatelessWidget {
                 const SizedBox(height: 16),
                 _InfoRow(
                   icon: Icons.movie_filter_outlined,
-                  label: '作品',
+                  label: AppLocalizations.of(context)!.labelWork,
                   value: '${point.work.title} / ${point.work.subtitle}',
                 ),
                 const SizedBox(height: 8),
                 _InfoRow(
                   icon: Icons.local_movies_outlined,
-                  label: '场景',
+                  label: AppLocalizations.of(context)!.labelScene,
                   value: point.displayEpisodeLabel,
                 ),
                 const SizedBox(height: 8),
                 _InfoRow(
                   icon: Icons.location_on_outlined,
-                  label: '坐标',
+                  label: AppLocalizations.of(context)!.labelCoordinates,
                   value:
                       '${point.position.latitude.toStringAsFixed(5)}, ${point.position.longitude.toStringAsFixed(5)}',
                 ),
                 const SizedBox(height: 8),
                 _GroupInfoRow(
-                  groupName: _groupName,
-                  anchorLabel: _groupAnchorLabel,
+                  groupName: _groupName(context),
+                  anchorLabel: _groupAnchorLabel(context),
                   onMove: onMoveToGroup == null
                       ? null
                       : () => _showMoveGroupSheet(context),
@@ -286,20 +289,20 @@ class PointDetailSheet extends StatelessWidget {
                 const SizedBox(height: 8),
                 _InfoRow(
                   icon: Icons.image_outlined,
-                  label: '参考',
+                  label: AppLocalizations.of(context)!.labelReference,
                   value: point.referenceLabel,
                 ),
                 const SizedBox(height: 8),
                 _InfoRow(
                   icon: Icons.source_outlined,
-                  label: '来源',
-                  value: _sourceText,
+                  label: AppLocalizations.of(context)!.labelSource,
+                  value: _sourceText(context),
                 ),
                 if (point.sourceId != null) ...[
                   const SizedBox(height: 8),
                   _InfoRow(
                     icon: Icons.tag_outlined,
-                    label: 'ID',
+                    label: AppLocalizations.of(context)!.labelId,
                     value: point.sourceId!,
                   ),
                 ],
@@ -307,7 +310,7 @@ class PointDetailSheet extends StatelessWidget {
                   const SizedBox(height: 8),
                   _InfoRow(
                     icon: Icons.link_outlined,
-                    label: '链接',
+                    label: AppLocalizations.of(context)!.labelLink,
                     value: point.sourceUrl!,
                   ),
                 ],
@@ -315,7 +318,7 @@ class PointDetailSheet extends StatelessWidget {
                   const SizedBox(height: 8),
                   _InfoRow(
                     icon: Icons.sticky_note_2_outlined,
-                    label: '备注',
+                    label: AppLocalizations.of(context)!.labelNote,
                     value: point.note!,
                   ),
                 ],
@@ -354,7 +357,7 @@ class PointDetailSheet extends StatelessWidget {
                           Navigator.of(context).pop();
                           onSetCurrent!();
                         },
-                  statusAction: onComplete == null ? null : _statusAction,
+                  statusAction: onComplete == null ? null : _statusAction(context),
                   onEditPoint: onEditPoint == null
                       ? null
                       : () {
@@ -370,44 +373,44 @@ class PointDetailSheet extends StatelessWidget {
     );
   }
 
-  String get _sourceText {
+  String _sourceText(BuildContext context) {
     return switch (point.source) {
       PointSource.anitabi => 'Anitabi / ${point.referenceLabel}',
-      PointSource.manual => '手动录入 / ${point.referenceLabel}',
+      PointSource.manual => '${AppLocalizations.of(context)!.labelManualEntry} / ${point.referenceLabel}',
     };
   }
 
-  _PointStatusAction get _statusAction {
+  _PointStatusAction _statusAction(BuildContext context) {
     return switch (status) {
       VisitStatus.completed => _PointStatusAction(
-        label: '撤回打卡',
+        label: AppLocalizations.of(context)!.labelRevertCompleted,
         icon: Icons.replay_outlined,
         onTap: onComplete!,
       ),
       VisitStatus.current => _PointStatusAction(
-        label: '标记完成',
+        label: AppLocalizations.of(context)!.btnMarkDone,
         icon: Icons.check_circle_outline,
         onTap: onComplete!,
       ),
       VisitStatus.pending => _PointStatusAction(
-        label: '标记完成',
+        label: AppLocalizations.of(context)!.btnMarkDone,
         icon: Icons.check_circle_outline,
         onTap: onComplete!,
       ),
     };
   }
 
-  String get _groupName {
+  String _groupName(BuildContext context) {
     final groupId = point.groupId;
     if (groupId == null) {
-      return '未分入片区';
+      return AppLocalizations.of(context)!.labelUnassignedGroup;
     }
     return groups
         .firstWhere(
           (group) => group.id == groupId,
           orElse: () => PilgrimagePlanGroup(
             id: groupId,
-            name: '未知片区',
+            name: AppLocalizations.of(context)!.labelUnknownGroup,
             orderIndex: 0,
             createdAt: DateTime.fromMillisecondsSinceEpoch(0),
           ),
@@ -415,15 +418,15 @@ class PointDetailSheet extends StatelessWidget {
         .name;
   }
 
-  String get _groupAnchorLabel {
+  String _groupAnchorLabel(BuildContext context) {
     final groupId = point.groupId;
     if (groupId == null) {
-      return '未设置关键点';
+      return AppLocalizations.of(context)!.labelNoAnchor;
     }
     final group = groups.where((group) => group.id == groupId).firstOrNull;
     final anchorName = group?.anchorName;
     if (anchorName == null || anchorName.trim().isEmpty) {
-      return '未设置关键点';
+      return AppLocalizations.of(context)!.labelNoAnchor;
     }
     return anchorName;
   }
@@ -455,7 +458,7 @@ class _PointDetailActions extends StatelessWidget {
         child: FilledButton.icon(
           onPressed: onOpenNavigation,
           icon: const Icon(Icons.near_me_outlined, size: 18),
-          label: const Text('导航'),
+          label: Text(AppLocalizations.of(context)!.btnNavigate),
         ),
       ),
       if (scope == PointDetailActionScope.visit && onOpenCamera != null) ...[
@@ -464,7 +467,7 @@ class _PointDetailActions extends StatelessWidget {
           child: OutlinedButton.icon(
             onPressed: onOpenCamera,
             icon: const Icon(Icons.photo_camera_outlined, size: 18),
-            label: const Text('拍摄参考'),
+            label: Text(AppLocalizations.of(context)!.btnOverlay),
           ),
         ),
       ],
@@ -476,7 +479,7 @@ class _PointDetailActions extends StatelessWidget {
           child: OutlinedButton.icon(
             onPressed: status == VisitStatus.current ? null : onSetCurrent,
             icon: const Icon(Icons.flag_outlined, size: 18),
-            label: const Text('设为当前'),
+            label: Text(AppLocalizations.of(context)!.btnSetTarget),
           ),
         ),
       if (scope != PointDetailActionScope.assign && statusAction != null) ...[
@@ -508,7 +511,7 @@ class _PointDetailActions extends StatelessWidget {
             child: OutlinedButton.icon(
               onPressed: onEditPoint,
               icon: const Icon(Icons.edit_outlined, size: 18),
-              label: const Text('编辑点位'),
+              label: Text(AppLocalizations.of(context)!.btnEditPoint),
             ),
           ),
         ],
@@ -628,7 +631,7 @@ class _ReferenceColumn extends StatelessWidget {
                   letterSpacing: 0,
                 ),
               ),
-              child: const Text('替换'),
+              child: Text(AppLocalizations.of(context)!.btnReplace),
             ),
           ),
         ],
@@ -659,11 +662,11 @@ class _GroupInfoRow extends StatelessWidget {
           size: 19,
         ),
         const SizedBox(width: 8),
-        const SizedBox(
+        SizedBox(
           width: 42,
           child: Text(
-            '片区',
-            style: TextStyle(
+            AppLocalizations.of(context)!.labelArea,
+            style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 13,
               fontWeight: FontWeight.w700,
@@ -678,7 +681,7 @@ class _GroupInfoRow extends StatelessWidget {
             children: [
               CopyableText(
                 text: groupName,
-                copyLabel: '片区',
+                copyLabel: AppLocalizations.of(context)!.labelArea,
                 style: const TextStyle(
                   color: AppColors.textPrimary,
                   fontSize: 13,
@@ -688,7 +691,7 @@ class _GroupInfoRow extends StatelessWidget {
               const SizedBox(height: 2),
               CopyableText(
                 text: anchorLabel,
-                copyLabel: '片区关键点',
+                copyLabel: AppLocalizations.of(context)!.copyLabelGroupAnchor,
                 style: const TextStyle(
                   color: AppColors.textSecondary,
                   fontSize: 12,
@@ -712,7 +715,7 @@ class _GroupInfoRow extends StatelessWidget {
                   letterSpacing: 0,
                 ),
               ),
-              child: const Text('更改'),
+              child: Text(AppLocalizations.of(context)!.btnChange),
             ),
           ),
         ],
@@ -729,9 +732,9 @@ class _StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = switch (status) {
-      VisitStatus.current => '当前目标',
-      VisitStatus.completed => '已完成',
-      VisitStatus.pending => '待访问',
+      VisitStatus.current => AppLocalizations.of(context)!.labelStatusCurrent,
+      VisitStatus.completed => AppLocalizations.of(context)!.labelStatusCompleted,
+      VisitStatus.pending => AppLocalizations.of(context)!.labelStatusPending,
     };
 
     final color = switch (status) {
@@ -833,7 +836,7 @@ class _PointRecordsPreview extends StatelessWidget {
             ),
             const SizedBox(width: 6),
             Text(
-              '本点记录 ${records.length}',
+              '${AppLocalizations.of(context)!.labelLocalRecords} ${records.length}',
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w800,
@@ -845,7 +848,7 @@ class _PointRecordsPreview extends StatelessWidget {
               TextButton.icon(
                 onPressed: onOpenRecords,
                 icon: const Icon(Icons.chevron_right, size: 18),
-                label: const Text('全部'),
+                label: Text(AppLocalizations.of(context)!.labelAll),
               ),
           ],
         ),

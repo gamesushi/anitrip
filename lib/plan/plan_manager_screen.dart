@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
 import '../plan_transfer/import_export_screen.dart';
 import '../widgets/confirm_action_dialog.dart';
@@ -66,8 +67,8 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
   Future<void> _createEmptyPlan() async {
     final planNumber = (_plans?.length ?? 0) + 1;
     await widget.repository.createPlan(
-      name: '新巡礼计划 $planNumber',
-      area: '未设置区域',
+      name: AppLocalizations.of(context)!.planDefaultNewName(planNumber),
+      area: AppLocalizations.of(context)!.planDefaultArea,
     );
     await _loadPlans();
   }
@@ -77,15 +78,15 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
     if (plans == null || plans.length <= 1) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('至少需要保留一个计划')));
+      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgDeletePlanAtLeastOne)));
       return;
     }
 
     final confirmed = await showConfirmActionDialog(
       context,
-      title: '删除计划',
-      message: '将删除「${plan.name}」及其中的点位、片区、作品和巡礼记录。此操作无法撤销。',
-      confirmLabel: '删除',
+      title: AppLocalizations.of(context)!.dialogDeletePlanTitle,
+      message: AppLocalizations.of(context)!.dialogDeletePlanMessage(plan.name),
+      confirmLabel: AppLocalizations.of(context)!.btnDelete,
       icon: Icons.delete_outline,
       destructive: true,
     );
@@ -103,20 +104,20 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
     final result = await showDialog<_PlanInfoFormResult>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('编辑计划信息'),
+        title: Text(AppLocalizations.of(context)!.dialogEditPlanTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             TextField(
               controller: nameController,
               autofocus: true,
-              decoration: const InputDecoration(labelText: '计划名称'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelPlanName),
               textInputAction: TextInputAction.next,
             ),
             const SizedBox(height: 12),
             TextField(
               controller: areaController,
-              decoration: const InputDecoration(labelText: '地区 / 区域'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelPlanArea),
               textInputAction: TextInputAction.done,
               onSubmitted: (_) => Navigator.of(context).pop(
                 _PlanInfoFormResult(
@@ -130,7 +131,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.btnCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(
@@ -139,7 +140,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
                 area: areaController.text.trim(),
               ),
             ),
-            child: const Text('保存'),
+            child: Text(AppLocalizations.of(context)!.btnSave),
           ),
         ],
       ),
@@ -150,7 +151,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
       return;
     }
 
-    final area = result.area.isEmpty ? '未设置区域' : result.area;
+    final area = result.area.isEmpty ? AppLocalizations.of(context)!.planDefaultArea : result.area;
     if (result.name == plan.name && area == plan.area) {
       return;
     }
@@ -180,7 +181,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
     final plans = _plans;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('切换计划')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.planSwitch)),
       body: Builder(
         builder: (context) {
           if (_error != null) {
@@ -235,7 +236,7 @@ class _CreatePlanButton extends StatelessWidget {
     return FilledButton.icon(
       onPressed: onPressed,
       icon: const Icon(Icons.add, size: 18),
-      label: const Text('新建计划'),
+      label: Text(AppLocalizations.of(context)!.btnNewPlan),
     );
   }
 }
@@ -261,10 +262,10 @@ class _PlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final statusText = selected ? '当前计划' : '可切换';
+    final statusText = selected ? AppLocalizations.of(context)!.statusTextCurrentPlan : AppLocalizations.of(context)!.statusTextSwitchable;
     final statusColor = selected ? AppColors.accent : AppColors.textSecondary;
     final summaryText =
-        '${plan.area} / ${plan.points.length} 个点位 / ${_workCountText(plan)}';
+        AppLocalizations.of(context)!.planHeaderStats(plan.area, plan.points.length, _workCountText(context, plan));
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -285,7 +286,7 @@ class _PlanCard extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 42),
                 child: CopyableText(
                   text: plan.name,
-                  copyLabel: '计划名称',
+                  copyLabel: AppLocalizations.of(context)!.labelPlanName,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -300,7 +301,7 @@ class _PlanCard extends StatelessWidget {
                 right: 0,
                 top: -5,
                 child: _CompactPlanButton(
-                  tooltip: '导入导出',
+                  tooltip: AppLocalizations.of(context)!.planImportExport,
                   onPressed: onExport,
                   icon: const Icon(Icons.import_export_outlined, size: 20),
                 ),
@@ -311,8 +312,8 @@ class _PlanCard extends StatelessWidget {
           CopyableText(
             text: summaryText,
             copyText:
-                '${plan.name}\n${plan.area}\n${plan.points.length} 个点位\n${_workCountText(plan)}',
-            copyLabel: '计划信息',
+                AppLocalizations.of(context)!.planInfoCopyContent(plan.name, plan.area, plan.points.length, _workCountText(context, plan)),
+            copyLabel: AppLocalizations.of(context)!.labelPlanInfo,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
@@ -351,16 +352,16 @@ class _PlanCard extends StatelessWidget {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     onPressed: onSwitch,
-                    child: const Text('切换'),
+                    child: Text(AppLocalizations.of(context)!.btnSwitch),
                   ),
                 _CompactPlanButton(
-                  tooltip: '编辑计划信息',
+                  tooltip: AppLocalizations.of(context)!.dialogEditPlanTitle,
                   onPressed: onRename,
                   icon: const Icon(Icons.edit_outlined, size: 22),
                 ),
                 if (canDelete)
                   _CompactPlanButton(
-                    tooltip: '删除计划',
+                    tooltip: AppLocalizations.of(context)!.dialogDeletePlanTitle,
                     onPressed: onDelete,
                     icon: const Icon(Icons.delete_outline, size: 22),
                   ),
@@ -372,11 +373,11 @@ class _PlanCard extends StatelessWidget {
     );
   }
 
-  String _workCountText(PilgrimagePlan plan) {
+  String _workCountText(BuildContext context, PilgrimagePlan plan) {
     final count = plan.works.isNotEmpty
         ? plan.works.length
         : plan.points.map((point) => point.work.id).toSet().length;
-    return '$count 部作品';
+    return AppLocalizations.of(context)!.planWorksCount(count);
   }
 }
 
@@ -415,7 +416,7 @@ class _ErrorState extends StatelessWidget {
       child: OutlinedButton.icon(
         onPressed: onRetry,
         icon: const Icon(Icons.refresh),
-        label: const Text('重新加载计划'),
+        label: Text(AppLocalizations.of(context)!.btnReloadPlan),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
 import '../widgets/snackbar_helper.dart';
 import '../camera_reference/camerawesome_reference_screen.dart';
@@ -198,7 +199,7 @@ class _PlanScreenState extends State<PlanScreen> {
     try {
       final serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
-        _showSnackBar('定位服务未开启。');
+        _showSnackBar(AppLocalizations.of(context)!.gpsDisabled);
         return;
       }
 
@@ -209,7 +210,7 @@ class _PlanScreenState extends State<PlanScreen> {
 
       if (permission == LocationPermission.denied ||
           permission == LocationPermission.deniedForever) {
-        _showSnackBar('需要定位权限来显示当前位置。');
+        _showSnackBar(AppLocalizations.of(context)!.gpsPermissionRequired);
         return;
       }
 
@@ -228,9 +229,9 @@ class _PlanScreenState extends State<PlanScreen> {
         _showVirtualLocation = true;
       });
     } on TimeoutException {
-      _showSnackBar('定位超时，请稍后重试。');
+      _showSnackBar(AppLocalizations.of(context)!.gpsTimeout);
     } catch (_) {
-      _showSnackBar('定位失败，请检查权限和定位服务。');
+      _showSnackBar(AppLocalizations.of(context)!.gpsFailed);
     } finally {
       if (mounted) {
         setState(() {
@@ -267,7 +268,7 @@ class _PlanScreenState extends State<PlanScreen> {
             onPressed: _handleReferenceCachePressed,
           ),
           PopupMenuButton<_PlanMenuAction>(
-            tooltip: '计划操作',
+            tooltip: AppLocalizations.of(context)!.planActions,
             icon: const Icon(Icons.more_horiz),
             onSelected: (action) {
               switch (action) {
@@ -283,40 +284,40 @@ class _PlanScreenState extends State<PlanScreen> {
                   widget.onOpenImportExport();
               }
             },
-            itemBuilder: (context) => const [
+            itemBuilder: (context) => [
               PopupMenuItem(
                 value: _PlanMenuAction.switchPlan,
                 child: ListTile(
                   leading: Icon(Icons.swap_horiz),
-                  title: Text('切换计划'),
+                  title: Text(AppLocalizations.of(context)!.planSwitch),
                 ),
               ),
               PopupMenuItem(
                 value: _PlanMenuAction.addPoints,
                 child: ListTile(
                   leading: Icon(Icons.add_location_alt_outlined),
-                  title: Text('添加点位'),
+                  title: Text(AppLocalizations.of(context)!.planAddPoint),
                 ),
               ),
               PopupMenuItem(
                 value: _PlanMenuAction.managePoints,
                 child: ListTile(
                   leading: Icon(Icons.tune_outlined),
-                  title: Text('管理计划'),
+                  title: Text(AppLocalizations.of(context)!.planManage),
                 ),
               ),
               PopupMenuItem(
                 value: _PlanMenuAction.memo,
                 child: ListTile(
                   leading: Icon(Icons.sticky_note_2_outlined),
-                  title: Text('计划备忘录'),
+                  title: Text(AppLocalizations.of(context)!.planMemo),
                 ),
               ),
               PopupMenuItem(
                 value: _PlanMenuAction.importExport,
                 child: ListTile(
                   leading: Icon(Icons.import_export_outlined),
-                  title: Text('导入导出'),
+                  title: Text(AppLocalizations.of(context)!.planImportExport),
                 ),
               ),
             ],
@@ -493,29 +494,29 @@ class _PlanScreenState extends State<PlanScreen> {
 
   Future<void> _handleReferenceCachePressed() async {
     if (_isCachingFullReferences) {
-      _showSnackBar(_fullReferenceCacheProgress?.label ?? '正在缓存完整参考图...');
+      _showSnackBar(_fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.cacheDownloading);
       return;
     }
 
     final points = pointsNeedingFullReferenceCache(controller.points);
     if (points.isEmpty) {
-      _showSnackBar('当前计划没有需要缓存的参考图');
+      _showSnackBar(AppLocalizations.of(context)!.cacheNoImagesToDownload);
       return;
     }
 
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('缓存完整参考图'),
-        content: Text('将缓存当前计划中 ${points.length} 张完整参考图，可能需要较长时间和网络流量。'),
+        title: Text(AppLocalizations.of(context)!.cacheTitle),
+        content: Text(AppLocalizations.of(context)!.cacheConfirmMessage(points.length)),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(AppLocalizations.of(context)!.btnCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('开始缓存'),
+            child: Text(AppLocalizations.of(context)!.cacheStart),
           ),
         ],
       ),
@@ -536,7 +537,7 @@ class _PlanScreenState extends State<PlanScreen> {
       _fullReferenceCacheProgress = null;
     });
     messenger.showReplacingSnackBar(
-      const SnackBar(content: Text('已开始缓存完整参考图')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.cacheStarted)),
     );
     try {
       await cacheFullReferenceImages(
@@ -595,7 +596,7 @@ class _ReferenceCacheIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tooltip = isCaching ? progress?.label ?? '正在缓存完整参考图' : '缓存完整参考图';
+    final tooltip = isCaching ? progress?.label ?? AppLocalizations.of(context)!.cacheDownloading : AppLocalizations.of(context)!.cacheTitle;
     return IconButton(
       tooltip: tooltip,
       onPressed: onPressed,
@@ -633,7 +634,7 @@ class _GroupSwitcher extends StatelessWidget {
                 ? null
                 : () => onSelectGroup(selectedIndex - 1),
             icon: const Icon(Icons.chevron_left),
-            tooltip: '上一个片区',
+            tooltip: AppLocalizations.of(context)!.groupPrev,
           ),
           Expanded(
             child: FilledButton.tonal(
@@ -644,7 +645,7 @@ class _GroupSwitcher extends StatelessWidget {
                 side: const BorderSide(color: AppColors.border),
               ),
               child: Text(
-                group.name,
+                group.getName(context),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(fontWeight: FontWeight.w800),
@@ -656,7 +657,7 @@ class _GroupSwitcher extends StatelessWidget {
                 ? null
                 : () => onSelectGroup(selectedIndex + 1),
             icon: const Icon(Icons.chevron_right),
-            tooltip: '下一个片区',
+            tooltip: AppLocalizations.of(context)!.groupNext,
           ),
         ],
       ),
@@ -689,8 +690,8 @@ class _GroupSwitcher extends StatelessWidget {
                         ? Icons.inventory_2_outlined
                         : Icons.folder_outlined,
                   ),
-                  title: Text(group.name),
-                  subtitle: Text(group.anchorLabel),
+                  title: Text(group.getName(context)),
+                  subtitle: Text(group.anchorLabel(context)),
                   trailing: Text(
                     '${group.completedCount} / ${group.points.length}',
                     style: const TextStyle(
@@ -796,7 +797,7 @@ class _PlanGroupControls extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                 ),
                 icon: Icon(showMap ? Icons.map : Icons.map_outlined, size: 18),
-                label: Text(showMap ? '收起地图' : '地图'),
+                label: Text(showMap ? AppLocalizations.of(context)!.mapCollapse : AppLocalizations.of(context)!.tabMap),
               ),
             ],
           ),
@@ -855,7 +856,7 @@ class _GroupSummary extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    group.anchorLabel,
+                    group.anchorLabel(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -872,9 +873,9 @@ class _GroupSummary extends StatelessWidget {
               spacing: 6,
               runSpacing: 4,
               children: [
-                _GroupMetric(label: '点位', value: '${group.points.length}'),
-                _GroupMetric(label: '完成', value: '${group.completedCount}'),
-                _GroupMetric(label: '模式', value: group.orderModeLabel),
+                _GroupMetric(label: AppLocalizations.of(context)!.labelPoints, value: '${group.points.length}'),
+                _GroupMetric(label: AppLocalizations.of(context)!.labelCompletedCount, value: '${group.completedCount}'),
+                _GroupMetric(label: AppLocalizations.of(context)!.labelOrderMode, value: group.orderModeLabel(context)),
               ],
             ),
           ],
@@ -974,7 +975,7 @@ class _SortOrderControl extends StatelessWidget {
                           const SizedBox(width: 6),
                           Expanded(
                             child: Text(
-                              _sortModeLabel(mode),
+                              _sortModeLabel(context, mode),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(
@@ -994,12 +995,12 @@ class _SortOrderControl extends StatelessWidget {
                   MenuItemButton(
                     leadingIcon: const Icon(Icons.format_list_numbered),
                     onPressed: () => onChanged(PointSortMode.plan),
-                    child: const Text('默认计划顺序'),
+                    child: Text(AppLocalizations.of(context)!.sortModeDefault),
                   ),
                   MenuItemButton(
                     leadingIcon: const Icon(Icons.near_me_outlined),
                     onPressed: () => onChanged(PointSortMode.distance),
-                    child: const Text('按距离当前位置'),
+                    child: Text(AppLocalizations.of(context)!.sortModeDistance),
                   ),
                 ],
               ),
@@ -1009,7 +1010,7 @@ class _SortOrderControl extends StatelessWidget {
               child: VerticalDivider(width: 1, color: AppColors.border),
             ),
             Tooltip(
-              message: _sortDirectionTooltip(mode, descending),
+              message: _sortDirectionTooltip(context, mode, descending),
               child: InkWell(
                 borderRadius: const BorderRadius.horizontal(
                   right: Radius.circular(8),
@@ -1032,17 +1033,17 @@ class _SortOrderControl extends StatelessWidget {
   }
 }
 
-String _sortModeLabel(PointSortMode mode) {
+String _sortModeLabel(BuildContext context, PointSortMode mode) {
   return switch (mode) {
-    PointSortMode.plan => '默认计划',
-    PointSortMode.distance => '按距离',
+    PointSortMode.plan => AppLocalizations.of(context)!.sortModeDefaultShort,
+    PointSortMode.distance => AppLocalizations.of(context)!.sortModeDistanceShort,
   };
 }
 
-String _sortDirectionTooltip(PointSortMode mode, bool descending) {
+String _sortDirectionTooltip(BuildContext context, PointSortMode mode, bool descending) {
   return switch (mode) {
-    PointSortMode.plan => descending ? '反序' : '正序',
-    PointSortMode.distance => descending ? '远到近' : '近到远',
+    PointSortMode.plan => descending ? AppLocalizations.of(context)!.sortOrderDesc : AppLocalizations.of(context)!.sortOrderAsc,
+    PointSortMode.distance => descending ? AppLocalizations.of(context)!.sortOrderFarToNear : AppLocalizations.of(context)!.sortOrderNearToFar,
   };
 }
 
@@ -1196,7 +1197,7 @@ class _PlanInlineMapState extends State<_PlanInlineMap> {
                 right: 10,
                 top: 10,
                 child: _MapFloatingIconButton(
-                  tooltip: widget.showVirtualLocation ? '隐藏当前位置' : '显示当前位置',
+                  tooltip: widget.showVirtualLocation ? AppLocalizations.of(context)!.tooltipHideLocation : AppLocalizations.of(context)!.tooltipShowLocation,
                   icon: widget.isLocating
                       ? null
                       : widget.showVirtualLocation
@@ -1237,7 +1238,7 @@ class _MapCompactSummary extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
         child: Text(
-          '${group.anchorLabel} · ${group.completedCount}/${group.points.length} 完成 · ${group.orderModeLabel}',
+          AppLocalizations.of(context)!.groupAnchorNameLabel(group.anchorLabel(context)) + ' · ${group.completedCount}/${group.points.length} ' + AppLocalizations.of(context)!.labelCompleted + ' · ' + group.orderModeLabel(context),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
@@ -1423,7 +1424,7 @@ class _EmptyPlanCard extends StatelessWidget {
               Icon(Icons.route_outlined, color: AppColors.accent),
               SizedBox(width: 8),
               Text(
-                '还没有点位',
+                AppLocalizations.of(context)!.planNoPointsTitle,
                 style: TextStyle(
                   color: AppColors.accentDark,
                   fontSize: 15,
@@ -1434,8 +1435,8 @@ class _EmptyPlanCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          const Text(
-            '先从 Anitabi 或手动录入添加巡礼点，之后这里会显示当前目标和完成进度。',
+          Text(
+            AppLocalizations.of(context)!.planNoPointsSubtitle,
             style: TextStyle(
               color: AppColors.textSecondary,
               fontSize: 14,
@@ -1446,7 +1447,7 @@ class _EmptyPlanCard extends StatelessWidget {
           FilledButton.icon(
             onPressed: onAddPoints,
             icon: const Icon(Icons.add_location_alt_outlined, size: 18),
-            label: const Text('添加点位'),
+            label: Text(AppLocalizations.of(context)!.planAddPoint),
           ),
         ],
       ),
@@ -1501,7 +1502,7 @@ class _WorkHeader extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '${plan.area} / ${plan.points.length} 个点位 / ${_workCountText(plan)}',
+                  AppLocalizations.of(context)!.planHeaderStats(plan.area, plan.points.length, _workCountText(context, plan)),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -1518,11 +1519,11 @@ class _WorkHeader extends StatelessWidget {
     );
   }
 
-  String _workCountText(PilgrimagePlan plan) {
+  String _workCountText(BuildContext context, PilgrimagePlan plan) {
     final count = plan.works.isNotEmpty
         ? plan.works.length
         : plan.points.map((point) => point.work.id).toSet().length;
-    return '$count 部作品';
+    return AppLocalizations.of(context)!.planWorksCount(count);
   }
 }
 
@@ -1541,7 +1542,7 @@ class _PlanMetaStrip extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              '${plan.area} / ${plan.points.length} 个点位 / ${_workCountText(plan)}',
+              AppLocalizations.of(context)!.planHeaderStats(plan.area, plan.points.length, _workCountText(context, plan)),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -1557,11 +1558,11 @@ class _PlanMetaStrip extends StatelessWidget {
     );
   }
 
-  String _workCountText(PilgrimagePlan plan) {
+  String _workCountText(BuildContext context, PilgrimagePlan plan) {
     final count = plan.works.isNotEmpty
         ? plan.works.length
         : plan.points.map((point) => point.work.id).toSet().length;
-    return '$count 部作品';
+    return AppLocalizations.of(context)!.planWorksCount(count);
   }
 }
 
@@ -1652,12 +1653,12 @@ class _PlanPointTile extends StatelessWidget {
                 ),
               ),
               IconButton(
-                tooltip: '拍摄参考',
+                tooltip: AppLocalizations.of(context)!.btnCameraReference,
                 onPressed: onOpenCamera,
                 icon: const Icon(Icons.photo_camera_outlined),
               ),
               IconButton(
-                tooltip: status == VisitStatus.completed ? '撤回打卡' : '完成',
+                tooltip: status == VisitStatus.completed ? AppLocalizations.of(context)!.tooltipRevertCompleted : AppLocalizations.of(context)!.tooltipMarkCompleted,
                 onPressed: status == VisitStatus.completed
                     ? onReopen
                     : onComplete,
@@ -1721,7 +1722,7 @@ class _PointRecordBadge extends StatelessWidget {
           ),
           const SizedBox(width: 4),
           Text(
-            '已拍 $count',
+            AppLocalizations.of(context)!.visitPhotoCount(count),
             style: TextStyle(
               color: AppColors.accentDark,
               fontSize: 11,

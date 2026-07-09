@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/bangumi_api_client.dart';
 import '../data/anitabi_link_parser.dart';
 import '../data/pilgrimage_repository.dart';
@@ -72,13 +73,13 @@ class _AddPointsScreenState extends State<AddPointsScreen> {
         Navigator.of(context).pop(_didUpdate);
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text('添加内容')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.addPointsTitle)),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             if (currentPlan != null) ...[
               Text(
-                '加入到：${currentPlan.name}',
+                AppLocalizations.of(context)!.addPointsAddToPlan(currentPlan.name),
                 style: const TextStyle(
                   color: AppColors.textSecondary,
                   fontSize: 13,
@@ -91,10 +92,10 @@ class _AddPointsScreenState extends State<AddPointsScreen> {
             const SizedBox(height: 12),
             _AddSourceCard(
               icon: Icons.movie_filter_outlined,
-              title: '作品管理',
-              body: '管理计划作品，支持 Bangumi 搜索、手动添加和删除作品。',
+              title: AppLocalizations.of(context)!.addPointsWorkManagerTitle,
+              body: AppLocalizations.of(context)!.addPointsWorkManagerDesc,
               enabled: currentPlan != null,
-              actionLabel: currentPlan == null ? '不可用' : '管理',
+              actionLabel: currentPlan == null ? AppLocalizations.of(context)!.addPointsActionLabelUnavailable : AppLocalizations.of(context)!.addPointsActionLabelManage,
               onTap: currentPlan == null
                   ? null
                   : () => _openWorkManager(context, currentPlan),
@@ -102,10 +103,10 @@ class _AddPointsScreenState extends State<AddPointsScreen> {
             const SizedBox(height: 8),
             _AddSourceCard(
               icon: Icons.map_outlined,
-              title: '从作品地图导入点位',
-              body: '在 Anitabi 地图上查看作品点位，点击缩略图详情后加入计划。',
+              title: AppLocalizations.of(context)!.addPointsImportFromWorkMapTitle,
+              body: AppLocalizations.of(context)!.addPointsImportFromWorkMapDesc,
               enabled: currentPlan != null,
-              actionLabel: currentPlan == null ? '不可用' : '打开',
+              actionLabel: currentPlan == null ? AppLocalizations.of(context)!.addPointsActionLabelUnavailable : AppLocalizations.of(context)!.addPointsActionLabelOpen,
               onTap: currentPlan == null
                   ? null
                   : () => _openAnitabiMapImport(context, currentPlan),
@@ -113,10 +114,10 @@ class _AddPointsScreenState extends State<AddPointsScreen> {
             const SizedBox(height: 8),
             _AddSourceCard(
               icon: Icons.travel_explore_outlined,
-              title: '从 Anitabi 链接导入',
-              body: '粘贴 Anitabi 作品或点位链接，快速打开对应作品地图。',
+              title: AppLocalizations.of(context)!.addPointsImportFromLinkTitle,
+              body: AppLocalizations.of(context)!.addPointsImportFromLinkDesc,
               enabled: currentPlan != null,
-              actionLabel: currentPlan == null ? '不可用' : '输入',
+              actionLabel: currentPlan == null ? AppLocalizations.of(context)!.addPointsActionLabelUnavailable : AppLocalizations.of(context)!.addPointsActionLabelInput,
               onTap: currentPlan == null
                   ? null
                   : () => _openAnitabiLinkImport(context, currentPlan),
@@ -124,10 +125,10 @@ class _AddPointsScreenState extends State<AddPointsScreen> {
             const SizedBox(height: 8),
             _AddSourceCard(
               icon: Icons.add_location_alt_outlined,
-              title: '手动添加点位',
-              body: '选择已添加作品，再输入名称、坐标和场景信息。',
+              title: AppLocalizations.of(context)!.addPointsManualTitle,
+              body: AppLocalizations.of(context)!.addPointsManualDesc,
               enabled: currentPlan != null,
-              actionLabel: currentPlan == null ? '不可用' : '添加',
+              actionLabel: currentPlan == null ? AppLocalizations.of(context)!.addPointsActionLabelUnavailable : AppLocalizations.of(context)!.addPointsActionLabelAdd,
               onTap: currentPlan == null
                   ? null
                   : () => _openManualPointForm(context, currentPlan),
@@ -340,7 +341,7 @@ class BangumiWorkSearchScreenState extends State<BangumiWorkSearchScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(SnackBar(content: Text('已添加「${work.title}」。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgWorkAdded(work.title))));
     } catch (_) {
       if (!mounted) {
         return;
@@ -348,7 +349,7 @@ class BangumiWorkSearchScreenState extends State<BangumiWorkSearchScreen> {
 
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('作品添加失败，请稍后重试。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgWorkAddFailed)));
     } finally {
       if (mounted) {
         setState(() {
@@ -370,7 +371,7 @@ class BangumiWorkSearchScreenState extends State<BangumiWorkSearchScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('搜索 Bangumi'),
+          title: Text(AppLocalizations.of(context)!.bangumiSearchTitle),
           leading: BackButton(
             onPressed: () => Navigator.of(context).pop(_didAdd),
           ),
@@ -382,9 +383,9 @@ class BangumiWorkSearchScreenState extends State<BangumiWorkSearchScreen> {
               children: [
                 TextField(
                   controller: _queryController,
-                  decoration: const InputDecoration(
-                    labelText: '作品名称',
-                    hintText: '例如 轻音少女',
+                  decoration: InputDecoration(
+                    labelText: AppLocalizations.of(context)!.bangumiSearchLabel,
+                    hintText: AppLocalizations.of(context)!.bangumiSearchHint,
                   ),
                   textInputAction: TextInputAction.search,
                   onSubmitted: (_) => _search(),
@@ -408,20 +409,20 @@ class BangumiWorkSearchScreenState extends State<BangumiWorkSearchScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Icon(Icons.search, size: 18),
-                  label: Text(_isSearching ? '搜索中' : '搜索作品'),
+                  label: Text(_isSearching ? AppLocalizations.of(context)!.bangumiSearchBtnSearching : AppLocalizations.of(context)!.bangumiSearchBtn),
                 ),
               ],
             ),
             const SizedBox(height: 12),
             if (_error != null)
-              const _MessageCard(
+              _MessageCard(
                 icon: Icons.error_outline,
-                text: 'Bangumi 搜索失败，请检查网络后重试。',
+                text: AppLocalizations.of(context)!.bangumiSearchFailed,
               )
             else if (_results.isEmpty)
-              const _MessageCard(
+              _MessageCard(
                 icon: Icons.info_outline,
-                text: '输入作品名后搜索，选择结果即可加入当前计划。',
+                text: AppLocalizations.of(context)!.bangumiSearchEmptyHelp,
               )
             else
               for (final work in _results) ...[
@@ -549,14 +550,14 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Anitabi 链接导入')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.anitabiLinkImportTitle)),
       body: Form(
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
             Text(
-              '加入到：${widget.plan.name}',
+              AppLocalizations.of(context)!.addPointsAddToPlan(widget.plan.name),
               style: const TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 13,
@@ -569,7 +570,7 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
                 TextFormField(
                   controller: _linkController,
                   decoration: stableInputDecoration(
-                    labelText: 'Anitabi 链接',
+                    labelText: AppLocalizations.of(context)!.anitabiLinkImportLabel,
                     hintText:
                         '例如 https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj',
                   ),
@@ -593,7 +594,7 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
             FilledButton.icon(
               onPressed: _openImport,
               icon: const Icon(Icons.add_location_alt_outlined, size: 18),
-              label: const Text('打开 Anitabi 点位'),
+              label: Text(AppLocalizations.of(context)!.anitabiLinkImportBtn),
             ),
           ],
         ),
@@ -604,14 +605,14 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
   String? _validateLink(String? value) {
     final text = value?.trim() ?? '';
     if (text.isEmpty) {
-      return '请输入 Anitabi 链接';
+      return AppLocalizations.of(context)!.anitabiLinkImportEmptyErr;
     }
     final link = parseAnitabiImportLink(text);
     if (link == null) {
-      return '请输入有效的 Anitabi 地图链接';
+      return AppLocalizations.of(context)!.anitabiLinkImportInvalidErr;
     }
     if (link.bangumiId == null) {
-      return '链接缺少作品 ID，请先在 Anitabi 进入对应作品后复制链接';
+      return AppLocalizations.of(context)!.anitabiLinkImportNoWorkIdErr;
     }
     return null;
   }
@@ -682,7 +683,7 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
       _subtitleController.clear();
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(SnackBar(content: Text('已添加「$title」。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgPointAdded(title))));
     } catch (_) {
       if (!mounted) {
         return;
@@ -690,7 +691,7 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
 
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('作品保存失败，请稍后重试。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgWorkSaveFailed)));
     } finally {
       if (mounted) {
         setState(() {
@@ -712,7 +713,7 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('手动添加作品'),
+          title: Text(AppLocalizations.of(context)!.manualAddWorkTitle),
           leading: BackButton(
             onPressed: () => Navigator.of(context).pop(_didAdd),
           ),
@@ -726,16 +727,16 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
                 children: [
                   TextFormField(
                     controller: _titleController,
-                    decoration: stableInputDecoration(labelText: '作品名称'),
+                    decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddWorkName),
                     textInputAction: TextInputAction.next,
                     validator: _requiredText,
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: _subtitleController,
-                    decoration: const InputDecoration(
-                      labelText: '作品原名',
-                      hintText: '可选',
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context)!.manualAddWorkOriginalName,
+                      hintText: AppLocalizations.of(context)!.manualAddWorkOriginalNameHint,
                     ),
                     textInputAction: TextInputAction.next,
                   ),
@@ -743,8 +744,8 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
                   TextFormField(
                     controller: _cityController,
                     decoration: InputDecoration(
-                      labelText: '主要地区',
-                      hintText: '可选，默认 ${widget.plan.area}',
+                      labelText: AppLocalizations.of(context)!.manualAddWorkArea,
+                      hintText: AppLocalizations.of(context)!.manualAddWorkAreaHint(widget.plan.area),
                     ),
                     textInputAction: TextInputAction.done,
                     onFieldSubmitted: (_) => _saveWork(),
@@ -761,7 +762,7 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
                     : const Icon(Icons.check_outlined, size: 18),
-                label: Text(_isSaving ? '保存中' : '保存作品'),
+                label: Text(_isSaving ? AppLocalizations.of(context)!.manualAddWorkBtnSaving : AppLocalizations.of(context)!.manualAddWorkBtnSave),
               ),
             ],
           ),
@@ -773,7 +774,7 @@ class ManualWorkFormScreenState extends State<ManualWorkFormScreen> {
   String? _requiredText(String? value) {
     final text = value?.trim() ?? '';
     if (text.isEmpty) {
-      return '请填写此项';
+      return AppLocalizations.of(context)!.manualAddWorkRequiredField;
     }
 
     return null;
@@ -968,7 +969,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
 
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('点位保存失败，请稍后重试。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgPointSaveFailed)));
     } finally {
       if (mounted) {
         setState(() {
@@ -1010,7 +1011,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
       }
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('参考图读取失败，请重新选择。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgReferenceImageReadFailed)));
       return;
     }
 
@@ -1060,7 +1061,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
     if (coordinate == null) {
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('剪切板中没有可识别的坐标。')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgClipboardCoordinatesInvalid)));
       return;
     }
 
@@ -1070,7 +1071,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
     });
     ScaffoldMessenger.of(
       context,
-    ).showReplacingSnackBar(const SnackBar(content: Text('已填入剪切板坐标。')));
+    ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgClipboardCoordinatesApplied)));
   }
 
   void _removeReferenceImage() {
@@ -1131,7 +1132,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(_isEditing ? '编辑点位' : '手动添加点位'),
+          title: Text(_isEditing ? AppLocalizations.of(context)!.manualAddPointTitleEdit : AppLocalizations.of(context)!.manualAddPointTitleAdd),
           leading: BackButton(
             onPressed: () {
               if (!_didCommitPendingReference) {
@@ -1150,8 +1151,8 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
             children: [
               Text(
                 _isEditing
-                    ? '修改：${editingPoint!.name}'
-                    : '加入到：${widget.plan.name}',
+                    ? AppLocalizations.of(context)!.manualAddPointStatusEdit(editingPoint!.name)
+                    : AppLocalizations.of(context)!.addPointsAddToPlan(widget.plan.name),
                 style: const TextStyle(
                   color: AppColors.textSecondary,
                   fontSize: 13,
@@ -1164,7 +1165,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                   if (hasPlanWorks)
                     DropdownButtonFormField<PilgrimageWork>(
                       initialValue: _selectedWork,
-                      decoration: const InputDecoration(labelText: '所属作品'),
+                      decoration: InputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointBelongingWork),
                       isExpanded: true,
                       items: [
                         for (final work in workOptions)
@@ -1183,21 +1184,21 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                           _selectedWork = work;
                         });
                       },
-                      validator: (work) => work == null ? '请选择作品' : null,
+                      validator: (work) => work == null ? AppLocalizations.of(context)!.manualAddPointSelectWorkErr : null,
                     )
                   else ...[
                     TextFormField(
                       controller: _fallbackWorkTitleController,
-                      decoration: stableInputDecoration(labelText: '动画/作品名称'),
+                      decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointWorkName),
                       textInputAction: TextInputAction.next,
                       validator: _requiredText,
                     ),
                     const SizedBox(height: 12),
                     TextFormField(
                       controller: _fallbackWorkSubtitleController,
-                      decoration: const InputDecoration(
-                        labelText: '作品原名',
-                        hintText: '可选',
+                      decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.manualAddWorkOriginalName,
+                        hintText: AppLocalizations.of(context)!.manualAddWorkOriginalNameHint,
                       ),
                       textInputAction: TextInputAction.next,
                     ),
@@ -1206,7 +1207,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                       controller: _fallbackWorkCityController,
                       decoration: InputDecoration(
                         labelText: '作品主要地区',
-                        hintText: '可选，默认 ${widget.plan.area}',
+                        hintText: AppLocalizations.of(context)!.manualAddWorkAreaHint(widget.plan.area),
                       ),
                       textInputAction: TextInputAction.next,
                     ),
@@ -1218,37 +1219,37 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                 children: [
                   TextFormField(
                     controller: _nameController,
-                    decoration: stableInputDecoration(labelText: '点位名称'),
+                    decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointName),
                     textInputAction: TextInputAction.next,
                     validator: _requiredText,
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: _subtitleController,
-                    decoration: stableInputDecoration(labelText: '位置说明'),
+                    decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointPositionDesc),
                     textInputAction: TextInputAction.next,
                     validator: _requiredText,
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: _episodeController,
-                    decoration: stableInputDecoration(labelText: '集数/场景标签'),
+                    decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointEpisodeLabel),
                     textInputAction: TextInputAction.next,
                     validator: _requiredText,
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: _referenceController,
-                    decoration: stableInputDecoration(labelText: '参考来源'),
+                    decoration: stableInputDecoration(labelText: AppLocalizations.of(context)!.manualAddPointSource),
                     textInputAction: TextInputAction.next,
                     validator: _requiredText,
                   ),
                   const SizedBox(height: 12),
                   TextFormField(
                     controller: _noteController,
-                    decoration: const InputDecoration(
-                      labelText: '备注',
-                      hintText: '可选，例如闭店、翻修、拍摄建议',
+                    decoration: InputDecoration(
+                      labelText: AppLocalizations.of(context)!.manualAddPointMemo,
+                      hintText: AppLocalizations.of(context)!.manualAddPointMemoHint,
                     ),
                     minLines: 2,
                     maxLines: 4,
@@ -1265,12 +1266,12 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                         child: OutlinedButton.icon(
                           onPressed: _isSaving ? null : _pickCoordinateFromMap,
                           icon: const Icon(Icons.ads_click_outlined, size: 18),
-                          label: const Text('从地图选择坐标'),
+                          label: Text(AppLocalizations.of(context)!.manualAddPointSelectCoordsBtn),
                         ),
                       ),
                       const SizedBox(width: 8),
                       IconButton.outlined(
-                        tooltip: '粘贴剪切板坐标',
+                        tooltip: AppLocalizations.of(context)!.manualAddPointPasteCoordsBtn,
                         onPressed: _isSaving
                             ? null
                             : _pasteCoordinateFromClipboard,
@@ -1283,8 +1284,8 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                   TextFormField(
                     controller: _latitudeController,
                     decoration: stableInputDecoration(
-                      labelText: '纬度',
-                      hintText: '例如 34.8917',
+                      labelText: AppLocalizations.of(context)!.manualAddPointLatitude,
+                      hintText: AppLocalizations.of(context)!.manualAddPointLatitudeHint,
                     ),
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
@@ -1297,8 +1298,8 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                   TextFormField(
                     controller: _longitudeController,
                     decoration: stableInputDecoration(
-                      labelText: '经度',
-                      hintText: '例如 135.8077',
+                      labelText: AppLocalizations.of(context)!.manualAddPointLongitude,
+                      hintText: AppLocalizations.of(context)!.manualAddPointLongitudeHint,
                     ),
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
@@ -1342,7 +1343,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                         child: CircularProgressIndicator(strokeWidth: 2),
                       )
                     : const Icon(Icons.check_outlined, size: 18),
-                label: Text(_isSaving ? '保存中' : (_isEditing ? '保存修改' : '保存点位')),
+                label: Text(_isSaving ? AppLocalizations.of(context)!.manualAddPointBtnSaving : (_isEditing ? AppLocalizations.of(context)!.manualAddPointBtnSaveEdit : AppLocalizations.of(context)!.manualAddPointBtnSaveAdd)),
               ),
             ],
           ),
@@ -1354,14 +1355,14 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
   String? _requiredText(String? value) {
     final text = value?.trim() ?? '';
     if (text.isEmpty) {
-      return '请填写此项';
+      return AppLocalizations.of(context)!.manualAddWorkRequiredField;
     }
 
     return null;
   }
 
   String? _validateLatitude(String? value) {
-    return _validateCoordinate(value, min: -90, max: 90, emptyMessage: '请填写纬度');
+    return _validateCoordinate(value, min: -90, max: 90, emptyMessage: AppLocalizations.of(context)!.manualAddPointRequiredLatitude);
   }
 
   String? _validateLongitude(String? value) {
@@ -1369,7 +1370,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
       value,
       min: -180,
       max: 180,
-      emptyMessage: '请填写经度',
+      emptyMessage: AppLocalizations.of(context)!.manualAddPointRequiredLongitude,
     );
   }
 
@@ -1386,7 +1387,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
 
     final coordinate = double.tryParse(text);
     if (coordinate == null || coordinate < min || coordinate > max) {
-      return '请输入有效坐标';
+      return AppLocalizations.of(context)!.manualAddPointInvalidCoordinate;
     }
 
     return null;
@@ -1418,7 +1419,7 @@ class _ManualPointMapPickerScreenState
     final selectedPosition = _selectedPosition;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('选择点位坐标')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.manualAddPointSelectCoordsTitle)),
       body: Stack(
         children: [
           FlutterMap(
@@ -1475,7 +1476,7 @@ class _ManualPointMapPickerScreenState
             child: SafeArea(
               bottom: false,
               child: _MapToolButton(
-                tooltip: _isPickMode ? '关闭地图选点' : '在地图上选点',
+                tooltip: _isPickMode ? AppLocalizations.of(context)!.manualAddPointSelectCoordsTooltipActive : AppLocalizations.of(context)!.manualAddPointSelectCoordsTooltipInactive,
                 icon: Icons.ads_click_outlined,
                 selected: _isPickMode,
                 onTap: () {
@@ -1562,8 +1563,8 @@ class _ManualPointSelectionCard extends StatelessWidget {
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     final position = this.position;
     final subtitle = position == null
-        ? (pickMode ? '点击地图任意位置设置点位坐标' : '先点击右上角选点按钮，再点击地图设置坐标')
-        : '点击地图可继续调整位置\n${position.latitude.toStringAsFixed(6)}, ${position.longitude.toStringAsFixed(6)}';
+        ? (pickMode ? AppLocalizations.of(context)!.manualAddPointSelectCoordsHelpActive : AppLocalizations.of(context)!.manualAddPointSelectCoordsHelpInactive)
+        : AppLocalizations.of(context)!.manualAddPointSelectCoordsAdjustHelp + '\n${position.latitude.toStringAsFixed(6)}, ${position.longitude.toStringAsFixed(6)}';
 
     return Container(
       margin: EdgeInsets.fromLTRB(16, 0, 16, 16 + bottomInset),
@@ -1582,8 +1583,8 @@ class _ManualPointSelectionCard extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '地图选点',
+                Text(
+                  AppLocalizations.of(context)!.manualAddPointSelectCoordsDialogTitle,
                   style: TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w800,
@@ -1605,7 +1606,7 @@ class _ManualPointSelectionCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          FilledButton(onPressed: onSave, child: const Text('使用')),
+          FilledButton(onPressed: onSave, child: Text(AppLocalizations.of(context)!.manualAddPointSelectCoordsBtnUse)),
         ],
       ),
     );
@@ -1635,8 +1636,8 @@ class _WorkSummary extends StatelessWidget {
           Expanded(
             child: Text(
               works.isEmpty
-                  ? '当前计划还没有作品。先添加作品，后续可按作品导入点位。'
-                  : '当前计划已有 ${works.length} 部作品：${works.map((work) => work.title).join('、')}',
+                  ? AppLocalizations.of(context)!.addPointsNoWorksHelp
+                  : AppLocalizations.of(context)!.addPointsHasWorksHelp(works.length, works.map((work) => work.title).join('、')),
               style: const TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 13,
@@ -1685,7 +1686,7 @@ class _ManualReferenceImagePicker extends StatelessWidget {
       child: Row(
         children: [
           Tooltip(
-            message: canPreview ? '查看大图' : '暂无参考图',
+            message: canPreview ? AppLocalizations.of(context)!.addPointsRefImageTooltipPreview : AppLocalizations.of(context)!.addPointsRefImageTooltipEmpty,
             child: GestureDetector(
               onTap: canPreview
                   ? () => ImageViewerScreen.show(
@@ -1718,8 +1719,8 @@ class _ManualReferenceImagePicker extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '参考图片',
+                Text(
+                  AppLocalizations.of(context)!.addPointsRefImageHeader,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
@@ -1729,10 +1730,10 @@ class _ManualReferenceImagePicker extends StatelessWidget {
                 const SizedBox(height: 3),
                 Text(
                   hasPendingSelection
-                      ? '已选择新图片，保存后生效。'
+                      ? AppLocalizations.of(context)!.addPointsRefImageHelpSelected
                       : hasExistingImage
-                      ? '当前参考图，重新选择后需保存才会生效。'
-                      : '可选，保存时会复制到 App 本地目录。',
+                      ? AppLocalizations.of(context)!.addPointsRefImageHelpCurrent
+                       : AppLocalizations.of(context)!.addPointsRefImageHelpEmpty,
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 12,
@@ -1747,13 +1748,13 @@ class _ManualReferenceImagePicker extends StatelessWidget {
                     OutlinedButton.icon(
                       onPressed: onPick,
                       icon: const Icon(Icons.photo_library_outlined, size: 18),
-                      label: Text(hasImage ? '重新选择' : '上传参考图'),
+                      label: Text(hasImage ? AppLocalizations.of(context)!.addPointsRefImageBtnReselect : AppLocalizations.of(context)!.addPointsRefImageBtnUpload),
                     ),
                     if (hasPendingSelection)
                       TextButton.icon(
                         onPressed: onRemove,
                         icon: const Icon(Icons.close_outlined, size: 18),
-                        label: const Text('移除'),
+                        label: Text(AppLocalizations.of(context)!.addPointsRefImageBtnRemove),
                       ),
                   ],
                 ),
@@ -1859,7 +1860,7 @@ class _WorkResultCardState extends State<_WorkResultCard> {
           const SizedBox(width: 12),
           TextButton(
             onPressed: widget.disabled ? null : widget.onAdd,
-            child: Text(widget.disabled ? '已添加' : '加入'),
+            child: Text(widget.disabled ? AppLocalizations.of(context)!.addPointsPointBtnAdded : AppLocalizations.of(context)!.addPointsPointBtnAdd),
           ),
         ],
       ),

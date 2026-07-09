@@ -6,6 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../widgets/snackbar_helper.dart';
 import '../camera_reference/camerawesome_reference_screen.dart';
 import '../point_detail/point_detail_sheet.dart';
@@ -75,7 +76,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
     try {
       final serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
-        _showSnackBar('定位服务未开启。');
+        _showSnackBar(AppLocalizations.of(context)!.gpsDisabled);
         return;
       }
 
@@ -86,7 +87,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
 
       if (permission == LocationPermission.denied ||
           permission == LocationPermission.deniedForever) {
-        _showSnackBar('需要定位权限来显示当前位置。');
+        _showSnackBar(AppLocalizations.of(context)!.gpsPermissionRequired);
         return;
       }
 
@@ -107,9 +108,9 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
       });
       _mapController.move(location, 16);
     } on TimeoutException {
-      _showSnackBar('定位超时，请稍后重试。');
+      _showSnackBar(AppLocalizations.of(context)!.gpsTimeout);
     } catch (_) {
-      _showSnackBar('定位失败，请检查权限和定位服务。');
+      _showSnackBar(AppLocalizations.of(context)!.gpsFailed);
     } finally {
       if (mounted) {
         setState(() {
@@ -122,7 +123,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
   Future<void> _openNavigation(PilgrimagePoint point) async {
     final opened = await _navigationLauncher.openGoogleMapsWalking(point);
     if (!opened) {
-      _showSnackBar('无法打开 Google Maps。');
+      _showSnackBar(AppLocalizations.of(context)!.msgCannotOpenMap);
     }
   }
 
@@ -203,7 +204,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
   void _moveToCurrentTarget() {
     final currentPoint = _controller.currentPoint;
     if (currentPoint == null) {
-      _showSnackBar('当前计划还没有点位。');
+      _showSnackBar(AppLocalizations.of(context)!.mapNoPointsSnackBar);
       return;
     }
 
@@ -252,7 +253,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
   Future<void> _editPoint(PilgrimagePoint point) async {
     final repository = _controller.repository;
     if (repository == null) {
-      _showSnackBar('当前环境无法编辑点位。');
+      _showSnackBar(AppLocalizations.of(context)!.labelEditPointNotSupported);
       return;
     }
     final updated = await EditPointScreen.open(
@@ -432,7 +433,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
               child: Column(
                 children: [
                   _MapFloatingIconButton(
-                    tooltip: '定位',
+                    tooltip: AppLocalizations.of(context)!.tooltipLocation,
                     onTap: _isLocating ? null : _locateUser,
                     child: _isLocating
                         ? const SizedBox(
@@ -444,13 +445,13 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                   ),
                   const SizedBox(height: 8),
                   _MapFloatingIconButton(
-                    tooltip: '当前目标',
+                    tooltip: AppLocalizations.of(context)!.tooltipGoToTarget,
                     onTap: _moveToCurrentTarget,
                     child: const Icon(Icons.flag_outlined, size: 20),
                   ),
                   const SizedBox(height: 8),
                   _MapFloatingIconButton(
-                    tooltip: _showThumbnailMarkers ? '使用图标标记' : '显示缩略图标记',
+                    tooltip: _showThumbnailMarkers ? AppLocalizations.of(context)!.tooltipUseIconMarkers : AppLocalizations.of(context)!.tooltipShowThumbnailMarkers,
                     selected: _showThumbnailMarkers,
                     onTap: () {
                       setState(() {
@@ -536,7 +537,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                         : Icons.folder_outlined,
                   ),
                   title: Text(group.name),
-                  subtitle: Text(group.anchorLabel),
+                  subtitle: Text(group.anchorLabel(context)),
                   trailing: Text(
                     '${group.completedCount} / ${group.points.length}',
                     style: const TextStyle(
@@ -659,7 +660,7 @@ class _PointMarker extends StatelessWidget {
     };
 
     return IconButton(
-      tooltip: '巡礼点',
+      tooltip: AppLocalizations.of(context)!.tooltipPoint,
       onPressed: onTap,
       style: IconButton.styleFrom(
         backgroundColor: markerColors.$1,
@@ -751,7 +752,7 @@ class _PointCard extends StatelessWidget {
                         Expanded(
                           child: CopyableText(
                             text: point.name,
-                            copyLabel: '点位名称',
+                            copyLabel: AppLocalizations.of(context)!.copyLabelPointName,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -771,7 +772,7 @@ class _PointCard extends StatelessWidget {
                     CopyableText(
                       text: _metaText,
                       copyText: _copySummary,
-                      copyLabel: '点位信息',
+                      copyLabel: AppLocalizations.of(context)!.copyLabelPointInfo,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
@@ -792,31 +793,31 @@ class _PointCard extends StatelessWidget {
                 child: FilledButton.icon(
                   onPressed: onOpenNavigation,
                   icon: const Icon(Icons.near_me_outlined, size: 18),
-                  label: const Text('导航'),
+                  label: Text(AppLocalizations.of(context)!.btnNavigate),
                 ),
               ),
               const SizedBox(width: 8),
               IconButton.outlined(
-                tooltip: '点位详情',
+                tooltip: AppLocalizations.of(context)!.btnPointDetail,
                 onPressed: onOpenDetail,
                 icon: const Icon(Icons.info_outline),
               ),
               const SizedBox(width: 4),
               IconButton.outlined(
-                tooltip: '拍摄参考',
+                tooltip: AppLocalizations.of(context)!.btnCameraReference,
                 onPressed: onOpenCamera,
                 icon: const Icon(Icons.photo_camera_outlined),
               ),
               const SizedBox(width: 4),
               if (status == VisitStatus.completed)
                 IconButton.outlined(
-                  tooltip: '撤回打卡',
+                  tooltip: AppLocalizations.of(context)!.tooltipRevertCompleted,
                   onPressed: onComplete,
                   icon: const Icon(Icons.replay_outlined),
                 )
               else
                 IconButton.outlined(
-                  tooltip: '标记完成',
+                  tooltip: AppLocalizations.of(context)!.tooltipMarkCompleted,
                   onPressed: onComplete,
                   icon: const Icon(Icons.check_circle_outline),
                 ),
@@ -824,7 +825,7 @@ class _PointCard extends StatelessWidget {
                   status != VisitStatus.completed) ...[
                 const SizedBox(width: 4),
                 IconButton.outlined(
-                  tooltip: '设为当前目标',
+                  tooltip: AppLocalizations.of(context)!.tooltipSetTarget,
                   onPressed: onSetCurrent,
                   icon: const Icon(Icons.flag_outlined),
                 ),
@@ -927,7 +928,7 @@ class _MapRecordBadge extends StatelessWidget {
           ),
           const SizedBox(width: 5),
           Text(
-            '已拍 $count',
+            AppLocalizations.of(context)!.visitPhotoCount(count),
             style: TextStyle(
               color: AppColors.accentDark,
               fontSize: 12,
@@ -962,7 +963,7 @@ class _EmptyMapCard extends StatelessWidget {
           SizedBox(width: 10),
           Expanded(
             child: Text(
-              '当前计划还没有点位。添加点位后会在地图上显示标记。',
+              AppLocalizations.of(context)!.mapNoPointsMessage,
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 14,
@@ -984,9 +985,9 @@ class _StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = switch (status) {
-      VisitStatus.current => '当前',
-      VisitStatus.completed => '完成',
-      VisitStatus.pending => '待访',
+      VisitStatus.current => AppLocalizations.of(context)!.labelStatusCurrent,
+      VisitStatus.completed => AppLocalizations.of(context)!.labelStatusCompleted,
+      VisitStatus.pending => AppLocalizations.of(context)!.labelStatusPending,
     };
 
     final color = switch (status) {

@@ -6,6 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../map/map_tile_config.dart';
 import '../widgets/snackbar_helper.dart';
 import '../data/anitabi_client.dart';
@@ -133,7 +134,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
   Future<void> _refreshAnitabiData() async {
     widget.anitabiClient.clearStaticCache();
     ScaffoldMessenger.of(context).showReplacingSnackBar(
-      const SnackBar(content: Text('正在清除缓存并重新加载 Anitabi 点位...')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.mapImportRefreshingCache)),
     );
 
     final initialBangumiId = widget.initialBangumiId;
@@ -195,6 +196,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
       final points = await widget.anitabiClient.fetchPoints(
         bangumiId,
         lite: lite,
+        languageCode: AppLocalizations.of(context)!.localeName,
       );
       if (!_isActiveLoad(generation)) {
         return;
@@ -225,7 +227,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
 
   void _showManualWorkMessage() {
     ScaffoldMessenger.of(context).showReplacingSnackBar(
-      const SnackBar(content: Text('手动添加的作品没有 Bangumi ID，无法从 Anitabi 地图导入点位。')),
+      SnackBar(content: Text(AppLocalizations.of(context)!.mapImportManualWorkNoBangumiId)),
     );
   }
 
@@ -262,6 +264,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
       final points = await widget.anitabiClient.fetchPoints(
         lite.bangumiId,
         lite: lite,
+        languageCode: AppLocalizations.of(context)!.localeName,
       );
       if (!_isActiveLoad(generation)) {
         return;
@@ -304,6 +307,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
       final result = await widget.anitabiClient.findPointInBangumi(
         bangumiId: bangumiId,
         pointId: pointId,
+        languageCode: AppLocalizations.of(context)!.localeName,
       );
       if (!_isActiveLoad(generation)) {
         return;
@@ -530,17 +534,17 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
 
     await _importPoints(
       [point],
-      successMessage: '已加入计划，可继续选择点位。',
-      failureMessage: '点位导入失败，请稍后重试。',
+      successMessage: AppLocalizations.of(context)!.mapImportPointAddedMsg,
+      failureMessage: AppLocalizations.of(context)!.mapImportPointAddFailedMsg,
     );
   }
 
   Future<void> _importAllAvailablePoints() async {
     final points = _availablePoints;
     final confirmed = await _confirmBulkImport(
-      title: '添加所有点位',
-      message: '将把当前作品中 ${points.length} 个还不在计划里的点位加入计划，并暂时放在未分组。',
-      confirmLabel: '添加全部',
+      title: AppLocalizations.of(context)!.mapImportAddAllDialogTitle,
+      message: AppLocalizations.of(context)!.mapImportAddAllDialogMsg(points.length),
+      confirmLabel: AppLocalizations.of(context)!.mapImportAddAllConfirmLabel,
     );
     if (!confirmed) {
       return;
@@ -548,8 +552,8 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
 
     await _importPoints(
       points,
-      successMessage: '已添加所有未加入的点位。',
-      failureMessage: '批量导入失败，请稍后重试。',
+      successMessage: AppLocalizations.of(context)!.mapImportAllAddedMsg,
+      failureMessage: AppLocalizations.of(context)!.mapImportBatchFailedMsg,
     );
   }
 
@@ -558,14 +562,14 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     if (points.isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('框选范围内没有可添加点位')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.mapImportBoxSelectionEmptyMsg)));
       return;
     }
 
     final confirmed = await _confirmBulkImport(
-      title: '添加框选点位',
-      message: '将把框选范围内 ${points.length} 个还不在计划里的点位加入计划，并暂时放在未分组。',
-      confirmLabel: '添加框选',
+      title: AppLocalizations.of(context)!.mapImportAddBoxDialogTitle,
+      message: AppLocalizations.of(context)!.mapImportAddBoxDialogMsg(points.length),
+      confirmLabel: AppLocalizations.of(context)!.mapImportAddBoxBtnLabel,
     );
     if (!confirmed) {
       return;
@@ -573,8 +577,8 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
 
     await _importPoints(
       points,
-      successMessage: '已添加框选点位。',
-      failureMessage: '框选点位导入失败，请稍后重试。',
+      successMessage: AppLocalizations.of(context)!.mapImportBoxAddedMsg,
+      failureMessage: AppLocalizations.of(context)!.mapImportBoxFailedMsg,
       exitBoxSelectionOnSuccess: true,
     );
   }
@@ -609,7 +613,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     try {
       final messenger = ScaffoldMessenger.of(context);
       messenger.showReplacingSnackBar(
-        SnackBar(content: Text('正在导入 ${pilgrimagePoints.length} 个点位...')),
+        SnackBar(content: Text(AppLocalizations.of(context)!.mapImportImportingMsg(pilgrimagePoints.length))),
       );
       var importedPlan = pilgrimagePoints.length == 1
           ? await widget.repository.addPointToPlan(
@@ -700,7 +704,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
               SnackBar(
                 duration: const Duration(milliseconds: 1200),
                 content: Text(
-                  '正在缓存缩略图 $processed/${pilgrimagePoints.length}，成功 $cached',
+                  AppLocalizations.of(context)!.mapImportCachingProgressMsg(processed, pilgrimagePoints.length, cached),
                 ),
               ),
             );
@@ -733,7 +737,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
           content: Text(
             cacheFailed == 0
                 ? successMessage
-                : '已导入 ${pilgrimagePoints.length} 个点位，缩略图缓存 $cached/${pilgrimagePoints.length}，其余稍后会自动补齐。',
+                : AppLocalizations.of(context)!.mapImportPartialSuccessMsg(pilgrimagePoints.length, cached, pilgrimagePoints.length),
           ),
         ),
       );
@@ -778,30 +782,30 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     final action = await showDialog<_ImportOrganizeAction>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('整理刚导入的点位'),
+        title: Text(AppLocalizations.of(context)!.mapImportOrganizeDialogTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('已导入 $importedCount 个点位，并暂时放在未分组。可以先创建片区和关键点，再按最近关键点快速分配。'),
+            Text(AppLocalizations.of(context)!.mapImportOrganizeDialogMsg(importedCount)),
             const SizedBox(height: 18),
             FilledButton(
               onPressed: () => Navigator.of(
                 context,
               ).pop(_ImportOrganizeAction.nearestAssign),
-              child: const Text('最近分配'),
+              child: Text(AppLocalizations.of(context)!.mapImportOrganizeNearestAssign),
             ),
             const SizedBox(height: 8),
             OutlinedButton(
               onPressed: () =>
                   Navigator.of(context).pop(_ImportOrganizeAction.groupManager),
-              child: const Text('片区管理'),
+              child: Text(AppLocalizations.of(context)!.mapImportOrganizeGroupManager),
             ),
             const SizedBox(height: 8),
             TextButton(
               onPressed: () =>
                   Navigator.of(context).pop(_ImportOrganizeAction.later),
-              child: const Text('稍后'),
+              child: Text(AppLocalizations.of(context)!.mapImportOrganizeLater),
             ),
           ],
         ),
@@ -940,10 +944,10 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('从作品地图导入'),
+          title: Text(AppLocalizations.of(context)!.mapImportTitle),
           actions: [
             Tooltip(
-              message: _showThumbnailMarkers ? '使用图标标记' : '显示缩略图标记',
+              message: _showThumbnailMarkers ? AppLocalizations.of(context)!.tooltipUseIconMarkers : AppLocalizations.of(context)!.tooltipShowThumbnailMarkers,
               child: IconButton(
                 onPressed: _toggleThumbnailMarkers,
                 icon: Icon(
@@ -954,7 +958,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
               ),
             ),
             Tooltip(
-              message: '清除缓存并重新加载 Anitabi 点位',
+              message: AppLocalizations.of(context)!.mapImportRefreshTooltip,
               child: IconButton(
                 onPressed: _isLoading || _isImporting
                     ? null
@@ -971,7 +975,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
                     child: DropdownButtonFormField<PilgrimageWork>(
                       initialValue: _selectedWork,
-                      decoration: const InputDecoration(labelText: '作品'),
+                      decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelWork),
                       isExpanded: true,
                       items: [
                         for (final work in works)
@@ -1078,7 +1082,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
                                           ),
                                           imageSource:
                                               _settings.anitabiImageSource,
-                                          tooltip: 'Anitabi 点位',
+                                          tooltip: AppLocalizations.of(context)!.mapImportMarkerTooltip,
                                           onTap: () => _selectPoint(point),
                                         )
                                       : _ImportMarker(
@@ -1181,37 +1185,37 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
 
   String _errorMessageFor(Object? error) {
     if (error is AnitabiStaticDataUnavailableException) {
-      return 'Anitabi 地图数据无法加载';
+      return AppLocalizations.of(context)!.mapImportErrDataUnavailable;
     }
 
     if (error is AnitabiPartialPointsException) {
-      return 'Anitabi 点位只加载到一部分';
+      return AppLocalizations.of(context)!.mapImportErrPartialData;
     }
 
     if (error is AnitabiException && error.statusCode == 404) {
-      return '这个 Bangumi 条目暂无 Anitabi 地图数据';
+      return AppLocalizations.of(context)!.mapImportErrNotFound;
     }
 
-    return 'Anitabi 点位加载失败';
+    return AppLocalizations.of(context)!.mapImportErrLoadFailed;
   }
 
   String _errorDetailFor(Object? error) {
     if (error is AnitabiStaticDataUnavailableException) {
       if (kIsWeb) {
-        return '可能是 Anitabi 地图数据缓存版本不一致，或当前预览服务网络请求被拦截。请清除缓存并重新加载 Anitabi 点位。';
+        return AppLocalizations.of(context)!.mapImportErrDataUnavailableDetailWeb;
       }
-      return '无法读取 Anitabi 地图索引。请检查网络连接，或清除缓存并重新加载 Anitabi 点位。';
+      return AppLocalizations.of(context)!.mapImportErrDataUnavailableDetail;
     }
 
     if (error is AnitabiPartialPointsException) {
-      return '当前只取得 ${error.loadedCount} / 共 ${error.expectedCount} 个点位。请重新加载，或检查网络是否能访问 Anitabi 地图数据。';
+      return AppLocalizations.of(context)!.mapImportErrPartialDataDetail(error.loadedCount, error.expectedCount);
     }
 
     if (error is AnitabiException && error.statusCode == 404) {
-      return '可以尝试在作品管理中添加同名的原作、游戏或其他关联条目。';
+      return AppLocalizations.of(context)!.mapImportErrNotFoundDetail;
     }
 
-    return '请检查网络后重试，或稍后再重新加载。';
+    return AppLocalizations.of(context)!.mapImportErrLoadFailedDetail;
   }
 }
 
@@ -1234,10 +1238,10 @@ class _ImportProgress {
   final int processed;
   final int succeeded;
 
-  String get label {
+  String labelText(BuildContext context) {
     return switch (stage) {
-      _ImportProgressStage.importing => '正在导入 $total 个点位...',
-      _ImportProgressStage.caching => '正在缓存缩略图 $processed/$total，成功 $succeeded',
+      _ImportProgressStage.importing => AppLocalizations.of(context)!.mapImportProgressImporting(total),
+      _ImportProgressStage.caching => AppLocalizations.of(context)!.mapImportProgressCaching(processed, total, succeeded),
     };
   }
 }
@@ -1285,7 +1289,7 @@ class _ImportMarker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      tooltip: imported ? '已导入点位' : '可导入点位',
+      tooltip: imported ? AppLocalizations.of(context)!.mapImportMarkerImportedTooltip : AppLocalizations.of(context)!.mapImportMarkerAvailableTooltip,
       onPressed: onTap,
       style: IconButton.styleFrom(
         backgroundColor: imported ? AppColors.surfaceMuted : AppColors.surface,
@@ -1357,9 +1361,13 @@ class _ImportSummary extends StatelessWidget {
               Expanded(
                 child: Text(
                   isLoading
-                      ? '正在加载 Anitabi 点位'
-                      : importProgress?.label ??
-                            '已导入 $importedCount / 当前显示 $totalCount${expected == null ? '' : ' / 共 $expected'}',
+                      ? AppLocalizations.of(context)!.mapImportSummaryLoading
+                      : importProgress?.labelText(context) ??
+                            AppLocalizations.of(context)!.mapImportSummaryStats(
+                              importedCount,
+                              totalCount,
+                              expected == null ? '' : AppLocalizations.of(context)!.mapImportSummaryExpectedPart(expected),
+                            ),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 13,
@@ -1378,7 +1386,7 @@ class _ImportSummary extends StatelessWidget {
                   width: 36,
                   height: 36,
                   child: IconButton.outlined(
-                    tooltip: '添加所有点位',
+                    tooltip: AppLocalizations.of(context)!.mapImportSummaryTooltipAddAll,
                     onPressed: isImporting || availableCount == 0
                         ? null
                         : onImportAll,
@@ -1391,7 +1399,7 @@ class _ImportSummary extends StatelessWidget {
                   width: 36,
                   height: 36,
                   child: IconButton.outlined(
-                    tooltip: boxSelectionEnabled ? '退出框选' : '框选点位',
+                    tooltip: boxSelectionEnabled ? AppLocalizations.of(context)!.mapImportSummaryTooltipBoxExit : AppLocalizations.of(context)!.mapImportSummaryTooltipBoxStart,
                     isSelected: boxSelectionEnabled,
                     onPressed: isImporting ? null : onToggleBoxSelection,
                     icon: const Icon(Icons.select_all_outlined, size: 18),
@@ -1424,8 +1432,8 @@ class _ImportSummary extends StatelessWidget {
                       ),
                       label: Text(
                         selectedBoxCount == 0
-                            ? '添加框选'
-                            : '添加 $selectedBoxCount 个',
+                            ? AppLocalizations.of(context)!.mapImportAddBoxBtnLabel
+                            : AppLocalizations.of(context)!.mapImportAddBoxBtnWithCount(selectedBoxCount),
                       ),
                     ),
                   ),
@@ -1591,7 +1599,7 @@ class _AnitabiPointCard extends StatelessWidget {
               children: [
                 CopyableText(
                   text: point.name,
-                  copyLabel: '点位名称',
+                  copyLabel: AppLocalizations.of(context)!.mapImportPointNameLabel,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -1604,7 +1612,7 @@ class _AnitabiPointCard extends StatelessWidget {
                 CopyableText(
                   text: '${point.subtitle} / ${point.episodeLabel}',
                   copyText: _copySummary,
-                  copyLabel: '点位信息',
+                  copyLabel: AppLocalizations.of(context)!.mapImportPointInfoLabel,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -1616,7 +1624,7 @@ class _AnitabiPointCard extends StatelessWidget {
                 const SizedBox(height: 3),
                 CopyableText(
                   text: point.origin,
-                  copyLabel: '来源',
+                  copyLabel: AppLocalizations.of(context)!.mapImportPointOriginLabel,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -1633,7 +1641,7 @@ class _AnitabiPointCard extends StatelessWidget {
                       child: OutlinedButton.icon(
                         onPressed: openDetail,
                         icon: const Icon(Icons.image_outlined, size: 17),
-                        label: const Text('详情'),
+                        label: Text(AppLocalizations.of(context)!.mapImportPointDetailBtn),
                         style: OutlinedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                         ),
@@ -1651,7 +1659,7 @@ class _AnitabiPointCard extends StatelessWidget {
                                 : Icons.add_location_alt_outlined,
                             size: 18,
                           ),
-                          label: Text(imported ? '已加入' : '加入计划'),
+                          label: Text(imported ? AppLocalizations.of(context)!.mapImportPointJoinedBtn : AppLocalizations.of(context)!.mapImportPointJoinBtn),
                           style: FilledButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                           ),
@@ -1780,7 +1788,7 @@ class _AnitabiPointDetailSheet extends StatelessWidget {
                       children: [
                         CopyableText(
                           text: point.name,
-                          copyLabel: '点位名称',
+                          copyLabel: AppLocalizations.of(context)!.mapImportPointNameLabel,
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -1792,27 +1800,27 @@ class _AnitabiPointDetailSheet extends StatelessWidget {
                         const SizedBox(height: 8),
                         _AnitabiDetailInfoLine(
                           icon: Icons.local_movies_outlined,
-                          label: '场景',
+                          label: AppLocalizations.of(context)!.mapImportDetailSceneLabel,
                           value: '${point.subtitle} / ${point.episodeLabel}',
                         ),
                         if (point.note?.trim().isNotEmpty == true) ...[
                           const SizedBox(height: 6),
                           _AnitabiDetailInfoLine(
                             icon: Icons.sticky_note_2_outlined,
-                            label: '备注',
+                            label: AppLocalizations.of(context)!.mapImportDetailNoteLabel,
                             value: point.note!,
                           ),
                         ],
                         const SizedBox(height: 6),
                         _AnitabiDetailInfoLine(
                           icon: Icons.source_outlined,
-                          label: '来源',
+                          label: AppLocalizations.of(context)!.mapImportPointOriginLabel,
                           value: point.origin,
                         ),
                         const SizedBox(height: 6),
                         _AnitabiDetailInfoLine(
                           icon: Icons.location_on_outlined,
-                          label: '坐标',
+                          label: AppLocalizations.of(context)!.mapImportDetailCoordLabel,
                           value:
                               '${point.position.latitude.toStringAsFixed(5)}, ${point.position.longitude.toStringAsFixed(5)}',
                         ),
@@ -1836,7 +1844,7 @@ class _AnitabiPointDetailSheet extends StatelessWidget {
                     imported ? Icons.check : Icons.add_location_alt_outlined,
                     size: 18,
                   ),
-                  label: Text(imported ? '已加入计划' : '加入计划'),
+                  label: Text(imported ? AppLocalizations.of(context)!.mapImportDetailJoinedBtn : AppLocalizations.of(context)!.mapImportPointJoinBtn),
                 ),
               ),
             ],
@@ -1907,10 +1915,10 @@ class _NoPointSelectedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     final message = hasPoints
-        ? '点击地图上的点位查看缩略图和详情。'
+        ? AppLocalizations.of(context)!.mapImportNoPointSelectedHint
         : expectedCount == null || expectedCount == 0
-        ? '当前作品没有可导入的 Anitabi 点位。'
-        : '当前作品共有 $expectedCount 个点位，但没有可导入的带图参考点位。';
+        ? AppLocalizations.of(context)!.mapImportNoImportablePoints
+        : AppLocalizations.of(context)!.mapImportNoImagePoints(expectedCount!);
 
     return Container(
       margin: EdgeInsets.fromLTRB(16, 0, 16, 16 + bottomInset),
@@ -1961,11 +1969,11 @@ class _EmptyImportState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Padding(
         padding: EdgeInsets.all(24),
         child: Text(
-          '当前计划还没有 Bangumi 作品。请先到作品管理添加 Bangumi 作品。',
+          AppLocalizations.of(context)!.mapImportEmptyNoWorks,
           textAlign: TextAlign.center,
           style: TextStyle(
             color: AppColors.textSecondary,
@@ -1983,11 +1991,11 @@ class _ManualWorkImportState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Padding(
         padding: EdgeInsets.all(24),
         child: Text(
-          '手动添加的作品没有 Bangumi ID，无法从 Anitabi 地图导入点位。\n\n请通过 Bangumi/Anitabi 搜索添加作品，或使用手动添加点位。',
+          AppLocalizations.of(context)!.mapImportManualWorkState,
           textAlign: TextAlign.center,
           style: TextStyle(
             color: AppColors.textSecondary,
@@ -2006,7 +2014,7 @@ class _ImportLoadingState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Padding(
         padding: EdgeInsets.all(24),
         child: Column(
@@ -2015,7 +2023,7 @@ class _ImportLoadingState extends StatelessWidget {
             CircularProgressIndicator(),
             SizedBox(height: 16),
             Text(
-              '正在加载 Anitabi 作品和点位',
+              AppLocalizations.of(context)!.mapImportLoadingWorksAndPoints,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: AppColors.textSecondary,
@@ -2074,7 +2082,7 @@ class _ImportErrorState extends StatelessWidget {
             OutlinedButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('清除缓存并重新加载 Anitabi 点位'),
+              label: Text(AppLocalizations.of(context)!.mapImportRefreshTooltip),
             ),
           ],
         ),

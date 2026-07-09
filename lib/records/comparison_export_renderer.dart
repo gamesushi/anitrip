@@ -20,6 +20,9 @@ class ComparisonExportRenderer {
     required ComparisonExportConfig config,
     required Map<ComparisonMetadataField, String> metadata,
     required String? colorGradingSummary,
+    required String labelReference,
+    required String labelCaptured,
+    required String labelPilgrim,
   }) async {
     final refImg = referenceBytes != null
         ? await _decodeImage(referenceBytes)
@@ -94,7 +97,7 @@ class ComparisonExportRenderer {
         y,
         contentWidth,
         refHeight,
-        config.showLabels ? '参考' : '',
+        config.showLabels ? labelReference : '',
       );
       y += refHeight + effectiveImageGap;
     }
@@ -106,7 +109,7 @@ class ComparisonExportRenderer {
       y,
       contentWidth,
       capHeight,
-      config.showLabels ? '巡礼' : '',
+      config.showLabels ? labelCaptured : '',
     );
     y += capHeight + metaGap;
 
@@ -117,6 +120,7 @@ class ComparisonExportRenderer {
         y,
         contentWidth,
         metaLayout,
+        labelPilgrim,
       );
     }
 
@@ -207,6 +211,7 @@ class ComparisonExportRenderer {
     double y,
     double width,
     _ComparisonMetaLayout layout,
+    String labelPilgrim,
   ) {
     canvas.drawRRect(
       RRect.fromRectAndRadius(
@@ -304,7 +309,7 @@ class ComparisonExportRenderer {
     if (layout.pilgrimName.isNotEmpty) {
       final labelPainter = TextPainter(
         text: TextSpan(
-          text: '巡礼者',
+          text: labelPilgrim,
           style: TextStyle(
             color: const Color(0xFF8A9099),
             fontSize: layout.pilgrimLabelFontSize,

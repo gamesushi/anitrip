@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 import '../app_theme.dart';
 import '../app_version.dart';
@@ -97,13 +98,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          '设置',
+        title: Text(
+          AppLocalizations.of(context)!.settingsTitle,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900),
         ),
         actions: [
           IconButton(
-            tooltip: '恢复初始设置',
+            tooltip: AppLocalizations.of(context)!.settingsReset,
             onPressed: _confirmResetSettings,
             icon: const Icon(Icons.restart_alt_outlined),
           ),
@@ -112,11 +113,76 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         children: [
+          _AppearancePanel(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.language_outlined,
+                      color: AppColors.textSecondary,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        AppLocalizations.of(context)!.languageSetting,
+                        style: _titleTextStyle,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 14),
+                DropdownButtonFormField<String>(
+                  value: settings.language,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    contentPadding:
+                        EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  ),
+                  dropdownColor: AppColors.surface,
+                  items: [
+                    DropdownMenuItem(
+                      value: 'system',
+                      child: Text(AppLocalizations.of(context)!.languageSystem),
+                    ),
+                    DropdownMenuItem(
+                      value: 'zh',
+                      child: Text(AppLocalizations.of(context)!.languageZh),
+                    ),
+                    DropdownMenuItem(
+                      value: 'zh_Hant',
+                      child: Text(AppLocalizations.of(context)!.languageZhHant),
+                    ),
+                    DropdownMenuItem(
+                      value: 'en',
+                      child: Text(AppLocalizations.of(context)!.languageEn),
+                    ),
+                    DropdownMenuItem(
+                      value: 'fr',
+                      child: Text(AppLocalizations.of(context)!.languageFr),
+                    ),
+                    DropdownMenuItem(
+                      value: 'ko',
+                      child: Text(AppLocalizations.of(context)!.languageKo),
+                    ),
+                  ],
+                  onChanged: (value) {
+                    if (value != null) {
+                      widget.onChanged(settings.copyWith(language: value));
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
           _SettingsCard(
             header: _SettingsCardHeader(
               icon: Icons.palette_outlined,
-              title: '外观设置',
-              subtitle: '主题色、缩放、显示等',
+              title: AppLocalizations.of(context)!.settingsAppearance,
+              subtitle: AppLocalizations.of(context)!.settingsAppearanceSubtitle,
               onTap: () => _pushDetail(
                 _AppearanceSettingsPage(
                   settings: settings,
@@ -129,8 +195,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   _SummaryTile(
                     icon: Icons.circle,
-                    title: '主题色',
-                    value: settings.themePalette.label,
+                    title: AppLocalizations.of(context)!.settingsThemeColor,
+                    value: settings.themePalette.getLabel(context),
                     swatch: _ThemeSwatch(
                       palette: settings.themePalette,
                       customColorValue: settings.customThemeColorValue,
@@ -144,7 +210,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   _SummaryTile(
                     icon: Icons.zoom_out_map_outlined,
-                    title: '页面缩放',
+                    title: AppLocalizations.of(context)!.settingsUiScale,
                     value: '${(settings.uiScale * 100).round()}%',
                     onTap: () => _pushDetail(
                       _AppearanceSettingsPage(
@@ -161,8 +227,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _SettingsCard(
             header: _SettingsCardHeader(
               icon: Icons.photo_camera_outlined,
-              title: '拍摄设置',
-              subtitle: '照片比例、参考图比例、备份等',
+              title: AppLocalizations.of(context)!.settingsCamera,
+              subtitle: AppLocalizations.of(context)!.settingsCameraSubtitle,
               onTap: () => _pushDetail(
                 _CameraSettingsPage(
                   settings: settings,
@@ -176,8 +242,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   _SummaryTile(
                     icon: Icons.crop_outlined,
-                    title: '拍摄图片比例',
-                    value: settings.cameraCaptureAspectRatio.label,
+                    title: AppLocalizations.of(context)!.settingsCameraRatio,
+                    value: settings.cameraCaptureAspectRatio.shortLabel(context),
                     onTap: () => _pushDetail(
                       _CameraSettingsPage(
                         settings: settings,
@@ -188,7 +254,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   _SummaryTile(
                     icon: Icons.view_sidebar_outlined,
-                    title: '相机缩放',
+                    title: AppLocalizations.of(context)!.settingsCameraZoom,
                     value:
                         '${settings.cameraMinZoom.toStringAsFixed(1)}x-${settings.cameraMaxZoom.toStringAsFixed(1)}x',
                     onTap: () => _pushDetail(
@@ -205,8 +271,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const _SettingsDivider(),
                 _SummarySwitchTile(
                   icon: Icons.cloud_upload_outlined,
-                  title: '照片备份',
-                  subtitle: '保存巡礼照片到相册',
+                  title: AppLocalizations.of(context)!.settingsPhotoBackup,
+                  subtitle: AppLocalizations.of(context)!.settingsPhotoBackupSubtitle,
                   value: settings.saveVisitPhotoToGallery,
                   onChanged: (value) {
                     widget.onChanged(
@@ -221,16 +287,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _SettingsCard(
             header: _SettingsCardHeader(
               icon: Icons.compare_arrows_outlined,
-              title: '对比图设置',
-              subtitle: '导出样式、自动保存到相册',
+              title: AppLocalizations.of(context)!.settingsExport,
+              subtitle: AppLocalizations.of(context)!.settingsExportSubtitle,
               onTap: () => _openComparisonStyleSettings(settings),
             ),
             children: [
               if (_shouldShowMobileGallerySettings) ...[
                 _SummarySwitchTile(
                   icon: Icons.photo_library_outlined,
-                  title: '自动保存对比图',
-                  subtitle: '保存记录时保存到相册',
+                  title: AppLocalizations.of(context)!.settingsAutoSaveComparison,
+                  subtitle: AppLocalizations.of(context)!.settingsAutoSaveComparisonSubtitle,
                   value: settings.autoSaveComparisonToGallery,
                   onChanged: (value) {
                     widget.onChanged(
@@ -245,8 +311,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _SettingsCard(
             header: _SettingsCardHeader(
               icon: Icons.map_outlined,
-              title: '数据源设置',
-              subtitle: '地图源、图片源等',
+              title: AppLocalizations.of(context)!.settingsDataSource,
+              subtitle: AppLocalizations.of(context)!.settingsDataSourceSubtitle,
               onTap: () => _pushDetail(
                 _MapSettingsPage(
                   settings: settings,
@@ -261,8 +327,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _SettingsCard(
               header: _SettingsCardHeader(
                 icon: Icons.cleaning_services_outlined,
-                title: '清除缓存',
-                subtitle: '完整参考图缓存',
+                title: AppLocalizations.of(context)!.settingsClearCache,
+                subtitle: AppLocalizations.of(context)!.settingsClearCacheSubtitle,
                 onTap: () => _pushDetail(
                   _CacheCleanupSettingsPage(repository: widget.repository),
                 ),
@@ -274,12 +340,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             _SettingsCard(
               header: _SettingsCardHeader(
                 icon: Icons.desktop_windows_outlined,
-                title: '桌面端',
-                subtitle: '启动器、数据目录等',
+                title: AppLocalizations.of(context)!.settingsDesktop,
+                subtitle: AppLocalizations.of(context)!.settingsDesktopSubtitle,
                 onTap: () => _pushDetail(
                   _DesktopSettingsPage(
                     desktopLauncherInfo: _desktopLauncherInfo,
-                    desktopLauncherStatusText: _desktopLauncherStatusText,
+                    desktopLauncherStatusText: _desktopLauncherStatusText(context),
                   ),
                 ),
               ),
@@ -289,8 +355,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           _SettingsCard(
             header: _SettingsCardHeader(
               icon: Icons.info_outline,
-              title: '关于 MiriaGo',
-              subtitle: '版本信息、开源许可等',
+              title: AppLocalizations.of(context)!.settingsAbout,
+              subtitle: AppLocalizations.of(context)!.settingsAboutSubtitle,
               onTap: () => _pushDetail(
                 _AboutSettingsPage(appVersionLabel: _appVersionLabel),
               ),
@@ -322,16 +388,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('恢复初始设置'),
-          content: const Text('所有外观、拍摄和地图设置将恢复为默认值。'),
+          title: Text(AppLocalizations.of(context)!.settingsReset),
+          content: Text(AppLocalizations.of(context)!.settingsResetConfirmSubtitle),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(false),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.btnCancel),
             ),
             FilledButton(
               onPressed: () => Navigator.of(context).pop(true),
-              child: const Text('恢复'),
+              child: Text(AppLocalizations.of(context)!.btnConfirm),
             ),
           ],
         );
@@ -343,22 +409,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
     widget.onChanged(const AppSettings());
   }
 
-  String get _desktopLauncherStatusText {
+  String _desktopLauncherStatusText(BuildContext context) {
     if (!_desktopLauncherLoaded) {
-      return '桌面启动器 检查中';
+      return AppLocalizations.of(context)!.desktopLauncherChecking;
     }
     final info = _desktopLauncherInfo;
     if (info == null || !isTauriLauncherAvailable) {
-      return '桌面启动器 不可用';
+      return AppLocalizations.of(context)!.desktopLauncherUnavailable;
     }
     final mode = info.platform == 'macos'
-        ? '系统数据目录'
+        ? AppLocalizations.of(context)!.desktopSystemDataDir
         : info.fallbackUsed
-        ? '系统数据目录'
+        ? AppLocalizations.of(context)!.desktopSystemDataDir
         : info.portable
-        ? '便携目录'
-        : '应用数据目录';
-    return '桌面启动器 可用 / ${info.platform} / $mode';
+        ? AppLocalizations.of(context)!.desktopPortableDir
+        : AppLocalizations.of(context)!.desktopAppDataDir;
+    return '${AppLocalizations.of(context)!.desktopLauncherAvailable} / ${info.platform} / $mode';
   }
 
   bool get _shouldShowDesktopSection => kIsWeb;
@@ -393,7 +459,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('取消'),
+              child: Text(AppLocalizations.of(context)!.btnCancel),
             ),
             FilledButton(
               onPressed: () {
@@ -402,7 +468,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 }
                 Navigator.of(context).pop(controller.text);
               },
-              child: const Text('保存'),
+              child: Text(AppLocalizations.of(context)!.btnSave),
             ),
           ],
         );
@@ -491,7 +557,7 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
         customAccentValue: settings.customThemeColorValue,
       ),
       child: _ScaledDetailScaffold(
-        title: '\u5916\u89c2\u8bbe\u7f6e',
+        title: AppLocalizations.of(context)!.settingsAppearance,
         uiScale: settings.uiScale,
         fontScale: settings.fontScale,
         children: [
@@ -499,9 +565,9 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const _InlineSectionTitle(
-                  title: '\u4e3b\u9898\u8272',
-                  subtitle: '\u5f71\u54cd\u5e94\u7528\u6574\u4f53\u914d\u8272',
+                _InlineSectionTitle(
+                  title: AppLocalizations.of(context)!.settingsThemeColor,
+                  subtitle: AppLocalizations.of(context)!.settingsThemeColorSubtitle,
                 ),
                 const SizedBox(height: 16),
                 SingleChildScrollView(
@@ -547,7 +613,7 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                           selected:
                               settings.themePalette == AppThemePalette.aurora,
                           colorValue: settings.customThemeColorValue,
-                          label: settings.customThemeColorName,
+                          label: _localizeColorName(context, settings.customThemeColorName),
                           onTap: _showCustomThemeColorDialog,
                         ),
                       ),
@@ -556,8 +622,8 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                 ),
                 if (_showFutureThemeModeSettings) ...[
                   const SizedBox(height: 22),
-                  const Text(
-                    '\u4e3b\u9898\u6a21\u5f0f',
+                  Text(
+                    AppLocalizations.of(context)!.settingsThemeMode,
                     style: _titleTextStyle,
                   ),
                   const SizedBox(height: 10),
@@ -566,7 +632,7 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                       Expanded(
                         child: _ModeButton(
                           icon: Icons.wb_sunny_outlined,
-                          label: '\u6d45\u8272\u6a21\u5f0f',
+                          label: AppLocalizations.of(context)!.settingsThemeLight,
                           selected: settings.themeMode == AppThemeMode.light,
                           onTap: () {
                             _update(
@@ -579,7 +645,7 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                       Expanded(
                         child: _ModeButton(
                           icon: Icons.dark_mode_outlined,
-                          label: '\u6df1\u8272\u6a21\u5f0f',
+                          label: AppLocalizations.of(context)!.settingsThemeDark,
                           selected: settings.themeMode == AppThemeMode.dark,
                           onTap: () {
                             _update(
@@ -592,7 +658,7 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                       Expanded(
                         child: _ModeButton(
                           icon: Icons.phone_iphone_outlined,
-                          label: '\u8ddf\u968f\u7cfb\u7edf',
+                          label: AppLocalizations.of(context)!.settingsThemeSystem,
                           selected: settings.themeMode == AppThemeMode.system,
                           onTap: () {
                             _update(
@@ -620,9 +686,9 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                       size: 20,
                     ),
                     const SizedBox(width: 8),
-                    const Expanded(
+                    Expanded(
                       child: Text(
-                        '\u9875\u9762\u7f29\u653e',
+                        AppLocalizations.of(context)!.settingsUiScale,
                         style: _titleTextStyle,
                       ),
                     ),
@@ -638,10 +704,10 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                   ],
                 ),
                 const SizedBox(height: 4),
-                const Padding(
-                  padding: EdgeInsets.only(left: 28, right: 8),
+                Padding(
+                  padding: const EdgeInsets.only(left: 28, right: 8),
                   child: Text(
-                    '\u8c03\u6574\u754c\u9762\u6574\u4f53\u5927\u5c0f\uff08\u4e0d\u5f71\u54cd\u53c2\u8003\u56fe\uff09',
+                    AppLocalizations.of(context)!.settingsUiScaleSubtitle,
                     style: _captionTextStyle,
                   ),
                 ),
@@ -666,28 +732,28 @@ class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
                       child: Row(
                         children: [
                           _FontSizeButton(
-                            label: '\u5c0f',
+                            label: AppLocalizations.of(context)!.settingsFontSmall,
                             selected: fontScale <= 0.9,
                             onTap: () =>
                                 _update(settings.copyWith(fontScale: 0.9)),
                           ),
                           const SizedBox(width: 10),
                           _FontSizeButton(
-                            label: '\u6807\u51c6',
+                            label: AppLocalizations.of(context)!.settingsFontStandard,
                             selected: fontScale > 0.9 && fontScale < 1.1,
                             onTap: () =>
                                 _update(settings.copyWith(fontScale: 1)),
                           ),
                           const SizedBox(width: 10),
                           _FontSizeButton(
-                            label: '\u5927',
+                            label: AppLocalizations.of(context)!.settingsFontLarge,
                             selected: fontScale >= 1.1 && fontScale < 1.2,
                             onTap: () =>
                                 _update(settings.copyWith(fontScale: 1.1)),
                           ),
                           const SizedBox(width: 10),
                           _FontSizeButton(
-                            label: '\u7279\u5927',
+                            label: AppLocalizations.of(context)!.settingsFontHuge,
                             selected: fontScale >= 1.2,
                             onTap: () =>
                                 _update(settings.copyWith(fontScale: 1.2)),
@@ -791,15 +857,15 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
     );
 
     return _ScaledDetailScaffold(
-      title: '拍摄设置',
+      title: AppLocalizations.of(context)!.settingsCamera,
       uiScale: settings.uiScale,
       fontScale: settings.fontScale,
       children: [
         _SettingsSection(
-          title: '\u62cd\u6444\u56fe\u7247\u6bd4\u4f8b',
+          title: AppLocalizations.of(context)!.settingsCameraRatio,
           children: [
-            const Text(
-              '\u81ea\u52a8\u4f1a\u4f18\u5148\u8ddf\u968f\u53c2\u8003\u56fe\u6bd4\u4f8b\uff1b\u9009\u62e9\u56fa\u5b9a\u6bd4\u4f8b\u540e\u4f1a\u6309\u8be5\u6bd4\u4f8b\u62cd\u6444\u3002',
+            Text(
+              AppLocalizations.of(context)!.cameraCaptureRatioDesc,
               style: _secondaryTextStyle,
             ),
             const SizedBox(height: 10),
@@ -830,10 +896,10 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
         ),
         const SizedBox(height: 12),
         _SettingsSection(
-          title: '\u65e0\u53c2\u8003\u56fe\u65f6\u6bd4\u4f8b',
+          title: AppLocalizations.of(context)!.cameraFallbackRatioTitle,
           children: [
-            const Text(
-              '\u62cd\u6444\u56fe\u7247\u6bd4\u4f8b\u4e3a\u81ea\u52a8\u3001\u4e14\u6ca1\u6709\u53c2\u8003\u56fe\u53ef\u5bf9\u9f50\u65f6\u4f7f\u7528\u3002',
+            Text(
+              AppLocalizations.of(context)!.cameraFallbackRatioDesc,
               style: _secondaryTextStyle,
             ),
             const SizedBox(height: 10),
@@ -865,7 +931,7 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
         const SizedBox(height: 12),
         _SettingsSection(
           title:
-              '\u53c2\u8003\u56fe\u663e\u793a ${(settings.referenceImageScale * 100).round()}%',
+              '${AppLocalizations.of(context)!.cameraReferenceScaleSection} ${(settings.referenceImageScale * 100).round()}%',
           children: [
             _PercentScaleControl(
               value: settings.referenceImageScale.clamp(0.8, 1.0),
@@ -883,7 +949,7 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
         const SizedBox(height: 12),
         _SettingsSection(
           title:
-              '\u76f8\u673a\u7f29\u653e ${cameraMinZoom.toStringAsFixed(1)}x - ${cameraMaxZoom.toStringAsFixed(1)}x',
+              '${AppLocalizations.of(context)!.cameraZoomSection} ${cameraMinZoom.toStringAsFixed(1)}x - ${cameraMaxZoom.toStringAsFixed(1)}x',
           children: [
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
@@ -929,7 +995,7 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
         if (_shouldShowMobileGallerySettings) ...[
           const SizedBox(height: 12),
           _SettingsSection(
-            title: '照片备份',
+            title: AppLocalizations.of(context)!.settingsPhotoBackup,
             children: [
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
@@ -937,9 +1003,9 @@ class _CameraSettingsPageState extends State<_CameraSettingsPage> {
                   Icons.cloud_upload_outlined,
                   color: AppColors.textSecondary,
                 ),
-                title: const Text('保存巡礼照片到相册', style: _titleTextStyle),
-                subtitle: const Text(
-                  '保存记录时同时备份一张巡礼照片。',
+                title: Text(AppLocalizations.of(context)!.settingsPhotoBackupSubtitle, style: _titleTextStyle),
+                subtitle: Text(
+                  AppLocalizations.of(context)!.cameraBackupDetailDesc,
                   style: _secondaryTextStyle,
                 ),
                 value: settings.saveVisitPhotoToGallery,
@@ -1040,15 +1106,15 @@ class _ComparisonStyleSettingsPageState
   @override
   Widget build(BuildContext context) {
     return _ScaledDetailScaffold(
-      title: '对比图设置',
+      title: AppLocalizations.of(context)!.settingsExport,
       uiScale: _settings.uiScale,
       fontScale: _settings.fontScale,
       children: [
         _SettingsSection(
-          title: '默认配置',
+          title: AppLocalizations.of(context)!.settingsExportDefaultConfig,
           children: [
             Text(
-              comparisonExportConfigSummary(_config),
+              comparisonExportConfigSummary(context, _config),
               style: _secondaryTextStyle,
             ),
             if (_loading) ...[
@@ -1111,13 +1177,13 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
     final settings = _settings;
 
     return _ScaledDetailScaffold(
-      title: '数据源设置',
+      title: AppLocalizations.of(context)!.settingsDataSource,
       uiScale: settings.uiScale,
       fontScale: settings.fontScale,
       children: [
         _SettingsSection(
           title:
-              '\u5730\u56fe\u6e90 ${mapTileProviderOption(settings.mapTileProvider).label}',
+              AppLocalizations.of(context)!.settingsDataSource + ': ' + _mapTileProviderLabel(context, settings.mapTileProvider),
           children: [
             _MapSourceGrid(
               selectedProvider: settings.mapTileProvider,
@@ -1127,7 +1193,7 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
             ),
             const SizedBox(height: 10),
             Text(
-              mapTileProviderOption(settings.mapTileProvider).description,
+              _mapTileProviderDescription(context, settings.mapTileProvider),
               style: _secondaryTextStyle,
             ),
             if (settings.mapTileProvider == MapTileProvider.openFreeMap) ...[
@@ -1135,7 +1201,7 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
               _SettingsSubheading(
                 icon: Icons.layers_outlined,
                 title:
-                    'OpenFreeMap 样式 ${openFreeMapStyleOption(settings.openFreeMapStyle).label}',
+                    '${AppLocalizations.of(context)!.mapOpenFreeMapStyleSection} ${openFreeMapStyleOption(settings.openFreeMapStyle).label}',
               ),
               const SizedBox(height: 8),
               _OpenFreeMapStyleGrid(
@@ -1146,7 +1212,7 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
               ),
               const SizedBox(height: 10),
               Text(
-                openFreeMapStyleOption(settings.openFreeMapStyle).description,
+                _openFreeMapStyleDescription(context, settings.openFreeMapStyle),
                 style: _secondaryTextStyle,
               ),
             ],
@@ -1155,14 +1221,14 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
               _MapUrlRow(
                 icon: Icons.grid_3x3_outlined,
                 label: settings.customXyzTileUrl.trim().isEmpty
-                    ? '未设置自定义 XYZ URL'
+                    ? AppLocalizations.of(context)!.mapCustomXyzUrlNotSet
                     : settings.customXyzTileUrl.trim(),
                 onTap: () => widget.showMapUrlDialog(
-                  title: '自定义 XYZ URL',
+                  title: AppLocalizations.of(context)!.mapCustomXyzUrlTitle,
                   initialValue: settings.customXyzTileUrl,
-                  helperText: 'URL 需要包含 {z}、{x}、{y}。',
+                  helperText: AppLocalizations.of(context)!.mapCustomXyzUrlHelper('{x}', '{y}', '{z}'),
                   validator: (value) =>
-                      isValidXyzTileUrl(value.trim()) ? null : 'URL 格式无效',
+                      isValidXyzTileUrl(value.trim()) ? null : AppLocalizations.of(context)!.mapCustomXyzUrlInvalid,
                   onSaved: (value) {
                     _update(settings.copyWith(customXyzTileUrl: value.trim()));
                   },
@@ -1175,12 +1241,12 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
               _MapUrlRow(
                 icon: Icons.data_object_outlined,
                 label: settings.customMapLibreStyleUrl.trim().isEmpty
-                    ? '未设置 MapLibre style URL'
+                    ? AppLocalizations.of(context)!.mapCustomMapLibreUrlNotSet
                     : settings.customMapLibreStyleUrl.trim(),
                 onTap: () => widget.showMapUrlDialog(
-                  title: 'MapLibre style URL',
+                  title: AppLocalizations.of(context)!.mapCustomMapLibreUrlTitle,
                   initialValue: settings.customMapLibreStyleUrl,
-                  helperText: 'URL 需要指向可公开读取的 style JSON。',
+                  helperText: AppLocalizations.of(context)!.mapCustomMapLibreUrlHelper,
                   validator: (value) {
                     final testSettings = settings.copyWith(
                       customMapLibreStyleUrl: value.trim(),
@@ -1207,7 +1273,7 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
         const SizedBox(height: 12),
         _SettingsSection(
           title:
-              'Anitabi 图片源 ${_anitabiImageSourceLabel(settings.anitabiImageSource)}',
+              '${AppLocalizations.of(context)!.mapAnitabiImageSourceSection} ${_anitabiImageSourceLabel(context, settings.anitabiImageSource)}',
           children: [
             _AnitabiImageSourceGrid(
               selectedSource: settings.anitabiImageSource,
@@ -1217,25 +1283,25 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
             ),
             const SizedBox(height: 10),
             Text(
-              _anitabiImageSourceDescription(settings.anitabiImageSource),
+              _anitabiImageSourceDescription(context, settings.anitabiImageSource),
               style: _secondaryTextStyle,
             ),
           ],
         ),
         const SizedBox(height: 12),
         _SettingsSection(
-          title: '地图缩略图',
+          title: AppLocalizations.of(context)!.mapThumbnailSection,
           children: [
             _NumberStepperSetting(
               icon: Icons.photo_size_select_large_outlined,
-              title: '缩略图显示阈值',
+              title: AppLocalizations.of(context)!.mapThumbnailThresholdTitle,
               subtitle:
-                  '视图内点位不超过 ${settings.mapThumbnailVisibleThreshold} 个时显示缩略图；超过时仅显示圆点。',
+                  AppLocalizations.of(context)!.mapThumbnailThresholdDesc(settings.mapThumbnailVisibleThreshold),
               value: settings.mapThumbnailVisibleThreshold,
               min: 0,
               max: 200,
               step: 5,
-              valueLabel: '${settings.mapThumbnailVisibleThreshold} 个',
+              valueLabel: AppLocalizations.of(context)!.mapThumbnailCountLabel(settings.mapThumbnailVisibleThreshold),
               onChanged: (value) {
                 _update(settings.copyWith(mapThumbnailVisibleThreshold: value));
               },
@@ -1243,25 +1309,25 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
             const SizedBox(height: 12),
             _NumberStepperSetting(
               icon: Icons.download_for_offline_outlined,
-              title: '图片同时请求数',
-              subtitle: '用于地图缩略图显示、导入点位时缓存缩略图，以及批量缓存参考图。数值越大速度可能越快，但网络压力也更高。',
+              title: AppLocalizations.of(context)!.mapConcurrentLoadsTitle,
+              subtitle: AppLocalizations.of(context)!.mapConcurrentLoadsDesc,
               value: settings.mapThumbnailConcurrentLoads,
               min: 1,
               max: 30,
               step: 1,
-              valueLabel: '${settings.mapThumbnailConcurrentLoads} 个',
+              valueLabel: AppLocalizations.of(context)!.mapThumbnailCountLabel(settings.mapThumbnailConcurrentLoads),
               onChanged: (value) {
                 _update(settings.copyWith(mapThumbnailConcurrentLoads: value));
               },
             ),
             const SizedBox(height: 8),
-            const Text('阈值为 0 时不会在地图上显示缩略图。', style: _secondaryTextStyle),
+            Text(AppLocalizations.of(context)!.mapThumbnailThresholdZeroHint, style: _secondaryTextStyle),
           ],
         ),
         if (_showFutureNavigationAppSettings) ...[
           const SizedBox(height: 12),
           _SettingsSection(
-            title: '\u5bfc\u822a\u8f6f\u4ef6 ${settings.navigationApp.label}',
+            title: '${AppLocalizations.of(context)!.mapNavigationAppSection} ${settings.navigationApp.getLocalizedLabel(context)}',
             children: [
               _NavigationAppGrid(
                 selectedApp: settings.navigationApp,
@@ -1270,8 +1336,8 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
                 },
               ),
               const SizedBox(height: 10),
-              const Text(
-                '\u4ec5\u4fdd\u7559\u754c\u9762\u9009\u9879\uff0c\u6682\u4e0d\u63a5\u5165\u5b9e\u9645\u5bfc\u822a\u8df3\u8f6c\u3002',
+              Text(
+                AppLocalizations.of(context)!.mapNavigationAppHint,
                 style: _secondaryTextStyle,
               ),
             ],
@@ -1305,15 +1371,15 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return _DetailScaffold(
-      title: '清除缓存',
+      title: AppLocalizations.of(context)!.settingsClearCache,
       children: [
         FutureBuilder<List<PilgrimagePlan>>(
           future: _plansFuture,
           builder: (context, snapshot) {
             final plans = snapshot.data;
             if (snapshot.connectionState != ConnectionState.done) {
-              return const _SettingsSection(
-                title: '计划',
+              return _SettingsSection(
+                title: AppLocalizations.of(context)!.cachePlanSection,
                 children: [
                   Center(
                     child: SizedBox(
@@ -1327,9 +1393,9 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
             }
             if (snapshot.hasError || plans == null) {
               return _SettingsSection(
-                title: '计划',
+                title: AppLocalizations.of(context)!.cachePlanSection,
                 children: [
-                  const _InfoRow(icon: Icons.error_outline, text: '计划列表读取失败'),
+                  _InfoRow(icon: Icons.error_outline, text: AppLocalizations.of(context)!.cacheLoadPlansFailed),
                   const SizedBox(height: 12),
                   OutlinedButton.icon(
                     onPressed: () {
@@ -1338,7 +1404,7 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
                       });
                     },
                     icon: const Icon(Icons.refresh, size: 18),
-                    label: const Text('重试'),
+                    label: Text(AppLocalizations.of(context)!.btnRetry),
                   ),
                 ],
               );
@@ -1351,18 +1417,18 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
             return Column(
               children: [
                 _SettingsSection(
-                  title: '选择计划',
+                  title: AppLocalizations.of(context)!.cacheSelectPlanSection,
                   children: [
                     Row(
                       children: [
                         Expanded(
                           child: Text(
-                            '已选择 ${_selectedPlanIds.length} / ${plans.length} 个计划',
+                            AppLocalizations.of(context)!.cacheSelectedPlansCount(_selectedPlanIds.length, plans.length),
                             style: _secondaryTextStyle,
                           ),
                         ),
                         IconButton(
-                          tooltip: '全选',
+                          tooltip: AppLocalizations.of(context)!.tooltipSelectAll,
                           onPressed: () {
                             setState(() {
                               _selectedPlanIds
@@ -1373,7 +1439,7 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
                           icon: const Icon(Icons.select_all_outlined),
                         ),
                         IconButton(
-                          tooltip: '清空',
+                          tooltip: AppLocalizations.of(context)!.tooltipClear,
                           onPressed: _selectedPlanIds.isEmpty
                               ? null
                               : () {
@@ -1392,7 +1458,7 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
                         controlAffinity: ListTileControlAffinity.leading,
                         title: Text(plan.name, style: _titleTextStyle),
                         subtitle: Text(
-                          '${plan.area} / ${plan.points.length} 个点位',
+                          AppLocalizations.of(context)!.cachePointsCount(plan.area, plan.points.length),
                           style: _secondaryTextStyle,
                         ),
                         value: _selectedPlanIds.contains(plan.id),
@@ -1419,8 +1485,8 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
                         ? null
                         : _showCachePlaceholder,
                     icon: const Icon(Icons.cleaning_services_outlined),
-                    label: const Text(
-                      '\u6e05\u9664\u5b8c\u6574\u53c2\u8003\u56fe\u7f13\u5b58',
+                    label: Text(
+                      AppLocalizations.of(context)!.cacheClearButton,
                     ),
                   ),
                 ),
@@ -1435,7 +1501,7 @@ class _CacheCleanupSettingsPageState extends State<_CacheCleanupSettingsPage> {
   void _showCachePlaceholder() {
     ScaffoldMessenger.of(
       context,
-    ).showSnackBar(const SnackBar(content: Text('清除缓存功能尚未接入，仅展示界面。')));
+    ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.cacheClearFuncPlaceholder)));
   }
 }
 
@@ -1451,10 +1517,10 @@ class _DesktopSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _DetailScaffold(
-      title: '桌面端',
+      title: AppLocalizations.of(context)!.settingsDesktop,
       children: [
         _SettingsSection(
-          title: '启动器',
+          title: AppLocalizations.of(context)!.desktopLauncherSection,
           children: [
             _InfoRow(
               icon: Icons.desktop_windows_outlined,
@@ -1487,16 +1553,16 @@ class _AboutSettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _DetailScaffold(
-      title: '关于 MiriaGo',
+      title: AppLocalizations.of(context)!.settingsAbout,
       children: [
         _SettingsSection(
-          title: '应用信息',
+          title: AppLocalizations.of(context)!.aboutAppInfoSection,
           children: [
             Row(
               children: [
                 const _AppIconMark(),
                 const SizedBox(width: 14),
-                const Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -1510,7 +1576,7 @@ class _AboutSettingsPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 3),
-                      Text('动漫圣地巡礼计划与拍摄参考工具', style: _secondaryTextStyle),
+                      Text(AppLocalizations.of(context)!.aboutAppDescription, style: _secondaryTextStyle),
                     ],
                   ),
                 ),
@@ -1519,37 +1585,37 @@ class _AboutSettingsPage extends StatelessWidget {
             const SizedBox(height: 14),
             _AboutInfoTile(
               icon: Icons.new_releases_outlined,
-              label: '当前版本',
-              value: appVersionLabel ?? '读取中',
+              label: AppLocalizations.of(context)!.aboutVersionLabel,
+              value: appVersionLabel ?? AppLocalizations.of(context)!.aboutLoadingText,
             ),
-            const _AboutInfoTile(
+            _AboutInfoTile(
               icon: Icons.person_outline,
-              label: '作者',
+              label: AppLocalizations.of(context)!.aboutAuthorLabel,
               value: 'BilyHurington',
             ),
-            const _AboutInfoTile(
+            _AboutInfoTile(
               icon: Icons.mail_outline,
-              label: '联系邮箱',
+              label: AppLocalizations.of(context)!.aboutContactEmailLabel,
               value: 'bilyhurington@gmail.com',
             ),
-            const _AboutInfoTile(
+            _AboutInfoTile(
               icon: Icons.code_outlined,
-              label: '开源仓库',
+              label: AppLocalizations.of(context)!.aboutSourceCodeRepositoryLabel,
               value: 'github.com/BilyHurington/MiriaGo',
             ),
-            const _AboutInfoTile(
+            _AboutInfoTile(
               icon: Icons.balance_outlined,
-              label: '开源许可',
+              label: AppLocalizations.of(context)!.aboutLicenseLabel,
               value: 'MIT License',
             ),
           ],
         ),
         const SizedBox(height: 12),
-        const _SettingsSection(
-          title: '数据与版权',
+        _SettingsSection(
+          title: AppLocalizations.of(context)!.aboutCopyrightSection,
           children: [
             Text(
-              '地图可使用 OpenFreeMap、OpenStreetMap 或自定义服务；作品搜索使用 Bangumi；巡礼点位与参考图来自 Anitabi。图片源设置只影响访问域名，远端链接会统一保留 Anitabi 默认格式。第三方数据、截图和图片版权归原平台、贡献者或权利方所有。',
+              AppLocalizations.of(context)!.aboutCopyrightDescription,
               style: _secondaryParagraphTextStyle,
             ),
           ],
@@ -1605,10 +1671,10 @@ class _ScaledDetailScaffold extends StatelessWidget {
 }
 
 extension _SettingsAspectRatioLabel on CameraPhotoAspectRatio {
-  String get shortLabel {
+  String shortLabel(BuildContext context) {
     return switch (this) {
-      CameraPhotoAspectRatio.auto => '\u81ea\u52a8',
-      CameraPhotoAspectRatio.native => '\u539f\u751f',
+      CameraPhotoAspectRatio.auto => AppLocalizations.of(context)!.aspectAuto,
+      CameraPhotoAspectRatio.native => AppLocalizations.of(context)!.aspectNativeHint,
       CameraPhotoAspectRatio.landscape16x9 => '16:9',
       CameraPhotoAspectRatio.cinema21x9 => '21:9',
       CameraPhotoAspectRatio.standard4x3 => '4:3',
@@ -1618,24 +1684,24 @@ extension _SettingsAspectRatioLabel on CameraPhotoAspectRatio {
       CameraPhotoAspectRatio.portrait3x4 => '3:4',
       CameraPhotoAspectRatio.portrait2x3 => '2:3',
       CameraPhotoAspectRatio.square1x1 => '1:1',
-      CameraPhotoAspectRatio.custom => '\u81ea\u5b9a\u4e49',
+      CameraPhotoAspectRatio.custom => AppLocalizations.of(context)!.aspectCustom,
     };
   }
 
-  String get settingHintLabel {
+  String settingHintLabel(BuildContext context) {
     return switch (this) {
-      CameraPhotoAspectRatio.auto => '\u63a8\u8350',
-      CameraPhotoAspectRatio.native => '\u539f\u751f',
-      CameraPhotoAspectRatio.landscape16x9 => '\u5bbd\u5c4f',
-      CameraPhotoAspectRatio.cinema21x9 => '\u7535\u5f71',
-      CameraPhotoAspectRatio.standard4x3 => '\u7ecf\u5178',
-      CameraPhotoAspectRatio.photo3x2 => '\u76f8\u673a',
-      CameraPhotoAspectRatio.portrait9x16 => '\u7ad6\u5c4f',
-      CameraPhotoAspectRatio.portrait9x21 => '\u5168\u9762\u5c4f',
-      CameraPhotoAspectRatio.portrait3x4 => '\u7ad6\u5e45',
-      CameraPhotoAspectRatio.portrait2x3 => '\u7ad6\u5e45',
-      CameraPhotoAspectRatio.square1x1 => '\u65b9\u5f62',
-      CameraPhotoAspectRatio.custom => '\u81ea\u5b9a',
+      CameraPhotoAspectRatio.auto => AppLocalizations.of(context)!.aspectAutoHint,
+      CameraPhotoAspectRatio.native => AppLocalizations.of(context)!.aspectNativeHint,
+      CameraPhotoAspectRatio.landscape16x9 => AppLocalizations.of(context)!.aspectLandscape16x9Hint,
+      CameraPhotoAspectRatio.cinema21x9 => AppLocalizations.of(context)!.aspectCinema21x9Hint,
+      CameraPhotoAspectRatio.standard4x3 => AppLocalizations.of(context)!.aspectStandard4x3Hint,
+      CameraPhotoAspectRatio.photo3x2 => AppLocalizations.of(context)!.aspectPhoto3x2Hint,
+      CameraPhotoAspectRatio.portrait9x16 => AppLocalizations.of(context)!.aspectPortrait9x16Hint,
+      CameraPhotoAspectRatio.portrait9x21 => AppLocalizations.of(context)!.aspectPortrait9x21Hint,
+      CameraPhotoAspectRatio.portrait3x4 => AppLocalizations.of(context)!.aspectPortrait3x4Hint,
+      CameraPhotoAspectRatio.portrait2x3 => AppLocalizations.of(context)!.aspectPortrait2x3Hint,
+      CameraPhotoAspectRatio.square1x1 => AppLocalizations.of(context)!.aspectSquare1x1Hint,
+      CameraPhotoAspectRatio.custom => AppLocalizations.of(context)!.aspectCustomHint,
     };
   }
 }
@@ -1954,7 +2020,7 @@ class _NumberStepperSetting extends StatelessWidget {
           children: [
             _NumberStepperIconButton(
               icon: Icons.remove,
-              tooltip: '减少',
+              tooltip: AppLocalizations.of(context)!.btnDecrease,
               onTap: canDecrease
                   ? () => onChanged((value - step).clamp(min, max))
                   : null,
@@ -1983,7 +2049,7 @@ class _NumberStepperSetting extends StatelessWidget {
             ),
             _NumberStepperIconButton(
               icon: Icons.add,
-              tooltip: '增加',
+              tooltip: AppLocalizations.of(context)!.btnIncrease,
               onTap: canIncrease
                   ? () => onChanged((value + step).clamp(min, max))
                   : null,
@@ -2085,14 +2151,14 @@ class _FullReferenceCacheSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _SettingsSection(
-      title: '\u7f13\u5b58\u5185\u5bb9',
+    return _SettingsSection(
+      title: AppLocalizations.of(context)!.cacheContentSection,
       children: [
         _CacheTargetCard(
           icon: Icons.photo_library_outlined,
-          title: '\u5b8c\u6574\u53c2\u8003\u56fe\u7f13\u5b58',
+          title: AppLocalizations.of(context)!.cacheReferenceType,
           subtitle:
-              '\u6e05\u9664\u76f8\u673a\u53c2\u8003\u548c\u5927\u56fe\u67e5\u770b\u4f7f\u7528\u7684\u5b8c\u6574\u53c2\u8003\u56fe\u3002\u7f29\u7565\u56fe\u7f13\u5b58\u4f1a\u4fdd\u7559\uff0c\u4ee5\u4fdd\u6301\u5217\u8868\u548c\u5730\u56fe\u52a0\u8f7d\u901f\u5ea6\u3002',
+              AppLocalizations.of(context)!.cacheReferenceDesc,
         ),
       ],
     );
@@ -2181,7 +2247,7 @@ class _CustomAspectRatioOption extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            '\u81ea\u5b9a\u4e49',
+            'custom',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -2234,8 +2300,8 @@ class _CustomAspectRatioDialogState extends State<_CustomAspectRatioDialog> {
     final height = double.tryParse(_heightController.text.trim());
     if (width == null || height == null || width <= 0 || height <= 0) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('\u8bf7\u8f93\u5165\u6709\u6548\u6bd4\u4f8b'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.msgInvalidRatio),
         ),
       );
       return;
@@ -2246,7 +2312,7 @@ class _CustomAspectRatioDialogState extends State<_CustomAspectRatioDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('\u81ea\u5b9a\u4e49\u6bd4\u4f8b'),
+      title: Text(AppLocalizations.of(context)!.dialogCustomRatioTitle),
       content: Row(
         children: [
           Expanded(
@@ -2255,7 +2321,7 @@ class _CustomAspectRatioDialogState extends State<_CustomAspectRatioDialog> {
               keyboardType: const TextInputType.numberWithOptions(
                 decimal: true,
               ),
-              decoration: const InputDecoration(labelText: '\u5bbd'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelWidth),
             ),
           ),
           const Padding(
@@ -2271,7 +2337,7 @@ class _CustomAspectRatioDialogState extends State<_CustomAspectRatioDialog> {
               keyboardType: const TextInputType.numberWithOptions(
                 decimal: true,
               ),
-              decoration: const InputDecoration(labelText: '\u9ad8'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelHeight),
               onSubmitted: (_) => _submit(),
             ),
           ),
@@ -2280,9 +2346,9 @@ class _CustomAspectRatioDialogState extends State<_CustomAspectRatioDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('\u53d6\u6d88'),
+          child: Text(AppLocalizations.of(context)!.btnCancel),
         ),
-        FilledButton(onPressed: _submit, child: const Text('\u4fdd\u5b58')),
+        FilledButton(onPressed: _submit, child: Text(AppLocalizations.of(context)!.btnSave)),
       ],
     );
   }
@@ -2343,7 +2409,7 @@ class _AspectRatioOption extends StatelessWidget {
                 ],
                 Flexible(
                   child: Text(
-                    ratio.shortLabel,
+                    ratio.shortLabel(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -2360,7 +2426,7 @@ class _AspectRatioOption extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              ratio.settingHintLabel,
+              ratio.settingHintLabel(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -2446,7 +2512,7 @@ class _ThemeColorOption extends StatelessWidget {
           _ThemeSwatch(palette: palette, selected: selected),
           const SizedBox(height: 8),
           Text(
-            palette.label,
+            palette.getLabel(context),
             style: TextStyle(
               color: selected ? AppColors.accent : AppColors.textPrimary,
               fontSize: 12,
@@ -2475,7 +2541,7 @@ class _CustomThemeColorOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return _ThemeColorButton(
       color: Color(color.value),
-      label: color.name,
+      label: _localizeColorName(context, color.name),
       selected: selected,
       icon: selected ? Icons.check : null,
       onTap: onTap,
@@ -2500,7 +2566,7 @@ class _AddThemeColorOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return _ThemeColorButton(
       color: Color(colorValue),
-      label: label.trim().isEmpty ? '\u81ea\u5b9a\u4e49' : label.trim(),
+      label: _localizeColorName(context, label.trim().isEmpty ? 'custom' : label.trim()),
       selected: selected,
       icon: Icons.add,
       onTap: onTap,
@@ -2628,8 +2694,8 @@ class _CustomThemeColorDialogState extends State<_CustomThemeColorDialog> {
     final color = _colorFromHex(_hexController.text) ?? _color;
     if (name.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('\u8bf7\u8f93\u5165\u989c\u8272\u540d\u79f0'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.msgColorNameRequired),
         ),
       );
       return;
@@ -2642,7 +2708,7 @@ class _CustomThemeColorDialogState extends State<_CustomThemeColorDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('\u81ea\u5b9a\u4e49\u4e3b\u9898\u8272'),
+      title: Text(AppLocalizations.of(context)!.dialogCustomThemeColorTitle),
       content: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -2658,13 +2724,13 @@ class _CustomThemeColorDialogState extends State<_CustomThemeColorDialog> {
             const SizedBox(height: 14),
             TextField(
               controller: _nameController,
-              decoration: const InputDecoration(labelText: '\u540d\u79f0'),
+              decoration: InputDecoration(labelText: AppLocalizations.of(context)!.labelColorName),
             ),
             const SizedBox(height: 10),
             TextField(
               controller: _hexController,
-              decoration: const InputDecoration(
-                labelText: '\u8272\u53f7',
+              decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.labelColorHex,
                 hintText: '#0F8B8D',
               ),
               onChanged: (_) => _applyHex(),
@@ -2698,7 +2764,7 @@ class _CustomThemeColorDialogState extends State<_CustomThemeColorDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('\u53d6\u6d88'),
+          child: Text(AppLocalizations.of(context)!.btnCancel),
         ),
         FilledButton(onPressed: _submit, child: const Text('\u6dfb\u52a0')),
       ],
@@ -3124,7 +3190,7 @@ class _AnitabiImageSourceGrid extends StatelessWidget {
       children: [
         for (final source in AnitabiImageSource.values)
           _CompactOptionChip(
-            label: _anitabiImageSourceLabel(source),
+            label: _anitabiImageSourceLabel(context, source),
             selected: selectedSource == source,
             icon: _anitabiImageSourceIcon(source),
             onTap: () => onSelected(source),
@@ -3239,7 +3305,7 @@ class _MapSourceOptionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    option.label,
+                    _mapTileProviderLabel(context, option.provider),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -3253,7 +3319,7 @@ class _MapSourceOptionCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    _mapProviderHint(option.provider),
+                    _mapProviderHint(context, option.provider),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -3351,7 +3417,7 @@ class _NavigationAppOptionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    app.label,
+                    app.getLocalizedLabel(context),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -3365,7 +3431,7 @@ class _NavigationAppOptionCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    _navigationAppHint(app),
+                    _navigationAppHint(context, app),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -3407,40 +3473,14 @@ IconData _navigationAppIcon(NavigationApp app) {
   };
 }
 
-String _navigationAppHint(NavigationApp app) {
+String _navigationAppHint(BuildContext context, NavigationApp app) {
   return switch (app) {
-    NavigationApp.googleMaps => '\u9ed8\u8ba4\u9009\u9879',
-    NavigationApp.amap => '\u56fd\u5185\u5e38\u7528',
-    NavigationApp.appleMaps => 'iOS \u539f\u751f',
-    NavigationApp.baiduMaps => '\u57ce\u5e02\u5bfc\u822a',
-    NavigationApp.tencentMaps => '\u8f7b\u91cf\u5907\u9009',
-    NavigationApp.browser => '\u7f51\u9875\u6253\u5f00',
-  };
-}
-
-String _mapProviderHint(MapTileProvider provider) {
-  return switch (provider) {
-    MapTileProvider.openFreeMap => '\u63a8\u8350\u9ed8\u8ba4',
-    MapTileProvider.openStreetMap => '\u6807\u51c6\u74e6\u7247',
-    MapTileProvider.customXyz => '\u74e6\u7247\u6a21\u677f',
-    MapTileProvider.customMapLibreStyle => '\u6837\u5f0f URL',
-  };
-}
-
-String _anitabiImageSourceLabel(AnitabiImageSource source) {
-  return switch (source) {
-    AnitabiImageSource.auto => '自动选择',
-    AnitabiImageSource.official => '官方默认',
-    AnitabiImageSource.mirror => '备用源',
-  };
-}
-
-String _anitabiImageSourceDescription(AnitabiImageSource source) {
-  return switch (source) {
-    AnitabiImageSource.auto =>
-      '优先使用 image.anitabi.cn；如果下载到错误页或被拦截，会尝试 img-tc.anitabi.cn。',
-    AnitabiImageSource.official => '固定使用 image.anitabi.cn，保留 Anitabi 官方默认图片源。',
-    AnitabiImageSource.mirror => '固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。',
+    NavigationApp.googleMaps => AppLocalizations.of(context)!.navAppGoogleMapsSub,
+    NavigationApp.amap => AppLocalizations.of(context)!.navAppAmapSub,
+    NavigationApp.appleMaps => AppLocalizations.of(context)!.navAppAppleMapsSub,
+    NavigationApp.baiduMaps => AppLocalizations.of(context)!.navAppBaiduMapsSub,
+    NavigationApp.tencentMaps => AppLocalizations.of(context)!.navAppTencentMapsSub,
+    NavigationApp.browser => AppLocalizations.of(context)!.navAppBrowserSub,
   };
 }
 
@@ -3620,3 +3660,80 @@ const _secondaryParagraphTextStyle = TextStyle(
   height: 1.45,
   letterSpacing: 0,
 );
+
+
+extension _LocalizedThemePalette on AppThemePalette {
+  String getLabel(BuildContext context) {
+    return switch (this) {
+      AppThemePalette.classicGreen => AppLocalizations.of(context)!.themeClassicGreen,
+      AppThemePalette.deepBlue => AppLocalizations.of(context)!.themeDeepBlue,
+      AppThemePalette.cherryPink => AppLocalizations.of(context)!.themeCherryPink,
+      AppThemePalette.twilightPurple => AppLocalizations.of(context)!.themeTwilightPurple,
+      AppThemePalette.miriaYellow => AppLocalizations.of(context)!.themeMiriaYellow,
+      AppThemePalette.graphite => AppLocalizations.of(context)!.themeGraphite,
+      AppThemePalette.aurora => AppLocalizations.of(context)!.themeAurora,
+    };
+  }
+}
+
+String _localizeColorName(BuildContext context, String name) {
+  if (name == AppLocalizations.of(context)!.aspectCustom ||
+      name == 'custom' ||
+      name == '\u81ea\u5b9a\u4e49') {
+    return AppLocalizations.of(context)!.themeAurora;
+  }
+  return name;
+}
+
+String _mapTileProviderLabel(BuildContext context, MapTileProvider provider) {
+  return switch (provider) {
+    MapTileProvider.openFreeMap => 'OpenFreeMap',
+    MapTileProvider.openStreetMap => 'OpenStreetMap',
+    MapTileProvider.customXyz => AppLocalizations.of(context)!.mapProviderCustomXyz,
+    MapTileProvider.customMapLibreStyle => AppLocalizations.of(context)!.mapProviderCustomMapLibre,
+  };
+}
+
+String _mapTileProviderDescription(BuildContext context, MapTileProvider provider) {
+  return switch (provider) {
+    MapTileProvider.openFreeMap => AppLocalizations.of(context)!.mapProviderOpenFreeMapDesc,
+    MapTileProvider.openStreetMap => AppLocalizations.of(context)!.mapProviderOpenStreetMapDesc,
+    MapTileProvider.customXyz => AppLocalizations.of(context)!.mapProviderCustomXyzDesc('{x}', '{y}', '{z}'),
+    MapTileProvider.customMapLibreStyle => AppLocalizations.of(context)!.mapProviderCustomMapLibreDesc,
+  };
+}
+
+String _openFreeMapStyleDescription(BuildContext context, OpenFreeMapStyle style) {
+  return switch (style) {
+    OpenFreeMapStyle.liberty => AppLocalizations.of(context)!.mapStyleLibertyDesc,
+    OpenFreeMapStyle.bright => AppLocalizations.of(context)!.mapStyleBrightDesc,
+    OpenFreeMapStyle.positron => AppLocalizations.of(context)!.mapStylePositronDesc,
+    OpenFreeMapStyle.dark => AppLocalizations.of(context)!.mapStyleDarkDesc,
+    OpenFreeMapStyle.fiord => AppLocalizations.of(context)!.mapStyleFiordDesc,
+  };
+}
+
+String _mapProviderHint(BuildContext context, MapTileProvider provider) {
+  return switch (provider) {
+    MapTileProvider.openFreeMap => AppLocalizations.of(context)!.mapProviderRecommendedDefault,
+    MapTileProvider.openStreetMap => AppLocalizations.of(context)!.mapProviderStandardTiles,
+    MapTileProvider.customXyz => AppLocalizations.of(context)!.mapProviderTileTemplate,
+    MapTileProvider.customMapLibreStyle => AppLocalizations.of(context)!.mapProviderStyleUrl,
+  };
+}
+
+String _anitabiImageSourceLabel(BuildContext context, AnitabiImageSource source) {
+  return switch (source) {
+    AnitabiImageSource.auto => AppLocalizations.of(context)!.imageSourceAuto,
+    AnitabiImageSource.official => AppLocalizations.of(context)!.imageSourceOfficial,
+    AnitabiImageSource.mirror => AppLocalizations.of(context)!.imageSourceMirror,
+  };
+}
+
+String _anitabiImageSourceDescription(BuildContext context, AnitabiImageSource source) {
+  return switch (source) {
+    AnitabiImageSource.auto => AppLocalizations.of(context)!.imageSourceAutoDesc,
+    AnitabiImageSource.official => AppLocalizations.of(context)!.imageSourceOfficialDesc,
+    AnitabiImageSource.mirror => AppLocalizations.of(context)!.imageSourceMirrorDesc,
+  };
+}

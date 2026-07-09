@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../app_theme.dart';
 import '../widgets/snackbar_helper.dart';
+import '../l10n/app_localizations.dart';
 import 'pilgrimage_plan_controller.dart';
 
 class PlanMemoScreen extends StatefulWidget {
@@ -70,16 +71,16 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
     final discard = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('放弃未保存内容？'),
-        content: const Text('当前备忘录还有未保存的修改。'),
+        title: Text(AppLocalizations.of(context)!.dialogDiscardMemoTitle),
+        content: Text(AppLocalizations.of(context)!.dialogDiscardMemoMsg),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('继续编辑'),
+            child: Text(AppLocalizations.of(context)!.btnKeepEditing),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('放弃'),
+            child: Text(AppLocalizations.of(context)!.btnDiscard),
           ),
         ],
       ),
@@ -129,12 +130,12 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('计划备忘录已保存')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgMemoSaved)));
     } catch (_) {
       if (mounted) {
         ScaffoldMessenger.of(
           context,
-        ).showReplacingSnackBar(const SnackBar(content: Text('计划备忘录保存失败')));
+        ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgMemoSaveFailed)));
       }
     } finally {
       if (mounted) {
@@ -169,7 +170,7 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('待办状态保存失败')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgTodoStatusSaveFailed)));
     } finally {
       if (mounted) {
         setState(() {
@@ -208,15 +209,15 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
   void _applyMarkdownAction(_MarkdownAction action) {
     switch (action) {
       case _MarkdownAction.heading:
-        _applyLinePrefix('## ', placeholder: '标题');
+        _applyLinePrefix('## ', placeholder: AppLocalizations.of(context)!.memoPlaceholderHeading);
       case _MarkdownAction.bold:
-        _wrapSelection('**', '**', placeholder: '加粗文字');
+        _wrapSelection('**', '**', placeholder: AppLocalizations.of(context)!.memoPlaceholderBold);
       case _MarkdownAction.list:
-        _applyLinePrefix('- ', placeholder: '列表项');
+        _applyLinePrefix('- ', placeholder: AppLocalizations.of(context)!.memoPlaceholderListItem);
       case _MarkdownAction.task:
-        _applyLinePrefix('- [ ] ', placeholder: '待办事项');
+        _applyLinePrefix('- [ ] ', placeholder: AppLocalizations.of(context)!.memoPlaceholderTodo);
       case _MarkdownAction.quote:
-        _applyLinePrefix('> ', placeholder: '引用内容');
+        _applyLinePrefix('> ', placeholder: AppLocalizations.of(context)!.memoPlaceholderQuote);
       case _MarkdownAction.divider:
         _insertDivider();
       case _MarkdownAction.link:
@@ -324,7 +325,7 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
       selection.start,
       selection.end,
     );
-    final label = selected.isEmpty ? '链接文字' : selected;
+    final label = selected.isEmpty ? AppLocalizations.of(context)!.memoPlaceholderLinkText : selected;
     final replacement = '[$label](https://example.com)';
     final urlStart = label.length + 3;
     _replaceSelection(
@@ -346,7 +347,7 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
       _replaceSelection('```\n$selected\n```');
       return;
     }
-    _wrapSelection('`', '`', placeholder: '代码');
+    _wrapSelection('`', '`', placeholder: AppLocalizations.of(context)!.memoPlaceholderCode);
   }
 
   Future<void> _openMarkdownLink(String? href) async {
@@ -357,7 +358,7 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
     if (uri == null || !uri.hasScheme) {
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('链接格式不正确')));
+      ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgInvalidLinkFormat)));
       return;
     }
     final opened = await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -366,7 +367,7 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
     }
     ScaffoldMessenger.of(
       context,
-    ).showReplacingSnackBar(const SnackBar(content: Text('无法打开链接')));
+    ).showReplacingSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.msgUnableToOpenLink)));
   }
 
   @override
@@ -383,16 +384,16 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: AppLocalizations.of(context)!.tooltipBack,
             icon: const Icon(Icons.arrow_back),
             onPressed: _handleBack,
           ),
-          title: const Text('计划备忘录'),
+          title: Text(AppLocalizations.of(context)!.planMemoTitle),
           actions: [
             if (_isEditing) ...[
               TextButton(
                 onPressed: _isSaving ? null : _cancelEditing,
-                child: const Text('取消'),
+                child: Text(AppLocalizations.of(context)!.btnCancel),
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 8),
@@ -405,12 +406,12 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Icon(Icons.save_outlined),
-                  label: const Text('保存'),
+                  label: Text(AppLocalizations.of(context)!.btnSave),
                 ),
               ),
             ] else
               IconButton(
-                tooltip: '编辑',
+                tooltip: AppLocalizations.of(context)!.btnEdit,
                 onPressed: _startEditing,
                 icon: const Icon(Icons.edit_outlined),
               ),
@@ -433,11 +434,11 @@ class _PlanMemoScreenState extends State<PlanMemoScreen> {
                           minLines: null,
                           keyboardType: TextInputType.multiline,
                           textAlignVertical: TextAlignVertical.top,
-                          decoration: const InputDecoration(
-                            labelText: '备忘录内容',
+                          decoration: InputDecoration(
+                            labelText: AppLocalizations.of(context)!.labelMemoContent,
                             alignLabelWithHint: true,
-                            hintText: '可以记录交通、预约、补拍事项、同行安排等。',
-                            border: OutlineInputBorder(),
+                            hintText: AppLocalizations.of(context)!.hintMemoContent,
+                            border: const OutlineInputBorder(),
                           ),
                         ),
                       ),
@@ -470,46 +471,46 @@ class _MarkdownToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const tools = [
+    final tools = [
       _MarkdownToolSpec(
         action: _MarkdownAction.heading,
         icon: Icons.title,
-        tooltip: '标题',
+        tooltip: AppLocalizations.of(context)!.tooltipHeading,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.bold,
         icon: Icons.format_bold,
-        tooltip: '加粗',
+        tooltip: AppLocalizations.of(context)!.tooltipBold,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.list,
         icon: Icons.format_list_bulleted,
-        tooltip: '列表',
+        tooltip: AppLocalizations.of(context)!.tooltipList,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.task,
         icon: Icons.check_box_outlined,
-        tooltip: '待办',
+        tooltip: AppLocalizations.of(context)!.tooltipTodo,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.quote,
         icon: Icons.format_quote,
-        tooltip: '引用',
+        tooltip: AppLocalizations.of(context)!.tooltipQuote,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.divider,
         icon: Icons.horizontal_rule,
-        tooltip: '分割线',
+        tooltip: AppLocalizations.of(context)!.tooltipDivider,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.link,
         icon: Icons.link,
-        tooltip: '链接',
+        tooltip: AppLocalizations.of(context)!.tooltipLink,
       ),
       _MarkdownToolSpec(
         action: _MarkdownAction.code,
         icon: Icons.code,
-        tooltip: '代码',
+        tooltip: AppLocalizations.of(context)!.tooltipCode,
       ),
     ];
 
@@ -582,7 +583,7 @@ class _PlanMemoMarkdownPreview extends StatelessWidget {
         listItemCrossAxisAlignment: MarkdownListItemCrossAxisAlignment.start,
         styleSheet: _markdownStyleSheet(context),
         onTapLink: (_, href, _) => onTapLink(href),
-        checkboxBuilder: _TaskCheckboxBuilder(onToggleTask: onToggleTask).build,
+        checkboxBuilder: _TaskCheckboxBuilder(context, onToggleTask: onToggleTask).build,
         bulletBuilder: _buildMarkdownBullet,
         imageBuilder: (uri, title, alt) => _UnsupportedMarkdownImage(
           label: alt?.trim().isNotEmpty == true ? alt!.trim() : uri.toString(),
@@ -687,8 +688,9 @@ class _PlanMemoMarkdownPreview extends StatelessWidget {
 }
 
 class _TaskCheckboxBuilder {
-  _TaskCheckboxBuilder({required this.onToggleTask});
+  _TaskCheckboxBuilder(this.context, {required this.onToggleTask});
 
+  final BuildContext context;
   final ValueChanged<int> onToggleTask;
   var _taskIndex = 0;
 
@@ -697,7 +699,7 @@ class _TaskCheckboxBuilder {
     return Transform.translate(
       offset: Offset.zero,
       child: Tooltip(
-        message: value ? '取消勾选' : '标记完成',
+        message: value ? AppLocalizations.of(context)!.tooltipUncheck : AppLocalizations.of(context)!.tooltipMarkCompleted,
         child: InkWell(
           borderRadius: BorderRadius.circular(6),
           onTap: () => onToggleTask(taskIndex),
@@ -779,7 +781,7 @@ class _UnsupportedMarkdownImage extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Text(
-              '备忘录不支持图片：$label',
+              AppLocalizations.of(context)!.msgMemoImageNotSupported(label),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -819,9 +821,9 @@ class _EmptyPlanMemo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            '还没有写计划备忘',
-            style: TextStyle(
+          Text(
+            AppLocalizations.of(context)!.memoEmptyTitle,
+            style: const TextStyle(
               color: AppColors.textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.w800,
@@ -829,10 +831,10 @@ class _EmptyPlanMemo extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          const Text(
-            '点击右上角编辑，记录交通、预约、补拍事项或其他准备内容。',
+          Text(
+            AppLocalizations.of(context)!.memoEmptySubtitle,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.textSecondary,
               fontSize: 14,
               fontWeight: FontWeight.w600,

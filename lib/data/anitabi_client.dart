@@ -45,8 +45,12 @@ class AnitabiClient {
   Future<List<AnitabiPoint>> fetchPoints(
     int bangumiId, {
     AnitabiBangumiLite? lite,
+    String? languageCode,
   }) async {
-    final staticPoints = await _fetchStaticPointsForBangumi(bangumiId);
+    final staticPoints = await _fetchStaticPointsForBangumi(
+      bangumiId,
+      languageCode: languageCode,
+    );
     if (staticPoints == null) {
       throw AnitabiStaticDataUnavailableException(
         'No static points for Bangumi $bangumiId',
@@ -69,6 +73,7 @@ class AnitabiClient {
   Future<AnitabiPointLookupResult?> findPointInBangumi({
     required int bangumiId,
     required String pointId,
+    String? languageCode,
   }) async {
     final normalizedPointId = pointId.trim();
     if (normalizedPointId.isEmpty) {
@@ -76,7 +81,11 @@ class AnitabiClient {
     }
 
     final work = await _fetchStaticWork(bangumiId);
-    final points = await fetchPoints(bangumiId, lite: work?.toBangumiLite());
+    final points = await fetchPoints(
+      bangumiId,
+      lite: work?.toBangumiLite(),
+      languageCode: languageCode,
+    );
     final point = points
         .where((point) => point.id == normalizedPointId)
         .firstOrNull;
@@ -92,8 +101,9 @@ class AnitabiClient {
   }
 
   Future<List<AnitabiPoint>?> _fetchStaticPointsForBangumi(
-    int bangumiId,
-  ) async {
+    int bangumiId, {
+    String? languageCode,
+  }) async {
     try {
       final staticIndex = await _fetchStaticIndex();
       final workIndex = staticIndex.works.indexWhere(
@@ -131,6 +141,7 @@ class AnitabiClient {
                 pointRow,
                 bangumiId: bangumiId,
                 position: litePoint.position,
+                languageCode: languageCode,
               );
             })
             .nonNulls
@@ -336,11 +347,13 @@ class AnitabiPoint {
     required this.origin,
     required this.originUrl,
     this.note,
+    this.languageCode,
   });
 
   factory AnitabiPoint.fromJson(
     Map<String, Object?> json, {
     required int bangumiId,
+    String? languageCode,
   }) {
     final geo = json['geo'] as List<Object?>;
     final cn = _stringValue(json['cn']);
@@ -351,7 +364,7 @@ class AnitabiPoint {
     return AnitabiPoint(
       bangumiId: bangumiId,
       id: _stringValue(json['id']) ?? 'unknown',
-      name: cn?.isNotEmpty == true ? cn! : name,
+      name: _resolveName(cn, name, languageCode),
       subtitle: name,
       position: LatLng((geo[0] as num).toDouble(), (geo[1] as num).toDouble()),
       episodeLabel: _episodeLabel(ep, second),
@@ -361,6 +374,7 @@ class AnitabiPoint {
       origin: _stringValue(json['origin']) ?? 'Anitabi',
       originUrl: _stringValue(json['originURL']),
       note: _stringValue(json['mark']) ?? _stringValue(json['description']),
+      languageCode: languageCode,
     );
   }
 
@@ -368,6 +382,7 @@ class AnitabiPoint {
     List<Object?> json, {
     required int bangumiId,
     required LatLng position,
+    String? languageCode,
   }) {
     final cn = _compactStringValue(json[2]);
     final name = _compactStringValue(json[1]) ?? 'Anitabi 点位';
@@ -377,7 +392,7 @@ class AnitabiPoint {
     return AnitabiPoint(
       bangumiId: bangumiId,
       id: _stringValue(json[0]) ?? 'unknown',
-      name: cn?.isNotEmpty == true ? cn! : name,
+      name: _resolveName(cn, name, languageCode),
       subtitle: name,
       position: position,
       episodeLabel: _episodeLabel(ep, second),
@@ -389,6 +404,7 @@ class AnitabiPoint {
       origin: _compactStringValue(json[11]) ?? 'Anitabi',
       originUrl: _compactStringValue(json[12]),
       note: _compactStringValue(json[10]),
+      languageCode: languageCode,
     );
   }
 
@@ -402,6 +418,23 @@ class AnitabiPoint {
   final String origin;
   final String? originUrl;
   final String? note;
+  final String? languageCode;
+
+  /// Resolve display name based on [languageCode].
+  /// When [languageCode] starts with 'zh', prefer Chinese name ([cn]);
+  /// otherwise use original name (Japanese).
+  static String _resolveName(
+    String? cn,
+    String name, [
+    String? languageCode,
+  ]) {
+    if (cn != null && cn.isNotEmpty) {
+      final lang = languageCode?.toLowerCase() ?? '';
+      if (lang.startsWith('zh')) return cn;
+    }
+    return name;
+  }
+
 
   PilgrimagePoint toPilgrimagePoint(PilgrimageWork work) {
     return PilgrimagePoint(
