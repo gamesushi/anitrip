@@ -4143,6 +4143,114 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'正在加载 Anitabi 作品和点位'**
   String get mapImportLoadingWorksAndPoints;
+
+  /// No description provided for @msgCannotOpenMapApp.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法打开{app}。'**
+  String msgCannotOpenMapApp(Object app);
+
+  /// No description provided for @mapImportErrPointNotFound.
+  ///
+  /// In zh, this message translates to:
+  /// **'没有找到这个 Anitabi 点位'**
+  String get mapImportErrPointNotFound;
+
+  /// No description provided for @mapImportErrPointNotFoundDetail.
+  ///
+  /// In zh, this message translates to:
+  /// **'链接里的点位 ID 可能已失效，或 Anitabi 地图数据尚未同步。'**
+  String get mapImportErrPointNotFoundDetail;
+
+  /// No description provided for @navMapSectionTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'导航地图 {app}'**
+  String navMapSectionTitle(Object app);
+
+  /// No description provided for @navAppDescGoogleMaps.
+  ///
+  /// In zh, this message translates to:
+  /// **'导航按钮会通过 Google Maps 官方 Maps URL 打开步行路线。'**
+  String get navAppDescGoogleMaps;
+
+  /// No description provided for @navAppDescAppleMaps.
+  ///
+  /// In zh, this message translates to:
+  /// **'导航按钮会通过 Apple Map Links 打开步行路线。'**
+  String get navAppDescAppleMaps;
+
+  /// No description provided for @navAppDescAmap.
+  ///
+  /// In zh, this message translates to:
+  /// **'导航按钮会通过高德 URI API 打开步行路线，并使用 WGS84 坐标。'**
+  String get navAppDescAmap;
+
+  /// No description provided for @navAppDescBaiduMaps.
+  ///
+  /// In zh, this message translates to:
+  /// **'导航按钮会通过百度地图 URI API 打开步行路线，并使用 WGS84 坐标。'**
+  String get navAppDescBaiduMaps;
+
+  /// No description provided for @mapProviderHintOpenFreeMap.
+  ///
+  /// In zh, this message translates to:
+  /// **'推荐默认'**
+  String get mapProviderHintOpenFreeMap;
+
+  /// No description provided for @mapProviderHintOsm.
+  ///
+  /// In zh, this message translates to:
+  /// **'标准瓦片'**
+  String get mapProviderHintOsm;
+
+  /// No description provided for @mapProviderHintCustomXyz.
+  ///
+  /// In zh, this message translates to:
+  /// **'瓦片模板'**
+  String get mapProviderHintCustomXyz;
+
+  /// No description provided for @mapProviderHintCustomStyle.
+  ///
+  /// In zh, this message translates to:
+  /// **'样式 URL'**
+  String get mapProviderHintCustomStyle;
+
+  /// No description provided for @anitabiSrcAuto.
+  ///
+  /// In zh, this message translates to:
+  /// **'自动选择'**
+  String get anitabiSrcAuto;
+
+  /// No description provided for @anitabiSrcOfficial.
+  ///
+  /// In zh, this message translates to:
+  /// **'官方默认'**
+  String get anitabiSrcOfficial;
+
+  /// No description provided for @anitabiSrcMirror.
+  ///
+  /// In zh, this message translates to:
+  /// **'备用源'**
+  String get anitabiSrcMirror;
+
+  /// No description provided for @anitabiSrcAutoDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'优先使用 image.anitabi.cn；如果下载到错误页或被拦截，会尝试 img-tc.anitabi.cn。'**
+  String get anitabiSrcAutoDesc;
+
+  /// No description provided for @anitabiSrcOfficialDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'固定使用 image.anitabi.cn，保留 Anitabi 官方默认图片源。'**
+  String get anitabiSrcOfficialDesc;
+
+  /// No description provided for @anitabiSrcMirrorDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。'**
+  String get anitabiSrcMirrorDesc;
 }
 
 class _AppLocalizationsDelegate

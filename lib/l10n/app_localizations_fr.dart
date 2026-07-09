@@ -2300,4 +2300,70 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get mapImportLoadingWorksAndPoints =>
       'Chargement des œuvres et points Anitabi';
+
+  @override
+  String msgCannotOpenMapApp(Object app) {
+    return 'Impossible d\'ouvrir $app.';
+  }
+
+  @override
+  String get mapImportErrPointNotFound => 'Ce point Anitabi est introuvable';
+
+  @override
+  String get mapImportErrPointNotFoundDetail =>
+      'L\'ID du point dans le lien peut être invalide, ou les données de carte Anitabi ne sont pas encore synchronisées.';
+
+  @override
+  String navMapSectionTitle(Object app) {
+    return 'Carte de navigation $app';
+  }
+
+  @override
+  String get navAppDescGoogleMaps =>
+      'Le bouton de navigation ouvre l\'itinéraire piéton via l\'URL officielle Google Maps.';
+
+  @override
+  String get navAppDescAppleMaps =>
+      'Le bouton de navigation ouvre l\'itinéraire piéton via Apple Map Links.';
+
+  @override
+  String get navAppDescAmap =>
+      'Le bouton de navigation ouvre l\'itinéraire piéton via l\'API URI Amap, avec des coordonnées WGS84.';
+
+  @override
+  String get navAppDescBaiduMaps =>
+      'Le bouton de navigation ouvre l\'itinéraire piéton via l\'API URI Baidu Maps, avec des coordonnées WGS84.';
+
+  @override
+  String get mapProviderHintOpenFreeMap => 'Recommandé par défaut';
+
+  @override
+  String get mapProviderHintOsm => 'Tuiles standard';
+
+  @override
+  String get mapProviderHintCustomXyz => 'Modèle de tuile';
+
+  @override
+  String get mapProviderHintCustomStyle => 'URL de style';
+
+  @override
+  String get anitabiSrcAuto => 'Sélection auto';
+
+  @override
+  String get anitabiSrcOfficial => 'Défaut officiel';
+
+  @override
+  String get anitabiSrcMirror => 'Source de secours';
+
+  @override
+  String get anitabiSrcAutoDesc =>
+      'Privilégie image.anitabi.cn ; si une page erronée est téléchargée ou bloquée, essaie img-tc.anitabi.cn.';
+
+  @override
+  String get anitabiSrcOfficialDesc =>
+      'Utilise toujours image.anitabi.cn, en conservant la source d\'image par défaut officielle Anitabi.';
+
+  @override
+  String get anitabiSrcMirrorDesc =>
+      'Utilise toujours img-tc.anitabi.cn, adapté quand la source par défaut officielle est souvent bloquée.';
 }

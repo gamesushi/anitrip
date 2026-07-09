@@ -16,7 +16,6 @@ import '../records/comparison_export_config_storage_stub.dart'
 import '../widgets/copyable_text.dart';
 
 bool get _showFutureThemeModeSettings => false;
-bool get _showFutureNavigationAppSettings => false;
 bool get _showFutureCacheCleanupSettings => false;
 bool get _shouldShowMobileGallerySettings {
   if (kIsWeb) {
@@ -1290,6 +1289,23 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
         ),
         const SizedBox(height: 12),
         _SettingsSection(
+          title: AppLocalizations.of(context)!.navMapSectionTitle(settings.navigationApp.label),
+          children: [
+            _NavigationAppGrid(
+              selectedApp: settings.navigationApp,
+              onSelected: (app) {
+                _update(settings.copyWith(navigationApp: app));
+              },
+            ),
+            const SizedBox(height: 10),
+            Text(
+              _navigationAppDescription(context, settings.navigationApp),
+              style: _secondaryTextStyle,
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        _SettingsSection(
           title: AppLocalizations.of(context)!.mapThumbnailSection,
           children: [
             _NumberStepperSetting(
@@ -1324,25 +1340,6 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
             Text(AppLocalizations.of(context)!.mapThumbnailThresholdZeroHint, style: _secondaryTextStyle),
           ],
         ),
-        if (_showFutureNavigationAppSettings) ...[
-          const SizedBox(height: 12),
-          _SettingsSection(
-            title: '${AppLocalizations.of(context)!.mapNavigationAppSection} ${settings.navigationApp.getLocalizedLabel(context)}',
-            children: [
-              _NavigationAppGrid(
-                selectedApp: settings.navigationApp,
-                onSelected: (app) {
-                  _update(settings.copyWith(navigationApp: app));
-                },
-              ),
-              const SizedBox(height: 10),
-              Text(
-                AppLocalizations.of(context)!.mapNavigationAppHint,
-                style: _secondaryTextStyle,
-              ),
-            ],
-          ),
-        ],
       ],
     );
   }
@@ -3468,8 +3465,6 @@ IconData _navigationAppIcon(NavigationApp app) {
     NavigationApp.amap => Icons.near_me_outlined,
     NavigationApp.appleMaps => Icons.map_outlined,
     NavigationApp.baiduMaps => Icons.assistant_direction_outlined,
-    NavigationApp.tencentMaps => Icons.navigation_outlined,
-    NavigationApp.browser => Icons.language_outlined,
   };
 }
 
@@ -3479,8 +3474,15 @@ String _navigationAppHint(BuildContext context, NavigationApp app) {
     NavigationApp.amap => AppLocalizations.of(context)!.navAppAmapSub,
     NavigationApp.appleMaps => AppLocalizations.of(context)!.navAppAppleMapsSub,
     NavigationApp.baiduMaps => AppLocalizations.of(context)!.navAppBaiduMapsSub,
-    NavigationApp.tencentMaps => AppLocalizations.of(context)!.navAppTencentMapsSub,
-    NavigationApp.browser => AppLocalizations.of(context)!.navAppBrowserSub,
+  };
+}
+
+String _navigationAppDescription(BuildContext context, NavigationApp app) {
+  return switch (app) {
+    NavigationApp.googleMaps => AppLocalizations.of(context)!.navAppDescGoogleMaps,
+    NavigationApp.appleMaps => AppLocalizations.of(context)!.navAppDescAppleMaps,
+    NavigationApp.amap => AppLocalizations.of(context)!.navAppDescAmap,
+    NavigationApp.baiduMaps => AppLocalizations.of(context)!.navAppDescBaiduMaps,
   };
 }
 

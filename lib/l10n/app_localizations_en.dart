@@ -2271,4 +2271,70 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get mapImportLoadingWorksAndPoints =>
       'Loading Anitabi works and points';
+
+  @override
+  String msgCannotOpenMapApp(Object app) {
+    return 'Cannot open $app.';
+  }
+
+  @override
+  String get mapImportErrPointNotFound => 'This Anitabi point was not found';
+
+  @override
+  String get mapImportErrPointNotFoundDetail =>
+      'The point ID in the link may be invalid, or Anitabi map data has not synced yet.';
+
+  @override
+  String navMapSectionTitle(Object app) {
+    return 'Navigation Map $app';
+  }
+
+  @override
+  String get navAppDescGoogleMaps =>
+      'The navigation button opens walking directions via the official Google Maps URL.';
+
+  @override
+  String get navAppDescAppleMaps =>
+      'The navigation button opens walking directions via Apple Map Links.';
+
+  @override
+  String get navAppDescAmap =>
+      'The navigation button opens walking directions via the Amap URI API, using WGS84 coordinates.';
+
+  @override
+  String get navAppDescBaiduMaps =>
+      'The navigation button opens walking directions via the Baidu Maps URI API, using WGS84 coordinates.';
+
+  @override
+  String get mapProviderHintOpenFreeMap => 'Recommended default';
+
+  @override
+  String get mapProviderHintOsm => 'Standard tiles';
+
+  @override
+  String get mapProviderHintCustomXyz => 'Tile template';
+
+  @override
+  String get mapProviderHintCustomStyle => 'Style URL';
+
+  @override
+  String get anitabiSrcAuto => 'Auto select';
+
+  @override
+  String get anitabiSrcOfficial => 'Official default';
+
+  @override
+  String get anitabiSrcMirror => 'Backup source';
+
+  @override
+  String get anitabiSrcAutoDesc =>
+      'Prefers image.anitabi.cn; if a broken page is downloaded or it is blocked, tries img-tc.anitabi.cn.';
+
+  @override
+  String get anitabiSrcOfficialDesc =>
+      'Always uses image.anitabi.cn, keeping the official Anitabi default image source.';
+
+  @override
+  String get anitabiSrcMirrorDesc =>
+      'Always uses img-tc.anitabi.cn, suitable when the official default source is often blocked.';
 }

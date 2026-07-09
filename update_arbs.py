@@ -36,7 +36,15 @@ keys = {
     "titleMoveToGroup": {"zh": "移动到片区", "en": "Move to Area", "fr": "Déplacer vers la zone", "ko": "그룹으로 이동", "zh_Hant": "移動到片區"},
     "copyLabelPointName": {"zh": "点位名称", "en": "Point Name", "fr": "Nom du point", "ko": "포인트 이름", "zh_Hant": "點位名稱"},
     "copyLabelGroupAnchor": {"zh": "片区关键点", "en": "Area Anchor", "fr": "Ancre de la zone", "ko": "그룹 앵커", "zh_Hant": "片區關鍵點"},
-    "labelNote": {"zh": "备注", "en": "Note", "fr": "Note", "ko": "메모", "zh_Hant": "備註"}
+    "labelNote": {"zh": "备注", "en": "Note", "fr": "Note", "ko": "메모", "zh_Hant": "備註"},
+    "msgCannotOpenMapApp": {"zh": "无法打开{app}。", "en": "Cannot open {app}.", "fr": "Impossible d'ouvrir {app}.", "ko": "{app}을(를) 열 수 없습니다.", "zh_Hant": "無法打開{app}。"},
+    "mapImportErrPointNotFound": {"zh": "没有找到这个 Anitabi 点位", "en": "This Anitabi point was not found", "fr": "Ce point Anitabi est introuvable", "ko": "이 Anitabi 포인트를 찾을 수 없습니다", "zh_Hant": "沒有找到這個 Anitabi 點位"},
+    "mapImportErrPointNotFoundDetail": {"zh": "链接里的点位 ID 可能已失效，或 Anitabi 地图数据尚未同步。", "en": "The point ID in the link may be invalid, or Anitabi map data has not synced yet.", "fr": "L'ID du point dans le lien peut être invalide, ou les données de carte Anitabi ne sont pas encore synchronisées.", "ko": "링크의 포인트 ID가 만료되었거나 Anitabi 지도 데이터가 아직 동기화되지 않았을 수 있습니다.", "zh_Hant": "連結裡的點位 ID 可能已失效，或 Anitabi 地圖數據尚未同步。"},
+    "navMapSectionTitle": {"zh": "导航地图 {app}", "en": "Navigation Map {app}", "fr": "Carte de navigation {app}", "ko": "내비게이션 지도 {app}", "zh_Hant": "導航地圖 {app}"},
+    "navAppDescGoogleMaps": {"zh": "导航按钮会通过 Google Maps 官方 Maps URL 打开步行路线。", "en": "The navigation button opens walking directions via the official Google Maps URL.", "fr": "Le bouton de navigation ouvre l'itinéraire piéton via l'URL officielle Google Maps.", "ko": "내비게이션 버튼은 공식 Google Maps URL을 통해 도보 경로를 엽니다.", "zh_Hant": "導航按鈕會透過 Google Maps 官方 Maps URL 打開步行路線。"},
+    "navAppDescAppleMaps": {"zh": "导航按钮会通过 Apple Map Links 打开步行路线。", "en": "The navigation button opens walking directions via Apple Map Links.", "fr": "Le bouton de navigation ouvre l'itinéraire piéton via Apple Map Links.", "ko": "내비게이션 버튼은 Apple Map Links를 통해 도보 경로를 엽니다.", "zh_Hant": "導航按鈕會透過 Apple Map Links 打開步行路線。"},
+    "navAppDescAmap": {"zh": "导航按钮会通过高德 URI API 打开步行路线，并使用 WGS84 坐标。", "en": "The navigation button opens walking directions via the Amap URI API, using WGS84 coordinates.", "fr": "Le bouton de navigation ouvre l'itinéraire piéton via l'API URI Amap, avec des coordonnées WGS84.", "ko": "내비게이션 버튼은 WGS84 좌표를 사용하여 아마 맵 URI API를 통해 도보 경로를 엽니다.", "zh_Hant": "導航按鈕會透過高德 URI API 打開步行路線，並使用 WGS84 坐標。"},
+    "navAppDescBaiduMaps": {"zh": "导航按钮会通过百度地图 URI API 打开步行路线，并使用 WGS84 坐标。", "en": "The navigation button opens walking directions via the Baidu Maps URI API, using WGS84 coordinates.", "fr": "Le bouton de navigation ouvre l'itinéraire piéton via l'API URI Baidu Maps, avec des coordonnées WGS84.", "ko": "내비게이션 버튼은 WGS84 좌표를 사용하여 바이두 맵 URI API를 통해 도보 경로를 엽니다.", "zh_Hant": "導航按鈕會透過百度地圖 URI API 打開步行路線，並使用 WGS84 坐標。"},
 }
 
 files = {

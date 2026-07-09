@@ -645,6 +645,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
       groups: _plan.groups,
       onMoveToGroup: _movePointToGroup,
       onEditPoint: () => _editPoint(currentPoint),
+      navigationApp: widget.settings.navigationApp,
     );
   }
 

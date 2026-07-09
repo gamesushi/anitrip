@@ -2188,6 +2188,67 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mapImportLoadingWorksAndPoints => '正在加载 Anitabi 作品和点位';
+
+  @override
+  String msgCannotOpenMapApp(Object app) {
+    return '无法打开$app。';
+  }
+
+  @override
+  String get mapImportErrPointNotFound => '没有找到这个 Anitabi 点位';
+
+  @override
+  String get mapImportErrPointNotFoundDetail =>
+      '链接里的点位 ID 可能已失效，或 Anitabi 地图数据尚未同步。';
+
+  @override
+  String navMapSectionTitle(Object app) {
+    return '导航地图 $app';
+  }
+
+  @override
+  String get navAppDescGoogleMaps => '导航按钮会通过 Google Maps 官方 Maps URL 打开步行路线。';
+
+  @override
+  String get navAppDescAppleMaps => '导航按钮会通过 Apple Map Links 打开步行路线。';
+
+  @override
+  String get navAppDescAmap => '导航按钮会通过高德 URI API 打开步行路线，并使用 WGS84 坐标。';
+
+  @override
+  String get navAppDescBaiduMaps => '导航按钮会通过百度地图 URI API 打开步行路线，并使用 WGS84 坐标。';
+
+  @override
+  String get mapProviderHintOpenFreeMap => '推荐默认';
+
+  @override
+  String get mapProviderHintOsm => '标准瓦片';
+
+  @override
+  String get mapProviderHintCustomXyz => '瓦片模板';
+
+  @override
+  String get mapProviderHintCustomStyle => '样式 URL';
+
+  @override
+  String get anitabiSrcAuto => '自动选择';
+
+  @override
+  String get anitabiSrcOfficial => '官方默认';
+
+  @override
+  String get anitabiSrcMirror => '备用源';
+
+  @override
+  String get anitabiSrcAutoDesc =>
+      '优先使用 image.anitabi.cn；如果下载到错误页或被拦截，会尝试 img-tc.anitabi.cn。';
+
+  @override
+  String get anitabiSrcOfficialDesc =>
+      '固定使用 image.anitabi.cn，保留 Anitabi 官方默认图片源。';
+
+  @override
+  String get anitabiSrcMirrorDesc => '固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -4374,4 +4435,65 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get mapImportLoadingWorksAndPoints => '正在載入 Anitabi 作品和點位';
+
+  @override
+  String msgCannotOpenMapApp(Object app) {
+    return '無法打開$app。';
+  }
+
+  @override
+  String get mapImportErrPointNotFound => '沒有找到這個 Anitabi 點位';
+
+  @override
+  String get mapImportErrPointNotFoundDetail =>
+      '連結裡的點位 ID 可能已失效，或 Anitabi 地圖數據尚未同步。';
+
+  @override
+  String navMapSectionTitle(Object app) {
+    return '導航地圖 $app';
+  }
+
+  @override
+  String get navAppDescGoogleMaps => '導航按鈕會透過 Google Maps 官方 Maps URL 打開步行路線。';
+
+  @override
+  String get navAppDescAppleMaps => '導航按鈕會透過 Apple Map Links 打開步行路線。';
+
+  @override
+  String get navAppDescAmap => '導航按鈕會透過高德 URI API 打開步行路線，並使用 WGS84 坐標。';
+
+  @override
+  String get navAppDescBaiduMaps => '導航按鈕會透過百度地圖 URI API 打開步行路線，並使用 WGS84 坐標。';
+
+  @override
+  String get mapProviderHintOpenFreeMap => '推薦默認';
+
+  @override
+  String get mapProviderHintOsm => '標準瓦片';
+
+  @override
+  String get mapProviderHintCustomXyz => '瓦片模板';
+
+  @override
+  String get mapProviderHintCustomStyle => '樣式 URL';
+
+  @override
+  String get anitabiSrcAuto => '自動選擇';
+
+  @override
+  String get anitabiSrcOfficial => '官方默認';
+
+  @override
+  String get anitabiSrcMirror => '備用源';
+
+  @override
+  String get anitabiSrcAutoDesc =>
+      '優先使用 image.anitabi.cn；如果下載到錯誤頁或被攔截，會嘗試 img-tc.anitabi.cn。';
+
+  @override
+  String get anitabiSrcOfficialDesc =>
+      '固定使用 image.anitabi.cn，保留 Anitabi 官方默認圖片源。';
+
+  @override
+  String get anitabiSrcMirrorDesc => '固定使用 img-tc.anitabi.cn，適合官方默認源經常被攔截時使用。';
 }

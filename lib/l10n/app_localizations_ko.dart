@@ -264,7 +264,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get titleMoveToGroup => '그룹으로 이동';
 
   @override
-  String get copyLabelPointName => '위치 이름';
+  String get copyLabelPointName => '포인트 이름';
 
   @override
   String get copyLabelGroupAnchor => '그룹 앵커';
@@ -2212,4 +2212,69 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get mapImportLoadingWorksAndPoints => 'Anitabi 작품 및 포인트 불러오는 중';
+
+  @override
+  String msgCannotOpenMapApp(Object app) {
+    return '$app을(를) 열 수 없습니다.';
+  }
+
+  @override
+  String get mapImportErrPointNotFound => '이 Anitabi 포인트를 찾을 수 없습니다';
+
+  @override
+  String get mapImportErrPointNotFoundDetail =>
+      '링크의 포인트 ID가 만료되었거나 Anitabi 지도 데이터가 아직 동기화되지 않았을 수 있습니다.';
+
+  @override
+  String navMapSectionTitle(Object app) {
+    return '내비게이션 지도 $app';
+  }
+
+  @override
+  String get navAppDescGoogleMaps =>
+      '내비게이션 버튼은 공식 Google Maps URL을 통해 도보 경로를 엽니다.';
+
+  @override
+  String get navAppDescAppleMaps => '내비게이션 버튼은 Apple Map Links를 통해 도보 경로를 엽니다.';
+
+  @override
+  String get navAppDescAmap =>
+      '내비게이션 버튼은 WGS84 좌표를 사용하여 아마 맵 URI API를 통해 도보 경로를 엽니다.';
+
+  @override
+  String get navAppDescBaiduMaps =>
+      '내비게이션 버튼은 WGS84 좌표를 사용하여 바이두 맵 URI API를 통해 도보 경로를 엽니다.';
+
+  @override
+  String get mapProviderHintOpenFreeMap => '권장 기본값';
+
+  @override
+  String get mapProviderHintOsm => '표준 타일';
+
+  @override
+  String get mapProviderHintCustomXyz => '타일 템플릿';
+
+  @override
+  String get mapProviderHintCustomStyle => '스타일 URL';
+
+  @override
+  String get anitabiSrcAuto => '자동 선택';
+
+  @override
+  String get anitabiSrcOfficial => '공식 기본값';
+
+  @override
+  String get anitabiSrcMirror => '백업 소스';
+
+  @override
+  String get anitabiSrcAutoDesc =>
+      'image.anitabi.cn을 우선 사용하며, 오류 페이지가 다운로드되거나 차단되면 img-tc.anitabi.cn을 시도합니다.';
+
+  @override
+  String get anitabiSrcOfficialDesc =>
+      '항상 image.anitabi.cn을 사용하여 Anitabi 공식 기본 이미지 소스를 유지합니다.';
+
+  @override
+  String get anitabiSrcMirrorDesc =>
+      '항상 img-tc.anitabi.cn을 사용하며, 공식 기본 소스가 자주 차단될 때 적합합니다.';
 }

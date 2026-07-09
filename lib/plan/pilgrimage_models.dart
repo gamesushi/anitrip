@@ -144,9 +144,7 @@ enum NavigationApp {
   googleMaps,
   amap,
   appleMaps,
-  baiduMaps,
-  tencentMaps,
-  browser;
+  baiduMaps;
 
   String get label {
     return switch (this) {
@@ -154,8 +152,6 @@ enum NavigationApp {
       NavigationApp.amap => '\u9ad8\u5fb7\u5730\u56fe',
       NavigationApp.appleMaps => 'Apple Maps',
       NavigationApp.baiduMaps => '\u767e\u5ea6\u5730\u56fe',
-      NavigationApp.tencentMaps => '\u817e\u8baf\u5730\u56fe',
-      NavigationApp.browser => '\u6d4f\u89c8\u5668',
     };
   }
 
@@ -165,8 +161,6 @@ enum NavigationApp {
       NavigationApp.amap => AppLocalizations.of(context)!.navAppAmap,
       NavigationApp.appleMaps => AppLocalizations.of(context)!.navAppAppleMaps,
       NavigationApp.baiduMaps => AppLocalizations.of(context)!.navAppBaiduMaps,
-      NavigationApp.tencentMaps => AppLocalizations.of(context)!.navAppTencentMaps,
-      NavigationApp.browser => AppLocalizations.of(context)!.navAppBrowser,
     };
   }
 }
