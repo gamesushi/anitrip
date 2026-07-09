@@ -5,7 +5,7 @@ import 'plan/pilgrimage_models.dart';
 class AppColors {
   const AppColors._();
 
-  static AppThemePalette palette = AppThemePalette.classicGreen;
+  static AppThemePalette palette = AppThemePalette.cherryPink;
   static int customAccentValue = 0xFF16C6A8;
 
   static const background = Color(0xFFF7F8FA);
@@ -83,7 +83,7 @@ class AppTheme {
   const AppTheme._();
 
   static ThemeData light({
-    AppThemePalette palette = AppThemePalette.classicGreen,
+    AppThemePalette palette = AppThemePalette.cherryPink,
     int customAccentValue = 0xFF16C6A8,
   }) {
     AppColors.palette = palette;

@@ -176,7 +176,7 @@ class AppSettings {
     this.cameraMaxZoom = 5,
     this.referenceImageScale = 1,
     this.nearestAssignDistanceMeters = 350,
-    this.themePalette = AppThemePalette.classicGreen,
+    this.themePalette = AppThemePalette.cherryPink,
     this.mapTileProvider = MapTileProvider.openFreeMap,
     this.openFreeMapStyle = OpenFreeMapStyle.liberty,
     this.anitabiImageSource = AnitabiImageSource.auto,

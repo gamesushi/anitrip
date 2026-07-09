@@ -123,7 +123,7 @@ AppSettings _settingsFromJson(Map<String, Object?> json) {
         _doubleValue(json['nearestAssignDistanceMeters']) ?? 350,
     themePalette:
         _enumByName(AppThemePalette.values, json['themePalette']) ??
-        AppThemePalette.classicGreen,
+        AppThemePalette.cherryPink,
     mapTileProvider:
         _enumByName(MapTileProvider.values, json['mapTileProvider']) ??
         MapTileProvider.openFreeMap,
