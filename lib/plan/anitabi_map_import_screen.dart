@@ -1198,7 +1198,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
                             child: Text(
                               work.displayBangumiSubjectType == null
                                   ? work.title
-                                  : '${work.title} · ${work.displayBangumiSubjectType!.label}',
+                                  : '${work.title} · ${work.displayBangumiSubjectType!.getName(context)}',
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),

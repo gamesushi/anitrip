@@ -442,7 +442,9 @@ class PilgrimageWork {
 
     final cityType = city.split('/').first.trim();
     for (final type in BangumiSubjectType.values) {
-      if (type.label == cityType) {
+      // Match both the legacy localized label (e.g. "动画") and the
+      // language-neutral token stored going forward (e.g. "anime").
+      if (type.label == cityType || type.name == cityType) {
         return type;
       }
     }

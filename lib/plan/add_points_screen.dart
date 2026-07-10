@@ -470,7 +470,7 @@ class _BangumiTypeFilter extends StatelessWidget {
       children: [
         for (final type in _types)
           FilterChip(
-            label: Text(type.label),
+            label: Text(type.getName(context)),
             selected: selectedTypes.contains(type),
             onSelected: (selected) {
               final nextTypes = {...selectedTypes};
@@ -1174,7 +1174,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                             child: Text(
                               work.displayBangumiSubjectType == null
                                   ? work.title
-                                  : '${work.title} · ${work.displayBangumiSubjectType!.label}',
+                                  : '${work.title} · ${work.displayBangumiSubjectType!.getName(context)}',
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
@@ -1886,7 +1886,7 @@ class _SubjectTypePill extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _InfoPill(label: type.label);
+    return _InfoPill(label: type.getName(context));
   }
 }
 

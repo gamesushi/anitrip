@@ -70,8 +70,13 @@ class BangumiApiClient {
     final title = nameCn.isEmpty ? name : nameCn;
     final subtitle = nameCn.isEmpty ? 'Bangumi #$bangumiId' : name;
 
+    // Persist the subject type in `city` using a language-neutral token
+    // (`subjectType.name`, e.g. "anime") rather than the localized `label`, so the
+    // type survives a language switch. `bangumiSubjectType` is NOT a DB column, so
+    // `displayBangumiSubjectType` recovers it from `city`. The UI always renders the
+    // type via getName(context), keeping it localized.
     final metaParts = [
-      if (subjectType != null) subjectType.label,
+      if (subjectType != null) subjectType.name,
       if (date.isNotEmpty) date,
     ];
 
