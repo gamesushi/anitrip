@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/camera_reference/camera_storage_io.dart';
+import 'package:anitrip/camera_reference/camera_storage_io.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -18,7 +18,7 @@ void main() {
   late Directory tempDirectory;
 
   setUp(() async {
-    tempDirectory = await Directory.systemTemp.createTemp('miriago_camera_');
+    tempDirectory = await Directory.systemTemp.createTemp('anitrip_camera_');
     PathProviderPlatform.instance = _FakePathProviderPlatform(
       p.join(tempDirectory.path, 'documents'),
     );

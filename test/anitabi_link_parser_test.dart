@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/anitabi_link_parser.dart';
+import 'package:anitrip/data/anitabi_link_parser.dart';
 
 void main() {
   test('parses Anitabi point links with bangumi and point IDs', () {

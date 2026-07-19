@@ -153,7 +153,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get settingsClearCacheSubtitle => 'แคชรูปภาพอ้างอิงเสร็จสมบูรณ์';
 
   @override
-  String get settingsAbout => 'เกี่ยวกับ MiriaGo';
+  String get settingsAbout => 'เกี่ยวกับ anitrip';
 
   @override
   String get settingsAboutSubtitle => 'ข้อมูลเวอร์ชัน ใบอนุญาตโอเพ่นซอร์ส ฯลฯ';
@@ -941,7 +941,7 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'เปิด .sjhplan ด้วย MiriaGo จากไฟล์ แชท เบราว์เซอร์ หรือไดรฟ์เครือข่าย';
+      'เปิด .sjhplan ด้วย anitrip จากไฟล์ แชท เบราว์เซอร์ หรือไดรฟ์เครือข่าย';
 
   @override
   String get importExportImportDescWeb =>
@@ -954,11 +954,11 @@ class AppLocalizationsTh extends AppLocalizations {
   String get importExportOpenFromApp => 'เปิด .sjhplan จากแอปอื่น';
 
   @override
-  String get importExportImportFileTitle => 'นำเข้าไฟล์ MiriaGo';
+  String get importExportImportFileTitle => 'นำเข้าไฟล์ anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'เลือก .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ หรือไดรฟ์เครือข่าย จากนั้นแชร์หรือเปิดด้วย MiriaGo';
+      'เลือก .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ หรือไดรฟ์เครือข่าย จากนั้นแชร์หรือเปิดด้วย anitrip';
 
   @override
   String get importExportImportFileDesc =>
@@ -990,14 +990,14 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'โปรดค้นหาไฟล์ .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ ดิสก์เครือข่าย หรือตำแหน่งบันทึกอื่นๆ จากนั้นคลิกที่ไฟล์ หรือใช้เมนูแชร์/เพิ่มเติมเพื่อเลือก MiriaGo \n\nMiriaGo จะเข้าสู่หน้าแสดงตัวอย่างการนำเข้าโดยอัตโนมัติหลังจากได้รับไฟล์ หากไม่มี MiriaGo ในรายการ คุณสามารถบันทึกไฟล์ลงในแอป \"ไฟล์\" ก่อน จากนั้นกดไฟล์ค้างไว้เพื่อเลือกวิธีการแชร์หรือเปิด';
+      'โปรดค้นหาไฟล์ .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ ดิสก์เครือข่าย หรือตำแหน่งบันทึกอื่นๆ จากนั้นคลิกที่ไฟล์ หรือใช้เมนูแชร์/เพิ่มเติมเพื่อเลือก anitrip \n\nanitrip จะเข้าสู่หน้าแสดงตัวอย่างการนำเข้าโดยอัตโนมัติหลังจากได้รับไฟล์ หากไม่มี anitrip ในรายการ คุณสามารถบันทึกไฟล์ลงในแอป \"ไฟล์\" ก่อน จากนั้นกดไฟล์ค้างไว้เพื่อเลือกวิธีการแชร์หรือเปิด';
 
   @override
   String get btnGotIt => 'รู้';
 
   @override
   String exportShareLabel(String name) {
-    return 'แพ็กเก็ต MiriaGo: $name';
+    return 'แพ็กเก็ต anitrip: $name';
   }
 
   @override
@@ -1076,7 +1076,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'ภาพขนาดย่อและรูปภาพอ้างอิงที่ผู้ใช้เพิ่มจะยังคงรวมอยู่โดยค่าเริ่มต้น';
 
   @override
-  String get btnExportDataPackage => 'ส่งออกแพ็คเกจข้อมูล MiriaGo';
+  String get btnExportDataPackage => 'ส่งออกแพ็คเกจข้อมูล anitrip';
 
   @override
   String get btnExportingDataPackage => 'กำลังส่งออก...';
@@ -1145,7 +1145,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get tooltipBack => 'กลับ';
 
   @override
-  String get importExportDataPackageHeader => 'แพ็คเกจข้อมูล MiriaGo';
+  String get importExportDataPackageHeader => 'แพ็คเกจข้อมูล anitrip';
 
   @override
   String get addPointsTitle => 'เพิ่มเนื้อหา';

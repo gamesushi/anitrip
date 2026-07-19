@@ -1,11 +1,11 @@
 {
-    "name": "MiriaGo",
-    "short_name": "MiriaGo",
+    "name": "anitrip",
+    "short_name": "anitrip",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "MiriaGo",
+    "description": "anitrip",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

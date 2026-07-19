@@ -155,7 +155,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Caché de imágenes de referencia completo';
 
   @override
-  String get settingsAbout => 'Acerca de MiriaGo';
+  String get settingsAbout => 'Acerca de anitrip';
 
   @override
   String get settingsAboutSubtitle =>
@@ -963,7 +963,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Abra .sjhplan con MiriaGo desde un archivo, chat, navegador o unidad de red.';
+      'Abra .sjhplan con anitrip desde un archivo, chat, navegador o unidad de red.';
 
   @override
   String get importExportImportDescWeb =>
@@ -977,11 +977,11 @@ class AppLocalizationsEs extends AppLocalizations {
       'Abra .sjhplan desde otras aplicaciones';
 
   @override
-  String get importExportImportFileTitle => 'Importar archivos MiriaGo';
+  String get importExportImportFileTitle => 'Importar archivos anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Seleccione .sjhplan en archivos, chat, página de descarga del navegador o unidad de red, luego compártalo o ábralo con MiriaGo.';
+      'Seleccione .sjhplan en archivos, chat, página de descarga del navegador o unidad de red, luego compártalo o ábralo con anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -1013,14 +1013,14 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Busque el archivo .sjhplan en archivos, chat, página de descarga del navegador, disco de red u otra ubicación para guardar, luego haga clic en el archivo o use el menú Compartir/Más para seleccionar MiriaGo. \n\nMiriaGo ingresará automáticamente a la página de vista previa de importación después de recibir el archivo. Si no hay MiriaGo en la lista, primero puede guardar el archivo en la aplicación \"Archivos\" y luego presionar prolongadamente el archivo para seleccionar el método para compartir o abrir.';
+      'Busque el archivo .sjhplan en archivos, chat, página de descarga del navegador, disco de red u otra ubicación para guardar, luego haga clic en el archivo o use el menú Compartir/Más para seleccionar anitrip. \n\nanitrip ingresará automáticamente a la página de vista previa de importación después de recibir el archivo. Si no hay anitrip en la lista, primero puede guardar el archivo en la aplicación \"Archivos\" y luego presionar prolongadamente el archivo para seleccionar el método para compartir o abrir.';
 
   @override
   String get btnGotIt => 'sabía';
 
   @override
   String exportShareLabel(String name) {
-    return 'Paquete MiriaGo: $name';
+    return 'Paquete anitrip: $name';
   }
 
   @override
@@ -1100,7 +1100,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Las miniaturas y las imágenes de referencia agregadas por el usuario seguirán incluyéndose de forma predeterminada.';
 
   @override
-  String get btnExportDataPackage => 'Exportar paquete de datos MiriaGo';
+  String get btnExportDataPackage => 'Exportar paquete de datos anitrip';
 
   @override
   String get btnExportingDataPackage => 'Exportador...';
@@ -1171,7 +1171,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tooltipBack => 'devolver';
 
   @override
-  String get importExportDataPackageHeader => 'Paquete de datos MiriaGo';
+  String get importExportDataPackageHeader => 'Paquete de datos anitrip';
 
   @override
   String get addPointsTitle => 'Agregar contenido';

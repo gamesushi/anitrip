@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/data/anitabi_client.dart';
-import 'package:miriago/data/anitabi_static_data_reader.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/data/anitabi_client.dart';
+import 'package:anitrip/data/anitabi_static_data_reader.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   group('formatAnitabiSceneTime', () {

@@ -3,8 +3,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/widgets/image_viewer_screen.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/widgets/image_viewer_screen.dart';
 
 void main() {
   testWidgets('remote preview keeps loading placeholder until bytes resolve', (

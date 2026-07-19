@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/anitabi_image_url.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/data/anitabi_image_url.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   test('removes Anitabi thumbnail plan from image URL', () {

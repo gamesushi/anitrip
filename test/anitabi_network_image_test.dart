@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/widgets/anitabi_network_image.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/widgets/anitabi_network_image.dart';
 
 void main() {
   testWidgets('auto image source falls back to mirror on display failure', (

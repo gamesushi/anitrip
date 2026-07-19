@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/camera_reference/auto_comparison_gallery_backup.dart';
-import 'package:miriago/camera_reference/visit_record_confirmation_screen.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/records/comparison_export_config.dart';
-import 'package:miriago/records/comparison_exporter_stub.dart'
-    if (dart.library.io) 'package:miriago/records/comparison_exporter_io.dart';
+import 'package:anitrip/camera_reference/auto_comparison_gallery_backup.dart';
+import 'package:anitrip/camera_reference/visit_record_confirmation_screen.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/records/comparison_export_config.dart';
+import 'package:anitrip/records/comparison_exporter_stub.dart'
+    if (dart.library.io) 'package:anitrip/records/comparison_exporter_io.dart';
 
 void main() {
   late Directory tempDirectory;
@@ -16,7 +16,7 @@ void main() {
 
   setUp(() async {
     tempDirectory = await Directory.systemTemp.createTemp(
-      'miriago_auto_comparison_',
+      'anitrip_auto_comparison_',
     );
     photoFile = File('${tempDirectory.path}/photo.jpg')
       ..writeAsBytesSync(<int>[1, 2, 3], flush: true);

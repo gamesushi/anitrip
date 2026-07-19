@@ -37,13 +37,13 @@ void saveWebSettings(AppSettings settings) {
       'mapThumbnailConcurrentLoads': settings.mapThumbnailConcurrentLoads,
       'language': settings.language,
     };
-    web.window.localStorage.setItem('miriago_web_settings', json.encode(map));
+    web.window.localStorage.setItem('anitrip_web_settings', json.encode(map));
   } catch (_) {}
 }
 
 AppSettings loadWebSettings(AppSettings defaultValue) {
   try {
-    final jsonStr = web.window.localStorage.getItem('miriago_web_settings');
+    final jsonStr = web.window.localStorage.getItem('anitrip_web_settings');
     if (jsonStr == null) return defaultValue;
     final map = json.decode(jsonStr) as Map<String, dynamic>;
     

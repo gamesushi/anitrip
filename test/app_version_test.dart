@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/app_version.dart';
+import 'package:anitrip/app_version.dart';
 
 void main() {
   test('formats app version with build number', () {

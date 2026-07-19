@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/desktop/desktop_asset_image.dart';
+import 'package:anitrip/desktop/desktop_asset_image.dart';
 
 void main() {
   test('desktop asset paths are limited to safe relative assets entries', () {

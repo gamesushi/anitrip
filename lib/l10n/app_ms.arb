@@ -47,7 +47,7 @@
   "settingsDataSourceSubtitle": "Sumber peta, sumber gambar, dsb.",
   "settingsClearCache": "kosongkan cache",
   "settingsClearCacheSubtitle": "Cache imej rujukan lengkap",
-  "settingsAbout": "Mengenai MiriaGo",
+  "settingsAbout": "Mengenai anitrip",
   "settingsAboutSubtitle": "Maklumat versi, lesen sumber terbuka, dsb.",
   "btnCancel": "Batal",
   "btnConfirm": "pasti",
@@ -407,12 +407,12 @@
   "btnSwitch": "suis",
   "btnReloadPlan": "pelan tambah nilai",
   "importExportImportSection": "import",
-  "importExportImportDescMobile": "Buka .sjhplan dengan MiriaGo daripada fail, sembang, penyemak imbas atau pemacu rangkaian.",
+  "importExportImportDescMobile": "Buka .sjhplan dengan anitrip daripada fail, sembang, penyemak imbas atau pemacu rangkaian.",
   "importExportImportDescWeb": "Pilih fail .sjhplan dan pratonton kandungan sebelum mengimport.",
   "importExportStatusReading": "Membaca...",
   "importExportOpenFromApp": "Buka .sjhplan daripada apl lain",
   "importExportImportFileTitle": "Import fail MiriamGo",
-  "importExportOpenFromAppDesc": "Pilih .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas atau pemacu rangkaian, kemudian kongsi atau buka dengan MiriaGo.",
+  "importExportOpenFromAppDesc": "Pilih .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas atau pemacu rangkaian, kemudian kongsi atau buka dengan anitrip.",
   "importExportImportFileDesc": "Menyokong pakej data v2 dan pakej pelan JSON v1 warisan.",
   "importExportZipDesc": "Versi baharu .sjhplan, zip dalaman, mengandungi manifest.json.",
   "importExportMyMapsDesc": "Eksport mata ke CSV. Imej ditulis sebagai pautan dan boleh digayakan oleh lajur Jenis.",
@@ -421,9 +421,9 @@
   "msgExportCancelled": "Eksport dibatalkan",
   "msgImportReadFailed": "Import fail membaca gagal",
   "dialogOpenFromAppTitle": "Buka .sjhplan daripada apl lain",
-  "dialogOpenFromAppMessage": "Sila cari fail .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas, cakera rangkaian atau lokasi simpanan lain, kemudian klik pada fail, atau gunakan menu Kongsi/Lagi untuk memilih MiriaGo. \n\nMiriaGo akan memasuki halaman pratonton import secara automatik selepas menerima fail. Jika tiada MiriaGo dalam senarai, anda boleh menyimpan fail ke Apl \"Fail\" dahulu, kemudian tekan lama fail untuk memilih kaedah perkongsian atau pembukaan.",
+  "dialogOpenFromAppMessage": "Sila cari fail .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas, cakera rangkaian atau lokasi simpanan lain, kemudian klik pada fail, atau gunakan menu Kongsi/Lagi untuk memilih anitrip. \n\nanitrip akan memasuki halaman pratonton import secara automatik selepas menerima fail. Jika tiada anitrip dalam senarai, anda boleh menyimpan fail ke Apl \"Fail\" dahulu, kemudian tekan lama fail untuk memilih kaedah perkongsian atau pembukaan.",
   "btnGotIt": "tahu",
-  "exportShareLabel": "Paket MiriaGo: {name}",
+  "exportShareLabel": "Paket anitrip: {name}",
   "@exportShareLabel": {
     "placeholders": {
       "name": {
@@ -509,7 +509,7 @@
   "btnPlanAndRecords": "Pelan+Rekod",
   "importExportIncludeCache": "Mengandungi cache imej rujukan lengkap",
   "importExportIncludeCacheDesc": "Imej kecil dan imej rujukan yang ditambah pengguna akan tetap disertakan secara lalai.",
-  "btnExportDataPackage": "Eksport pakej data MiriaGo",
+  "btnExportDataPackage": "Eksport pakej data anitrip",
   "btnExportingDataPackage": "Mengeksport...",
   "importExportEstimateEstimating": "Anggarkan saiz paket...",
   "importExportEstimateFailed": "Anggaran saiz paket: tidak boleh dianggarkan pada masa ini",
@@ -585,7 +585,7 @@
     }
   },
   "tooltipBack": "kembali",
-  "importExportDataPackageHeader": "Pakej data MiriaGo",
+  "importExportDataPackageHeader": "Pakej data anitrip",
   "addPointsTitle": "Tambah kandungan",
   "addPointsAddToPlan": "Sertai: {planName}",
   "@addPointsAddToPlan": {

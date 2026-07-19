@@ -957,7 +957,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Откройте .sjhplan с помощью MiriaGo из файла, чата, браузера или сетевого диска.';
+      'Откройте .sjhplan с помощью anitrip из файла, чата, браузера или сетевого диска.';
 
   @override
   String get importExportImportDescWeb =>
@@ -971,11 +971,11 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте .sjhplan из других приложений';
 
   @override
-  String get importExportImportFileTitle => 'Импорт файлов MiriaGo';
+  String get importExportImportFileTitle => 'Импорт файлов anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Выберите .sjhplan в файлах, чате, на странице загрузки браузера или на сетевом диске, а затем поделитесь или откройте его с помощью MiriaGo.';
+      'Выберите .sjhplan в файлах, чате, на странице загрузки браузера или на сетевом диске, а затем поделитесь или откройте его с помощью anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -1007,14 +1007,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Найдите файл .sjhplan в файлах, чате, на странице загрузки браузера, на сетевом диске или в другом месте сохранения, затем щелкните файл или воспользуйтесь меню «Поделиться/Еще», чтобы выбрать MiriaGo. \n\nMiriaGo автоматически перейдет на страницу предварительного просмотра импорта после получения файла. Если в списке нет MiriaGo, вы можете сначала сохранить файл в приложении «Файлы», а затем нажать и удерживать файл, чтобы выбрать метод обмена или открытия.';
+      'Найдите файл .sjhplan в файлах, чате, на странице загрузки браузера, на сетевом диске или в другом месте сохранения, затем щелкните файл или воспользуйтесь меню «Поделиться/Еще», чтобы выбрать anitrip. \n\nanitrip автоматически перейдет на страницу предварительного просмотра импорта после получения файла. Если в списке нет anitrip, вы можете сначала сохранить файл в приложении «Файлы», а затем нажать и удерживать файл, чтобы выбрать метод обмена или открытия.';
 
   @override
   String get btnGotIt => 'знал';
 
   @override
   String exportShareLabel(String name) {
-    return 'Пакет MiriaGo: $name';
+    return 'Пакет anitrip: $name';
   }
 
   @override
@@ -1096,7 +1096,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Миниатюры и добавленные пользователем эталонные изображения по-прежнему будут включены по умолчанию.';
 
   @override
-  String get btnExportDataPackage => 'Экспорт пакета данных MiriaGo';
+  String get btnExportDataPackage => 'Экспорт пакета данных anitrip';
 
   @override
   String get btnExportingDataPackage => 'Экспорт...';
@@ -1166,7 +1166,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tooltipBack => 'возвращаться';
 
   @override
-  String get importExportDataPackageHeader => 'Пакет данных MiriaGo';
+  String get importExportDataPackageHeader => 'Пакет данных anitrip';
 
   @override
   String get addPointsTitle => 'Добавить контент';

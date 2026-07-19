@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/utils/limited_concurrency.dart';
+import 'package:anitrip/utils/limited_concurrency.dart';
 
 void main() {
   test('runLimitedConcurrent respects max concurrent workers', () async {

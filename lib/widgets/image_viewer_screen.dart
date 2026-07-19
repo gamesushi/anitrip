@@ -140,10 +140,10 @@ class ImageViewerScreen extends StatelessWidget {
       final result = await deliverPlanExport(
         bytes: imageBytes,
         fileName:
-            'miriago_image_${DateTime.now().microsecondsSinceEpoch}.$extension',
+            'anitrip_image_${DateTime.now().microsecondsSinceEpoch}.$extension',
         mimeType: _mimeTypeForExtension(extension),
-        shareSubject: 'MiriaGo 图片',
-        shareText: 'MiriaGo 图片',
+        shareSubject: 'anitrip 图片',
+        shareText: 'anitrip 图片',
         extension: extension,
       );
       if (result.action == PlanExportDeliveryAction.canceled) {

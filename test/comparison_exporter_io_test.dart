@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/records/comparison_export_config.dart';
-import 'package:miriago/records/comparison_exporter_io.dart';
+import 'package:anitrip/records/comparison_export_config.dart';
+import 'package:anitrip/records/comparison_exporter_io.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -22,7 +22,7 @@ void main() {
 
   setUp(() async {
     tempDirectory = await Directory.systemTemp.createTemp(
-      'miriago_comparison_export_',
+      'anitrip_comparison_export_',
     );
     PathProviderPlatform.instance = _FakePathProviderPlatform(
       p.join(tempDirectory.path, 'documents'),

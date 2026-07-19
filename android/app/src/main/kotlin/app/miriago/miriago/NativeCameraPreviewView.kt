@@ -1,4 +1,4 @@
-package app.miriago.miriago
+package app.anitrip.anitrip
 
 import android.Manifest
 import android.content.Context

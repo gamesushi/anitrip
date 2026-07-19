@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/color_grading/color_grading_params.dart';
+import 'package:anitrip/color_grading/color_grading_params.dart';
 
 void main() {
   group('ColorGradingParams', () {

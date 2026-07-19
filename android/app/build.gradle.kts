@@ -15,7 +15,7 @@ if (keystorePropertiesFile.exists()) {
 val hasReleaseKeystore = keystoreProperties["storeFile"] != null
 
 android {
-    namespace = "app.miriago.miriago"
+    namespace = "app.anitrip.anitrip"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -25,7 +25,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "app.miriago.miriago"
+        applicationId = "app.anitrip.anitrip"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

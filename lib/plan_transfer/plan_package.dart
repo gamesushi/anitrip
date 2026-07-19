@@ -6,8 +6,8 @@ import '../data/anitabi_image_url.dart';
 import '../plan/pilgrimage_models.dart';
 
 const seichiPlanFileExtension = 'sjhplan';
-const seichiPlanMimeType = 'application/vnd.miriago.plan+json';
-const _miriaGoPlanFormat = 'miriago-plan';
+const seichiPlanMimeType = 'application/vnd.anitrip.plan+json';
+const _miriaGoPlanFormat = 'anitrip-plan';
 const _legacyPlanFormat = 'seichi-junrei-helper-plan';
 
 class PlanPackage {

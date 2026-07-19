@@ -5,13 +5,13 @@ import 'package:archive/archive.dart';
 import 'package:drift/drift.dart' show Value;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/app_managed_file_paths_io.dart';
+import 'package:anitrip/data/app_managed_file_paths_io.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/data/pilgrimage_repository.dart';
-import 'package:miriago/data/local/app_database.dart';
-import 'package:miriago/data/local/sqlite_pilgrimage_repository.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/plan_transfer/plan_export_v2.dart';
+import 'package:anitrip/data/pilgrimage_repository.dart';
+import 'package:anitrip/data/local/app_database.dart';
+import 'package:anitrip/data/local/sqlite_pilgrimage_repository.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/plan_transfer/plan_export_v2.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -136,7 +136,7 @@ void main() {
     'repairs old container visit record image paths when files still exist',
     () async {
       final tempDirectory = await Directory.systemTemp.createTemp(
-        'miriago_sqlite_repair_',
+        'anitrip_sqlite_repair_',
       );
       addTearDown(() async {
         setAppManagedFileBaseDirectoriesForTesting(null);

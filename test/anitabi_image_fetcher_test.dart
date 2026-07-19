@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
-import 'package:miriago/data/anitabi_image_fetcher.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/data/anitabi_image_fetcher.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   test('falls back to mirror when official host returns html', () async {

@@ -407,12 +407,12 @@
   "btnSwitch": "スイッチ",
   "btnReloadPlan": "リロードプラン",
   "importExportImportSection": "輸入",
-  "importExportImportDescMobile": "MiriaGo を使用して、ファイル、チャット、ブラウザー、またはネットワーク ドライブから .sjhplan を開きます。",
+  "importExportImportDescMobile": "anitrip を使用して、ファイル、チャット、ブラウザー、またはネットワーク ドライブから .sjhplan を開きます。",
   "importExportImportDescWeb": ".sjhplan ファイルを選択し、インポートする前にコンテンツをプレビューします。",
   "importExportStatusReading": "読む...",
   "importExportOpenFromApp": "他のアプリから .sjhplan を開く",
-  "importExportImportFileTitle": "MiriaGo ファイルをインポートする",
-  "importExportOpenFromAppDesc": "ファイル、チャット、ブラウザのダウンロード ページ、またはネットワーク ドライブで .sjhplan を選択し、MiriaGo で共有するか開きます。",
+  "importExportImportFileTitle": "anitrip ファイルをインポートする",
+  "importExportOpenFromAppDesc": "ファイル、チャット、ブラウザのダウンロード ページ、またはネットワーク ドライブで .sjhplan を選択し、anitrip で共有するか開きます。",
   "importExportImportFileDesc": "v2 データ パッケージとレガシー v1 JSON プラン パッケージをサポートします。",
   "importExportZipDesc": "新しいバージョンの .sjhplan、内部 zip、ma​​nifest.json が含まれています。",
   "importExportMyMapsDesc": "ポイントを CSV にエクスポートします。画像はリンクとして書き込まれ、「タイプ」列でスタイルを設定できます。",
@@ -421,9 +421,9 @@
   "msgExportCancelled": "エクスポートがキャンセルされました",
   "msgImportReadFailed": "インポートファイルの読み込みに失敗しました",
   "dialogOpenFromAppTitle": "他のアプリから .sjhplan を開く",
-  "dialogOpenFromAppMessage": "ファイル、チャット、ブラウザのダウンロード ページ、ネットワーク ディスク、またはその他の保存場所で .sjhplan ファイルを見つけて、ファイルをクリックするか、[共有/詳細] メニューを使用して MiriaGo を選択してください。 \n\nMiriaGo は、ファイルを受信した後、自動的にインポート プレビュー ページに入ります。リストにMiriaGoがない場合は、まずファイルを「ファイル」アプリに保存し、ファイルを長押しして共有または開く方法を選択できます。",
+  "dialogOpenFromAppMessage": "ファイル、チャット、ブラウザのダウンロード ページ、ネットワーク ディスク、またはその他の保存場所で .sjhplan ファイルを見つけて、ファイルをクリックするか、[共有/詳細] メニューを使用して anitrip を選択してください。 \n\nanitrip は、ファイルを受信した後、自動的にインポート プレビュー ページに入ります。リストにanitripがない場合は、まずファイルを「ファイル」アプリに保存し、ファイルを長押しして共有または開く方法を選択できます。",
   "btnGotIt": "知っていた",
-  "exportShareLabel": "MiriaGo パケット: {name}",
+  "exportShareLabel": "anitrip パケット: {name}",
   "@exportShareLabel": {
     "placeholders": {
       "name": {
@@ -509,7 +509,7 @@
   "btnPlanAndRecords": "計画+記録",
   "importExportIncludeCache": "完全な参照画像キャッシュが含まれています",
   "importExportIncludeCacheDesc": "サムネイルとユーザーが追加した参照画像はデフォルトで引き続き含まれます。",
-  "btnExportDataPackage": "MiriaGo データ パッケージのエクスポート",
+  "btnExportDataPackage": "anitrip データ パッケージのエクスポート",
   "btnExportingDataPackage": "エクスポート中...",
   "importExportEstimateEstimating": "パケットサイズを見積もっています...",
   "importExportEstimateFailed": "推定パケット サイズ: 現時点では推定できません",
@@ -585,7 +585,7 @@
     }
   },
   "tooltipBack": "戻る",
-  "importExportDataPackageHeader": "MiriaGo データ パッケージ",
+  "importExportDataPackageHeader": "anitrip データ パッケージ",
   "addPointsTitle": "コンテンツの追加",
   "addPointsAddToPlan": "参加: {planName}",
   "@addPointsAddToPlan": {

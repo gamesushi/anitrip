@@ -150,7 +150,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsClearCacheSubtitle => '참고 사진 캐시 비우기';
 
   @override
-  String get settingsAbout => 'MiriaGo 정보';
+  String get settingsAbout => 'anitrip 정보';
 
   @override
   String get settingsAboutSubtitle => '버전 정보, 오픈소스 라이선스 등';
@@ -919,7 +919,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      '파일, 채팅, 브라우저 또는 클라우드 드라이브 등에서 MiriaGo로 .sjhplan을 엽니다.';
+      '파일, 채팅, 브라우저 또는 클라우드 드라이브 등에서 anitrip로 .sjhplan을 엽니다.';
 
   @override
   String get importExportImportDescWeb => '.sjhplan 파일을 선택하여 내용을 미리 본 후 가져옵니다.';
@@ -931,11 +931,11 @@ class AppLocalizationsKo extends AppLocalizations {
   String get importExportOpenFromApp => '다른 앱에서 .sjhplan 열기';
 
   @override
-  String get importExportImportFileTitle => 'MiriaGo 파일 가져오기';
+  String get importExportImportFileTitle => 'anitrip 파일 가져오기';
 
   @override
   String get importExportOpenFromAppDesc =>
-      '파일, 채팅, 브라우저 다운로드 또는 클라우드 드라이브에서 .sjhplan을 선택한 다음 공유하거나 MiriaGo로 엽니다.';
+      '파일, 채팅, 브라우저 다운로드 또는 클라우드 드라이브에서 .sjhplan을 선택한 다음 공유하거나 anitrip로 엽니다.';
 
   @override
   String get importExportImportFileDesc =>
@@ -967,14 +967,14 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      '파일, 채팅, 브라우저 다운로드 페이지, 클라우드 드라이브 또는 기타 저장 위치에서 .sjhplan 파일을 찾은 다음 파일을 클릭하거나 공유/더보기 메뉴를 사용하여 MiriaGo를 선택하세요.\n\nMiriaGo가 파일을 받으면 자동으로 가져오기 미리보기 페이지로 이동합니다. 목록에 MiriaGo가 없는 경우 파일을 먼저 \'파일\' 앱에 저장한 다음 파일을 길게 누르고 공유 또는 열기 방법을 선택할 수 있습니다.';
+      '파일, 채팅, 브라우저 다운로드 페이지, 클라우드 드라이브 또는 기타 저장 위치에서 .sjhplan 파일을 찾은 다음 파일을 클릭하거나 공유/더보기 메뉴를 사용하여 anitrip를 선택하세요.\n\nanitrip가 파일을 받으면 자동으로 가져오기 미리보기 페이지로 이동합니다. 목록에 anitrip가 없는 경우 파일을 먼저 \'파일\' 앱에 저장한 다음 파일을 길게 누르고 공유 또는 열기 방법을 선택할 수 있습니다.';
 
   @override
   String get btnGotIt => '확인';
 
   @override
   String exportShareLabel(String name) {
-    return 'MiriaGo 데이터 패키지: $name';
+    return 'anitrip 데이터 패키지: $name';
   }
 
   @override
@@ -1053,7 +1053,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '썸네일과 사용자 추가 참조 이미지는 기본적으로 여전히 포함됩니다.';
 
   @override
-  String get btnExportDataPackage => 'MiriaGo 데이터 패키지 내보내기';
+  String get btnExportDataPackage => 'anitrip 데이터 패키지 내보내기';
 
   @override
   String get btnExportingDataPackage => '내보내는 중...';
@@ -1121,7 +1121,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tooltipBack => '뒤로';
 
   @override
-  String get importExportDataPackageHeader => 'MiriaGo 데이터 패키지';
+  String get importExportDataPackageHeader => 'anitrip 데이터 패키지';
 
   @override
   String get addPointsTitle => '콘텐츠 추가';

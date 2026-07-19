@@ -287,7 +287,7 @@ private final class NativeCameraPreviewView: NSObject, FlutterPlatformView {
   private let channel: FlutterMethodChannel
   private let session = AVCaptureSession()
   private let photoOutput = AVCapturePhotoOutput()
-  private let sessionQueue = DispatchQueue(label: "app.miriago.nativeCamera.session")
+  private let sessionQueue = DispatchQueue(label: "app.anitrip.nativeCamera.session")
 
   private var currentInput: AVCaptureDeviceInput?
   private var lensFacing = "back"

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   test('maps Bangumi subject type codes to labels', () {

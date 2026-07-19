@@ -174,10 +174,10 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       final file = await file_selector.openFile(
         acceptedTypeGroups: const [
           file_selector.XTypeGroup(
-            label: 'MiriaGo plan package',
+            label: 'anitrip plan package',
             extensions: [seichiPlanFileExtension],
             mimeTypes: [
-              miriagoExportPackageMimeType,
+              anitripExportPackageMimeType,
               'application/zip',
               'application/x-zip-compressed',
               seichiPlanMimeType,
@@ -269,7 +269,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       );
       final destination = await preparePlanExportDestination(
         fileName: fileName,
-        mimeType: miriagoExportPackageMimeType,
+        mimeType: anitripExportPackageMimeType,
         extension: seichiPlanFileExtension,
       );
       if (!_isCurrentExport(generation)) {
@@ -287,7 +287,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
       final result = await deliverPlanExport(
         bytes: package.bytes,
         fileName: package.fileName,
-        mimeType: miriagoExportPackageMimeType,
+        mimeType: anitripExportPackageMimeType,
         shareSubject: widget.plan.name,
         shareText: AppLocalizations.of(context)!.exportShareLabel(widget.plan.name),
         extension: seichiPlanFileExtension,
@@ -401,7 +401,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         fileName: export.fileName,
         mimeType: export.mimeType,
         shareSubject: widget.plan.name,
-        shareText: 'MiriaGo My Maps CSV：${widget.plan.name}',
+        shareText: 'anitrip My Maps CSV：${widget.plan.name}',
         extension: myMapsCsvExtension,
         destination: destination,
       );

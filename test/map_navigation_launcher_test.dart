@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/map/map_navigation_launcher.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/map/map_navigation_launcher.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   const work = PilgrimageWork(
@@ -53,7 +53,7 @@ void main() {
       expect(uri.queryParameters['mode'], 'walk');
       expect(uri.queryParameters['coordinate'], 'wgs84');
       expect(uri.queryParameters['callnative'], '1');
-      expect(uri.queryParameters['src'], 'MiriaGo');
+      expect(uri.queryParameters['src'], 'anitrip');
     });
 
     test('builds Baidu walking URL with WGS84 coordinates', () {
@@ -69,7 +69,7 @@ void main() {
       expect(uri.queryParameters['mode'], 'walking');
       expect(uri.queryParameters['coord_type'], 'wgs84');
       expect(uri.queryParameters['output'], 'html');
-      expect(uri.queryParameters['src'], 'webapp.miriago.miriago');
+      expect(uri.queryParameters['src'], 'webapp.anitrip.anitrip');
     });
 
     test(

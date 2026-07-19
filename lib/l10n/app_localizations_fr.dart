@@ -153,7 +153,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Cache des images de référence complètes';
 
   @override
-  String get settingsAbout => 'À propos de MiriaGo';
+  String get settingsAbout => 'À propos de anitrip';
 
   @override
   String get settingsAboutSubtitle => 'Version, licences open source';
@@ -945,7 +945,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Ouvrez .sjhplan avec MiriaGo depuis des fichiers, des discussions, des navigateurs ou des stockages en nuage.';
+      'Ouvrez .sjhplan avec anitrip depuis des fichiers, des discussions, des navigateurs ou des stockages en nuage.';
 
   @override
   String get importExportImportDescWeb =>
@@ -959,11 +959,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Ouvrir .sjhplan depuis une autre application';
 
   @override
-  String get importExportImportFileTitle => 'Importer un fichier MiriaGo';
+  String get importExportImportFileTitle => 'Importer un fichier anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Sélectionnez .sjhplan dans les fichiers, discussions, téléchargements de navigateur ou stockages en nuage, puis partagez ou ouvrez avec MiriaGo.';
+      'Sélectionnez .sjhplan dans les fichiers, discussions, téléchargements de navigateur ou stockages en nuage, puis partagez ou ouvrez avec anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -997,14 +997,14 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Veuillez trouver le fichier .sjhplan dans les fichiers, les discussions, la page de téléchargement du navigateur, le stockage en nuage ou d\'autres emplacements enregistrés, puis cliquez sur le fichier ou utilisez le menu de partage/plus pour sélectionner MiriaGo.\n\nMiriaGo affichera automatiquement la page de prévisualisation de l\'importation à la réception du fichier. Si MiriaGo n\'est pas dans la liste, vous pouvez d\'abord enregistrer le fichier dans l\'application \'Fichiers\', puis appuyer longuement sur le fichier et sélectionner Partager ou Ouvrir avec.';
+      'Veuillez trouver le fichier .sjhplan dans les fichiers, les discussions, la page de téléchargement du navigateur, le stockage en nuage ou d\'autres emplacements enregistrés, puis cliquez sur le fichier ou utilisez le menu de partage/plus pour sélectionner anitrip.\n\nanitrip affichera automatiquement la page de prévisualisation de l\'importation à la réception du fichier. Si anitrip n\'est pas dans la liste, vous pouvez d\'abord enregistrer le fichier dans l\'application \'Fichiers\', puis appuyer longuement sur le fichier et sélectionner Partager ou Ouvrir avec.';
 
   @override
   String get btnGotIt => 'Compris';
 
   @override
   String exportShareLabel(String name) {
-    return 'Paquet de données MiriaGo: $name';
+    return 'Paquet de données anitrip: $name';
   }
 
   @override
@@ -1085,7 +1085,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Les vignettes et les images de référence ajoutées par l\'utilisateur sont toujours incluses par défaut.';
 
   @override
-  String get btnExportDataPackage => 'Exporter le paquet de données MiriaGo';
+  String get btnExportDataPackage => 'Exporter le paquet de données anitrip';
 
   @override
   String get btnExportingDataPackage => 'Exportation...';
@@ -1156,7 +1156,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get tooltipBack => 'Retour';
 
   @override
-  String get importExportDataPackageHeader => 'Paquet de données MiriaGo';
+  String get importExportDataPackageHeader => 'Paquet de données anitrip';
 
   @override
   String get addPointsTitle => 'Ajouter du contenu';

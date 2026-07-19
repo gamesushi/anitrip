@@ -61,14 +61,14 @@ fn portable_data_dir() -> PathBuf {
 fn portable_data_dir_for_exe(current_exe: PathBuf) -> PathBuf {
     current_exe
         .parent()
-        .map(|parent| parent.join("MiriaGoData"))
-        .unwrap_or_else(|| PathBuf::from("MiriaGoData"))
+        .map(|parent| parent.join("anitripData"))
+        .unwrap_or_else(|| PathBuf::from("anitripData"))
 }
 
 fn system_data_dir() -> Result<PathBuf, String> {
     let base =
         dirs::data_dir().ok_or_else(|| "could not resolve system data directory".to_string())?;
-    Ok(base.join("MiriaGo"))
+    Ok(base.join("anitrip"))
 }
 
 #[cfg(test)]
@@ -78,12 +78,12 @@ mod tests {
     use super::portable_data_dir_for_exe;
 
     #[test]
-    fn non_macos_portable_data_dir_uses_miriago_data_next_to_exe() {
-        let exe = PathBuf::from("/opt/MiriaGo/MiriaGo.exe");
+    fn non_macos_portable_data_dir_uses_anitrip_data_next_to_exe() {
+        let exe = PathBuf::from("/opt/anitrip/anitrip.exe");
 
         assert_eq!(
             portable_data_dir_for_exe(exe),
-            PathBuf::from("/opt/MiriaGo/MiriaGoData")
+            PathBuf::from("/opt/anitrip/anitripData")
         );
     }
 }

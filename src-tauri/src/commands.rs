@@ -427,7 +427,7 @@ fn ensure_extension(path: PathBuf, extension: &str) -> PathBuf {
 
 fn export_filter_label(mime_type: &str, extension: &str) -> String {
     match extension {
-        "sjhplan" => "MiriaGo data package".to_string(),
+        "sjhplan" => "anitrip data package".to_string(),
         "csv" => "CSV file".to_string(),
         _ if !mime_type.is_empty() => mime_type.to_string(),
         _ => "Export file".to_string(),
@@ -491,7 +491,7 @@ fn safe_anitabi_static_version(version: &str) -> Option<String> {
 
 fn fetch_text(url: &str) -> Result<String, String> {
     let response = reqwest::blocking::Client::builder()
-        .user_agent("MiriaGo desktop launcher")
+        .user_agent("anitrip desktop launcher")
         .build()
         .map_err(|error| error.to_string())?
         .get(url)

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/plan/coordinate_parser.dart';
+import 'package:anitrip/plan/coordinate_parser.dart';
 
 void main() {
   test('parses decimal Google Maps coordinates', () {

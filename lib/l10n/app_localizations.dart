@@ -404,7 +404,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsAbout.
   ///
   /// In zh, this message translates to:
-  /// **'关于 MiriaGo'**
+  /// **'关于 anitrip'**
   String get settingsAbout;
 
   /// No description provided for @settingsAboutSubtitle.
@@ -1837,7 +1837,7 @@ abstract class AppLocalizations {
   /// No description provided for @importExportImportDescMobile.
   ///
   /// In zh, this message translates to:
-  /// **'从文件、聊天、浏览器或网盘等位置用 MiriaGo 打开 .sjhplan。'**
+  /// **'从文件、聊天、浏览器或网盘等位置用 anitrip 打开 .sjhplan。'**
   String get importExportImportDescMobile;
 
   /// No description provided for @importExportImportDescWeb.
@@ -1861,13 +1861,13 @@ abstract class AppLocalizations {
   /// No description provided for @importExportImportFileTitle.
   ///
   /// In zh, this message translates to:
-  /// **'导入 MiriaGo 文件'**
+  /// **'导入 anitrip 文件'**
   String get importExportImportFileTitle;
 
   /// No description provided for @importExportOpenFromAppDesc.
   ///
   /// In zh, this message translates to:
-  /// **'在文件、聊天、浏览器下载页或网盘中选择 .sjhplan，然后分享或用 MiriaGo 打开。'**
+  /// **'在文件、聊天、浏览器下载页或网盘中选择 .sjhplan，然后分享或用 anitrip 打开。'**
   String get importExportOpenFromAppDesc;
 
   /// No description provided for @importExportImportFileDesc.
@@ -1921,7 +1921,7 @@ abstract class AppLocalizations {
   /// No description provided for @dialogOpenFromAppMessage.
   ///
   /// In zh, this message translates to:
-  /// **'请在文件、聊天、浏览器下载页、网盘或其他保存位置找到 .sjhplan 文件，然后点开文件，或使用分享/更多菜单选择 MiriaGo。\n\nMiriaGo 收到文件后会自动进入导入预览页面。若列表里没有 MiriaGo，可以先把文件保存到“文件”App，再长按文件选择分享或打开方式。'**
+  /// **'请在文件、聊天、浏览器下载页、网盘或其他保存位置找到 .sjhplan 文件，然后点开文件，或使用分享/更多菜单选择 anitrip。\n\nanitrip 收到文件后会自动进入导入预览页面。若列表里没有 anitrip，可以先把文件保存到“文件”App，再长按文件选择分享或打开方式。'**
   String get dialogOpenFromAppMessage;
 
   /// No description provided for @btnGotIt.
@@ -1933,7 +1933,7 @@ abstract class AppLocalizations {
   /// No description provided for @exportShareLabel.
   ///
   /// In zh, this message translates to:
-  /// **'MiriaGo数据包：{name}'**
+  /// **'anitrip数据包：{name}'**
   String exportShareLabel(String name);
 
   /// No description provided for @msgExportSuccess.
@@ -2053,7 +2053,7 @@ abstract class AppLocalizations {
   /// No description provided for @btnExportDataPackage.
   ///
   /// In zh, this message translates to:
-  /// **'导出 MiriaGo 数据包'**
+  /// **'导出 anitrip 数据包'**
   String get btnExportDataPackage;
 
   /// No description provided for @btnExportingDataPackage.
@@ -2155,7 +2155,7 @@ abstract class AppLocalizations {
   /// No description provided for @importExportDataPackageHeader.
   ///
   /// In zh, this message translates to:
-  /// **'MiriaGo 数据包'**
+  /// **'anitrip 数据包'**
   String get importExportDataPackageHeader;
 
   /// No description provided for @addPointsTitle.

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/sample_pilgrimage_repository.dart';
-import 'package:miriago/plan_transfer/plan_package.dart';
+import 'package:anitrip/data/sample_pilgrimage_repository.dart';
+import 'package:anitrip/plan_transfer/plan_package.dart';
 
 void main() {
   test('encodes and decodes plan package data', () async {
@@ -47,7 +47,7 @@ void main() {
   test('decodes legacy plan packages without memo', () {
     final decoded = PlanPackage.fromJsonString('''
 {
-  "format": "miriago-plan",
+  "format": "anitrip-plan",
   "version": 1,
   "exportedAt": "2026-07-01T00:00:00.000",
   "plan": {

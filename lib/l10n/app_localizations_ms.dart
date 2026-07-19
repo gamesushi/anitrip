@@ -152,7 +152,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get settingsClearCacheSubtitle => 'Cache imej rujukan lengkap';
 
   @override
-  String get settingsAbout => 'Mengenai MiriaGo';
+  String get settingsAbout => 'Mengenai anitrip';
 
   @override
   String get settingsAboutSubtitle =>
@@ -947,7 +947,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Buka .sjhplan dengan MiriaGo daripada fail, sembang, penyemak imbas atau pemacu rangkaian.';
+      'Buka .sjhplan dengan anitrip daripada fail, sembang, penyemak imbas atau pemacu rangkaian.';
 
   @override
   String get importExportImportDescWeb =>
@@ -964,7 +964,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Pilih .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas atau pemacu rangkaian, kemudian kongsi atau buka dengan MiriaGo.';
+      'Pilih .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas atau pemacu rangkaian, kemudian kongsi atau buka dengan anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -996,14 +996,14 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Sila cari fail .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas, cakera rangkaian atau lokasi simpanan lain, kemudian klik pada fail, atau gunakan menu Kongsi/Lagi untuk memilih MiriaGo. \n\nMiriaGo akan memasuki halaman pratonton import secara automatik selepas menerima fail. Jika tiada MiriaGo dalam senarai, anda boleh menyimpan fail ke Apl \"Fail\" dahulu, kemudian tekan lama fail untuk memilih kaedah perkongsian atau pembukaan.';
+      'Sila cari fail .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas, cakera rangkaian atau lokasi simpanan lain, kemudian klik pada fail, atau gunakan menu Kongsi/Lagi untuk memilih anitrip. \n\nanitrip akan memasuki halaman pratonton import secara automatik selepas menerima fail. Jika tiada anitrip dalam senarai, anda boleh menyimpan fail ke Apl \"Fail\" dahulu, kemudian tekan lama fail untuk memilih kaedah perkongsian atau pembukaan.';
 
   @override
   String get btnGotIt => 'tahu';
 
   @override
   String exportShareLabel(String name) {
-    return 'Paket MiriaGo: $name';
+    return 'Paket anitrip: $name';
   }
 
   @override
@@ -1083,7 +1083,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Imej kecil dan imej rujukan yang ditambah pengguna akan tetap disertakan secara lalai.';
 
   @override
-  String get btnExportDataPackage => 'Eksport pakej data MiriaGo';
+  String get btnExportDataPackage => 'Eksport pakej data anitrip';
 
   @override
   String get btnExportingDataPackage => 'Mengeksport...';
@@ -1153,7 +1153,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get tooltipBack => 'kembali';
 
   @override
-  String get importExportDataPackageHeader => 'Pakej data MiriaGo';
+  String get importExportDataPackageHeader => 'Pakej data anitrip';
 
   @override
   String get addPointsTitle => 'Tambah kandungan';

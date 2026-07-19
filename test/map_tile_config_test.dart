@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/map/map_tile_config.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/map/map_tile_config.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   test('uses OpenFreeMap as default MapLibre style', () {

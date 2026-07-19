@@ -407,12 +407,12 @@
   "btnSwitch": "выключатель",
   "btnReloadPlan": "план перезагрузки",
   "importExportImportSection": "импортировать",
-  "importExportImportDescMobile": "Откройте .sjhplan с помощью MiriaGo из файла, чата, браузера или сетевого диска.",
+  "importExportImportDescMobile": "Откройте .sjhplan с помощью anitrip из файла, чата, браузера или сетевого диска.",
   "importExportImportDescWeb": "Выберите файл .sjhplan и просмотрите его содержимое перед импортом.",
   "importExportStatusReading": "Чтение...",
   "importExportOpenFromApp": "Откройте .sjhplan из других приложений",
-  "importExportImportFileTitle": "Импорт файлов MiriaGo",
-  "importExportOpenFromAppDesc": "Выберите .sjhplan в файлах, чате, на странице загрузки браузера или на сетевом диске, а затем поделитесь или откройте его с помощью MiriaGo.",
+  "importExportImportFileTitle": "Импорт файлов anitrip",
+  "importExportOpenFromAppDesc": "Выберите .sjhplan в файлах, чате, на странице загрузки браузера или на сетевом диске, а затем поделитесь или откройте его с помощью anitrip.",
   "importExportImportFileDesc": "Поддерживает пакеты данных v2 и устаревшие пакеты планов JSON v1.",
   "importExportZipDesc": "Новая версия .sjhplan, внутренний zip-архив, содержащий файл манифеста.json.",
   "importExportMyMapsDesc": "Экспортируйте точки в CSV. Изображения записываются в виде ссылок и могут быть стилизованы с помощью столбца «Тип».",
@@ -421,9 +421,9 @@
   "msgExportCancelled": "Экспорт отменен",
   "msgImportReadFailed": "Не удалось прочитать файл импорта",
   "dialogOpenFromAppTitle": "Откройте .sjhplan из других приложений",
-  "dialogOpenFromAppMessage": "Найдите файл .sjhplan в файлах, чате, на странице загрузки браузера, на сетевом диске или в другом месте сохранения, затем щелкните файл или воспользуйтесь меню «Поделиться/Еще», чтобы выбрать MiriaGo. \n\nMiriaGo автоматически перейдет на страницу предварительного просмотра импорта после получения файла. Если в списке нет MiriaGo, вы можете сначала сохранить файл в приложении «Файлы», а затем нажать и удерживать файл, чтобы выбрать метод обмена или открытия.",
+  "dialogOpenFromAppMessage": "Найдите файл .sjhplan в файлах, чате, на странице загрузки браузера, на сетевом диске или в другом месте сохранения, затем щелкните файл или воспользуйтесь меню «Поделиться/Еще», чтобы выбрать anitrip. \n\nanitrip автоматически перейдет на страницу предварительного просмотра импорта после получения файла. Если в списке нет anitrip, вы можете сначала сохранить файл в приложении «Файлы», а затем нажать и удерживать файл, чтобы выбрать метод обмена или открытия.",
   "btnGotIt": "знал",
-  "exportShareLabel": "Пакет MiriaGo: {name}",
+  "exportShareLabel": "Пакет anitrip: {name}",
   "@exportShareLabel": {
     "placeholders": {
       "name": {
@@ -509,7 +509,7 @@
   "btnPlanAndRecords": "План+Запись",
   "importExportIncludeCache": "Содержит полный кэш эталонных изображений.",
   "importExportIncludeCacheDesc": "Миниатюры и добавленные пользователем эталонные изображения по-прежнему будут включены по умолчанию.",
-  "btnExportDataPackage": "Экспорт пакета данных MiriaGo",
+  "btnExportDataPackage": "Экспорт пакета данных anitrip",
   "btnExportingDataPackage": "Экспорт...",
   "importExportEstimateEstimating": "Оценка размера пакета...",
   "importExportEstimateFailed": "Предполагаемый размер пакета: на данный момент оценить невозможно.",
@@ -585,7 +585,7 @@
     }
   },
   "tooltipBack": "возвращаться",
-  "importExportDataPackageHeader": "Пакет данных MiriaGo",
+  "importExportDataPackageHeader": "Пакет данных anitrip",
   "addPointsTitle": "Добавить контент",
   "addPointsAddToPlan": "Присоединяйтесь: {planName}",
   "@addPointsAddToPlan": {

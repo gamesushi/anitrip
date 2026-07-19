@@ -15,7 +15,7 @@ pub struct DesktopDatabase {
 impl DesktopDatabase {
     pub fn open() -> Result<Self, String> {
         let dirs = storage::ensure_data_dirs()?;
-        let path = dirs.data_dir.join("miriago.sqlite");
+        let path = dirs.data_dir.join("anitrip.sqlite");
         let connection = Connection::open(&path).map_err(|error| error.to_string())?;
         let mut database = Self { path, connection };
         database.migrate()?;

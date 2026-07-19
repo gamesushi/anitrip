@@ -84,7 +84,7 @@ async function fetchAnitabiStatic(fileName, version) {
   const query = version ? `?v=${encodeURIComponent(version)}` : '';
   for (const baseUrl of ['https://www.anitabi.cn/d', 'https://anitabi.cn/d']) {
     const response = await fetch(`${baseUrl}/${fileName}${query}`, {
-      headers: {'user-agent': 'MiriaGo local web preview'},
+      headers: {'user-agent': 'anitrip local web preview'},
     });
     if (response.ok) {
       return response;
@@ -119,12 +119,12 @@ async function serveAnitabiStatic(url, response) {
   }
 }
 
-// MiriaGo dev preview: replace Flutter's service worker with a no-op one so
+// anitrip dev preview: replace Flutter's service worker with a no-op one so
 // the browser never caches main.dart.js between rebuilds. Flutter ships a
 // constant service-worker version, so the real SW keeps serving stale code
 // even when the server sends `no-store`. A no-op SW has no `fetch` handler,
 // which forces every request straight to the network.
-const NOOP_SERVICE_WORKER = `// MiriaGo dev preview: caching disabled.
+const NOOP_SERVICE_WORKER = `// anitrip dev preview: caching disabled.
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
 // No fetch handler on purpose: all requests hit the network directly.
@@ -152,6 +152,6 @@ const server = createServer((request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`MiriaGo preview: http://${host}:${port}/`);
+  console.log(`anitrip preview: http://${host}:${port}/`);
   console.log(`Anitabi proxy: http://${host}:${port}/__anitabi_static__/g.json`);
 });

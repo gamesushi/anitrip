@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/app_managed_file_paths_io.dart';
+import 'package:anitrip/data/app_managed_file_paths_io.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -30,7 +30,7 @@ void main() {
 
   setUp(() async {
     tempDirectory = await Directory.systemTemp.createTemp(
-      'miriago_managed_paths_',
+      'anitrip_managed_paths_',
     );
     documentsPath = p.join(tempDirectory.path, 'Documents');
     supportPath = p.join(tempDirectory.path, 'files');
@@ -73,7 +73,7 @@ void main() {
     await currentPhoto.writeAsBytes(<int>[4, 5, 6], flush: true);
 
     final resolution = await resolveAppManagedFilePath(
-      '/data/user/0/app.miriago.miriago/files/visit_record_images/native.jpg',
+      '/data/user/0/app.anitrip.anitrip/files/visit_record_images/native.jpg',
     );
 
     expect(resolution.exists, isTrue);

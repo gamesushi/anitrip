@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:archive/archive.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/data/app_managed_file_paths_io.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/plan_transfer/plan_export_v2.dart';
+import 'package:anitrip/data/app_managed_file_paths_io.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/plan_transfer/plan_export_v2.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -30,7 +30,7 @@ void main() {
 
   setUp(() async {
     tempDirectory = await Directory.systemTemp.createTemp(
-      'miriago_export_rebased_',
+      'anitrip_export_rebased_',
     );
     documentsPath = p.join(tempDirectory.path, 'Documents');
     PathProviderPlatform.instance = _FakePathProviderPlatform(documentsPath);

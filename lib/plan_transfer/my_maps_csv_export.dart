@@ -69,7 +69,7 @@ String suggestMyMapsCsvFileName({
   required PilgrimagePlan plan,
   required DateTime exportedAt,
 }) {
-  return '${_safeFileName(plan.name, fallback: 'miriago_plan')}_mymaps_${_timestamp(exportedAt)}.$myMapsCsvExtension';
+  return '${_safeFileName(plan.name, fallback: 'anitrip_plan')}_mymaps_${_timestamp(exportedAt)}.$myMapsCsvExtension';
 }
 
 String _csvCell(String value) {

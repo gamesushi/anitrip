@@ -3,12 +3,12 @@ import 'dart:io';
 
 import 'package:archive/archive.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/app_version.dart';
-import 'package:miriago/data/sample_pilgrimage_repository.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/plan/reference_full_cache_runner.dart';
-import 'package:miriago/plan_transfer/plan_export_v2.dart';
-import 'package:miriago/plan_transfer/plan_export_size_estimator.dart';
+import 'package:anitrip/app_version.dart';
+import 'package:anitrip/data/sample_pilgrimage_repository.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/plan/reference_full_cache_runner.dart';
+import 'package:anitrip/plan_transfer/plan_export_v2.dart';
+import 'package:anitrip/plan_transfer/plan_export_size_estimator.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -67,7 +67,7 @@ void main() {
     final recordJson = visitRecords.single as Map<String, Object?>;
     final assetCounts = manifest['assetCounts'] as Map<String, Object?>;
 
-    expect(manifest['appVersion'], miriagoAppVersion);
+    expect(manifest['appVersion'], anitripAppVersion);
     expect(archive.files.any((file) => file.name.startsWith('assets/')), true);
     expect(assetCounts['thumbnails'], 1);
     expect(assetCounts['fullReferences'], 1);
@@ -296,7 +296,7 @@ void main() {
     'local uploaded references with stale remote url do not download fallback assets',
     () async {
       final tempDirectory = await Directory.systemTemp.createTemp(
-        'miriago_user_reference_',
+        'anitrip_user_reference_',
       );
       addTearDown(() async {
         if (tempDirectory.existsSync()) {
@@ -516,7 +516,7 @@ void main() {
     'plan export rejects non-image local cache and retries remote reference',
     () async {
       final tempDirectory = await Directory.systemTemp.createTemp(
-        'miriago_bad_reference_',
+        'anitrip_bad_reference_',
       );
       addTearDown(() async {
         if (tempDirectory.existsSync()) {
@@ -601,5 +601,5 @@ void main() {
 
 const _jpegBytes = <int>[0xFF, 0xD8, 0xFF, 0xD9];
 final _htmlBytes = utf8.encode(
-  '<!DOCTYPE html><html><body>MiriaGo</body></html>',
+  '<!DOCTYPE html><html><body>anitrip</body></html>',
 );

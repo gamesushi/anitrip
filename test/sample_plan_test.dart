@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
-import 'package:miriago/data/sample_pilgrimage_repository.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/records/visit_record_photo_io.dart';
+import 'package:anitrip/data/sample_pilgrimage_repository.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/records/visit_record_photo_io.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

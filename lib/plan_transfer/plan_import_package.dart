@@ -10,7 +10,7 @@ import '../plan/pilgrimage_models.dart';
 import 'plan_export_v2.dart';
 import 'plan_package.dart';
 
-enum PlanImportPackageKind { legacyJson, miriagoZip }
+enum PlanImportPackageKind { legacyJson, anitripZip }
 
 class PlanImportPackage {
   const PlanImportPackage({
@@ -64,7 +64,7 @@ class PlanImportPackage {
 
   String get versionLabel => switch (kind) {
     PlanImportPackageKind.legacyJson => 'v1.0 JSON',
-    PlanImportPackageKind.miriagoZip => 'v2 数据包',
+    PlanImportPackageKind.anitripZip => 'v2 数据包',
   };
 }
 
@@ -152,8 +152,8 @@ PlanImportPackage _readV2ZipPackage(
 }) {
   final archive = ZipDecoder().decodeBytes(bytes);
   final manifest = _readArchiveJson(archive, 'manifest.json');
-  if (manifest['format'] != miriagoExportPackageFormat) {
-    throw const FormatException('Unsupported MiriaGo package format.');
+  if (manifest['format'] != anitripExportPackageFormat) {
+    throw const FormatException('Unsupported anitrip package format.');
   }
   final planRoot = _readArchiveJson(archive, 'plan.json');
   final planJson = _mapValue(planRoot['plan']);
@@ -162,7 +162,7 @@ PlanImportPackage _readV2ZipPackage(
   final records = visitRecordJsons.map(_visitRecordFromV2Json).toList();
 
   return PlanImportPackage(
-    kind: PlanImportPackageKind.miriagoZip,
+    kind: PlanImportPackageKind.anitripZip,
     package: PlanPackage(plan: plan, visitRecords: records),
     sourceName: sourceName,
     manifest: manifest,

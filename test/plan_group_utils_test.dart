@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/plan/pilgrimage_plan_controller.dart';
-import 'package:miriago/plan/plan_group_utils.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/plan/pilgrimage_plan_controller.dart';
+import 'package:anitrip/plan/plan_group_utils.dart';
 
 void main() {
   test('sorts groups by plan order without mutating the source list', () {

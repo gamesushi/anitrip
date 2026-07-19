@@ -46,9 +46,9 @@ class PlanExportV2Result {
 
 typedef ExportNetworkBytesReader = Future<List<int>?> Function(String url);
 
-const miriagoExportPackageFormat = 'miriago_export_package';
-const miriagoExportPackageMimeType = 'application/vnd.miriago.plan+zip';
-const miriagoExportSchemaVersion = 2;
+const anitripExportPackageFormat = 'anitrip_export_package';
+const anitripExportPackageMimeType = 'application/vnd.anitrip.plan+zip';
+const anitripExportSchemaVersion = 2;
 
 enum PlanExportWarningType {
   thumbnailMissing('thumbnailMissing'),
@@ -325,7 +325,7 @@ String suggestPlanExportV2FileName({
   required PilgrimagePlan plan,
   required DateTime exportedAt,
 }) {
-  return '${_safeFileName(plan.name, fallback: 'miriago_plan')}_${_timestamp(exportedAt)}.$seichiPlanFileExtension';
+  return '${_safeFileName(plan.name, fallback: 'anitrip_plan')}_${_timestamp(exportedAt)}.$seichiPlanFileExtension';
 }
 
 Map<String, Object?> _manifestJson({
@@ -338,14 +338,14 @@ Map<String, Object?> _manifestJson({
   required Map<String, int> assetCounts,
 }) {
   return {
-    'format': miriagoExportPackageFormat,
+    'format': anitripExportPackageFormat,
     'container': 'zip',
-    'schemaVersion': miriagoExportSchemaVersion,
-    'appName': 'MiriaGo',
-    'appVersion': miriagoAppVersion,
+    'schemaVersion': anitripExportSchemaVersion,
+    'appName': 'anitrip',
+    'appVersion': anitripAppVersion,
     'exportedAt': exportedAt.toIso8601String(),
     'exportMode': options.exportMode,
-    'packageId': 'miriago-export-${_timestamp(exportedAt)}',
+    'packageId': 'anitrip-export-${_timestamp(exportedAt)}',
     'planId': plan.id,
     'planName': plan.name,
     'includedContent': {
@@ -396,7 +396,7 @@ Map<String, Object?> _planJson({
   required Map<String, _RecordAssetRefs> recordAssetRefsById,
 }) {
   return {
-    'schemaVersion': miriagoExportSchemaVersion,
+    'schemaVersion': anitripExportSchemaVersion,
     'exportMode': options.exportMode,
     'plan': {
       'id': plan.id,

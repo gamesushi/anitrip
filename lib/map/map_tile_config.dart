@@ -7,7 +7,7 @@ import '../plan/pilgrimage_models.dart';
 
 const openFreeMapStyleUrl = 'https://tiles.openfreemap.org/styles/liberty';
 const openStreetMapTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const mapUserAgentPackageName = 'app.miriago.miriago';
+const mapUserAgentPackageName = 'app.anitrip.anitrip';
 
 class OpenFreeMapStyleOption {
   const OpenFreeMapStyleOption({

@@ -1,10 +1,10 @@
 [package]
-name = "miriago-desktop"
+name = "anitrip-desktop"
 version = "1.1.3"
-description = "MiriaGo desktop launcher"
+description = "anitrip desktop launcher"
 authors = ["BilyHurington"]
 license = "MIT"
-repository = "https://github.com/BilyHurington/MiriaGo"
+repository = "https://github.com/BilyHurington/anitrip"
 edition = "2021"
 
 [build-dependencies]

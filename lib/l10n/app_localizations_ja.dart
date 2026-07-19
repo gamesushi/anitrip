@@ -922,7 +922,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'MiriaGo を使用して、ファイル、チャット、ブラウザー、またはネットワーク ドライブから .sjhplan を開きます。';
+      'anitrip を使用して、ファイル、チャット、ブラウザー、またはネットワーク ドライブから .sjhplan を開きます。';
 
   @override
   String get importExportImportDescWeb =>
@@ -935,11 +935,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get importExportOpenFromApp => '他のアプリから .sjhplan を開く';
 
   @override
-  String get importExportImportFileTitle => 'MiriaGo ファイルをインポートする';
+  String get importExportImportFileTitle => 'anitrip ファイルをインポートする';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'ファイル、チャット、ブラウザのダウンロード ページ、またはネットワーク ドライブで .sjhplan を選択し、MiriaGo で共有するか開きます。';
+      'ファイル、チャット、ブラウザのダウンロード ページ、またはネットワーク ドライブで .sjhplan を選択し、anitrip で共有するか開きます。';
 
   @override
   String get importExportImportFileDesc =>
@@ -971,14 +971,14 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'ファイル、チャット、ブラウザのダウンロード ページ、ネットワーク ディスク、またはその他の保存場所で .sjhplan ファイルを見つけて、ファイルをクリックするか、[共有/詳細] メニューを使用して MiriaGo を選択してください。 \n\nMiriaGo は、ファイルを受信した後、自動的にインポート プレビュー ページに入ります。リストにMiriaGoがない場合は、まずファイルを「ファイル」アプリに保存し、ファイルを長押しして共有または開く方法を選択できます。';
+      'ファイル、チャット、ブラウザのダウンロード ページ、ネットワーク ディスク、またはその他の保存場所で .sjhplan ファイルを見つけて、ファイルをクリックするか、[共有/詳細] メニューを使用して anitrip を選択してください。 \n\nanitrip は、ファイルを受信した後、自動的にインポート プレビュー ページに入ります。リストにanitripがない場合は、まずファイルを「ファイル」アプリに保存し、ファイルを長押しして共有または開く方法を選択できます。';
 
   @override
   String get btnGotIt => '知っていた';
 
   @override
   String exportShareLabel(String name) {
-    return 'MiriaGo パケット: $name';
+    return 'anitrip パケット: $name';
   }
 
   @override
@@ -1057,7 +1057,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'サムネイルとユーザーが追加した参照画像はデフォルトで引き続き含まれます。';
 
   @override
-  String get btnExportDataPackage => 'MiriaGo データ パッケージのエクスポート';
+  String get btnExportDataPackage => 'anitrip データ パッケージのエクスポート';
 
   @override
   String get btnExportingDataPackage => 'エクスポート中...';
@@ -1125,7 +1125,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tooltipBack => '戻る';
 
   @override
-  String get importExportDataPackageHeader => 'MiriaGo データ パッケージ';
+  String get importExportDataPackageHeader => 'anitrip データ パッケージ';
 
   @override
   String get addPointsTitle => 'コンテンツの追加';

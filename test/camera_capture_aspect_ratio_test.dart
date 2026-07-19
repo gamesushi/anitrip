@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/camera_reference/camerawesome_reference_screen.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
+import 'package:anitrip/camera_reference/camerawesome_reference_screen.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
   test('auto capture keeps landscape reference ratio in portrait UI', () {

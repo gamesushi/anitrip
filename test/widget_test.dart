@@ -5,20 +5,20 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'package:miriago/main.dart';
-import 'package:miriago/data/anitabi_client.dart';
-import 'package:miriago/data/sample_pilgrimage_repository.dart';
-import 'package:miriago/point_detail/point_detail_sheet.dart';
-import 'package:miriago/plan/anitabi_map_import_screen.dart';
-import 'package:miriago/plan/plan_group_manager_screen.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/widgets/constrained_menu_anchor.dart';
-import 'package:miriago/widgets/reference_image_placeholder.dart';
-import 'package:miriago/l10n/app_localizations.dart';
+import 'package:anitrip/main.dart';
+import 'package:anitrip/data/anitabi_client.dart';
+import 'package:anitrip/data/sample_pilgrimage_repository.dart';
+import 'package:anitrip/point_detail/point_detail_sheet.dart';
+import 'package:anitrip/plan/anitabi_map_import_screen.dart';
+import 'package:anitrip/plan/plan_group_manager_screen.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/widgets/constrained_menu_anchor.dart';
+import 'package:anitrip/widgets/reference_image_placeholder.dart';
+import 'package:anitrip/l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 Future<void> _pumpApp(WidgetTester tester) async {
-  await tester.pumpWidget(MiriaGoApp(
+  await tester.pumpWidget(anitripApp(
     repository: SamplePilgrimageRepository(
       settings: const AppSettings(language: 'zh'),
     ),
@@ -32,7 +32,7 @@ Future<void> _pumpAppWithEmptyPlan(WidgetTester tester) async {
     settings: const AppSettings(language: 'zh'),
   );
   await repository.createPlan(name: '新巡礼计划 2', area: '未设置区域');
-  await tester.pumpWidget(MiriaGoApp(
+  await tester.pumpWidget(anitripApp(
     repository: repository,
     initialSettings: const AppSettings(language: 'zh'),
   ));

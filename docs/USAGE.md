@@ -1,6 +1,6 @@
 # 使用指南
 
-本文档按一次正常巡礼的准备、执行和整理顺序介绍 MiriaGo。截图中 v1.1 页面来自 Web 预览，拍摄、记录详情和自动调色沿用 v1.0 移动端截图。
+本文档按一次正常巡礼的准备、执行和整理顺序介绍 anitrip。截图中 v1.1 页面来自 Web 预览，拍摄、记录详情和自动调色沿用 v1.0 移动端截图。
 
 ## 1. 创建计划
 
@@ -240,12 +240,12 @@
 
 计划首页的菜单中可以进入“导入导出”页面。
 
-MiriaGo 支持两类导出：
+anitrip 支持两类导出：
 
-- MiriaGo 数据包：`.sjhplan` v2 数据包，内部为 zip，包含 `manifest.json`。
+- anitrip 数据包：`.sjhplan` v2 数据包，内部为 zip，包含 `manifest.json`。
 - Google My Maps CSV：用于把点位导入 Google My Maps，图片以链接形式写入。
 
-导出 MiriaGo 数据包时可以选择：
+导出 anitrip 数据包时可以选择：
 
 - 纯计划：只包含作品、片区、点位、完成状态和当前目标。
 - 计划 + 记录：同时包含巡礼记录和记录照片路径。
@@ -253,7 +253,7 @@ MiriaGo 支持两类导出：
 
 导入时会先进入预览页面，用户可以选择导入计划结构、巡礼记录、图片和资源文件。移动端和桌面端会尽量恢复包内本地资源；普通 Web 预览环境可能只能预览数据结构，不能完整恢复本地资源。
 
-桌面端导出数据包和 CSV 时会弹出保存位置选择窗口。macOS 版本会把应用数据、数据库和资源保存在系统应用数据目录；Windows zip 版本会保存在随包的 `MiriaGoData` 文件夹内，便于整体备份或迁移。
+桌面端导出数据包和 CSV 时会弹出保存位置选择窗口。macOS 版本会把应用数据、数据库和资源保存在系统应用数据目录；Windows zip 版本会保存在随包的 `anitripData` 文件夹内，便于整体备份或迁移。
 
 <p align="center">
   <img src="sample_images/v1.1-计划导入导出.png" alt="计划导入导出" width="260">
@@ -261,14 +261,14 @@ MiriaGo 支持两类导出：
 
 ## 15. 导入 Google My Maps
 
-如果希望在 Google My Maps 中制作独立地图，可以从 MiriaGo 导出 CSV 后导入。
+如果希望在 Google My Maps 中制作独立地图，可以从 anitrip 导出 CSV 后导入。
 
 推荐流程：
 
-1. 在 MiriaGo 的“导入导出”页面导出 Google My Maps CSV。
+1. 在 anitrip 的“导入导出”页面导出 Google My Maps CSV。
 2. 打开 Google My Maps，新建地图或打开已有地图。
 3. 在目标图层中选择导入 CSV。
-4. 上传 MiriaGo 导出的 CSV 文件。
+4. 上传 anitrip 导出的 CSV 文件。
 5. 选择需要作为位置的数据列，通常使用经纬度相关列。
 6. 选择 `Name` 列作为地点名称。
 7. 导入完成后，打开图层样式设置。
@@ -278,12 +278,12 @@ CSV 中的图片会以链接形式写入。Google My Maps 是否显示图片预�
 
 ## 16. 桌面端数据和保存位置
 
-macOS / Windows zip 版本以独立应用形式分发。macOS 会使用系统应用数据目录，避免下载应用被 macOS 隔离运行时产生不一致的数据路径；Windows 会在应用旁边使用 `MiriaGoData` 文件夹保存数据库、资源文件和本地缓存。
+macOS / Windows zip 版本以独立应用形式分发。macOS 会使用系统应用数据目录，避免下载应用被 macOS 隔离运行时产生不一致的数据路径；Windows 会在应用旁边使用 `anitripData` 文件夹保存数据库、资源文件和本地缓存。
 
 建议：
 
 - macOS 迁移或备份时优先导出 `.sjhplan` 数据包。
-- Windows 不要只移动应用本体，迁移时一起移动 `MiriaGoData`。
+- Windows 不要只移动应用本体，迁移时一起移动 `anitripData`。
 - 导出 `.sjhplan` 数据包作为长期备份。
 - 导出 CSV 或数据包时优先选择自己容易找到的保存位置。
 

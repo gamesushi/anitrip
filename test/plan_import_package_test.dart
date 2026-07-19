@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:archive/archive.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/data/sample_pilgrimage_repository.dart';
-import 'package:miriago/plan_transfer/plan_export_v2.dart';
-import 'package:miriago/plan_transfer/plan_import_package.dart';
+import 'package:anitrip/data/sample_pilgrimage_repository.dart';
+import 'package:anitrip/plan_transfer/plan_export_v2.dart';
+import 'package:anitrip/plan_transfer/plan_import_package.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +34,7 @@ void main() {
       sourceName: package.fileName,
     );
 
-    expect(importPackage.kind, PlanImportPackageKind.miriagoZip);
+    expect(importPackage.kind, PlanImportPackageKind.anitripZip);
     expect(importPackage.package.plan.memo, '导出前确认交通预约。');
     expect(importPackage.hasRestorableAssets, isTrue);
     expect(
@@ -81,7 +81,7 @@ void main() {
     () {
       final bytes = utf8.encode(
         jsonEncode({
-          'format': 'miriago-plan',
+          'format': 'anitrip-plan',
           'version': 1,
           'exportedAt': '2026-06-07T00:00:00.000',
           'plan': {
@@ -376,15 +376,15 @@ List<int> _zipPackageBytes({
 
 const _jpegBytes = <int>[0xFF, 0xD8, 0xFF, 0xD9];
 final _htmlBytes = utf8.encode(
-  '<!DOCTYPE html><html><body>MiriaGo</body></html>',
+  '<!DOCTYPE html><html><body>anitrip</body></html>',
 );
 
 String _manifestJson() {
   return jsonEncode({
-    'format': miriagoExportPackageFormat,
+    'format': anitripExportPackageFormat,
     'container': 'zip',
-    'schemaVersion': miriagoExportSchemaVersion,
-    'appName': 'MiriaGo',
+    'schemaVersion': anitripExportSchemaVersion,
+    'appName': 'anitrip',
     'appVersion': '1.1.0+4',
     'exportedAt': '2026-06-07T00:00:00.000',
     'exportMode': 'plan_with_records',
@@ -408,7 +408,7 @@ String _planJson({
   String? pointUserReferenceAsset,
 }) {
   return jsonEncode({
-    'schemaVersion': miriagoExportSchemaVersion,
+    'schemaVersion': anitripExportSchemaVersion,
     'exportMode': 'plan_with_records',
     'plan': {
       'id': 'plan-1',

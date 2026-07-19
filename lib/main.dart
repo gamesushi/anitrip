@@ -20,20 +20,20 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final repository = await _createDefaultRepository();
   final settings = await repository.loadAppSettings();
-  runApp(MiriaGoApp(repository: repository, initialSettings: settings));
+  runApp(anitripApp(repository: repository, initialSettings: settings));
 }
 
-class MiriaGoApp extends StatefulWidget {
-  const MiriaGoApp({this.repository, this.initialSettings, super.key});
+class anitripApp extends StatefulWidget {
+  const anitripApp({this.repository, this.initialSettings, super.key});
 
   final PilgrimageRepository? repository;
   final AppSettings? initialSettings;
 
   @override
-  State<MiriaGoApp> createState() => _MiriaGoAppState();
+  State<anitripApp> createState() => _anitripAppState();
 }
 
-class _MiriaGoAppState extends State<MiriaGoApp> {
+class _anitripAppState extends State<anitripApp> {
   late final ValueNotifier<AppSettings> _settingsNotifier;
 
   @override
@@ -83,7 +83,7 @@ class _MiriaGoAppState extends State<MiriaGoApp> {
       valueListenable: _settingsNotifier,
       builder: (context, settings, _) {
         return MaterialApp(
-          title: 'MiriaGo',
+          title: 'anitrip',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light(
             palette: settings.themePalette,

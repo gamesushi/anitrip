@@ -25,5 +25,5 @@ fn main() {
             commands::fetch_anitabi_static_json
         ])
         .run(tauri::generate_context!())
-        .expect("failed to run MiriaGo desktop launcher");
+        .expect("failed to run anitrip desktop launcher");
 }

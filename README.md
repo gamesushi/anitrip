@@ -1,15 +1,14 @@
 <p align="center">
-  <img src="icon.jpg" alt="MiriaGo icon" width="128" height="128">
+  <img src="icon.jpg" alt="anitrip icon" width="128" height="128">
 </p>
 
-<h1 align="center">MiriaGo</h1>
+<h1 align="center">anitrip</h1>
 
 <p align="center">
   面向动漫圣地巡礼的计划、地图、拍摄参考与记录整理工具。
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-0F8B8D.svg"></a>
   <img alt="Platform: Android" src="https://img.shields.io/badge/Platform-Android-0F8B8D.svg">
   <img alt="Platform: iOS" src="https://img.shields.io/badge/Platform-iOS-0F8B8D.svg">
   <img alt="Platform: macOS" src="https://img.shields.io/badge/Platform-macOS-0F8B8D.svg">
@@ -17,7 +16,7 @@
   <img alt="Built with Flutter" src="https://img.shields.io/badge/Built%20with-Flutter-0F8B8D.svg">
 </p>
 
-MiriaGo 使用 Flutter 开发，用于规划动漫圣地巡礼、从 Anitabi 导入点位、在现场拍摄时对照参考图，并整理巡礼记录、自动调色与分享用对比图。
+anitrip 使用 Flutter 开发，用于规划动漫圣地巡礼、从 Anitabi 导入点位、在现场拍摄时对照参考图，并整理巡礼记录、自动调色与分享用对比图。
 
 当前目标平台包括 Android、iOS、macOS 和 Windows。桌面端由 Tauri 启动器承载 Web 前端，并使用本地数据库和资源目录保存数据；普通 Web 版本主要用于开发预览。
 
@@ -32,11 +31,11 @@ MiriaGo 使用 Flutter 开发，用于规划动漫圣地巡礼、从 Anitabi 导
 
 群里也会提供测试版本 App。测试版本通常会比 GitHub 正式 Release 更早包含一些小 bug 修复，因为很多小修复不会立刻在 GitHub 上发布新版本。
 
-## 为什么需要 MiriaGo
+## 为什么需要 anitrip
 
 巡礼前：点位散在网页里。巡礼时：相机和参考图来回切。巡礼后：照片、调色、拼图还要慢慢整理。
 
-MiriaGo 想把这些麻烦收进一个顺手的流程里：
+anitrip 想把这些麻烦收进一个顺手的流程里：
 
 - **从查点到计划，一次整理好**：不用在 Anitabi、Google 地图和笔记之间来回搬运点位，直接按作品导入，形成可执行的巡礼计划、点位队列和当前目标。
 - **现场少切应用，更容易对齐构图**：拍摄时直接在相机里查看参考图，支持叠影和上下对照，不用在相机、相册、网页之间反复切换。
@@ -46,9 +45,9 @@ MiriaGo 想把这些麻烦收进一个顺手的流程里：
 
 ## 快速使用
 
-- Android APK：请前往 [Releases](https://github.com/BilyHurington/MiriaGo/releases) 下载最新版本。
+- Android APK：请前往 [Releases](https://github.com/BilyHurington/anitrip/releases) 下载最新版本。
 - iOS：当前通过 TestFlight 分发测试版本。
-- macOS / Windows：Release 中提供 zip 包，解压后直接运行。macOS 使用系统应用数据目录，Windows 使用随包的 `MiriaGoData` 文件夹。
+- macOS / Windows：Release 中提供 zip 包，解压后直接运行。macOS 使用系统应用数据目录，Windows 使用随包的 `anitripData` 文件夹。
 - 使用指南：[docs/USAGE.md](docs/USAGE.md)
 - 数据源默认使用 OpenFreeMap + MapLibre 显示地图，并使用 Anitabi 默认图片源读取参考图。设置中可以切换 OpenFreeMap 样式、OpenStreetMap、自定义 XYZ 瓦片 URL、自定义 MapLibre style URL，以及 Anitabi 参考图备用图片源。导航仍交给外部地图应用，例如 Google Maps 或系统地图。
 
@@ -64,7 +63,7 @@ MiriaGo 想把这些麻烦收进一个顺手的流程里：
 - 自动调色：根据参考图生成可解释的调色参数，用强度滑块控制应用比例。
 - 对比图导出：导出适合分享的参考图/巡礼图对比图，支持主题、元数据和巡礼者名称。
 - 计划数据包：`.sjhplan` v2 数据包可包含计划结构、记录、照片和参考图资源，导入时可恢复本地资源。
-- 桌面端本地存储：macOS 使用系统应用数据目录，Windows 使用随包的 `MiriaGoData` 文件夹；导出数据包与 CSV 时可选择保存位置。
+- 桌面端本地存储：macOS 使用系统应用数据目录，Windows 使用随包的 `anitripData` 文件夹；导出数据包与 CSV 时可选择保存位置。
 
 ## 效果展示
 
@@ -170,17 +169,41 @@ ANDROID_KEY_PASSWORD
 
 本地签名文件不会提交到仓库。请妥善备份 release keystore。
 
-iOS 本地归档和 TestFlight 上传需要在 Xcode 中选择自己的 Apple Developer Team；仓库不保存个人签名团队配置。桌面端 Release 会产出 `MiriaGo-macos.zip` 和 `MiriaGo-windows-x64.zip`；macOS zip 只包含应用本体，Windows zip 包含应用本体和 `MiriaGoData` 数据文件夹。
+iOS 本地归档和 TestFlight 上传需要在 Xcode 中选择自己的 Apple Developer Team；仓库不保存个人签名团队配置。桌面端 Release 会产出 `anitrip-macos.zip` 和 `anitrip-windows-x64.zip`；macOS zip 只包含应用本体，Windows zip 包含应用本体和 `anitripData` 数据文件夹。
 
 ## 第三方服务与数据
 
-本项目代码使用 MIT License 开源，但应用中显示或访问的第三方数据不属于本项目。
+应用中显示或访问的第三方数据不属于本项目，其版权归原平台、贡献者或权利方所有。
 
 - 地图底图可来自 OpenFreeMap、OpenStreetMap 或用户配置的自定义地图服务。使用时应保留对应地图服务要求的署名，并遵守对应服务的使用政策；如果使用自定义 XYZ 或 MapLibre style URL，请确认该服务允许客户端应用访问。
 - Anitabi 参考图访问可在设置中选择默认图片源或备用图片源；该设置只影响运行时访问域名，应用内保存和导出的远端参考图链接会继续保留 Anitabi 默认格式。
 - 作品搜索使用 Bangumi API。非浏览器 API 请求需要设置清晰的 User-Agent。
 - 巡礼点位和参考图来自 Anitabi。点位、截图、图片和相关元数据的版权归原平台、贡献者或权利方所有。本项目只提供客户端访问与用户本地缓存能力，不在仓库中分发这些数据。
 
-## 开源协议
+## 版权与致谢
 
-本项目代码基于 [MIT License](LICENSE) 开源。
+本项目（anitrip）基于 [BilyHurington 的 MiriaGo](https://github.com/BilyHurington/MiriaGo) 修改而来。原作者保留其版权声明与 MIT 协议原文如下：
+
+> MIT License
+>
+> Copyright (c) 2026 BilyHurington
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy
+> of this software and associated documentation files (the "Software"), to deal
+> in the Software without restriction, including without limitation the rights
+> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+> copies of the Software, and to permit persons to whom the Software is
+> furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all
+> copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+> SOFTWARE.
+
+anitrip 由 gamesushi 维护，作者 gamesushi，联系邮箱 hebeihang@gamesushi.cn。本版本不对外开源，亦不公开仓库地址；上述 MIT 协议原文仅作为对原项目作者的署名与来源说明保留。

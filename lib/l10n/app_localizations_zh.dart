@@ -150,7 +150,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsClearCacheSubtitle => '完整参考图缓存';
 
   @override
-  String get settingsAbout => '关于 MiriaGo';
+  String get settingsAbout => '关于 anitrip';
 
   @override
   String get settingsAboutSubtitle => '版本信息、开源许可等';
@@ -912,7 +912,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      '从文件、聊天、浏览器或网盘等位置用 MiriaGo 打开 .sjhplan。';
+      '从文件、聊天、浏览器或网盘等位置用 anitrip 打开 .sjhplan。';
 
   @override
   String get importExportImportDescWeb => '选择 .sjhplan 文件，先预览内容再导入。';
@@ -924,11 +924,11 @@ class AppLocalizationsZh extends AppLocalizations {
   String get importExportOpenFromApp => '从其他 App 打开 .sjhplan';
 
   @override
-  String get importExportImportFileTitle => '导入 MiriaGo 文件';
+  String get importExportImportFileTitle => '导入 anitrip 文件';
 
   @override
   String get importExportOpenFromAppDesc =>
-      '在文件、聊天、浏览器下载页或网盘中选择 .sjhplan，然后分享或用 MiriaGo 打开。';
+      '在文件、聊天、浏览器下载页或网盘中选择 .sjhplan，然后分享或用 anitrip 打开。';
 
   @override
   String get importExportImportFileDesc => '支持 v2 数据包和旧版 v1 JSON 计划包。';
@@ -956,14 +956,14 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      '请在文件、聊天、浏览器下载页、网盘或其他保存位置找到 .sjhplan 文件，然后点开文件，或使用分享/更多菜单选择 MiriaGo。\n\nMiriaGo 收到文件后会自动进入导入预览页面。若列表里没有 MiriaGo，可以先把文件保存到“文件”App，再长按文件选择分享或打开方式。';
+      '请在文件、聊天、浏览器下载页、网盘或其他保存位置找到 .sjhplan 文件，然后点开文件，或使用分享/更多菜单选择 anitrip。\n\nanitrip 收到文件后会自动进入导入预览页面。若列表里没有 anitrip，可以先把文件保存到“文件”App，再长按文件选择分享或打开方式。';
 
   @override
   String get btnGotIt => '知道了';
 
   @override
   String exportShareLabel(String name) {
-    return 'MiriaGo数据包：$name';
+    return 'anitrip数据包：$name';
   }
 
   @override
@@ -1040,7 +1040,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get importExportIncludeCacheDesc => '默认仍会包含缩略图和用户自己添加的参考图。';
 
   @override
-  String get btnExportDataPackage => '导出 MiriaGo 数据包';
+  String get btnExportDataPackage => '导出 anitrip 数据包';
 
   @override
   String get btnExportingDataPackage => '导出中...';
@@ -1107,7 +1107,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tooltipBack => '返回';
 
   @override
-  String get importExportDataPackageHeader => 'MiriaGo 数据包';
+  String get importExportDataPackageHeader => 'anitrip 数据包';
 
   @override
   String get addPointsTitle => '添加内容';
@@ -2421,7 +2421,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get settingsClearCacheSubtitle => '完整參考圖緩存';
 
   @override
-  String get settingsAbout => '關於 MiriaGo';
+  String get settingsAbout => '關於 anitrip';
 
   @override
   String get settingsAboutSubtitle => '版本信息、開源許可等';
@@ -3183,7 +3183,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get importExportImportDescMobile =>
-      '從文件、聊天、瀏覽器或網盤等位置用 MiriaGo 打開 .sjhplan。';
+      '從文件、聊天、瀏覽器或網盤等位置用 anitrip 打開 .sjhplan。';
 
   @override
   String get importExportImportDescWeb => '選擇 .sjhplan 文件，先預覽內容再導入。';
@@ -3195,11 +3195,11 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get importExportOpenFromApp => '從其他 App 打開 .sjhplan';
 
   @override
-  String get importExportImportFileTitle => '導入 MiriaGo 文件';
+  String get importExportImportFileTitle => '導入 anitrip 文件';
 
   @override
   String get importExportOpenFromAppDesc =>
-      '在文件、聊天、瀏覽器下載頁或網盤中選擇 .sjhplan，然後分享或用 MiriaGo 打開。';
+      '在文件、聊天、瀏覽器下載頁或網盤中選擇 .sjhplan，然後分享或用 anitrip 打開。';
 
   @override
   String get importExportImportFileDesc => '支持 v2 數據包和舊版 v1 JSON 計劃包。';
@@ -3227,14 +3227,14 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get dialogOpenFromAppMessage =>
-      '請在文件、聊天、瀏覽器下載頁、網盤或其他保存位置找到 .sjhplan 文件，然後點開文件，或使用分享/更多菜單選擇 MiriaGo。\n\nMiriaGo 收到文件後會自動進入導入預覽頁面。若列表裡沒有 MiriaGo，可以先把文件保存到“文件”App，再長按文件選擇分享或打開方式。';
+      '請在文件、聊天、瀏覽器下載頁、網盤或其他保存位置找到 .sjhplan 文件，然後點開文件，或使用分享/更多菜單選擇 anitrip。\n\nanitrip 收到文件後會自動進入導入預覽頁面。若列表裡沒有 anitrip，可以先把文件保存到“文件”App，再長按文件選擇分享或打開方式。';
 
   @override
   String get btnGotIt => '知道了';
 
   @override
   String exportShareLabel(String name) {
-    return 'MiriaGo數據包：$name';
+    return 'anitrip數據包：$name';
   }
 
   @override
@@ -3311,7 +3311,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get importExportIncludeCacheDesc => '默認仍會包含縮略圖和用戶自己添加的參考圖。';
 
   @override
-  String get btnExportDataPackage => '導出 MiriaGo 數據包';
+  String get btnExportDataPackage => '導出 anitrip 數據包';
 
   @override
   String get btnExportingDataPackage => '導出中...';
@@ -3378,7 +3378,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get tooltipBack => '返回';
 
   @override
-  String get importExportDataPackageHeader => 'MiriaGo 數據包';
+  String get importExportDataPackageHeader => 'anitrip 數據包';
 
   @override
   String get addPointsTitle => '添加內容';

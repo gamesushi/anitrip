@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:miriago/l10n/app_localizations.dart';
-import 'package:miriago/plan/pilgrimage_models.dart';
-import 'package:miriago/records/comparison_export_config.dart';
-import 'package:miriago/records/comparison_export_config_editor.dart';
+import 'package:anitrip/l10n/app_localizations.dart';
+import 'package:anitrip/plan/pilgrimage_models.dart';
+import 'package:anitrip/records/comparison_export_config.dart';
+import 'package:anitrip/records/comparison_export_config_editor.dart';
 
 void main() {
   test('serializes comparison export config for global reuse', () {

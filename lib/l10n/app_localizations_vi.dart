@@ -153,7 +153,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Hoàn thành bộ đệm hình ảnh tham chiếu';
 
   @override
-  String get settingsAbout => 'Giới thiệu về MiriaGo';
+  String get settingsAbout => 'Giới thiệu về anitrip';
 
   @override
   String get settingsAboutSubtitle =>
@@ -954,7 +954,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Mở .sjhplan bằng MiriaGo từ tệp, trò chuyện, trình duyệt hoặc ổ đĩa mạng.';
+      'Mở .sjhplan bằng anitrip từ tệp, trò chuyện, trình duyệt hoặc ổ đĩa mạng.';
 
   @override
   String get importExportImportDescWeb =>
@@ -967,11 +967,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get importExportOpenFromApp => 'Mở .sjhplan từ các ứng dụng khác';
 
   @override
-  String get importExportImportFileTitle => 'Nhập tệp MiriaGo';
+  String get importExportImportFileTitle => 'Nhập tệp anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Chọn .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt hoặc ổ đĩa mạng, sau đó chia sẻ hoặc mở bằng MiriaGo.';
+      'Chọn .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt hoặc ổ đĩa mạng, sau đó chia sẻ hoặc mở bằng anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -1003,14 +1003,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Vui lòng tìm tệp .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt, ổ đĩa mạng hoặc vị trí lưu khác, sau đó nhấp vào tệp hoặc sử dụng menu Chia sẻ/Thêm để chọn MiriaGo. \n\nMiriaGo sẽ tự động vào trang xem trước nhập sau khi nhận được tệp. Nếu không có MiriaGo trong danh sách, trước tiên bạn có thể lưu tệp vào Ứng dụng \"Tệp\", sau đó nhấn và giữ tệp để chọn phương thức chia sẻ hoặc mở.';
+      'Vui lòng tìm tệp .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt, ổ đĩa mạng hoặc vị trí lưu khác, sau đó nhấp vào tệp hoặc sử dụng menu Chia sẻ/Thêm để chọn anitrip. \n\nanitrip sẽ tự động vào trang xem trước nhập sau khi nhận được tệp. Nếu không có anitrip trong danh sách, trước tiên bạn có thể lưu tệp vào Ứng dụng \"Tệp\", sau đó nhấn và giữ tệp để chọn phương thức chia sẻ hoặc mở.';
 
   @override
   String get btnGotIt => 'biết';
 
   @override
   String exportShareLabel(String name) {
-    return 'Gói MiriaGo: $name';
+    return 'Gói anitrip: $name';
   }
 
   @override
@@ -1090,7 +1090,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Hình thu nhỏ và hình ảnh tham chiếu do người dùng thêm sẽ vẫn được đưa vào theo mặc định.';
 
   @override
-  String get btnExportDataPackage => 'Xuất gói dữ liệu MiriaGo';
+  String get btnExportDataPackage => 'Xuất gói dữ liệu anitrip';
 
   @override
   String get btnExportingDataPackage => 'Đang xuất...';
@@ -1161,7 +1161,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get tooltipBack => 'trở lại';
 
   @override
-  String get importExportDataPackageHeader => 'Gói dữ liệu MiriaGo';
+  String get importExportDataPackageHeader => 'Gói dữ liệu anitrip';
 
   @override
   String get addPointsTitle => 'Thêm nội dung';

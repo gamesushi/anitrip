@@ -154,7 +154,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Cache de imagem de referência completo';
 
   @override
-  String get settingsAbout => 'Sobre MiriaGo';
+  String get settingsAbout => 'Sobre anitrip';
 
   @override
   String get settingsAboutSubtitle =>
@@ -956,7 +956,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get importExportImportDescMobile =>
-      'Abra .sjhplan com MiriaGo a partir de um arquivo, bate-papo, navegador ou unidade de rede.';
+      'Abra .sjhplan com anitrip a partir de um arquivo, bate-papo, navegador ou unidade de rede.';
 
   @override
   String get importExportImportDescWeb =>
@@ -969,11 +969,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get importExportOpenFromApp => 'Abra .sjhplan de outros aplicativos';
 
   @override
-  String get importExportImportFileTitle => 'Importar arquivos MiriaGo';
+  String get importExportImportFileTitle => 'Importar arquivos anitrip';
 
   @override
   String get importExportOpenFromAppDesc =>
-      'Selecione .sjhplan em arquivos, bate-papo, página de download do navegador ou unidade de rede e compartilhe ou abra com MiriaGo.';
+      'Selecione .sjhplan em arquivos, bate-papo, página de download do navegador ou unidade de rede e compartilhe ou abra com anitrip.';
 
   @override
   String get importExportImportFileDesc =>
@@ -1005,14 +1005,14 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get dialogOpenFromAppMessage =>
-      'Encontre o arquivo .sjhplan em arquivos, bate-papo, página de download do navegador, disco de rede ou outro local de salvamento e clique no arquivo ou use o menu Compartilhar/Mais para selecionar MiriaGo. \n\nMiriaGo entrará automaticamente na página de visualização da importação após receber o arquivo. Se não houver MiriaGo na lista, você pode salvar o arquivo primeiro no aplicativo \"Arquivos\" e, em seguida, manter pressionado o arquivo para selecionar o método de compartilhamento ou abertura.';
+      'Encontre o arquivo .sjhplan em arquivos, bate-papo, página de download do navegador, disco de rede ou outro local de salvamento e clique no arquivo ou use o menu Compartilhar/Mais para selecionar anitrip. \n\nanitrip entrará automaticamente na página de visualização da importação após receber o arquivo. Se não houver anitrip na lista, você pode salvar o arquivo primeiro no aplicativo \"Arquivos\" e, em seguida, manter pressionado o arquivo para selecionar o método de compartilhamento ou abertura.';
 
   @override
   String get btnGotIt => 'sabia';
 
   @override
   String exportShareLabel(String name) {
-    return 'Pacote MiriaGo: $name';
+    return 'Pacote anitrip: $name';
   }
 
   @override
@@ -1092,7 +1092,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Miniaturas e imagens de referência adicionadas pelo usuário ainda serão incluídas por padrão.';
 
   @override
-  String get btnExportDataPackage => 'Exportar pacote de dados MiriaGo';
+  String get btnExportDataPackage => 'Exportar pacote de dados anitrip';
 
   @override
   String get btnExportingDataPackage => 'Exportador...';
@@ -1163,7 +1163,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get tooltipBack => 'retornar';
 
   @override
-  String get importExportDataPackageHeader => 'Pacote de dados MiriaGo';
+  String get importExportDataPackageHeader => 'Pacote de dados anitrip';
 
   @override
   String get addPointsTitle => 'Adicionar conteúdo';

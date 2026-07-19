@@ -81,7 +81,7 @@ Future<file_selector.FileSaveLocation?> _getSaveLocation({
   return file_selector.getSaveLocation(
     acceptedTypeGroups: [
       file_selector.XTypeGroup(
-        label: 'MiriaGo data package',
+        label: 'anitrip data package',
         extensions: [extension],
         mimeTypes: [mimeType],
       ),

@@ -530,9 +530,9 @@ class _AppearanceSettingsPage extends StatefulWidget {
 class _AppearanceSettingsPageState extends State<_AppearanceSettingsPage> {
   late AppSettings _settings;
   static const _visibleThemePalettes = [
+    AppThemePalette.cherryPink,
     AppThemePalette.classicGreen,
     AppThemePalette.deepBlue,
-    AppThemePalette.cherryPink,
     AppThemePalette.graphite,
   ];
 
@@ -1596,8 +1596,8 @@ class _AboutSettingsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CopyableText(
-                        text: 'MiriaGo',
-                        copyLabel: 'MiriaGo',
+                        text: 'anitrip',
+                        copyLabel: 'anitrip',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
@@ -1630,7 +1630,7 @@ class _AboutSettingsPage extends StatelessWidget {
             _AboutInfoTile(
               icon: Icons.code_outlined,
               label: AppLocalizations.of(context)!.aboutSourceCodeRepositoryLabel,
-              value: 'github.com/BilyHurington/MiriaGo',
+              value: 'github.com/BilyHurington/anitrip',
             ),
             _AboutInfoTile(
               icon: Icons.balance_outlined,
