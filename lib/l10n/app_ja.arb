@@ -1,0 +1,1211 @@
+{
+  "@@locale": "ja",
+  "tabPlan": "プラン",
+  "tabMap": "地図",
+  "tabRecords": "記録",
+  "tabSettings": "設定",
+  "settingsTitle": "設定",
+  "languageSetting": "言語設定",
+  "languageSystem": "システムに従ってください",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "仕事",
+  "labelScene": "シーン",
+  "labelCoordinates": "座標",
+  "labelArea": "エリア",
+  "labelReference": "参照",
+  "labelSource": "ソース",
+  "labelId": "ID",
+  "labelLink": "リンク",
+  "btnChange": "変化",
+  "btnReplace": "交換する",
+  "labelLocalRecords": "この時点の記録",
+  "labelAll": "全て",
+  "btnNavigate": "ナビゲーション",
+  "btnOverlay": "撮影参考",
+  "btnSetTarget": "現在として設定",
+  "btnMarkDone": "完了としてマークを付ける",
+  "btnEditPoint": "編集点",
+  "settingsAppearance": "外観設定",
+  "settingsAppearanceSubtitle": "テーマカラー、ズーム、表示など",
+  "settingsCamera": "撮影設定",
+  "settingsCameraSubtitle": "写真の割合、参考画像の割合、バックアップなど。",
+  "settingsExport": "比較チャートの設定",
+  "settingsExportSubtitle": "スタイルをエクスポートし、フォトアルバムに自動的に保存します",
+  "settingsDataSource": "データソース設定",
+  "settingsDataSourceSubtitle": "地図ソース、画像ソースなど",
+  "settingsClearCache": "キャッシュをクリアする",
+  "settingsClearCacheSubtitle": "完全な参照画像キャッシュ",
+  "settingsAbout": "ミリアゴーについて",
+  "settingsAboutSubtitle": "バージョン情報、オープンソースライセンスなど",
+  "btnCancel": "キャンセル",
+  "btnConfirm": "もちろん",
+  "btnSave": "保存",
+  "labelManualEntry": "手動入力",
+  "labelRevertCompleted": "打刻を撤回する",
+  "labelUnassignedGroup": "ゾーンに分かれていない",
+  "labelUnknownGroup": "未知の領域",
+  "labelNoAnchor": "キーが設定されていません",
+  "labelStatusCurrent": "現在の目標",
+  "labelStatusCompleted": "完了",
+  "labelStatusPending": "アクセス対象",
+  "settingsReset": "初期設定に戻す",
+  "settingsResetConfirmSubtitle": "すべての外観、撮影、マップの設定がデフォルト値に戻ります。",
+  "settingsThemeColor": "テーマカラー",
+  "settingsThemeColorSubtitle": "アプリケーション全体のカラーマッチングに影響します。",
+  "settingsThemeMode": "テーマモード",
+  "settingsThemeLight": "ライトモード",
+  "settingsThemeDark": "ダークモード",
+  "settingsThemeSystem": "システムに従ってください",
+  "settingsUiScale": "ページのズーム",
+  "settingsUiScaleSubtitle": "インターフェース全体のサイズを調整します（参照画像には影響しません）",
+  "settingsCameraRatio": "キャプチャー画像比率",
+  "settingsCameraZoom": "カメラのズーム",
+  "settingsPhotoBackup": "写真のバックアップ",
+  "settingsPhotoBackupSubtitle": "ツアー写真をアルバムに保存",
+  "settingsAutoSaveComparison": "比較表を自動保存",
+  "settingsAutoSaveComparisonSubtitle": "記録保存時にフォトアルバムに保存",
+  "settingsDesktop": "デスクトップ",
+  "settingsDesktopSubtitle": "ランチャー、データディレクトリなど",
+  "desktopLauncherChecking": "デスクトップランチャーのチェック",
+  "desktopLauncherUnavailable": "デスクトップランチャーは利用できません",
+  "desktopSystemDataDir": "システムデータディレクトリ",
+  "desktopPortableDir": "ポータブルディレクトリ",
+  "desktopAppDataDir": "アプリケーションデータディレクトリ",
+  "desktopLauncherAvailable": "デスクトップランチャーが利用可能",
+  "settingsFontSmall": "小さい",
+  "settingsFontStandard": "標準",
+  "settingsFontLarge": "大きい",
+  "settingsFontHuge": "特大",
+  "msgReplacingRef": "参照画像を差し替えています...",
+  "msgReplaceRefFailed": "参照画像の置換に失敗しました。後でもう一度試してください。",
+  "msgReplaceRefSuccess": "参考画像を差し替えました",
+  "msgCannotOpenMap": "Google マップを開けません。",
+  "titleMoveToGroup": "エリアへ移動",
+  "copyLabelPointName": "ポイント名",
+  "copyLabelGroupAnchor": "エリアのポイント",
+  "labelNote": "述べる",
+  "themeClassicGreen": "クラシックグリーン",
+  "themeDeepBlue": "ディープブルー",
+  "themeCherryPink": "さくらパウダー",
+  "themeTwilightPurple": "トワイライトパープル",
+  "themeMiriaYellow": "アンバーオレンジ",
+  "themeGraphite": "グラファイトブラック",
+  "themeAurora": "カスタマイズ",
+  "aspectAuto": "自動",
+  "aspectNative": "ネイティブのプロポーション",
+  "aspectCustom": "カスタマイズ",
+  "aspectAutoHint": "推薦する",
+  "aspectNativeHint": "ネイティブ",
+  "aspectLandscape16x9Hint": "ワイドスクリーン",
+  "aspectCinema21x9Hint": "映画",
+  "aspectStandard4x3Hint": "クラシック",
+  "aspectPhoto3x2Hint": "カメラ",
+  "aspectPortrait9x16Hint": "縦画面",
+  "aspectPortrait9x21Hint": "全画面表示",
+  "aspectPortrait3x4Hint": "垂直バナー",
+  "aspectPortrait2x3Hint": "垂直バナー",
+  "aspectSquare1x1Hint": "四角",
+  "aspectCustomHint": "カスタマイズされた",
+  "mapProviderOpenFreeMap": "オープンフリーマップ",
+  "mapProviderOpenFreeMapDesc": "デフォルトのマップ。MapLibre スタイルを使用します。",
+  "mapProviderOpenStreetMap": "オープンストリートマップ",
+  "mapProviderOpenStreetMapDesc": "OpenStreetMap の標準 XYZ タイルを使用します。",
+  "mapProviderCustomXyz": "カスタムXYZ",
+  "mapProviderCustomXyzDesc": "{z}/{x}/{y} を含むラスター タイル URL を使用します。",
+  "mapProviderCustomMapLibre": "カスタム MapLibre",
+  "mapProviderCustomMapLibreDesc": "カスタム MapLibre スタイル URL を使用します。",
+  "mapStyleLibertyDesc": "デフォルトのスタイルは情報密度が高くなります。",
+  "mapStyleBrightDesc": "明るいスタンダードスタイル。",
+  "mapStylePositronDesc": "明るい色の気を散らさないスタイル。",
+  "mapStyleDarkDesc": "ダークマップスタイル。",
+  "mapStyleFiordDesc": "柔らかい地形スタイル。",
+  "imageSourceAuto": "自動選択",
+  "imageSourceOfficial": "公式デフォルト",
+  "imageSourceMirror": "バックアップソース",
+  "imageSourceAutoDesc": "Image.anitabi.cn が最初に使用されます。ダウンロードがエラー ページに到達するかブロックされると、img-tc.anitabi.cn が試行されます。",
+  "imageSourceOfficialDesc": "image.anitabi.cn の使用と Anitabi の公式デフォルト画像ソースの保持を修正しました。",
+  "imageSourceMirrorDesc": "公式のデフォルトソースが頻繁にブロックされる場合の使用に適した img-tc.anitabi.cn の使用を修正しました。",
+  "mapProviderRecommendedDefault": "推奨されるデフォルト",
+  "mapProviderStandardTiles": "標準タイル",
+  "mapProviderTileTemplate": "タイルテンプレート",
+  "mapProviderStyleUrl": "スタイル URL",
+  "cameraCaptureRatioSection": "キャプチャー画像比率",
+  "cameraCaptureRatioDesc": "最初は参照画像の比率に自動的に従います。固定比率を選択すると、その比率に従って撮影されます。",
+  "cameraFallbackRatioSection": "参考画像なしのスケール",
+  "cameraFallbackRatioDesc": "画像比率が自動に設定されており、位置合わせする基準となる画像がない場合に使用します。",
+  "cameraReferenceScaleSection": "参考画像表示",
+  "cameraZoomSection": "カメラのズーム",
+  "cameraBackupDetailDesc": "記録を保存する際、ツアーの写真もバックアップされます。",
+  "mapSourceSection": "マップソース",
+  "mapOpenFreeMapStyleSection": "OpenFreeMap スタイル",
+  "mapCustomXyzUrlNotSet": "カスタム XYZ URL が設定されていません",
+  "mapCustomXyzUrlTitle": "カスタム XYZ URL",
+  "mapCustomXyzUrlHelper": "URL には {z}、{x}、{y} が含まれている必要があります。",
+  "mapCustomXyzUrlInvalid": "無効な URL 形式",
+  "mapCustomMapLibreUrlNotSet": "MapLibre スタイルの URL が設定されていません",
+  "mapCustomMapLibreUrlTitle": "MapLibre スタイルの URL",
+  "mapCustomMapLibreUrlHelper": "URL は、公的に読み取り可能なスタイルの JSON を指す必要があります。",
+  "mapAnitabiImageSourceSection": "アニタビ画像出典",
+  "mapThumbnailSection": "地図のサムネイル",
+  "mapThumbnailThresholdTitle": "サムネイル表示閾値",
+  "mapThumbnailThresholdDesc": "ビュー内に {threshold} ポイントしかない場合は、サムネイルが表示されます。  を超える場合はドットのみが表示されます。",
+  "mapConcurrentLoadsTitle": "同時画像リクエストの数",
+  "mapConcurrentLoadsDesc": "マップのサムネイルの表示、ポイントのインポート時のキャッシュ サムネイル、参照マップのバッチ キャッシュの表示に使用されます。数値が大きいほど速度は速くなりますが、ネットワークへの負担も大きくなります。",
+  "mapThumbnailThresholdZeroHint": "しきい値を 0 にすると、マップ上にサムネイルが表示されません。",
+  "mapNavigationAppSection": "ナビゲーションソフトウェア",
+  "mapNavigationAppHint": "インターフェイスのオプションのみが保持され、実際のナビゲーション ジャンプは当面接続されません。",
+  "desktopLauncherSection": "ランチャー",
+  "aboutAppInfoSection": "申請情報",
+  "aboutAppDescription": "アニメ聖地ツアー企画・撮影参考ツール",
+  "aboutVersionLabel": "現在のバージョン",
+  "aboutLoadingText": "読む",
+  "aboutAuthorLabel": "著者",
+  "aboutContactEmailLabel": "連絡先メールアドレス",
+  "aboutSourceCodeRepositoryLabel": "オープンソース ウェアハウス",
+  "aboutLicenseLabel": "オープンソースライセンス",
+  "aboutCopyrightSection": "データと著作権",
+  "aboutCopyrightDescription": "マップでは OpenFreeMap、OpenStreetMap、またはカスタム サービスを使用できます。バングミは仕事の検索に使用されます。ツアーポイントや参考地図はあにたびより。画像ソース設定はアクセス ドメイン名にのみ影響し、リモート リンクは一律に Anitabi のデフォルト形式を保持します。サードパーティのデータ、スクリーンショット、画像の著作権は、元のプラットフォーム、寄稿者、または権利所有者に属します。",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "減らす",
+  "btnIncrease": "増加",
+  "settingsExportDefaultConfig": "デフォルト構成",
+  "cachePlanSection": "プラン",
+  "cacheLoadPlansFailed": "プランリストの読み込みに失敗しました",
+  "cacheSelectPlanSection": "プランを選ぶ",
+  "cacheClearButton": "完全な参照画像のキャッシュをクリアする",
+  "btnRetry": "もう一度やり直してください",
+  "tooltipSelectAll": "すべて選択",
+  "tooltipClear": "クリア",
+  "cacheClearFuncPlaceholder": "キャッシュクリア機能にはまだアクセスしておらず、インターフェースのみが表示されています。",
+  "cacheSelectedPlansCount": "{selected} / {total} プランが選択されました",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "{area} / {count} ポイント",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "キャッシュコンテンツ",
+  "cacheReferenceType": "完全な参照画像キャッシュ",
+  "cacheReferenceDesc": "使用されている完全な参照画像を表示するには、明確なカメラ参照と大きな画像を表示します。サムネイル キャッシュは、リストとマップの読み込み速度を維持するために維持されます。",
+  "gpsDisabled": "位置情報サービスがオンになっていません。",
+  "gpsPermissionRequired": "現在地を表示するには位置情報の許可が必要です。",
+  "gpsTimeout": "測位がタイムアウトしました。後でもう一度試してください。",
+  "gpsFailed": "位置情報が取得できませんでした。権限と位置情報サービスを確認してください。",
+  "planActions": "計画業務",
+  "planSwitch": "プランの切り替え",
+  "planAddPoint": "ポイントを追加",
+  "planManage": "経営計画",
+  "planMemo": "企画メモ",
+  "planImportExport": "輸入と輸出",
+  "cacheDownloading": "完全な参照イメージをキャッシュしています...",
+  "cacheNoImagesToDownload": "現在の計画にはキャッシュする必要がある参照イメージはありません",
+  "cacheTitle": "完全な参照イメージをキャッシュする",
+  "cacheConfirmMessage": "現在のプランの {count} 完全な参照イメージはキャッシュされるため、長い時間がかかり、ネットワーク トラフィックがかかる可能性があります。",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "キャッシュを開始する",
+  "cacheStarted": "完全な参照イメージのキャッシュを開始しました",
+  "groupPrev": "前のエリア",
+  "groupNext": "次のエリア",
+  "mapCollapse": "地図を隠す",
+  "labelPointsCount": "{count} ポイント",
+  "labelCompletedCount": "仕上げる",
+  "labelOrderMode": "モデル",
+  "sortModeDefault": "デフォルトの計画順序",
+  "sortModeDistance": "現在地からの距離",
+  "sortModeDefaultShort": "デフォルトプラン",
+  "sortModeDistanceShort": "距離によって",
+  "sortOrderDesc": "逆順",
+  "sortOrderAsc": "正の配列",
+  "sortOrderFarToNear": "遠くから近くまで",
+  "sortOrderNearToFar": "近くから遠くまで",
+  "tooltipHideLocation": "現在地を隠す",
+  "tooltipShowLocation": "現在地を表示",
+  "labelCompleted": "仕上げる",
+  "planNoPointsTitle": "まだ予約はありません",
+  "planNoPointsSubtitle": "まずアニタビからツアーポイントを追加、または手動で入力すると、現在の目標と完了進捗状況がここに表示されます。",
+  "planWorksCount": "{count}は動作します",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "{count}で撮影",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} ポイント / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "ポイント詳細",
+  "btnCameraReference": "撮影参考",
+  "tooltipRevertCompleted": "打刻を撤回する",
+  "tooltipMarkCompleted": "完了としてマークを付ける",
+  "tooltipSetTarget": "現在のターゲットとして設定",
+  "recordsUnassignedDesc": "このエリアにはまだ記録がありません",
+  "recordsOrphanedTitle": "孤立したレコード",
+  "recordsOrphanedDesc": "対応するポイントは現在の計画には存在しません",
+  "recordsAllRecords": "すべての記録",
+  "recordsFilterConditionsCount": "{count}フィルター",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "フィルター",
+  "recordsSearchPoints": "探索ポイント",
+  "recordsSearchHint": "ポイント、作品、シーン、話数、座標",
+  "tooltipClearSearch": "検索をクリア",
+  "recordsFilterStatus": "州",
+  "recordsFilterCompletedPoints": "完了したポイント",
+  "recordsFilterPendingPoints": "未完成の点",
+  "recordsPhotoTitle": "巡礼の写真",
+  "recordsEntriesCount": "{count}の記事",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "{count} ツアー記録",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "{completed}/{total} を完了する",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "ツアーの記録はまだありません。撮影に成功すると、自動的にここに表示されます。",
+  "groupOrderModePending": "整理整頓する",
+  "groupOrderModeManual": "マニュアル",
+  "groupOrderModeNone": "障害",
+  "groupAnchorPending": "シャードに分割されるのを待っています",
+  "groupAnchorNameLabel": "キーポイント: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "現在の計画はまだ策定されていません。",
+  "tooltipLocation": "位置",
+  "tooltipUseIconMarkers": "アイコンマーカーを使用する",
+  "tooltipShowThumbnailMarkers": "サムネイルマークを表示",
+  "tooltipPoint": "巡礼地",
+  "copyLabelPointInfo": "ポイント情報",
+  "mapNoPointsMessage": "現在の計画はまだ策定されていません。ポイントを追加すると、地図上にマーカーが表示されます。",
+  "labelEditPointNotSupported": "現在の環境ではポイントを編集することはできません。",
+  "tooltipGoToTarget": "現在の目標",
+  "planDefaultNewName": "新しいツアープラン {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "地域が設定されていません",
+  "msgDeletePlanAtLeastOne": "少なくとも 1 つのプランを維持する必要がある",
+  "dialogDeletePlanTitle": "プランの削除",
+  "dialogDeletePlanMessage": "「{name}」とその場所、エリア、作品、ツアー記録は削除されます。この操作は元に戻すことができません。",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "消去",
+  "dialogEditPlanTitle": "プラン情報の編集",
+  "labelPlanName": "プラン名",
+  "labelPlanArea": "地域・エリア",
+  "btnNewPlan": "新プラン",
+  "statusTextCurrentPlan": "現在の計画",
+  "statusTextSwitchable": "切り替え可能",
+  "labelPlanInfo": "番組情報",
+  "planInfoCopyContent": "{name}\n{area}\n{points} ポイント \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "スイッチ",
+  "btnReloadPlan": "リロードプラン",
+  "importExportImportSection": "輸入",
+  "importExportImportDescMobile": "MiriaGo を使用して、ファイル、チャット、ブラウザー、またはネットワーク ドライブから .sjhplan を開きます。",
+  "importExportImportDescWeb": ".sjhplan ファイルを選択し、インポートする前にコンテンツをプレビューします。",
+  "importExportStatusReading": "読む...",
+  "importExportOpenFromApp": "他のアプリから .sjhplan を開く",
+  "importExportImportFileTitle": "MiriaGo ファイルをインポートする",
+  "importExportOpenFromAppDesc": "ファイル、チャット、ブラウザのダウンロード ページ、またはネットワーク ドライブで .sjhplan を選択し、MiriaGo で共有するか開きます。",
+  "importExportImportFileDesc": "v2 データ パッケージとレガシー v1 JSON プラン パッケージをサポートします。",
+  "importExportZipDesc": "新しいバージョンの .sjhplan、内部 zip、ma​​nifest.json が含まれています。",
+  "importExportMyMapsDesc": "ポイントを CSV にエクスポートします。画像はリンクとして書き込まれ、「タイプ」列でスタイルを設定できます。",
+  "importExportMyMapsTitle": "マイマップ CSV をエクスポート",
+  "importExportMyMapsDetails": "最初の 6 列は例の形式に従っており、作品、コレクション、ソースなどが独立した列に分割されています。",
+  "msgExportCancelled": "エクスポートがキャンセルされました",
+  "msgImportReadFailed": "インポートファイルの読み込みに失敗しました",
+  "dialogOpenFromAppTitle": "他のアプリから .sjhplan を開く",
+  "dialogOpenFromAppMessage": "ファイル、チャット、ブラウザのダウンロード ページ、ネットワーク ディスク、またはその他の保存場所で .sjhplan ファイルを見つけて、ファイルをクリックするか、[共有/詳細] メニューを使用して MiriaGo を選択してください。 \n\nMiriaGo は、ファイルを受信した後、自動的にインポート プレビュー ページに入ります。リストにMiriaGoがない場合は、まずファイルを「ファイル」アプリに保存し、ファイルを長押しして共有または開く方法を選択できます。",
+  "btnGotIt": "知っていた",
+  "exportShareLabel": "MiriaGo パケット: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "データパッケージがエクスポートされました",
+  "dialogMissingResourcesTitle": "一部のローカル リソースが不足しています",
+  "dialogMissingResourcesMessage": "これらのリソースはデータ パッケージには入らないため、インポート後に対応する画像が表示されない場合があります。",
+  "btnContinueExport": "エクスポートを続行する",
+  "msgExportMyMapsSuccess": "マイマップのCSVエクスポート",
+  "msgExporting": "エクスポート中...",
+  "msgExportFailed": "エクスポートに失敗しました",
+  "warningMissingPart": "{fallback}、一部のリソースの追加に失敗しました",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} ローカルにアップロードされた参照画像がありません",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "{count} サムネイルが追加されない",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} 完全な参照画像のダウンロードに失敗しました",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} 完全な参照画像がありません",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} ツアーの写真がありません",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "{count} で色補正された写真がありません",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "{groups} エリア / {points} ポイント",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "純粋な計画",
+  "btnPlanAndRecords": "計画+記録",
+  "importExportIncludeCache": "完全な参照画像キャッシュが含まれています",
+  "importExportIncludeCacheDesc": "サムネイルとユーザーが追加した参照画像はデフォルトで引き続き含まれます。",
+  "btnExportDataPackage": "MiriaGo データ パッケージのエクスポート",
+  "btnExportingDataPackage": "エクスポート中...",
+  "importExportEstimateEstimating": "パケットサイズを見積もっています...",
+  "importExportEstimateFailed": "推定パケット サイズ: 現時点では推定できません",
+  "importExportEstimateResult": "予想されるパケット サイズ: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "参照画像をローカルにアップロードする",
+  "dialogVisitPhotoMissing": "巡礼の写真",
+  "dialogGradedPhotoMissing": "写真の調子を整える",
+  "estimateThumbnailNotCached": "{count} サムネイルはキャッシュされず、データ パケットには入りません",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} エクスポート中に完全な参照イメージがダウンロードされます",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} ローカルにアップロードされた参照画像ファイルが見つからないため、エクスポート後に復元できません。",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "{count} 巡礼写真ファイルがありません",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "{count} 色補正された写真ファイルがありません",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "一部のローカル リソースは読み取れず、実際のパッケージ本体が変更される可能性があります。",
+  "estimateLabelAtLeast": "予想されるパケット サイズ: 少なくとも約 {size}、{details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "推定パケット サイズ: 約 {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "戻る",
+  "importExportDataPackageHeader": "MiriaGo データ パッケージ",
+  "addPointsTitle": "コンテンツの追加",
+  "addPointsAddToPlan": "参加: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "作業管理",
+  "addPointsWorkManagerDesc": "予定されている作品を管理し、バングミの検索、作品の手動追加と削除をサポートします。",
+  "addPointsImportFromWorkMapTitle": "作業マップからポイントをインポートする",
+  "addPointsImportFromWorkMapDesc": "アニタビマップ上で作品の所在地を確認し、サムネイル詳細をクリックしてプロジェクトに参加してください。",
+  "addPointsImportFromLinkTitle": "アニタビリンクからインポート",
+  "addPointsImportFromLinkDesc": "あにたびの作品またはポイントリンクを貼り付けると、該当作品のマップがすぐに開きます。",
+  "addPointsManualTitle": "手動でポイントを追加する",
+  "addPointsManualDesc": "追加した作品を選択し、名前、座標、シーン情報を入力します。",
+  "addPointsActionLabelUnavailable": "利用不可",
+  "addPointsActionLabelManage": "管理",
+  "addPointsActionLabelOpen": "開ける",
+  "addPointsActionLabelInput": "入力",
+  "addPointsActionLabelAdd": "に追加",
+  "msgWorkAdded": "「{title}」が追加されました。",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "作業の追加に失敗しました。後でもう一度お試しください。",
+  "bangumiSearchTitle": "バングミを検索",
+  "bangumiSearchLabel": "作品名",
+  "bangumiSearchHint": "例えば、明るい口調の女の子。",
+  "bangumiSearchBtn": "作品を探す",
+  "bangumiSearchBtnSearching": "検索中",
+  "bangumiSearchFailed": "バングミの検索に失敗しました。ネットワークを確認して再試行してください。",
+  "bangumiSearchEmptyHelp": "作品名を入力して検索し、結果を選択すると現在のプランに参加できます。",
+  "anitabiLinkImportTitle": "アニタビリンクインポート",
+  "anitabiLinkImportLabel": "アニタビリンク",
+  "anitabiLinkImportHint": "例: https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "リンクに作品 ID が含まれている場合は、対応する作品のみがロードされます。ポイント ID も含まれている場合、ポイントは自動的に選択されます。作品IDのないリンクはアニタビで該当作品を入力後、再度コピーする必要があります。",
+  "anitabiLinkImportBtn": "アニタビポイントをオープン",
+  "anitabiLinkImportEmptyErr": "アニタビのリンクを入力してください",
+  "anitabiLinkImportInvalidErr": "有効なアニタビマップリンクを入力してください",
+  "anitabiLinkImportNoWorkIdErr": "リンクに作品IDがありません。アニタビに該当作品を入れてリンクをコピーしてください。",
+  "msgPointAdded": "「{title}」が追加されました。",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "ポイントの保存に失敗しました。しばらくしてからもう一度お試しください。",
+  "msgWorkSaveFailed": "作業内容を保存できませんでした。後でもう一度お試しください。",
+  "manualAddWorkTitle": "項目を手動で追加する",
+  "manualAddWorkName": "作品名",
+  "manualAddWorkOriginalName": "本来の作品名",
+  "manualAddWorkOriginalNameHint": "オプション",
+  "manualAddWorkArea": "主要エリア",
+  "manualAddWorkAreaHint": "オプション、デフォルトの {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "作業を保存する",
+  "manualAddWorkBtnSaving": "保存",
+  "manualAddWorkRequiredField": "これを記入してください",
+  "msgReferenceImageReadFailed": "参照画像の読み込みに失敗しました。もう一度お試しください。",
+  "msgClipboardCoordinatesInvalid": "クリップボードに認識された座標がありません。",
+  "msgClipboardCoordinatesApplied": "クリップボードの座標が入力されます。",
+  "manualAddPointTitleAdd": "手動でポイントを追加する",
+  "manualAddPointTitleEdit": "編集点",
+  "manualAddPointStatusEdit": "変更: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "作品",
+  "manualAddPointSelectWorkErr": "作品を選択してください",
+  "manualAddPointWorkName": "アニメ/作品名",
+  "manualAddPointWorkOriginalName": "本来の作品名",
+  "manualAddPointWorkOriginalNameHint": "オプション",
+  "manualAddPointWorkArea": "主な仕事内容",
+  "manualAddPointWorkAreaHint": "オプション、デフォルトの {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "ポイント名",
+  "manualAddPointPositionDesc": "場所の説明",
+  "manualAddPointEpisodeLabel": "話数/シーンタグ",
+  "manualAddPointSource": "参照元",
+  "manualAddPointMemo": "述べる",
+  "manualAddPointMemoHint": "閉店、改装、写真撮影の提案などオプション",
+  "manualAddPointSelectCoordsBtn": "地図から座標を選択",
+  "manualAddPointPasteCoordsBtn": "クリップボードの座標を貼り付けます",
+  "manualAddPointLatitude": "緯度",
+  "manualAddPointLatitudeHint": "たとえば、34.8917",
+  "manualAddPointLongitude": "経度",
+  "manualAddPointLongitudeHint": "たとえば、135.8077",
+  "manualAddPointBtnSaving": "保存",
+  "manualAddPointBtnSaveEdit": "変更を保存する",
+  "manualAddPointBtnSaveAdd": "セーブポイント",
+  "manualAddPointRequiredField": "これを記入してください",
+  "manualAddPointRequiredLatitude": "緯度を入力してください",
+  "manualAddPointRequiredLongitude": "経度を入力してください",
+  "manualAddPointInvalidCoordinate": "有効な座標を入力してください",
+  "manualAddPointSelectCoordsTitle": "点座標の選択",
+  "manualAddPointSelectCoordsTooltipActive": "マップの選択を閉じる",
+  "manualAddPointSelectCoordsTooltipInactive": "地図上の点を選択してください",
+  "manualAddPointSelectCoordsHelpActive": "マップ上の任意の場所をクリックしてポイントの座標を設定します",
+  "manualAddPointSelectCoordsHelpInactive": "まず右上隅にあるポイント選択ボタンをクリックし、次にマップをクリックして座標を設定します",
+  "manualAddPointSelectCoordsAdjustHelp": "地図をクリックして位置の調整を続けます",
+  "manualAddPointSelectCoordsDialogTitle": "マップポイントの選択",
+  "manualAddPointSelectCoordsBtnUse": "使用",
+  "addPointsNoWorksHelp": "現在、工事の予定はございません。作品を追加すると、作品に応じたポイントをインポートすることができます。",
+  "addPointsHasWorksHelp": "現在のプランには {count} が動作します: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "大きな画像を見る",
+  "addPointsRefImageTooltipEmpty": "参考画像はまだありません",
+  "addPointsRefImageHeader": "参考写真",
+  "addPointsRefImageHelpSelected": "新しい画像が選択され、保存後に有効になります。",
+  "addPointsRefImageHelpCurrent": "再選択を有効にするには、現在の参照ピクチャを保存する必要があります。",
+  "addPointsRefImageHelpEmpty": "オプションで、保存時にアプリのローカル ディレクトリにコピーされます。",
+  "addPointsRefImageBtnReselect": "再選択",
+  "addPointsRefImageBtnUpload": "参考画像をアップロードする",
+  "addPointsRefImageBtnRemove": "取り除く",
+  "addPointsPointBtnAdded": "追加した",
+  "addPointsPointBtnAdd": "参加する",
+  "managePlanTitle": "経営計画",
+  "managePlanSelectedCount": "選択された {count}",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "エリアマネジメント",
+  "managePlanCachingProgress": "完全な参照イメージのキャッシュ",
+  "managePlanCacheFullReference": "完全な参照イメージをキャッシュする",
+  "managePlanTooltipExitSelection": "複数選択を終了する",
+  "managePlanTooltipSelection": "多肢選択",
+  "msgNoAnchorForUnassigned": "未割り当てのポイントにはキーポイントがありません。",
+  "msgAreaNotExist": "その地域は存在しません。",
+  "msgSaveAnchorFailed": "キーポイントの保存に失敗しました。",
+  "msgNoOrderForUnassigned": "未割り当てのポイントは並べ替える必要がありません。",
+  "managePlanAreaOrderTitle": "エリア内でのご注文",
+  "msgSaveOrderModeFailed": "並べ替え方法の保存に失敗しました。",
+  "msgMoveAreaFailed": "エクステントの移動に失敗しました。",
+  "msgOpenCameraFromPlanOrMap": "企画ページまたはマップページから撮影を開いてください。",
+  "msgSaveReferenceImageFailed": "参照画像の保存に失敗しました。",
+  "labelUnknownArea": "未知の領域",
+  "managePlanMoveToAreaTitle": "エリアへ移動",
+  "msgSavePointOrderFailed": "点列の保存に失敗しました。",
+  "dialogDeletePointTitle": "ポイントの削除",
+  "dialogDeletePointMsg": "プランから「{name}」を削除してもよろしいですか?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "ポイントの削除に失敗しました。",
+  "dialogBulkDeletePointsTitle": "ポイントを一括削除する",
+  "dialogBulkDeletePointsMsg": "プランから {count} ポイントを削除してもよろしいですか?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "一括削除に失敗しました。",
+  "msgSaveCurrentTargetFailed": "現在のターゲットを保存できませんでした。",
+  "msgSaveCompletionStatusFailed": "完了ステータスの保存に失敗しました。",
+  "msgSavePointStatusFailed": "ポイントステータスの保存に失敗しました。",
+  "msgBulkCompleteFailed": "バッチの完了に失敗しました。",
+  "msgBulkResetFailed": "一括リセットに失敗しました。",
+  "msgFullReferenceCacheStarted": "完全な参照イメージのキャッシュが開始されました。",
+  "msgCachingFullReferenceProgress": "完全な参照イメージをキャッシュしています...",
+  "msgNoReferenceToCache": "現在の計画にはキャッシュする必要がある参照イメージはありません。",
+  "dialogCacheFullReferenceTitle": "完全な参照イメージをキャッシュする",
+  "dialogCacheFullReferenceMsg": "現在のプランの {count} 完全な参照イメージはキャッシュされるため、長い時間がかかり、ネットワーク トラフィックがかかる可能性があります。",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "キャッシュを開始する",
+  "labelAnchorNotSet": "設定されていません",
+  "tooltipPrevArea": "前のエリア",
+  "tooltipNextArea": "次のエリア",
+  "managePlanPointsPending": "{count} ポイントはソート待ちです",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "{count} ポイント · 完了した {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "キーポイント: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "最近割り当てられた",
+  "btnBoxSelectAssign": "フレーム選択分布",
+  "statusCurrent": "現在",
+  "statusCompleted": "完了しました",
+  "statusPending": "アクセス対象",
+  "tooltipPointActions": "ポイント操作",
+  "btnMoveToArea": "エリアへ移動",
+  "btnSetAsCurrent": "現在として設定",
+  "btnCancelCompletion": "キャンセル完了",
+  "btnMarkCompletion": "完了としてマークを付ける",
+  "btnDeletePoint": "ポイントの削除",
+  "refStatusNone": "参考画像なし",
+  "refStatusLocal": "ローカルアップロード",
+  "refStatusCached": "キャッシュされた",
+  "refStatusRemote": "キャッシュされていません",
+  "tooltipClearSelection": "クリア",
+  "tooltipMoveArea": "モバイルエリア",
+  "tooltipReset": "リセット",
+  "dialogSelectAnchorTitle": "重要なポイントを選択する",
+  "btnClear": "クリア",
+  "tooltipCloseMapSelect": "マップの選択を閉じる",
+  "tooltipSelectOnMap": "地図上の点を選択してください",
+  "tooltipInputCoordinates": "緯度と経度を入力してください",
+  "dialogInputCoordinatesTitle": "緯度と経度を入力してください",
+  "labelManualAnchor": "手動キー",
+  "tooltipSelectPoint": "点を選択してください",
+  "labelAnchorNotSelected": "キーポイントがまだ選択されていません",
+  "msgClickMapToSetAnchor": "マップ上の任意の場所をクリックしてキーポイントを設定します",
+  "msgSelectAnchorMethods": "地点、地図をクリックするか、緯度と経度を入力できます。",
+  "managePlanNoPoints": "まだ管理できるポイントはありません",
+  "dialogDiscardMemoTitle": "保存されていないコンテンツを破棄しますか?",
+  "dialogDiscardMemoMsg": "現在のメモには未保存の変更があります。",
+  "btnKeepEditing": "編集を続ける",
+  "btnDiscard": "あきらめる",
+  "msgMemoSaved": "企画メモを保存しました。",
+  "msgMemoSaveFailed": "計画メモの保存に失敗しました。",
+  "msgTodoStatusSaveFailed": "To Do ステータスの保存に失敗しました。",
+  "memoPlaceholderHeading": "タイトル",
+  "memoPlaceholderBold": "太字のテキスト",
+  "memoPlaceholderListItem": "リスト項目",
+  "memoPlaceholderTodo": "やることリスト",
+  "memoPlaceholderQuote": "見積内容",
+  "memoPlaceholderLinkText": "リンクテキスト",
+  "memoPlaceholderCode": "コード",
+  "msgInvalidLinkFormat": "リンクの形式が間違っています。",
+  "msgUnableToOpenLink": "リンクを開けません。",
+  "planMemoTitle": "企画メモ",
+  "labelMemoContent": "メモ内容",
+  "hintMemoContent": "交通手段、約束、再撮影事項、コンパニオンの手配などを記録できます。",
+  "tooltipHeading": "タイトル",
+  "tooltipBold": "大胆な",
+  "tooltipList": "リスト",
+  "tooltipTodo": "やるべきこと",
+  "tooltipQuote": "引用",
+  "tooltipDivider": "分割線",
+  "tooltipLink": "リンク",
+  "tooltipCode": "コード",
+  "tooltipUncheck": "チェックを外します",
+  "msgMemoImageNotSupported": "メモは画像をサポートしていません: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "まだ計画メモを書いていない",
+  "memoEmptySubtitle": "右上隅の「編集」をクリックして、移動、予定、再撮影事項、またはその他の準備を記録します。",
+  "msgInvalidRatio": "有効な比率を入力してください。",
+  "dialogCustomRatioTitle": "カスタムスケール",
+  "labelWidth": "幅",
+  "labelHeight": "高い",
+  "msgColorNameRequired": "色の名前を入力してください。",
+  "dialogCustomThemeColorTitle": "カスタムテーマカラー",
+  "labelColorName": "名前",
+  "labelColorHex": "色番号",
+  "btnAdd": "に追加",
+  "navAppGoogleMaps": "Googleマップ",
+  "navAppAmap": "高徳の地図",
+  "navAppAppleMaps": "アップルマップ",
+  "navAppBaiduMaps": "百度地図",
+  "navAppTencentMaps": "テンセントの地図",
+  "navAppBrowser": "ブラウザ",
+  "navAppGoogleMapsSub": "デフォルトのオプション",
+  "navAppAmapSub": "中国でよく使われる",
+  "navAppAppleMapsSub": "iOSネイティブ",
+  "navAppBaiduMapsSub": "シティナビゲーション",
+  "navAppTencentMapsSub": "軽量の代替品",
+  "navAppBrowserSub": "Webページが開きます",
+  "comparisonBorderColorWhite": "白",
+  "comparisonBorderColorBlack": "黒",
+  "comparisonBorderColorTheme": "テーマカラー",
+  "comparisonWidthLabel": "幅 {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "国境なし",
+  "comparisonBorderPercent": "境界線 {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "ラベルを表示",
+  "comparisonHideLabels": "ラベルを表示しない",
+  "comparisonPilgrimName": "ピルグリム {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "外観",
+  "comparisonFieldBorderWidth": "境界線の幅",
+  "comparisonBorderWidthNone": "なし",
+  "comparisonFieldBorderColor": "枠線の色",
+  "comparisonFieldOutputWidth": "出力幅",
+  "comparisonLabelShowLabel": "ラベルを表示",
+  "comparisonSectionMetadata": "メタデータ",
+  "comparisonFieldPilgrimName": "巡礼者の名前",
+  "comparisonShowPilgrimRight": "巡礼者を右側に表示",
+  "comparisonShowGradingBottom": "カラーグレーディングパラメータは下部に表示されます",
+  "comparisonLabelReference": "参照",
+  "comparisonLabelCaptured": "巡礼",
+  "comparisonLabelPilgrim": "巡礼者",
+  "comparisonExportTitle": "輸出比較表",
+  "tooltipClose": "閉鎖",
+  "comparisonExporting": "エクスポート中...",
+  "comparisonExport": "輸出",
+  "comparisonWidthAuto": "自動",
+  "comparisonMetaCapturedAt": "撮影時間",
+  "comparisonMetaWork": "仕事",
+  "comparisonMetaPoint": "場所",
+  "comparisonMetaCoordinates": "座標",
+  "comparisonMetaEpisode": "シーン",
+  "comparisonErrRefUnavailable": "参照画像が利用できないため、比較画像をエクスポートできません。",
+  "comparisonErrCapturedUnavailable": "ツアー マップは利用できず、比較画像はエクスポートできません。",
+  "comparisonErrRenderFailed": "エクスポートに失敗しました。後でもう一度試してください。",
+  "cameraFallbackRatioTitle": "参考画像なしのスケール",
+  "btnEdit": "編集",
+  "cameraRefModeOverlay": "かぶせる",
+  "cameraRefModeSplit": "上下",
+  "cameraRefModePinned": "小窓",
+  "cameraWebPreviewWarning": "Web プレビューではライブカメラは起動しません。",
+  "workManagerEmptyHelp": "現在、工事の予定はございません。",
+  "dialogDeleteWorkTitle": "作品の削除",
+  "dialogDeleteWorkConfirmSingle": "「{name}」を削除してもよろしいですか?",
+  "dialogDeleteWorkConfirmMultiple": "「{name}」を削除してもよろしいですか?これにより、{count} の関連ポイント位置と相対承認も同時に削除されます。",
+  "msgDeleteWorkFailed": "作品の削除に失敗しました",
+  "tooltipDeleteWork": "作品の削除",
+  "labelWorkTitleText": "作品名",
+  "labelWorkInfoText": "作品情報",
+  "btnManualAdd": "手動で追加",
+  "btnBangumiSearch": "番組",
+  "labelBangumiSource": "バングミ #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "本",
+  "subjectTypeAnime": "アニメーション",
+  "subjectTypeMusic": "音楽",
+  "subjectTypeGame": "ゲーム",
+  "subjectTypeReal": "三次元",
+  "labelPoints": "ポイント",
+  "mapImportTitle": "作業マップからインポート",
+  "mapImportRefreshingCache": "キャッシュをクリアしてアニタビポイントを再読み込みしています...",
+  "mapImportManualWorkNoBangumiId": "手動で追加した作品にはバン組IDがなく、アニタビマップからポイントをインポートできません。",
+  "mapImportPointAddedMsg": "すでにプランにご加入いただいている方は、引き続きスポットをお選びいただけます。",
+  "mapImportPointAddFailedMsg": "ポイントのインポートに失敗しました。後でもう一度お試しください。",
+  "mapImportAllAddedMsg": "結合されていないすべての点が追加されました。",
+  "mapImportBatchFailedMsg": "バッチインポートに失敗しました。後でもう一度試してください。",
+  "mapImportBoxSelectionEmptyMsg": "選択範囲内に加算できるポイントはありません。",
+  "mapImportBoxAddedMsg": "フレーム選択ポイントが追加されました。",
+  "mapImportBoxFailedMsg": "フレーム選択ポイントのインポートに失敗しました。後でもう一度試してください。",
+  "mapImportImportingMsg": "{count} ポイントをインポートしています...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "サムネイル {processed}/{total} のキャッシュ、{succeeded} の成功",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "{count} ポイントがインポートされ、サムネイルが {cached}/{total} にキャッシュされます。残りは後で自動的に入力されます。",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "すべてのポイントを追加",
+  "mapImportAddAllDialogMsg": "現在の作業でまだ計画に含まれていない {count} ポイントが計画に追加され、グループ化されていない領域に一時的に配置されます。",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "すべて追加",
+  "mapImportAddBoxDialogTitle": "フレーム選択ポイントを追加する",
+  "mapImportAddBoxDialogMsg": "選択した範囲内でまだ計画に含まれていない {count} ポイントが計画に追加され、グループ化されていない領域に一時的に配置されます。",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "フレーム選択を追加",
+  "mapImportAddBoxBtnWithCount": "{count}を追加",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "新しくインポートしたポイントを整理する",
+  "mapImportOrganizeDialogMsg": "{count} ポイントはインポートされ、グループ化されていない状態で一時的に配置されています。最初にパッチとキー ポイントを作成し、次に最も近いキー ポイントに基づいてそれらをすばやく割り当てることができます。",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "最近割り当てられた",
+  "mapImportOrganizeGroupManager": "エリアマネジメント",
+  "mapImportOrganizeLater": "後で",
+  "mapImportRefreshTooltip": "キャッシュをクリアしてアニタビポイントをリロードする",
+  "mapImportMarkerTooltip": "アニタビポイント",
+  "mapImportErrDataUnavailable": "アニタビのマップデータが読み込めない",
+  "mapImportErrPartialData": "アニタビポイントは一部しかチャージされていません",
+  "mapImportErrNotFound": "このバングミエントリーにはアニタビマップデータがありません。",
+  "mapImportErrLoadFailed": "アニタビポイントの読み込みに失敗しました",
+  "mapImportErrDataUnavailableDetailWeb": "アニタビのマップデータキャッシュのバージョンが矛盾しているか、現在のプレビューサービスのネットワークリクエストがブロックされている可能性があります。キャッシュをクリアしてアニタビポイントを再読み込みしてください。",
+  "mapImportErrDataUnavailableDetail": "アニタビマップインデックスが読み込めません。ネットワーク接続を確認するか、キャッシュをクリアしてアニタビポイントを再読み込みしてください。",
+  "mapImportErrPartialDataDetail": "現在は{loaded}/{expected}ポイントのみ獲得可能です。リロードするか、アニタビの地図データにアクセスできるネットワークか確認してください。",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "原作やゲーム、その他の同名の関連エントリを作品管理に追加してみることができます。",
+  "mapImportErrLoadFailedDetail": "ネットワークを確認して再試行するか、後でリロードしてください。",
+  "mapImportProgressImporting": "{total} ポイントをインポートしています...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "サムネイル {processed}/{total} のキャッシュ、{succeeded} の成功",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "ポイントがインポートされました",
+  "mapImportMarkerAvailableTooltip": "ポイントをインポートできる",
+  "mapImportSummaryLoading": "アニタビポイントをチャージ中",
+  "mapImportSummaryStats": "インポートされた {imported} / 現在表示されている {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/ 合計 {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "すべてのポイントを追加",
+  "mapImportSummaryTooltipBoxExit": "終了ボックスの選択",
+  "mapImportSummaryTooltipBoxStart": "選択した点をフレーム化します",
+  "mapImportPointNameLabel": "ポイント名",
+  "mapImportPointInfoLabel": "ポイント情報",
+  "mapImportPointOriginLabel": "ソース",
+  "mapImportPointDetailBtn": "詳細",
+  "mapImportPointJoinedBtn": "すでに参加しています",
+  "mapImportPointJoinBtn": "プログラムに参加する",
+  "mapImportDetailSceneLabel": "シーン",
+  "mapImportDetailNoteLabel": "述べる",
+  "mapImportDetailCoordLabel": "座標",
+  "mapImportDetailJoinedBtn": "すでにプログラムに参加しています",
+  "mapImportNoPointSelectedHint": "地図上のポイントをクリックすると、サムネイルと詳細が表示されます。",
+  "mapImportNoImportablePoints": "今作ではインポートできるアニタビポイントはありません。",
+  "mapImportNoImagePoints": "現在の作業には {count} ポイントがありますが、インポートできる画像付きの参照ポイントはありません。",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "現在予定されているバングミタイトルはありません。まずは作品管理からバングミ作品を追加してください。",
+  "mapImportManualWorkState": "手動で追加した作品にはバン組IDがなく、アニタビマップからポイントをインポートできません。 \n\nバングミ・アニタビから検索して作品を追加するか、手動でポイントを追加してください。",
+  "mapImportLoadingWorksAndPoints": "アニタビの作品とポイントを読み込み中",
+  "msgCannotOpenMapApp": "{app}を開けません。",
+  "mapImportErrPointNotFound": "このアニタビポイントは見つかりませんでした",
+  "mapImportErrPointNotFoundDetail": "リンク内の地点IDが無効であるか、アニタビの地図データが同期されていない可能性があります。",
+  "navMapSectionTitle": "ナビゲーションマップ {app}",
+  "navAppDescGoogleMaps": "ナビゲーション ボタンを押すと、Google マップの公式 URL を介して徒歩ルートが開きます。",
+  "navAppDescAppleMaps": "ナビゲーション ボタンを押すと、Apple Map Links を通じて徒歩ルートが開きます。",
+  "navAppDescAmap": "ナビゲーション ボタンは、Amap URI API 経由で徒歩ルートを開き、WGS84 座標を使用します。",
+  "navAppDescBaiduMaps": "ナビゲーション ボタンは、WGS84 座標を使用して、Baidu Maps URI API 経由で徒歩ルートを開きます。",
+  "mapProviderHintOpenFreeMap": "推奨されるデフォルト",
+  "mapProviderHintOsm": "標準タイル",
+  "mapProviderHintCustomXyz": "タイルテンプレート",
+  "mapProviderHintCustomStyle": "スタイル URL",
+  "anitabiSrcAuto": "自動選択",
+  "anitabiSrcOfficial": "公式デフォルト",
+  "anitabiSrcMirror": "バックアップソース",
+  "anitabiSrcAutoDesc": "Image.anitabi.cn が最初に使用されます。ダウンロードがエラー ページに到達するかブロックされると、img-tc.anitabi.cn が試行されます。",
+  "anitabiSrcOfficialDesc": "image.anitabi.cn の使用と Anitabi の公式デフォルト画像ソースの保持を修正しました。",
+  "anitabiSrcMirrorDesc": "公式のデフォルトソースが頻繁にブロックされる場合の使用に適した img-tc.anitabi.cn の使用を修正しました。"
+}

@@ -1,0 +1,1211 @@
+{
+  "@@locale": "th",
+  "tabPlan": "วางแผน",
+  "tabMap": "แผนที่",
+  "tabRecords": "บันทึก",
+  "tabSettings": "ตั้งค่า",
+  "settingsTitle": "ตั้งค่า",
+  "languageSetting": "การตั้งค่าภาษา",
+  "languageSystem": "ทำตามระบบ",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "งาน",
+  "labelScene": "ฉาก",
+  "labelCoordinates": "ประสานงาน",
+  "labelArea": "พื้นที่",
+  "labelReference": "อ้างถึง",
+  "labelSource": "แหล่งที่มา",
+  "labelId": "บัตรประจำตัวประชาชน",
+  "labelLink": "ลิงค์",
+  "btnChange": "เปลี่ยน",
+  "btnReplace": "แทนที่",
+  "labelLocalRecords": "บันทึกจุดนี้",
+  "labelAll": "ทั้งหมด",
+  "btnNavigate": "การนำทาง",
+  "btnOverlay": "อ้างอิงการยิง",
+  "btnSetTarget": "ตั้งเป็นปัจจุบัน",
+  "btnMarkDone": "ทำเครื่องหมายว่าเสร็จสมบูรณ์",
+  "btnEditPoint": "แก้ไขจุด",
+  "settingsAppearance": "การตั้งค่าลักษณะที่ปรากฏ",
+  "settingsAppearanceSubtitle": "สีของธีม การซูม การแสดง ฯลฯ",
+  "settingsCamera": "การตั้งค่าการถ่ายภาพ",
+  "settingsCameraSubtitle": "สัดส่วนภาพถ่าย สัดส่วนภาพอ้างอิง การสำรองข้อมูล ฯลฯ",
+  "settingsExport": "การตั้งค่าแผนภูมิเปรียบเทียบ",
+  "settingsExportSubtitle": "ส่งออกสไตล์และบันทึกลงในอัลบั้มรูปโดยอัตโนมัติ",
+  "settingsDataSource": "การตั้งค่าแหล่งข้อมูล",
+  "settingsDataSourceSubtitle": "แหล่งที่มาของแผนที่ แหล่งที่มาของภาพ ฯลฯ",
+  "settingsClearCache": "ล้างแคช",
+  "settingsClearCacheSubtitle": "แคชรูปภาพอ้างอิงเสร็จสมบูรณ์",
+  "settingsAbout": "เกี่ยวกับ MiriaGo",
+  "settingsAboutSubtitle": "ข้อมูลเวอร์ชัน ใบอนุญาตโอเพ่นซอร์ส ฯลฯ",
+  "btnCancel": "ยกเลิก",
+  "btnConfirm": "แน่นอน",
+  "btnSave": "บันทึก",
+  "labelManualEntry": "รายการด้วยตนเอง",
+  "labelRevertCompleted": "ถอนนาฬิกาเข้า",
+  "labelUnassignedGroup": "ไม่แบ่งเป็นโซน",
+  "labelUnknownGroup": "พื้นที่ที่ไม่รู้จัก",
+  "labelNoAnchor": "ไม่มีการตั้งค่าคีย์",
+  "labelStatusCurrent": "เป้าหมายปัจจุบัน",
+  "labelStatusCompleted": "สมบูรณ์",
+  "labelStatusPending": "ที่จะเข้าถึงได้",
+  "settingsReset": "คืนค่าการตั้งค่าเริ่มต้น",
+  "settingsResetConfirmSubtitle": "การตั้งค่ารูปลักษณ์ การถ่ายภาพ และแผนที่ทั้งหมดจะกลับคืนสู่ค่าเริ่มต้น",
+  "settingsThemeColor": "สีของธีม",
+  "settingsThemeColorSubtitle": "ส่งผลต่อการจับคู่สีโดยรวมของแอปพลิเคชัน",
+  "settingsThemeMode": "โหมดธีม",
+  "settingsThemeLight": "โหมดแสง",
+  "settingsThemeDark": "โหมดมืด",
+  "settingsThemeSystem": "ทำตามระบบ",
+  "settingsUiScale": "ซูมหน้า",
+  "settingsUiScaleSubtitle": "ปรับขนาดโดยรวมของอินเทอร์เฟซ (ไม่ส่งผลต่อรูปภาพอ้างอิง)",
+  "settingsCameraRatio": "อัตราส่วนการจับภาพ",
+  "settingsCameraZoom": "ซูมกล้อง",
+  "settingsPhotoBackup": "สำรองรูปภาพ",
+  "settingsPhotoBackupSubtitle": "บันทึกภาพทัวร์ลงในอัลบั้ม",
+  "settingsAutoSaveComparison": "บันทึกแผนภูมิเปรียบเทียบโดยอัตโนมัติ",
+  "settingsAutoSaveComparisonSubtitle": "บันทึกลงในอัลบั้มภาพเมื่อบันทึกบันทึก",
+  "settingsDesktop": "เดสก์ท็อป",
+  "settingsDesktopSubtitle": "Launcher, ไดเร็กทอรีข้อมูล ฯลฯ",
+  "desktopLauncherChecking": "การตรวจสอบตัวเรียกใช้งานเดสก์ท็อป",
+  "desktopLauncherUnavailable": "ตัวเรียกใช้เดสก์ท็อปไม่พร้อมใช้งาน",
+  "desktopSystemDataDir": "ไดเร็กทอรีข้อมูลระบบ",
+  "desktopPortableDir": "ไดเร็กทอรีแบบพกพา",
+  "desktopAppDataDir": "ไดเร็กทอรีข้อมูลแอปพลิเคชัน",
+  "desktopLauncherAvailable": "มีตัวเรียกใช้งานเดสก์ท็อป",
+  "settingsFontSmall": "เล็ก",
+  "settingsFontStandard": "มาตรฐาน",
+  "settingsFontLarge": "ใหญ่",
+  "settingsFontHuge": "ใหญ่พิเศษ",
+  "msgReplacingRef": "กำลังแทนที่รูปภาพอ้างอิง...",
+  "msgReplaceRefFailed": "การเปลี่ยนรูปภาพอ้างอิงล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "msgReplaceRefSuccess": "แทนที่รูปภาพอ้างอิงแล้ว",
+  "msgCannotOpenMap": "ไม่สามารถเปิด Google Maps ได้",
+  "titleMoveToGroup": "ย้ายไปยังพื้นที่",
+  "copyLabelPointName": "ชื่อจุด",
+  "copyLabelGroupAnchor": "ประเด็นสำคัญของพื้นที่",
+  "labelNote": "หมายเหตุ",
+  "themeClassicGreen": "สีเขียวคลาสสิก",
+  "themeDeepBlue": "สีน้ำเงินเข้ม",
+  "themeCherryPink": "ผงซากุระ",
+  "themeTwilightPurple": "ทไวไลท์สีม่วง",
+  "themeMiriaYellow": "สีส้มอำพัน",
+  "themeGraphite": "กราไฟท์สีดำ",
+  "themeAurora": "ปรับแต่ง",
+  "aspectAuto": "อัตโนมัติ",
+  "aspectNative": "สัดส่วนพื้นเมือง",
+  "aspectCustom": "ปรับแต่ง",
+  "aspectAutoHint": "แนะนำ",
+  "aspectNativeHint": "พื้นเมือง",
+  "aspectLandscape16x9Hint": "จอไวด์สกรีน",
+  "aspectCinema21x9Hint": "ภาพยนตร์",
+  "aspectStandard4x3Hint": "คลาสสิค",
+  "aspectPhoto3x2Hint": "กล้อง",
+  "aspectPortrait9x16Hint": "หน้าจอแนวตั้ง",
+  "aspectPortrait9x21Hint": "เต็มจอ",
+  "aspectPortrait3x4Hint": "แบนเนอร์แนวตั้ง",
+  "aspectPortrait2x3Hint": "แบนเนอร์แนวตั้ง",
+  "aspectSquare1x1Hint": "สี่เหลี่ยม",
+  "aspectCustomHint": "ปรับแต่ง",
+  "mapProviderOpenFreeMap": "OpenFreeMap",
+  "mapProviderOpenFreeMapDesc": "แผนที่เริ่มต้น ใช้สไตล์ MapLibre",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "ใช้ไทล์ XYZ มาตรฐาน OpenStreetMap",
+  "mapProviderCustomXyz": "XYZ แบบกำหนดเอง",
+  "mapProviderCustomXyzDesc": "ใช้ URL ไทล์แรสเตอร์ที่มี {z}/{x}/{y}",
+  "mapProviderCustomMapLibre": "MapLibre แบบกำหนดเอง",
+  "mapProviderCustomMapLibreDesc": "ใช้ URL สไตล์ MapLibre ที่กำหนดเอง",
+  "mapStyleLibertyDesc": "สไตล์เริ่มต้นมีความหนาแน่นของข้อมูลสูงกว่า",
+  "mapStyleBrightDesc": "สไตล์มาตรฐานที่สดใส",
+  "mapStylePositronDesc": "สีอ่อนสไตล์การรบกวนต่ำ",
+  "mapStyleDarkDesc": "รูปแบบแผนที่สีเข้ม",
+  "mapStyleFiordDesc": "สไตล์ภูมิประเทศที่นุ่มนวล",
+  "imageSourceAuto": "การเลือกอัตโนมัติ",
+  "imageSourceOfficial": "ค่าเริ่มต้นอย่างเป็นทางการ",
+  "imageSourceMirror": "แหล่งสำรองข้อมูล",
+  "imageSourceAutoDesc": "ใช้ Image.anitabi.cn ก่อน หากการดาวน์โหลดมาถึงหน้าแสดงข้อผิดพลาดหรือถูกบล็อก img-tc.anitabi.cn จะถูกลองใช้",
+  "imageSourceOfficialDesc": "แก้ไขการใช้ image.anitabi.cn และคงแหล่งรูปภาพเริ่มต้นอย่างเป็นทางการของ Anitabi ไว้",
+  "imageSourceMirrorDesc": "แก้ไขการใช้งาน img-tc.anitabi.cn เหมาะสำหรับใช้เมื่อแหล่งที่มาเริ่มต้นอย่างเป็นทางการมักถูกบล็อก",
+  "mapProviderRecommendedDefault": "ค่าเริ่มต้นที่แนะนำ",
+  "mapProviderStandardTiles": "กระเบื้องมาตรฐาน",
+  "mapProviderTileTemplate": "แม่แบบกระเบื้อง",
+  "mapProviderStyleUrl": "URL สไตล์",
+  "cameraCaptureRatioSection": "อัตราส่วนการจับภาพ",
+  "cameraCaptureRatioDesc": "มันจะเป็นไปตามอัตราส่วนรูปภาพอ้างอิงก่อนโดยอัตโนมัติ หลังจากเลือกอัตราส่วนคงที่แล้ว กล้องจะถ่ายภาพตามอัตราส่วนนั้น",
+  "cameraFallbackRatioSection": "มาตราส่วนโดยไม่มีภาพอ้างอิง",
+  "cameraFallbackRatioDesc": "ใช้เมื่อตั้งค่าอัตราส่วนรูปภาพเป็นอัตโนมัติ และไม่มีรูปภาพอ้างอิงที่จะจัดแนว",
+  "cameraReferenceScaleSection": "การแสดงภาพอ้างอิง",
+  "cameraZoomSection": "ซูมกล้อง",
+  "cameraBackupDetailDesc": "เมื่อบันทึกบันทึก รูปภาพของการทัวร์จะถูกสำรองไว้ด้วย",
+  "mapSourceSection": "แหล่งที่มาของแผนที่",
+  "mapOpenFreeMapStyleSection": "รูปแบบ OpenFreeMap",
+  "mapCustomXyzUrlNotSet": "ไม่ได้ตั้งค่า URL XYZ ที่กำหนดเอง",
+  "mapCustomXyzUrlTitle": "URL XYZ ที่กำหนดเอง",
+  "mapCustomXyzUrlHelper": "URL ต้องมี {z}, {x}, {y}",
+  "mapCustomXyzUrlInvalid": "รูปแบบ URL ไม่ถูกต้อง",
+  "mapCustomMapLibreUrlNotSet": "ไม่ได้ตั้งค่า URL สไตล์ MapLibre",
+  "mapCustomMapLibreUrlTitle": "URL สไตล์ MapLibre",
+  "mapCustomMapLibreUrlHelper": "URL ต้องชี้ไปที่ JSON สไตล์ที่สาธารณะสามารถอ่านได้",
+  "mapAnitabiImageSourceSection": "แหล่งที่มาของภาพ Anitabi",
+  "mapThumbnailSection": "ภาพขนาดย่อของแผนที่",
+  "mapThumbnailThresholdTitle": "เกณฑ์การแสดงภาพขนาดย่อ",
+  "mapThumbnailThresholdDesc": "เมื่อมีจุดไม่เกิน {threshold} ในมุมมอง ภาพขนาดย่อจะปรากฏขึ้น เมื่อมีมากกว่า  จะแสดงเฉพาะจุดเท่านั้น",
+  "mapConcurrentLoadsTitle": "จำนวนคำขอรูปภาพพร้อมกัน",
+  "mapConcurrentLoadsDesc": "ใช้เพื่อแสดงภาพขนาดย่อของแผนที่ ภาพขนาดย่อของแคชเมื่อนำเข้าจุด และแผนที่อ้างอิงแคชเป็นชุด ตัวเลขที่สูงขึ้นอาจส่งผลให้ความเร็วเร็วขึ้น แต่ยังทำให้เครือข่ายมีความตึงเครียดมากขึ้นด้วย",
+  "mapThumbnailThresholdZeroHint": "เกณฑ์ 0 จะไม่แสดงภาพขนาดย่อบนแผนที่",
+  "mapNavigationAppSection": "ซอฟต์แวร์นำทาง",
+  "mapNavigationAppHint": "มีเพียงตัวเลือกอินเทอร์เฟซเท่านั้นที่ยังคงอยู่ และการข้ามการนำทางจริงไม่ได้เชื่อมต่อในขณะนี้",
+  "desktopLauncherSection": "ตัวเรียกใช้งาน",
+  "aboutAppInfoSection": "ข้อมูลการสมัคร",
+  "aboutAppDescription": "แอนิเมชั่นการวางแผนการท่องเที่ยวดินแดนศักดิ์สิทธิ์และเครื่องมืออ้างอิงการถ่ายภาพ",
+  "aboutVersionLabel": "รุ่นปัจจุบัน",
+  "aboutLoadingText": "การอ่าน",
+  "aboutAuthorLabel": "ผู้เขียน",
+  "aboutContactEmailLabel": "อีเมล์ติดต่อ",
+  "aboutSourceCodeRepositoryLabel": "คลังสินค้าโอเพ่นซอร์ส",
+  "aboutLicenseLabel": "ใบอนุญาตโอเพ่นซอร์ส",
+  "aboutCopyrightSection": "ข้อมูลและลิขสิทธิ์",
+  "aboutCopyrightDescription": "Maps สามารถใช้ OpenFreeMap, OpenStreetMap หรือบริการที่กำหนดเองได้ Bangumi ใช้สำหรับการหางาน จุดท่องเที่ยวและแผนที่อ้างอิงมาจาก Anitabi การตั้งค่าแหล่งที่มาของรูปภาพจะมีผลกับชื่อโดเมนการเข้าถึงเท่านั้น และลิงก์ระยะไกลจะคงรูปแบบเริ่มต้นของ Anitabi ไว้อย่างสม่ำเสมอ ลิขสิทธิ์ของข้อมูล ภาพหน้าจอ และรูปภาพของบุคคลที่สามเป็นของแพลตฟอร์มดั้งเดิม ผู้มีส่วนร่วม หรือผู้ถือสิทธิ์",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "ลด",
+  "btnIncrease": "เพิ่มขึ้น",
+  "settingsExportDefaultConfig": "การกำหนดค่าเริ่มต้น",
+  "cachePlanSection": "วางแผน",
+  "cacheLoadPlansFailed": "การอ่านรายการแผนล้มเหลว",
+  "cacheSelectPlanSection": "เลือกแผน",
+  "cacheClearButton": "ล้างแคชของภาพอ้างอิงที่สมบูรณ์",
+  "btnRetry": "ลองอีกครั้ง",
+  "tooltipSelectAll": "เลือกทั้งหมด",
+  "tooltipClear": "ชัดเจน",
+  "cacheClearFuncPlaceholder": "ยังไม่ได้เข้าถึงฟังก์ชันการล้างแคช และจะแสดงเฉพาะอินเทอร์เฟซเท่านั้น",
+  "cacheSelectedPlansCount": "เลือกแผน {selected} / {total} แล้ว",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "จุด {area} / {count}",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "เนื้อหาแคช",
+  "cacheReferenceType": "แคชรูปภาพอ้างอิงเสร็จสมบูรณ์",
+  "cacheReferenceDesc": "ล้างการอ้างอิงกล้องและมุมมองขนาดใหญ่เพื่อดูภาพอ้างอิงแบบเต็มที่ใช้ แคชภาพขนาดย่อได้รับการดูแลเพื่อรักษาความเร็วในการโหลดรายการและแผนที่",
+  "gpsDisabled": "ไม่ได้เปิดบริการระบุตำแหน่ง",
+  "gpsPermissionRequired": "ต้องได้รับอนุญาตจากตำแหน่งเพื่อแสดงตำแหน่งปัจจุบัน",
+  "gpsTimeout": "หมดเวลาการวางตำแหน่ง โปรดลองอีกครั้งในภายหลัง",
+  "gpsFailed": "ตำแหน่งล้มเหลว โปรดตรวจสอบสิทธิ์และบริการตำแหน่ง",
+  "planActions": "การดำเนินงานตามแผน",
+  "planSwitch": "สลับแผน",
+  "planAddPoint": "เพิ่มจุด",
+  "planManage": "แผนการจัดการ",
+  "planMemo": "บันทึกการวางแผน",
+  "planImportExport": "นำเข้าและส่งออก",
+  "cacheDownloading": "กำลังแคชรูปภาพอ้างอิงที่สมบูรณ์...",
+  "cacheNoImagesToDownload": "ไม่มีรูปภาพอ้างอิงที่ต้องแคชไว้ในแผนปัจจุบัน",
+  "cacheTitle": "กำลังแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "cacheConfirmMessage": "รูปภาพอ้างอิง {count} ที่สมบูรณ์ในแผนปัจจุบันจะถูกแคช ซึ่งอาจใช้เวลานานและการรับส่งข้อมูลเครือข่าย",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "เริ่มแคช",
+  "cacheStarted": "เริ่มแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "groupPrev": "พื้นที่ก่อนหน้า",
+  "groupNext": "พื้นที่ถัดไป",
+  "mapCollapse": "ซ่อนแผนที่",
+  "labelPointsCount": "{count} คะแนน",
+  "labelCompletedCount": "เสร็จ",
+  "labelOrderMode": "แบบอย่าง",
+  "sortModeDefault": "ลำดับการวางแผนเริ่มต้น",
+  "sortModeDistance": "ระยะทางจากที่ตั้งปัจจุบัน",
+  "sortModeDefaultShort": "แผนเริ่มต้น",
+  "sortModeDistanceShort": "ตามระยะทาง",
+  "sortOrderDesc": "ลำดับย้อนกลับ",
+  "sortOrderAsc": "ลำดับที่เป็นบวก",
+  "sortOrderFarToNear": "ไกลไปใกล้",
+  "sortOrderNearToFar": "ใกล้ไปไกล",
+  "tooltipHideLocation": "ซ่อนตำแหน่งปัจจุบัน",
+  "tooltipShowLocation": "แสดงตำแหน่งปัจจุบัน",
+  "labelCompleted": "เสร็จ",
+  "planNoPointsTitle": "ยังไม่มีการจอง",
+  "planNoPointsSubtitle": "ขั้นแรกให้เพิ่มจุดทัวร์จาก Anitabi หรือป้อนด้วยตนเอง จากนั้นเป้าหมายปัจจุบันและความคืบหน้าเสร็จสมบูรณ์จะแสดงที่นี่",
+  "planWorksCount": "{count} ใช้งานได้",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "ถ่าย {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} จุด / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "รายละเอียดจุด",
+  "btnCameraReference": "อ้างอิงการยิง",
+  "tooltipRevertCompleted": "ถอนนาฬิกาเข้า",
+  "tooltipMarkCompleted": "ทำเครื่องหมายว่าเสร็จสมบูรณ์",
+  "tooltipSetTarget": "ตั้งเป็นเป้าหมายปัจจุบัน",
+  "recordsUnassignedDesc": "ยังไม่มีการบันทึกลงในพื้นที่",
+  "recordsOrphanedTitle": "บันทึกกำพร้า",
+  "recordsOrphanedDesc": "จุดที่เกี่ยวข้องไม่อยู่ในแผนปัจจุบันอีกต่อไป",
+  "recordsAllRecords": "บันทึกทั้งหมด",
+  "recordsFilterConditionsCount": "ตัวกรอง {count}",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "กรอง",
+  "recordsSearchPoints": "จุดค้นหา",
+  "recordsSearchHint": "จุด งาน ฉาก จำนวนตอน พิกัด",
+  "tooltipClearSearch": "ล้างการค้นหา",
+  "recordsFilterStatus": "สถานะ",
+  "recordsFilterCompletedPoints": "คะแนนเสร็จสมบูรณ์",
+  "recordsFilterPendingPoints": "จุดที่ยังไม่เสร็จ",
+  "recordsPhotoTitle": "ภาพถ่ายแสวงบุญ",
+  "recordsEntriesCount": "บทความ {count}",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "บันทึกทัวร์ {count}",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "กรอก {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "ยังไม่มีบันทึกการเดินทาง มันจะปรากฏขึ้นที่นี่โดยอัตโนมัติหลังจากถ่ายภาพสำเร็จ",
+  "groupOrderModePending": "ที่จะจัดขึ้น",
+  "groupOrderModeManual": "คู่มือ",
+  "groupOrderModeNone": "ความผิดปกติ",
+  "groupAnchorPending": "รอที่จะแตกออกเป็นชิ้นๆ",
+  "groupAnchorNameLabel": "ประเด็นสำคัญ: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "แผนปัจจุบันยังไม่เกิดขึ้น",
+  "tooltipLocation": "ตำแหน่ง",
+  "tooltipUseIconMarkers": "ใช้เครื่องหมายไอคอน",
+  "tooltipShowThumbnailMarkers": "แสดงเครื่องหมายภาพขนาดย่อ",
+  "tooltipPoint": "จุดแสวงบุญ",
+  "copyLabelPointInfo": "ข้อมูลจุด",
+  "mapNoPointsMessage": "แผนปัจจุบันยังไม่เกิดขึ้น หลังจากเพิ่มจุดแล้ว เครื่องหมายจะปรากฏบนแผนที่",
+  "labelEditPointNotSupported": "คะแนนไม่สามารถแก้ไขได้ในสภาพแวดล้อมปัจจุบัน",
+  "tooltipGoToTarget": "เป้าหมายปัจจุบัน",
+  "planDefaultNewName": "แผนทัวร์ใหม่ {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "ไม่ได้ตั้งค่าภูมิภาค",
+  "msgDeletePlanAtLeastOne": "จำเป็นต้องเก็บอย่างน้อยหนึ่งแผน",
+  "dialogDeletePlanTitle": "ลบแผน",
+  "dialogDeletePlanMessage": "\"{name}\" และสถานที่ พื้นที่ ผลงาน และบันทึกการเดินทางจะถูกลบ การดำเนินการนี้ไม่สามารถยกเลิกได้",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "ลบ",
+  "dialogEditPlanTitle": "แก้ไขข้อมูลแผน",
+  "labelPlanName": "ชื่อแผน",
+  "labelPlanArea": "ภูมิภาค/พื้นที่",
+  "btnNewPlan": "แผนใหม่",
+  "statusTextCurrentPlan": "แผนปัจจุบัน",
+  "statusTextSwitchable": "สลับได้",
+  "labelPlanInfo": "ข้อมูลโปรแกรม",
+  "planInfoCopyContent": "{name}\n{area}\n{points} แต้ม \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "สวิตช์",
+  "btnReloadPlan": "แผนการโหลดซ้ำ",
+  "importExportImportSection": "นำเข้า",
+  "importExportImportDescMobile": "เปิด .sjhplan ด้วย MiriaGo จากไฟล์ แชท เบราว์เซอร์ หรือไดรฟ์เครือข่าย",
+  "importExportImportDescWeb": "เลือกไฟล์ .sjhplan และดูตัวอย่างเนื้อหาก่อนนำเข้า",
+  "importExportStatusReading": "การอ่าน...",
+  "importExportOpenFromApp": "เปิด .sjhplan จากแอปอื่น",
+  "importExportImportFileTitle": "นำเข้าไฟล์ MiriaGo",
+  "importExportOpenFromAppDesc": "เลือก .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ หรือไดรฟ์เครือข่าย จากนั้นแชร์หรือเปิดด้วย MiriaGo",
+  "importExportImportFileDesc": "รองรับแพ็คเกจข้อมูล v2 และแพ็คเกจแผน v1 JSON ดั้งเดิม",
+  "importExportZipDesc": "เวอร์ชันใหม่ของ .sjhplan ซึ่งเป็นไฟล์ zip ภายในที่มี manifest.json",
+  "importExportMyMapsDesc": "ส่งออกคะแนนเป็น CSV รูปภาพถูกเขียนเป็นลิงก์และสามารถจัดสไตล์ได้ด้วยคอลัมน์ประเภท",
+  "importExportMyMapsTitle": "ส่งออก CSV แผนที่ของฉัน",
+  "importExportMyMapsDetails": "6 คอลัมน์แรกเป็นไปตามรูปแบบตัวอย่าง โดยแยกผลงาน คอลเลกชัน แหล่งที่มา ฯลฯ ออกเป็นคอลัมน์อิสระ",
+  "msgExportCancelled": "ยกเลิกการส่งออกแล้ว",
+  "msgImportReadFailed": "การอ่านไฟล์นำเข้าล้มเหลว",
+  "dialogOpenFromAppTitle": "เปิด .sjhplan จากแอปอื่น",
+  "dialogOpenFromAppMessage": "โปรดค้นหาไฟล์ .sjhplan ในไฟล์ แชท หน้าดาวน์โหลดเบราว์เซอร์ ดิสก์เครือข่าย หรือตำแหน่งบันทึกอื่นๆ จากนั้นคลิกที่ไฟล์ หรือใช้เมนูแชร์/เพิ่มเติมเพื่อเลือก MiriaGo \n\nMiriaGo จะเข้าสู่หน้าแสดงตัวอย่างการนำเข้าโดยอัตโนมัติหลังจากได้รับไฟล์ หากไม่มี MiriaGo ในรายการ คุณสามารถบันทึกไฟล์ลงในแอป \"ไฟล์\" ก่อน จากนั้นกดไฟล์ค้างไว้เพื่อเลือกวิธีการแชร์หรือเปิด",
+  "btnGotIt": "รู้",
+  "exportShareLabel": "แพ็กเก็ต MiriaGo: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "ส่งออกแพ็คเกจข้อมูลแล้ว",
+  "dialogMissingResourcesTitle": "ทรัพยากรในท้องถิ่นบางส่วนขาดหายไป",
+  "dialogMissingResourcesMessage": "ทรัพยากรเหล่านี้จะไม่เข้าสู่แพ็คเกจข้อมูล และรูปภาพที่เกี่ยวข้องอาจไม่แสดงหลังจากการนำเข้า",
+  "btnContinueExport": "ดำเนินการส่งออกต่อไป",
+  "msgExportMyMapsSuccess": "ส่งออก CSV แผนที่ของฉันแล้ว",
+  "msgExporting": "กำลังส่งออก...",
+  "msgExportFailed": "การส่งออกล้มเหลว",
+  "warningMissingPart": "{fallback} ไม่สามารถเพิ่มทรัพยากรบางอย่างได้",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} รูปภาพอ้างอิงที่อัปโหลดในเครื่องหายไป",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "ไม่ได้เพิ่มภาพขนาดย่อ {count}",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} ไม่สามารถดาวน์โหลดภาพอ้างอิงที่สมบูรณ์ได้",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} รูปภาพอ้างอิงที่สมบูรณ์หายไป",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} รูปภาพที่หายไปจากทัวร์",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "รูปภาพที่แก้ไขสี {count} หายไป",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "พื้นที่ {groups} / จุด {points}",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "แผนบริสุทธิ์",
+  "btnPlanAndRecords": "แผน+บันทึก",
+  "importExportIncludeCache": "มีแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "importExportIncludeCacheDesc": "ภาพขนาดย่อและรูปภาพอ้างอิงที่ผู้ใช้เพิ่มจะยังคงรวมอยู่โดยค่าเริ่มต้น",
+  "btnExportDataPackage": "ส่งออกแพ็คเกจข้อมูล MiriaGo",
+  "btnExportingDataPackage": "กำลังส่งออก...",
+  "importExportEstimateEstimating": "กำลังประมาณขนาดแพ็กเก็ต...",
+  "importExportEstimateFailed": "ขนาดแพ็กเก็ตโดยประมาณ: ไม่สามารถประมาณได้ในขณะนี้",
+  "importExportEstimateResult": "ขนาดแพ็คเก็ตที่คาดหวัง: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "อัปโหลดภาพอ้างอิงในเครื่อง",
+  "dialogVisitPhotoMissing": "ภาพถ่ายแสวงบุญ",
+  "dialogGradedPhotoMissing": "การปรับสีภาพถ่าย",
+  "estimateThumbnailNotCached": "ภาพขนาดย่อ {count} ไม่ได้ถูกแคช และจะไม่เข้าสู่แพ็กเก็ตข้อมูล",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} รูปภาพอ้างอิงที่สมบูรณ์จะถูกดาวน์โหลดระหว่างการส่งออก",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} ไฟล์รูปภาพอ้างอิงที่อัปโหลดในเครื่องหายไปและไม่สามารถกู้คืนได้หลังจากส่งออก",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "{count} ไฟล์ภาพถ่ายแสวงบุญหายไป",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "ไฟล์ภาพถ่ายที่แก้ไขสี {count} หายไป",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "ทรัพยากรท้องถิ่นบางอย่างไม่สามารถอ่านได้ และเนื้อหาของแพ็คเกจจริงอาจมีการเปลี่ยนแปลง",
+  "estimateLabelAtLeast": "ขนาดแพ็กเก็ตที่คาดหวัง: อย่างน้อยประมาณ {size}, {details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "ขนาดแพ็คเก็ตโดยประมาณ: ประมาณ {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "กลับ",
+  "importExportDataPackageHeader": "แพ็คเกจข้อมูล MiriaGo",
+  "addPointsTitle": "เพิ่มเนื้อหา",
+  "addPointsAddToPlan": "เข้าร่วม: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "การจัดการงาน",
+  "addPointsWorkManagerDesc": "จัดการงานที่วางแผนไว้และสนับสนุนการค้นหา Bangumi การเพิ่มและการลบงานด้วยตนเอง",
+  "addPointsImportFromWorkMapTitle": "นำเข้าจุดจากแผนผังการทำงาน",
+  "addPointsImportFromWorkMapDesc": "ดูสถานที่ปฏิบัติงานบนแผนที่ Anitabi คลิกรายละเอียดภาพย่อเพื่อเข้าร่วมโครงการ",
+  "addPointsImportFromLinkTitle": "นำเข้าจากลิงก์ Anitabi",
+  "addPointsImportFromLinkDesc": "วางงานของ Anitabi หรือลิงก์จุดเพื่อเปิดแผนที่ของงานที่เกี่ยวข้องอย่างรวดเร็ว",
+  "addPointsManualTitle": "เพิ่มคะแนนด้วยตนเอง",
+  "addPointsManualDesc": "เลือกงานที่เพิ่มแล้วกรอกชื่อ พิกัด และข้อมูลฉาก",
+  "addPointsActionLabelUnavailable": "ไม่สามารถใช้ได้",
+  "addPointsActionLabelManage": "จัดการ",
+  "addPointsActionLabelOpen": "เปิด",
+  "addPointsActionLabelInput": "เข้า",
+  "addPointsActionLabelAdd": "เพิ่มไปที่",
+  "msgWorkAdded": "เพิ่ม \"{title}\" แล้ว",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "ไม่สามารถเพิ่มงานได้ โปรดลองอีกครั้งในภายหลัง",
+  "bangumiSearchTitle": "ค้นหาบังมี",
+  "bangumiSearchLabel": "ชื่องาน",
+  "bangumiSearchHint": "เช่น เด็กผู้หญิงที่มีโทนสีอ่อน",
+  "bangumiSearchBtn": "ค้นหาผลงาน",
+  "bangumiSearchBtnSearching": "กำลังค้นหา",
+  "bangumiSearchFailed": "การค้นหา Bangumi ล้มเหลว โปรดตรวจสอบเครือข่ายแล้วลองอีกครั้ง",
+  "bangumiSearchEmptyHelp": "ใส่ชื่องานและค้นหา จากนั้นเลือกผลลัพธ์เพื่อเข้าร่วมแผนปัจจุบัน",
+  "anitabiLinkImportTitle": "การนำเข้าลิงก์ Anitabi",
+  "anitabiLinkImportLabel": "ลิงค์อานิทาบิ",
+  "anitabiLinkImportHint": "ตัวอย่างเช่น https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "หากลิงก์มีรหัสงาน ระบบจะโหลดเฉพาะงานที่เกี่ยวข้องเท่านั้น หากมีรหัสจุดด้วย จุดนั้นจะถูกเลือกโดยอัตโนมัติ ลิงก์ที่ไม่มีรหัสงานจะต้องถูกคัดลอกอีกครั้งหลังจากเข้าสู่งานที่เกี่ยวข้องใน Anitabi",
+  "anitabiLinkImportBtn": "เปิดคะแนน Anitabi",
+  "anitabiLinkImportEmptyErr": "กรุณาใส่ลิงค์ Anitabi",
+  "anitabiLinkImportInvalidErr": "โปรดป้อนลิงก์แผนที่ Anitabi ที่ถูกต้อง",
+  "anitabiLinkImportNoWorkIdErr": "ลิงก์ไม่มีรหัสงาน โปรดป้อนงานที่เกี่ยวข้องใน Anitabi และคัดลอกลิงก์",
+  "msgPointAdded": "เพิ่ม \"{title}\" แล้ว",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "การบันทึกคะแนนล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "msgWorkSaveFailed": "บันทึกงานไม่สำเร็จ โปรดลองอีกครั้งในภายหลัง",
+  "manualAddWorkTitle": "เพิ่มรายการด้วยตนเอง",
+  "manualAddWorkName": "ชื่องาน",
+  "manualAddWorkOriginalName": "ชื่องานเดิม",
+  "manualAddWorkOriginalNameHint": "ไม่จำเป็น",
+  "manualAddWorkArea": "พื้นที่หลัก",
+  "manualAddWorkAreaHint": "ไม่บังคับ ค่าเริ่มต้น {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "บันทึกงาน",
+  "manualAddWorkBtnSaving": "ประหยัด",
+  "manualAddWorkRequiredField": "กรุณากรอกข้อมูลนี้",
+  "msgReferenceImageReadFailed": "ไม่สามารถอ่านภาพอ้างอิงได้ โปรดลองอีกครั้ง",
+  "msgClipboardCoordinatesInvalid": "ไม่มีพิกัดที่รู้จักในคลิปบอร์ด",
+  "msgClipboardCoordinatesApplied": "กรอกพิกัดคลิปบอร์ดแล้ว",
+  "manualAddPointTitleAdd": "เพิ่มคะแนนด้วยตนเอง",
+  "manualAddPointTitleEdit": "แก้ไขจุด",
+  "manualAddPointStatusEdit": "การปรับเปลี่ยน: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "ได้ผล",
+  "manualAddPointSelectWorkErr": "กรุณาเลือกงาน",
+  "manualAddPointWorkName": "แอนิเมชั่น/ชื่อผลงาน",
+  "manualAddPointWorkOriginalName": "ชื่องานเดิม",
+  "manualAddPointWorkOriginalNameHint": "ไม่จำเป็น",
+  "manualAddPointWorkArea": "พื้นที่หลักของการทำงาน",
+  "manualAddPointWorkAreaHint": "ไม่บังคับ ค่าเริ่มต้น {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "ชื่อจุด",
+  "manualAddPointPositionDesc": "คำอธิบายสถานที่",
+  "manualAddPointEpisodeLabel": "หมายเลขตอน/แท็กฉาก",
+  "manualAddPointSource": "แหล่งอ้างอิง",
+  "manualAddPointMemo": "หมายเหตุ",
+  "manualAddPointMemoHint": "ตัวเลือกเสริม เช่น การปิดร้าน การปรับปรุงใหม่ คำแนะนำในการถ่ายภาพ",
+  "manualAddPointSelectCoordsBtn": "เลือกพิกัดจากแผนที่",
+  "manualAddPointPasteCoordsBtn": "วางพิกัดคลิปบอร์ด",
+  "manualAddPointLatitude": "ละติจูด",
+  "manualAddPointLatitudeHint": "เช่น 34.8917",
+  "manualAddPointLongitude": "ลองจิจูด",
+  "manualAddPointLongitudeHint": "เช่น 135.8077",
+  "manualAddPointBtnSaving": "ประหยัด",
+  "manualAddPointBtnSaveEdit": "บันทึกการเปลี่ยนแปลง",
+  "manualAddPointBtnSaveAdd": "บันทึกจุด",
+  "manualAddPointRequiredField": "กรุณากรอกข้อมูลนี้",
+  "manualAddPointRequiredLatitude": "กรุณากรอกละติจูด",
+  "manualAddPointRequiredLongitude": "กรุณากรอกลองจิจูด",
+  "manualAddPointInvalidCoordinate": "กรุณากรอกพิกัดที่ถูกต้อง",
+  "manualAddPointSelectCoordsTitle": "เลือกพิกัดจุด",
+  "manualAddPointSelectCoordsTooltipActive": "ปิดการเลือกแผนที่",
+  "manualAddPointSelectCoordsTooltipInactive": "เลือกจุดบนแผนที่",
+  "manualAddPointSelectCoordsHelpActive": "คลิกที่ใดก็ได้บนแผนที่เพื่อกำหนดพิกัดจุด",
+  "manualAddPointSelectCoordsHelpInactive": "ขั้นแรกให้คลิกปุ่มเลือกจุดที่มุมขวาบน จากนั้นคลิกแผนที่เพื่อตั้งค่าพิกัด",
+  "manualAddPointSelectCoordsAdjustHelp": "คลิกบนแผนที่เพื่อปรับตำแหน่งต่อ",
+  "manualAddPointSelectCoordsDialogTitle": "การเลือกจุดแผนที่",
+  "manualAddPointSelectCoordsBtnUse": "ใช้",
+  "addPointsNoWorksHelp": "ขณะนี้ยังไม่มีการวางแผนงาน เพิ่มงานก่อน จากนั้นจึงนำเข้าคะแนนตามงานได้",
+  "addPointsHasWorksHelp": "แผนปัจจุบันมีงาน {count}: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "ดูภาพขนาดใหญ่",
+  "addPointsRefImageTooltipEmpty": "ยังไม่มีภาพอ้างอิง",
+  "addPointsRefImageHeader": "รูปภาพอ้างอิง",
+  "addPointsRefImageHelpSelected": "เลือกรูปภาพใหม่แล้ว และจะมีผลหลังจากบันทึก",
+  "addPointsRefImageHelpCurrent": "ต้องบันทึกรูปภาพอ้างอิงปัจจุบันหลังจากเลือกใหม่จึงจะมีผล",
+  "addPointsRefImageHelpEmpty": "ไม่บังคับ ระบบจะคัดลอกไปยังไดเร็กทอรีในเครื่องของแอปเมื่อทำการบันทึก",
+  "addPointsRefImageBtnReselect": "เลือกอีกครั้ง",
+  "addPointsRefImageBtnUpload": "อัปโหลดภาพอ้างอิง",
+  "addPointsRefImageBtnRemove": "ลบ",
+  "addPointsPointBtnAdded": "เพิ่มแล้ว",
+  "addPointsPointBtnAdd": "เข้าร่วมใน",
+  "managePlanTitle": "แผนการจัดการ",
+  "managePlanSelectedCount": "เลือก {count} แล้ว",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "การจัดการพื้นที่",
+  "managePlanCachingProgress": "การแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "managePlanCacheFullReference": "กำลังแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "managePlanTooltipExitSelection": "ออกจากการเลือกหลายรายการ",
+  "managePlanTooltipSelection": "หลายทางเลือก",
+  "msgNoAnchorForUnassigned": "จุดที่ไม่ได้รับมอบหมายจะไม่มีประเด็นสำคัญ",
+  "msgAreaNotExist": "ไม่มีพื้นที่นี้",
+  "msgSaveAnchorFailed": "ไม่สามารถบันทึกประเด็นสำคัญได้",
+  "msgNoOrderForUnassigned": "คะแนนที่ยังไม่ได้กำหนดไม่จำเป็นต้องมีการเรียงลำดับ",
+  "managePlanAreaOrderTitle": "สั่งภายในเขต",
+  "msgSaveOrderModeFailed": "ไม่สามารถบันทึกวิธีการจัดเรียงได้",
+  "msgMoveAreaFailed": "ไม่สามารถย้ายขอบเขตได้",
+  "msgOpenCameraFromPlanOrMap": "กรุณาเปิดการยิงจากหน้าวางแผนหรือหน้าแผนที่",
+  "msgSaveReferenceImageFailed": "ไม่สามารถบันทึกภาพอ้างอิง",
+  "labelUnknownArea": "พื้นที่ที่ไม่รู้จัก",
+  "managePlanMoveToAreaTitle": "ย้ายไปยังพื้นที่",
+  "msgSavePointOrderFailed": "การบันทึกลำดับจุดล้มเหลว",
+  "dialogDeletePointTitle": "ลบจุด",
+  "dialogDeletePointMsg": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{name}\" ออกจากแผนของคุณ",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "การลบจุดล้มเหลว",
+  "dialogBulkDeletePointsTitle": "ลบคะแนนเป็นชุด",
+  "dialogBulkDeletePointsMsg": "คุณแน่ใจหรือไม่ว่าต้องการลบคะแนน {count} ออกจากแผน",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "การลบแบทช์ล้มเหลว",
+  "msgSaveCurrentTargetFailed": "ไม่สามารถบันทึกเป้าหมายปัจจุบัน",
+  "msgSaveCompletionStatusFailed": "ไม่สามารถบันทึกสถานะเสร็จสมบูรณ์ได้",
+  "msgSavePointStatusFailed": "ไม่สามารถบันทึกสถานะคะแนนได้",
+  "msgBulkCompleteFailed": "การทำแบทช์ให้เสร็จสิ้นล้มเหลว",
+  "msgBulkResetFailed": "การรีเซ็ตเป็นชุดล้มเหลว",
+  "msgFullReferenceCacheStarted": "เริ่มต้นการแคชรูปภาพอ้างอิงที่สมบูรณ์แล้ว",
+  "msgCachingFullReferenceProgress": "กำลังแคชรูปภาพอ้างอิงที่สมบูรณ์...",
+  "msgNoReferenceToCache": "ไม่มีรูปภาพอ้างอิงที่ต้องแคชไว้ในแผนปัจจุบัน",
+  "dialogCacheFullReferenceTitle": "กำลังแคชรูปภาพอ้างอิงที่สมบูรณ์",
+  "dialogCacheFullReferenceMsg": "รูปภาพอ้างอิง {count} ที่สมบูรณ์ในแผนปัจจุบันจะถูกแคช ซึ่งอาจใช้เวลานานและการรับส่งข้อมูลเครือข่าย",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "เริ่มแคช",
+  "labelAnchorNotSet": "ไม่ได้ตั้งค่า",
+  "tooltipPrevArea": "พื้นที่ก่อนหน้า",
+  "tooltipNextArea": "พื้นที่ถัดไป",
+  "managePlanPointsPending": "คะแนน {count} กำลังรอการเรียงลำดับ",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "คะแนน {count} · เสร็จสิ้น {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "ประเด็นสำคัญ: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "ได้รับมอบหมายล่าสุด",
+  "btnBoxSelectAssign": "การกระจายการเลือกเฟรม",
+  "statusCurrent": "ปัจจุบัน",
+  "statusCompleted": "สมบูรณ์",
+  "statusPending": "ที่จะเข้าถึงได้",
+  "tooltipPointActions": "การดำเนินงานจุด",
+  "btnMoveToArea": "ย้ายไปยังพื้นที่",
+  "btnSetAsCurrent": "ตั้งเป็นปัจจุบัน",
+  "btnCancelCompletion": "การยกเลิกเสร็จสมบูรณ์",
+  "btnMarkCompletion": "ทำเครื่องหมายว่าเสร็จสมบูรณ์",
+  "btnDeletePoint": "ลบจุด",
+  "refStatusNone": "ไม่มีภาพอ้างอิง",
+  "refStatusLocal": "การอัปโหลดในเครื่อง",
+  "refStatusCached": "แคช",
+  "refStatusRemote": "ไม่ได้แคช",
+  "tooltipClearSelection": "ชัดเจน",
+  "tooltipMoveArea": "พื้นที่เคลื่อนที่",
+  "tooltipReset": "รีเซ็ต",
+  "dialogSelectAnchorTitle": "เลือกประเด็นสำคัญ",
+  "btnClear": "ชัดเจน",
+  "tooltipCloseMapSelect": "ปิดการเลือกแผนที่",
+  "tooltipSelectOnMap": "เลือกจุดบนแผนที่",
+  "tooltipInputCoordinates": "ป้อนละติจูดและลองจิจูด",
+  "dialogInputCoordinatesTitle": "ป้อนละติจูดและลองจิจูด",
+  "labelManualAnchor": "ปุ่มแมนนวล",
+  "tooltipSelectPoint": "เลือกจุด",
+  "labelAnchorNotSelected": "ยังไม่มีการเลือกประเด็นสำคัญ",
+  "msgClickMapToSetAnchor": "คลิกที่ใดก็ได้บนแผนที่เพื่อกำหนดจุดสำคัญ",
+  "msgSelectAnchorMethods": "คุณสามารถคลิกที่จุด แผนที่ หรือป้อนละติจูดและลองจิจูดได้",
+  "managePlanNoPoints": "ยังไม่มีจุดที่จัดการได้",
+  "dialogDiscardMemoTitle": "ทิ้งเนื้อหาที่ไม่ได้บันทึกไว้ใช่ไหม",
+  "dialogDiscardMemoMsg": "บันทึกปัจจุบันมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก",
+  "btnKeepEditing": "แก้ไขต่อ",
+  "btnDiscard": "ยอมแพ้",
+  "msgMemoSaved": "บันทึกบันทึกการวางแผนแล้ว",
+  "msgMemoSaveFailed": "บันทึกบันทึกการวางแผนล้มเหลว",
+  "msgTodoStatusSaveFailed": "ไม่สามารถบันทึกสถานะสิ่งที่ต้องทำ",
+  "memoPlaceholderHeading": "ชื่อ",
+  "memoPlaceholderBold": "ข้อความตัวหนา",
+  "memoPlaceholderListItem": "รายการ",
+  "memoPlaceholderTodo": "รายการสิ่งที่ต้องทำ",
+  "memoPlaceholderQuote": "เนื้อหาอ้างอิง",
+  "memoPlaceholderLinkText": "ข้อความลิงก์",
+  "memoPlaceholderCode": "รหัส",
+  "msgInvalidLinkFormat": "รูปแบบลิงก์ไม่ถูกต้อง",
+  "msgUnableToOpenLink": "ไม่สามารถเปิดลิงก์ได้",
+  "planMemoTitle": "บันทึกการวางแผน",
+  "labelMemoContent": "เนื้อหาบันทึกช่วยจำ",
+  "hintMemoContent": "คุณสามารถบันทึกการเดินทาง การนัดหมาย เรื่องการถ่ายทำใหม่ การจัดเตรียมเพื่อนร่วมทาง ฯลฯ",
+  "tooltipHeading": "ชื่อ",
+  "tooltipBold": "ตัวหนา",
+  "tooltipList": "รายการ",
+  "tooltipTodo": "สิ่งที่ต้องทำ",
+  "tooltipQuote": "อ้าง",
+  "tooltipDivider": "เส้นแบ่ง",
+  "tooltipLink": "ลิงค์",
+  "tooltipCode": "รหัส",
+  "tooltipUncheck": "ยกเลิกการเลือก",
+  "msgMemoImageNotSupported": "Memo ไม่รองรับรูปภาพ: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "ยังไม่ได้เขียนบันทึกแผนงาน",
+  "memoEmptySubtitle": "คลิกแก้ไขที่มุมขวาบนเพื่อบันทึกการขนส่ง การนัดหมาย การถ่ายทำใหม่ หรือการเตรียมการอื่นๆ",
+  "msgInvalidRatio": "โปรดป้อนอัตราส่วนที่ถูกต้อง",
+  "dialogCustomRatioTitle": "ขนาดที่กำหนดเอง",
+  "labelWidth": "ความกว้าง",
+  "labelHeight": "สูง",
+  "msgColorNameRequired": "กรุณากรอกชื่อสี",
+  "dialogCustomThemeColorTitle": "สีของธีมที่กำหนดเอง",
+  "labelColorName": "ชื่อ",
+  "labelColorHex": "หมายเลขสี",
+  "btnAdd": "เพิ่มไปที่",
+  "navAppGoogleMaps": "Google แผนที่",
+  "navAppAmap": "อาแมป",
+  "navAppAppleMaps": "แอปเปิ้ลแผนที่",
+  "navAppBaiduMaps": "แผนที่ไป่ตู้",
+  "navAppTencentMaps": "แผนที่เทนเซ็นต์",
+  "navAppBrowser": "เบราว์เซอร์",
+  "navAppGoogleMapsSub": "ตัวเลือกเริ่มต้น",
+  "navAppAmapSub": "ที่นิยมใช้ในประเทศจีน",
+  "navAppAppleMapsSub": "iOS พื้นเมือง",
+  "navAppBaiduMapsSub": "การนำทางในเมือง",
+  "navAppTencentMapsSub": "ทางเลือกที่มีน้ำหนักเบา",
+  "navAppBrowserSub": "หน้าเว็บจะเปิดขึ้น",
+  "comparisonBorderColorWhite": "สีขาว",
+  "comparisonBorderColorBlack": "สีดำ",
+  "comparisonBorderColorTheme": "สีของธีม",
+  "comparisonWidthLabel": "กว้าง {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "ไม่มีพรมแดน",
+  "comparisonBorderPercent": "เส้นขอบ {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "แสดงป้ายกำกับ",
+  "comparisonHideLabels": "อย่าแสดงป้ายกำกับ",
+  "comparisonPilgrimName": "ผู้แสวงบุญ {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "รูปร่าง",
+  "comparisonFieldBorderWidth": "ความกว้างของเส้นขอบ",
+  "comparisonBorderWidthNone": "ไม่มี",
+  "comparisonFieldBorderColor": "สีเส้นขอบ",
+  "comparisonFieldOutputWidth": "ความกว้างเอาต์พุต",
+  "comparisonLabelShowLabel": "แสดงป้ายกำกับ",
+  "comparisonSectionMetadata": "ข้อมูลเมตา",
+  "comparisonFieldPilgrimName": "ชื่อผู้แสวงบุญ",
+  "comparisonShowPilgrimRight": "แสดงผู้แสวงบุญทางด้านขวา",
+  "comparisonShowGradingBottom": "พารามิเตอร์การให้เกรดสีจะแสดงที่ด้านล่าง",
+  "comparisonLabelReference": "อ้างถึง",
+  "comparisonLabelCaptured": "แสวงบุญ",
+  "comparisonLabelPilgrim": "ผู้แสวงบุญ",
+  "comparisonExportTitle": "ส่งออกแผนภูมิเปรียบเทียบ",
+  "tooltipClose": "ปิด",
+  "comparisonExporting": "กำลังส่งออก...",
+  "comparisonExport": "ส่งออก",
+  "comparisonWidthAuto": "อัตโนมัติ",
+  "comparisonMetaCapturedAt": "เวลาถ่ายภาพ",
+  "comparisonMetaWork": "งาน",
+  "comparisonMetaPoint": "สถานที่",
+  "comparisonMetaCoordinates": "ประสานงาน",
+  "comparisonMetaEpisode": "ฉาก",
+  "comparisonErrRefUnavailable": "รูปภาพอ้างอิงไม่พร้อมใช้งานและรูปภาพเปรียบเทียบไม่สามารถส่งออกได้",
+  "comparisonErrCapturedUnavailable": "แผนที่ทัวร์ไม่พร้อมใช้งานและไม่สามารถส่งออกภาพเปรียบเทียบได้",
+  "comparisonErrRenderFailed": "การส่งออกล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "cameraFallbackRatioTitle": "มาตราส่วนโดยไม่มีภาพอ้างอิง",
+  "btnEdit": "แก้ไข",
+  "cameraRefModeOverlay": "โอเวอร์เลย์",
+  "cameraRefModeSplit": "ขึ้นและลง",
+  "cameraRefModePinned": "หน้าต่างเล็ก ๆ",
+  "cameraWebPreviewWarning": "การแสดงตัวอย่างเว็บไม่เปิดกล้องถ่ายทอดสด",
+  "workManagerEmptyHelp": "ขณะนี้ยังไม่มีการวางแผนงาน",
+  "dialogDeleteWorkTitle": "ลบงาน",
+  "dialogDeleteWorkConfirmSingle": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{name}\"",
+  "dialogDeleteWorkConfirmMultiple": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{name}\" การดำเนินการนี้จะลบประเด็นที่เกี่ยวข้องกับ {count} และบันทึกที่เกี่ยวข้องพร้อมกัน",
+  "msgDeleteWorkFailed": "การลบงานล้มเหลว",
+  "tooltipDeleteWork": "ลบงาน",
+  "labelWorkTitleText": "ชื่องาน",
+  "labelWorkInfoText": "ข้อมูลการทำงาน",
+  "btnManualAdd": "เพิ่มด้วยตนเอง",
+  "btnBangumiSearch": "บังมี",
+  "labelBangumiSource": "บังมี #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "หนังสือ",
+  "subjectTypeAnime": "แอนิเมชั่น",
+  "subjectTypeMusic": "ดนตรี",
+  "subjectTypeGame": "เกม",
+  "subjectTypeReal": "สามมิติ",
+  "labelPoints": "จุด",
+  "mapImportTitle": "นำเข้าจากแผนที่งาน",
+  "mapImportRefreshingCache": "กำลังล้างแคชและโหลดคะแนน Anitabi ใหม่...",
+  "mapImportManualWorkNoBangumiId": "งานที่เพิ่มด้วยตนเองไม่มี Bangumi ID และไม่สามารถนำเข้าจุดจากแผนที่ Anitabi ได้",
+  "mapImportPointAddedMsg": "เข้าร่วมแผนแล้วสามารถเลือกจุดต่อได้",
+  "mapImportPointAddFailedMsg": "การนำเข้าคะแนนล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "mapImportAllAddedMsg": "เพิ่มคะแนนที่ไม่ได้เข้าร่วมทั้งหมดแล้ว",
+  "mapImportBatchFailedMsg": "การนำเข้าเป็นกลุ่มล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "mapImportBoxSelectionEmptyMsg": "ไม่มีคะแนนที่สามารถเพิ่มได้ภายในช่วงการเลือก",
+  "mapImportBoxAddedMsg": "เพิ่มจุดเลือกเฟรมแล้ว",
+  "mapImportBoxFailedMsg": "การนำเข้าจุดเลือกเฟรมล้มเหลว โปรดลองอีกครั้งในภายหลัง",
+  "mapImportImportingMsg": "กำลังนำเข้าจุด {count}...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "การแคชภาพขนาดย่อ {processed}/{total}, {succeeded} สำเร็จ",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "นำเข้าคะแนน {count} แล้ว และภาพขนาดย่อถูกแคชไว้ {cached}/{total} ส่วนที่เหลือจะถูกกรอกโดยอัตโนมัติในภายหลัง",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "เพิ่มทุกจุด",
+  "mapImportAddAllDialogMsg": "คะแนน {count} ในงานปัจจุบันที่ยังไม่ได้อยู่ในแผนจะถูกเพิ่มลงในแผนและวางไว้ในพื้นที่ที่ไม่ได้จัดกลุ่มชั่วคราว",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "เพิ่มทั้งหมด",
+  "mapImportAddBoxDialogTitle": "เพิ่มจุดเลือกเฟรม",
+  "mapImportAddBoxDialogMsg": "คะแนน {count} ภายในช่วงที่เลือกซึ่งยังไม่อยู่ในแผนจะถูกเพิ่มลงในแผนและวางไว้ในพื้นที่ที่ไม่ได้จัดกลุ่มชั่วคราว",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "เพิ่มการเลือกเฟรม",
+  "mapImportAddBoxBtnWithCount": "เพิ่ม {count}",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "จัดระเบียบจุดนำเข้าใหม่",
+  "mapImportOrganizeDialogMsg": "คะแนน {count} ได้รับการนำเข้าและวางไว้ชั่วคราวโดยไม่จัดกลุ่ม คุณสามารถสร้างแพตช์และประเด็นสำคัญก่อน จากนั้นจึงกำหนดอย่างรวดเร็วตามจุดสำคัญที่ใกล้ที่สุด",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "ได้รับมอบหมายล่าสุด",
+  "mapImportOrganizeGroupManager": "การจัดการพื้นที่",
+  "mapImportOrganizeLater": "ภายหลัง",
+  "mapImportRefreshTooltip": "ล้างแคชและโหลดคะแนน Anitabi ใหม่",
+  "mapImportMarkerTooltip": "จุดอานิทาบิ",
+  "mapImportErrDataUnavailable": "ไม่สามารถโหลดข้อมูลแผนที่ Anitabi ได้",
+  "mapImportErrPartialData": "คะแนน Anitabi โหลดเพียงบางส่วนเท่านั้น",
+  "mapImportErrNotFound": "ไม่มีข้อมูลแผนที่ Anitabi สำหรับรายการ Bangumi นี้",
+  "mapImportErrLoadFailed": "การโหลดจุด Anitabi ล้มเหลว",
+  "mapImportErrDataUnavailableDetailWeb": "อาจเป็นไปได้ว่าเวอร์ชันแคชข้อมูลแผนที่ Anitabi ไม่สอดคล้องกัน หรือคำขอเครือข่ายบริการแสดงตัวอย่างปัจจุบันถูกบล็อก โปรดล้างแคชและโหลดคะแนน Anitabi อีกครั้ง",
+  "mapImportErrDataUnavailableDetail": "ไม่สามารถอ่านดัชนีแผนที่ Anitabi โปรดตรวจสอบการเชื่อมต่อเครือข่ายของคุณ หรือล้างแคชของคุณและโหลด Anitabi Point อีกครั้ง",
+  "mapImportErrPartialDataDetail": "ปัจจุบันได้รับเพียงคะแนน {loaded} / {expected} เท่านั้น โปรดโหลดซ้ำหรือตรวจสอบว่าเครือข่ายสามารถเข้าถึงข้อมูลแผนที่ Anitabi หรือไม่",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "คุณสามารถลองเพิ่มงานต้นฉบับ เกม หรือรายการอื่นๆ ที่เกี่ยวข้องด้วยชื่อเดียวกันในการจัดการงานได้",
+  "mapImportErrLoadFailedDetail": "โปรดตรวจสอบเครือข่ายแล้วลองอีกครั้ง หรือโหลดซ้ำในภายหลัง",
+  "mapImportProgressImporting": "กำลังนำเข้าจุด {total}...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "การแคชภาพขนาดย่อ {processed}/{total}, {succeeded} สำเร็จ",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "นำเข้าคะแนนแล้ว",
+  "mapImportMarkerAvailableTooltip": "สามารถนำเข้าคะแนนได้",
+  "mapImportSummaryLoading": "กำลังโหลดคะแนน Anitabi",
+  "mapImportSummaryStats": "นำเข้า {imported} / กำลังแสดง {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/ รวม {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "เพิ่มทุกจุด",
+  "mapImportSummaryTooltipBoxExit": "การเลือกกล่องทางออก",
+  "mapImportSummaryTooltipBoxStart": "จุดเฟรมที่เลือก",
+  "mapImportPointNameLabel": "ชื่อจุด",
+  "mapImportPointInfoLabel": "ข้อมูลจุด",
+  "mapImportPointOriginLabel": "แหล่งที่มา",
+  "mapImportPointDetailBtn": "รายละเอียด",
+  "mapImportPointJoinedBtn": "เข้าร่วมแล้ว",
+  "mapImportPointJoinBtn": "เข้าร่วมโปรแกรม",
+  "mapImportDetailSceneLabel": "ฉาก",
+  "mapImportDetailNoteLabel": "หมายเหตุ",
+  "mapImportDetailCoordLabel": "ประสานงาน",
+  "mapImportDetailJoinedBtn": "เข้าร่วมโปรแกรมแล้ว",
+  "mapImportNoPointSelectedHint": "คลิกที่จุดบนแผนที่เพื่อดูภาพขนาดย่อและรายละเอียด",
+  "mapImportNoImportablePoints": "ไม่มีคะแนน Anitabi สำหรับการนำเข้าในงานปัจจุบัน",
+  "mapImportNoImagePoints": "งานปัจจุบันมีจุด {count} แต่ไม่มีจุดอ้างอิงพร้อมรูปภาพที่สามารถนำเข้าได้",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "ยังไม่มีชื่อ Bangumi ที่กำลังวางแผนอยู่ กรุณาไปที่ฝ่ายจัดการงานเพื่อเพิ่มงาน Bangumi ก่อน",
+  "mapImportManualWorkState": "งานที่เพิ่มด้วยตนเองไม่มี Bangumi ID และไม่สามารถนำเข้าจุดจากแผนที่ Anitabi ได้ \n\nกรุณาค้นหาเพื่อเพิ่มผลงานผ่าน Bangumi/Anitabi หรือเพิ่มคะแนนด้วยตนเอง",
+  "mapImportLoadingWorksAndPoints": "กำลังโหลดผลงาน Anitabi และคะแนน",
+  "msgCannotOpenMapApp": "ไม่สามารถเปิด {app} ได้",
+  "mapImportErrPointNotFound": "ไม่พบจุด Anitabi นี้",
+  "mapImportErrPointNotFoundDetail": "รหัสจุดในลิงก์อาจไม่ถูกต้อง หรือข้อมูลแผนที่ Anitabi ยังไม่ได้รับการซิงโครไนซ์",
+  "navMapSectionTitle": "แผนที่นำทาง {app}",
+  "navAppDescGoogleMaps": "ปุ่มนำทางจะเปิดเส้นทางเดินเท้าผ่าน URL อย่างเป็นทางการของ Google Maps",
+  "navAppDescAppleMaps": "ปุ่มนำทางจะเปิดเส้นทางเดินเท้าผ่าน Apple Map Links",
+  "navAppDescAmap": "ปุ่มนำทางจะเปิดเส้นทางเดินเท้าผ่าน Amap URI API และใช้พิกัด WGS84",
+  "navAppDescBaiduMaps": "ปุ่มนำทางจะเปิดเส้นทางเดินเท้าผ่าน Baidu Maps URI API โดยใช้พิกัด WGS84",
+  "mapProviderHintOpenFreeMap": "ค่าเริ่มต้นที่แนะนำ",
+  "mapProviderHintOsm": "กระเบื้องมาตรฐาน",
+  "mapProviderHintCustomXyz": "แม่แบบกระเบื้อง",
+  "mapProviderHintCustomStyle": "URL สไตล์",
+  "anitabiSrcAuto": "การเลือกอัตโนมัติ",
+  "anitabiSrcOfficial": "ค่าเริ่มต้นอย่างเป็นทางการ",
+  "anitabiSrcMirror": "แหล่งสำรองข้อมูล",
+  "anitabiSrcAutoDesc": "ใช้ Image.anitabi.cn ก่อน หากการดาวน์โหลดมาถึงหน้าแสดงข้อผิดพลาดหรือถูกบล็อก img-tc.anitabi.cn จะถูกลองใช้",
+  "anitabiSrcOfficialDesc": "แก้ไขการใช้ image.anitabi.cn และคงแหล่งรูปภาพเริ่มต้นอย่างเป็นทางการของ Anitabi ไว้",
+  "anitabiSrcMirrorDesc": "แก้ไขการใช้งาน img-tc.anitabi.cn เหมาะสำหรับใช้เมื่อแหล่งที่มาเริ่มต้นอย่างเป็นทางการมักถูกบล็อก"
+}

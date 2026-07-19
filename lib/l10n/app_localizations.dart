@@ -6,8 +6,16 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
+import 'app_localizations_it.dart';
+import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
+import 'app_localizations_ms.dart';
+import 'app_localizations_pt.dart';
+import 'app_localizations_ru.dart';
+import 'app_localizations_th.dart';
+import 'app_localizations_vi.dart';
 import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
@@ -97,8 +105,16 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
+    Locale('es'),
     Locale('fr'),
+    Locale('it'),
+    Locale('ja'),
     Locale('ko'),
+    Locale('ms'),
+    Locale('pt'),
+    Locale('ru'),
+    Locale('th'),
+    Locale('vi'),
     Locale('zh'),
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
@@ -174,6 +190,54 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'한국어'**
   String get languageKo;
+
+  /// No description provided for @languageJa.
+  ///
+  /// In zh, this message translates to:
+  /// **'日本語'**
+  String get languageJa;
+
+  /// No description provided for @languageRu.
+  ///
+  /// In zh, this message translates to:
+  /// **'Русский'**
+  String get languageRu;
+
+  /// No description provided for @languageEs.
+  ///
+  /// In zh, this message translates to:
+  /// **'Español'**
+  String get languageEs;
+
+  /// No description provided for @languagePt.
+  ///
+  /// In zh, this message translates to:
+  /// **'Português'**
+  String get languagePt;
+
+  /// No description provided for @languageIt.
+  ///
+  /// In zh, this message translates to:
+  /// **'Italiano'**
+  String get languageIt;
+
+  /// No description provided for @languageTh.
+  ///
+  /// In zh, this message translates to:
+  /// **'ภาษาไทย'**
+  String get languageTh;
+
+  /// No description provided for @languageVi.
+  ///
+  /// In zh, this message translates to:
+  /// **'Tiếng Việt'**
+  String get languageVi;
+
+  /// No description provided for @languageMs.
+  ///
+  /// In zh, this message translates to:
+  /// **'Bahasa Melayu'**
+  String get languageMs;
 
   /// No description provided for @labelWork.
   ///
@@ -4263,8 +4327,20 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'fr', 'ko', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'en',
+    'es',
+    'fr',
+    'it',
+    'ja',
+    'ko',
+    'ms',
+    'pt',
+    'ru',
+    'th',
+    'vi',
+    'zh',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -4287,10 +4363,26 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
       return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
     case 'fr':
       return AppLocalizationsFr();
+    case 'it':
+      return AppLocalizationsIt();
+    case 'ja':
+      return AppLocalizationsJa();
     case 'ko':
       return AppLocalizationsKo();
+    case 'ms':
+      return AppLocalizationsMs();
+    case 'pt':
+      return AppLocalizationsPt();
+    case 'ru':
+      return AppLocalizationsRu();
+    case 'th':
+      return AppLocalizationsTh();
+    case 'vi':
+      return AppLocalizationsVi();
     case 'zh':
       return AppLocalizationsZh();
   }

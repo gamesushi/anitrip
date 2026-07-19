@@ -1,0 +1,1211 @@
+{
+  "@@locale": "ru",
+  "tabPlan": "план",
+  "tabMap": "карта",
+  "tabRecords": "Записывать",
+  "tabSettings": "настраивать",
+  "settingsTitle": "настраивать",
+  "languageSetting": "Языковые настройки",
+  "languageSystem": "Следуйте системе",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "работа",
+  "labelScene": "сцена",
+  "labelCoordinates": "координировать",
+  "labelArea": "область",
+  "labelReference": "обратитесь к",
+  "labelSource": "источник",
+  "labelId": "ИДЕНТИФИКАТОР",
+  "labelLink": "Связь",
+  "btnChange": "Изменять",
+  "btnReplace": "заменять",
+  "labelLocalRecords": "Запись этого момента",
+  "labelAll": "все",
+  "btnNavigate": "навигация",
+  "btnOverlay": "Справочник по съемке",
+  "btnSetTarget": "Установить как текущий",
+  "btnMarkDone": "Отметить как завершенное",
+  "btnEditPoint": "Редактировать точку",
+  "settingsAppearance": "Настройки внешнего вида",
+  "settingsAppearanceSubtitle": "Цвет темы, масштабирование, отображение и т. д.",
+  "settingsCamera": "Настройки съемки",
+  "settingsCameraSubtitle": "Пропорция фотографии, пропорция эталонного изображения, резервная копия и т. д.",
+  "settingsExport": "Настройки сравнительной диаграммы",
+  "settingsExportSubtitle": "Экспортируйте стили и автоматически сохраняйте их в фотоальбом.",
+  "settingsDataSource": "Настройки источника данных",
+  "settingsDataSourceSubtitle": "Источник карты, источник изображения и т. д.",
+  "settingsClearCache": "очистить кеш",
+  "settingsClearCacheSubtitle": "Полный кэш эталонных изображений",
+  "settingsAbout": "О МириаГо",
+  "settingsAboutSubtitle": "Информация о версии, лицензия с открытым исходным кодом и т. д.",
+  "btnCancel": "Отмена",
+  "btnConfirm": "Конечно",
+  "btnSave": "сохранять",
+  "labelManualEntry": "Ручной ввод",
+  "labelRevertCompleted": "Снять приход",
+  "labelUnassignedGroup": "Не разделен на зоны",
+  "labelUnknownGroup": "неизвестная область",
+  "labelNoAnchor": "Ключи не установлены",
+  "labelStatusCurrent": "текущая цель",
+  "labelStatusCompleted": "Завершенный",
+  "labelStatusPending": "Для доступа",
+  "settingsReset": "Восстановить первоначальные настройки",
+  "settingsResetConfirmSubtitle": "Все настройки внешнего вида, съемки и карты будут восстановлены до значений по умолчанию.",
+  "settingsThemeColor": "цвет темы",
+  "settingsThemeColorSubtitle": "Влияет на общее соответствие цветов приложения.",
+  "settingsThemeMode": "режим темы",
+  "settingsThemeLight": "светлый режим",
+  "settingsThemeDark": "темный режим",
+  "settingsThemeSystem": "Следуйте системе",
+  "settingsUiScale": "Масштаб страницы",
+  "settingsUiScaleSubtitle": "Отрегулируйте общий размер интерфейса (не влияет на эталонное изображение)",
+  "settingsCameraRatio": "Соотношение сторон изображения",
+  "settingsCameraZoom": "зум камеры",
+  "settingsPhotoBackup": "резервная копия фотографий",
+  "settingsPhotoBackupSubtitle": "Сохраняйте фотографии тура в альбом",
+  "settingsAutoSaveComparison": "Автоматически сохранять сравнительную таблицу",
+  "settingsAutoSaveComparisonSubtitle": "Сохранить в фотоальбом при сохранении записи",
+  "settingsDesktop": "Рабочий стол",
+  "settingsDesktopSubtitle": "Лаунчер, каталог данных и т. д.",
+  "desktopLauncherChecking": "Проверка программы запуска рабочего стола",
+  "desktopLauncherUnavailable": "Программа запуска на рабочем столе недоступна",
+  "desktopSystemDataDir": "Каталог системных данных",
+  "desktopPortableDir": "переносимый каталог",
+  "desktopAppDataDir": "каталог данных приложения",
+  "desktopLauncherAvailable": "Доступен настольный лаунчер",
+  "settingsFontSmall": "Маленький",
+  "settingsFontStandard": "стандартный",
+  "settingsFontLarge": "большой",
+  "settingsFontHuge": "очень большой",
+  "msgReplacingRef": "Замена эталонного изображения...",
+  "msgReplaceRefFailed": "Не удалось заменить эталонное изображение. Повторите попытку позже.",
+  "msgReplaceRefSuccess": "Эталонное изображение заменено.",
+  "msgCannotOpenMap": "Невозможно открыть Карты Google.",
+  "titleMoveToGroup": "Переехать в район",
+  "copyLabelPointName": "Имя точки",
+  "copyLabelGroupAnchor": "Ключевые точки района",
+  "labelNote": "Примечание",
+  "themeClassicGreen": "классический зеленый",
+  "themeDeepBlue": "темно-синий",
+  "themeCherryPink": "Сакура порошок",
+  "themeTwilightPurple": "сумеречный фиолетовый",
+  "themeMiriaYellow": "янтарно-оранжевый",
+  "themeGraphite": "графитовый черный",
+  "themeAurora": "Настроить",
+  "aspectAuto": "автоматический",
+  "aspectNative": "родные пропорции",
+  "aspectCustom": "Настроить",
+  "aspectAutoHint": "рекомендовать",
+  "aspectNativeHint": "Родной",
+  "aspectLandscape16x9Hint": "широкоэкранный",
+  "aspectCinema21x9Hint": "Фильм",
+  "aspectStandard4x3Hint": "классический",
+  "aspectPhoto3x2Hint": "камера",
+  "aspectPortrait9x16Hint": "Вертикальный экран",
+  "aspectPortrait9x21Hint": "Полноэкранный",
+  "aspectPortrait3x4Hint": "вертикальный баннер",
+  "aspectPortrait2x3Hint": "вертикальный баннер",
+  "aspectSquare1x1Hint": "квадрат",
+  "aspectCustomHint": "Индивидуальные",
+  "mapProviderOpenFreeMap": "OpenFreeMap",
+  "mapProviderOpenFreeMapDesc": "Карта по умолчанию, использует стиль MapLibre.",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "Используйте стандартные плитки XYZ OpenStreetMap.",
+  "mapProviderCustomXyz": "Пользовательский XYZ",
+  "mapProviderCustomXyzDesc": "Используйте URL-адрес растрового фрагмента, содержащий {z}/{x}/{y}.",
+  "mapProviderCustomMapLibre": "Пользовательская картаLibre",
+  "mapProviderCustomMapLibreDesc": "Используйте собственный URL-адрес в стиле MapLibre.",
+  "mapStyleLibertyDesc": "Стиль по умолчанию имеет более высокую плотность информации.",
+  "mapStyleBrightDesc": "Яркий стандартный стиль.",
+  "mapStylePositronDesc": "Светлый цвет, низкий уровень отвлечения внимания.",
+  "mapStyleDarkDesc": "Темный стиль карты.",
+  "mapStyleFiordDesc": "Мягкий ландшафтный стиль.",
+  "imageSourceAuto": "автоматический выбор",
+  "imageSourceOfficial": "Официальный дефолт",
+  "imageSourceMirror": "резервный источник",
+  "imageSourceAutoDesc": "Image.anitabi.cn используется первым; если загрузка достигает страницы с ошибкой или блокируется, будет предпринята попытка загрузки img-tc.anitabi.cn.",
+  "imageSourceOfficialDesc": "Исправлено использование image.anitabi.cn и сохранение официального источника изображения Anitabi по умолчанию.",
+  "imageSourceMirrorDesc": "Исправлено использование img-tc.anitabi.cn, подходящее для использования, когда официальный источник по умолчанию часто блокируется.",
+  "mapProviderRecommendedDefault": "Рекомендуемый по умолчанию",
+  "mapProviderStandardTiles": "Стандартная плитка",
+  "mapProviderTileTemplate": "шаблон плитки",
+  "mapProviderStyleUrl": "URL-адрес стиля",
+  "cameraCaptureRatioSection": "Соотношение сторон изображения",
+  "cameraCaptureRatioDesc": "Сначала он автоматически будет следовать соотношению эталонного изображения; после выбора фиксированного соотношения камера будет снимать в соответствии с этим соотношением.",
+  "cameraFallbackRatioSection": "Масштаб без эталонного изображения",
+  "cameraFallbackRatioDesc": "Используйте его, когда для формата изображения установлено автоматическое значение и нет эталонного изображения для выравнивания.",
+  "cameraReferenceScaleSection": "Отображение эталонного изображения",
+  "cameraZoomSection": "зум камеры",
+  "cameraBackupDetailDesc": "При сохранении записи также копируется фото экскурсии.",
+  "mapSourceSection": "Источник карты",
+  "mapOpenFreeMapStyleSection": "Стиль OpenFreeMap",
+  "mapCustomXyzUrlNotSet": "Пользовательский URL-адрес XYZ не установлен.",
+  "mapCustomXyzUrlTitle": "Пользовательский URL-адрес XYZ",
+  "mapCustomXyzUrlHelper": "URL-адрес должен содержать {z}, {x}, {y}.",
+  "mapCustomXyzUrlInvalid": "Неверный формат URL",
+  "mapCustomMapLibreUrlNotSet": "URL-адрес стиля MapLibre не установлен.",
+  "mapCustomMapLibreUrlTitle": "URL-адрес в стиле MapLibre",
+  "mapCustomMapLibreUrlHelper": "URL-адрес должен указывать на общедоступный формат JSON.",
+  "mapAnitabiImageSourceSection": "Источник изображения Анитаби",
+  "mapThumbnailSection": "Миниатюра карты",
+  "mapThumbnailThresholdTitle": "Порог отображения миниатюр",
+  "mapThumbnailThresholdDesc": "Если в представлении не более {threshold} точек, отображаются миниатюры; если их больше , отображаются только точки.",
+  "mapConcurrentLoadsTitle": "Количество одновременных запросов изображений",
+  "mapConcurrentLoadsDesc": "Используется для отображения миниатюр карт, миниатюр кэша при импорте точек и пакетного кэширования эталонных карт. Более высокие значения могут привести к более высокой скорости, но также создать большую нагрузку на сеть.",
+  "mapThumbnailThresholdZeroHint": "Пороговое значение 0 не будет отображать миниатюры на карте.",
+  "mapNavigationAppSection": "Навигационное программное обеспечение",
+  "mapNavigationAppHint": "Сохраняются только параметры интерфейса, а сам переход к навигации пока не подключен.",
+  "desktopLauncherSection": "пусковая установка",
+  "aboutAppInfoSection": "Информация о приложении",
+  "aboutAppDescription": "Справочные инструменты для планирования и съемок анимационного тура по Святой Земле",
+  "aboutVersionLabel": "Текущая версия",
+  "aboutLoadingText": "Чтение",
+  "aboutAuthorLabel": "автор",
+  "aboutContactEmailLabel": "Контактный адрес электронной почты",
+  "aboutSourceCodeRepositoryLabel": "Склад с открытым исходным кодом",
+  "aboutLicenseLabel": "Лицензия с открытым исходным кодом",
+  "aboutCopyrightSection": "Данные и авторские права",
+  "aboutCopyrightDescription": "Карты могут использовать OpenFreeMap, OpenStreetMap или специальные сервисы; Бангуми используется для поиска работы; точки тура и справочные карты взяты из Анитаби. Настройка источника изображения влияет только на имя домена доступа, а удаленные ссылки будут единообразно сохранять формат по умолчанию Anitabi. Авторские права на сторонние данные, снимки экрана и изображения принадлежат исходной платформе, участникам или правообладателям.",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "уменьшать",
+  "btnIncrease": "Увеличивать",
+  "settingsExportDefaultConfig": "Конфигурация по умолчанию",
+  "cachePlanSection": "план",
+  "cacheLoadPlansFailed": "Не удалось прочитать список планов.",
+  "cacheSelectPlanSection": "Выбрать план",
+  "cacheClearButton": "Очистить кеш полных эталонных изображений.",
+  "btnRetry": "Попробуйте еще раз",
+  "tooltipSelectAll": "Выбрать все",
+  "tooltipClear": "Прозрачный",
+  "cacheClearFuncPlaceholder": "К функции очистки кэша пока не обращались, отображается только интерфейс.",
+  "cacheSelectedPlansCount": "выбраны планы {selected}/{total}",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "точки {area}/{count}",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "содержимое кэша",
+  "cacheReferenceType": "Полный кэш эталонных изображений",
+  "cacheReferenceDesc": "Очистите ссылку на камеру и большое изображение, чтобы просмотреть полное используемое эталонное изображение. Кэш миниатюр поддерживается для поддержания скорости загрузки списка и карты.",
+  "gpsDisabled": "Службы определения местоположения не включены.",
+  "gpsPermissionRequired": "Для отображения текущего местоположения требуется разрешение на определение местоположения.",
+  "gpsTimeout": "Время позиционирования истекло. Повторите попытку позже.",
+  "gpsFailed": "Не удалось определить местоположение. Проверьте разрешения и службы определения местоположения.",
+  "planActions": "Планировать операции",
+  "planSwitch": "Сменить план",
+  "planAddPoint": "Добавить точку",
+  "planManage": "план управления",
+  "planMemo": "планировочная записка",
+  "planImportExport": "Импорт и экспорт",
+  "cacheDownloading": "Кэширование полного эталонного изображения...",
+  "cacheNoImagesToDownload": "В текущем плане нет эталонных изображений, которые необходимо кэшировать.",
+  "cacheTitle": "Кэширование полного эталонного изображения",
+  "cacheConfirmMessage": "Полные эталонные изображения {count} в текущем плане будут кэшироваться, что может занять много времени и сетевой трафик.",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "Начать кэширование",
+  "cacheStarted": "Начал кэшировать полное эталонное изображение.",
+  "groupPrev": "Предыдущая область",
+  "groupNext": "следующая область",
+  "mapCollapse": "Скрыть карту",
+  "labelPointsCount": "очки {count}",
+  "labelCompletedCount": "Заканчивать",
+  "labelOrderMode": "модель",
+  "sortModeDefault": "Порядок планирования по умолчанию",
+  "sortModeDistance": "Расстояние от текущего местоположения",
+  "sortModeDefaultShort": "План по умолчанию",
+  "sortModeDistanceShort": "по расстоянию",
+  "sortOrderDesc": "Обратный порядок",
+  "sortOrderAsc": "положительная последовательность",
+  "sortOrderFarToNear": "Далеко близко",
+  "sortOrderNearToFar": "близко к далекому",
+  "tooltipHideLocation": "Скрыть текущее местоположение",
+  "tooltipShowLocation": "Показать текущее местоположение",
+  "labelCompleted": "Заканчивать",
+  "planNoPointsTitle": "Бронирования пока нет",
+  "planNoPointsSubtitle": "Сначала добавьте точку тура из Анитаби или введите ее вручную, после чего здесь будет отображаться текущая цель и прогресс выполнения.",
+  "planWorksCount": "{count} работает",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "Взято {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area}/{points} точки/{works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "Детали точки",
+  "btnCameraReference": "Справочник по съемке",
+  "tooltipRevertCompleted": "Снять приход",
+  "tooltipMarkCompleted": "Отметить как завершенное",
+  "tooltipSetTarget": "Установить в качестве текущей цели",
+  "recordsUnassignedDesc": "На территории пока нет записей",
+  "recordsOrphanedTitle": "Потерянные записи",
+  "recordsOrphanedDesc": "Соответствующего пункта больше нет в текущем плане",
+  "recordsAllRecords": "Все записи",
+  "recordsFilterConditionsCount": "фильтры {count}",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "фильтр",
+  "recordsSearchPoints": "Точка поиска",
+  "recordsSearchHint": "Точка, произведение, место действия, количество серий, координаты",
+  "tooltipClearSearch": "Очистить поиск",
+  "recordsFilterStatus": "состояние",
+  "recordsFilterCompletedPoints": "Набрано очков",
+  "recordsFilterPendingPoints": "Незавершенные точки",
+  "recordsPhotoTitle": "Фотографии паломничества",
+  "recordsEntriesCount": "{count} Статьи",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "записи туров {count}",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "Полный {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "Записей о туре пока нет. Он автоматически появится здесь после успешной стрельбы.",
+  "groupOrderModePending": "Быть организованным",
+  "groupOrderModeManual": "Руководство",
+  "groupOrderModeNone": "беспорядок",
+  "groupAnchorPending": "Ожидание разделения на осколки",
+  "groupAnchorNameLabel": "Ключевые моменты: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "Нынешний план еще не разработан.",
+  "tooltipLocation": "позиция",
+  "tooltipUseIconMarkers": "Используйте маркеры-значки",
+  "tooltipShowThumbnailMarkers": "Показать значок миниатюры",
+  "tooltipPoint": "Место паломничества",
+  "copyLabelPointInfo": "Информация о точках",
+  "mapNoPointsMessage": "Нынешний план еще не разработан. После добавления точки на карте появится маркер.",
+  "labelEditPointNotSupported": "Точки нельзя редактировать в текущей среде.",
+  "tooltipGoToTarget": "текущая цель",
+  "planDefaultNewName": "Новый план тура {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "Регион не установлен",
+  "msgDeletePlanAtLeastOne": "Нужно сохранить хотя бы один план",
+  "dialogDeletePlanTitle": "Удалить план",
+  "dialogDeletePlanMessage": "«{name}», а также его местоположения, районы, работы и записи туров будут удалены. Это действие невозможно отменить.",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "удалить",
+  "dialogEditPlanTitle": "Изменить информацию о плане",
+  "labelPlanName": "Название плана",
+  "labelPlanArea": "регион/район",
+  "btnNewPlan": "Новый план",
+  "statusTextCurrentPlan": "Текущий план",
+  "statusTextSwitchable": "переключаемый",
+  "labelPlanInfo": "Информация о программе",
+  "planInfoCopyContent": "{name}\n{area}\n{points} баллов \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "выключатель",
+  "btnReloadPlan": "план перезагрузки",
+  "importExportImportSection": "импортировать",
+  "importExportImportDescMobile": "Откройте .sjhplan с помощью MiriaGo из файла, чата, браузера или сетевого диска.",
+  "importExportImportDescWeb": "Выберите файл .sjhplan и просмотрите его содержимое перед импортом.",
+  "importExportStatusReading": "Чтение...",
+  "importExportOpenFromApp": "Откройте .sjhplan из других приложений",
+  "importExportImportFileTitle": "Импорт файлов MiriaGo",
+  "importExportOpenFromAppDesc": "Выберите .sjhplan в файлах, чате, на странице загрузки браузера или на сетевом диске, а затем поделитесь или откройте его с помощью MiriaGo.",
+  "importExportImportFileDesc": "Поддерживает пакеты данных v2 и устаревшие пакеты планов JSON v1.",
+  "importExportZipDesc": "Новая версия .sjhplan, внутренний zip-архив, содержащий файл манифеста.json.",
+  "importExportMyMapsDesc": "Экспортируйте точки в CSV. Изображения записываются в виде ссылок и могут быть стилизованы с помощью столбца «Тип».",
+  "importExportMyMapsTitle": "Экспортировать мои карты в CSV",
+  "importExportMyMapsDetails": "Первые 6 столбцов соответствуют формату примера: произведения, коллекции, источники и т. д. разделены на независимые столбцы.",
+  "msgExportCancelled": "Экспорт отменен",
+  "msgImportReadFailed": "Не удалось прочитать файл импорта",
+  "dialogOpenFromAppTitle": "Откройте .sjhplan из других приложений",
+  "dialogOpenFromAppMessage": "Найдите файл .sjhplan в файлах, чате, на странице загрузки браузера, на сетевом диске или в другом месте сохранения, затем щелкните файл или воспользуйтесь меню «Поделиться/Еще», чтобы выбрать MiriaGo. \n\nMiriaGo автоматически перейдет на страницу предварительного просмотра импорта после получения файла. Если в списке нет MiriaGo, вы можете сначала сохранить файл в приложении «Файлы», а затем нажать и удерживать файл, чтобы выбрать метод обмена или открытия.",
+  "btnGotIt": "знал",
+  "exportShareLabel": "Пакет MiriaGo: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "Пакет данных экспортирован.",
+  "dialogMissingResourcesTitle": "Некоторые местные ресурсы отсутствуют",
+  "dialogMissingResourcesMessage": "Эти ресурсы не войдут в пакет данных, а соответствующие изображения могут не отображаться после импорта.",
+  "btnContinueExport": "Продолжить экспорт",
+  "msgExportMyMapsSuccess": "Мои карты в формате CSV экспортированы.",
+  "msgExporting": "Экспорт...",
+  "msgExportFailed": "Экспорт не удался",
+  "warningMissingPart": "{fallback}, не удалось добавить некоторые ресурсы",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} Отсутствует локально загруженное эталонное изображение.",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "Миниатюры {count} не добавлены",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} Не удалось загрузить полное эталонное изображение.",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} Полное эталонное изображение отсутствует.",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} Не хватает фотографий с тура",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "Отсутствуют фотографии с исправлением цвета {count}",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "области {groups} / точки {points}",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "чистый план",
+  "btnPlanAndRecords": "План+Запись",
+  "importExportIncludeCache": "Содержит полный кэш эталонных изображений.",
+  "importExportIncludeCacheDesc": "Миниатюры и добавленные пользователем эталонные изображения по-прежнему будут включены по умолчанию.",
+  "btnExportDataPackage": "Экспорт пакета данных MiriaGo",
+  "btnExportingDataPackage": "Экспорт...",
+  "importExportEstimateEstimating": "Оценка размера пакета...",
+  "importExportEstimateFailed": "Предполагаемый размер пакета: на данный момент оценить невозможно.",
+  "importExportEstimateResult": "Ожидаемый размер пакета: {label}.",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "Загрузите эталонные изображения локально",
+  "dialogVisitPhotoMissing": "Фотографии паломничества",
+  "dialogGradedPhotoMissing": "Тонировка фото",
+  "estimateThumbnailNotCached": "Миниатюры {count} не кэшируются и не попадают в пакет данных.",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} Во время экспорта будет загружено полное эталонное изображение.",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} Локально загруженный файл эталонного изображения отсутствует и не может быть восстановлен после экспорта.",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "{count} Файлы фотографий паломничества отсутствуют.",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "Отсутствуют файлы фотографий с исправлением цвета {count}",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "Некоторые локальные ресурсы невозможно прочитать, а фактическое тело пакета может измениться.",
+  "estimateLabelAtLeast": "Ожидаемый размер пакета: как минимум около {size}, {details}.",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "Предполагаемый размер пакета: примерно {size}.",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "возвращаться",
+  "importExportDataPackageHeader": "Пакет данных MiriaGo",
+  "addPointsTitle": "Добавить контент",
+  "addPointsAddToPlan": "Присоединяйтесь: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "Управление работами",
+  "addPointsWorkManagerDesc": "Управляйте запланированными работами и поддерживайте поиск в Бангуми, ручное добавление и удаление работ.",
+  "addPointsImportFromWorkMapTitle": "Импортировать точки с рабочей карты",
+  "addPointsImportFromWorkMapDesc": "Посмотрите расположение работ на карте Анитаби, нажмите на миниатюру деталей, чтобы присоединиться к проекту.",
+  "addPointsImportFromLinkTitle": "Импортировать из ссылки Анитаби",
+  "addPointsImportFromLinkDesc": "Вставьте работу Анитаби или укажите ссылку, чтобы быстро открыть карту соответствующей работы.",
+  "addPointsManualTitle": "Добавляйте баллы вручную",
+  "addPointsManualDesc": "Выберите добавленную работу и введите название, координаты и информацию о сцене.",
+  "addPointsActionLabelUnavailable": "Нет в наличии",
+  "addPointsActionLabelManage": "управлять",
+  "addPointsActionLabelOpen": "Открыть",
+  "addPointsActionLabelInput": "входить",
+  "addPointsActionLabelAdd": "добавить в",
+  "msgWorkAdded": "Добавлен «{title}».",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "Не удалось добавить работу. Повторите попытку позже.",
+  "bangumiSearchTitle": "Поиск в Бангуми",
+  "bangumiSearchLabel": "Название работы",
+  "bangumiSearchHint": "Например, девушка со светлым тоном",
+  "bangumiSearchBtn": "Поиск работ",
+  "bangumiSearchBtnSearching": "Идет поиск",
+  "bangumiSearchFailed": "Поиск в Бангуми не удался. Проверьте сеть и повторите попытку.",
+  "bangumiSearchEmptyHelp": "Введите название работы и выполните поиск, затем выберите результат, чтобы присоединиться к текущему плану.",
+  "anitabiLinkImportTitle": "Импорт ссылок Анитаби",
+  "anitabiLinkImportLabel": "Ссылка на Анитаби",
+  "anitabiLinkImportHint": "Например https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj.",
+  "anitabiLinkImportHelp": "Если ссылка содержит идентификатор работы, будет загружена только соответствующая работа; если он также содержит идентификатор точки, точка будет выбрана автоматически. Ссылки без идентификаторов работ необходимо копировать заново после ввода соответствующей работы в Анитаби.",
+  "anitabiLinkImportBtn": "Открыть точки Анитаби",
+  "anitabiLinkImportEmptyErr": "Пожалуйста, введите ссылку Анитаби",
+  "anitabiLinkImportInvalidErr": "Пожалуйста, введите действительную ссылку на карту Анитаби.",
+  "anitabiLinkImportNoWorkIdErr": "В ссылке отсутствует идентификатор работы. Пожалуйста, введите соответствующую работу в Анитаби и скопируйте ссылку.",
+  "msgPointAdded": "Добавлен «{title}».",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "Не удалось сохранить баллы. Повторите попытку позже.",
+  "msgWorkSaveFailed": "Не удалось сохранить работу. Повторите попытку позже.",
+  "manualAddWorkTitle": "Добавляйте элементы вручную",
+  "manualAddWorkName": "Название работы",
+  "manualAddWorkOriginalName": "Оригинальное название работы",
+  "manualAddWorkOriginalNameHint": "Необязательный",
+  "manualAddWorkArea": "основные направления",
+  "manualAddWorkAreaHint": "Необязательно, по умолчанию {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "сохранить работу",
+  "manualAddWorkBtnSaving": "Сохранение",
+  "manualAddWorkRequiredField": "Пожалуйста, заполните это",
+  "msgReferenceImageReadFailed": "Не удалось прочитать эталонное изображение. Повторите попытку.",
+  "msgClipboardCoordinatesInvalid": "В буфере обмена нет распознанных координат.",
+  "msgClipboardCoordinatesApplied": "Координаты буфера обмена заполнены.",
+  "manualAddPointTitleAdd": "Добавляйте баллы вручную",
+  "manualAddPointTitleEdit": "Редактировать точку",
+  "manualAddPointStatusEdit": "Модификация: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "Работает",
+  "manualAddPointSelectWorkErr": "Пожалуйста, выберите работу",
+  "manualAddPointWorkName": "Анимация/название работы",
+  "manualAddPointWorkOriginalName": "Оригинальное название работы",
+  "manualAddPointWorkOriginalNameHint": "Необязательный",
+  "manualAddPointWorkArea": "Основные направления работы",
+  "manualAddPointWorkAreaHint": "Необязательно, по умолчанию {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "Имя точки",
+  "manualAddPointPositionDesc": "описание местоположения",
+  "manualAddPointEpisodeLabel": "Номер эпизода/тег сцены",
+  "manualAddPointSource": "Справочные источники",
+  "manualAddPointMemo": "Примечание",
+  "manualAddPointMemoHint": "Необязательно, например, закрытие магазина, ремонт, предложения по фотографии.",
+  "manualAddPointSelectCoordsBtn": "Выбрать координаты с карты",
+  "manualAddPointPasteCoordsBtn": "Вставить координаты буфера обмена",
+  "manualAddPointLatitude": "широта",
+  "manualAddPointLatitudeHint": "Например 34.8917",
+  "manualAddPointLongitude": "долгота",
+  "manualAddPointLongitudeHint": "Например 135.8077",
+  "manualAddPointBtnSaving": "Сохранение",
+  "manualAddPointBtnSaveEdit": "Сохранить изменения",
+  "manualAddPointBtnSaveAdd": "Точка сохранения",
+  "manualAddPointRequiredField": "Пожалуйста, заполните это",
+  "manualAddPointRequiredLatitude": "Пожалуйста, укажите широту",
+  "manualAddPointRequiredLongitude": "Пожалуйста, укажите долготу",
+  "manualAddPointInvalidCoordinate": "Пожалуйста, введите действительные координаты",
+  "manualAddPointSelectCoordsTitle": "Выберите координаты точки",
+  "manualAddPointSelectCoordsTooltipActive": "Закрыть выбор карты",
+  "manualAddPointSelectCoordsTooltipInactive": "Выберите точку на карте",
+  "manualAddPointSelectCoordsHelpActive": "Нажмите в любом месте карты, чтобы установить координаты точки.",
+  "manualAddPointSelectCoordsHelpInactive": "Сначала нажмите кнопку выбора точки в правом верхнем углу, затем нажмите на карту, чтобы установить координаты.",
+  "manualAddPointSelectCoordsAdjustHelp": "Нажмите на карту, чтобы продолжить настройку местоположения.",
+  "manualAddPointSelectCoordsDialogTitle": "Выбор точки карты",
+  "manualAddPointSelectCoordsBtnUse": "использовать",
+  "addPointsNoWorksHelp": "На данный момент работ не планируется. Сначала добавьте работу, а затем вы сможете импортировать баллы в соответствии с работой.",
+  "addPointsHasWorksHelp": "В текущем плане {count} работает: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "Посмотреть большое изображение",
+  "addPointsRefImageTooltipEmpty": "Пока нет эталонного изображения",
+  "addPointsRefImageHeader": "Справочные изображения",
+  "addPointsRefImageHelpSelected": "Было выбрано новое изображение, которое вступит в силу после сохранения.",
+  "addPointsRefImageHelpCurrent": "Текущее эталонное изображение необходимо сохранить после повторного выбора, чтобы оно вступило в силу.",
+  "addPointsRefImageHelpEmpty": "Необязательно, при сохранении он будет скопирован в локальный каталог приложения.",
+  "addPointsRefImageBtnReselect": "Повторно выбрать",
+  "addPointsRefImageBtnUpload": "Загрузите эталонное изображение",
+  "addPointsRefImageBtnRemove": "Удалять",
+  "addPointsPointBtnAdded": "Добавлен",
+  "addPointsPointBtnAdd": "присоединиться",
+  "managePlanTitle": "план управления",
+  "managePlanSelectedCount": "Выбранный {count}",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "Управление территорией",
+  "managePlanCachingProgress": "Кэширование полного эталонного изображения",
+  "managePlanCacheFullReference": "Кэширование полного эталонного изображения",
+  "managePlanTooltipExitSelection": "Выход из множественного выбора",
+  "managePlanTooltipSelection": "Множественный выбор",
+  "msgNoAnchorForUnassigned": "Неназначенные точки не имеют ключевых точек.",
+  "msgAreaNotExist": "Района не существует.",
+  "msgSaveAnchorFailed": "Не удалось сохранить ключевые точки.",
+  "msgNoOrderForUnassigned": "Неназначенные точки не требуют сортировки.",
+  "managePlanAreaOrderTitle": "Заказ в пределах региона",
+  "msgSaveOrderModeFailed": "Не удалось сохранить метод сортировки.",
+  "msgMoveAreaFailed": "Не удалось переместить экстент.",
+  "msgOpenCameraFromPlanOrMap": "Откройте съемку со страницы планирования или страницы карты.",
+  "msgSaveReferenceImageFailed": "Не удалось сохранить эталонное изображение.",
+  "labelUnknownArea": "неизвестная область",
+  "managePlanMoveToAreaTitle": "Переехать в район",
+  "msgSavePointOrderFailed": "Не удалось сохранить последовательность точек.",
+  "dialogDeletePointTitle": "Удалить точку",
+  "dialogDeletePointMsg": "Вы уверены, что хотите удалить «{name}» из своего плана?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "Удаление точки не удалось.",
+  "dialogBulkDeletePointsTitle": "Удаление точек в пакетном режиме",
+  "dialogBulkDeletePointsMsg": "Вы уверены, что хотите удалить баллы {count} из плана?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "Не удалось удалить пакет.",
+  "msgSaveCurrentTargetFailed": "Не удалось сохранить текущую цель.",
+  "msgSaveCompletionStatusFailed": "Не удалось сохранить статус завершения.",
+  "msgSavePointStatusFailed": "Не удалось сохранить статус точки.",
+  "msgBulkCompleteFailed": "Завершение пакета не удалось.",
+  "msgBulkResetFailed": "Пакетный сброс не удался.",
+  "msgFullReferenceCacheStarted": "Начато кэширование полных эталонных изображений.",
+  "msgCachingFullReferenceProgress": "Кэширование полного эталонного изображения...",
+  "msgNoReferenceToCache": "В текущем плане нет эталонных изображений, которые необходимо кэшировать.",
+  "dialogCacheFullReferenceTitle": "Кэширование полного эталонного изображения",
+  "dialogCacheFullReferenceMsg": "Полные эталонные изображения {count} в текущем плане будут кэшироваться, что может занять много времени и сетевой трафик.",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "Начать кэширование",
+  "labelAnchorNotSet": "не установлено",
+  "tooltipPrevArea": "Предыдущая область",
+  "tooltipNextArea": "следующая область",
+  "managePlanPointsPending": "точки {count} ждут сортировки",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "баллы {count} · выполненные {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "Ключевые моменты: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "последний назначенный",
+  "btnBoxSelectAssign": "Распределение выбора кадров",
+  "statusCurrent": "текущий",
+  "statusCompleted": "Завершенный",
+  "statusPending": "Для доступа",
+  "tooltipPointActions": "Точечная операция",
+  "btnMoveToArea": "Переехать в район",
+  "btnSetAsCurrent": "Установить как текущий",
+  "btnCancelCompletion": "Отмена завершена",
+  "btnMarkCompletion": "Отметить как завершенное",
+  "btnDeletePoint": "Удалить точку",
+  "refStatusNone": "Нет эталонного изображения",
+  "refStatusLocal": "Локальная загрузка",
+  "refStatusCached": "Кэшированный",
+  "refStatusRemote": "Не кэшируется",
+  "tooltipClearSelection": "Прозрачный",
+  "tooltipMoveArea": "Мобильная зона",
+  "tooltipReset": "перезагрузить",
+  "dialogSelectAnchorTitle": "Выберите ключевые моменты",
+  "btnClear": "Прозрачный",
+  "tooltipCloseMapSelect": "Закрыть выбор карты",
+  "tooltipSelectOnMap": "Выберите точку на карте",
+  "tooltipInputCoordinates": "Введите широту и долготу",
+  "dialogInputCoordinatesTitle": "Введите широту и долготу",
+  "labelManualAnchor": "Ручные ключи",
+  "tooltipSelectPoint": "Выберите точку",
+  "labelAnchorNotSelected": "Ключевые точки еще не выбраны",
+  "msgClickMapToSetAnchor": "Нажмите в любом месте карты, чтобы указать ключевые точки.",
+  "msgSelectAnchorMethods": "Вы можете нажать на точку, карту или ввести широту и долготу.",
+  "managePlanNoPoints": "Управляемой точки пока нет",
+  "dialogDiscardMemoTitle": "Удалить несохраненный контент?",
+  "dialogDiscardMemoMsg": "Текущая заметка содержит несохраненные изменения.",
+  "btnKeepEditing": "Продолжить редактирование",
+  "btnDiscard": "сдаться",
+  "msgMemoSaved": "Памятка по планированию сохранена.",
+  "msgMemoSaveFailed": "Не удалось сохранить заметку о планировании.",
+  "msgTodoStatusSaveFailed": "Не удалось сохранить статус дел.",
+  "memoPlaceholderHeading": "заголовок",
+  "memoPlaceholderBold": "жирный текст",
+  "memoPlaceholderListItem": "элемент списка",
+  "memoPlaceholderTodo": "Список дел",
+  "memoPlaceholderQuote": "Содержание цитаты",
+  "memoPlaceholderLinkText": "текст ссылки",
+  "memoPlaceholderCode": "код",
+  "msgInvalidLinkFormat": "Формат ссылки неправильный.",
+  "msgUnableToOpenLink": "Невозможно открыть ссылку.",
+  "planMemoTitle": "записка о планировании",
+  "labelMemoContent": "Содержимое памятки",
+  "hintMemoContent": "Вы можете записывать транспортировку, встречи, пересъемки, договоренности с спутниками и т. д.",
+  "tooltipHeading": "заголовок",
+  "tooltipBold": "Смелый",
+  "tooltipList": "список",
+  "tooltipTodo": "Дела",
+  "tooltipQuote": "Цитировать",
+  "tooltipDivider": "разделительная линия",
+  "tooltipLink": "Связь",
+  "tooltipCode": "код",
+  "tooltipUncheck": "Снимите флажок",
+  "msgMemoImageNotSupported": "Memo не поддерживает изображения: {label}.",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "План-памятку еще не написал",
+  "memoEmptySubtitle": "Нажмите «Изменить» в правом верхнем углу, чтобы записать транспортировку, встречи, повторные съемки или другие приготовления.",
+  "msgInvalidRatio": "Введите допустимое соотношение.",
+  "dialogCustomRatioTitle": "Пользовательский масштаб",
+  "labelWidth": "Ширина",
+  "labelHeight": "высокий",
+  "msgColorNameRequired": "Пожалуйста, введите название цвета.",
+  "dialogCustomThemeColorTitle": "Пользовательский цвет темы",
+  "labelColorName": "имя",
+  "labelColorHex": "Номер цвета",
+  "btnAdd": "добавить в",
+  "navAppGoogleMaps": "Карты Google",
+  "navAppAmap": "Амап",
+  "navAppAppleMaps": "Карты Apple",
+  "navAppBaiduMaps": "Карта Байду",
+  "navAppTencentMaps": "Карта Тенсента",
+  "navAppBrowser": "Браузер",
+  "navAppGoogleMapsSub": "Параметры по умолчанию",
+  "navAppAmapSub": "Обычно используется в Китае",
+  "navAppAppleMapsSub": "родной для iOS",
+  "navAppBaiduMapsSub": "городская навигация",
+  "navAppTencentMapsSub": "Легкая альтернатива",
+  "navAppBrowserSub": "Откроется веб-страница",
+  "comparisonBorderColorWhite": "Белый",
+  "comparisonBorderColorBlack": "черный",
+  "comparisonBorderColorTheme": "цвет темы",
+  "comparisonWidthLabel": "Ширина {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "Нет границ",
+  "comparisonBorderPercent": "Граница {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "показать ярлык",
+  "comparisonHideLabels": "Не показывать ярлыки",
+  "comparisonPilgrimName": "Пилигрим {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "Появление",
+  "comparisonFieldBorderWidth": "ширина границы",
+  "comparisonBorderWidthNone": "никто",
+  "comparisonFieldBorderColor": "цвет границы",
+  "comparisonFieldOutputWidth": "выходная ширина",
+  "comparisonLabelShowLabel": "показать ярлык",
+  "comparisonSectionMetadata": "Метаданные",
+  "comparisonFieldPilgrimName": "Имя паломника",
+  "comparisonShowPilgrimRight": "Показать паломников справа",
+  "comparisonShowGradingBottom": "Параметры цветокоррекции отображаются внизу.",
+  "comparisonLabelReference": "обратитесь к",
+  "comparisonLabelCaptured": "Паломничество",
+  "comparisonLabelPilgrim": "паломник",
+  "comparisonExportTitle": "Сравнительная таблица экспорта",
+  "tooltipClose": "закрытие",
+  "comparisonExporting": "Экспорт...",
+  "comparisonExport": "Экспорт",
+  "comparisonWidthAuto": "автоматический",
+  "comparisonMetaCapturedAt": "Время съемки",
+  "comparisonMetaWork": "работа",
+  "comparisonMetaPoint": "Место",
+  "comparisonMetaCoordinates": "координировать",
+  "comparisonMetaEpisode": "сцена",
+  "comparisonErrRefUnavailable": "Эталонное изображение недоступно, а изображение сравнения невозможно экспортировать.",
+  "comparisonErrCapturedUnavailable": "Карта тура недоступна, а сравнительные изображения невозможно экспортировать.",
+  "comparisonErrRenderFailed": "Не удалось выполнить экспорт. Повторите попытку позже.",
+  "cameraFallbackRatioTitle": "Масштаб без эталонного изображения",
+  "btnEdit": "редактировать",
+  "cameraRefModeOverlay": "Наложение",
+  "cameraRefModeSplit": "вверх и вниз",
+  "cameraRefModePinned": "маленькое окно",
+  "cameraWebPreviewWarning": "Веб-предварительный просмотр не запускает камеру в реальном времени.",
+  "workManagerEmptyHelp": "На данный момент работ не планируется.",
+  "dialogDeleteWorkTitle": "Удалить работу",
+  "dialogDeleteWorkConfirmSingle": "Вы уверены, что хотите удалить «{name}»?",
+  "dialogDeleteWorkConfirmMultiple": "Вы уверены, что хотите удалить «{name}»? Это одновременно удалит точки, связанные с {count}, и соответствующие записи.",
+  "msgDeleteWorkFailed": "Не удалось удалить работу.",
+  "tooltipDeleteWork": "Удалить работу",
+  "labelWorkTitleText": "Название работы",
+  "labelWorkInfoText": "Информация о работе",
+  "btnManualAdd": "Добавить вручную",
+  "btnBangumiSearch": "Бангуми",
+  "labelBangumiSource": "Бангуми #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "книги",
+  "subjectTypeAnime": "анимация",
+  "subjectTypeMusic": "музыка",
+  "subjectTypeGame": "игра",
+  "subjectTypeReal": "Три измерения",
+  "labelPoints": "точка",
+  "mapImportTitle": "Импорт с рабочей карты",
+  "mapImportRefreshingCache": "Очистка кеша и перезагрузка очков Анитаби...",
+  "mapImportManualWorkNoBangumiId": "Добавленные вручную работы не имеют идентификатора Bangumi и не могут импортировать точки с карты Анитаби.",
+  "mapImportPointAddedMsg": "Уже присоединившись к плану, вы можете продолжать выбирать места.",
+  "mapImportPointAddFailedMsg": "Не удалось импортировать точки. Повторите попытку позже.",
+  "mapImportAllAddedMsg": "Все несвязанные точки добавлены.",
+  "mapImportBatchFailedMsg": "Не удалось выполнить пакетный импорт. Повторите попытку позже.",
+  "mapImportBoxSelectionEmptyMsg": "В пределах диапазона выбора нет точек, которые можно добавить.",
+  "mapImportBoxAddedMsg": "Добавлены точки выбора кадра.",
+  "mapImportBoxFailedMsg": "Не удалось импортировать точку выбора кадра. Повторите попытку позже.",
+  "mapImportImportingMsg": "Импорт точек {count}...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "Миниатюра кэширования {processed}/{total}, успешный {succeeded}",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "Точки {count} были импортированы, а миниатюры кэшированы {cached}/{total}. Остальное будет автоматически заполнено позже.",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "Добавить все точки",
+  "mapImportAddAllDialogMsg": "Точки {count} в текущей работе, которых еще нет в плане, будут добавлены в план и временно размещены в несгруппированных областях.",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "добавить все",
+  "mapImportAddBoxDialogTitle": "Добавить точку выбора кадра",
+  "mapImportAddBoxDialogMsg": "Точки {count} в выбранном диапазоне, которых еще нет в плане, будут добавлены в план и временно размещены в несгруппированных областях.",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "Добавить выделение кадра",
+  "mapImportAddBoxBtnWithCount": "Добавить {count}",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "Организуйте вновь импортированные точки",
+  "mapImportOrganizeDialogMsg": "Точки {count} были импортированы и временно помещены в разгруппированные. Вы можете сначала создать патчи и ключевые точки, а затем быстро назначить их на основе ближайшей ключевой точки.",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "последний назначенный",
+  "mapImportOrganizeGroupManager": "Управление территорией",
+  "mapImportOrganizeLater": "позже",
+  "mapImportRefreshTooltip": "Очистите кеш и перезагрузите очки Анитаби.",
+  "mapImportMarkerTooltip": "точка Анитаби",
+  "mapImportErrDataUnavailable": "Данные карты Анитаби не могут быть загружены.",
+  "mapImportErrPartialData": "Баллы Анитаби загружены лишь частично",
+  "mapImportErrNotFound": "Для этой записи в Бангуми нет картографических данных Анитаби.",
+  "mapImportErrLoadFailed": "Не удалось загрузить точку Анитаби.",
+  "mapImportErrDataUnavailableDetailWeb": "Возможно, версия кэша картографических данных Anitabi несовместима или текущий сетевой запрос службы предварительного просмотра заблокирован. Пожалуйста, очистите кеш и перезагрузите очки Анитаби.",
+  "mapImportErrDataUnavailableDetail": "Невозможно прочитать индекс карты Анитаби. Пожалуйста, проверьте сетевое соединение или очистите кеш и перезагрузите баллы Anitabi.",
+  "mapImportErrPartialDataDetail": "На данный момент получаются только баллы {loaded}/{expected}. Пожалуйста, перезагрузите компьютер или проверьте, есть ли у сети доступ к данным карты Анитаби.",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "Вы можете попробовать добавить оригинальную работу, игру или другие похожие записи с таким же именем в управление работами.",
+  "mapImportErrLoadFailedDetail": "Пожалуйста, проверьте сеть и повторите попытку или перезагрузите компьютер позже.",
+  "mapImportProgressImporting": "Импорт точек {total}...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "Миниатюра кэширования {processed}/{total}, успешный {succeeded}",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "Баллы были импортированы.",
+  "mapImportMarkerAvailableTooltip": "Баллы можно импортировать",
+  "mapImportSummaryLoading": "Загрузка баллов Анитаби",
+  "mapImportSummaryStats": "Импортирован {imported}/сейчас отображается {displayed}{expectedPart}.",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/ всего {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "Добавить все точки",
+  "mapImportSummaryTooltipBoxExit": "Выход из окна выбора",
+  "mapImportSummaryTooltipBoxStart": "Выбранная точка кадра",
+  "mapImportPointNameLabel": "Имя точки",
+  "mapImportPointInfoLabel": "Информация о точках",
+  "mapImportPointOriginLabel": "источник",
+  "mapImportPointDetailBtn": "Подробности",
+  "mapImportPointJoinedBtn": "Уже присоединился",
+  "mapImportPointJoinBtn": "Присоединяйтесь к программе",
+  "mapImportDetailSceneLabel": "сцена",
+  "mapImportDetailNoteLabel": "Примечание",
+  "mapImportDetailCoordLabel": "координировать",
+  "mapImportDetailJoinedBtn": "Уже присоединился к программе",
+  "mapImportNoPointSelectedHint": "Нажмите на точку на карте, чтобы просмотреть миниатюры и подробную информацию.",
+  "mapImportNoImportablePoints": "В текущей работе нет точек Анитаби, доступных для импорта.",
+  "mapImportNoImagePoints": "В текущей работе есть точки {count}, но нет опорных точек с картинками, которые можно импортировать.",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "В настоящее время выпуск Бангуми не планируется. Пожалуйста, перейдите в управление работами, чтобы сначала добавить работы Бангуми.",
+  "mapImportManualWorkState": "Добавленные вручную работы не имеют идентификатора Bangumi и не могут импортировать точки с карты Анитаби. \n\nПожалуйста, выполните поиск для добавления работ через Bangumi/Anitabi или добавьте баллы вручную.",
+  "mapImportLoadingWorksAndPoints": "Загрузка Анитаби работает и набирает очки",
+  "msgCannotOpenMapApp": "Невозможно открыть {app}.",
+  "mapImportErrPointNotFound": "Данная точка Анитаби не найдена",
+  "mapImportErrPointNotFoundDetail": "Возможно, идентификатор точки в ссылке недействителен, или данные карты Анитаби не синхронизировались.",
+  "navMapSectionTitle": "Навигационная карта {app}",
+  "navAppDescGoogleMaps": "Кнопка навигации открывает пешеходные маршруты по официальному URL-адресу Google Maps.",
+  "navAppDescAppleMaps": "Кнопка навигации открывает пешеходные маршруты через Apple Map Links.",
+  "navAppDescAmap": "Кнопка навигации открывает маршруты ходьбы через API Amap URI и использует координаты WGS84.",
+  "navAppDescBaiduMaps": "Кнопка навигации открывает пешеходные маршруты через API URI Baidu Maps, используя координаты WGS84.",
+  "mapProviderHintOpenFreeMap": "Рекомендуемый по умолчанию",
+  "mapProviderHintOsm": "Стандартная плитка",
+  "mapProviderHintCustomXyz": "шаблон плитки",
+  "mapProviderHintCustomStyle": "URL-адрес стиля",
+  "anitabiSrcAuto": "автоматический выбор",
+  "anitabiSrcOfficial": "Официальный дефолт",
+  "anitabiSrcMirror": "резервный источник",
+  "anitabiSrcAutoDesc": "Image.anitabi.cn используется первым; если загрузка достигает страницы с ошибкой или блокируется, будет предпринята попытка загрузки img-tc.anitabi.cn.",
+  "anitabiSrcOfficialDesc": "Исправлено использование image.anitabi.cn и сохранение официального источника изображения Anitabi по умолчанию.",
+  "anitabiSrcMirrorDesc": "Исправлено использование img-tc.anitabi.cn, подходящее для использования, когда официальный источник по умолчанию часто блокируется."
+}

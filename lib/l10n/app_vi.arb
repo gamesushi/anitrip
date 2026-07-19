@@ -1,0 +1,1211 @@
+{
+  "@@locale": "vi",
+  "tabPlan": "kế hoạch",
+  "tabMap": "bản đồ",
+  "tabRecords": "Ghi",
+  "tabSettings": "cài đặt",
+  "settingsTitle": "cài đặt",
+  "languageSetting": "Cài đặt ngôn ngữ",
+  "languageSystem": "Theo dõi hệ thống",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "công việc",
+  "labelScene": "bối cảnh",
+  "labelCoordinates": "điều phối",
+  "labelArea": "khu vực",
+  "labelReference": "tham khảo",
+  "labelSource": "nguồn",
+  "labelId": "NHẬN DẠNG",
+  "labelLink": "liên kết",
+  "btnChange": "Thay đổi",
+  "btnReplace": "thay thế",
+  "labelLocalRecords": "Ghi lại điểm này",
+  "labelAll": "tất cả",
+  "btnNavigate": "điều hướng",
+  "btnOverlay": "Tham khảo chụp ảnh",
+  "btnSetTarget": "Đặt như hiện tại",
+  "btnMarkDone": "Đánh dấu hoàn thành",
+  "btnEditPoint": "Chỉnh sửa điểm",
+  "settingsAppearance": "Cài đặt giao diện",
+  "settingsAppearanceSubtitle": "Màu chủ đề, thu phóng, hiển thị, v.v.",
+  "settingsCamera": "Cài đặt chụp",
+  "settingsCameraSubtitle": "Tỷ lệ ảnh, tỷ lệ ảnh tham chiếu, sao lưu, v.v.",
+  "settingsExport": "Cài đặt biểu đồ so sánh",
+  "settingsExportSubtitle": "Xuất kiểu và tự động lưu vào album ảnh",
+  "settingsDataSource": "Cài đặt nguồn dữ liệu",
+  "settingsDataSourceSubtitle": "Nguồn bản đồ, nguồn hình ảnh, v.v.",
+  "settingsClearCache": "xóa bộ nhớ đệm",
+  "settingsClearCacheSubtitle": "Hoàn thành bộ đệm hình ảnh tham chiếu",
+  "settingsAbout": "Giới thiệu về MiriaGo",
+  "settingsAboutSubtitle": "Thông tin phiên bản, giấy phép nguồn mở, v.v.",
+  "btnCancel": "Hủy bỏ",
+  "btnConfirm": "Chắc chắn",
+  "btnSave": "cứu",
+  "labelManualEntry": "Nhập thủ công",
+  "labelRevertCompleted": "Rút đồng hồ vào",
+  "labelUnassignedGroup": "Không chia thành các khu",
+  "labelUnknownGroup": "khu vực không xác định",
+  "labelNoAnchor": "Không có phím nào được đặt",
+  "labelStatusCurrent": "mục tiêu hiện tại",
+  "labelStatusCompleted": "Hoàn thành",
+  "labelStatusPending": "Để được truy cập",
+  "settingsReset": "Khôi phục cài đặt ban đầu",
+  "settingsResetConfirmSubtitle": "Tất cả cài đặt ngoại hình, chụp ảnh và bản đồ sẽ được khôi phục về giá trị mặc định.",
+  "settingsThemeColor": "màu chủ đề",
+  "settingsThemeColorSubtitle": "Ảnh hưởng đến sự kết hợp màu tổng thể của ứng dụng",
+  "settingsThemeMode": "chế độ chủ đề",
+  "settingsThemeLight": "chế độ ánh sáng",
+  "settingsThemeDark": "chế độ tối",
+  "settingsThemeSystem": "Theo dõi hệ thống",
+  "settingsUiScale": "Thu phóng trang",
+  "settingsUiScaleSubtitle": "Điều chỉnh kích thước tổng thể của giao diện (không ảnh hưởng đến hình ảnh tham chiếu)",
+  "settingsCameraRatio": "Tỷ lệ chụp ảnh",
+  "settingsCameraZoom": "thu phóng máy ảnh",
+  "settingsPhotoBackup": "sao lưu ảnh",
+  "settingsPhotoBackupSubtitle": "Lưu ảnh chuyến tham quan vào album",
+  "settingsAutoSaveComparison": "Tự động lưu biểu đồ so sánh",
+  "settingsAutoSaveComparisonSubtitle": "Lưu vào album ảnh khi lưu bản ghi",
+  "settingsDesktop": "Máy tính để bàn",
+  "settingsDesktopSubtitle": "Trình khởi chạy, thư mục dữ liệu, v.v.",
+  "desktopLauncherChecking": "Kiểm tra trình khởi chạy máy tính để bàn",
+  "desktopLauncherUnavailable": "Trình khởi chạy máy tính để bàn không có sẵn",
+  "desktopSystemDataDir": "Thư mục dữ liệu hệ thống",
+  "desktopPortableDir": "thư mục di động",
+  "desktopAppDataDir": "thư mục dữ liệu ứng dụng",
+  "desktopLauncherAvailable": "Trình khởi chạy máy tính để bàn có sẵn",
+  "settingsFontSmall": "Bé nhỏ",
+  "settingsFontStandard": "tiêu chuẩn",
+  "settingsFontLarge": "to lớn",
+  "settingsFontHuge": "cực lớn",
+  "msgReplacingRef": "Đang thay thế hình ảnh tham chiếu...",
+  "msgReplaceRefFailed": "Thay thế ảnh tham chiếu không thành công, vui lòng thử lại sau.",
+  "msgReplaceRefSuccess": "Hình ảnh tham khảo được thay thế",
+  "msgCannotOpenMap": "Không thể mở Google Maps.",
+  "titleMoveToGroup": "Di chuyển đến khu vực",
+  "copyLabelPointName": "Tên điểm",
+  "copyLabelGroupAnchor": "Các điểm chính của khu vực",
+  "labelNote": "Nhận xét",
+  "themeClassicGreen": "màu xanh lá cây cổ điển",
+  "themeDeepBlue": "màu xanh đậm",
+  "themeCherryPink": "Bột hoa anh đào",
+  "themeTwilightPurple": "màu tím chạng vạng",
+  "themeMiriaYellow": "màu cam hổ phách",
+  "themeGraphite": "than chì màu đen",
+  "themeAurora": "Tùy chỉnh",
+  "aspectAuto": "tự động",
+  "aspectNative": "tỷ lệ tự nhiên",
+  "aspectCustom": "Tùy chỉnh",
+  "aspectAutoHint": "gợi ý",
+  "aspectNativeHint": "Tự nhiên",
+  "aspectLandscape16x9Hint": "màn ảnh rộng",
+  "aspectCinema21x9Hint": "Bộ phim",
+  "aspectStandard4x3Hint": "cổ điển",
+  "aspectPhoto3x2Hint": "máy ảnh",
+  "aspectPortrait9x16Hint": "Màn hình dọc",
+  "aspectPortrait9x21Hint": "Toàn màn hình",
+  "aspectPortrait3x4Hint": "biểu ngữ dọc",
+  "aspectPortrait2x3Hint": "biểu ngữ dọc",
+  "aspectSquare1x1Hint": "quảng trường",
+  "aspectCustomHint": "tùy chỉnh",
+  "mapProviderOpenFreeMap": "Bản đồ mở miễn phí",
+  "mapProviderOpenFreeMapDesc": "Bản đồ mặc định, sử dụng kiểu MapLibre.",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "Sử dụng các ô XYZ tiêu chuẩn OpenStreetMap.",
+  "mapProviderCustomXyz": "XYZ tùy chỉnh",
+  "mapProviderCustomXyzDesc": "Sử dụng URL ô raster chứa {z}/{x}/{y}.",
+  "mapProviderCustomMapLibre": "Bản đồ tùy chỉnhLibre",
+  "mapProviderCustomMapLibreDesc": "Sử dụng URL kiểu MapLibre tùy chỉnh.",
+  "mapStyleLibertyDesc": "Kiểu mặc định có mật độ thông tin cao hơn.",
+  "mapStyleBrightDesc": "Phong cách chuẩn sáng sủa.",
+  "mapStylePositronDesc": "Màu sắc nhẹ nhàng, phong cách ít gây phân tâm.",
+  "mapStyleDarkDesc": "Phong cách bản đồ tối.",
+  "mapStyleFiordDesc": "Phong cách địa hình mềm mại.",
+  "imageSourceAuto": "lựa chọn tự động",
+  "imageSourceOfficial": "Mặc định chính thức",
+  "imageSourceMirror": "nguồn dự phòng",
+  "imageSourceAutoDesc": "Image.anitabi.cn được sử dụng đầu tiên; nếu quá trình tải xuống gặp trang lỗi hoặc bị chặn, img-tc.anitabi.cn sẽ được thử.",
+  "imageSourceOfficialDesc": "Đã sửa lỗi sử dụng image.anitabi.cn và giữ lại nguồn hình ảnh mặc định chính thức của Anitabi.",
+  "imageSourceMirrorDesc": "Đã sửa lỗi sử dụng img-tc.anitabi.cn, phù hợp để sử dụng khi nguồn mặc định chính thức thường bị chặn.",
+  "mapProviderRecommendedDefault": "Mặc định được đề xuất",
+  "mapProviderStandardTiles": "Gạch tiêu chuẩn",
+  "mapProviderTileTemplate": "mẫu gạch",
+  "mapProviderStyleUrl": "URL kiểu",
+  "cameraCaptureRatioSection": "Tỷ lệ chụp ảnh",
+  "cameraCaptureRatioDesc": "Nó sẽ tự động tuân theo tỷ lệ hình ảnh tham chiếu trước; sau khi chọn tỉ lệ cố định sẽ bắn theo tỉ lệ đó.",
+  "cameraFallbackRatioSection": "Tỷ lệ không có hình ảnh tham khảo",
+  "cameraFallbackRatioDesc": "Sử dụng nó khi tỷ lệ hình ảnh được đặt thành tự động và không có hình ảnh tham chiếu nào để căn chỉnh.",
+  "cameraReferenceScaleSection": "Hiển thị hình ảnh tham khảo",
+  "cameraZoomSection": "thu phóng máy ảnh",
+  "cameraBackupDetailDesc": "Khi lưu hồ sơ, ảnh chuyến tham quan cũng được sao lưu.",
+  "mapSourceSection": "Nguồn bản đồ",
+  "mapOpenFreeMapStyleSection": "Phong cách OpenFreeMap",
+  "mapCustomXyzUrlNotSet": "URL XYZ tùy chỉnh chưa được đặt",
+  "mapCustomXyzUrlTitle": "URL XYZ tùy chỉnh",
+  "mapCustomXyzUrlHelper": "URL cần chứa {z}, {x}, {y}.",
+  "mapCustomXyzUrlInvalid": "Định dạng URL không hợp lệ",
+  "mapCustomMapLibreUrlNotSet": "URL kiểu MapLibre chưa được đặt",
+  "mapCustomMapLibreUrlTitle": "URL kiểu MapLibre",
+  "mapCustomMapLibreUrlHelper": "URL cần trỏ tới kiểu JSON có thể đọc công khai.",
+  "mapAnitabiImageSourceSection": "Nguồn hình ảnh Anitabi",
+  "mapThumbnailSection": "Hình thu nhỏ bản đồ",
+  "mapThumbnailThresholdTitle": "Ngưỡng hiển thị hình thu nhỏ",
+  "mapThumbnailThresholdDesc": "Khi không có nhiều hơn điểm {threshold} trong chế độ xem, hình thu nhỏ sẽ được hiển thị; khi có nhiều hơn , chỉ hiển thị dấu chấm.",
+  "mapConcurrentLoadsTitle": "Số lượng yêu cầu hình ảnh đồng thời",
+  "mapConcurrentLoadsDesc": "Được sử dụng để hiển thị hình thu nhỏ của bản đồ, hình thu nhỏ của bộ đệm khi nhập điểm và bản đồ tham chiếu bộ đệm hàng loạt. Con số cao hơn có thể mang lại tốc độ nhanh hơn nhưng cũng gây căng thẳng hơn cho mạng.",
+  "mapThumbnailThresholdZeroHint": "Ngưỡng 0 sẽ không hiển thị hình thu nhỏ trên bản đồ.",
+  "mapNavigationAppSection": "Phần mềm điều hướng",
+  "mapNavigationAppHint": "Chỉ các tùy chọn giao diện được giữ lại và bước nhảy điều hướng thực tế hiện không được kết nối.",
+  "desktopLauncherSection": "trình khởi chạy",
+  "aboutAppInfoSection": "Thông tin ứng dụng",
+  "aboutAppDescription": "Công cụ tham khảo chụp ảnh và lập kế hoạch du lịch Thánh địa hoạt hình",
+  "aboutVersionLabel": "Phiên bản hiện tại",
+  "aboutLoadingText": "Đọc",
+  "aboutAuthorLabel": "tác giả",
+  "aboutContactEmailLabel": "Email liên hệ",
+  "aboutSourceCodeRepositoryLabel": "Kho nguồn mở",
+  "aboutLicenseLabel": "Giấy phép nguồn mở",
+  "aboutCopyrightSection": "Dữ liệu và Bản quyền",
+  "aboutCopyrightDescription": "Bản đồ có thể sử dụng OpenFreeMap, OpenStreetMap hoặc các dịch vụ tùy chỉnh; Bangumi được sử dụng để tìm việc làm; điểm tham quan và bản đồ tham khảo là từ Anitabi. Cài đặt nguồn hình ảnh chỉ ảnh hưởng đến tên miền truy cập và các liên kết từ xa sẽ giữ nguyên định dạng mặc định của Anitabi một cách thống nhất. Bản quyền của dữ liệu, ảnh chụp màn hình và hình ảnh của bên thứ ba thuộc về nền tảng ban đầu, người đóng góp hoặc chủ bản quyền.",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "giảm bớt",
+  "btnIncrease": "Tăng",
+  "settingsExportDefaultConfig": "Cấu hình mặc định",
+  "cachePlanSection": "kế hoạch",
+  "cacheLoadPlansFailed": "Danh sách kế hoạch đọc không thành công",
+  "cacheSelectPlanSection": "Chọn gói",
+  "cacheClearButton": "Xóa bộ nhớ đệm của hình ảnh tham chiếu đầy đủ",
+  "btnRetry": "Thử lại",
+  "tooltipSelectAll": "Chọn tất cả",
+  "tooltipClear": "Thông thoáng",
+  "cacheClearFuncPlaceholder": "Chức năng xóa bộ nhớ cache vẫn chưa được truy cập và chỉ hiển thị giao diện.",
+  "cacheSelectedPlansCount": "Đã chọn gói {selected} / {total}",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "điểm {area} / {count}",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "nội dung bộ nhớ đệm",
+  "cacheReferenceType": "Hoàn thành bộ đệm hình ảnh tham chiếu",
+  "cacheReferenceDesc": "Xóa Tham chiếu Máy ảnh và Chế độ xem Lớn để xem hình ảnh tham chiếu đầy đủ được sử dụng. Bộ đệm hình thu nhỏ được duy trì để giữ tốc độ tải danh sách và bản đồ.",
+  "gpsDisabled": "Dịch vụ định vị chưa được bật.",
+  "gpsPermissionRequired": "Cần có sự cho phép vị trí để hiển thị vị trí hiện tại.",
+  "gpsTimeout": "Định vị đã hết thời gian chờ, vui lòng thử lại sau.",
+  "gpsFailed": "Vị trí không thành công, vui lòng kiểm tra quyền và dịch vụ định vị.",
+  "planActions": "Lập kế hoạch hoạt động",
+  "planSwitch": "Chuyển đổi gói",
+  "planAddPoint": "Thêm điểm",
+  "planManage": "kế hoạch quản lý",
+  "planMemo": "bản ghi nhớ kế hoạch",
+  "planImportExport": "Nhập khẩu và xuất khẩu",
+  "cacheDownloading": "Đang lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh...",
+  "cacheNoImagesToDownload": "Không có hình ảnh tham chiếu nào cần được lưu vào bộ đệm trong gói hiện tại",
+  "cacheTitle": "Lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh",
+  "cacheConfirmMessage": "Hình ảnh tham chiếu hoàn chỉnh của {count} trong gói hiện tại sẽ được lưu vào bộ nhớ đệm, quá trình này có thể mất nhiều thời gian và lưu lượng mạng.",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "Bắt đầu lưu vào bộ nhớ đệm",
+  "cacheStarted": "Bắt đầu lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh",
+  "groupPrev": "Khu vực trước đó",
+  "groupNext": "khu vực tiếp theo",
+  "mapCollapse": "Ẩn bản đồ",
+  "labelPointsCount": "điểm {count}",
+  "labelCompletedCount": "Hoàn thành",
+  "labelOrderMode": "người mẫu",
+  "sortModeDefault": "Thứ tự quy hoạch mặc định",
+  "sortModeDistance": "Khoảng cách từ vị trí hiện tại",
+  "sortModeDefaultShort": "Gói mặc định",
+  "sortModeDistanceShort": "theo khoảng cách",
+  "sortOrderDesc": "Đảo ngược thứ tự",
+  "sortOrderAsc": "trình tự tích cực",
+  "sortOrderFarToNear": "Xa đến gần",
+  "sortOrderNearToFar": "gần xa",
+  "tooltipHideLocation": "Ẩn vị trí hiện tại",
+  "tooltipShowLocation": "Hiển thị vị trí hiện tại",
+  "labelCompleted": "Hoàn thành",
+  "planNoPointsTitle": "Chưa có đặt chỗ nào",
+  "planNoPointsSubtitle": "Trước tiên, hãy thêm điểm tham quan từ Anitabi hoặc nhập điểm đó theo cách thủ công, sau đó mục tiêu hiện tại và tiến độ hoàn thành sẽ được hiển thị tại đây.",
+  "planWorksCount": "{count} hoạt động",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "Chụp {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} điểm / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "Chi tiết điểm",
+  "btnCameraReference": "Tham khảo chụp ảnh",
+  "tooltipRevertCompleted": "Rút đồng hồ vào",
+  "tooltipMarkCompleted": "Đánh dấu hoàn thành",
+  "tooltipSetTarget": "Đặt làm mục tiêu hiện tại",
+  "recordsUnassignedDesc": "Chưa có hồ sơ nào được đưa vào khu vực",
+  "recordsOrphanedTitle": "Hồ sơ mồ côi",
+  "recordsOrphanedDesc": "Điểm tương ứng không còn trong kế hoạch hiện tại",
+  "recordsAllRecords": "Tất cả hồ sơ",
+  "recordsFilterConditionsCount": "bộ lọc {count}",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "lọc",
+  "recordsSearchPoints": "Điểm tìm kiếm",
+  "recordsSearchHint": "Điểm, tác phẩm, cảnh, số tập, tọa độ",
+  "tooltipClearSearch": "Xóa tìm kiếm",
+  "recordsFilterStatus": "tình trạng",
+  "recordsFilterCompletedPoints": "Điểm đã hoàn thành",
+  "recordsFilterPendingPoints": "Điểm chưa hoàn thành",
+  "recordsPhotoTitle": "Hình ảnh hành hương",
+  "recordsEntriesCount": "bài viết {count}",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "hồ sơ du lịch {count}",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "Hoàn thành {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "Chưa có hồ sơ nào về chuyến tham quan. Nó sẽ tự động xuất hiện ở đây sau khi chụp thành công.",
+  "groupOrderModePending": "Để được tổ chức",
+  "groupOrderModeManual": "Thủ công",
+  "groupOrderModeNone": "rối loạn",
+  "groupAnchorPending": "Chờ đợi để được chia thành từng mảnh",
+  "groupAnchorNameLabel": "Những điểm chính: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "Kế hoạch hiện tại vẫn chưa được thực hiện.",
+  "tooltipLocation": "chức vụ",
+  "tooltipUseIconMarkers": "Sử dụng dấu biểu tượng",
+  "tooltipShowThumbnailMarkers": "Hiển thị dấu hình thu nhỏ",
+  "tooltipPoint": "Điểm hành hương",
+  "copyLabelPointInfo": "Thông tin điểm",
+  "mapNoPointsMessage": "Kế hoạch hiện tại vẫn chưa được thực hiện. Sau khi thêm một điểm, điểm đánh dấu sẽ xuất hiện trên bản đồ.",
+  "labelEditPointNotSupported": "Điểm không thể được chỉnh sửa trong môi trường hiện tại.",
+  "tooltipGoToTarget": "mục tiêu hiện tại",
+  "planDefaultNewName": "Kế hoạch du lịch mới {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "Khu vực chưa được đặt",
+  "msgDeletePlanAtLeastOne": "Cần giữ ít nhất một kế hoạch",
+  "dialogDeletePlanTitle": "Xóa kế hoạch",
+  "dialogDeletePlanMessage": "\"{name}\" và các địa điểm, khu vực, công trình và hồ sơ chuyến tham quan của nó sẽ bị xóa. Không thể hoàn tác hành động này.",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "xóa bỏ",
+  "dialogEditPlanTitle": "Chỉnh sửa thông tin kế hoạch",
+  "labelPlanName": "Tên kế hoạch",
+  "labelPlanArea": "vùng/khu vực",
+  "btnNewPlan": "Kế hoạch mới",
+  "statusTextCurrentPlan": "Kế hoạch hiện tại",
+  "statusTextSwitchable": "có thể chuyển đổi",
+  "labelPlanInfo": "Thông tin chương trình",
+  "planInfoCopyContent": "{name}\n{area}\n{points} điểm \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "công tắc",
+  "btnReloadPlan": "tải lại kế hoạch",
+  "importExportImportSection": "nhập khẩu",
+  "importExportImportDescMobile": "Mở .sjhplan bằng MiriaGo từ tệp, trò chuyện, trình duyệt hoặc ổ đĩa mạng.",
+  "importExportImportDescWeb": "Chọn tệp .sjhplan và xem trước nội dung trước khi nhập.",
+  "importExportStatusReading": "Đọc...",
+  "importExportOpenFromApp": "Mở .sjhplan từ các ứng dụng khác",
+  "importExportImportFileTitle": "Nhập tệp MiriaGo",
+  "importExportOpenFromAppDesc": "Chọn .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt hoặc ổ đĩa mạng, sau đó chia sẻ hoặc mở bằng MiriaGo.",
+  "importExportImportFileDesc": "Hỗ trợ các gói dữ liệu v2 và các gói gói JSON v1 cũ.",
+  "importExportZipDesc": "Phiên bản mới của .sjhplan, zip nội bộ, chứa tệp kê khai.json.",
+  "importExportMyMapsDesc": "Xuất điểm sang CSV. Hình ảnh được viết dưới dạng liên kết và có thể được tạo kiểu theo cột Loại.",
+  "importExportMyMapsTitle": "Xuất CSV Bản đồ của tôi",
+  "importExportMyMapsDetails": "6 cột đầu tiên tuân theo định dạng ví dụ, với các tác phẩm, bộ sưu tập, nguồn, v.v. được chia thành các cột độc lập.",
+  "msgExportCancelled": "Đã hủy xuất",
+  "msgImportReadFailed": "Đọc tệp nhập không thành công",
+  "dialogOpenFromAppTitle": "Mở .sjhplan từ các ứng dụng khác",
+  "dialogOpenFromAppMessage": "Vui lòng tìm tệp .sjhplan trong tệp, trò chuyện, trang tải xuống trình duyệt, ổ đĩa mạng hoặc vị trí lưu khác, sau đó nhấp vào tệp hoặc sử dụng menu Chia sẻ/Thêm để chọn MiriaGo. \n\nMiriaGo sẽ tự động vào trang xem trước nhập sau khi nhận được tệp. Nếu không có MiriaGo trong danh sách, trước tiên bạn có thể lưu tệp vào Ứng dụng \"Tệp\", sau đó nhấn và giữ tệp để chọn phương thức chia sẻ hoặc mở.",
+  "btnGotIt": "biết",
+  "exportShareLabel": "Gói MiriaGo: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "Gói dữ liệu đã được xuất",
+  "dialogMissingResourcesTitle": "Một số tài nguyên cục bộ bị thiếu",
+  "dialogMissingResourcesMessage": "Các tài nguyên này sẽ không được nhập vào gói dữ liệu và hình ảnh tương ứng có thể không được hiển thị sau khi nhập.",
+  "btnContinueExport": "Tiếp tục xuất",
+  "msgExportMyMapsSuccess": "Đã xuất CSV Bản đồ của tôi",
+  "msgExporting": "Đang xuất...",
+  "msgExportFailed": "Xuất không thành công",
+  "warningMissingPart": "{fallback}, không thể thêm một số tài nguyên",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} Thiếu ảnh tham chiếu được tải lên cục bộ",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "Hình thu nhỏ {count} chưa được thêm",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} Không tải được ảnh tham chiếu đầy đủ",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} Thiếu hình ảnh tham chiếu đầy đủ",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} Thiếu ảnh trong chuyến tham quan",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "thiếu ảnh đã sửa màu {count}",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "khu vực {groups} / điểm {points}",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "kế hoạch thuần túy",
+  "btnPlanAndRecords": "Kế hoạch+Bản ghi",
+  "importExportIncludeCache": "Chứa bộ đệm hình ảnh tham chiếu đầy đủ",
+  "importExportIncludeCacheDesc": "Hình thu nhỏ và hình ảnh tham chiếu do người dùng thêm sẽ vẫn được đưa vào theo mặc định.",
+  "btnExportDataPackage": "Xuất gói dữ liệu MiriaGo",
+  "btnExportingDataPackage": "Đang xuất...",
+  "importExportEstimateEstimating": "Đang ước tính kích thước gói...",
+  "importExportEstimateFailed": "Kích thước gói ước tính: không thể ước tính vào lúc này",
+  "importExportEstimateResult": "Kích thước gói dự kiến: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "Tải lên hình ảnh tham khảo tại địa phương",
+  "dialogVisitPhotoMissing": "Hình ảnh hành hương",
+  "dialogGradedPhotoMissing": "Tông màu ảnh",
+  "estimateThumbnailNotCached": "Hình thu nhỏ {count} không được lưu vào bộ nhớ đệm và sẽ không nhập gói dữ liệu",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} Một hình ảnh tham chiếu đầy đủ sẽ được tải xuống trong quá trình xuất",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} Thiếu tệp ảnh tham chiếu được tải lên cục bộ và không thể khôi phục sau khi xuất.",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "Thiếu tệp ảnh hành hương {count}",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "thiếu tệp ảnh đã sửa màu {count}",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "Một số tài nguyên cục bộ không thể đọc được và nội dung gói thực tế có thể thay đổi.",
+  "estimateLabelAtLeast": "Kích thước gói dự kiến: ít nhất khoảng {size}, {details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "Kích thước gói ước tính: khoảng {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "trở lại",
+  "importExportDataPackageHeader": "Gói dữ liệu MiriaGo",
+  "addPointsTitle": "Thêm nội dung",
+  "addPointsAddToPlan": "Tham gia: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "Quản lý công việc",
+  "addPointsWorkManagerDesc": "Quản lý các công việc theo kế hoạch và hỗ trợ Bangumi tìm kiếm, thêm và xóa các tác phẩm theo cách thủ công.",
+  "addPointsImportFromWorkMapTitle": "Nhập điểm từ bản đồ công việc",
+  "addPointsImportFromWorkMapDesc": "Xem vị trí tác phẩm trên bản đồ Anitabi, click vào chi tiết hình thu nhỏ để tham gia dự án.",
+  "addPointsImportFromLinkTitle": "Nhập từ liên kết Anitabi",
+  "addPointsImportFromLinkDesc": "Dán tác phẩm hoặc liên kết điểm của Anitabi để mở nhanh bản đồ tác phẩm tương ứng.",
+  "addPointsManualTitle": "Thêm điểm theo cách thủ công",
+  "addPointsManualDesc": "Chọn tác phẩm đã thêm và nhập tên, tọa độ và thông tin cảnh.",
+  "addPointsActionLabelUnavailable": "Không có sẵn",
+  "addPointsActionLabelManage": "quản lý",
+  "addPointsActionLabelOpen": "Mở",
+  "addPointsActionLabelInput": "đi vào",
+  "addPointsActionLabelAdd": "Thêm vào",
+  "msgWorkAdded": "\"{title}\" đã được thêm vào.",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "Không thể thêm công việc, vui lòng thử lại sau.",
+  "bangumiSearchTitle": "Tìm kiếm Bangumi",
+  "bangumiSearchLabel": "Tiêu đề công việc",
+  "bangumiSearchHint": "Ví dụ, một cô gái có tông màu nhẹ nhàng",
+  "bangumiSearchBtn": "Tìm kiếm tác phẩm",
+  "bangumiSearchBtnSearching": "Tìm kiếm",
+  "bangumiSearchFailed": "Tìm kiếm Bangumi không thành công, vui lòng kiểm tra mạng và thử lại.",
+  "bangumiSearchEmptyHelp": "Nhập tiêu đề tác phẩm và tìm kiếm, sau đó chọn kết quả để tham gia kế hoạch hiện tại.",
+  "anitabiLinkImportTitle": "Nhập liên kết Anitabi",
+  "anitabiLinkImportLabel": "liên kết anitabi",
+  "anitabiLinkImportHint": "Ví dụ: https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "Nếu liên kết chứa ID tác phẩm thì chỉ tác phẩm tương ứng mới được tải; nếu nó cũng chứa ID điểm thì điểm đó sẽ được chọn tự động. Các liên kết không có ID tác phẩm cần được sao chép lại sau khi nhập tác phẩm tương ứng vào Anitabi.",
+  "anitabiLinkImportBtn": "Mở điểm Anitabi",
+  "anitabiLinkImportEmptyErr": "Vui lòng nhập liên kết Anitabi",
+  "anitabiLinkImportInvalidErr": "Vui lòng nhập liên kết bản đồ Anitabi hợp lệ",
+  "anitabiLinkImportNoWorkIdErr": "Liên kết thiếu ID công việc. Vui lòng nhập tác phẩm tương ứng vào Anitabi và sao chép liên kết.",
+  "msgPointAdded": "\"{title}\" đã được thêm vào.",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "Lưu điểm không thành công, vui lòng thử lại sau.",
+  "msgWorkSaveFailed": "Không lưu được công việc, vui lòng thử lại sau.",
+  "manualAddWorkTitle": "Thêm các mục theo cách thủ công",
+  "manualAddWorkName": "Tiêu đề công việc",
+  "manualAddWorkOriginalName": "Tên gốc của tác phẩm",
+  "manualAddWorkOriginalNameHint": "Không bắt buộc",
+  "manualAddWorkArea": "khu vực chính",
+  "manualAddWorkAreaHint": "Tùy chọn, {defaultArea} mặc định",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "lưu công việc",
+  "manualAddWorkBtnSaving": "Đang lưu",
+  "manualAddWorkRequiredField": "Vui lòng điền vào đây",
+  "msgReferenceImageReadFailed": "Không đọc được hình ảnh tham khảo, vui lòng thử lại.",
+  "msgClipboardCoordinatesInvalid": "Không có tọa độ được công nhận trong bảng nhớ tạm.",
+  "msgClipboardCoordinatesApplied": "tọa độ clipboard được điền vào.",
+  "manualAddPointTitleAdd": "Thêm điểm theo cách thủ công",
+  "manualAddPointTitleEdit": "Chỉnh sửa điểm",
+  "manualAddPointStatusEdit": "Sửa đổi: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "Tác phẩm",
+  "manualAddPointSelectWorkErr": "Hãy chọn một tác phẩm",
+  "manualAddPointWorkName": "Tiêu đề hoạt hình/tác phẩm",
+  "manualAddPointWorkOriginalName": "Tên gốc của tác phẩm",
+  "manualAddPointWorkOriginalNameHint": "Không bắt buộc",
+  "manualAddPointWorkArea": "Các lĩnh vực công việc chính",
+  "manualAddPointWorkAreaHint": "Tùy chọn, {defaultArea} mặc định",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "Tên điểm",
+  "manualAddPointPositionDesc": "mô tả vị trí",
+  "manualAddPointEpisodeLabel": "Số tập/thẻ cảnh",
+  "manualAddPointSource": "Nguồn tham khảo",
+  "manualAddPointMemo": "Nhận xét",
+  "manualAddPointMemoHint": "Tùy chọn, chẳng hạn như đóng cửa hàng, cải tạo, đề xuất chụp ảnh",
+  "manualAddPointSelectCoordsBtn": "Chọn tọa độ từ bản đồ",
+  "manualAddPointPasteCoordsBtn": "Dán tọa độ clipboard",
+  "manualAddPointLatitude": "vĩ độ",
+  "manualAddPointLatitudeHint": "Ví dụ 34.8917",
+  "manualAddPointLongitude": "kinh độ",
+  "manualAddPointLongitudeHint": "Ví dụ 135.8077",
+  "manualAddPointBtnSaving": "Đang lưu",
+  "manualAddPointBtnSaveEdit": "Lưu thay đổi",
+  "manualAddPointBtnSaveAdd": "Lưu điểm",
+  "manualAddPointRequiredField": "Vui lòng điền vào đây",
+  "manualAddPointRequiredLatitude": "Vui lòng điền vĩ độ",
+  "manualAddPointRequiredLongitude": "Hãy điền kinh độ",
+  "manualAddPointInvalidCoordinate": "Vui lòng nhập tọa độ hợp lệ",
+  "manualAddPointSelectCoordsTitle": "Chọn tọa độ điểm",
+  "manualAddPointSelectCoordsTooltipActive": "Đóng lựa chọn bản đồ",
+  "manualAddPointSelectCoordsTooltipInactive": "Chọn một điểm trên bản đồ",
+  "manualAddPointSelectCoordsHelpActive": "Nhấp vào bất cứ nơi nào trên bản đồ để đặt tọa độ điểm",
+  "manualAddPointSelectCoordsHelpInactive": "Đầu tiên bấm vào nút chọn điểm ở góc trên bên phải, sau đó bấm vào bản đồ để thiết lập tọa độ",
+  "manualAddPointSelectCoordsAdjustHelp": "Click vào bản đồ để tiếp tục điều chỉnh vị trí",
+  "manualAddPointSelectCoordsDialogTitle": "Lựa chọn điểm bản đồ",
+  "manualAddPointSelectCoordsBtnUse": "sử dụng",
+  "addPointsNoWorksHelp": "Hiện tại chưa có công trình nào được lên kế hoạch. Thêm tác phẩm trước, sau đó bạn có thể nhập điểm theo tác phẩm.",
+  "addPointsHasWorksHelp": "Gói hiện tại có {count} hoạt động: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "Xem hình ảnh lớn",
+  "addPointsRefImageTooltipEmpty": "Chưa có hình ảnh tham khảo",
+  "addPointsRefImageHeader": "Hình ảnh tham khảo",
+  "addPointsRefImageHelpSelected": "Một hình ảnh mới đã được chọn và sẽ có hiệu lực sau khi lưu.",
+  "addPointsRefImageHelpCurrent": "Hình ảnh tham chiếu hiện tại cần được lưu lại sau khi chọn lại để có hiệu lực.",
+  "addPointsRefImageHelpEmpty": "Tùy chọn, nó sẽ được sao chép vào thư mục cục bộ của Ứng dụng khi lưu.",
+  "addPointsRefImageBtnReselect": "Chọn lại",
+  "addPointsRefImageBtnUpload": "Tải lên hình ảnh tham khảo",
+  "addPointsRefImageBtnRemove": "Di dời",
+  "addPointsPointBtnAdded": "Đã thêm",
+  "addPointsPointBtnAdd": "tham gia vào",
+  "managePlanTitle": "kế hoạch quản lý",
+  "managePlanSelectedCount": "Đã chọn {count}",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "Quản lý khu vực",
+  "managePlanCachingProgress": "Hình ảnh tham chiếu hoàn chỉnh trong bộ nhớ đệm",
+  "managePlanCacheFullReference": "Lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh",
+  "managePlanTooltipExitSelection": "Thoát khỏi nhiều lựa chọn",
+  "managePlanTooltipSelection": "Nhiều lựa chọn",
+  "msgNoAnchorForUnassigned": "Điểm chưa được chỉ định không có điểm chính.",
+  "msgAreaNotExist": "Khu vực này không tồn tại.",
+  "msgSaveAnchorFailed": "Không lưu được điểm chính.",
+  "msgNoOrderForUnassigned": "Các điểm chưa được chỉ định không cần phải sắp xếp.",
+  "managePlanAreaOrderTitle": "Đặt hàng trong khu vực",
+  "msgSaveOrderModeFailed": "Không lưu được phương pháp sắp xếp.",
+  "msgMoveAreaFailed": "Không thể di chuyển phạm vi.",
+  "msgOpenCameraFromPlanOrMap": "Vui lòng mở chụp từ trang quy hoạch hoặc trang bản đồ.",
+  "msgSaveReferenceImageFailed": "Không lưu được hình ảnh tham chiếu.",
+  "labelUnknownArea": "khu vực không xác định",
+  "managePlanMoveToAreaTitle": "Di chuyển đến khu vực",
+  "msgSavePointOrderFailed": "Lưu chuỗi điểm không thành công.",
+  "dialogDeletePointTitle": "Xóa điểm",
+  "dialogDeletePointMsg": "Bạn có chắc chắn muốn xóa \"{name}\" khỏi gói của mình không?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "Xóa điểm không thành công.",
+  "dialogBulkDeletePointsTitle": "Xóa điểm theo đợt",
+  "dialogBulkDeletePointsMsg": "Bạn có chắc chắn muốn xóa điểm {count} khỏi gói không?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "Xóa hàng loạt không thành công.",
+  "msgSaveCurrentTargetFailed": "Không lưu được mục tiêu hiện tại.",
+  "msgSaveCompletionStatusFailed": "Không lưu được trạng thái hoàn thành.",
+  "msgSavePointStatusFailed": "Không lưu được trạng thái điểm.",
+  "msgBulkCompleteFailed": "Hoàn thành hàng loạt không thành công.",
+  "msgBulkResetFailed": "Đặt lại hàng loạt không thành công.",
+  "msgFullReferenceCacheStarted": "Việc lưu vào bộ nhớ đệm các hình ảnh tham chiếu hoàn chỉnh đã bắt đầu.",
+  "msgCachingFullReferenceProgress": "Đang lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh...",
+  "msgNoReferenceToCache": "Không có hình ảnh tham chiếu nào cần được lưu vào bộ đệm trong gói hiện tại.",
+  "dialogCacheFullReferenceTitle": "Lưu vào bộ nhớ đệm hình ảnh tham chiếu hoàn chỉnh",
+  "dialogCacheFullReferenceMsg": "Hình ảnh tham chiếu hoàn chỉnh của {count} trong gói hiện tại sẽ được lưu vào bộ nhớ đệm, quá trình này có thể mất nhiều thời gian và lưu lượng mạng.",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "Bắt đầu lưu vào bộ nhớ đệm",
+  "labelAnchorNotSet": "chưa được đặt",
+  "tooltipPrevArea": "Khu vực trước đó",
+  "tooltipNextArea": "khu vực tiếp theo",
+  "managePlanPointsPending": "điểm {count} đang chờ sắp xếp",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "điểm {count} · đã hoàn thành {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "Những điểm chính: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "được giao gần đây nhất",
+  "btnBoxSelectAssign": "Phân phối lựa chọn khung",
+  "statusCurrent": "hiện hành",
+  "statusCompleted": "Hoàn thành",
+  "statusPending": "Để được truy cập",
+  "tooltipPointActions": "Hoạt động điểm",
+  "btnMoveToArea": "Di chuyển đến khu vực",
+  "btnSetAsCurrent": "Đặt như hiện tại",
+  "btnCancelCompletion": "Việc hủy đã hoàn tất",
+  "btnMarkCompletion": "Đánh dấu hoàn thành",
+  "btnDeletePoint": "Xóa điểm",
+  "refStatusNone": "Không có hình ảnh tham khảo",
+  "refStatusLocal": "Tải lên cục bộ",
+  "refStatusCached": "Đã lưu vào bộ nhớ đệm",
+  "refStatusRemote": "Không được lưu vào bộ nhớ đệm",
+  "tooltipClearSelection": "Thông thoáng",
+  "tooltipMoveArea": "Khu vực di động",
+  "tooltipReset": "cài lại",
+  "dialogSelectAnchorTitle": "Chọn điểm mấu chốt",
+  "btnClear": "Thông thoáng",
+  "tooltipCloseMapSelect": "Đóng lựa chọn bản đồ",
+  "tooltipSelectOnMap": "Chọn một điểm trên bản đồ",
+  "tooltipInputCoordinates": "Nhập vĩ độ và kinh độ",
+  "dialogInputCoordinatesTitle": "Nhập vĩ độ và kinh độ",
+  "labelManualAnchor": "Phím thủ công",
+  "tooltipSelectPoint": "Chọn điểm",
+  "labelAnchorNotSelected": "Chưa có điểm chính nào được chọn",
+  "msgClickMapToSetAnchor": "Nhấp vào bất cứ nơi nào trên bản đồ để đặt các điểm chính",
+  "msgSelectAnchorMethods": "Bạn có thể nhấp vào điểm, bản đồ hoặc nhập vĩ độ và kinh độ",
+  "managePlanNoPoints": "Chưa có điểm nào có thể quản lý được",
+  "dialogDiscardMemoTitle": "Hủy nội dung chưa được lưu?",
+  "dialogDiscardMemoMsg": "Bản ghi nhớ hiện tại có những thay đổi chưa được lưu.",
+  "btnKeepEditing": "Tiếp tục chỉnh sửa",
+  "btnDiscard": "bỏ cuộc",
+  "msgMemoSaved": "Đã lưu bản ghi nhớ kế hoạch.",
+  "msgMemoSaveFailed": "Không lưu được bản ghi nhớ kế hoạch.",
+  "msgTodoStatusSaveFailed": "Không lưu được trạng thái việc cần làm.",
+  "memoPlaceholderHeading": "tiêu đề",
+  "memoPlaceholderBold": "văn bản in đậm",
+  "memoPlaceholderListItem": "mục danh sách",
+  "memoPlaceholderTodo": "Danh sách việc cần làm",
+  "memoPlaceholderQuote": "Trích dẫn nội dung",
+  "memoPlaceholderLinkText": "văn bản liên kết",
+  "memoPlaceholderCode": "mã số",
+  "msgInvalidLinkFormat": "Định dạng liên kết không chính xác.",
+  "msgUnableToOpenLink": "Không thể mở liên kết.",
+  "planMemoTitle": "bản ghi nhớ kế hoạch",
+  "labelMemoContent": "Nội dung ghi nhớ",
+  "hintMemoContent": "Bạn có thể ghi lại quá trình di chuyển, các cuộc hẹn, các vấn đề chụp lại, sắp xếp bạn đồng hành, v.v.",
+  "tooltipHeading": "tiêu đề",
+  "tooltipBold": "In đậm",
+  "tooltipList": "danh sách",
+  "tooltipTodo": "Việc cần làm",
+  "tooltipQuote": "Trích dẫn",
+  "tooltipDivider": "đường phân chia",
+  "tooltipLink": "liên kết",
+  "tooltipCode": "mã số",
+  "tooltipUncheck": "Bỏ chọn",
+  "msgMemoImageNotSupported": "Bản ghi nhớ không hỗ trợ hình ảnh: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "Chưa viết bản ghi nhớ kế hoạch",
+  "memoEmptySubtitle": "Nhấp vào Chỉnh sửa ở góc trên bên phải để ghi lại quá trình vận chuyển, cuộc hẹn, vấn đề chụp lại hoặc các bước chuẩn bị khác.",
+  "msgInvalidRatio": "Vui lòng nhập một tỷ lệ hợp lệ.",
+  "dialogCustomRatioTitle": "quy mô tùy chỉnh",
+  "labelWidth": "Chiều rộng",
+  "labelHeight": "cao",
+  "msgColorNameRequired": "Vui lòng nhập tên màu.",
+  "dialogCustomThemeColorTitle": "Màu chủ đề tùy chỉnh",
+  "labelColorName": "tên",
+  "labelColorHex": "Số màu",
+  "btnAdd": "Thêm vào",
+  "navAppGoogleMaps": "Bản đồ Google",
+  "navAppAmap": "Bản đồ",
+  "navAppAppleMaps": "Bản đồ táo",
+  "navAppBaiduMaps": "Bản đồ Baidu",
+  "navAppTencentMaps": "Bản đồ Tencent",
+  "navAppBrowser": "Trình duyệt",
+  "navAppGoogleMapsSub": "Tùy chọn mặc định",
+  "navAppAmapSub": "Thường được sử dụng ở Trung Quốc",
+  "navAppAppleMapsSub": "Bản địa iOS",
+  "navAppBaiduMapsSub": "điều hướng thành phố",
+  "navAppTencentMapsSub": "Thay thế nhẹ",
+  "navAppBrowserSub": "Trang web mở ra",
+  "comparisonBorderColorWhite": "Trắng",
+  "comparisonBorderColorBlack": "đen",
+  "comparisonBorderColorTheme": "màu chủ đề",
+  "comparisonWidthLabel": "Chiều rộng {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "Không có biên giới",
+  "comparisonBorderPercent": "Đường viền {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "hiển thị nhãn",
+  "comparisonHideLabels": "Không hiển thị nhãn",
+  "comparisonPilgrimName": "Người hành hương {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "Vẻ bề ngoài",
+  "comparisonFieldBorderWidth": "chiều rộng đường viền",
+  "comparisonBorderWidthNone": "không có",
+  "comparisonFieldBorderColor": "màu viền",
+  "comparisonFieldOutputWidth": "chiều rộng đầu ra",
+  "comparisonLabelShowLabel": "hiển thị nhãn",
+  "comparisonSectionMetadata": "Siêu dữ liệu",
+  "comparisonFieldPilgrimName": "Tên người hành hương",
+  "comparisonShowPilgrimRight": "Hiển thị Người hành hương ở bên phải",
+  "comparisonShowGradingBottom": "Thông số phân loại màu sắc được hiển thị ở phía dưới",
+  "comparisonLabelReference": "tham khảo",
+  "comparisonLabelCaptured": "hành hương",
+  "comparisonLabelPilgrim": "người hành hương",
+  "comparisonExportTitle": "Xuất biểu đồ so sánh",
+  "tooltipClose": "đóng cửa",
+  "comparisonExporting": "Đang xuất...",
+  "comparisonExport": "Xuất khẩu",
+  "comparisonWidthAuto": "tự động",
+  "comparisonMetaCapturedAt": "Thời gian chụp",
+  "comparisonMetaWork": "công việc",
+  "comparisonMetaPoint": "Địa điểm",
+  "comparisonMetaCoordinates": "điều phối",
+  "comparisonMetaEpisode": "bối cảnh",
+  "comparisonErrRefUnavailable": "Hình ảnh tham chiếu không có sẵn và hình ảnh so sánh không thể xuất được.",
+  "comparisonErrCapturedUnavailable": "Bản đồ tham quan không có sẵn và không thể xuất hình ảnh so sánh.",
+  "comparisonErrRenderFailed": "Xuất không thành công, vui lòng thử lại sau.",
+  "cameraFallbackRatioTitle": "Tỷ lệ không có hình ảnh tham khảo",
+  "btnEdit": "biên tập",
+  "cameraRefModeOverlay": "Lớp phủ",
+  "cameraRefModeSplit": "lên và xuống",
+  "cameraRefModePinned": "cửa sổ nhỏ",
+  "cameraWebPreviewWarning": "Bản xem trước trên web không khởi chạy camera trực tiếp.",
+  "workManagerEmptyHelp": "Hiện tại chưa có công trình nào được lên kế hoạch.",
+  "dialogDeleteWorkTitle": "Xóa công việc",
+  "dialogDeleteWorkConfirmSingle": "Bạn có chắc chắn muốn xóa \"{name}\" không?",
+  "dialogDeleteWorkConfirmMultiple": "Bạn có chắc chắn muốn xóa \"{name}\" không? Điều này sẽ loại bỏ các điểm liên quan đến {count} và các bản ghi tương ứng cùng một lúc.",
+  "msgDeleteWorkFailed": "Xóa công việc không thành công",
+  "tooltipDeleteWork": "Xóa công việc",
+  "labelWorkTitleText": "Tiêu đề công việc",
+  "labelWorkInfoText": "Thông tin công việc",
+  "btnManualAdd": "Thêm thủ công",
+  "btnBangumiSearch": "bangumi",
+  "labelBangumiSource": "Bangumi #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "sách",
+  "subjectTypeAnime": "hoạt hình",
+  "subjectTypeMusic": "âm nhạc",
+  "subjectTypeGame": "trò chơi",
+  "subjectTypeReal": "Ba chiều",
+  "labelPoints": "điểm",
+  "mapImportTitle": "Nhập từ bản đồ công việc",
+  "mapImportRefreshingCache": "Đang xóa bộ nhớ đệm và tải lại điểm Anitabi...",
+  "mapImportManualWorkNoBangumiId": "Các tác phẩm được thêm thủ công không có ID Bangumi và không thể nhập điểm từ bản đồ Anitabi.",
+  "mapImportPointAddedMsg": "Đã tham gia kế hoạch, bạn có thể tiếp tục chọn điểm.",
+  "mapImportPointAddFailedMsg": "Nhập điểm không thành công, vui lòng thử lại sau.",
+  "mapImportAllAddedMsg": "Tất cả các điểm không nối đã được thêm vào.",
+  "mapImportBatchFailedMsg": "Nhập hàng loạt không thành công, vui lòng thử lại sau.",
+  "mapImportBoxSelectionEmptyMsg": "Không có điểm nào có thể được thêm vào trong phạm vi lựa chọn.",
+  "mapImportBoxAddedMsg": "Điểm chọn khung đã được thêm vào.",
+  "mapImportBoxFailedMsg": "Nhập điểm chọn khung không thành công, vui lòng thử lại sau.",
+  "mapImportImportingMsg": "Đang nhập điểm {count}...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "Bộ nhớ đệm hình thu nhỏ {processed}/{total}, {succeeded} thành công",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "điểm {count} đã được nhập và hình thu nhỏ được lưu vào bộ đệm {cached}/{total}. Phần còn lại sẽ được tự động điền sau.",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "Thêm tất cả các điểm",
+  "mapImportAddAllDialogMsg": "Điểm {count} trong công việc hiện tại chưa có trong kế hoạch sẽ được thêm vào kế hoạch và tạm thời được đặt ở các khu vực chưa được nhóm.",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "thêm tất cả",
+  "mapImportAddBoxDialogTitle": "Thêm điểm chọn khung",
+  "mapImportAddBoxDialogMsg": "Các điểm {count} trong phạm vi đã chọn chưa có trong kế hoạch sẽ được thêm vào kế hoạch và tạm thời được đặt trong các khu vực chưa được nhóm.",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "Thêm lựa chọn khung",
+  "mapImportAddBoxBtnWithCount": "Thêm {count}",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "Sắp xếp các điểm mới nhập",
+  "mapImportOrganizeDialogMsg": "Điểm {count} đã được nhập và tạm thời được đặt ở dạng chưa được nhóm. Bạn có thể tạo các bản vá và điểm chính trước, sau đó nhanh chóng gán chúng dựa trên điểm chính gần nhất.",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "được giao gần đây nhất",
+  "mapImportOrganizeGroupManager": "Quản lý khu vực",
+  "mapImportOrganizeLater": "sau đó",
+  "mapImportRefreshTooltip": "Xóa bộ nhớ đệm và tải lại điểm Anitabi",
+  "mapImportMarkerTooltip": "điểm Anitabi",
+  "mapImportErrDataUnavailable": "Không thể tải dữ liệu bản đồ Anitabi",
+  "mapImportErrPartialData": "Điểm Anitabi chỉ được tải một phần",
+  "mapImportErrNotFound": "Không có dữ liệu bản đồ Anitabi cho mục Bangumi này.",
+  "mapImportErrLoadFailed": "Tải điểm Anitabi không thành công",
+  "mapImportErrDataUnavailableDetailWeb": "Có thể phiên bản bộ nhớ đệm dữ liệu bản đồ Anitabi không nhất quán hoặc yêu cầu mạng dịch vụ xem trước hiện tại đã bị chặn. Vui lòng xóa bộ nhớ cache và tải lại điểm Anitabi.",
+  "mapImportErrDataUnavailableDetail": "Không thể đọc chỉ mục bản đồ Anitabi. Vui lòng kiểm tra kết nối mạng của bạn hoặc xóa bộ nhớ cache và tải lại điểm Anitabi.",
+  "mapImportErrPartialDataDetail": "Hiện tại chỉ nhận được điểm {loaded}/{expected}. Vui lòng tải lại hoặc kiểm tra xem mạng có thể truy cập dữ liệu bản đồ Anitabi hay không.",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "Bạn có thể thử thêm tác phẩm gốc, trò chơi hoặc các mục liên quan khác có cùng tên trong quản lý tác phẩm.",
+  "mapImportErrLoadFailedDetail": "Vui lòng kiểm tra mạng và thử lại hoặc tải lại sau.",
+  "mapImportProgressImporting": "Đang nhập điểm {total}...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "Bộ nhớ đệm hình thu nhỏ {processed}/{total}, {succeeded} thành công",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "Điểm đã được nhập",
+  "mapImportMarkerAvailableTooltip": "Điểm có thể được nhập",
+  "mapImportSummaryLoading": "Đang tải điểm Anitabi",
+  "mapImportSummaryStats": "Đã nhập {imported} / Hiện đang hiển thị {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/tổng ​​{expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "Thêm tất cả các điểm",
+  "mapImportSummaryTooltipBoxExit": "Lựa chọn hộp thoát",
+  "mapImportSummaryTooltipBoxStart": "Điểm đã chọn khung",
+  "mapImportPointNameLabel": "Tên điểm",
+  "mapImportPointInfoLabel": "Thông tin điểm",
+  "mapImportPointOriginLabel": "nguồn",
+  "mapImportPointDetailBtn": "Chi tiết",
+  "mapImportPointJoinedBtn": "Đã tham gia",
+  "mapImportPointJoinBtn": "Tham gia chương trình",
+  "mapImportDetailSceneLabel": "bối cảnh",
+  "mapImportDetailNoteLabel": "Nhận xét",
+  "mapImportDetailCoordLabel": "điều phối",
+  "mapImportDetailJoinedBtn": "Đã tham gia chương trình",
+  "mapImportNoPointSelectedHint": "Nhấp vào một điểm trên bản đồ để xem hình thu nhỏ và chi tiết.",
+  "mapImportNoImportablePoints": "Không có điểm Anitabi nào có sẵn để nhập vào tác phẩm hiện tại.",
+  "mapImportNoImagePoints": "Có các điểm {count} trong tác phẩm hiện tại, nhưng không có điểm tham chiếu nào có hình ảnh có thể được nhập.",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "Hiện tại không có tựa game Bangumi nào được lên kế hoạch. Vui lòng vào phần quản lý công việc để thêm tác phẩm của Bangumi trước.",
+  "mapImportManualWorkState": "Các tác phẩm được thêm thủ công không có ID Bangumi và không thể nhập điểm từ bản đồ Anitabi. \n\nVui lòng tìm kiếm để thêm tác phẩm thông qua Bangumi/Anitabi hoặc thêm điểm theo cách thủ công.",
+  "mapImportLoadingWorksAndPoints": "Đang tải tác phẩm và điểm của Anitabi",
+  "msgCannotOpenMapApp": "Không thể mở {app}.",
+  "mapImportErrPointNotFound": "Điểm Anitabi này không được tìm thấy",
+  "mapImportErrPointNotFoundDetail": "ID điểm trong liên kết có thể không hợp lệ hoặc dữ liệu bản đồ Anitabi chưa được đồng bộ hóa.",
+  "navMapSectionTitle": "Bản đồ dẫn đường {app}",
+  "navAppDescGoogleMaps": "Nút điều hướng mở chỉ đường đi bộ qua URL Google Maps chính thức.",
+  "navAppDescAppleMaps": "Nút điều hướng mở chỉ đường đi bộ thông qua Apple Map Links.",
+  "navAppDescAmap": "Nút điều hướng mở chỉ đường đi bộ thông qua API Amap URI và sử dụng tọa độ WGS84.",
+  "navAppDescBaiduMaps": "Nút điều hướng mở chỉ đường đi bộ thông qua API URI của Bản đồ Baidu, sử dụng tọa độ WGS84.",
+  "mapProviderHintOpenFreeMap": "Mặc định được đề xuất",
+  "mapProviderHintOsm": "Gạch tiêu chuẩn",
+  "mapProviderHintCustomXyz": "mẫu gạch",
+  "mapProviderHintCustomStyle": "URL kiểu",
+  "anitabiSrcAuto": "lựa chọn tự động",
+  "anitabiSrcOfficial": "Mặc định chính thức",
+  "anitabiSrcMirror": "nguồn dự phòng",
+  "anitabiSrcAutoDesc": "Image.anitabi.cn được sử dụng đầu tiên; nếu quá trình tải xuống gặp trang lỗi hoặc bị chặn, img-tc.anitabi.cn sẽ được thử.",
+  "anitabiSrcOfficialDesc": "Đã sửa lỗi sử dụng image.anitabi.cn và giữ lại nguồn hình ảnh mặc định chính thức của Anitabi.",
+  "anitabiSrcMirrorDesc": "Đã sửa lỗi sử dụng img-tc.anitabi.cn, phù hợp để sử dụng khi nguồn mặc định chính thức thường bị chặn."
+}

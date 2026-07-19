@@ -1199,5 +1199,13 @@
   "anitabiSrcMirror": "백업 소스",
   "anitabiSrcAutoDesc": "image.anitabi.cn을 우선 사용하며, 오류 페이지가 다운로드되거나 차단되면 img-tc.anitabi.cn을 시도합니다.",
   "anitabiSrcOfficialDesc": "항상 image.anitabi.cn을 사용하여 Anitabi 공식 기본 이미지 소스를 유지합니다.",
-  "anitabiSrcMirrorDesc": "항상 img-tc.anitabi.cn을 사용하며, 공식 기본 소스가 자주 차단될 때 적합합니다."
+  "anitabiSrcMirrorDesc": "항상 img-tc.anitabi.cn을 사용하며, 공식 기본 소스가 자주 차단될 때 적합합니다.",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu"
 }

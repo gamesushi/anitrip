@@ -1199,5 +1199,13 @@
   "anitabiSrcMirror": "Backup source",
   "anitabiSrcAutoDesc": "Prefers image.anitabi.cn; if a broken page is downloaded or it is blocked, tries img-tc.anitabi.cn.",
   "anitabiSrcOfficialDesc": "Always uses image.anitabi.cn, keeping the official Anitabi default image source.",
-  "anitabiSrcMirrorDesc": "Always uses img-tc.anitabi.cn, suitable when the official default source is often blocked."
+  "anitabiSrcMirrorDesc": "Always uses img-tc.anitabi.cn, suitable when the official default source is often blocked.",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu"
 }

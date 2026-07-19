@@ -1199,5 +1199,13 @@
   "anitabiSrcMirror": "Source de secours",
   "anitabiSrcAutoDesc": "Privilégie image.anitabi.cn ; si une page erronée est téléchargée ou bloquée, essaie img-tc.anitabi.cn.",
   "anitabiSrcOfficialDesc": "Utilise toujours image.anitabi.cn, en conservant la source d'image par défaut officielle Anitabi.",
-  "anitabiSrcMirrorDesc": "Utilise toujours img-tc.anitabi.cn, adapté quand la source par défaut officielle est souvent bloquée."
+  "anitabiSrcMirrorDesc": "Utilise toujours img-tc.anitabi.cn, adapté quand la source par défaut officielle est souvent bloquée.",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu"
 }

@@ -45,6 +45,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get languageKo => '한국어';
 
   @override
+  String get languageJa => '日本語';
+
+  @override
+  String get languageRu => 'Русский';
+
+  @override
+  String get languageEs => 'Español';
+
+  @override
+  String get languagePt => 'Português';
+
+  @override
+  String get languageIt => 'Italiano';
+
+  @override
+  String get languageTh => 'ภาษาไทย';
+
+  @override
+  String get languageVi => 'Tiếng Việt';
+
+  @override
+  String get languageMs => 'Bahasa Melayu';
+
+  @override
   String get labelWork => '作品';
 
   @override
@@ -2290,6 +2314,30 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get languageKo => '한국어';
+
+  @override
+  String get languageJa => '日本語';
+
+  @override
+  String get languageRu => 'Русский';
+
+  @override
+  String get languageEs => 'Español';
+
+  @override
+  String get languagePt => 'Português';
+
+  @override
+  String get languageIt => 'Italiano';
+
+  @override
+  String get languageTh => 'ภาษาไทย';
+
+  @override
+  String get languageVi => 'Tiếng Việt';
+
+  @override
+  String get languageMs => 'Bahasa Melayu';
 
   @override
   String get labelWork => '作品';

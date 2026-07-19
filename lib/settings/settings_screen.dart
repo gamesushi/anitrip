@@ -166,6 +166,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       value: 'ko',
                       child: Text(AppLocalizations.of(context)!.languageKo),
                     ),
+                    DropdownMenuItem(
+                      value: 'ja',
+                      child: Text(AppLocalizations.of(context)!.languageJa),
+                    ),
+                    DropdownMenuItem(
+                      value: 'ru',
+                      child: Text(AppLocalizations.of(context)!.languageRu),
+                    ),
+                    DropdownMenuItem(
+                      value: 'es',
+                      child: Text(AppLocalizations.of(context)!.languageEs),
+                    ),
+                    DropdownMenuItem(
+                      value: 'pt',
+                      child: Text(AppLocalizations.of(context)!.languagePt),
+                    ),
+                    DropdownMenuItem(
+                      value: 'it',
+                      child: Text(AppLocalizations.of(context)!.languageIt),
+                    ),
+                    DropdownMenuItem(
+                      value: 'th',
+                      child: Text(AppLocalizations.of(context)!.languageTh),
+                    ),
+                    DropdownMenuItem(
+                      value: 'vi',
+                      child: Text(AppLocalizations.of(context)!.languageVi),
+                    ),
+                    DropdownMenuItem(
+                      value: 'ms',
+                      child: Text(AppLocalizations.of(context)!.languageMs),
+                    ),
                   ],
                   onChanged: (value) {
                     if (value != null) {

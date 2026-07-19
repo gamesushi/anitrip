@@ -1,0 +1,1211 @@
+{
+  "@@locale": "es",
+  "tabPlan": "plan",
+  "tabMap": "mapa",
+  "tabRecords": "Registro",
+  "tabSettings": "configuración",
+  "settingsTitle": "configuración",
+  "languageSetting": "Configuración de idioma",
+  "languageSystem": "Sigue el sistema",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "trabajar",
+  "labelScene": "escena",
+  "labelCoordinates": "coordinar",
+  "labelArea": "área",
+  "labelReference": "referirse a",
+  "labelSource": "fuente",
+  "labelId": "IDENTIFICACIÓN",
+  "labelLink": "Enlace",
+  "btnChange": "Cambiar",
+  "btnReplace": "reemplazar",
+  "labelLocalRecords": "Registro de este punto",
+  "labelAll": "todo",
+  "btnNavigate": "navegación",
+  "btnOverlay": "Referencia de tiro",
+  "btnSetTarget": "Establecer como actual",
+  "btnMarkDone": "Marcar completo",
+  "btnEditPoint": "Editar punto",
+  "settingsAppearance": "Configuración de apariencia",
+  "settingsAppearanceSubtitle": "Color del tema, zoom, visualización, etc.",
+  "settingsCamera": "Configuración de disparo",
+  "settingsCameraSubtitle": "Proporción de fotos, proporción de imágenes de referencia, copia de seguridad, etc.",
+  "settingsExport": "Configuración del gráfico de comparación",
+  "settingsExportSubtitle": "Exporta estilos y guárdalos automáticamente en un álbum de fotos.",
+  "settingsDataSource": "Configuración de fuente de datos",
+  "settingsDataSourceSubtitle": "Fuente del mapa, fuente de la imagen, etc.",
+  "settingsClearCache": "borrar caché",
+  "settingsClearCacheSubtitle": "Caché de imágenes de referencia completo",
+  "settingsAbout": "Acerca de MiriaGo",
+  "settingsAboutSubtitle": "Información de versión, licencia de código abierto, etc.",
+  "btnCancel": "Cancelar",
+  "btnConfirm": "Seguro",
+  "btnSave": "ahorrar",
+  "labelManualEntry": "Entrada manual",
+  "labelRevertCompleted": "Retirar fichaje",
+  "labelUnassignedGroup": "No dividido en zonas",
+  "labelUnknownGroup": "zona desconocida",
+  "labelNoAnchor": "No hay llaves establecidas",
+  "labelStatusCurrent": "objetivo actual",
+  "labelStatusCompleted": "Terminado",
+  "labelStatusPending": "Para ser accedido",
+  "settingsReset": "Restaurar la configuración inicial",
+  "settingsResetConfirmSubtitle": "Todas las configuraciones de apariencia, disparos y mapas se restaurarán a sus valores predeterminados.",
+  "settingsThemeColor": "color del tema",
+  "settingsThemeColorSubtitle": "Afecta la combinación de colores general de la aplicación.",
+  "settingsThemeMode": "modo tema",
+  "settingsThemeLight": "modo de luz",
+  "settingsThemeDark": "modo oscuro",
+  "settingsThemeSystem": "Sigue el sistema",
+  "settingsUiScale": "Ampliar página",
+  "settingsUiScaleSubtitle": "Ajusta el tamaño general de la interfaz (no afecta la imagen de referencia)",
+  "settingsCameraRatio": "Relación de captura de imagen",
+  "settingsCameraZoom": "zoom de la cámara",
+  "settingsPhotoBackup": "copia de seguridad de fotos",
+  "settingsPhotoBackupSubtitle": "Guardar fotos del recorrido en el álbum",
+  "settingsAutoSaveComparison": "Guardar automáticamente el cuadro comparativo",
+  "settingsAutoSaveComparisonSubtitle": "Guardar en el álbum de fotos al guardar el registro",
+  "settingsDesktop": "De oficina",
+  "settingsDesktopSubtitle": "Lanzador, directorio de datos, etc.",
+  "desktopLauncherChecking": "Comprobación del iniciador de escritorio",
+  "desktopLauncherUnavailable": "Lanzador de escritorio no disponible",
+  "desktopSystemDataDir": "Directorio de datos del sistema",
+  "desktopPortableDir": "directorio portátil",
+  "desktopAppDataDir": "directorio de datos de la aplicación",
+  "desktopLauncherAvailable": "Lanzador de escritorio disponible",
+  "settingsFontSmall": "Pequeño",
+  "settingsFontStandard": "estándar",
+  "settingsFontLarge": "grande",
+  "settingsFontHuge": "extra grande",
+  "msgReplacingRef": "Reemplazando imagen de referencia...",
+  "msgReplaceRefFailed": "Error al reemplazar la imagen de referencia. Vuelva a intentarlo más tarde.",
+  "msgReplaceRefSuccess": "Imagen de referencia reemplazada",
+  "msgCannotOpenMap": "No se puede abrir Google Maps.",
+  "titleMoveToGroup": "Mover al área",
+  "copyLabelPointName": "Nombre del punto",
+  "copyLabelGroupAnchor": "Puntos clave de la zona.",
+  "labelNote": "Observación",
+  "themeClassicGreen": "verde clasico",
+  "themeDeepBlue": "azul profundo",
+  "themeCherryPink": "polvo de sakura",
+  "themeTwilightPurple": "morado crepusculo",
+  "themeMiriaYellow": "naranja ámbar",
+  "themeGraphite": "negro grafito",
+  "themeAurora": "Personalizar",
+  "aspectAuto": "automático",
+  "aspectNative": "proporciones nativas",
+  "aspectCustom": "Personalizar",
+  "aspectAutoHint": "recomendar",
+  "aspectNativeHint": "Nativo",
+  "aspectLandscape16x9Hint": "pantalla ancha",
+  "aspectCinema21x9Hint": "Película",
+  "aspectStandard4x3Hint": "clásico",
+  "aspectPhoto3x2Hint": "cámara",
+  "aspectPortrait9x16Hint": "pantalla vertical",
+  "aspectPortrait9x21Hint": "Pantalla completa",
+  "aspectPortrait3x4Hint": "pancarta vertical",
+  "aspectPortrait2x3Hint": "pancarta vertical",
+  "aspectSquare1x1Hint": "cuadrado",
+  "aspectCustomHint": "Personalizado",
+  "mapProviderOpenFreeMap": "Abrir mapa libre",
+  "mapProviderOpenFreeMapDesc": "Mapa predeterminado, utiliza el estilo MapLibre.",
+  "mapProviderOpenStreetMap": "Abrir mapa de calles",
+  "mapProviderOpenStreetMapDesc": "Utilice mosaicos XYZ estándar de OpenStreetMap.",
+  "mapProviderCustomXyz": "XYZ personalizado",
+  "mapProviderCustomXyzDesc": "Utilice una URL de mosaico ráster que contenga {z}/{x}/{y}.",
+  "mapProviderCustomMapLibre": "Mapa personalizadoLibre",
+  "mapProviderCustomMapLibreDesc": "Utilice una URL de estilo MapLibre personalizada.",
+  "mapStyleLibertyDesc": "El estilo predeterminado tiene una mayor densidad de información.",
+  "mapStyleBrightDesc": "Estilo estándar brillante.",
+  "mapStylePositronDesc": "Estilo de baja distracción de color claro.",
+  "mapStyleDarkDesc": "Estilo de mapa oscuro.",
+  "mapStyleFiordDesc": "Estilo de terreno blando.",
+  "imageSourceAuto": "selección automática",
+  "imageSourceOfficial": "Por defecto oficial",
+  "imageSourceMirror": "fuente de respaldo",
+  "imageSourceAutoDesc": "Image.anitabi.cn se utiliza primero; Si la descarga llega a una página de error o se bloquea, se intentará img-tc.anitabi.cn.",
+  "imageSourceOfficialDesc": "Se corrigió el uso de image.anitabi.cn y se conservaba la fuente de imagen predeterminada oficial de Anitabi.",
+  "imageSourceMirrorDesc": "Se corrigió el uso de img-tc.anitabi.cn, adecuado para su uso cuando la fuente oficial predeterminada a menudo está bloqueada.",
+  "mapProviderRecommendedDefault": "Valor predeterminado recomendado",
+  "mapProviderStandardTiles": "Azulejos estándar",
+  "mapProviderTileTemplate": "plantilla de mosaico",
+  "mapProviderStyleUrl": "URL de estilo",
+  "cameraCaptureRatioSection": "Relación de captura de imagen",
+  "cameraCaptureRatioDesc": "Primero seguirá automáticamente la proporción de la imagen de referencia; después de seleccionar una proporción fija, disparará de acuerdo con esa proporción.",
+  "cameraFallbackRatioSection": "Escala sin imagen de referencia.",
+  "cameraFallbackRatioDesc": "Úselo cuando la relación de imagen esté configurada en automática y no haya una imagen de referencia para alinear.",
+  "cameraReferenceScaleSection": "Visualización de imagen de referencia",
+  "cameraZoomSection": "zoom de la cámara",
+  "cameraBackupDetailDesc": "Al guardar el registro también se respalda una foto del recorrido.",
+  "mapSourceSection": "Fuente del mapa",
+  "mapOpenFreeMapStyleSection": "Estilo OpenFreeMap",
+  "mapCustomXyzUrlNotSet": "URL XYZ personalizada no configurada",
+  "mapCustomXyzUrlTitle": "URL XYZ personalizada",
+  "mapCustomXyzUrlHelper": "La URL debe contener {z}, {x}, {y}.",
+  "mapCustomXyzUrlInvalid": "Formato de URL no válido",
+  "mapCustomMapLibreUrlNotSet": "URL de estilo MapLibre no establecida",
+  "mapCustomMapLibreUrlTitle": "URL estilo MapLibre",
+  "mapCustomMapLibreUrlHelper": "La URL debe apuntar a un estilo JSON legible públicamente.",
+  "mapAnitabiImageSourceSection": "Fuente de la imagen de Anitabi.",
+  "mapThumbnailSection": "Miniatura del mapa",
+  "mapThumbnailThresholdTitle": "Umbral de visualización de miniaturas",
+  "mapThumbnailThresholdDesc": "Cuando no hay más de {threshold} puntos en la vista, se muestran miniaturas; cuando hay más de , solo se muestran puntos.",
+  "mapConcurrentLoadsTitle": "Número de solicitudes de imágenes simultáneas",
+  "mapConcurrentLoadsDesc": "Se utiliza para mostrar miniaturas de mapas, miniaturas de caché al importar puntos y mapas de referencia de caché por lotes. Números más altos pueden dar como resultado velocidades más rápidas, pero también ejercer más presión sobre la red.",
+  "mapThumbnailThresholdZeroHint": "Un umbral de 0 no mostrará miniaturas en el mapa.",
+  "mapNavigationAppSection": "software de navegación",
+  "mapNavigationAppHint": "Sólo se conservan las opciones de la interfaz y el salto de navegación real no está conectado por el momento.",
+  "desktopLauncherSection": "lanzacohetes",
+  "aboutAppInfoSection": "Información de la aplicación",
+  "aboutAppDescription": "Animación Herramientas de referencia para la planificación y el rodaje de giras por Tierra Santa",
+  "aboutVersionLabel": "Versión actual",
+  "aboutLoadingText": "Lectura",
+  "aboutAuthorLabel": "autor",
+  "aboutContactEmailLabel": "Correo electrónico de contacto",
+  "aboutSourceCodeRepositoryLabel": "Almacén de código abierto",
+  "aboutLicenseLabel": "Licencia de código abierto",
+  "aboutCopyrightSection": "Datos y derechos de autor",
+  "aboutCopyrightDescription": "Los mapas pueden utilizar OpenFreeMap, OpenStreetMap o servicios personalizados; Bangumi se utiliza para buscar trabajo; Los puntos turísticos y los mapas de referencia son de Anitabi. La configuración de la fuente de la imagen solo afecta el nombre del dominio de acceso y los enlaces remotos conservarán uniformemente el formato predeterminado de Anitabi. Los derechos de autor de datos, capturas de pantalla e imágenes de terceros pertenecen a la plataforma original, a los contribuyentes o a los titulares de derechos.",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "reducir",
+  "btnIncrease": "Aumentar",
+  "settingsExportDefaultConfig": "Configuración predeterminada",
+  "cachePlanSection": "plan",
+  "cacheLoadPlansFailed": "Error en la lectura de la lista de planes",
+  "cacheSelectPlanSection": "Elige plan",
+  "cacheClearButton": "Borrar caché de imágenes de referencia completas",
+  "btnRetry": "Intentar otra vez",
+  "tooltipSelectAll": "Seleccionar todo",
+  "tooltipClear": "Claro",
+  "cacheClearFuncPlaceholder": "Aún no se ha accedido a la función de borrado de caché y solo se muestra la interfaz.",
+  "cacheSelectedPlansCount": "Planes {selected} / {total} seleccionados",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "puntos {area} / {count}",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "contenido de caché",
+  "cacheReferenceType": "Caché de imágenes de referencia completo",
+  "cacheReferenceDesc": "Borre la referencia de la cámara y la vista grande para ver la imagen de referencia completa utilizada. La caché de miniaturas se mantiene para mantener las velocidades de carga de listas y mapas.",
+  "gpsDisabled": "Los servicios de ubicación no están activados.",
+  "gpsPermissionRequired": "Se requiere permiso de ubicación para mostrar la ubicación actual.",
+  "gpsTimeout": "Se agotó el tiempo de posicionamiento, inténtelo de nuevo más tarde.",
+  "gpsFailed": "La ubicación falló, verifique los permisos y los servicios de ubicación.",
+  "planActions": "Planificar operaciones",
+  "planSwitch": "Cambiar de plan",
+  "planAddPoint": "Agregar punto",
+  "planManage": "plan de manejo",
+  "planMemo": "nota de planificación",
+  "planImportExport": "Importar y exportar",
+  "cacheDownloading": "Almacenamiento en caché de la imagen de referencia completa...",
+  "cacheNoImagesToDownload": "No hay imágenes de referencia que deban almacenarse en caché en el plan actual",
+  "cacheTitle": "Almacenamiento en caché de la imagen de referencia completa",
+  "cacheConfirmMessage": "Las imágenes de referencia completas de {count} en el plan actual se almacenarán en caché, lo que puede llevar mucho tiempo y tráfico de red.",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "Iniciar el almacenamiento en caché",
+  "cacheStarted": "Comenzó a almacenar en caché la imagen de referencia completa.",
+  "groupPrev": "Área anterior",
+  "groupNext": "siguiente área",
+  "mapCollapse": "Ocultar mapa",
+  "labelPointsCount": "puntos {count}",
+  "labelCompletedCount": "Finalizar",
+  "labelOrderMode": "modelo",
+  "sortModeDefault": "Orden de planificación predeterminado",
+  "sortModeDistance": "Distancia desde la ubicación actual",
+  "sortModeDefaultShort": "Plan predeterminado",
+  "sortModeDistanceShort": "por distancia",
+  "sortOrderDesc": "Orden inverso",
+  "sortOrderAsc": "secuencia positiva",
+  "sortOrderFarToNear": "Lejos a cerca",
+  "sortOrderNearToFar": "cerca a lejos",
+  "tooltipHideLocation": "Ocultar ubicación actual",
+  "tooltipShowLocation": "Mostrar ubicación actual",
+  "labelCompleted": "Finalizar",
+  "planNoPointsTitle": "Aún no hay reservas",
+  "planNoPointsSubtitle": "Primero agregue un punto de recorrido de Anitabi o ingréselo manualmente, y luego se mostrará aquí el objetivo actual y el progreso de finalización.",
+  "planWorksCount": "{count} funciona",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "Tomado {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "{area} / {points} puntos / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "Detalles del punto",
+  "btnCameraReference": "Referencia de tiro",
+  "tooltipRevertCompleted": "Retirar fichaje",
+  "tooltipMarkCompleted": "Marcar completo",
+  "tooltipSetTarget": "Establecer como objetivo actual",
+  "recordsUnassignedDesc": "Aún no hay registros en el área.",
+  "recordsOrphanedTitle": "Registros huérfanos",
+  "recordsOrphanedDesc": "El punto correspondiente ya no está en el plan actual.",
+  "recordsAllRecords": "Todos los registros",
+  "recordsFilterConditionsCount": "filtros {count}",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "filtrar",
+  "recordsSearchPoints": "Punto de búsqueda",
+  "recordsSearchHint": "Punto, obra, escena, número de episodios, coordenadas.",
+  "tooltipClearSearch": "Borrar búsqueda",
+  "recordsFilterStatus": "estado",
+  "recordsFilterCompletedPoints": "Puntos completados",
+  "recordsFilterPendingPoints": "Puntos inacabados",
+  "recordsPhotoTitle": "Fotos de peregrinación",
+  "recordsEntriesCount": "{count} Artículos",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "registros de gira {count}",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "Completa {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "Aún no hay registros de la gira. Aparecerá aquí automáticamente después de disparar con éxito.",
+  "groupOrderModePending": "Para ser organizado",
+  "groupOrderModeManual": "Manual",
+  "groupOrderModeNone": "trastorno",
+  "groupAnchorPending": "Esperando ser dividido en fragmentos",
+  "groupAnchorNameLabel": "Puntos clave: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "El plan actual aún no está en marcha.",
+  "tooltipLocation": "posición",
+  "tooltipUseIconMarkers": "Utilice marcadores de iconos",
+  "tooltipShowThumbnailMarkers": "Mostrar marca de miniatura",
+  "tooltipPoint": "Punto de peregrinación",
+  "copyLabelPointInfo": "Información del punto",
+  "mapNoPointsMessage": "El plan actual aún no está en marcha. Después de agregar un punto, aparecerá un marcador en el mapa.",
+  "labelEditPointNotSupported": "Los puntos no se pueden editar en el entorno actual.",
+  "tooltipGoToTarget": "objetivo actual",
+  "planDefaultNewName": "Nuevo plan de gira {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "Región no establecida",
+  "msgDeletePlanAtLeastOne": "Necesidad de mantener al menos un plan",
+  "dialogDeletePlanTitle": "Eliminar plan",
+  "dialogDeletePlanMessage": "Se eliminarán \"{name}\" y sus ubicaciones, áreas, obras y registros de giras. Esta acción no se puede deshacer.",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "borrar",
+  "dialogEditPlanTitle": "Editar información del plan",
+  "labelPlanName": "Nombre del plan",
+  "labelPlanArea": "región/área",
+  "btnNewPlan": "Nuevo plan",
+  "statusTextCurrentPlan": "Plan actual",
+  "statusTextSwitchable": "conmutable",
+  "labelPlanInfo": "Información del programa",
+  "planInfoCopyContent": "{name}\n{area}\n{points} puntos \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "cambiar",
+  "btnReloadPlan": "plan de recarga",
+  "importExportImportSection": "importar",
+  "importExportImportDescMobile": "Abra .sjhplan con MiriaGo desde un archivo, chat, navegador o unidad de red.",
+  "importExportImportDescWeb": "Seleccione el archivo .sjhplan y obtenga una vista previa del contenido antes de importarlo.",
+  "importExportStatusReading": "Lectura...",
+  "importExportOpenFromApp": "Abra .sjhplan desde otras aplicaciones",
+  "importExportImportFileTitle": "Importar archivos MiriaGo",
+  "importExportOpenFromAppDesc": "Seleccione .sjhplan en archivos, chat, página de descarga del navegador o unidad de red, luego compártalo o ábralo con MiriaGo.",
+  "importExportImportFileDesc": "Admite paquetes de datos v2 y paquetes de planes JSON v1 heredados.",
+  "importExportZipDesc": "Nueva versión de .sjhplan, zip interno, que contiene manifest.json.",
+  "importExportMyMapsDesc": "Exportar puntos a CSV. Las imágenes se escriben como enlaces y se les puede aplicar estilo mediante la columna Tipo.",
+  "importExportMyMapsTitle": "Exportar Mis mapas CSV",
+  "importExportMyMapsDetails": "Las primeras 6 columnas siguen el formato de ejemplo, con obras, colecciones, fuentes, etc. divididas en columnas independientes.",
+  "msgExportCancelled": "Exportación cancelada",
+  "msgImportReadFailed": "Error al leer el archivo de importación",
+  "dialogOpenFromAppTitle": "Abra .sjhplan desde otras aplicaciones",
+  "dialogOpenFromAppMessage": "Busque el archivo .sjhplan en archivos, chat, página de descarga del navegador, disco de red u otra ubicación para guardar, luego haga clic en el archivo o use el menú Compartir/Más para seleccionar MiriaGo. \n\nMiriaGo ingresará automáticamente a la página de vista previa de importación después de recibir el archivo. Si no hay MiriaGo en la lista, primero puede guardar el archivo en la aplicación \"Archivos\" y luego presionar prolongadamente el archivo para seleccionar el método para compartir o abrir.",
+  "btnGotIt": "sabía",
+  "exportShareLabel": "Paquete MiriaGo: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "El paquete de datos ha sido exportado.",
+  "dialogMissingResourcesTitle": "Faltan algunos recursos locales",
+  "dialogMissingResourcesMessage": "Estos recursos no ingresarán al paquete de datos y es posible que las imágenes correspondientes no se muestren después de la importación.",
+  "btnContinueExport": "Continuar exportando",
+  "msgExportMyMapsSuccess": "Mis mapas CSV exportados",
+  "msgExporting": "Exportador...",
+  "msgExportFailed": "Exportación fallida",
+  "warningMissingPart": "{fallback}, no se pudieron agregar algunos recursos",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} Falta una imagen de referencia cargada localmente",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "Miniaturas {count} no agregadas",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} No se pudo descargar la imagen de referencia completa",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} Falta una imagen de referencia completa",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} Faltan fotos del recorrido.",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "Faltan fotos corregidas en color {count}",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "áreas {groups} / puntos {points}",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "plan puro",
+  "btnPlanAndRecords": "Planificar+Registrar",
+  "importExportIncludeCache": "Contiene caché de imágenes de referencia completa.",
+  "importExportIncludeCacheDesc": "Las miniaturas y las imágenes de referencia agregadas por el usuario seguirán incluyéndose de forma predeterminada.",
+  "btnExportDataPackage": "Exportar paquete de datos MiriaGo",
+  "btnExportingDataPackage": "Exportador...",
+  "importExportEstimateEstimating": "Estimando el tamaño del paquete...",
+  "importExportEstimateFailed": "Tamaño estimado del paquete: no se puede estimar en este momento",
+  "importExportEstimateResult": "Tamaño de paquete esperado: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "Cargar imágenes de referencia localmente",
+  "dialogVisitPhotoMissing": "Fotos de peregrinación",
+  "dialogGradedPhotoMissing": "Fotos tonificantes",
+  "estimateThumbnailNotCached": "Las miniaturas de {count} no se almacenan en caché y no ingresarán al paquete de datos",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} Se descargará una imagen de referencia completa durante la exportación.",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} Falta un archivo de imagen de referencia cargado localmente y no se puede restaurar después de la exportación.",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "Faltan archivos de fotos de peregrinación {count}",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "Faltan archivos de fotos con corrección de color {count}",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "Algunos recursos locales no se pueden leer y el cuerpo real del paquete puede cambiar.",
+  "estimateLabelAtLeast": "Tamaño de paquete esperado: al menos aproximadamente {size}, {details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "Tamaño estimado del paquete: aproximadamente {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "devolver",
+  "importExportDataPackageHeader": "Paquete de datos MiriaGo",
+  "addPointsTitle": "Agregar contenido",
+  "addPointsAddToPlan": "Unirse: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "Gestión del trabajo",
+  "addPointsWorkManagerDesc": "Administre los trabajos planificados y admita la búsqueda de Bangumi, la adición y eliminación manual de trabajos.",
+  "addPointsImportFromWorkMapTitle": "Importar puntos del mapa de trabajo",
+  "addPointsImportFromWorkMapDesc": "Vea la ubicación de la obra en el mapa de Anitabi, haga clic en los detalles en miniatura para unirse al proyecto.",
+  "addPointsImportFromLinkTitle": "Importar desde el enlace de Anitabi",
+  "addPointsImportFromLinkDesc": "Pegue la obra de Anitabi o el enlace del punto para abrir rápidamente el mapa de la obra correspondiente.",
+  "addPointsManualTitle": "Agregar puntos manualmente",
+  "addPointsManualDesc": "Seleccione la obra agregada e ingrese el nombre, las coordenadas y la información de la escena.",
+  "addPointsActionLabelUnavailable": "No disponible",
+  "addPointsActionLabelManage": "administrar",
+  "addPointsActionLabelOpen": "Abierto",
+  "addPointsActionLabelInput": "ingresar",
+  "addPointsActionLabelAdd": "añadir",
+  "msgWorkAdded": "Se ha agregado \"{title}\".",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "No se pudo agregar el trabajo, inténtelo nuevamente más tarde.",
+  "bangumiSearchTitle": "Buscar Bangumi",
+  "bangumiSearchLabel": "título del trabajo",
+  "bangumiSearchHint": "Por ejemplo, una chica con un tono claro.",
+  "bangumiSearchBtn": "buscar obras",
+  "bangumiSearchBtnSearching": "Búsqueda",
+  "bangumiSearchFailed": "La búsqueda de Bangumi falló, verifique la red e inténtelo nuevamente.",
+  "bangumiSearchEmptyHelp": "Ingrese el título del trabajo y busque, luego seleccione el resultado para unirse al plan actual.",
+  "anitabiLinkImportTitle": "Importación de enlaces de Anitabi",
+  "anitabiLinkImportLabel": "enlace de anitabi",
+  "anitabiLinkImportHint": "Por ejemplo https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "Si el enlace contiene el ID de la obra, sólo se cargará la obra correspondiente; si también contiene el ID del punto, el punto se seleccionará automáticamente. Los enlaces sin ID de trabajo deben copiarse nuevamente después de ingresar el trabajo correspondiente en Anitabi.",
+  "anitabiLinkImportBtn": "Abrir puntos Anitabi",
+  "anitabiLinkImportEmptyErr": "Por favor ingrese el enlace de Anitabi",
+  "anitabiLinkImportInvalidErr": "Por favor ingrese un enlace de mapa de Anitabi válido",
+  "anitabiLinkImportNoWorkIdErr": "Al enlace le falta el ID del trabajo. Por favor ingresa la obra correspondiente en Anitabi y copia el enlace.",
+  "msgPointAdded": "Se ha agregado \"{title}\".",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "Error al guardar los puntos. Vuelva a intentarlo más tarde.",
+  "msgWorkSaveFailed": "No se pudo guardar el trabajo, inténtelo nuevamente más tarde.",
+  "manualAddWorkTitle": "Agregar elementos manualmente",
+  "manualAddWorkName": "título del trabajo",
+  "manualAddWorkOriginalName": "Título original de la obra.",
+  "manualAddWorkOriginalNameHint": "Opcional",
+  "manualAddWorkArea": "áreas principales",
+  "manualAddWorkAreaHint": "Opcional, predeterminado {defaultArea}",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "guardar trabajo",
+  "manualAddWorkBtnSaving": "Ahorro",
+  "manualAddWorkRequiredField": "Por favor complete esto",
+  "msgReferenceImageReadFailed": "No se pudo leer la imagen de referencia, inténtelo nuevamente.",
+  "msgClipboardCoordinatesInvalid": "No hay coordenadas reconocidas en el portapapeles.",
+  "msgClipboardCoordinatesApplied": "Se completan las coordenadas del portapapeles.",
+  "manualAddPointTitleAdd": "Agregar puntos manualmente",
+  "manualAddPointTitleEdit": "Editar punto",
+  "manualAddPointStatusEdit": "Modificación: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "Obras",
+  "manualAddPointSelectWorkErr": "Por favor seleccione una obra",
+  "manualAddPointWorkName": "Animación/título de la obra",
+  "manualAddPointWorkOriginalName": "Título original de la obra.",
+  "manualAddPointWorkOriginalNameHint": "Opcional",
+  "manualAddPointWorkArea": "Principales áreas de trabajo.",
+  "manualAddPointWorkAreaHint": "Opcional, predeterminado {defaultArea}",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "Nombre del punto",
+  "manualAddPointPositionDesc": "descripción de la ubicación",
+  "manualAddPointEpisodeLabel": "Número de episodio/etiqueta de escena",
+  "manualAddPointSource": "Fuentes de referencia",
+  "manualAddPointMemo": "Observación",
+  "manualAddPointMemoHint": "Opcional, como cierre de tienda, renovación, sugerencias de fotografía.",
+  "manualAddPointSelectCoordsBtn": "Seleccionar coordenadas del mapa",
+  "manualAddPointPasteCoordsBtn": "Pegar coordenadas del portapapeles",
+  "manualAddPointLatitude": "latitud",
+  "manualAddPointLatitudeHint": "Por ejemplo 34.8917",
+  "manualAddPointLongitude": "longitud",
+  "manualAddPointLongitudeHint": "Por ejemplo 135.8077",
+  "manualAddPointBtnSaving": "Ahorro",
+  "manualAddPointBtnSaveEdit": "Guardar cambios",
+  "manualAddPointBtnSaveAdd": "Guardar punto",
+  "manualAddPointRequiredField": "Por favor complete esto",
+  "manualAddPointRequiredLatitude": "Por favor complete la latitud",
+  "manualAddPointRequiredLongitude": "Por favor complete la longitud",
+  "manualAddPointInvalidCoordinate": "Por favor introduce coordenadas válidas",
+  "manualAddPointSelectCoordsTitle": "Seleccionar coordenadas de punto",
+  "manualAddPointSelectCoordsTooltipActive": "Cerrar selección de mapa",
+  "manualAddPointSelectCoordsTooltipInactive": "Elige un punto en el mapa",
+  "manualAddPointSelectCoordsHelpActive": "Haga clic en cualquier parte del mapa para establecer las coordenadas de los puntos.",
+  "manualAddPointSelectCoordsHelpInactive": "Primero haga clic en el botón de selección de puntos en la esquina superior derecha, luego haga clic en el mapa para establecer las coordenadas",
+  "manualAddPointSelectCoordsAdjustHelp": "Haga clic en el mapa para continuar ajustando la ubicación.",
+  "manualAddPointSelectCoordsDialogTitle": "Selección de puntos del mapa",
+  "manualAddPointSelectCoordsBtnUse": "usar",
+  "addPointsNoWorksHelp": "Actualmente no hay obras previstas. Primero agregue el trabajo y luego podrá importar puntos según el trabajo.",
+  "addPointsHasWorksHelp": "El plan actual tiene {count} funciona: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "Ver imagen grande",
+  "addPointsRefImageTooltipEmpty": "Aún no hay imagen de referencia",
+  "addPointsRefImageHeader": "Imágenes de referencia",
+  "addPointsRefImageHelpSelected": "Se ha seleccionado una nueva imagen y entrará en vigor después de guardarla.",
+  "addPointsRefImageHelpCurrent": "La imagen de referencia actual debe guardarse después de volver a seleccionarla para que tenga efecto.",
+  "addPointsRefImageHelpEmpty": "Opcional, se copiará al directorio local de la aplicación al guardar.",
+  "addPointsRefImageBtnReselect": "Reseleccionar",
+  "addPointsRefImageBtnUpload": "Subir imagen de referencia",
+  "addPointsRefImageBtnRemove": "Eliminar",
+  "addPointsPointBtnAdded": "Agregado",
+  "addPointsPointBtnAdd": "participar",
+  "managePlanTitle": "plan de manejo",
+  "managePlanSelectedCount": "{count} seleccionado",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "Gestión de área",
+  "managePlanCachingProgress": "Almacenamiento en caché de la imagen de referencia completa",
+  "managePlanCacheFullReference": "Almacenamiento en caché de la imagen de referencia completa",
+  "managePlanTooltipExitSelection": "Salir de la selección múltiple",
+  "managePlanTooltipSelection": "opción múltiple",
+  "msgNoAnchorForUnassigned": "Los puntos no asignados no tienen puntos clave.",
+  "msgAreaNotExist": "La zona no existe.",
+  "msgSaveAnchorFailed": "No se pudieron guardar los puntos clave.",
+  "msgNoOrderForUnassigned": "Los puntos no asignados no requieren clasificación.",
+  "managePlanAreaOrderTitle": "Orden dentro del área",
+  "msgSaveOrderModeFailed": "No se pudo guardar el método de clasificación.",
+  "msgMoveAreaFailed": "No se pudo mover la extensión.",
+  "msgOpenCameraFromPlanOrMap": "Abra el rodaje desde la página de planificación o la página del mapa.",
+  "msgSaveReferenceImageFailed": "No se pudo guardar la imagen de referencia.",
+  "labelUnknownArea": "zona desconocida",
+  "managePlanMoveToAreaTitle": "Mover al área",
+  "msgSavePointOrderFailed": "Error al guardar la secuencia de puntos.",
+  "dialogDeletePointTitle": "Eliminar punto",
+  "dialogDeletePointMsg": "¿Estás seguro de que deseas eliminar \"{name}\" de tu plan?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "Error al eliminar el punto.",
+  "dialogBulkDeletePointsTitle": "Eliminar puntos en lotes",
+  "dialogBulkDeletePointsMsg": "¿Está seguro de que desea eliminar los puntos {count} del plan?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "Error al eliminar el lote.",
+  "msgSaveCurrentTargetFailed": "No se pudo guardar el objetivo actual.",
+  "msgSaveCompletionStatusFailed": "No se pudo guardar el estado de finalización.",
+  "msgSavePointStatusFailed": "No se pudo guardar el estado del punto.",
+  "msgBulkCompleteFailed": "Error al completar el lote.",
+  "msgBulkResetFailed": "Error al restablecer el lote.",
+  "msgFullReferenceCacheStarted": "Se ha iniciado el almacenamiento en caché de imágenes de referencia completas.",
+  "msgCachingFullReferenceProgress": "Almacenamiento en caché de la imagen de referencia completa...",
+  "msgNoReferenceToCache": "No hay imágenes de referencia que deban almacenarse en caché en el plan actual.",
+  "dialogCacheFullReferenceTitle": "Almacenamiento en caché de la imagen de referencia completa",
+  "dialogCacheFullReferenceMsg": "Las imágenes de referencia completas de {count} en el plan actual se almacenarán en caché, lo que puede llevar mucho tiempo y tráfico de red.",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "Iniciar el almacenamiento en caché",
+  "labelAnchorNotSet": "no establecido",
+  "tooltipPrevArea": "Área anterior",
+  "tooltipNextArea": "siguiente área",
+  "managePlanPointsPending": "Los puntos {count} están esperando ser clasificados.",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "{count} puntos · completado {completed} · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "Puntos clave: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "asignado más recientemente",
+  "btnBoxSelectAssign": "Distribución de selección de cuadros.",
+  "statusCurrent": "actual",
+  "statusCompleted": "Terminado",
+  "statusPending": "Para ser accedido",
+  "tooltipPointActions": "Operación puntual",
+  "btnMoveToArea": "Mover al área",
+  "btnSetAsCurrent": "Establecer como actual",
+  "btnCancelCompletion": "Cancelación completada",
+  "btnMarkCompletion": "Marcar completo",
+  "btnDeletePoint": "Eliminar punto",
+  "refStatusNone": "Sin imagen de referencia",
+  "refStatusLocal": "Carga local",
+  "refStatusCached": "En caché",
+  "refStatusRemote": "No almacenado en caché",
+  "tooltipClearSelection": "Claro",
+  "tooltipMoveArea": "Área móvil",
+  "tooltipReset": "reiniciar",
+  "dialogSelectAnchorTitle": "Seleccionar puntos clave",
+  "btnClear": "Claro",
+  "tooltipCloseMapSelect": "Cerrar selección de mapa",
+  "tooltipSelectOnMap": "Elige un punto en el mapa",
+  "tooltipInputCoordinates": "Introduzca latitud y longitud",
+  "dialogInputCoordinatesTitle": "Introduzca latitud y longitud",
+  "labelManualAnchor": "llaves manuales",
+  "tooltipSelectPoint": "Seleccionar punto",
+  "labelAnchorNotSelected": "Aún no se han seleccionado puntos clave",
+  "msgClickMapToSetAnchor": "Haga clic en cualquier parte del mapa para establecer puntos clave",
+  "msgSelectAnchorMethods": "Puedes hacer clic en el punto, mapa o ingresar la latitud y longitud.",
+  "managePlanNoPoints": "Aún no hay un punto manejable",
+  "dialogDiscardMemoTitle": "¿Descartar contenido no guardado?",
+  "dialogDiscardMemoMsg": "La nota actual tiene cambios no guardados.",
+  "btnKeepEditing": "Continuar editando",
+  "btnDiscard": "abandonar",
+  "msgMemoSaved": "Memo de planificación guardado.",
+  "msgMemoSaveFailed": "No se pudo guardar la nota de planificación.",
+  "msgTodoStatusSaveFailed": "No se pudo guardar el estado de las tareas pendientes.",
+  "memoPlaceholderHeading": "título",
+  "memoPlaceholderBold": "texto en negrita",
+  "memoPlaceholderListItem": "elemento de la lista",
+  "memoPlaceholderTodo": "Lista de tareas pendientes",
+  "memoPlaceholderQuote": "Contenido de la cotización",
+  "memoPlaceholderLinkText": "texto del enlace",
+  "memoPlaceholderCode": "código",
+  "msgInvalidLinkFormat": "El formato del enlace es incorrecto.",
+  "msgUnableToOpenLink": "No se puede abrir el enlace.",
+  "planMemoTitle": "nota de planificación",
+  "labelMemoContent": "Contenido de la nota",
+  "hintMemoContent": "Puede registrar transporte, citas, asuntos de re-filmación, arreglos de acompañantes, etc.",
+  "tooltipHeading": "título",
+  "tooltipBold": "Atrevido",
+  "tooltipList": "lista",
+  "tooltipTodo": "Hacer",
+  "tooltipQuote": "Cita",
+  "tooltipDivider": "línea divisoria",
+  "tooltipLink": "Enlace",
+  "tooltipCode": "código",
+  "tooltipUncheck": "Desmarcar",
+  "msgMemoImageNotSupported": "Memo no admite imágenes: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "Aún no he escrito una nota de plan",
+  "memoEmptySubtitle": "Haga clic en Editar en la esquina superior derecha para registrar transporte, citas, asuntos de nueva toma u otros preparativos.",
+  "msgInvalidRatio": "Por favor ingrese una proporción válida.",
+  "dialogCustomRatioTitle": "Escala personalizada",
+  "labelWidth": "Ancho",
+  "labelHeight": "alto",
+  "msgColorNameRequired": "Por favor ingrese un nombre de color.",
+  "dialogCustomThemeColorTitle": "Color de tema personalizado",
+  "labelColorName": "nombre",
+  "labelColorHex": "número de color",
+  "btnAdd": "añadir",
+  "navAppGoogleMaps": "mapas de google",
+  "navAppAmap": "Amap",
+  "navAppAppleMaps": "Mapas de Apple",
+  "navAppBaiduMaps": "mapa de Baidu",
+  "navAppTencentMaps": "mapa tencent",
+  "navAppBrowser": "Navegador",
+  "navAppGoogleMapsSub": "Opciones predeterminadas",
+  "navAppAmapSub": "Comúnmente utilizado en China",
+  "navAppAppleMapsSub": "nativo de iOS",
+  "navAppBaiduMapsSub": "navegación por la ciudad",
+  "navAppTencentMapsSub": "Alternativa ligera",
+  "navAppBrowserSub": "Se abre la página web",
+  "comparisonBorderColorWhite": "Blanco",
+  "comparisonBorderColorBlack": "negro",
+  "comparisonBorderColorTheme": "color del tema",
+  "comparisonWidthLabel": "Ancho {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "Sin fronteras",
+  "comparisonBorderPercent": "Borde {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "mostrar etiqueta",
+  "comparisonHideLabels": "No mostrar etiquetas",
+  "comparisonPilgrimName": "Peregrino {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "Apariencia",
+  "comparisonFieldBorderWidth": "ancho del borde",
+  "comparisonBorderWidthNone": "ninguno",
+  "comparisonFieldBorderColor": "color del borde",
+  "comparisonFieldOutputWidth": "ancho de salida",
+  "comparisonLabelShowLabel": "mostrar etiqueta",
+  "comparisonSectionMetadata": "Metadatos",
+  "comparisonFieldPilgrimName": "nombre del peregrino",
+  "comparisonShowPilgrimRight": "Mostrar peregrinos a la derecha.",
+  "comparisonShowGradingBottom": "Los parámetros de gradación de color se muestran en la parte inferior.",
+  "comparisonLabelReference": "referirse a",
+  "comparisonLabelCaptured": "Peregrinaje",
+  "comparisonLabelPilgrim": "peregrino",
+  "comparisonExportTitle": "Cuadro comparativo de exportaciones",
+  "tooltipClose": "cierre",
+  "comparisonExporting": "Exportador...",
+  "comparisonExport": "Exportar",
+  "comparisonWidthAuto": "automático",
+  "comparisonMetaCapturedAt": "tiempo de disparo",
+  "comparisonMetaWork": "trabajar",
+  "comparisonMetaPoint": "Lugar",
+  "comparisonMetaCoordinates": "coordinar",
+  "comparisonMetaEpisode": "escena",
+  "comparisonErrRefUnavailable": "La imagen de referencia no está disponible y la imagen de comparación no se puede exportar.",
+  "comparisonErrCapturedUnavailable": "El mapa turístico no está disponible y las imágenes comparativas no se pueden exportar.",
+  "comparisonErrRenderFailed": "Error al exportar. Vuelva a intentarlo más tarde.",
+  "cameraFallbackRatioTitle": "Escala sin imagen de referencia.",
+  "btnEdit": "editar",
+  "cameraRefModeOverlay": "Cubrir",
+  "cameraRefModeSplit": "arriba y abajo",
+  "cameraRefModePinned": "pequeña ventana",
+  "cameraWebPreviewWarning": "La vista previa web no inicia la cámara en vivo.",
+  "workManagerEmptyHelp": "Actualmente no hay obras previstas.",
+  "dialogDeleteWorkTitle": "Eliminar trabajo",
+  "dialogDeleteWorkConfirmSingle": "¿Está seguro de que desea eliminar \"{name}\"?",
+  "dialogDeleteWorkConfirmMultiple": "¿Está seguro de que desea eliminar \"{name}\"? Esto eliminará los puntos relacionados con {count} y los registros correspondientes al mismo tiempo.",
+  "msgDeleteWorkFailed": "Error al eliminar el trabajo",
+  "tooltipDeleteWork": "Eliminar trabajo",
+  "labelWorkTitleText": "título del trabajo",
+  "labelWorkInfoText": "Información laboral",
+  "btnManualAdd": "Agregar manualmente",
+  "btnBangumiSearch": "Bangumi",
+  "labelBangumiSource": "Bangumi #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "libros",
+  "subjectTypeAnime": "animación",
+  "subjectTypeMusic": "música",
+  "subjectTypeGame": "juego",
+  "subjectTypeReal": "Tres dimensiones",
+  "labelPoints": "punto",
+  "mapImportTitle": "Importar desde mapa de trabajo",
+  "mapImportRefreshingCache": "Borrando caché y recargando puntos Anitabi...",
+  "mapImportManualWorkNoBangumiId": "Las obras agregadas manualmente no tienen una ID de Bangumi y no pueden importar puntos del mapa de Anitabi.",
+  "mapImportPointAddedMsg": "Ya adherido al plan, puedes continuar eligiendo lugares.",
+  "mapImportPointAddFailedMsg": "Error al importar puntos. Vuelva a intentarlo más tarde.",
+  "mapImportAllAddedMsg": "Se han agregado todos los puntos no unidos.",
+  "mapImportBatchFailedMsg": "Error al importar por lotes. Vuelva a intentarlo más tarde.",
+  "mapImportBoxSelectionEmptyMsg": "No hay puntos que se puedan agregar dentro del rango de selección.",
+  "mapImportBoxAddedMsg": "Se han agregado puntos de selección de cuadros.",
+  "mapImportBoxFailedMsg": "La importación del punto de selección de fotograma falló. Vuelva a intentarlo más tarde.",
+  "mapImportImportingMsg": "Importando puntos {count}...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "Miniatura de almacenamiento en caché {processed}/{total}, {succeeded} exitoso",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "Se han importado los puntos {count} y las miniaturas se almacenan en caché {cached}/{total}. El resto se completará automáticamente más adelante.",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "Añadir todos los puntos",
+  "mapImportAddAllDialogMsg": "Los puntos {count} en el trabajo actual que aún no están en el plan se agregarán al plan y se colocarán temporalmente en áreas desagrupadas.",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "agregar todo",
+  "mapImportAddBoxDialogTitle": "Agregar un punto de selección de marco",
+  "mapImportAddBoxDialogMsg": "Los puntos {count} dentro del rango seleccionado que aún no están en el plan se agregarán al plan y se colocarán temporalmente en áreas desagrupadas.",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "Agregar selección de marco",
+  "mapImportAddBoxBtnWithCount": "Agregar {count}",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "Organizar los puntos recién importados",
+  "mapImportOrganizeDialogMsg": "Los puntos {count} se importaron y se colocaron temporalmente en desagrupados. Puede crear parches y puntos clave primero y luego asignarlos rápidamente según el punto clave más cercano.",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "asignado más recientemente",
+  "mapImportOrganizeGroupManager": "Gestión de área",
+  "mapImportOrganizeLater": "más tarde",
+  "mapImportRefreshTooltip": "Borrar caché y recargar puntos Anitabi",
+  "mapImportMarkerTooltip": "punto anitabi",
+  "mapImportErrDataUnavailable": "No se pueden cargar los datos del mapa de Anitabi",
+  "mapImportErrPartialData": "Los puntos Anitabi solo están parcialmente cargados",
+  "mapImportErrNotFound": "No hay datos de mapas de Anitabi para esta entrada de Bangumi.",
+  "mapImportErrLoadFailed": "Error al cargar el punto de Anitabi",
+  "mapImportErrDataUnavailableDetailWeb": "Puede ser que la versión de la caché de datos del mapa de Anitabi sea inconsistente o que la solicitud de red del servicio de vista previa actual esté bloqueada. Borre el caché y vuelva a cargar los puntos Anitabi.",
+  "mapImportErrDataUnavailableDetail": "No se puede leer el índice del mapa de Anitabi. Verifique su conexión de red o borre su caché y recargue puntos Anitabi.",
+  "mapImportErrPartialDataDetail": "Actualmente sólo se obtienen puntos {loaded}/{expected}. Vuelva a cargar o verifique si la red puede acceder a los datos del mapa de Anitabi.",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "Puedes intentar agregar la obra original, el juego u otras entradas relacionadas con el mismo nombre en la gestión de obras.",
+  "mapImportErrLoadFailedDetail": "Verifique la red e inténtelo nuevamente o vuelva a cargarla más tarde.",
+  "mapImportProgressImporting": "Importando puntos {total}...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "Miniatura de almacenamiento en caché {processed}/{total}, {succeeded} exitoso",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "Los puntos han sido importados.",
+  "mapImportMarkerAvailableTooltip": "Se pueden importar puntos",
+  "mapImportSummaryLoading": "Cargando puntos Anitabi",
+  "mapImportSummaryStats": "Importado {imported} / Actualmente mostrando {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/ total {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "Añadir todos los puntos",
+  "mapImportSummaryTooltipBoxExit": "Selección de cuadro de salida",
+  "mapImportSummaryTooltipBoxStart": "Punto seleccionado del marco",
+  "mapImportPointNameLabel": "Nombre del punto",
+  "mapImportPointInfoLabel": "Información del punto",
+  "mapImportPointOriginLabel": "fuente",
+  "mapImportPointDetailBtn": "Detalles",
+  "mapImportPointJoinedBtn": "Ya me uní",
+  "mapImportPointJoinBtn": "Únete al programa",
+  "mapImportDetailSceneLabel": "escena",
+  "mapImportDetailNoteLabel": "Observación",
+  "mapImportDetailCoordLabel": "coordinar",
+  "mapImportDetailJoinedBtn": "Ya me uní al programa",
+  "mapImportNoPointSelectedHint": "Haga clic en un punto del mapa para ver miniaturas y detalles.",
+  "mapImportNoImportablePoints": "No hay puntos Anitabi disponibles para importar en el trabajo actual.",
+  "mapImportNoImagePoints": "Hay puntos {count} en el trabajo actual, pero no hay puntos de referencia con imágenes que se puedan importar.",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "Actualmente no hay títulos de Bangumi planeados. Vaya a la gestión de obras para agregar obras de Bangumi primero.",
+  "mapImportManualWorkState": "Las obras agregadas manualmente no tienen una ID de Bangumi y no pueden importar puntos del mapa de Anitabi. \n\nBusque para agregar obras a través de Bangumi/Anitabi, o agregue puntos manualmente.",
+  "mapImportLoadingWorksAndPoints": "Cargando obras y puntos de Anitabi",
+  "msgCannotOpenMapApp": "No se puede abrir {app}.",
+  "mapImportErrPointNotFound": "Este punto de Anitabi no fue encontrado.",
+  "mapImportErrPointNotFoundDetail": "Es posible que el ID del punto en el enlace no sea válido o que los datos del mapa de Anitabi no se hayan sincronizado.",
+  "navMapSectionTitle": "Mapa de navegación {app}",
+  "navAppDescGoogleMaps": "El botón de navegación abre indicaciones para caminar a través de la URL oficial de Google Maps.",
+  "navAppDescAppleMaps": "El botón de navegación abre indicaciones para caminar a través de Apple Map Links.",
+  "navAppDescAmap": "El botón de navegación abre indicaciones para caminar a través de la API Amap URI y utiliza coordenadas WGS84.",
+  "navAppDescBaiduMaps": "El botón de navegación abre indicaciones para caminar a través de la API URI de Baidu Maps, utilizando coordenadas WGS84.",
+  "mapProviderHintOpenFreeMap": "Valor predeterminado recomendado",
+  "mapProviderHintOsm": "Azulejos estándar",
+  "mapProviderHintCustomXyz": "plantilla de mosaico",
+  "mapProviderHintCustomStyle": "URL de estilo",
+  "anitabiSrcAuto": "selección automática",
+  "anitabiSrcOfficial": "Por defecto oficial",
+  "anitabiSrcMirror": "fuente de respaldo",
+  "anitabiSrcAutoDesc": "Image.anitabi.cn se utiliza primero; Si la descarga llega a una página de error o se bloquea, se intentará img-tc.anitabi.cn.",
+  "anitabiSrcOfficialDesc": "Se corrigió el uso de image.anitabi.cn y se conservaba la fuente de imagen predeterminada oficial de Anitabi.",
+  "anitabiSrcMirrorDesc": "Se corrigió el uso de img-tc.anitabi.cn, adecuado para su uso cuando la fuente oficial predeterminada a menudo está bloqueada."
+}

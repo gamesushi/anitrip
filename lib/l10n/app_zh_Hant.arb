@@ -1199,5 +1199,13 @@
   "anitabiSrcMirror": "備用源",
   "anitabiSrcAutoDesc": "優先使用 image.anitabi.cn；如果下載到錯誤頁或被攔截，會嘗試 img-tc.anitabi.cn。",
   "anitabiSrcOfficialDesc": "固定使用 image.anitabi.cn，保留 Anitabi 官方默認圖片源。",
-  "anitabiSrcMirrorDesc": "固定使用 img-tc.anitabi.cn，適合官方默認源經常被攔截時使用。"
+  "anitabiSrcMirrorDesc": "固定使用 img-tc.anitabi.cn，適合官方默認源經常被攔截時使用。",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu"
 }

@@ -1,0 +1,1211 @@
+{
+  "@@locale": "ms",
+  "tabPlan": "rancangan",
+  "tabMap": "peta",
+  "tabRecords": "Rekod",
+  "tabSettings": "sediakan",
+  "settingsTitle": "sediakan",
+  "languageSetting": "Tetapan bahasa",
+  "languageSystem": "Ikut sistem",
+  "languageZh": "简体中文",
+  "languageZhHant": "繁體中文",
+  "languageEn": "English",
+  "languageFr": "Français",
+  "languageKo": "한국어",
+  "languageJa": "日本語",
+  "languageRu": "Русский",
+  "languageEs": "Español",
+  "languagePt": "Português",
+  "languageIt": "Italiano",
+  "languageTh": "ภาษาไทย",
+  "languageVi": "Tiếng Việt",
+  "languageMs": "Bahasa Melayu",
+  "labelWork": "kerja",
+  "labelScene": "tempat kejadian",
+  "labelCoordinates": "menyelaras",
+  "labelArea": "kawasan",
+  "labelReference": "merujuk kepada",
+  "labelSource": "sumber",
+  "labelId": "ID",
+  "labelLink": "Pautan",
+  "btnChange": "Berubah",
+  "btnReplace": "menggantikan",
+  "labelLocalRecords": "Rekod titik ini",
+  "labelAll": "semua",
+  "btnNavigate": "navigasi",
+  "btnOverlay": "Rujukan menembak",
+  "btnSetTarget": "Tetapkan sebagai semasa",
+  "btnMarkDone": "Tandakan selesai",
+  "btnEditPoint": "Edit titik",
+  "settingsAppearance": "Tetapan penampilan",
+  "settingsAppearanceSubtitle": "Warna tema, zum, paparan, dsb.",
+  "settingsCamera": "Tetapan penangkapan",
+  "settingsCameraSubtitle": "Perkadaran foto, perkadaran imej rujukan, sandaran, dsb.",
+  "settingsExport": "Tetapan carta perbandingan",
+  "settingsExportSubtitle": "Eksport gaya dan simpan secara automatik ke album foto",
+  "settingsDataSource": "Tetapan sumber data",
+  "settingsDataSourceSubtitle": "Sumber peta, sumber gambar, dsb.",
+  "settingsClearCache": "kosongkan cache",
+  "settingsClearCacheSubtitle": "Cache imej rujukan lengkap",
+  "settingsAbout": "Mengenai MiriaGo",
+  "settingsAboutSubtitle": "Maklumat versi, lesen sumber terbuka, dsb.",
+  "btnCancel": "Batal",
+  "btnConfirm": "pasti",
+  "btnSave": "jimat",
+  "labelManualEntry": "Kemasukan manual",
+  "labelRevertCompleted": "Tarik balik jam masuk",
+  "labelUnassignedGroup": "Tidak dibahagikan kepada zon",
+  "labelUnknownGroup": "kawasan yang tidak diketahui",
+  "labelNoAnchor": "Tiada kunci ditetapkan",
+  "labelStatusCurrent": "sasaran semasa",
+  "labelStatusCompleted": "Selesai",
+  "labelStatusPending": "Untuk diakses",
+  "settingsReset": "Pulihkan tetapan awal",
+  "settingsResetConfirmSubtitle": "Semua tetapan penampilan, penangkapan dan peta akan dipulihkan kepada nilai lalainya.",
+  "settingsThemeColor": "warna tema",
+  "settingsThemeColorSubtitle": "Mempengaruhi padanan warna keseluruhan aplikasi",
+  "settingsThemeMode": "mod tema",
+  "settingsThemeLight": "mod cahaya",
+  "settingsThemeDark": "mod gelap",
+  "settingsThemeSystem": "Ikut sistem",
+  "settingsUiScale": "Zum halaman",
+  "settingsUiScaleSubtitle": "Laraskan saiz keseluruhan antara muka (tidak menjejaskan imej rujukan)",
+  "settingsCameraRatio": "Nisbah tangkap gambar",
+  "settingsCameraZoom": "zum kamera",
+  "settingsPhotoBackup": "sandaran foto",
+  "settingsPhotoBackupSubtitle": "Simpan foto lawatan ke album",
+  "settingsAutoSaveComparison": "Simpan carta perbandingan secara automatik",
+  "settingsAutoSaveComparisonSubtitle": "Simpan ke album foto apabila menyimpan rekod",
+  "settingsDesktop": "Desktop",
+  "settingsDesktopSubtitle": "Pelancar, direktori data, dsb.",
+  "desktopLauncherChecking": "Semakan Pelancar Desktop",
+  "desktopLauncherUnavailable": "Pelancar desktop tidak tersedia",
+  "desktopSystemDataDir": "Direktori data sistem",
+  "desktopPortableDir": "direktori mudah alih",
+  "desktopAppDataDir": "direktori data aplikasi",
+  "desktopLauncherAvailable": "Pelancar desktop tersedia",
+  "settingsFontSmall": "Kecil",
+  "settingsFontStandard": "standard",
+  "settingsFontLarge": "besar",
+  "settingsFontHuge": "lebih besar",
+  "msgReplacingRef": "Menggantikan imej rujukan...",
+  "msgReplaceRefFailed": "Penggantian gambar rujukan gagal, sila cuba sebentar lagi.",
+  "msgReplaceRefSuccess": "Imej rujukan diganti",
+  "msgCannotOpenMap": "Tidak dapat membuka Peta Google.",
+  "titleMoveToGroup": "Bergerak ke kawasan",
+  "copyLabelPointName": "Nama mata",
+  "copyLabelGroupAnchor": "Perkara utama kawasan",
+  "labelNote": "Teguran",
+  "themeClassicGreen": "hijau klasik",
+  "themeDeepBlue": "biru pekat",
+  "themeCherryPink": "Serbuk sakura",
+  "themeTwilightPurple": "ungu senja",
+  "themeMiriaYellow": "oren ambar",
+  "themeGraphite": "grafit hitam",
+  "themeAurora": "Sesuaikan",
+  "aspectAuto": "automatik",
+  "aspectNative": "perkadaran asli",
+  "aspectCustom": "Sesuaikan",
+  "aspectAutoHint": "mengesyorkan",
+  "aspectNativeHint": "Orang asli",
+  "aspectLandscape16x9Hint": "skrin lebar",
+  "aspectCinema21x9Hint": "Filem",
+  "aspectStandard4x3Hint": "klasik",
+  "aspectPhoto3x2Hint": "kamera",
+  "aspectPortrait9x16Hint": "Skrin menegak",
+  "aspectPortrait9x21Hint": "Skrin penuh",
+  "aspectPortrait3x4Hint": "sepanduk menegak",
+  "aspectPortrait2x3Hint": "sepanduk menegak",
+  "aspectSquare1x1Hint": "segi empat sama",
+  "aspectCustomHint": "Disesuaikan",
+  "mapProviderOpenFreeMap": "OpenFreeMap",
+  "mapProviderOpenFreeMapDesc": "Peta lalai, menggunakan gaya MapLibre.",
+  "mapProviderOpenStreetMap": "OpenStreetMap",
+  "mapProviderOpenStreetMapDesc": "Gunakan jubin XYZ standard OpenStreetMap.",
+  "mapProviderCustomXyz": "XYZ tersuai",
+  "mapProviderCustomXyzDesc": "Gunakan URL jubin raster yang mengandungi {z}/{x}/{y}.",
+  "mapProviderCustomMapLibre": "MapLibre tersuai",
+  "mapProviderCustomMapLibreDesc": "Gunakan URL gaya MapLibre tersuai.",
+  "mapStyleLibertyDesc": "Gaya lalai mempunyai ketumpatan maklumat yang lebih tinggi.",
+  "mapStyleBrightDesc": "Gaya standard yang terang.",
+  "mapStylePositronDesc": "Warna terang gaya gangguan rendah.",
+  "mapStyleDarkDesc": "Gaya peta gelap.",
+  "mapStyleFiordDesc": "Gaya muka bumi yang lembut.",
+  "imageSourceAuto": "pemilihan automatik",
+  "imageSourceOfficial": "lalai rasmi",
+  "imageSourceMirror": "sumber sandaran",
+  "imageSourceAutoDesc": "Image.anitabi.cn digunakan dahulu; jika muat turun mencapai halaman ralat atau disekat, img-tc.anitabi.cn akan dicuba.",
+  "imageSourceOfficialDesc": "Dibetulkan menggunakan image.anitabi.cn dan mengekalkan sumber imej lalai rasmi Anitabi.",
+  "imageSourceMirrorDesc": "Penggunaan tetap img-tc.anitabi.cn, sesuai digunakan apabila sumber lalai rasmi sering disekat.",
+  "mapProviderRecommendedDefault": "Lalai yang disyorkan",
+  "mapProviderStandardTiles": "jubin standard",
+  "mapProviderTileTemplate": "templat jubin",
+  "mapProviderStyleUrl": "URL gaya",
+  "cameraCaptureRatioSection": "Nisbah tangkap gambar",
+  "cameraCaptureRatioDesc": "Ia secara automatik akan mengikut nisbah imej rujukan terlebih dahulu; selepas memilih nisbah tetap, ia akan menembak mengikut nisbah tersebut.",
+  "cameraFallbackRatioSection": "Skala tanpa gambar rujukan",
+  "cameraFallbackRatioDesc": "Gunakannya apabila nisbah gambar ditetapkan kepada automatik dan tiada gambar rujukan untuk diselaraskan.",
+  "cameraReferenceScaleSection": "Paparan gambar rujukan",
+  "cameraZoomSection": "zum kamera",
+  "cameraBackupDetailDesc": "Semasa menyimpan rekod, foto lawatan turut disandarkan.",
+  "mapSourceSection": "Sumber peta",
+  "mapOpenFreeMapStyleSection": "Gaya OpenFreeMap",
+  "mapCustomXyzUrlNotSet": "URL XYZ tersuai tidak ditetapkan",
+  "mapCustomXyzUrlTitle": "URL XYZ tersuai",
+  "mapCustomXyzUrlHelper": "URL perlu mengandungi {z}, {x}, {y}.",
+  "mapCustomXyzUrlInvalid": "Format URL tidak sah",
+  "mapCustomMapLibreUrlNotSet": "URL gaya MapLibre tidak ditetapkan",
+  "mapCustomMapLibreUrlTitle": "URL gaya MapLibre",
+  "mapCustomMapLibreUrlHelper": "URL perlu menunjuk kepada gaya JSON yang boleh dibaca secara umum.",
+  "mapAnitabiImageSourceSection": "Sumber imej Anitabi",
+  "mapThumbnailSection": "Lakaran kenit peta",
+  "mapThumbnailThresholdTitle": "Ambang paparan lakaran kenit",
+  "mapThumbnailThresholdDesc": "Apabila tidak ada lebih daripada mata {threshold} dalam paparan, lakaran kecil dipaparkan; apabila terdapat lebih daripada , hanya titik yang dipaparkan.",
+  "mapConcurrentLoadsTitle": "Bilangan permintaan imej serentak",
+  "mapConcurrentLoadsDesc": "Digunakan untuk memaparkan lakaran kecil peta, lakaran kecil cache semasa mengimport mata, dan peta rujukan cache kelompok. Nombor yang lebih tinggi boleh menghasilkan kelajuan yang lebih pantas, tetapi juga memberi lebih tekanan pada rangkaian.",
+  "mapThumbnailThresholdZeroHint": "Ambang 0 tidak akan memaparkan lakaran kecil pada peta.",
+  "mapNavigationAppSection": "Perisian navigasi",
+  "mapNavigationAppHint": "Hanya pilihan antara muka dikekalkan, dan lompatan navigasi sebenar tidak disambungkan buat masa ini.",
+  "desktopLauncherSection": "pelancar",
+  "aboutAppInfoSection": "Maklumat permohonan",
+  "aboutAppDescription": "Animasi Alat Rujukan Perancangan dan Penggambaran Jelajah Tanah Suci",
+  "aboutVersionLabel": "Versi semasa",
+  "aboutLoadingText": "Membaca",
+  "aboutAuthorLabel": "pengarang",
+  "aboutContactEmailLabel": "E-mel hubungan",
+  "aboutSourceCodeRepositoryLabel": "Gudang sumber terbuka",
+  "aboutLicenseLabel": "Lesen sumber terbuka",
+  "aboutCopyrightSection": "Data dan Hak Cipta",
+  "aboutCopyrightDescription": "Peta boleh menggunakan OpenFreeMap, OpenStreetMap atau perkhidmatan tersuai; Bangumi digunakan untuk mencari kerja; tempat lawatan dan peta rujukan adalah dari Anitabi. Tetapan sumber imej hanya mempengaruhi nama domain akses, dan pautan jauh akan mengekalkan format lalai Anitabi secara seragam. Hak cipta data pihak ketiga, tangkapan skrin dan imej adalah milik platform asal, penyumbang atau pemegang hak.",
+  "mapThumbnailCountLabel": "{count}",
+  "btnDecrease": "kurangkan",
+  "btnIncrease": "Bertambah",
+  "settingsExportDefaultConfig": "Konfigurasi lalai",
+  "cachePlanSection": "rancangan",
+  "cacheLoadPlansFailed": "Bacaan senarai rancangan gagal",
+  "cacheSelectPlanSection": "Pilih pelan",
+  "cacheClearButton": "Kosongkan cache bagi imej rujukan lengkap",
+  "btnRetry": "Cuba lagi",
+  "tooltipSelectAll": "Pilih semua",
+  "tooltipClear": "Jelas",
+  "cacheClearFuncPlaceholder": "Fungsi pembersihan cache belum lagi diakses, dan hanya antara muka dipaparkan.",
+  "cacheSelectedPlansCount": "pelan {selected} / {total} dipilih",
+  "@cacheSelectedPlansCount": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "cachePointsCount": "mata {area} / {count}",
+  "@cachePointsCount": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheContentSection": "kandungan cache",
+  "cacheReferenceType": "Cache imej rujukan lengkap",
+  "cacheReferenceDesc": "Jelas Rujukan Kamera dan Paparan Besar untuk melihat imej rujukan penuh yang digunakan. Cache lakaran kecil dikekalkan untuk mengekalkan kelajuan pemuatan senarai dan peta.",
+  "gpsDisabled": "Perkhidmatan lokasi tidak dihidupkan.",
+  "gpsPermissionRequired": "Kebenaran lokasi diperlukan untuk memaparkan lokasi semasa.",
+  "gpsTimeout": "Kedudukan telah tamat masa, sila cuba sebentar lagi.",
+  "gpsFailed": "Lokasi gagal, sila semak kebenaran dan perkhidmatan lokasi.",
+  "planActions": "Rancang operasi",
+  "planSwitch": "Tukar pelan",
+  "planAddPoint": "Tambah mata",
+  "planManage": "rancangan pengurusan",
+  "planMemo": "memo perancangan",
+  "planImportExport": "Import dan eksport",
+  "cacheDownloading": "Caching imej rujukan lengkap...",
+  "cacheNoImagesToDownload": "Tiada imej rujukan yang perlu dicache dalam pelan semasa",
+  "cacheTitle": "Caching imej rujukan lengkap",
+  "cacheConfirmMessage": "Imej rujukan lengkap {count} dalam pelan semasa akan dicache, yang mungkin mengambil masa yang lama dan trafik rangkaian.",
+  "@cacheConfirmMessage": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cacheStart": "Mulakan caching",
+  "cacheStarted": "Mula menyimpan cache imej rujukan lengkap",
+  "groupPrev": "Kawasan sebelumnya",
+  "groupNext": "kawasan seterusnya",
+  "mapCollapse": "Sembunyikan peta",
+  "labelPointsCount": "mata {count}",
+  "labelCompletedCount": "Selesai",
+  "labelOrderMode": "model",
+  "sortModeDefault": "Perintah perancangan lalai",
+  "sortModeDistance": "Jarak dari lokasi semasa",
+  "sortModeDefaultShort": "Pelan lalai",
+  "sortModeDistanceShort": "mengikut jarak",
+  "sortOrderDesc": "Perintah terbalik",
+  "sortOrderAsc": "urutan positif",
+  "sortOrderFarToNear": "Jauh ke dekat",
+  "sortOrderNearToFar": "dekat ke jauh",
+  "tooltipHideLocation": "Sembunyikan lokasi semasa",
+  "tooltipShowLocation": "Tunjukkan lokasi semasa",
+  "labelCompleted": "Selesai",
+  "planNoPointsTitle": "Tiada tempahan lagi",
+  "planNoPointsSubtitle": "Mula-mula tambah tempat lawatan daripada Anitabi atau masukkannya secara manual, kemudian matlamat semasa dan kemajuan penyiapan akan dipaparkan di sini.",
+  "planWorksCount": "{count} berfungsi",
+  "@planWorksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "visitPhotoCount": "Diambil {count}",
+  "@visitPhotoCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planHeaderStats": "mata {area} / {points} / {works}",
+  "@planHeaderStats": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnPointDetail": "Butiran mata",
+  "btnCameraReference": "Rujukan menembak",
+  "tooltipRevertCompleted": "Tarik balik jam masuk",
+  "tooltipMarkCompleted": "Tandakan selesai",
+  "tooltipSetTarget": "Tetapkan sebagai sasaran semasa",
+  "recordsUnassignedDesc": "Belum ada rekod yang dimasukkan ke dalam kawasan itu",
+  "recordsOrphanedTitle": "Rekod yatim piatu",
+  "recordsOrphanedDesc": "Titik yang sepadan tidak lagi dalam rancangan semasa",
+  "recordsAllRecords": "Semua rekod",
+  "recordsFilterConditionsCount": "penapis {count}",
+  "@recordsFilterConditionsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsFilterTitle": "penapis",
+  "recordsSearchPoints": "Titik carian",
+  "recordsSearchHint": "Titik, kerja, adegan, bilangan episod, koordinat",
+  "tooltipClearSearch": "Kosongkan carian",
+  "recordsFilterStatus": "negeri",
+  "recordsFilterCompletedPoints": "Mata selesai",
+  "recordsFilterPendingPoints": "Mata yang belum selesai",
+  "recordsPhotoTitle": "Foto ziarah",
+  "recordsEntriesCount": "Artikel {count}",
+  "@recordsEntriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsTotalCount": "rekod lawatan {count}",
+  "@recordsTotalCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsCompletedProgress": "Lengkapkan {completed}/{total}",
+  "@recordsCompletedProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recordsEmptyMessage": "Tiada rekod lawatan lagi. Ia akan muncul secara automatik di sini selepas penangkapan berjaya.",
+  "groupOrderModePending": "Untuk dianjurkan",
+  "groupOrderModeManual": "Manual",
+  "groupOrderModeNone": "gangguan",
+  "groupAnchorPending": "Menunggu untuk dibahagikan kepada serpihan",
+  "groupAnchorNameLabel": "Perkara utama: {name}",
+  "@groupAnchorNameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mapNoPointsSnackBar": "Pelan semasa belum ada.",
+  "tooltipLocation": "kedudukan",
+  "tooltipUseIconMarkers": "Gunakan penanda ikon",
+  "tooltipShowThumbnailMarkers": "Tunjukkan tanda lakaran kecil",
+  "tooltipPoint": "Titik ziarah",
+  "copyLabelPointInfo": "Maklumat titik",
+  "mapNoPointsMessage": "Pelan semasa belum ada. Selepas menambah satu titik, penanda akan muncul pada peta.",
+  "labelEditPointNotSupported": "Mata tidak boleh diedit dalam persekitaran semasa.",
+  "tooltipGoToTarget": "sasaran semasa",
+  "planDefaultNewName": "Pelan pelancongan baharu {number}",
+  "@planDefaultNewName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "planDefaultArea": "Wilayah tidak ditetapkan",
+  "msgDeletePlanAtLeastOne": "Perlu menyimpan sekurang-kurangnya satu pelan",
+  "dialogDeletePlanTitle": "Padamkan pelan",
+  "dialogDeletePlanMessage": "\"{name}\" dan lokasi, kawasan, kerja dan rekod lawatannya akan dipadamkan. Tindakan ini tidak boleh dibuat asal.",
+  "@dialogDeletePlanMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "btnDelete": "padam",
+  "dialogEditPlanTitle": "Edit maklumat pelan",
+  "labelPlanName": "Nama rancangan",
+  "labelPlanArea": "wilayah/kawasan",
+  "btnNewPlan": "Pelan baru",
+  "statusTextCurrentPlan": "Pelan semasa",
+  "statusTextSwitchable": "boleh tukar",
+  "labelPlanInfo": "Maklumat program",
+  "planInfoCopyContent": "{name}\n{area}\n{points} mata \n{works}",
+  "@planInfoCopyContent": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "area": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      },
+      "works": {
+        "type": "String"
+      }
+    }
+  },
+  "btnSwitch": "suis",
+  "btnReloadPlan": "pelan tambah nilai",
+  "importExportImportSection": "import",
+  "importExportImportDescMobile": "Buka .sjhplan dengan MiriaGo daripada fail, sembang, penyemak imbas atau pemacu rangkaian.",
+  "importExportImportDescWeb": "Pilih fail .sjhplan dan pratonton kandungan sebelum mengimport.",
+  "importExportStatusReading": "Membaca...",
+  "importExportOpenFromApp": "Buka .sjhplan daripada apl lain",
+  "importExportImportFileTitle": "Import fail MiriamGo",
+  "importExportOpenFromAppDesc": "Pilih .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas atau pemacu rangkaian, kemudian kongsi atau buka dengan MiriaGo.",
+  "importExportImportFileDesc": "Menyokong pakej data v2 dan pakej pelan JSON v1 warisan.",
+  "importExportZipDesc": "Versi baharu .sjhplan, zip dalaman, mengandungi manifest.json.",
+  "importExportMyMapsDesc": "Eksport mata ke CSV. Imej ditulis sebagai pautan dan boleh digayakan oleh lajur Jenis.",
+  "importExportMyMapsTitle": "Eksport CSV Peta Saya",
+  "importExportMyMapsDetails": "6 lajur pertama mengikut format contoh, dengan karya, koleksi, sumber, dsb. dibahagikan kepada lajur bebas.",
+  "msgExportCancelled": "Eksport dibatalkan",
+  "msgImportReadFailed": "Import fail membaca gagal",
+  "dialogOpenFromAppTitle": "Buka .sjhplan daripada apl lain",
+  "dialogOpenFromAppMessage": "Sila cari fail .sjhplan dalam fail, sembang, halaman muat turun penyemak imbas, cakera rangkaian atau lokasi simpanan lain, kemudian klik pada fail, atau gunakan menu Kongsi/Lagi untuk memilih MiriaGo. \n\nMiriaGo akan memasuki halaman pratonton import secara automatik selepas menerima fail. Jika tiada MiriaGo dalam senarai, anda boleh menyimpan fail ke Apl \"Fail\" dahulu, kemudian tekan lama fail untuk memilih kaedah perkongsian atau pembukaan.",
+  "btnGotIt": "tahu",
+  "exportShareLabel": "Paket MiriaGo: {name}",
+  "@exportShareLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgExportSuccess": "Pakej data telah dieksport",
+  "dialogMissingResourcesTitle": "Beberapa sumber tempatan hilang",
+  "dialogMissingResourcesMessage": "Sumber ini tidak akan memasuki pakej data, dan imej yang sepadan mungkin tidak dipaparkan selepas mengimport.",
+  "btnContinueExport": "Teruskan mengeksport",
+  "msgExportMyMapsSuccess": "CSV Peta Saya dieksport",
+  "msgExporting": "Mengeksport...",
+  "msgExportFailed": "Eksport gagal",
+  "warningMissingPart": "{fallback}, beberapa sumber gagal ditambahkan",
+  "@warningMissingPart": {
+    "placeholders": {
+      "fallback": {
+        "type": "String"
+      }
+    }
+  },
+  "warningUserReferenceMissing": "{count} Gambar rujukan yang dimuat naik secara tempatan tiada",
+  "@warningUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningThumbnailMissing": "lakaran kecil {count} tidak ditambahkan",
+  "@warningThumbnailMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceDownloadFailed": "{count} Gagal memuat turun gambar rujukan lengkap",
+  "@warningFullReferenceDownloadFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningFullReferenceMissing": "{count} Gambar rujukan lengkap tiada",
+  "@warningFullReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningVisitPhotoMissing": "{count} Tiada foto dari lawatan",
+  "@warningVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "warningGradedPhotoMissing": "Foto {count} warna diperbetulkan tiada",
+  "@warningGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importExportStats": "kawasan {groups} / mata {points}",
+  "@importExportStats": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "btnPlanOnly": "rancangan murni",
+  "btnPlanAndRecords": "Pelan+Rekod",
+  "importExportIncludeCache": "Mengandungi cache imej rujukan lengkap",
+  "importExportIncludeCacheDesc": "Imej kecil dan imej rujukan yang ditambah pengguna akan tetap disertakan secara lalai.",
+  "btnExportDataPackage": "Eksport pakej data MiriaGo",
+  "btnExportingDataPackage": "Mengeksport...",
+  "importExportEstimateEstimating": "Anggarkan saiz paket...",
+  "importExportEstimateFailed": "Anggaran saiz paket: tidak boleh dianggarkan pada masa ini",
+  "importExportEstimateResult": "Saiz paket yang dijangkakan: {label}",
+  "@importExportEstimateResult": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogLocalReferenceMissing": "Muat naik imej rujukan secara setempat",
+  "dialogVisitPhotoMissing": "Foto ziarah",
+  "dialogGradedPhotoMissing": "Foto menyegarkan",
+  "estimateThumbnailNotCached": "lakaran kecil {count} tidak dicache dan tidak akan memasuki paket data",
+  "@estimateThumbnailNotCached": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateFullReferenceWillDownload": "{count} Imej rujukan lengkap akan dimuat turun semasa eksport",
+  "@estimateFullReferenceWillDownload": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUserReferenceMissing": "{count} Fail gambar rujukan yang dimuat naik secara tempatan tiada dan tidak boleh dipulihkan selepas mengeksport.",
+  "@estimateUserReferenceMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateVisitPhotoMissing": "fail foto ziarah {count} tiada",
+  "@estimateVisitPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateGradedPhotoMissing": "fail foto diperbetulkan warna {count} tiada",
+  "@estimateGradedPhotoMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "estimateUnknownLocalAssets": "Sesetengah sumber tempatan tidak boleh dibaca dan badan pakej sebenar mungkin berubah.",
+  "estimateLabelAtLeast": "Saiz paket yang dijangkakan: sekurang-kurangnya kira-kira {size}, {details}",
+  "@estimateLabelAtLeast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      },
+      "details": {
+        "type": "String"
+      }
+    }
+  },
+  "estimateLabelAbout": "Anggaran saiz paket: lebih kurang {size}",
+  "@estimateLabelAbout": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "tooltipBack": "kembali",
+  "importExportDataPackageHeader": "Pakej data MiriaGo",
+  "addPointsTitle": "Tambah kandungan",
+  "addPointsAddToPlan": "Sertai: {planName}",
+  "@addPointsAddToPlan": {
+    "placeholders": {
+      "planName": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsWorkManagerTitle": "Pengurusan kerja",
+  "addPointsWorkManagerDesc": "Urus kerja yang dirancang dan sokong carian Bangumi, penambahan manual dan pemadaman karya.",
+  "addPointsImportFromWorkMapTitle": "Import mata daripada peta kerja",
+  "addPointsImportFromWorkMapDesc": "Lihat lokasi kerja pada peta Anitabi, klik pada butiran lakaran kecil untuk menyertai projek.",
+  "addPointsImportFromLinkTitle": "Import daripada pautan Anitabi",
+  "addPointsImportFromLinkDesc": "Tampal pautan kerja atau titik Anitabi untuk membuka peta kerja yang sepadan dengan cepat.",
+  "addPointsManualTitle": "Tambah mata secara manual",
+  "addPointsManualDesc": "Pilih kerja yang ditambah dan masukkan nama, koordinat dan maklumat tempat kejadian.",
+  "addPointsActionLabelUnavailable": "Tidak tersedia",
+  "addPointsActionLabelManage": "mengurus",
+  "addPointsActionLabelOpen": "Buka",
+  "addPointsActionLabelInput": "masuk",
+  "addPointsActionLabelAdd": "Tambah ke",
+  "msgWorkAdded": "\"{title}\" telah ditambahkan.",
+  "@msgWorkAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgWorkAddFailed": "Gagal menambah kerja, sila cuba sebentar lagi.",
+  "bangumiSearchTitle": "Cari Bangumi",
+  "bangumiSearchLabel": "Tajuk kerja",
+  "bangumiSearchHint": "Sebagai contoh, seorang gadis dengan nada lembut",
+  "bangumiSearchBtn": "Cari kerja",
+  "bangumiSearchBtnSearching": "Mencari",
+  "bangumiSearchFailed": "Carian Bangumi gagal, sila semak rangkaian dan cuba lagi.",
+  "bangumiSearchEmptyHelp": "Masukkan tajuk kerja dan cari, kemudian pilih hasil untuk menyertai rancangan semasa.",
+  "anitabiLinkImportTitle": "Import pautan Anitabi",
+  "anitabiLinkImportLabel": "Pautan Anitabi",
+  "anitabiLinkImportHint": "Contohnya https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitabiLinkImportHelp": "Jika pautan mengandungi ID kerja, hanya kerja yang sepadan akan dimuatkan; jika ia turut mengandungi ID titik, titik tersebut akan dipilih secara automatik. Pautan tanpa ID kerja perlu disalin semula selepas memasukkan kerja yang sepadan dalam Anitabi.",
+  "anitabiLinkImportBtn": "Buka mata Anitabi",
+  "anitabiLinkImportEmptyErr": "Sila masukkan pautan Anitabi",
+  "anitabiLinkImportInvalidErr": "Sila masukkan pautan peta Anitabi yang sah",
+  "anitabiLinkImportNoWorkIdErr": "Pautan tidak mempunyai ID kerja. Sila masukkan kerja yang sepadan dalam Anitabi dan salin pautan.",
+  "msgPointAdded": "\"{title}\" telah ditambahkan.",
+  "@msgPointAdded": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "msgPointSaveFailed": "Penjimatan mata gagal, sila cuba sebentar lagi.",
+  "msgWorkSaveFailed": "Gagal menyimpan kerja, sila cuba sebentar lagi.",
+  "manualAddWorkTitle": "Tambah item secara manual",
+  "manualAddWorkName": "Tajuk kerja",
+  "manualAddWorkOriginalName": "Tajuk kerja asal",
+  "manualAddWorkOriginalNameHint": "Pilihan",
+  "manualAddWorkArea": "kawasan utama",
+  "manualAddWorkAreaHint": "Pilihan, {defaultArea} lalai",
+  "@manualAddWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddWorkBtnSave": "jimat kerja",
+  "manualAddWorkBtnSaving": "Menyimpan",
+  "manualAddWorkRequiredField": "Sila isikan ini",
+  "msgReferenceImageReadFailed": "Gagal membaca imej rujukan, sila cuba lagi.",
+  "msgClipboardCoordinatesInvalid": "Tiada koordinat yang dikenali dalam papan keratan.",
+  "msgClipboardCoordinatesApplied": "Koordinat papan klip diisi.",
+  "manualAddPointTitleAdd": "Tambah mata secara manual",
+  "manualAddPointTitleEdit": "Edit titik",
+  "manualAddPointStatusEdit": "Pengubahsuaian: {name}",
+  "@manualAddPointStatusEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointBelongingWork": "Berfungsi",
+  "manualAddPointSelectWorkErr": "Sila pilih karya",
+  "manualAddPointWorkName": "Animasi/tajuk kerja",
+  "manualAddPointWorkOriginalName": "Tajuk kerja asal",
+  "manualAddPointWorkOriginalNameHint": "Pilihan",
+  "manualAddPointWorkArea": "Bidang utama kerja",
+  "manualAddPointWorkAreaHint": "Pilihan, {defaultArea} lalai",
+  "@manualAddPointWorkAreaHint": {
+    "placeholders": {
+      "defaultArea": {
+        "type": "String"
+      }
+    }
+  },
+  "manualAddPointName": "Nama mata",
+  "manualAddPointPositionDesc": "penerangan lokasi",
+  "manualAddPointEpisodeLabel": "Tag nombor/adegan episod",
+  "manualAddPointSource": "Sumber rujukan",
+  "manualAddPointMemo": "Teguran",
+  "manualAddPointMemoHint": "Pilihan, seperti penutupan kedai, pengubahsuaian, cadangan fotografi",
+  "manualAddPointSelectCoordsBtn": "Pilih koordinat daripada peta",
+  "manualAddPointPasteCoordsBtn": "Tampal koordinat papan keratan",
+  "manualAddPointLatitude": "latitud",
+  "manualAddPointLatitudeHint": "Contohnya 34.8917",
+  "manualAddPointLongitude": "longitud",
+  "manualAddPointLongitudeHint": "Contohnya 135.8077",
+  "manualAddPointBtnSaving": "Menyimpan",
+  "manualAddPointBtnSaveEdit": "Simpan perubahan",
+  "manualAddPointBtnSaveAdd": "Simpan titik",
+  "manualAddPointRequiredField": "Sila isikan ini",
+  "manualAddPointRequiredLatitude": "Sila isi latitud",
+  "manualAddPointRequiredLongitude": "Sila isikan longitud",
+  "manualAddPointInvalidCoordinate": "Sila masukkan koordinat yang sah",
+  "manualAddPointSelectCoordsTitle": "Pilih koordinat titik",
+  "manualAddPointSelectCoordsTooltipActive": "Tutup pemilihan peta",
+  "manualAddPointSelectCoordsTooltipInactive": "Pilih satu titik pada peta",
+  "manualAddPointSelectCoordsHelpActive": "Klik mana-mana sahaja pada peta untuk menetapkan koordinat titik",
+  "manualAddPointSelectCoordsHelpInactive": "Mula-mula klik butang pemilihan titik di penjuru kanan sebelah atas, kemudian klik peta untuk menetapkan koordinat",
+  "manualAddPointSelectCoordsAdjustHelp": "Klik pada peta untuk terus melaraskan lokasi",
+  "manualAddPointSelectCoordsDialogTitle": "Pemilihan titik peta",
+  "manualAddPointSelectCoordsBtnUse": "guna",
+  "addPointsNoWorksHelp": "Buat masa ini tiada kerja yang dirancang. Tambahkan kerja dahulu, dan kemudian anda boleh mengimport mata mengikut kerja.",
+  "addPointsHasWorksHelp": "Pelan semasa mempunyai {count} berfungsi: {list}",
+  "@addPointsHasWorksHelp": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "addPointsRefImageTooltipPreview": "Lihat imej besar",
+  "addPointsRefImageTooltipEmpty": "Belum ada gambar rujukan",
+  "addPointsRefImageHeader": "Gambar rujukan",
+  "addPointsRefImageHelpSelected": "Gambar baharu telah dipilih dan akan berkuat kuasa selepas disimpan.",
+  "addPointsRefImageHelpCurrent": "Gambar rujukan semasa perlu disimpan selepas pemilihan semula untuk berkuat kuasa.",
+  "addPointsRefImageHelpEmpty": "Pilihan, ia akan disalin ke direktori setempat Apl semasa menyimpan.",
+  "addPointsRefImageBtnReselect": "Pilih semula",
+  "addPointsRefImageBtnUpload": "Muat naik imej rujukan",
+  "addPointsRefImageBtnRemove": "Alih keluar",
+  "addPointsPointBtnAdded": "Ditambah",
+  "addPointsPointBtnAdd": "sertai",
+  "managePlanTitle": "rancangan pengurusan",
+  "managePlanSelectedCount": "{count} dipilih",
+  "@managePlanSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanTooltipAreas": "Pengurusan kawasan",
+  "managePlanCachingProgress": "Caching imej rujukan lengkap",
+  "managePlanCacheFullReference": "Caching imej rujukan lengkap",
+  "managePlanTooltipExitSelection": "Keluar berbilang pilihan",
+  "managePlanTooltipSelection": "Pelbagai pilihan",
+  "msgNoAnchorForUnassigned": "Mata yang tidak diberikan tidak mempunyai perkara penting.",
+  "msgAreaNotExist": "Kawasan itu tidak wujud.",
+  "msgSaveAnchorFailed": "Gagal menyimpan perkara penting.",
+  "msgNoOrderForUnassigned": "Mata yang tidak diberikan tidak memerlukan pengisihan.",
+  "managePlanAreaOrderTitle": "Pesanan dalam kawasan",
+  "msgSaveOrderModeFailed": "Gagal menyimpan kaedah pengisihan.",
+  "msgMoveAreaFailed": "Gagal mengalihkan tahap.",
+  "msgOpenCameraFromPlanOrMap": "Sila buka penangkapan dari halaman perancangan atau halaman peta.",
+  "msgSaveReferenceImageFailed": "Gagal menyimpan imej rujukan.",
+  "labelUnknownArea": "kawasan yang tidak diketahui",
+  "managePlanMoveToAreaTitle": "Bergerak ke kawasan",
+  "msgSavePointOrderFailed": "Penyimpanan jujukan titik gagal.",
+  "dialogDeletePointTitle": "Padamkan titik",
+  "dialogDeletePointMsg": "Adakah anda pasti mahu memadamkan \"{name}\" daripada rancangan anda?",
+  "@dialogDeletePointMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "msgDeletePointFailed": "Pemadaman titik gagal.",
+  "dialogBulkDeletePointsTitle": "Padamkan mata dalam kelompok",
+  "dialogBulkDeletePointsMsg": "Adakah anda pasti mahu memadamkan mata {count} daripada pelan?",
+  "@dialogBulkDeletePointsMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "msgBulkDeleteFailed": "Pemadaman kelompok gagal.",
+  "msgSaveCurrentTargetFailed": "Gagal menyimpan sasaran semasa.",
+  "msgSaveCompletionStatusFailed": "Gagal menyimpan status penyiapan.",
+  "msgSavePointStatusFailed": "Gagal menyimpan status mata.",
+  "msgBulkCompleteFailed": "Penyiapan kelompok gagal.",
+  "msgBulkResetFailed": "Tetapan semula kelompok gagal.",
+  "msgFullReferenceCacheStarted": "Caching imej rujukan lengkap telah bermula.",
+  "msgCachingFullReferenceProgress": "Caching imej rujukan lengkap...",
+  "msgNoReferenceToCache": "Tiada imej rujukan yang perlu dicache dalam pelan semasa.",
+  "dialogCacheFullReferenceTitle": "Caching imej rujukan lengkap",
+  "dialogCacheFullReferenceMsg": "Imej rujukan lengkap {count} dalam pelan semasa akan dicache, yang mungkin mengambil masa yang lama dan trafik rangkaian.",
+  "@dialogCacheFullReferenceMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "btnStartCache": "Mulakan caching",
+  "labelAnchorNotSet": "tidak ditetapkan",
+  "tooltipPrevArea": "Kawasan sebelumnya",
+  "tooltipNextArea": "kawasan seterusnya",
+  "managePlanPointsPending": "mata {count} sedang menunggu untuk menyusun",
+  "@managePlanPointsPending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanPointsStats": "mata {count} · {completed} lengkap · {num}/{total}",
+  "@managePlanPointsStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      },
+      "num": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "managePlanAnchorLabel": "Perkara utama: {label}",
+  "@managePlanAnchorLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "btnNearestAssign": "paling baru ditugaskan",
+  "btnBoxSelectAssign": "Pengagihan pemilihan bingkai",
+  "statusCurrent": "semasa",
+  "statusCompleted": "Selesai",
+  "statusPending": "Untuk diakses",
+  "tooltipPointActions": "Operasi titik",
+  "btnMoveToArea": "Bergerak ke kawasan",
+  "btnSetAsCurrent": "Tetapkan sebagai semasa",
+  "btnCancelCompletion": "Pembatalan selesai",
+  "btnMarkCompletion": "Tandakan selesai",
+  "btnDeletePoint": "Padamkan titik",
+  "refStatusNone": "Tiada gambar rujukan",
+  "refStatusLocal": "Muat naik tempatan",
+  "refStatusCached": "Dicache",
+  "refStatusRemote": "Tidak dicache",
+  "tooltipClearSelection": "Jelas",
+  "tooltipMoveArea": "Kawasan mudah alih",
+  "tooltipReset": "set semula",
+  "dialogSelectAnchorTitle": "Pilih perkara utama",
+  "btnClear": "Jelas",
+  "tooltipCloseMapSelect": "Tutup pemilihan peta",
+  "tooltipSelectOnMap": "Pilih satu titik pada peta",
+  "tooltipInputCoordinates": "Masukkan latitud dan longitud",
+  "dialogInputCoordinatesTitle": "Masukkan latitud dan longitud",
+  "labelManualAnchor": "Kekunci manual",
+  "tooltipSelectPoint": "Pilih titik",
+  "labelAnchorNotSelected": "Tiada perkara utama telah dipilih lagi",
+  "msgClickMapToSetAnchor": "Klik di mana-mana sahaja pada peta untuk menetapkan perkara utama",
+  "msgSelectAnchorMethods": "Anda boleh klik pada titik, peta atau masukkan latitud dan longitud",
+  "managePlanNoPoints": "Tiada titik terurus lagi",
+  "dialogDiscardMemoTitle": "Buang kandungan yang tidak disimpan?",
+  "dialogDiscardMemoMsg": "Memo semasa mempunyai perubahan yang belum disimpan.",
+  "btnKeepEditing": "Teruskan mengedit",
+  "btnDiscard": "berputus asa",
+  "msgMemoSaved": "Memo perancangan disimpan.",
+  "msgMemoSaveFailed": "Gagal menyimpan memo perancangan.",
+  "msgTodoStatusSaveFailed": "Gagal menyimpan status tugasan.",
+  "memoPlaceholderHeading": "tajuk",
+  "memoPlaceholderBold": "teks tebal",
+  "memoPlaceholderListItem": "item senarai",
+  "memoPlaceholderTodo": "Senarai tugasan",
+  "memoPlaceholderQuote": "Petikan kandungan",
+  "memoPlaceholderLinkText": "teks pautan",
+  "memoPlaceholderCode": "kod",
+  "msgInvalidLinkFormat": "Format pautan tidak betul.",
+  "msgUnableToOpenLink": "Tidak dapat membuka pautan.",
+  "planMemoTitle": "memo perancangan",
+  "labelMemoContent": "Kandungan memo",
+  "hintMemoContent": "Anda boleh merakam pengangkutan, janji temu, urusan penggambaran semula, pengaturan teman, dsb.",
+  "tooltipHeading": "tajuk",
+  "tooltipBold": "berani",
+  "tooltipList": "senarai",
+  "tooltipTodo": "tugasan",
+  "tooltipQuote": "petikan",
+  "tooltipDivider": "garis pemisah",
+  "tooltipLink": "Pautan",
+  "tooltipCode": "kod",
+  "tooltipUncheck": "Nyahtanda",
+  "msgMemoImageNotSupported": "Memo tidak menyokong imej: {label}",
+  "@msgMemoImageNotSupported": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "memoEmptyTitle": "Belum menulis memo rancangan lagi",
+  "memoEmptySubtitle": "Klik Edit di penjuru kanan sebelah atas untuk merekodkan pengangkutan, janji temu, urusan penggambaran semula atau persediaan lain.",
+  "msgInvalidRatio": "Sila masukkan nisbah yang sah.",
+  "dialogCustomRatioTitle": "Skala tersuai",
+  "labelWidth": "Lebar",
+  "labelHeight": "tinggi",
+  "msgColorNameRequired": "Sila masukkan nama warna.",
+  "dialogCustomThemeColorTitle": "Warna tema tersuai",
+  "labelColorName": "nama",
+  "labelColorHex": "Nombor warna",
+  "btnAdd": "Tambah ke",
+  "navAppGoogleMaps": "Peta Google",
+  "navAppAmap": "Amap",
+  "navAppAppleMaps": "Peta Apple",
+  "navAppBaiduMaps": "Peta Baidu",
+  "navAppTencentMaps": "Peta Tencent",
+  "navAppBrowser": "pelayar",
+  "navAppGoogleMapsSub": "Pilihan lalai",
+  "navAppAmapSub": "Biasa digunakan di China",
+  "navAppAppleMapsSub": "iOS asli",
+  "navAppBaiduMapsSub": "navigasi bandar",
+  "navAppTencentMapsSub": "Alternatif ringan",
+  "navAppBrowserSub": "Halaman web dibuka",
+  "comparisonBorderColorWhite": "putih",
+  "comparisonBorderColorBlack": "hitam",
+  "comparisonBorderColorTheme": "warna tema",
+  "comparisonWidthLabel": "Lebar {label}",
+  "@comparisonWidthLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonNoBorder": "Tiada sempadan",
+  "comparisonBorderPercent": "Sempadan {percent}%",
+  "@comparisonBorderPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonShowLabels": "tunjukkan label",
+  "comparisonHideLabels": "Jangan tunjukkan label",
+  "comparisonPilgrimName": "Jemaah haji {name}",
+  "@comparisonPilgrimName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSectionAppearance": "Penampilan",
+  "comparisonFieldBorderWidth": "lebar sempadan",
+  "comparisonBorderWidthNone": "tiada",
+  "comparisonFieldBorderColor": "warna sempadan",
+  "comparisonFieldOutputWidth": "lebar keluaran",
+  "comparisonLabelShowLabel": "tunjukkan label",
+  "comparisonSectionMetadata": "Metadata",
+  "comparisonFieldPilgrimName": "Nama jemaah haji",
+  "comparisonShowPilgrimRight": "Tunjukkan Jemaah Haji di sebelah kanan",
+  "comparisonShowGradingBottom": "Parameter penggredan warna dipaparkan di bahagian bawah",
+  "comparisonLabelReference": "merujuk kepada",
+  "comparisonLabelCaptured": "ziarah",
+  "comparisonLabelPilgrim": "jemaah haji",
+  "comparisonExportTitle": "Eksport carta perbandingan",
+  "tooltipClose": "penutupan",
+  "comparisonExporting": "Mengeksport...",
+  "comparisonExport": "Eksport",
+  "comparisonWidthAuto": "automatik",
+  "comparisonMetaCapturedAt": "Masa penggambaran",
+  "comparisonMetaWork": "kerja",
+  "comparisonMetaPoint": "tempat",
+  "comparisonMetaCoordinates": "menyelaras",
+  "comparisonMetaEpisode": "tempat kejadian",
+  "comparisonErrRefUnavailable": "Imej rujukan tidak tersedia dan imej perbandingan tidak boleh dieksport.",
+  "comparisonErrCapturedUnavailable": "Peta lawatan tidak tersedia dan gambar perbandingan tidak boleh dieksport.",
+  "comparisonErrRenderFailed": "Eksport gagal, sila cuba sebentar lagi.",
+  "cameraFallbackRatioTitle": "Skala tanpa gambar rujukan",
+  "btnEdit": "edit",
+  "cameraRefModeOverlay": "Tindanan",
+  "cameraRefModeSplit": "atas dan bawah",
+  "cameraRefModePinned": "tingkap kecil",
+  "cameraWebPreviewWarning": "Pratonton web tidak melancarkan kamera langsung.",
+  "workManagerEmptyHelp": "Buat masa ini tiada kerja yang dirancang.",
+  "dialogDeleteWorkTitle": "Padamkan kerja",
+  "dialogDeleteWorkConfirmSingle": "Adakah anda pasti mahu memadamkan \"{name}\"?",
+  "dialogDeleteWorkConfirmMultiple": "Adakah anda pasti mahu memadamkan \"{name}\"? Ini akan mengalih keluar mata berkaitan {count} dan rekod yang sepadan pada masa yang sama.",
+  "msgDeleteWorkFailed": "Pemadaman kerja gagal",
+  "tooltipDeleteWork": "Padamkan kerja",
+  "labelWorkTitleText": "Tajuk kerja",
+  "labelWorkInfoText": "Maklumat kerja",
+  "btnManualAdd": "Tambah secara manual",
+  "btnBangumiSearch": "Bangumi",
+  "labelBangumiSource": "Bangumi #{bangumiId}",
+  "@labelBangumiSource": {
+    "placeholders": {
+      "bangumiId": {
+        "type": "int"
+      }
+    }
+  },
+  "subjectTypeBook": "buku",
+  "subjectTypeAnime": "animasi",
+  "subjectTypeMusic": "muzik",
+  "subjectTypeGame": "permainan",
+  "subjectTypeReal": "Tiga dimensi",
+  "labelPoints": "titik",
+  "mapImportTitle": "Import dari peta kerja",
+  "mapImportRefreshingCache": "Kosongkan cache dan muatkan semula mata Anitabi...",
+  "mapImportManualWorkNoBangumiId": "Kerja yang ditambahkan secara manual tidak mempunyai ID Bangumi dan tidak boleh mengimport mata daripada peta Anitabi.",
+  "mapImportPointAddedMsg": "Dah join plan, boleh terus pilih spot.",
+  "mapImportPointAddFailedMsg": "Import mata gagal, sila cuba sebentar lagi.",
+  "mapImportAllAddedMsg": "Semua mata yang tidak bercantum telah ditambah.",
+  "mapImportBatchFailedMsg": "Import kelompok gagal, sila cuba sebentar lagi.",
+  "mapImportBoxSelectionEmptyMsg": "Tiada mata yang boleh ditambah dalam julat pilihan.",
+  "mapImportBoxAddedMsg": "Titik pemilihan bingkai telah ditambah.",
+  "mapImportBoxFailedMsg": "Import titik pemilihan bingkai gagal, sila cuba sebentar lagi.",
+  "mapImportImportingMsg": "Mengimport mata {count}...",
+  "@mapImportImportingMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportCachingProgressMsg": "Caching lakaran kecil {processed}/{total}, {succeeded} berjaya",
+  "@mapImportCachingProgressMsg": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportPartialSuccessMsg": "mata {count} telah diimport, dan lakaran kecil dicache {cached}/{total}. Selebihnya akan diisi secara automatik kemudian.",
+  "@mapImportPartialSuccessMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cached": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllDialogTitle": "Tambah semua mata",
+  "mapImportAddAllDialogMsg": "mata {count} dalam kerja semasa yang belum ada dalam pelan akan ditambah pada pelan dan diletakkan buat sementara waktu di kawasan yang tidak dikumpulkan.",
+  "@mapImportAddAllDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddAllConfirmLabel": "tambah semua",
+  "mapImportAddBoxDialogTitle": "Tambahkan titik pemilihan bingkai",
+  "mapImportAddBoxDialogMsg": "Mata {count} dalam julat terpilih yang belum ada dalam pelan akan ditambahkan pada pelan dan diletakkan buat sementara waktu di kawasan yang tidak dikumpulkan.",
+  "@mapImportAddBoxDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportAddBoxBtnLabel": "Tambah pemilihan bingkai",
+  "mapImportAddBoxBtnWithCount": "Tambah {count}",
+  "@mapImportAddBoxBtnWithCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeDialogTitle": "Susun mata yang baru diimport",
+  "mapImportOrganizeDialogMsg": "Mata {count} telah diimport dan diletakkan buat sementara waktu dalam ungrouped. Anda boleh membuat tampalan dan mata utama dahulu, dan kemudian menetapkannya dengan cepat berdasarkan titik utama terdekat.",
+  "@mapImportOrganizeDialogMsg": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportOrganizeNearestAssign": "paling baru ditugaskan",
+  "mapImportOrganizeGroupManager": "Pengurusan kawasan",
+  "mapImportOrganizeLater": "nanti",
+  "mapImportRefreshTooltip": "Kosongkan cache dan muat semula mata Anitabi",
+  "mapImportMarkerTooltip": "Titik Anitabi",
+  "mapImportErrDataUnavailable": "Data peta Anitabi tidak boleh dimuatkan",
+  "mapImportErrPartialData": "Mata Anitabi hanya dimuatkan sebahagian sahaja",
+  "mapImportErrNotFound": "Tiada data peta Anitabi untuk entri Bangumi ini.",
+  "mapImportErrLoadFailed": "Pemuatan mata Anitabi gagal",
+  "mapImportErrDataUnavailableDetailWeb": "Mungkin versi cache data peta Anitabi tidak konsisten, atau permintaan rangkaian pratonton semasa disekat. Sila kosongkan cache dan muat semula mata Anitabi.",
+  "mapImportErrDataUnavailableDetail": "Tidak dapat membaca indeks peta Anitabi. Sila semak sambungan rangkaian anda, atau kosongkan cache anda dan muat semula mata Anitabi.",
+  "mapImportErrPartialDataDetail": "Pada masa ini, hanya mata {loaded} / {expected} diperolehi. Sila muat semula, atau semak sama ada rangkaian boleh mengakses data peta Anitabi.",
+  "@mapImportErrPartialDataDetail": {
+    "placeholders": {
+      "loaded": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportErrNotFoundDetail": "Anda boleh cuba menambah karya asal, permainan atau entri lain yang berkaitan dengan nama yang sama dalam pengurusan kerja.",
+  "mapImportErrLoadFailedDetail": "Sila semak rangkaian dan cuba lagi, atau muat semula kemudian.",
+  "mapImportProgressImporting": "Mengimport mata {total}...",
+  "@mapImportProgressImporting": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportProgressCaching": "Caching lakaran kecil {processed}/{total}, {succeeded} berjaya",
+  "@mapImportProgressCaching": {
+    "placeholders": {
+      "processed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "succeeded": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportMarkerImportedTooltip": "Mata telah diimport",
+  "mapImportMarkerAvailableTooltip": "Mata boleh diimport",
+  "mapImportSummaryLoading": "Memuatkan mata Anitabi",
+  "mapImportSummaryStats": "{imported} yang diimport / Pada masa ini memaparkan {displayed}{expectedPart}",
+  "@mapImportSummaryStats": {
+    "placeholders": {
+      "imported": {
+        "type": "int"
+      },
+      "displayed": {
+        "type": "int"
+      },
+      "expectedPart": {
+        "type": "String"
+      }
+    }
+  },
+  "mapImportSummaryExpectedPart": "/ jumlah {expected}",
+  "@mapImportSummaryExpectedPart": {
+    "placeholders": {
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportSummaryTooltipAddAll": "Tambah semua mata",
+  "mapImportSummaryTooltipBoxExit": "Pilihan kotak keluar",
+  "mapImportSummaryTooltipBoxStart": "Bingkai titik yang dipilih",
+  "mapImportPointNameLabel": "Nama mata",
+  "mapImportPointInfoLabel": "Maklumat titik",
+  "mapImportPointOriginLabel": "sumber",
+  "mapImportPointDetailBtn": "Butiran",
+  "mapImportPointJoinedBtn": "Sudah menyertai",
+  "mapImportPointJoinBtn": "Sertai program ini",
+  "mapImportDetailSceneLabel": "tempat kejadian",
+  "mapImportDetailNoteLabel": "Teguran",
+  "mapImportDetailCoordLabel": "menyelaras",
+  "mapImportDetailJoinedBtn": "Sudah menyertai program ini",
+  "mapImportNoPointSelectedHint": "Klik pada titik pada peta untuk melihat lakaran kecil dan butiran.",
+  "mapImportNoImportablePoints": "Tiada mata Anitabi tersedia untuk diimport dalam kerja semasa.",
+  "mapImportNoImagePoints": "Terdapat mata {count} dalam kerja semasa, tetapi tiada titik rujukan dengan gambar yang boleh diimport.",
+  "@mapImportNoImagePoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapImportEmptyNoWorks": "Tiada tajuk Bangumi yang dirancang pada masa ini. Sila pergi ke pengurusan kerja untuk menambah kerja-kerja Bangumi terlebih dahulu.",
+  "mapImportManualWorkState": "Kerja yang ditambahkan secara manual tidak mempunyai ID Bangumi dan tidak boleh mengimport mata daripada peta Anitabi. \n\nSila cari untuk menambah karya melalui Bangumi/Anitabi, atau tambah mata secara manual.",
+  "mapImportLoadingWorksAndPoints": "Memuatkan kerja dan mata Anitabi",
+  "msgCannotOpenMapApp": "Tidak dapat membuka {app}.",
+  "mapImportErrPointNotFound": "Titik Anitabi ini tidak dijumpai",
+  "mapImportErrPointNotFoundDetail": "ID titik dalam pautan mungkin tidak sah, atau data peta Anitabi belum disegerakkan.",
+  "navMapSectionTitle": "Peta navigasi {app}",
+  "navAppDescGoogleMaps": "Butang navigasi membuka arah berjalan melalui URL rasmi Peta Google.",
+  "navAppDescAppleMaps": "Butang navigasi membuka arah berjalan melalui Pautan Peta Apple.",
+  "navAppDescAmap": "Butang navigasi membuka arah berjalan melalui API URI Amap dan menggunakan koordinat WGS84.",
+  "navAppDescBaiduMaps": "Butang navigasi membuka arah berjalan melalui API URI Peta Baidu, menggunakan koordinat WGS84.",
+  "mapProviderHintOpenFreeMap": "Lalai yang disyorkan",
+  "mapProviderHintOsm": "jubin standard",
+  "mapProviderHintCustomXyz": "templat jubin",
+  "mapProviderHintCustomStyle": "URL gaya",
+  "anitabiSrcAuto": "pemilihan automatik",
+  "anitabiSrcOfficial": "lalai rasmi",
+  "anitabiSrcMirror": "sumber sandaran",
+  "anitabiSrcAutoDesc": "Image.anitabi.cn digunakan dahulu; jika muat turun mencapai halaman ralat atau disekat, img-tc.anitabi.cn akan dicuba.",
+  "anitabiSrcOfficialDesc": "Dibetulkan menggunakan image.anitabi.cn dan mengekalkan sumber imej lalai rasmi Anitabi.",
+  "anitabiSrcMirrorDesc": "Penggunaan tetap img-tc.anitabi.cn, sesuai digunakan apabila sumber lalai rasmi sering disekat."
+}

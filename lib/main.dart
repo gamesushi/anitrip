@@ -59,6 +59,14 @@ class _MiriaGoAppState extends State<MiriaGoApp> {
     if (language == 'en') return const Locale('en');
     if (language == 'fr') return const Locale('fr');
     if (language == 'ko') return const Locale('ko');
+    if (language == 'ja') return const Locale('ja');
+    if (language == 'ru') return const Locale('ru');
+    if (language == 'es') return const Locale('es');
+    if (language == 'pt') return const Locale('pt');
+    if (language == 'it') return const Locale('it');
+    if (language == 'th') return const Locale('th');
+    if (language == 'vi') return const Locale('vi');
+    if (language == 'ms') return const Locale('ms');
     return null;
   }
 
