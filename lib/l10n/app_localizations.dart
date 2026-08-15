@@ -1697,6 +1697,42 @@ abstract class AppLocalizations {
   /// **'显示缩略图标记'**
   String get tooltipShowThumbnailMarkers;
 
+  /// No description provided for @generateRecommendedRoute.
+  ///
+  /// In zh, this message translates to:
+  /// **'生成推荐路线'**
+  String get generateRecommendedRoute;
+
+  /// No description provided for @exportRouteToMap.
+  ///
+  /// In zh, this message translates to:
+  /// **'导出路线到地图'**
+  String get exportRouteToMap;
+
+  /// No description provided for @tooltipShowRecommendedRoutes.
+  ///
+  /// In zh, this message translates to:
+  /// **'显示推荐路线'**
+  String get tooltipShowRecommendedRoutes;
+
+  /// No description provided for @routeGenerated.
+  ///
+  /// In zh, this message translates to:
+  /// **'已生成推荐路线：{summary}'**
+  String routeGenerated(Object summary);
+
+  /// No description provided for @routeTooFewPoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'该片区点位不足，无法生成路线'**
+  String get routeTooFewPoints;
+
+  /// No description provided for @routeExportFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法打开地图应用'**
+  String get routeExportFailed;
+
   /// No description provided for @tooltipPoint.
   ///
   /// In zh, this message translates to:
@@ -4315,6 +4351,252 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。'**
   String get anitabiSrcMirrorDesc;
+
+  /// No description provided for @tabExplore.
+  ///
+  /// In zh, this message translates to:
+  /// **'探索'**
+  String get tabExplore;
+
+  /// No description provided for @exploreSearchHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'搜索作品、地名、城市'**
+  String get exploreSearchHint;
+
+  /// No description provided for @exploreMyWorks.
+  ///
+  /// In zh, this message translates to:
+  /// **'我的作品'**
+  String get exploreMyWorks;
+
+  /// No description provided for @exploreHotWorks.
+  ///
+  /// In zh, this message translates to:
+  /// **'热门作品'**
+  String get exploreHotWorks;
+
+  /// No description provided for @explorePointCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 个地点'**
+  String explorePointCount(int count);
+
+  /// No description provided for @exploreEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'暂无作品数据'**
+  String get exploreEmpty;
+
+  /// No description provided for @exploreLoadError.
+  ///
+  /// In zh, this message translates to:
+  /// **'作品数据加载失败，请检查网络后重试'**
+  String get exploreLoadError;
+
+  /// No description provided for @tabProfile.
+  ///
+  /// In zh, this message translates to:
+  /// **'我的'**
+  String get tabProfile;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'我的巡礼'**
+  String get profileTitle;
+
+  /// No description provided for @profileStatCheckins.
+  ///
+  /// In zh, this message translates to:
+  /// **'打卡'**
+  String get profileStatCheckins;
+
+  /// No description provided for @profileWorks.
+  ///
+  /// In zh, this message translates to:
+  /// **'作品'**
+  String get profileWorks;
+
+  /// No description provided for @profileCities.
+  ///
+  /// In zh, this message translates to:
+  /// **'城市'**
+  String get profileCities;
+
+  /// No description provided for @profileFootprints.
+  ///
+  /// In zh, this message translates to:
+  /// **'足迹'**
+  String get profileFootprints;
+
+  /// No description provided for @profileCheckinTimes.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 次打卡'**
+  String profileCheckinTimes(int count);
+
+  /// No description provided for @profileEmptyFootprints.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有打卡记录'**
+  String get profileEmptyFootprints;
+
+  /// No description provided for @profileEmptyWorks.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有打卡过的作品'**
+  String get profileEmptyWorks;
+
+  /// No description provided for @profileEmptyCities.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有去过的城市'**
+  String get profileEmptyCities;
+
+  /// No description provided for @profileManageRecords.
+  ///
+  /// In zh, this message translates to:
+  /// **'管理记录'**
+  String get profileManageRecords;
+
+  /// No description provided for @profileFavorites.
+  ///
+  /// In zh, this message translates to:
+  /// **'我的收藏'**
+  String get profileFavorites;
+
+  /// No description provided for @profileFavoritesSoon.
+  ///
+  /// In zh, this message translates to:
+  /// **'敬请期待'**
+  String get profileFavoritesSoon;
+
+  /// No description provided for @exploreAddToPlan.
+  ///
+  /// In zh, this message translates to:
+  /// **'添加到计划'**
+  String get exploreAddToPlan;
+
+  /// No description provided for @exploreAddWorkPoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'将导入 {count} 个巡礼点'**
+  String exploreAddWorkPoints(int count);
+
+  /// No description provided for @exploreImporting.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在导入…'**
+  String get exploreImporting;
+
+  /// No description provided for @exploreImportSuccess.
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入 {count} 个巡礼点'**
+  String exploreImportSuccess(int count);
+
+  /// No description provided for @exploreImportNoPoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'已添加作品，暂无巡礼点'**
+  String get exploreImportNoPoints;
+
+  /// No description provided for @exploreImportFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入失败，请检查网络后重试'**
+  String get exploreImportFailed;
+
+  /// No description provided for @exploreViewOnMap.
+  ///
+  /// In zh, this message translates to:
+  /// **'在地图查看'**
+  String get exploreViewOnMap;
+
+  /// No description provided for @smartPartition.
+  ///
+  /// In zh, this message translates to:
+  /// **'智能分区'**
+  String get smartPartition;
+
+  /// No description provided for @partitionByDistance.
+  ///
+  /// In zh, this message translates to:
+  /// **'按距离'**
+  String get partitionByDistance;
+
+  /// No description provided for @partitionByCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'按组数'**
+  String get partitionByCount;
+
+  /// No description provided for @partitionThreshold.
+  ///
+  /// In zh, this message translates to:
+  /// **'距离阈值'**
+  String get partitionThreshold;
+
+  /// No description provided for @partitionGroups.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区数'**
+  String get partitionGroups;
+
+  /// No description provided for @partitionGenerate.
+  ///
+  /// In zh, this message translates to:
+  /// **'生成片区'**
+  String get partitionGenerate;
+
+  /// No description provided for @partitionGenerating.
+  ///
+  /// In zh, this message translates to:
+  /// **'生成中…'**
+  String get partitionGenerating;
+
+  /// No description provided for @partitionGroupName.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区 {index}'**
+  String partitionGroupName(int index);
+
+  /// No description provided for @partitionSummary.
+  ///
+  /// In zh, this message translates to:
+  /// **'将分成 {groups} 个片区 · 共 {points} 个点位'**
+  String partitionSummary(int groups, int points);
+
+  /// No description provided for @partitionSuccess.
+  ///
+  /// In zh, this message translates to:
+  /// **'已生成 {count} 个片区'**
+  String partitionSuccess(int count);
+
+  /// No description provided for @partitionFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'生成片区失败'**
+  String get partitionFailed;
+
+  /// No description provided for @partitionAreaNearStation.
+  ///
+  /// In zh, this message translates to:
+  /// **'{station}附近'**
+  String partitionAreaNearStation(String station);
+
+  /// No description provided for @exploreImportWithAreas.
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入 {count} 个巡礼点 · {areas} 个片区'**
+  String exploreImportWithAreas(int count, int areas);
+
+  /// No description provided for @planNameForWork.
+  ///
+  /// In zh, this message translates to:
+  /// **'{title} 巡礼'**
+  String planNameForWork(String title);
 }
 
 class _AppLocalizationsDelegate

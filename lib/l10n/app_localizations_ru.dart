@@ -877,6 +877,29 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'Показать значок миниатюры';
 
   @override
+  String get generateRecommendedRoute => 'Создать рекомендованный маршрут';
+
+  @override
+  String get exportRouteToMap => 'Экспортировать маршрут на карту';
+
+  @override
+  String get tooltipShowRecommendedRoutes =>
+      'Показать рекомендованные маршруты';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'Рекомендованный маршрут создан: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints =>
+      'В этом районе недостаточно точек для построения маршрута';
+
+  @override
+  String get routeExportFailed =>
+      'Не удалось открыть картографическое приложение';
+
+  @override
   String get tooltipPoint => 'Место паломничества';
 
   @override
@@ -2400,4 +2423,149 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'Исправлено использование img-tc.anitabi.cn, подходящее для использования, когда официальный источник по умолчанию часто блокируется.';
+
+  @override
+  String get tabExplore => 'Обзор';
+
+  @override
+  String get exploreSearchHint => 'Поиск: тайтлы, места, города';
+
+  @override
+  String get exploreMyWorks => 'Мои тайтлы';
+
+  @override
+  String get exploreHotWorks => 'Популярное';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count мест';
+  }
+
+  @override
+  String get exploreEmpty => 'Нет данных о тайтлах';
+
+  @override
+  String get exploreLoadError =>
+      'Не удалось загрузить. Проверьте сеть и повторите.';
+
+  @override
+  String get tabProfile => 'Профиль';
+
+  @override
+  String get profileTitle => 'Мои паломничества';
+
+  @override
+  String get profileStatCheckins => 'отметки';
+
+  @override
+  String get profileWorks => 'тайтлы';
+
+  @override
+  String get profileCities => 'города';
+
+  @override
+  String get profileFootprints => 'Маршрут';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count раз';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'Пока нет отметок';
+
+  @override
+  String get profileEmptyWorks => 'Нет отмеченных тайтлов';
+
+  @override
+  String get profileEmptyCities => 'Нет посещённых городов';
+
+  @override
+  String get profileManageRecords => 'Управление записями';
+
+  @override
+  String get profileFavorites => 'Избранное';
+
+  @override
+  String get profileFavoritesSoon => 'Скоро';
+
+  @override
+  String get exploreAddToPlan => 'Добавить в план';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'Импорт $count мест';
+  }
+
+  @override
+  String get exploreImporting => 'Импорт…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return 'Импортировано мест: $count';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'Тайтл добавлен; мест нет';
+
+  @override
+  String get exploreImportFailed =>
+      'Ошибка импорта. Проверьте сеть и повторите.';
+
+  @override
+  String get exploreViewOnMap => 'На карте';
+
+  @override
+  String get smartPartition => 'Умное разбиение';
+
+  @override
+  String get partitionByDistance => 'По расстоянию';
+
+  @override
+  String get partitionByCount => 'По количеству';
+
+  @override
+  String get partitionThreshold => 'Порог расстояния';
+
+  @override
+  String get partitionGroups => 'Зоны';
+
+  @override
+  String get partitionGenerate => 'Создать зоны';
+
+  @override
+  String get partitionGenerating => 'Создание…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'Зона $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups зон · $points мест';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return 'Создано зон: $count';
+  }
+
+  @override
+  String get partitionFailed => 'Не удалось создать зоны';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'Рядом с $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return 'Импортировано: $count мест · $areas зон';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return 'Паломничество $title';
+  }
 }

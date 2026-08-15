@@ -1,6 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
 import '../plan/pilgrimage_models.dart';
+import '../plan/plan_partition.dart';
 import '../utils/web_storage_stub.dart' if (dart.library.js_util) '../utils/web_storage_web.dart';
 import 'pilgrimage_repository.dart';
 
@@ -10,11 +11,10 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
     List<PilgrimageVisitRecord>? visitRecords,
     AppSettings? settings,
     String? activePlanId,
-  }) : _plans = List.of(plans ?? [samplePilgrimagePlan]),
+  }) : _plans = List.of(plans ?? [samplePilgrimagePlan]), // [FIX] load sample plan so 我的 shows real check-in/works/cities data
        _visitRecords = List.of(visitRecords ?? _sampleVisitRecords),
        _settings = loadWebSettings(settings ?? const AppSettings()),
-       _activePlanId =
-           activePlanId ?? (plans?.firstOrNull?.id ?? samplePilgrimagePlan.id);
+      _activePlanId = activePlanId ?? (plans ?? [samplePilgrimagePlan]).firstOrNull?.id ?? '';
 
   final List<PilgrimagePlan> _plans;
   final List<PilgrimageVisitRecord> _visitRecords;
@@ -28,6 +28,9 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
 
   @override
   Future<PilgrimagePlan> loadActivePlan() async {
+    if (_plans.isEmpty) {
+      throw StateError('No plans available');
+    }
     return _plans.firstWhere(
       (plan) => plan.id == _activePlanId,
       orElse: () => _plans.first,
@@ -313,6 +316,25 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
     );
     _plans[index] = updatedPlan;
     return updatedPlan;
+  }
+
+  @override
+  Future<PilgrimagePlan> applyPlanPartition({
+    required String planId,
+    required List<PlanPartitionInput> groups,
+  }) async {
+    var plan = _plans[_planIndex(planId)];
+    for (final input in groups) {
+      plan = await createPlanGroup(planId: planId, group: input.group);
+      if (input.pointIds.isNotEmpty) {
+        plan = await movePointsToGroup(
+          planId: planId,
+          pointIds: input.pointIds,
+          groupId: input.group.id,
+        );
+      }
+    }
+    return plan;
   }
 
   @override

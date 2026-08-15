@@ -355,6 +355,12 @@
   "tooltipLocation": "定位",
   "tooltipUseIconMarkers": "使用图标标记",
   "tooltipShowThumbnailMarkers": "显示缩略图标记",
+  "generateRecommendedRoute": "生成推荐路线",
+  "exportRouteToMap": "导出路线到地图",
+  "tooltipShowRecommendedRoutes": "显示推荐路线",
+  "routeGenerated": "已生成推荐路线：{summary}",
+  "routeTooFewPoints": "该片区点位不足，无法生成路线",
+  "routeExportFailed": "无法打开地图应用",
   "tooltipPoint": "巡礼点",
   "copyLabelPointInfo": "点位信息",
   "mapNoPointsMessage": "当前计划还没有点位。添加点位后会在地图上显示标记。",
@@ -1207,5 +1213,122 @@
   "anitabiSrcMirror": "备用源",
   "anitabiSrcAutoDesc": "优先使用 image.anitabi.cn；如果下载到错误页或被拦截，会尝试 img-tc.anitabi.cn。",
   "anitabiSrcOfficialDesc": "固定使用 image.anitabi.cn，保留 Anitabi 官方默认图片源。",
-  "anitabiSrcMirrorDesc": "固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。"
+  "anitabiSrcMirrorDesc": "固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。",
+  "tabExplore": "探索",
+  "exploreSearchHint": "搜索作品、地名、城市",
+  "exploreMyWorks": "我的作品",
+  "exploreHotWorks": "热门作品",
+  "explorePointCount": "{count} 个地点",
+  "@explorePointCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreEmpty": "暂无作品数据",
+  "exploreLoadError": "作品数据加载失败，请检查网络后重试",
+  "tabProfile": "我的",
+  "profileTitle": "我的巡礼",
+  "profileStatCheckins": "打卡",
+  "profileWorks": "作品",
+  "profileCities": "城市",
+  "profileFootprints": "足迹",
+  "profileCheckinTimes": "{count} 次打卡",
+  "@profileCheckinTimes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "profileEmptyFootprints": "还没有打卡记录",
+  "profileEmptyWorks": "还没有打卡过的作品",
+  "profileEmptyCities": "还没有去过的城市",
+  "profileManageRecords": "管理记录",
+  "profileFavorites": "我的收藏",
+  "profileFavoritesSoon": "敬请期待",
+  "exploreAddToPlan": "添加到计划",
+  "exploreAddWorkPoints": "将导入 {count} 个巡礼点",
+  "@exploreAddWorkPoints": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreImporting": "正在导入…",
+  "exploreImportSuccess": "已导入 {count} 个巡礼点",
+  "@exploreImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreImportNoPoints": "已添加作品，暂无巡礼点",
+  "exploreImportFailed": "导入失败，请检查网络后重试",
+  "exploreViewOnMap": "在地图查看",
+  "smartPartition": "智能分区",
+  "partitionByDistance": "按距离",
+  "partitionByCount": "按组数",
+  "partitionThreshold": "距离阈值",
+  "partitionGroups": "片区数",
+  "partitionGenerate": "生成片区",
+  "partitionGenerating": "生成中…",
+  "partitionGroupName": "片区 {index}",
+  "@partitionGroupName": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "partitionSummary": "将分成 {groups} 个片区 · 共 {points} 个点位",
+  "@partitionSummary": {
+    "placeholders": {
+      "groups": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "partitionSuccess": "已生成 {count} 个片区",
+  "@partitionSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "partitionFailed": "生成片区失败",
+  "partitionAreaNearStation": "{station}附近",
+  "@partitionAreaNearStation": {
+    "placeholders": {
+      "station": {
+        "type": "String"
+      }
+    }
+  },
+  "exploreImportWithAreas": "已导入 {count} 个巡礼点 · {areas} 个片区",
+  "@exploreImportWithAreas": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "areas": {
+        "type": "int"
+      }
+    }
+  },
+  "planNameForWork": "{title} 巡礼",
+  "@planNameForWork": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  }
 }

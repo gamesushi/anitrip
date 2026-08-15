@@ -1,0 +1,706 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+import '../app_theme.dart';
+import '../data/anitabi_client.dart';
+import '../data/pilgrimage_repository.dart';
+import '../l10n/app_localizations.dart';
+import '../plan/pilgrimage_plan_controller.dart';
+import ../plan/station_name_resolver.dart';
+import '../widgets/snackbar_helper.dart';
+import 'curated_collections.dart';
+import 'explore_work_item.dart';
+import 'poster_resolver.dart';
+import 'work_importer.dart';
+import 'widgets/explore_search_bar.dart';
+import 'widgets/horizontal_work_list.dart';
+import 'widgets/search_work_tile.dart';
+import 'widgets/work_section_header.dart';
+
+/// Explore tab: search bar + "我的作品" (local) + "热门作品" (anitabi catalog by
+/// point count) + curated collections. See ANIMAP_REDESIGN_PLAN.md Phase 1.
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({
+    required this.controller,
+    required this.onOpenSearch,
+    required this.onOpenWork,
+    required this.onPlanCreated,
+    required this.onPlanUpdated,
+    this.anitabiClient,
+    super.key,
+  });
+
+  final PilgrimagePlanController controller;
+
+  /// Invoked when the search bar is tapped (routes to the existing add/search
+  /// flow in AppShell).
+  final VoidCallback onOpenSearch;
+
+  /// Invoked when a work card is tapped.
+  final ValueChanged<ExploreWorkItem> onOpenWork;
+
+  /// Invoked after a new per-work plan is created & imported, so AppShell can
+  /// reload the active plan and switch to the Plan tab.
+  final Future<void> Function() onPlanCreated;
+
+  /// Invoked when the active plan changed underneath (e.g. background area
+  /// renaming) — reloads the controller without switching tabs.
+  final Future<void> Function() onPlanUpdated;
+
+  final AnitabiClient? anitabiClient;
+
+  @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen>
+    with AutomaticKeepAliveClientMixin {
+  static const int _hotWorksLimit = 20;
+  static const int _collectionLimit = 12;
+  static const int _searchDebounceMs = 300;
+
+  late final AnitabiClient _anitabiClient;
+  final PosterResolver _posterResolver = PosterResolver();
+  final StationNameResolver _stationResolver = StationNameResolver();
+  WorkImporter? _workImporter;
+  bool _isImporting = false;
+  late Future<List<ExploreWorkItem>> _catalogFuture;
+
+  // --- In-app search state ---
+  final TextEditingController _searchController = TextEditingController();
+  bool _isSearching = false;
+  String _searchQuery = '';
+  List<ExploreWorkItem> _searchResults = const [];
+  Timer? _searchTimer;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    _anitabiClient = widget.anitabiClient ?? AnitabiClient();
+    _catalogFuture = _loadCatalog();
+  }
+
+  @override
+  void dispose() {
+    _searchTimer?.cancel();
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  /// Whether [item] is already imported into the active plan (matched by
+  /// Bangumi id).
+  bool _isInPlan(ExploreWorkItem item) {
+    final bangumiId = item.bangumiId;
+    if (bangumiId == null) {
+      return false;
+    }
+    return widget.controller.plan.works.any((w) => w.bangumiId == bangumiId);
+  }
+
+  /// Explore's core workflow change: tapping a not-yet-added work imports it
+  /// (work + all its anitabi points) in one step; an already-added work opens
+  /// on the map.
+  void _onWorkTap(ExploreWorkItem item) {
+    final repository = widget.controller.repository;
+    if (_isInPlan(item) ||
+        !WorkImporter.canImport(item) ||
+        repository == null) {
+      widget.onOpenWork(item);
+      return;
+    }
+    _showAddWorkSheet(item);
+  }
+
+  Future<void> _showAddWorkSheet(ExploreWorkItem item) async {
+    final l10n = AppLocalizations.of(context)!;
+    final count = item.pointCount ?? 0;
+    final confirmed = await showModalBottomSheet<bool>(
+      context: context,
+      showDragHandle: true,
+      backgroundColor: AppColors.surface,
+      builder: (context) {
+        return SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  item.title,
+                  style: const TextStyle(
+                    fontSize: 19,
+                    fontWeight: FontWeight.w800,
+                    letterSpacing: 0,
+                  ),
+                ),
+                if (count > 0) ...[
+                  const SizedBox(height: 6),
+                  Text(
+                    l10n.exploreAddWorkPoints(count),
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 14,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
+                const SizedBox(height: 18),
+                FilledButton.icon(
+                  onPressed: () => Navigator.of(context).pop(true),
+                  icon: const Icon(Icons.add_location_alt_outlined, size: 20),
+                  label: Text(l10n.exploreAddToPlan),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+    if (confirmed == true) {
+      await _performImport(item);
+    }
+  }
+
+  Future<void> _performImport(ExploreWorkItem item) async {
+    if (_isImporting) {
+      return;
+    }
+    final repository = widget.controller.repository;
+    if (repository == null) {
+      return;
+    }
+    final l10n = AppLocalizations.of(context)!;
+    final messenger = ScaffoldMessenger.of(context);
+    final importer = _workImporter ??= WorkImporter(
+      anitabiClient: _anitabiClient,
+    );
+
+    setState(() => _isImporting = true);
+    messenger.showReplacingSnackBar(
+      SnackBar(content: Text(l10n.exploreImporting)),
+    );
+    try {
+      // Each added work becomes its own plan named "<work> 巡礼".
+      final newPlan = await repository.createPlan(
+        name: l10n.planNameForWork(item.title),
+        area: item.city ?? '',
+      );
+      final result = await importer.importWork(
+        repository: repository,
+        planId: newPlan.id,
+        currentPlan: newPlan,
+        item: item,
+        autoPartition: true,
+        // Fast fallback names; transit-hub names resolve in the background.
+        fallbackAreaName: (index) => l10n.partitionGroupName(index + 1),
+      );
+      if (!mounted) {
+        return;
+      }
+      // createPlan already made it active; reload it into AppShell's controller
+      // and switch to the Plan tab.
+      await widget.onPlanCreated();
+      if (!mounted) {
+        return;
+      }
+      // Resolve transit-hub names and rename areas in the background, retrying
+      // on Overpass failures — never blocks the import.
+      if (result.createdAreas.isNotEmpty) {
+        unawaited(
+          _nameAreasInBackground(repository, newPlan.id, result.createdAreas),
+        );
+      }
+      final added = result.addedPointCount;
+      final areas = result.areaCount;
+      messenger.showReplacingSnackBar(
+        SnackBar(
+          content: Text(
+            added == 0
+                ? l10n.exploreImportNoPoints
+                : areas > 0
+                ? l10n.exploreImportWithAreas(added, areas)
+                : l10n.exploreImportSuccess(added),
+          ),
+          action: added > 0
+              ? SnackBarAction(
+                  label: l10n.exploreViewOnMap,
+                  onPressed: () => widget.onOpenWork(item),
+                )
+              : null,
+        ),
+      );
+    } catch (_) {
+      if (mounted) {
+        messenger.showReplacingSnackBar(
+          SnackBar(content: Text(l10n.exploreImportFailed)),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isImporting = false);
+      }
+    }
+  }
+
+  /// Resolves nearby transit-hub names for [areas] and renames the groups,
+  /// retrying areas that fail (Overpass 504/timeout) a few times with backoff.
+  /// Areas that never resolve keep their "片区 N" fallback name.
+  Future<void> _nameAreasInBackground(
+    PilgrimageRepository repository,
+    String planId,
+    List<ImportedArea> areas,
+  ) async {
+    if (!mounted) {
+      return;
+    }
+    final l10n = AppLocalizations.of(context)!;
+    const backoffs = [Duration(seconds: 5), Duration(seconds: 12)];
+    const maxAttempts = 3;
+
+    var pending = List<ImportedArea>.of(areas);
+    for (var attempt = 0; attempt < maxAttempts && pending.isNotEmpty; attempt += 1) {
+      final resolved = await Future.wait([
+        for (final area in pending)
+          _stationResolver
+              .nearestStation(area.centroid)
+              .then((station) => (area, station)),
+      ]);
+
+      final stillPending = <ImportedArea>[];
+      var renamedAny = false;
+      for (final (area, station) in resolved) {
+        if (station != null && station.isNotEmpty) {
+          try {
+            await repository.renamePlanGroup(
+              planId: planId,
+              groupId: area.groupId,
+              name: l10n.partitionAreaNearStation(station),
+            );
+            renamedAny = true;
+          } catch (_) {
+            stillPending.add(area);
+          }
+        } else {
+          stillPending.add(area);
+        }
+      }
+      if (renamedAny && mounted) {
+        await widget.onPlanUpdated();
+      }
+      pending = stillPending;
+      if (pending.isNotEmpty && attempt < backoffs.length) {
+        await Future<void>.delayed(backoffs[attempt]);
+      }
+    }
+  }
+
+  Future<List<ExploreWorkItem>> _loadCatalog() async {
+    final works = await _anitabiClient.listWorks();
+    return works.map(ExploreWorkItem.fromAnitabi).toList(growable: false);
+  }
+
+  Future<void> _refresh() async {
+    _anitabiClient.clearStaticCache();
+    final future = _loadCatalog();
+    setState(() {
+      _catalogFuture = future;
+    });
+    await future;
+  }
+
+  /// Local works from the active plan, with per-work point counts.
+  List<ExploreWorkItem> _localWorks() {
+    final plan = widget.controller.plan;
+    final counts = <String, int>{};
+    for (final point in plan.points) {
+      counts.update(point.work.id, (value) => value + 1, ifAbsent: () => 1);
+    }
+    return plan.works
+        .map(
+          (work) =>
+              ExploreWorkItem.fromLocal(work, pointCount: counts[work.id] ?? 0),
+        )
+        .toList(growable: false);
+  }
+
+  String? _pointLabel(ExploreWorkItem item) {
+    final count = item.pointCount;
+    if (count == null || count <= 0) {
+      return null;
+    }
+    return AppLocalizations.of(context)!.explorePointCount(count);
+  }
+
+  // ── In-app search ────────────────────────────────────────────────
+
+  void _startSearch() {
+    setState(() {
+      _isSearching = true;
+      _searchQuery = '';
+      _searchResults = const [];
+    });
+  }
+
+  void _exitSearch() {
+    _searchTimer?.cancel();
+    setState(() {
+      _isSearching = false;
+      _searchQuery = '';
+      _searchResults = const [];
+    });
+    _searchController.clear();
+  }
+
+  void _onSearchQueryChanged(String query) {
+    _searchTimer?.cancel();
+    final trimmed = query.trim();
+    if (trimmed.isEmpty) {
+      setState(() {
+        _searchQuery = '';
+        _searchResults = const [];
+      });
+      return;
+    }
+    // Debounce so rapid typing doesn't re-filter on every keystroke.
+    _searchTimer = Timer(
+      const Duration(milliseconds: _searchDebounceMs),
+      () => _performSearch(trimmed),
+    );
+  }
+
+  Future<void> _performSearch(String query) async {
+    try {
+      final catalog = await _catalogFuture;
+      if (!mounted) return;
+
+      final lower = query.toLowerCase();
+      final results = catalog
+          .where((item) =>
+              item.title.toLowerCase().contains(lower) ||
+              (item.subtitle?.toLowerCase().contains(lower) ?? false) ||
+              (item.city?.toLowerCase().contains(lower) ?? false))
+          .toList();
+      // Sort: exact title match first, then prefix, then substring.
+      results.sort((a, b) {
+        final aTitle = a.title.toLowerCase();
+        final bTitle = b.title.toLowerCase();
+        final aExact = aTitle == lower ? 0 : aTitle.startsWith(lower) ? 1 : 2;
+        final bExact = bTitle == lower ? 0 : bTitle.startsWith(lower) ? 1 : 2;
+        if (aExact != bExact) return aExact.compareTo(bExact);
+        return aTitle.compareTo(bTitle);
+      });
+
+      if (_isSearching && mounted) {
+        setState(() {
+          _searchQuery = query;
+          _searchResults = results;
+        });
+      }
+    } catch (_) {
+      // Catalog not yet loaded — silently ignore.
+    }
+  }
+
+  /// Builds the vertical search-result list (or empty / loading states).
+  Widget _buildSearchResults(AppLocalizations l10n) {
+    // Show nothing while the query is empty (user hasn't typed yet).
+    if (_searchQuery.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    // Still waiting for catalog to load + filter to run.
+    if (_searchResults.isEmpty && _searchQuery.isNotEmpty) {
+      final trimmed = _searchQuery.trim();
+      if (_searchTimer?.isActive ?? false) {
+        return const Center(
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        );
+      }
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          child: Text(
+            l10n.exploreEmpty,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: AppColors.textSecondary,
+              fontSize: 14,
+              letterSpacing: 0,
+            ),
+          ),
+        ),
+      );
+    }
+
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      itemCount: _searchResults.length,
+      separatorBuilder: (_, __) => const Divider(
+        height: 1,
+        indent: 72, // Align with text start after poster
+        color: AppColors.surface,
+      ),
+      itemBuilder: (context, index) {
+        final item = _searchResults[index];
+        return SearchWorkTile(
+          item: item,
+          posterResolver: _posterResolver,
+          onTap: () => _onWorkTap(item),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    final l10n = AppLocalizations.of(context)!;
+    final localWorks = _localWorks();
+
+    // ── Search mode: full-screen results ────────────────────────────
+    if (_isSearching) {
+      return Scaffold(
+        backgroundColor: AppColors.background,
+        body: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              ExploreSearchBar(
+                hintText: l10n.exploreSearchHint,
+                onTap: _startSearch,
+                isActive: true,
+                queryController: _searchController,
+                onQueryChanged: _onSearchQueryChanged,
+                onClear: _exitSearch,
+              ),
+              Expanded(child: _buildSearchResults(l10n)),
+            ],
+          ),
+        ),
+      );
+    }
+
+    // ── Normal mode: catalog + collections ────────────────────────
+    return Scaffold(
+      backgroundColor: AppColors.background,
+      body: SafeArea(
+        bottom: false,
+        child: RefreshIndicator(
+          onRefresh: _refresh,
+          color: AppColors.accent,
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: ExploreSearchBar(
+                  hintText: l10n.exploreSearchHint,
+                  onTap: _startSearch,
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+                  child: Text(
+                    l10n.tabExplore,
+                    style: const TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ),
+              ),
+              if (localWorks.isNotEmpty) ...[
+                SliverToBoxAdapter(
+                  child: WorkSectionHeader(title: l10n.exploreMyWorks),
+                ),
+                SliverToBoxAdapter(
+                  child: HorizontalWorkList(
+                    items: localWorks,
+                    pointLabelBuilder: _pointLabel,
+                    posterResolver: _posterResolver,
+                    onWorkTap: _onWorkTap,
+                  ),
+                ),
+              ],
+              SliverToBoxAdapter(
+                child: FutureBuilder<List<ExploreWorkItem>>(
+                  future: _catalogFuture,
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const _CatalogPlaceholder(child: _CatalogLoading());
+                    }
+                    if (snapshot.hasError) {
+                      return _CatalogPlaceholder(
+                        child: _CatalogError(
+                          message: l10n.exploreLoadError,
+                          onRetry: _refresh,
+                        ),
+                      );
+                    }
+                    final catalog = snapshot.data ?? const [];
+                    if (catalog.isEmpty) {
+                      return _CatalogPlaceholder(
+                        child: _CatalogMessage(text: l10n.exploreEmpty),
+                      );
+                    }
+                    return _CatalogSections(
+                      catalog: catalog,
+                      hotTitle: l10n.exploreHotWorks,
+                      hotLimit: _hotWorksLimit,
+                      collectionLimit: _collectionLimit,
+                      pointLabelBuilder: _pointLabel,
+                      posterResolver: _posterResolver,
+                      onWorkTap: _onWorkTap,
+                    );
+                  },
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 88)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _CatalogSections extends StatelessWidget {
+  const _CatalogSections({
+    required this.catalog,
+    required this.hotTitle,
+    required this.hotLimit,
+    required this.collectionLimit,
+    required this.pointLabelBuilder,
+    required this.posterResolver,
+    required this.onWorkTap,
+  });
+
+  final List<ExploreWorkItem> catalog;
+  final String hotTitle;
+  final int hotLimit;
+  final int collectionLimit;
+  final String? Function(ExploreWorkItem item) pointLabelBuilder;
+  final PosterResolver posterResolver;
+  final ValueChanged<ExploreWorkItem> onWorkTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final hot = [...catalog]
+      ..sort((a, b) => (b.pointCount ?? 0).compareTo(a.pointCount ?? 0));
+    final hotWorks = hot.take(hotLimit).toList(growable: false);
+
+    final sections = <Widget>[
+      WorkSectionHeader(title: hotTitle),
+      HorizontalWorkList(
+        items: hotWorks,
+        pointLabelBuilder: pointLabelBuilder,
+        posterResolver: posterResolver,
+        onWorkTap: onWorkTap,
+      ),
+    ];
+
+    for (final collection in kCuratedCollections) {
+      final matches = catalog
+          .where(collection.matches)
+          .take(collectionLimit)
+          .toList(growable: false);
+      if (matches.isEmpty) {
+        continue;
+      }
+      sections
+        ..add(WorkSectionHeader(title: collection.title))
+        ..add(
+          HorizontalWorkList(
+            items: matches,
+            pointLabelBuilder: pointLabelBuilder,
+            posterResolver: posterResolver,
+            onWorkTap: onWorkTap,
+          ),
+        );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: sections,
+    );
+  }
+}
+
+class _CatalogPlaceholder extends StatelessWidget {
+  const _CatalogPlaceholder({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 220,
+      child: Center(child: child),
+    );
+  }
+}
+
+class _CatalogLoading extends StatelessWidget {
+  const _CatalogLoading();
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      width: 24,
+      height: 24,
+      child: CircularProgressIndicator(strokeWidth: 2),
+    );
+  }
+}
+
+class _CatalogMessage extends StatelessWidget {
+  const _CatalogMessage({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: const TextStyle(
+        color: AppColors.textSecondary,
+        fontSize: 14,
+        letterSpacing: 0,
+      ),
+    );
+  }
+}
+
+class _CatalogError extends StatelessWidget {
+  const _CatalogError({required this.message, required this.onRetry});
+
+  final String message;
+  final Future<void> Function() onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _CatalogMessage(text: message),
+        const SizedBox(height: 12),
+        OutlinedButton.icon(
+          onPressed: onRetry,
+          icon: const Icon(Icons.refresh, size: 18),
+          label: Text(AppLocalizations.of(context)!.btnRetry),
+        ),
+      ],
+    );
+  }
+}

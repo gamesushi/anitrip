@@ -1,6 +1,7 @@
 import '../data/pilgrimage_repository.dart';
 import '../data/sample_pilgrimage_repository.dart';
 import '../plan/pilgrimage_models.dart';
+import '../plan/plan_partition.dart';
 import 'desktop_repository_state.dart';
 import 'tauri_bridge.dart';
 
@@ -17,9 +18,10 @@ class DesktopPilgrimageRepository extends SamplePilgrimageRepository {
     final stored = await loadDesktopState();
     final snapshot = decodeDesktopRepositoryState(stored?.stateJson);
     final repository = DesktopPilgrimageRepository._(snapshot: snapshot);
-    if (snapshot == null) {
-      await repository._persistInitialState();
-    }
+    // [TEMP] 临时：首次启动不写入示例数据，以查看空状态效果
+    // if (snapshot == null) {
+    //   await repository._persistInitialState();
+    // }
     return repository;
   }
 
@@ -179,6 +181,16 @@ class DesktopPilgrimageRepository extends SamplePilgrimageRepository {
   }) {
     return _withPlanSave(
       () => super.createPlanGroup(planId: planId, group: group),
+    );
+  }
+
+  @override
+  Future<PilgrimagePlan> applyPlanPartition({
+    required String planId,
+    required List<PlanPartitionInput> groups,
+  }) {
+    return _withPlanSave(
+      () => super.applyPlanPartition(planId: planId, groups: groups),
     );
   }
 

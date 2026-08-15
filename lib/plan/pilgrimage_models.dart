@@ -177,12 +177,14 @@ class AppSettings {
     this.referenceImageScale = 1,
     this.nearestAssignDistanceMeters = 350,
     this.themePalette = AppThemePalette.cherryPink,
-    this.mapTileProvider = MapTileProvider.openFreeMap,
+    // 默认改用 CARTO Voyager 免费矢量底图（清爽微彩，接近 anitabi 风格，无需 token）
+    this.mapTileProvider = MapTileProvider.customMapLibreStyle,
     this.openFreeMapStyle = OpenFreeMapStyle.liberty,
     this.anitabiImageSource = AnitabiImageSource.auto,
     this.navigationApp = NavigationApp.googleMaps,
     this.customXyzTileUrl = '',
-    this.customMapLibreStyleUrl = '',
+    this.customMapLibreStyleUrl =
+        'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json',
     this.saveVisitPhotoToGallery = true,
     this.autoSaveComparisonToGallery = false,
     this.comparisonShowPilgrimName = false,

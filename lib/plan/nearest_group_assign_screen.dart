@@ -48,10 +48,31 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       .where((point) => point.groupId == null)
       .toList(growable: false);
 
+  // A group's reference center for "nearest" assignment: its anchor if set,
+  // otherwise the centroid of the points already in it. Groups with neither
+  // (empty, anchorless) have no center and can't be a target. Making the anchor
+  // optional removes the old hard gate that blocked assignment entirely.
+  LatLng? _centerOf(PilgrimagePlanGroup group) {
+    if (group.anchorLatitude != null && group.anchorLongitude != null) {
+      return LatLng(group.anchorLatitude!, group.anchorLongitude!);
+    }
+    final points = _plan.points
+        .where((point) => point.groupId == group.id)
+        .toList(growable: false);
+    if (points.isEmpty) {
+      return null;
+    }
+    final latitude =
+        points.map((p) => p.position.latitude).reduce((a, b) => a + b) /
+        points.length;
+    final longitude =
+        points.map((p) => p.position.longitude).reduce((a, b) => a + b) /
+        points.length;
+    return LatLng(latitude, longitude);
+  }
+
   List<PilgrimagePlanGroup> get _targetGroups => sortGroupsByPlanOrder(
-    _plan.groups.where(
-      (group) => group.anchorLatitude != null && group.anchorLongitude != null,
-    ),
+    _plan.groups.where((group) => _centerOf(group) != null),
   );
 
   Map<String, Set<String>> get _assignments {
@@ -61,10 +82,11 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       if (nearest == null) {
         continue;
       }
-      final meters = _distance(
-        point.position,
-        LatLng(nearest.anchorLatitude!, nearest.anchorLongitude!),
-      );
+      final center = _centerOf(nearest);
+      if (center == null) {
+        continue;
+      }
+      final meters = _distance(point.position, center);
       if (meters <= _distanceMeters) {
         assignments.putIfAbsent(nearest.id, () => {}).add(point.id);
       }
@@ -118,10 +140,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
                   circles: [
                     for (final group in _targetGroups)
                       CircleMarker(
-                        point: LatLng(
-                          group.anchorLatitude!,
-                          group.anchorLongitude!,
-                        ),
+                        point: _centerOf(group)!,
                         radius: _distanceMeters,
                         useRadiusInMeter: true,
                         color: AppColors.accent.withValues(alpha: 0.12),
@@ -136,10 +155,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
                   markers: [
                     for (final group in _targetGroups)
                       Marker(
-                        point: LatLng(
-                          group.anchorLatitude!,
-                          group.anchorLongitude!,
-                        ),
+                        point: _centerOf(group)!,
                         width: 38,
                         height: 38,
                         child: _AnchorMarker(name: group.name),
@@ -205,8 +221,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
   LatLng get _mapCenter {
     final positions = [
       for (final point in _ungroupedPoints) point.position,
-      for (final group in _targetGroups)
-        LatLng(group.anchorLatitude!, group.anchorLongitude!),
+      for (final group in _targetGroups) _centerOf(group)!,
     ];
     if (positions.isEmpty) {
       return previewCurrentLocation;
@@ -224,10 +239,11 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
     PilgrimagePlanGroup? nearestGroup;
     var nearestMeters = double.infinity;
     for (final group in _targetGroups) {
-      final meters = _distance(
-        point.position,
-        LatLng(group.anchorLatitude!, group.anchorLongitude!),
-      );
+      final center = _centerOf(group);
+      if (center == null) {
+        continue;
+      }
+      final meters = _distance(point.position, center);
       if (meters < nearestMeters) {
         nearestMeters = meters;
         nearestGroup = group;
@@ -238,13 +254,11 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
 
   double? _nearestDistanceFor(PilgrimagePoint point) {
     final group = _nearestGroupFor(point);
-    if (group == null) {
+    final center = group == null ? null : _centerOf(group);
+    if (center == null) {
       return null;
     }
-    return _distance(
-      point.position,
-      LatLng(group.anchorLatitude!, group.anchorLongitude!),
-    );
+    return _distance(point.position, center);
   }
 
   bool _isAssignable(PilgrimagePoint point) {
@@ -1107,7 +1121,7 @@ class _NearestAssignHintCard extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Text(
             groupCount == 0
-                ? '请先在片区管理中设置关键点'
+                ? '请先创建片区（可用「智能分区」一键生成）'
                 : '未分组 $ungroupedCount 个 · 点击地图点位查看详情',
             textAlign: TextAlign.center,
             style: const TextStyle(

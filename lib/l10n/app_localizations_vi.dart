@@ -874,6 +874,26 @@ class AppLocalizationsVi extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'Hiển thị dấu hình thu nhỏ';
 
   @override
+  String get generateRecommendedRoute => 'Tạo lộ trình đề xuất';
+
+  @override
+  String get exportRouteToMap => 'Xuất lộ trình ra bản đồ';
+
+  @override
+  String get tooltipShowRecommendedRoutes => 'Hiển thị lộ trình đề xuất';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'Đã tạo lộ trình đề xuất: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints => 'Khu vực này không đủ điểm để tạo lộ trình';
+
+  @override
+  String get routeExportFailed => 'Không thể mở ứng dụng bản đồ';
+
+  @override
   String get tooltipPoint => 'Điểm hành hương';
 
   @override
@@ -2393,4 +2413,147 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'Đã sửa lỗi sử dụng img-tc.anitabi.cn, phù hợp để sử dụng khi nguồn mặc định chính thức thường bị chặn.';
+
+  @override
+  String get tabExplore => 'Khám phá';
+
+  @override
+  String get exploreSearchHint => 'Tìm tác phẩm, địa danh, thành phố';
+
+  @override
+  String get exploreMyWorks => 'Tác phẩm của tôi';
+
+  @override
+  String get exploreHotWorks => 'Tác phẩm phổ biến';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count địa điểm';
+  }
+
+  @override
+  String get exploreEmpty => 'Chưa có dữ liệu tác phẩm';
+
+  @override
+  String get exploreLoadError => 'Tải thất bại. Kiểm tra mạng và thử lại.';
+
+  @override
+  String get tabProfile => 'Của tôi';
+
+  @override
+  String get profileTitle => 'Hành hương của tôi';
+
+  @override
+  String get profileStatCheckins => 'check-in';
+
+  @override
+  String get profileWorks => 'tác phẩm';
+
+  @override
+  String get profileCities => 'thành phố';
+
+  @override
+  String get profileFootprints => 'Dấu chân';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count lần';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'Chưa có check-in nào';
+
+  @override
+  String get profileEmptyWorks => 'Chưa check-in tác phẩm nào';
+
+  @override
+  String get profileEmptyCities => 'Chưa thăm thành phố nào';
+
+  @override
+  String get profileManageRecords => 'Quản lý bản ghi';
+
+  @override
+  String get profileFavorites => 'Yêu thích';
+
+  @override
+  String get profileFavoritesSoon => 'Sắp ra mắt';
+
+  @override
+  String get exploreAddToPlan => 'Thêm vào kế hoạch';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'Nhập $count địa điểm';
+  }
+
+  @override
+  String get exploreImporting => 'Đang nhập…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return 'Đã nhập $count địa điểm';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'Đã thêm tác phẩm; chưa có địa điểm';
+
+  @override
+  String get exploreImportFailed => 'Nhập thất bại. Kiểm tra mạng và thử lại.';
+
+  @override
+  String get exploreViewOnMap => 'Xem trên bản đồ';
+
+  @override
+  String get smartPartition => 'Chia khu vực thông minh';
+
+  @override
+  String get partitionByDistance => 'Theo khoảng cách';
+
+  @override
+  String get partitionByCount => 'Theo số nhóm';
+
+  @override
+  String get partitionThreshold => 'Ngưỡng khoảng cách';
+
+  @override
+  String get partitionGroups => 'Số khu vực';
+
+  @override
+  String get partitionGenerate => 'Tạo khu vực';
+
+  @override
+  String get partitionGenerating => 'Đang tạo…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'Khu vực $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups khu vực · $points địa điểm';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return 'Đã tạo $count khu vực';
+  }
+
+  @override
+  String get partitionFailed => 'Tạo khu vực thất bại';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'Gần $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return 'Đã nhập $count địa điểm · $areas khu vực';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title hành hương';
+  }
 }

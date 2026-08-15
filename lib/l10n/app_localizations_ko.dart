@@ -841,6 +841,26 @@ class AppLocalizationsKo extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => '썸네일 마커 표시';
 
   @override
+  String get generateRecommendedRoute => '추천 경로 생성';
+
+  @override
+  String get exportRouteToMap => '경로를 지도로 내보내기';
+
+  @override
+  String get tooltipShowRecommendedRoutes => '추천 경로 표시';
+
+  @override
+  String routeGenerated(Object summary) {
+    return '추천 경로가 생성되었습니다: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints => '이 구역의 포인트가 부족하여 경로를 생성할 수 없습니다';
+
+  @override
+  String get routeExportFailed => '지도 앱을 열 수 없습니다';
+
+  @override
   String get tooltipPoint => '순례지';
 
   @override
@@ -2301,4 +2321,147 @@ class AppLocalizationsKo extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       '항상 img-tc.anitabi.cn을 사용하며, 공식 기본 소스가 자주 차단될 때 적합합니다.';
+
+  @override
+  String get tabExplore => '탐색';
+
+  @override
+  String get exploreSearchHint => '작품, 지명, 도시 검색';
+
+  @override
+  String get exploreMyWorks => '내 작품';
+
+  @override
+  String get exploreHotWorks => '인기 작품';
+
+  @override
+  String explorePointCount(int count) {
+    return '명소 $count곳';
+  }
+
+  @override
+  String get exploreEmpty => '작품 데이터가 없습니다';
+
+  @override
+  String get exploreLoadError => '작품 데이터를 불러오지 못했습니다. 네트워크를 확인 후 다시 시도하세요.';
+
+  @override
+  String get tabProfile => '내 정보';
+
+  @override
+  String get profileTitle => '나의 성지순례';
+
+  @override
+  String get profileStatCheckins => '체크인';
+
+  @override
+  String get profileWorks => '작품';
+
+  @override
+  String get profileCities => '도시';
+
+  @override
+  String get profileFootprints => '발자취';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count회';
+  }
+
+  @override
+  String get profileEmptyFootprints => '아직 체크인이 없습니다';
+
+  @override
+  String get profileEmptyWorks => '체크인한 작품이 없습니다';
+
+  @override
+  String get profileEmptyCities => '방문한 도시가 없습니다';
+
+  @override
+  String get profileManageRecords => '기록 관리';
+
+  @override
+  String get profileFavorites => '즐겨찾기';
+
+  @override
+  String get profileFavoritesSoon => '출시 예정';
+
+  @override
+  String get exploreAddToPlan => '계획에 추가';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return '성지 $count곳을 가져옵니다';
+  }
+
+  @override
+  String get exploreImporting => '가져오는 중…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '명소 $count곳을 가져왔습니다';
+  }
+
+  @override
+  String get exploreImportNoPoints => '작품 추가됨 (명소 없음)';
+
+  @override
+  String get exploreImportFailed => '가져오기 실패. 네트워크를 확인 후 다시 시도하세요.';
+
+  @override
+  String get exploreViewOnMap => '지도에서 보기';
+
+  @override
+  String get smartPartition => '스마트 분할';
+
+  @override
+  String get partitionByDistance => '거리 기준';
+
+  @override
+  String get partitionByCount => '그룹 수';
+
+  @override
+  String get partitionThreshold => '거리 임계값';
+
+  @override
+  String get partitionGroups => '구역 수';
+
+  @override
+  String get partitionGenerate => '구역 생성';
+
+  @override
+  String get partitionGenerating => '생성 중…';
+
+  @override
+  String partitionGroupName(int index) {
+    return '구역 $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups개 구역 · $points곳';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '$count개 구역 생성됨';
+  }
+
+  @override
+  String get partitionFailed => '구역 생성 실패';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return '$station 부근';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '명소 $count곳 · 구역 $areas개 추가';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title 성지순례';
+  }
 }

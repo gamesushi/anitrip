@@ -843,6 +843,26 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'サムネイルマークを表示';
 
   @override
+  String get generateRecommendedRoute => '推奨ルートを生成';
+
+  @override
+  String get exportRouteToMap => 'ルートを地図に書き出し';
+
+  @override
+  String get tooltipShowRecommendedRoutes => '推奨ルートを表示';
+
+  @override
+  String routeGenerated(Object summary) {
+    return '推奨ルートを生成しました：$summary';
+  }
+
+  @override
+  String get routeTooFewPoints => 'このエリアのポイントが不足しており、ルートを生成できません';
+
+  @override
+  String get routeExportFailed => 'マップアプリを開けませんでした';
+
+  @override
   String get tooltipPoint => '巡礼地';
 
   @override
@@ -2308,4 +2328,147 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       '公式のデフォルトソースが頻繁にブロックされる場合の使用に適した img-tc.anitabi.cn の使用を修正しました。';
+
+  @override
+  String get tabExplore => '探索';
+
+  @override
+  String get exploreSearchHint => '作品・地名・都市を検索';
+
+  @override
+  String get exploreMyWorks => 'マイ作品';
+
+  @override
+  String get exploreHotWorks => '人気作品';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count 箇所';
+  }
+
+  @override
+  String get exploreEmpty => '作品データがありません';
+
+  @override
+  String get exploreLoadError => '作品データの読み込みに失敗しました。ネットワークを確認して再試行してください。';
+
+  @override
+  String get tabProfile => 'マイページ';
+
+  @override
+  String get profileTitle => '私の聖地巡礼';
+
+  @override
+  String get profileStatCheckins => 'チェックイン';
+
+  @override
+  String get profileWorks => '作品';
+
+  @override
+  String get profileCities => '都市';
+
+  @override
+  String get profileFootprints => '足あと';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count 回';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'まだチェックインがありません';
+
+  @override
+  String get profileEmptyWorks => 'チェックインした作品がありません';
+
+  @override
+  String get profileEmptyCities => '訪れた都市がありません';
+
+  @override
+  String get profileManageRecords => '記録を管理';
+
+  @override
+  String get profileFavorites => 'お気に入り';
+
+  @override
+  String get profileFavoritesSoon => '近日公開';
+
+  @override
+  String get exploreAddToPlan => 'プランに追加';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return '$count 箇所の聖地を追加';
+  }
+
+  @override
+  String get exploreImporting => '追加中…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '$count 箇所を追加しました';
+  }
+
+  @override
+  String get exploreImportNoPoints => '作品を追加（聖地なし）';
+
+  @override
+  String get exploreImportFailed => '追加に失敗しました。ネットワークを確認して再試行してください。';
+
+  @override
+  String get exploreViewOnMap => '地図で見る';
+
+  @override
+  String get smartPartition => 'スマート分割';
+
+  @override
+  String get partitionByDistance => '距離で';
+
+  @override
+  String get partitionByCount => 'グループ数で';
+
+  @override
+  String get partitionThreshold => '距離のしきい値';
+
+  @override
+  String get partitionGroups => 'エリア数';
+
+  @override
+  String get partitionGenerate => 'エリアを生成';
+
+  @override
+  String get partitionGenerating => '生成中…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'エリア $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups エリア · $points 箇所';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '$count エリアを生成しました';
+  }
+
+  @override
+  String get partitionFailed => 'エリアの生成に失敗しました';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return '$station周辺';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '$count 箇所 · $areas エリアを追加';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title 巡礼';
+  }
 }

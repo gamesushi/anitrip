@@ -856,6 +856,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'Show thumbnail markers';
 
   @override
+  String get generateRecommendedRoute => 'Generate recommended route';
+
+  @override
+  String get exportRouteToMap => 'Export route to map';
+
+  @override
+  String get tooltipShowRecommendedRoutes => 'Show recommended routes';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'Recommended route generated: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints =>
+      'Not enough points in this area to build a route';
+
+  @override
+  String get routeExportFailed => 'Could not open the map app';
+
+  @override
   String get tooltipPoint => 'Pilgrimage point';
 
   @override
@@ -2361,4 +2382,149 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'Always uses img-tc.anitabi.cn, suitable when the official default source is often blocked.';
+
+  @override
+  String get tabExplore => 'Explore';
+
+  @override
+  String get exploreSearchHint => 'Search works, places, cities';
+
+  @override
+  String get exploreMyWorks => 'My Works';
+
+  @override
+  String get exploreHotWorks => 'Popular Works';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count spots';
+  }
+
+  @override
+  String get exploreEmpty => 'No works available yet';
+
+  @override
+  String get exploreLoadError =>
+      'Failed to load works. Check your network and retry.';
+
+  @override
+  String get tabProfile => 'Profile';
+
+  @override
+  String get profileTitle => 'My Pilgrimage';
+
+  @override
+  String get profileStatCheckins => 'check-ins';
+
+  @override
+  String get profileWorks => 'works';
+
+  @override
+  String get profileCities => 'cities';
+
+  @override
+  String get profileFootprints => 'Footprints';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count check-ins';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'No check-ins yet';
+
+  @override
+  String get profileEmptyWorks => 'No works checked in yet';
+
+  @override
+  String get profileEmptyCities => 'No cities visited yet';
+
+  @override
+  String get profileManageRecords => 'Manage records';
+
+  @override
+  String get profileFavorites => 'My Favorites';
+
+  @override
+  String get profileFavoritesSoon => 'Coming soon';
+
+  @override
+  String get exploreAddToPlan => 'Add to plan';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'Imports $count pilgrimage spots';
+  }
+
+  @override
+  String get exploreImporting => 'Importing…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return 'Imported $count spots';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'Work added; no spots yet';
+
+  @override
+  String get exploreImportFailed =>
+      'Import failed. Check your network and retry.';
+
+  @override
+  String get exploreViewOnMap => 'View on map';
+
+  @override
+  String get smartPartition => 'Smart partition';
+
+  @override
+  String get partitionByDistance => 'By distance';
+
+  @override
+  String get partitionByCount => 'By count';
+
+  @override
+  String get partitionThreshold => 'Distance threshold';
+
+  @override
+  String get partitionGroups => 'Areas';
+
+  @override
+  String get partitionGenerate => 'Generate areas';
+
+  @override
+  String get partitionGenerating => 'Generating…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'Area $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups areas · $points spots';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return 'Created $count areas';
+  }
+
+  @override
+  String get partitionFailed => 'Failed to create areas';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'Near $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return 'Imported $count spots · $areas areas';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title Pilgrimage';
+  }
 }

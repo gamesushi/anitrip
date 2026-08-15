@@ -834,6 +834,26 @@ class AppLocalizationsZh extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => '显示缩略图标记';
 
   @override
+  String get generateRecommendedRoute => '生成推荐路线';
+
+  @override
+  String get exportRouteToMap => '导出路线到地图';
+
+  @override
+  String get tooltipShowRecommendedRoutes => '显示推荐路线';
+
+  @override
+  String routeGenerated(Object summary) {
+    return '已生成推荐路线：$summary';
+  }
+
+  @override
+  String get routeTooFewPoints => '该片区点位不足，无法生成路线';
+
+  @override
+  String get routeExportFailed => '无法打开地图应用';
+
+  @override
   String get tooltipPoint => '巡礼点';
 
   @override
@@ -2273,6 +2293,149 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get anitabiSrcMirrorDesc => '固定使用 img-tc.anitabi.cn，适合官方默认源经常被拦截时使用。';
+
+  @override
+  String get tabExplore => '探索';
+
+  @override
+  String get exploreSearchHint => '搜索作品、地名、城市';
+
+  @override
+  String get exploreMyWorks => '我的作品';
+
+  @override
+  String get exploreHotWorks => '热门作品';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count 个地点';
+  }
+
+  @override
+  String get exploreEmpty => '暂无作品数据';
+
+  @override
+  String get exploreLoadError => '作品数据加载失败，请检查网络后重试';
+
+  @override
+  String get tabProfile => '我的';
+
+  @override
+  String get profileTitle => '我的巡礼';
+
+  @override
+  String get profileStatCheckins => '打卡';
+
+  @override
+  String get profileWorks => '作品';
+
+  @override
+  String get profileCities => '城市';
+
+  @override
+  String get profileFootprints => '足迹';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count 次打卡';
+  }
+
+  @override
+  String get profileEmptyFootprints => '还没有打卡记录';
+
+  @override
+  String get profileEmptyWorks => '还没有打卡过的作品';
+
+  @override
+  String get profileEmptyCities => '还没有去过的城市';
+
+  @override
+  String get profileManageRecords => '管理记录';
+
+  @override
+  String get profileFavorites => '我的收藏';
+
+  @override
+  String get profileFavoritesSoon => '敬请期待';
+
+  @override
+  String get exploreAddToPlan => '添加到计划';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return '将导入 $count 个巡礼点';
+  }
+
+  @override
+  String get exploreImporting => '正在导入…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '已导入 $count 个巡礼点';
+  }
+
+  @override
+  String get exploreImportNoPoints => '已添加作品，暂无巡礼点';
+
+  @override
+  String get exploreImportFailed => '导入失败，请检查网络后重试';
+
+  @override
+  String get exploreViewOnMap => '在地图查看';
+
+  @override
+  String get smartPartition => '智能分区';
+
+  @override
+  String get partitionByDistance => '按距离';
+
+  @override
+  String get partitionByCount => '按组数';
+
+  @override
+  String get partitionThreshold => '距离阈值';
+
+  @override
+  String get partitionGroups => '片区数';
+
+  @override
+  String get partitionGenerate => '生成片区';
+
+  @override
+  String get partitionGenerating => '生成中…';
+
+  @override
+  String partitionGroupName(int index) {
+    return '片区 $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '将分成 $groups 个片区 · 共 $points 个点位';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '已生成 $count 个片区';
+  }
+
+  @override
+  String get partitionFailed => '生成片区失败';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return '$station附近';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '已导入 $count 个巡礼点 · $areas 个片区';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title 巡礼';
+  }
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -3103,6 +3266,26 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get tooltipShowThumbnailMarkers => '顯示縮略圖標記';
+
+  @override
+  String get generateRecommendedRoute => '生成推薦路線';
+
+  @override
+  String get exportRouteToMap => '匯出路線到地圖';
+
+  @override
+  String get tooltipShowRecommendedRoutes => '顯示推薦路線';
+
+  @override
+  String routeGenerated(Object summary) {
+    return '已生成推薦路線：$summary';
+  }
+
+  @override
+  String get routeTooFewPoints => '該片區點位不足，無法生成路線';
+
+  @override
+  String get routeExportFailed => '無法開啟地圖應用程式';
 
   @override
   String get tooltipPoint => '巡禮點';
@@ -4544,4 +4727,147 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get anitabiSrcMirrorDesc => '固定使用 img-tc.anitabi.cn，適合官方默認源經常被攔截時使用。';
+
+  @override
+  String get tabExplore => '探索';
+
+  @override
+  String get exploreSearchHint => '搜尋作品、地名、城市';
+
+  @override
+  String get exploreMyWorks => '我的作品';
+
+  @override
+  String get exploreHotWorks => '熱門作品';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count 個地點';
+  }
+
+  @override
+  String get exploreEmpty => '暫無作品數據';
+
+  @override
+  String get exploreLoadError => '作品數據加載失敗，請檢查網絡後重試';
+
+  @override
+  String get tabProfile => '我的';
+
+  @override
+  String get profileTitle => '我的巡禮';
+
+  @override
+  String get profileStatCheckins => '打卡';
+
+  @override
+  String get profileWorks => '作品';
+
+  @override
+  String get profileCities => '城市';
+
+  @override
+  String get profileFootprints => '足跡';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count 次打卡';
+  }
+
+  @override
+  String get profileEmptyFootprints => '還沒有打卡記錄';
+
+  @override
+  String get profileEmptyWorks => '還沒有打卡過的作品';
+
+  @override
+  String get profileEmptyCities => '還沒有去過的城市';
+
+  @override
+  String get profileManageRecords => '管理記錄';
+
+  @override
+  String get profileFavorites => '我的收藏';
+
+  @override
+  String get profileFavoritesSoon => '敬請期待';
+
+  @override
+  String get exploreAddToPlan => '添加到計劃';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return '將導入 $count 個巡禮點';
+  }
+
+  @override
+  String get exploreImporting => '正在導入…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '已導入 $count 個巡禮點';
+  }
+
+  @override
+  String get exploreImportNoPoints => '已添加作品，暫無巡禮點';
+
+  @override
+  String get exploreImportFailed => '導入失敗，請檢查網絡後重試';
+
+  @override
+  String get exploreViewOnMap => '在地圖查看';
+
+  @override
+  String get smartPartition => '智能分區';
+
+  @override
+  String get partitionByDistance => '按距離';
+
+  @override
+  String get partitionByCount => '按組數';
+
+  @override
+  String get partitionThreshold => '距離閾值';
+
+  @override
+  String get partitionGroups => '片區數';
+
+  @override
+  String get partitionGenerate => '生成片區';
+
+  @override
+  String get partitionGenerating => '生成中…';
+
+  @override
+  String partitionGroupName(int index) {
+    return '片區 $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '將分成 $groups 個片區 · 共 $points 個點位';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '已生成 $count 個片區';
+  }
+
+  @override
+  String get partitionFailed => '生成片區失敗';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return '$station附近';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '已導入 $count 個巡禮點 · $areas 個片區';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title 巡禮';
+  }
 }

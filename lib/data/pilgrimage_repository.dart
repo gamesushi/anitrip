@@ -1,4 +1,5 @@
 import '../plan/pilgrimage_models.dart';
+import '../plan/plan_partition.dart';
 
 abstract interface class PilgrimageRepository {
   Future<List<PilgrimagePlan>> loadPlans();
@@ -94,6 +95,14 @@ abstract interface class PilgrimageRepository {
     required String planId,
     required Set<String> pointIds,
     required String? groupId,
+  });
+
+  /// Atomically creates [groups] (each with its centroid anchor) and moves the
+  /// associated points into them, in one commit. Powers Explore's one-tap smart
+  /// partition. Existing groups/points are untouched.
+  Future<PilgrimagePlan> applyPlanPartition({
+    required String planId,
+    required List<PlanPartitionInput> groups,
   });
 
   Future<PilgrimagePlan> deleteWorkFromPlan({

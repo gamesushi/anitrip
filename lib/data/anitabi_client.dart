@@ -5,17 +5,25 @@ import 'package:latlong2/latlong.dart';
 
 import '../plan/pilgrimage_models.dart';
 import 'anitabi_image_url.dart';
+import 'anitabi_service_config.dart';
 import 'anitabi_static_data_reader.dart';
 
 class AnitabiClient {
   AnitabiClient({
     http.Client? httpClient,
     AnitabiStaticDataReader? staticDataReader,
+    AnitabiServiceConfig? serviceConfig,
   }) : _httpClient = httpClient ?? http.Client(),
+       _serviceConfig = serviceConfig,
        _staticDataReader =
-           staticDataReader ?? AnitabiStaticDataReader(httpClient: httpClient);
+           staticDataReader ??
+           AnitabiStaticDataReader(
+             httpClient: httpClient,
+             serviceConfig: serviceConfig,
+           );
 
   final http.Client _httpClient;
+  final AnitabiServiceConfig? _serviceConfig;
   final AnitabiStaticDataReader _staticDataReader;
   AnitabiStaticIndex? _cachedStaticIndex;
 
@@ -23,8 +31,21 @@ class AnitabiClient {
     _cachedStaticIndex = null;
   }
 
+  /// Returns the full anitabi catalog (all works) from the static `g.json`
+  /// index. Each [AnitabiMapWorkLite] carries `title / subtitle / city /
+  /// center` and a `points` map whose length is the per-work point count.
+  ///
+  /// Used by the Explore tab to render "hot works" (sorted by point count)
+  /// and curated collections. Result is cached in-memory for the session.
+  Future<List<AnitabiMapWorkLite>> listWorks() async {
+    final staticIndex = await _fetchStaticIndex();
+    return staticIndex.works;
+  }
+
   Future<AnitabiBangumiLite> fetchBangumiLite(int bangumiId) async {
-    final uri = Uri.parse('https://api.anitabi.cn/bangumi/$bangumiId/lite');
+    final uri = (_serviceConfig ?? AnitabiServiceConfig.current).apiUri(
+      'bangumi/$bangumiId/lite',
+    );
     final response = await _httpClient.get(uri);
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw AnitabiException(response.statusCode, response.body);

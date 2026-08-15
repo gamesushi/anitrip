@@ -27,6 +27,7 @@ import '../widgets/reference_thumbnail_stub.dart'
 import '../utils/limited_concurrency.dart';
 import '../utils/selected_item_order.dart';
 import 'nearest_group_assign_screen.dart';
+import 'smart_partition_screen.dart';
 import 'pilgrimage_models.dart';
 import 'plan_group_manager_screen.dart';
 
@@ -959,7 +960,15 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
           children: [
             Text(AppLocalizations.of(context)!.mapImportOrganizeDialogMsg(importedCount)),
             const SizedBox(height: 18),
-            FilledButton(
+            FilledButton.icon(
+              onPressed: () => Navigator.of(
+                context,
+              ).pop(_ImportOrganizeAction.smartPartition),
+              icon: const Icon(Icons.auto_awesome_mosaic_outlined, size: 18),
+              label: Text(AppLocalizations.of(context)!.smartPartition),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton(
               onPressed: () => Navigator.of(
                 context,
               ).pop(_ImportOrganizeAction.nearestAssign),
@@ -986,6 +995,8 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     }
 
     switch (action) {
+      case _ImportOrganizeAction.smartPartition:
+        await _openSmartPartition();
       case _ImportOrganizeAction.groupManager:
         await _openGroupManager();
       case _ImportOrganizeAction.nearestAssign:
@@ -1003,6 +1014,22 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
           repository: widget.repository,
         ),
       ),
+    );
+    if (mounted) {
+      await _reloadImportedPlan();
+    }
+  }
+
+  Future<void> _openSmartPartition() async {
+    final settings = await widget.repository.loadAppSettings();
+    if (!mounted) {
+      return;
+    }
+    await SmartPartitionScreen.open(
+      context,
+      plan: _importedPlan,
+      repository: widget.repository,
+      settings: settings,
     );
     if (mounted) {
       await _reloadImportedPlan();
@@ -1529,7 +1556,12 @@ class _ImportProgress {
   }
 }
 
-enum _ImportOrganizeAction { later, groupManager, nearestAssign }
+enum _ImportOrganizeAction {
+  later,
+  groupManager,
+  nearestAssign,
+  smartPartition,
+}
 
 class _ThumbnailCacheResult {
   const _ThumbnailCacheResult._({

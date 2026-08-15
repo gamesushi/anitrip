@@ -274,14 +274,10 @@ class _PlanScreenState extends State<PlanScreen> {
               switch (action) {
                 case _PlanMenuAction.switchPlan:
                   widget.onOpenPlanManager();
-                case _PlanMenuAction.addPoints:
-                  widget.onOpenAddPoints();
                 case _PlanMenuAction.managePoints:
                   widget.onOpenPointManager();
                 case _PlanMenuAction.memo:
                   _openPlanMemo();
-                case _PlanMenuAction.importExport:
-                  widget.onOpenImportExport();
               }
             },
             itemBuilder: (context) => [
@@ -290,13 +286,6 @@ class _PlanScreenState extends State<PlanScreen> {
                 child: ListTile(
                   leading: Icon(Icons.swap_horiz),
                   title: Text(AppLocalizations.of(context)!.planSwitch),
-                ),
-              ),
-              PopupMenuItem(
-                value: _PlanMenuAction.addPoints,
-                child: ListTile(
-                  leading: Icon(Icons.add_location_alt_outlined),
-                  title: Text(AppLocalizations.of(context)!.planAddPoint),
                 ),
               ),
               PopupMenuItem(
@@ -311,13 +300,6 @@ class _PlanScreenState extends State<PlanScreen> {
                 child: ListTile(
                   leading: Icon(Icons.sticky_note_2_outlined),
                   title: Text(AppLocalizations.of(context)!.planMemo),
-                ),
-              ),
-              PopupMenuItem(
-                value: _PlanMenuAction.importExport,
-                child: ListTile(
-                  leading: Icon(Icons.import_export_outlined),
-                  title: Text(AppLocalizations.of(context)!.planImportExport),
                 ),
               ),
             ],
@@ -586,7 +568,7 @@ class _PlanScreenState extends State<PlanScreen> {
   }
 }
 
-enum _PlanMenuAction { switchPlan, addPoints, managePoints, memo, importExport }
+enum _PlanMenuAction { switchPlan, managePoints, memo }
 
 class _ReferenceCacheIconButton extends StatelessWidget {
   const _ReferenceCacheIconButton({

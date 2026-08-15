@@ -12,7 +12,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # build by specifying --build-name and --build-number, respectively.
 # In Android, build-name is used as versionName while build-number used as versionCode.
 # Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-version: 1.1.3+18
+version: 1.1.4+21
 
 environment:
   sdk: ^3.12.0
@@ -55,6 +55,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -82,6 +86,16 @@ flutter:
     - icon.jpg
     - docs/sample_images/
     - docs/sample_images/sample_visit_records/
+    # Bundled anitabi static catalog snapshot (see ANITABI_STATIC_LOCAL_FALLBACK).
+    # The upstream host www.anitabi.cn is frequently unreachable, so the Explore
+    # tab loads the catalog from these local assets first.
+    - web/g.json
+    - web/g0.json
+    - web/g1.json
+    - web/g2.json
+    - web/g3.json
+    - web/g4.json
+    - web/g5.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

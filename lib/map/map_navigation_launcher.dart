@@ -11,6 +11,20 @@ class MapNavigationLauncher {
       mode: LaunchMode.externalApplication,
     );
   }
+
+  /// Opens the whole route (ordered list of points) in the chosen map app as a
+  /// walking direction with waypoints. For apps that only support an origin and
+  /// a destination (Apple / Amap / Baidu) the route is reduced to the first and
+  /// last point; Google Maps keeps the intermediate waypoints.
+  Future<bool> openRoute(List<PilgrimagePoint> points, NavigationApp app) {
+    if (points.isEmpty) {
+      return Future.value(false);
+    }
+    return launchUrl(
+      routeNavigationUri(points, app),
+      mode: LaunchMode.externalApplication,
+    );
+  }
 }
 
 Uri walkingNavigationUri(PilgrimagePoint point, NavigationApp app) {
@@ -58,4 +72,59 @@ String _destinationName(PilgrimagePoint point) {
     return subtitle;
   }
   return point.work.title;
+}
+
+Uri routeNavigationUri(List<PilgrimagePoint> points, NavigationApp app) {
+  if (points.length == 1) {
+    return walkingNavigationUri(points.first, app);
+  }
+
+  final coords = <String>[];
+  final names = <String>[];
+  for (final point in points) {
+    coords.add(
+      '${_coordinate(point.position.latitude)},'
+      '${_coordinate(point.position.longitude)}',
+    );
+    names.add(_destinationName(point));
+  }
+  final origin = coords.first;
+  final destination = coords.last;
+  final originName = names.first;
+  final destinationName = names.last;
+  // Intermediate waypoints (everything except the first and last).
+  final waypoints = coords.sublist(1, coords.length - 1);
+
+  return switch (app) {
+    NavigationApp.googleMaps => Uri.https('www.google.com', '/maps/dir/', {
+        'api': '1',
+        'travelmode': 'walking',
+        'origin': origin,
+        'destination': destination,
+        if (waypoints.isNotEmpty) 'waypoints': waypoints.join('|'),
+      }),
+    NavigationApp.appleMaps => Uri.https('maps.apple.com', '/', {
+        'saddr': origin,
+        'daddr': destination,
+        'dirflg': 'w',
+      }),
+    NavigationApp.amap => Uri.https('uri.amap.com', '/navigation', {
+        'from': '$origin,$originName',
+        'to': '$destination,$destinationName',
+        'mode': 'walk',
+        'coordinate': 'wgs84',
+        'callnative': '1',
+        'src': 'anitrip',
+      }),
+    NavigationApp.baiduMaps => Uri.http('api.map.baidu.com', '/direction', {
+        'origin': 'latlng:${points.first.position.latitude},'
+            '${points.first.position.longitude}|name:$originName',
+        'destination': 'latlng:${points.last.position.latitude},'
+            '${points.last.position.longitude}|name:$destinationName',
+        'mode': 'walking',
+        'coord_type': 'wgs84',
+        'output': 'html',
+        'src': 'webapp.anitrip.anitrip',
+      }),
+  };
 }

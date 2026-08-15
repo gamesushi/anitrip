@@ -9,6 +9,15 @@ const openFreeMapStyleUrl = 'https://tiles.openfreemap.org/styles/liberty';
 const openStreetMapTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const mapUserAgentPackageName = 'app.anitrip.anitrip';
 
+// 免费、无需 token 的 MapLibre/Mapbox v8 样式（CARTO 矢量底图，CORS 友好）
+// 视觉上最接近 anitabi 的浅色简洁底图：Positron=极简灰阶，Voyager=清爽微彩，Dark=深色
+const cartoPositronStyleUrl =
+    'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
+const cartoVoyagerStyleUrl =
+    'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
+const cartoDarkStyleUrl =
+    'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+
 class OpenFreeMapStyleOption {
   const OpenFreeMapStyleOption({
     required this.style,
@@ -159,13 +168,44 @@ String mapTileConfigSignature(AppSettings settings) {
 RichAttributionWidget configuredMapAttribution(AppSettings settings) {
   final provider = settings.mapTileProvider;
   if (mapProviderUsesMapLibre(provider)) {
+    final styleUrl = mapLibreStyleUrl(settings);
+    if (styleUrl.contains('cartocdn.com')) {
+      return RichAttributionWidget(
+        attributions: [
+          TextSourceAttribution(
+            '© CARTO © OpenStreetMap contributors',
+            onTap: () {
+              launchUrl(
+                Uri.parse('https://carto.com/attributions'),
+                mode: LaunchMode.externalApplication,
+              );
+            },
+          ),
+        ],
+      );
+    }
+    if (styleUrl.contains('openfreemap.org')) {
+      return RichAttributionWidget(
+        attributions: [
+          TextSourceAttribution(
+            'OpenFreeMap / OpenMapTiles contributors',
+            onTap: () {
+              launchUrl(
+                Uri.parse('https://openfreemap.org/'),
+                mode: LaunchMode.externalApplication,
+              );
+            },
+          ),
+        ],
+      );
+    }
     return RichAttributionWidget(
       attributions: [
         TextSourceAttribution(
-          'OpenFreeMap / OpenMapTiles contributors',
+          'MapLibre style',
           onTap: () {
             launchUrl(
-              Uri.parse('https://openfreemap.org/'),
+              Uri.parse('https://maplibre.org/'),
               mode: LaunchMode.externalApplication,
             );
           },

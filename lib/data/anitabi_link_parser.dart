@@ -1,3 +1,5 @@
+import 'anitabi_service_config.dart';
+
 class AnitabiImportLink {
   const AnitabiImportLink({required this.bangumiId, required this.pointId});
 
@@ -44,7 +46,7 @@ Uri? _parseUri(String text) {
   if (direct != null && direct.hasScheme) {
     return direct;
   }
-  return Uri.tryParse('https://anitabi.cn/map?$text');
+  return Uri.tryParse('${AnitabiServiceConfig.current.siteBaseUrl}/map?$text');
 }
 
 int? _firstIntQuery(Uri uri, List<String> keys) {

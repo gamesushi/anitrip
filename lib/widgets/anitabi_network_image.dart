@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/anitabi_image_url.dart';
+import '../data/web_image_proxy.dart';
 import '../plan/pilgrimage_models.dart';
 import 'image_load_limiter.dart';
 
@@ -78,7 +79,7 @@ class _AnitabiNetworkImageState extends State<AnitabiNetworkImage> {
     _candidates = candidateAnitabiImageUrls(
       widget.url,
       source: widget.imageSource,
-    );
+    ).map((u) => webImageProxy(u)).toList();
     _candidateIndex = 0;
     _isTryingNextCandidate = false;
   }

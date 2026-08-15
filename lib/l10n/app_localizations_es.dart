@@ -882,6 +882,27 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'Mostrar marca de miniatura';
 
   @override
+  String get generateRecommendedRoute => 'Generar ruta recomendada';
+
+  @override
+  String get exportRouteToMap => 'Exportar ruta al mapa';
+
+  @override
+  String get tooltipShowRecommendedRoutes => 'Mostrar rutas recomendadas';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'Ruta recomendada generada: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints =>
+      'No hay suficientes puntos en esta zona para generar una ruta';
+
+  @override
+  String get routeExportFailed => 'No se pudo abrir la aplicación de mapas';
+
+  @override
   String get tooltipPoint => 'Punto de peregrinación';
 
   @override
@@ -2423,4 +2444,149 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'Se corrigió el uso de img-tc.anitabi.cn, adecuado para su uso cuando la fuente oficial predeterminada a menudo está bloqueada.';
+
+  @override
+  String get tabExplore => 'Explorar';
+
+  @override
+  String get exploreSearchHint => 'Buscar obras, lugares, ciudades';
+
+  @override
+  String get exploreMyWorks => 'Mis obras';
+
+  @override
+  String get exploreHotWorks => 'Obras populares';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count lugares';
+  }
+
+  @override
+  String get exploreEmpty => 'No hay obras disponibles';
+
+  @override
+  String get exploreLoadError =>
+      'Error al cargar. Comprueba la red y reintenta.';
+
+  @override
+  String get tabProfile => 'Perfil';
+
+  @override
+  String get profileTitle => 'Mi peregrinaje';
+
+  @override
+  String get profileStatCheckins => 'visitas';
+
+  @override
+  String get profileWorks => 'obras';
+
+  @override
+  String get profileCities => 'ciudades';
+
+  @override
+  String get profileFootprints => 'Huellas';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count visitas';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'Aún no hay visitas';
+
+  @override
+  String get profileEmptyWorks => 'Aún no hay obras visitadas';
+
+  @override
+  String get profileEmptyCities => 'Aún no hay ciudades visitadas';
+
+  @override
+  String get profileManageRecords => 'Gestionar registros';
+
+  @override
+  String get profileFavorites => 'Mis favoritos';
+
+  @override
+  String get profileFavoritesSoon => 'Próximamente';
+
+  @override
+  String get exploreAddToPlan => 'Añadir al plan';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'Importa $count lugares';
+  }
+
+  @override
+  String get exploreImporting => 'Importando…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '$count lugares importados';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'Obra añadida; sin lugares';
+
+  @override
+  String get exploreImportFailed =>
+      'Error al importar. Comprueba la red y reintenta.';
+
+  @override
+  String get exploreViewOnMap => 'Ver en el mapa';
+
+  @override
+  String get smartPartition => 'Partición inteligente';
+
+  @override
+  String get partitionByDistance => 'Por distancia';
+
+  @override
+  String get partitionByCount => 'Por cantidad';
+
+  @override
+  String get partitionThreshold => 'Umbral de distancia';
+
+  @override
+  String get partitionGroups => 'Zonas';
+
+  @override
+  String get partitionGenerate => 'Generar zonas';
+
+  @override
+  String get partitionGenerating => 'Generando…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'Zona $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups zonas · $points lugares';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '$count zonas creadas';
+  }
+
+  @override
+  String get partitionFailed => 'Error al crear zonas';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'Cerca de $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '$count lugares · $areas zonas importados';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return 'Peregrinaje $title';
+  }
 }

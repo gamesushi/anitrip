@@ -16,6 +16,7 @@ import '../widgets/confirm_action_dialog.dart';
 import '../widgets/snackbar_helper.dart';
 import 'add_points_screen.dart';
 import 'nearest_group_assign_screen.dart';
+import 'smart_partition_screen.dart';
 import 'pilgrimage_models.dart';
 import 'plan_group_manager_screen.dart';
 import 'plan_group_utils.dart';
@@ -206,6 +207,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         onGroupTap: () => _showGroupSheet(_groups),
         onAnchorTap: () => _showAnchorSheet(group),
         onOrderTap: () => _showOrderModeSheet(group),
+        onSmartPartition: _openSmartPartition,
         onNearestAssign: _openNearestAssign,
         onBoxAssign: _openBoxAssign,
       ),
@@ -749,6 +751,30 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
     });
   }
 
+  Future<void> _openSmartPartition() async {
+    final settings = await widget.repository.loadAppSettings();
+    if (!mounted) {
+      return;
+    }
+    final updated = await SmartPartitionScreen.open(
+      context,
+      plan: _plan,
+      repository: widget.repository,
+      settings: settings,
+    );
+    if (!mounted || updated != true) {
+      return;
+    }
+    final updatedPlan = await widget.repository.loadActivePlan();
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _plan = updatedPlan;
+      _didUpdate = true;
+    });
+  }
+
   Future<void> _openNearestAssign() async {
     final settings = await widget.repository.loadAppSettings();
     if (!mounted) {
@@ -1113,6 +1139,7 @@ class _PlanManagerHeader extends StatelessWidget {
     required this.onGroupTap,
     required this.onAnchorTap,
     required this.onOrderTap,
+    required this.onSmartPartition,
     required this.onNearestAssign,
     required this.onBoxAssign,
   });
@@ -1128,6 +1155,7 @@ class _PlanManagerHeader extends StatelessWidget {
   final VoidCallback onGroupTap;
   final VoidCallback onAnchorTap;
   final VoidCallback onOrderTap;
+  final Future<void> Function() onSmartPartition;
   final Future<void> Function() onNearestAssign;
   final Future<void> Function() onBoxAssign;
 
@@ -1196,6 +1224,7 @@ class _PlanManagerHeader extends StatelessWidget {
             const SizedBox(height: 12),
             if (group.isUngrouped)
               _UngroupedActionRow(
+                onSmartPartition: onSmartPartition,
                 onNearestAssign: onNearestAssign,
                 onBoxAssign: onBoxAssign,
               )
@@ -1226,31 +1255,44 @@ class _PlanManagerHeader extends StatelessWidget {
 
 class _UngroupedActionRow extends StatelessWidget {
   const _UngroupedActionRow({
+    required this.onSmartPartition,
     required this.onNearestAssign,
     required this.onBoxAssign,
   });
 
+  final Future<void> Function() onSmartPartition;
   final Future<void> Function() onNearestAssign;
   final Future<void> Function() onBoxAssign;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Expanded(
-          child: _HeaderPillButton(
-            icon: Icons.auto_fix_high_outlined,
-            label: AppLocalizations.of(context)!.btnNearestAssign,
-            onTap: () => onNearestAssign(),
-          ),
+        FilledButton.icon(
+          onPressed: () => onSmartPartition(),
+          icon: const Icon(Icons.auto_awesome_mosaic_outlined, size: 18),
+          label: Text(AppLocalizations.of(context)!.smartPartition),
         ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: _HeaderPillButton(
-            icon: Icons.select_all_outlined,
-            label: AppLocalizations.of(context)!.btnBoxSelectAssign,
-            onTap: () => onBoxAssign(),
-          ),
+        const SizedBox(height: 8),
+        Row(
+          children: [
+            Expanded(
+              child: _HeaderPillButton(
+                icon: Icons.auto_fix_high_outlined,
+                label: AppLocalizations.of(context)!.btnNearestAssign,
+                onTap: () => onNearestAssign(),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _HeaderPillButton(
+                icon: Icons.select_all_outlined,
+                label: AppLocalizations.of(context)!.btnBoxSelectAssign,
+                onTap: () => onBoxAssign(),
+              ),
+            ),
+          ],
         ),
       ],
     );

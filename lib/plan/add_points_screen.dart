@@ -572,7 +572,7 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
                   decoration: stableInputDecoration(
                     labelText: AppLocalizations.of(context)!.anitabiLinkImportLabel,
                     hintText:
-                        '例如 https://www.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj',
+                        '例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj',
                   ),
                   keyboardType: TextInputType.url,
                   textInputAction: TextInputAction.done,

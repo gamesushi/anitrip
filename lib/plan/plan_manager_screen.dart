@@ -9,9 +9,14 @@ import '../widgets/copyable_text.dart';
 import 'pilgrimage_models.dart';
 
 class PlanManagerScreen extends StatefulWidget {
-  const PlanManagerScreen({required this.repository, super.key});
+  const PlanManagerScreen({
+    required this.repository,
+    this.onPlanActivated,
+    super.key,
+  });
 
   final PilgrimageRepository repository;
+  final VoidCallback? onPlanActivated;
 
   @override
   State<PlanManagerScreen> createState() => _PlanManagerScreenState();
@@ -35,19 +40,24 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
 
     try {
       final plans = await widget.repository.loadPlans();
-      final activePlan = await widget.repository.loadActivePlan();
-      if (!mounted) {
-        return;
+      if (!mounted) return;
+
+      PilgrimagePlan? activePlan;
+      if (plans.isNotEmpty) {
+        try {
+          activePlan = await widget.repository.loadActivePlan();
+        } catch (_) {
+          // No active plan (e.g. empty DB after removing sample data) — not fatal
+        }
       }
+      if (!mounted) return;
 
       setState(() {
         _plans = plans;
         _activePlan = activePlan;
       });
     } catch (error) {
-      if (!mounted) {
-        return;
-      }
+      if (!mounted) return;
 
       setState(() {
         _error = error;
@@ -62,6 +72,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
     }
 
     Navigator.of(context).pop();
+    widget.onPlanActivated?.call();
   }
 
   Future<void> _createEmptyPlan() async {
@@ -71,6 +82,7 @@ class _PlanManagerScreenState extends State<PlanManagerScreen> {
       area: AppLocalizations.of(context)!.planDefaultArea,
     );
     await _loadPlans();
+    widget.onPlanActivated?.call();
   }
 
   Future<void> _deletePlan(PilgrimagePlan plan) async {

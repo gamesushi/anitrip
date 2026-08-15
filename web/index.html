@@ -30,6 +30,12 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <title>anitrip</title>
+  <script>
+    // Force HTML renderer so cross-origin images (Bangumi posters on lain.bgm.tv)
+    // load without needing CORS headers. CanvasKit (default) requires CORS for
+    // WebGL texture upload and silently falls back when missing.
+    window.flutterWebRenderer = 'html';
+  </script>
   <script src="https://unpkg.com/maplibre-gl@^5.0/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@^5.0/dist/maplibre-gl.css" rel="stylesheet"/>
   <link rel="manifest" href="manifest.json">

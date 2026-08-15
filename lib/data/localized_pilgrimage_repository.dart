@@ -1,4 +1,5 @@
 import '../plan/pilgrimage_models.dart';
+import '../plan/plan_partition.dart';
 import '../utils/translation_service.dart';
 import 'pilgrimage_repository.dart';
 
@@ -171,6 +172,18 @@ class LocalizedPilgrimageRepository implements PilgrimageRepository {
     required PilgrimagePlanGroup group,
   }) async {
     final plan = await delegate.createPlanGroup(planId: planId, group: group);
+    return _translate(plan);
+  }
+
+  @override
+  Future<PilgrimagePlan> applyPlanPartition({
+    required String planId,
+    required List<PlanPartitionInput> groups,
+  }) async {
+    final plan = await delegate.applyPlanPartition(
+      planId: planId,
+      groups: groups,
+    );
     return _translate(plan);
   }
 

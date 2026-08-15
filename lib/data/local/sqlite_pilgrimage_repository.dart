@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:latlong2/latlong.dart';
 
 import '../../plan/pilgrimage_models.dart';
+import '../../plan/plan_partition.dart';
 import '../anitabi_client.dart';
 import '../anitabi_image_url.dart';
 import '../app_managed_file_paths_stub.dart'
@@ -564,6 +565,27 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
                 ),
               ),
             );
+      }
+      await _touchPlan(planId);
+    });
+    return _planFromRow(await _planRowById(planId));
+  }
+
+  @override
+  Future<PilgrimagePlan> applyPlanPartition({
+    required String planId,
+    required List<PlanPartitionInput> groups,
+  }) async {
+    await _database.transaction(() async {
+      for (final input in groups) {
+        await _insertPilgrimagePlanGroup(planId: planId, group: input.group);
+        if (input.pointIds.isNotEmpty) {
+          await movePointsToGroup(
+            planId: planId,
+            pointIds: input.pointIds,
+            groupId: input.group.id,
+          );
+        }
       }
       await _touchPlan(planId);
     });

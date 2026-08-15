@@ -6,6 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
 import '../app_theme.dart';
+import '../explore/widgets/explore_search_bar.dart';
 import '../l10n/app_localizations.dart';
 import '../widgets/snackbar_helper.dart';
 import '../camera_reference/camerawesome_reference_screen.dart';
@@ -32,11 +33,16 @@ class PilgrimageMapScreen extends StatefulWidget {
   const PilgrimageMapScreen({
     required this.controller,
     required this.settings,
+    this.onStartSearch,
     super.key,
   });
 
   final PilgrimagePlanController controller;
   final AppSettings settings;
+
+  /// Opens the unified in-app search (on the Explore tab) from the top search
+  /// bar. When null the search bar is hidden.
+  final VoidCallback? onStartSearch;
 
   @override
   State<PilgrimageMapScreen> createState() => _PilgrimageMapScreenState();
@@ -54,6 +60,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
   LatLng? _currentLocation;
   bool _isLocating = false;
   bool _showThumbnailMarkers = false;
+  bool _showRecommendedRoutes = false;
   int _selectedGroupIndex = 0;
   final ValueNotifier<LatLngBounds?> _visibleBoundsNotifier = ValueNotifier(
     null,
@@ -65,6 +72,17 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
 
   PilgrimagePlanController get _controller => widget.controller;
 
+  /// Tracks the plan currently framed by the map so we can recenter when the
+  /// active plan changes (e.g. switching away from the sample Uji plan).
+  String? _lastCenteredPlanId;
+
+  @override
+  void initState() {
+    super.initState();
+    _lastCenteredPlanId = _controller.plan.id;
+    _controller.addListener(_handleControllerChanged);
+  }
+
   @override
   void didUpdateWidget(covariant PilgrimageMapScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
@@ -73,13 +91,109 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
       _thumbnailLoadLimiter.maxConcurrent =
           widget.settings.mapThumbnailConcurrentLoads;
     }
+    if (!identical(oldWidget.controller, widget.controller)) {
+      oldWidget.controller.removeListener(_handleControllerChanged);
+      widget.controller.addListener(_handleControllerChanged);
+      _lastCenteredPlanId = widget.controller.plan.id;
+      _selectedGroupIndex = 0;
+      _recenterToActivePlan();
+    }
   }
 
   @override
   void dispose() {
+    _controller.removeListener(_handleControllerChanged);
     _thumbnailBoundsDebounce?.cancel();
     _visibleBoundsNotifier.dispose();
     super.dispose();
+  }
+
+  /// When the active plan changes, reframe the map onto the new plan's points
+  /// instead of leaving it stuck on the previously loaded area.
+  void _handleControllerChanged() {
+    final currentPlanId = _controller.plan.id;
+    if (currentPlanId == _lastCenteredPlanId) {
+      return;
+    }
+    _lastCenteredPlanId = currentPlanId;
+    _selectedGroupIndex = 0;
+    _recenterToActivePlan();
+  }
+
+  void _recenterToActivePlan() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      final positions = _controller.points
+          .map((point) => point.position)
+          .toList(growable: false);
+      if (positions.length >= 2) {
+        try {
+          _mapController.fitCamera(
+            CameraFit.bounds(
+              bounds: LatLngBounds.fromPoints(positions),
+              padding: const EdgeInsets.all(56),
+              maxZoom: 16,
+            ),
+          );
+          return;
+        } catch (_) {
+          // Fall through to single-point / group centering below.
+        }
+      }
+      if (positions.length == 1) {
+        _mapController.move(positions.first, 15);
+        return;
+      }
+      final groups = planGroupBuckets(
+        _controller.plan,
+        _controller.completedPointIds,
+      );
+      if (groups.isNotEmpty) {
+        _mapController.move(groupMapCenter(groups.first), 13);
+      }
+    });
+  }
+
+  /// Builds one polyline per non-ungrouped group, connecting its points in
+  /// [PilgrimagePoint.groupOrderIndex] order. Used to visualise a recommended
+  /// (or manually arranged) route when [_showRecommendedRoutes] is on.
+  List<Polyline> _routePolylines(List<PlanGroupBucket> groups) {
+    final polylines = <Polyline>[];
+    for (var index = 0; index < groups.length; index += 1) {
+      final group = groups[index];
+      if (group.isUngrouped || group.points.length < 2) {
+        continue;
+      }
+      final ordered = sortPointsByPlanOrder(group.points);
+      polylines.add(
+        Polyline(
+          points: ordered.map((point) => point.position).toList(growable: false),
+          color: planGroupMapColorAt(index).withValues(alpha: 0.9),
+          strokeWidth: 3.5,
+          borderColor: Colors.white.withValues(alpha: 0.85),
+          borderStrokeWidth: 1,
+        ),
+      );
+    }
+    return polylines;
+  }
+
+  /// Maps each point id to its 1-based position within its group's ordered
+  /// route, so markers can render a sequence number badge.
+  Map<String, int> _routeSequenceByPointId(List<PlanGroupBucket> groups) {
+    final sequence = <String, int>{};
+    for (final group in groups) {
+      if (group.isUngrouped) {
+        continue;
+      }
+      final ordered = sortPointsByPlanOrder(group.points);
+      for (var index = 0; index < ordered.length; index += 1) {
+        sequence[ordered[index].id] = index + 1;
+      }
+    }
+    return sequence;
   }
 
   Future<void> _locateUser() async {
@@ -426,6 +540,10 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                   selectedGroupId: selectedGroupId,
                 ),
               ),
+              if (_showRecommendedRoutes)
+                PolylineLayer(
+                  polylines: _routePolylines(groups),
+                ),
               ValueListenableBuilder<LatLngBounds?>(
                 valueListenable: _visibleBoundsNotifier,
                 builder: (context, visibleBounds, _) {
@@ -433,6 +551,9 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                     _controller.points,
                     visibleBounds,
                   );
+                  final sequenceByPointId = _showRecommendedRoutes
+                      ? _routeSequenceByPointId(groups)
+                      : const <String, int>{};
                   return MarkerLayer(
                     markers: [
                       for (final point in mapPoints)
@@ -482,6 +603,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                                 : _PointMarker(
                                     selected: isSelected,
                                     status: _controller.statusFor(point),
+                                    sequenceNumber: sequenceByPointId[point.id],
                                     onTap: () => _selectPoint(point),
                                   ),
                           );
@@ -500,22 +622,35 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
               configuredMapAttribution(widget.settings),
             ],
           ),
-          if (selectedGroup != null)
-            Positioned(
-              left: 12,
-              right: 12,
-              top: 12,
-              child: SafeArea(
-                bottom: false,
-                child: _MapGroupFilterBar(
-                  group: selectedGroup,
-                  onTap: () => _showGroupPicker(context, groups),
-                ),
+          Positioned(
+            left: 12,
+            right: 12,
+            top: 12,
+            child: SafeArea(
+              bottom: false,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (widget.onStartSearch != null)
+                    ExploreSearchBar(
+                      hintText: AppLocalizations.of(context)!.exploreSearchHint,
+                      onTap: widget.onStartSearch!,
+                      padding: EdgeInsets.zero,
+                    ),
+                  if (selectedGroup != null) ...[
+                    if (widget.onStartSearch != null) const SizedBox(height: 8),
+                    _MapGroupFilterBar(
+                      group: selectedGroup,
+                      onTap: () => _showGroupPicker(context, groups),
+                    ),
+                  ],
+                ],
               ),
             ),
+          ),
           Positioned(
             right: 12,
-            top: 76,
+            top: widget.onStartSearch != null ? 140 : 76,
             child: SafeArea(
               bottom: false,
               child: Column(
@@ -561,6 +696,23 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
                       _showThumbnailMarkers
                           ? Icons.location_on_outlined
                           : Icons.image_outlined,
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  _MapFloatingIconButton(
+                    tooltip: AppLocalizations.of(context)!
+                        .tooltipShowRecommendedRoutes,
+                    selected: _showRecommendedRoutes,
+                    onTap: () {
+                      setState(() {
+                        _showRecommendedRoutes = !_showRecommendedRoutes;
+                      });
+                    },
+                    child: Icon(
+                      _showRecommendedRoutes
+                          ? Icons.route
+                          : Icons.route_outlined,
                       size: 20,
                     ),
                   ),
@@ -731,11 +883,13 @@ class _PointMarker extends StatelessWidget {
     required this.selected,
     required this.status,
     required this.onTap,
+    this.sequenceNumber,
   });
 
   final bool selected;
   final VisitStatus status;
   final VoidCallback onTap;
+  final int? sequenceNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -747,6 +901,40 @@ class _PointMarker extends StatelessWidget {
       ),
       VisitStatus.pending => (AppColors.surface, AppColors.accentDark),
     };
+
+    if (sequenceNumber != null) {
+      return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            color: markerColors.$1,
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: selected ? AppColors.warning : Colors.white,
+              width: selected ? 3 : 2,
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.black26,
+                blurRadius: 3,
+                offset: Offset(0, 1),
+              ),
+            ],
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            '$sequenceNumber',
+            style: TextStyle(
+              color: markerColors.$2,
+              fontSize: 16,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ),
+      );
+    }
 
     return IconButton(
       tooltip: AppLocalizations.of(context)!.tooltipPoint,

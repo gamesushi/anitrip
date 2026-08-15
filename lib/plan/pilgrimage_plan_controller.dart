@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 import '../data/pilgrimage_repository.dart';
 import 'pilgrimage_models.dart';
@@ -46,6 +46,38 @@ class PilgrimagePlanController extends ChangeNotifier {
       _selectedPointId = plan.points.firstOrNull?.id;
     }
     notifyListeners();
+  }
+
+  /// Swaps the underlying plan in place while keeping the controller identity
+  /// stable. This avoids disposing and recreating the controller, which would
+  /// force every listener (including the always-mounted map layers in the
+  /// IndexedStack) to rebuild in the same frame — that can deactivate an
+  /// inherited widget (e.g. the map's internal state provider) while it still
+  /// has dependents and trigger framework assertions such as
+  /// `_dependents.isEmpty`.
+  ///
+  /// The current/selected point is only reset when switching to a genuinely
+  /// different plan, so a plain settings/records reload of the same plan does
+  /// not lose the user's in-progress selection.
+  void applyPlan(PilgrimagePlan plan) {
+    final isSamePlan = _plan.id == plan.id;
+    _plan = plan;
+    _completedPointIds = {...plan.completedPointIds};
+    if (!isSamePlan) {
+      _currentPointId = plan.currentPointId;
+      _selectedPointId = plan.points.firstOrNull?.id;
+    } else if (_selectedPointId != null &&
+        !plan.points.any((point) => point.id == _selectedPointId)) {
+      _selectedPointId = plan.points.firstOrNull?.id;
+    }
+    notifyListeners();
+    // Defer visit-record loading so its notifyListeners() fires in a
+    // separate frame.  If it resolved synchronously (e.g. cached SQLite)
+    // and notified in the same microtask as applyPlan's own notifyListeners,
+    // listeners that own complex InheritedWidget subtrees (e.g. FlutterMap
+    // inside an IndexedStack) could hit the framework assertion
+    // `_dependents.isEmpty`.
+    unawaited(_deferredLoadVisitRecords());
   }
 
   List<PilgrimagePoint> get completedPoints => points
@@ -129,6 +161,22 @@ class PilgrimagePlanController extends ChangeNotifier {
 
     _visitRecords = await repository.loadVisitRecords(_plan.id);
     notifyListeners();
+  }
+
+  /// Loads visit records and defers the resulting [notifyListeners()] to the
+  /// next frame so it never collides with a synchronous notification that is
+  /// already in progress (e.g. from [applyPlan]).
+  Future<void> _deferredLoadVisitRecords() async {
+    final repository = _repository;
+    if (repository == null) {
+      return;
+    }
+    _visitRecords = await repository.loadVisitRecords(_plan.id);
+    // Schedule notification for the next frame so it never overlaps
+    // with applyPlan's synchronous notifyListeners.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (hasListeners) notifyListeners();
+    });
   }
 
   Future<PilgrimageVisitRecord?> createVisitRecord({

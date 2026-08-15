@@ -61,6 +61,44 @@ class BangumiApiClient {
     return searchSubjects(keyword, types: const {BangumiSubjectType.anime});
   }
 
+  /// Fetches a subject's poster URL (`images.large`, falling back to smaller
+  /// sizes) for the Explore work cards. Returns null on any failure so callers
+  /// fall back to the placeholder tile. Bangumi work covers are not available
+  /// from the anitabi catalog, so this is the poster source keyed by bangumiId.
+  Future<String?> fetchSubjectImageUrl(int bangumiId) async {
+    final uri = Uri.parse('${BangumiConfig.apiBaseUrl}/v0/subjects/$bangumiId');
+    final http.Response response;
+    try {
+      response = await _httpClient.get(
+        uri,
+        headers: {
+          'Authorization': 'Bearer ${BangumiConfig.apiToken}',
+          if (!kIsWeb) 'User-Agent': BangumiConfig.userAgent,
+        },
+      );
+    } catch (_) {
+      return null;
+    }
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      return null;
+    }
+    final decoded = jsonDecode(response.body);
+    if (decoded is! Map<String, Object?>) {
+      return null;
+    }
+    final images = decoded['images'];
+    if (images is! Map<String, Object?>) {
+      return null;
+    }
+    for (final size in const ['large', 'common', 'medium', 'grid', 'small']) {
+      final url = images[size];
+      if (url is String && url.isNotEmpty) {
+        return url;
+      }
+    }
+    return null;
+  }
+
   PilgrimageWork _workFromSubject(Map<String, Object?> subject) {
     final bangumiId = subject['id'] as int;
     final subjectType = BangumiSubjectType.fromCode(subject['type'] as int?);

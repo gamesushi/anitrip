@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
 import '../data/pilgrimage_repository.dart';
+import '../l10n/app_localizations.dart';
+import '../map/map_navigation_launcher.dart';
 import '../widgets/snackbar_helper.dart';
 import 'group_anchor_picker_screen.dart';
 import 'pilgrimage_models.dart';
+import 'route_optimizer.dart';
 
 const Object _unsetGroupField = Object();
 
@@ -128,6 +131,8 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
                 onRename: () => _renameGroup(group),
                 onSetAnchor: () => _setGroupAnchor(group),
                 onToggleOrderMode: () => _toggleOrderMode(group),
+                onGenerateRoute: () => _generateRoute(group),
+                onExportRoute: () => _exportRoute(group),
                 onDelete: () => _confirmDeleteGroup(group, pointCount),
               ),
             );
@@ -225,6 +230,83 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
     );
   }
 
+  Future<void> _generateRoute(PilgrimagePlanGroup group) async {
+    final route = recommendedRouteForGroup(group, _plan.points);
+    if (route.orderedPoints.length < 2) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showReplacingSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.routeTooFewPoints),
+          ),
+        );
+      }
+      return;
+    }
+
+    final updated = await _savePlanChange(
+      action: () async {
+        var updatedPlan = _plan;
+        for (var index = 0;
+            index < route.orderedPoints.length;
+            index += 1) {
+          final point = route.orderedPoints[index];
+          updatedPlan = await widget.repository.updatePointInPlan(
+            planId: updatedPlan.id,
+            point: point.copyWith(groupOrderIndex: index),
+          );
+        }
+        return widget.repository.updatePlanGroup(
+          planId: updatedPlan.id,
+          group: _copyGroup(group, orderMode: PlanGroupOrderMode.manual),
+        );
+      },
+      failureMessage: '推荐路线生成失败',
+    );
+
+    if (updated != null && mounted) {
+      final summary =
+          '${route.orderedPoints.length} 个点位 · 约 '
+          '${formatRouteDistance(route.totalDistanceMeters)} 步行';
+      ScaffoldMessenger.of(context).showReplacingSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.routeGenerated(summary)),
+        ),
+      );
+    }
+  }
+
+  Future<void> _exportRoute(PilgrimagePlanGroup group) async {
+    final ordered = group.orderMode == PlanGroupOrderMode.manual
+        ? orderedPointsForGroup(group, _plan.points)
+        : recommendedRouteForGroup(group, _plan.points).orderedPoints;
+    if (ordered.isEmpty) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showReplacingSnackBar(
+          SnackBar(
+            content: Text(AppLocalizations.of(context)!.routeTooFewPoints),
+          ),
+        );
+      }
+      return;
+    }
+
+    final settings = await widget.repository.loadAppSettings();
+    if (!mounted) {
+      return;
+    }
+    final opened = await const MapNavigationLauncher().openRoute(
+      ordered,
+      settings.navigationApp,
+    );
+    if (!opened && mounted) {
+      ScaffoldMessenger.of(context).showReplacingSnackBar(
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.routeExportFailed),
+        ),
+      );
+    }
+  }
+
   Future<void> _setGroupAnchor(PilgrimagePlanGroup group) async {
     final settings = await widget.repository.loadAppSettings();
     if (!mounted) {
@@ -317,12 +399,12 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
     );
   }
 
-  Future<void> _savePlanChange({
+  Future<PilgrimagePlan?> _savePlanChange({
     required Future<PilgrimagePlan> Function() action,
     required String failureMessage,
   }) async {
     if (_isSaving) {
-      return;
+      return null;
     }
     setState(() {
       _isSaving = true;
@@ -330,16 +412,17 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
     try {
       final updatedPlan = await action();
       if (!mounted) {
-        return;
+        return null;
       }
       setState(() {
         _plan = updatedPlan;
         _didUpdate = true;
         _isSaving = false;
       });
+      return updatedPlan;
     } catch (_) {
       if (!mounted) {
-        return;
+        return null;
       }
       setState(() {
         _isSaving = false;
@@ -347,6 +430,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
       ScaffoldMessenger.of(
         context,
       ).showReplacingSnackBar(SnackBar(content: Text(failureMessage)));
+      return null;
     }
   }
 
@@ -522,6 +606,8 @@ class _PlanGroupCard extends StatelessWidget {
     required this.onRename,
     required this.onSetAnchor,
     required this.onToggleOrderMode,
+    required this.onGenerateRoute,
+    required this.onExportRoute,
     required this.onDelete,
   });
 
@@ -532,6 +618,8 @@ class _PlanGroupCard extends StatelessWidget {
   final VoidCallback onRename;
   final VoidCallback onSetAnchor;
   final VoidCallback onToggleOrderMode;
+  final VoidCallback onGenerateRoute;
+  final VoidCallback onExportRoute;
   final VoidCallback onDelete;
 
   @override
@@ -602,6 +690,10 @@ class _PlanGroupCard extends StatelessWidget {
                     onSetAnchor();
                   case 'order':
                     onToggleOrderMode();
+                  case 'route':
+                    onGenerateRoute();
+                  case 'export':
+                    onExportRoute();
                   case 'delete':
                     onDelete();
                 }
@@ -615,6 +707,18 @@ class _PlanGroupCard extends StatelessWidget {
                     group.orderMode == PlanGroupOrderMode.manual
                         ? '切换为无序'
                         : '切换为手动排序',
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'route',
+                  child: Text(
+                    AppLocalizations.of(context)!.generateRecommendedRoute,
+                  ),
+                ),
+                PopupMenuItem(
+                  value: 'export',
+                  child: Text(
+                    AppLocalizations.of(context)!.exportRouteToMap,
                   ),
                 ),
                 const PopupMenuItem(value: 'delete', child: Text('删除片区')),

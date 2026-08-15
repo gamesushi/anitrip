@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'app_theme.dart';
 import 'data/anitabi_image_source_scope.dart';
 import 'data/pilgrimage_repository.dart';
+import 'explore/explore_screen.dart';
 import 'map/pilgrimage_map_screen.dart';
 import 'plan/add_points_screen.dart';
 import 'plan/plan_manager_screen.dart';
@@ -17,8 +18,7 @@ import 'plan_transfer/plan_import_file_stub.dart'
     if (dart.library.io) 'plan_transfer/plan_import_file_io.dart';
 import 'plan_transfer/plan_import_preview_screen.dart';
 import 'l10n/app_localizations.dart';
-import 'records/records_screen.dart';
-import 'settings/settings_screen.dart';
+import 'profile/profile_screen.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({
@@ -42,6 +42,11 @@ class _AppShellState extends State<AppShell> {
   Object? _loadError;
   int _selectedIndex = 0;
   final _incomingPlanFiles = const IncomingPlanFileChannel();
+
+  /// Signals [ExploreScreen] to open its in-app search overlay. The map tab's
+  /// search bar routes here so search is unified on the Explore tab rather
+  /// than jumping to "add content".
+  final ValueNotifier<bool> _exploreSearchRequest = ValueNotifier(false);
 
   @override
   void initState() {
@@ -68,6 +73,7 @@ class _AppShellState extends State<AppShell> {
   @override
   void dispose() {
     _planController?.dispose();
+    _exploreSearchRequest.dispose();
     super.dispose();
   }
 
@@ -83,14 +89,42 @@ class _AppShellState extends State<AppShell> {
         return;
       }
 
-      _planController?.dispose();
-      setState(() {
+      if (_planController == null) {
         _planController = PilgrimagePlanController(
           plan: plan,
           visitRepository: widget.repository,
         );
-      });
+        // Reflect the freshly loaded plan at boot so the shell (with the
+        // bottom navigation bar) replaces the no-plan manager scaffold.
+        if (mounted) setState(() {});
+      } else {
+        // Swap the plan in place so the controller identity stays stable.
+        // Disposing and recreating the controller forces every listener
+        // (including the always-mounted map layers in the IndexedStack) to
+        // rebuild in the same frame, which can deactivate an inherited widget
+        // (e.g. the map's internal state provider) while it still has
+        // dependents and trigger framework assertions such as
+        // `_dependents.isEmpty`.
+        _planController!.applyPlan(plan);
+        // NOTE: Do NOT call setState here. applyPlan() already calls
+        // notifyListeners(), which triggers the ListenableBuilder wrapping
+        // the IndexedStack. Calling setState on top of that causes a redundant
+        // rebuild of this State in the same frame — the always-mounted map tab
+        // (FlutterMap) contains internal InheritedWidgets whose elements may
+        // still have pending dependents when deactivated, triggering the
+        // framework assertion `_dependents.isEmpty`.
+      }
       widget.onSettingsChanged(settings);
+    } on StateError catch (error) {
+      // No plans available (e.g. fresh install without sample data) — not fatal.
+      // Show the shell with a null controller; PlanScreen should handle it gracefully.
+      debugPrint('No active plan ($error)');
+      if (!mounted) return;
+      _planController?.dispose();
+      setState(() {
+        _planController = null;
+        _loadError = null;
+      });
     } catch (error, stackTrace) {
       debugPrint('Failed to load active pilgrimage plan: $error');
       debugPrint(stackTrace.toString());
@@ -111,8 +145,29 @@ class _AppShellState extends State<AppShell> {
 
   void _openMap() {
     setState(() {
-      _selectedIndex = 1;
+      // Index 2 since ExploreScreen was inserted at index 0.
+      _selectedIndex = 2;
     });
+  }
+
+  /// Tapping the map tab's search bar should open the unified in-app search
+  /// on the Explore tab instead of jumping to "add content".
+  void _openExploreSearch() {
+    setState(() {
+      _selectedIndex = 0;
+    });
+    _exploreSearchRequest.value = true;
+  }
+
+  /// Called after Explore creates a new per-work plan (already made active by
+  /// the repository): reload it into the controller and show the Plan tab.
+  Future<void> _reloadAndOpenPlan() async {
+    await _loadActivePlan();
+    if (mounted) {
+      setState(() {
+        _selectedIndex = 1;
+      });
+    }
   }
 
   Future<void> _openPlanManager() async {
@@ -173,7 +228,8 @@ class _AppShellState extends State<AppShell> {
       await _loadActivePlan();
       if (mounted) {
         setState(() {
-          _selectedIndex = 0;
+          // Land on the Plan tab (index 1) to show the imported plan.
+          _selectedIndex = 1;
         });
       }
     }
@@ -214,7 +270,8 @@ class _AppShellState extends State<AppShell> {
         return;
       }
       setState(() {
-        _selectedIndex = 0;
+        // Land on the Plan tab (index 1) to show the imported plan.
+        _selectedIndex = 1;
       });
     } catch (_) {
       if (!mounted) {
@@ -233,7 +290,17 @@ class _AppShellState extends State<AppShell> {
     AppColors.customAccentValue = _settings.customThemeColorValue;
 
     if (controller == null) {
-      return _PlanLoadState(error: _loadError, onRetry: _loadActivePlan);
+      if (_loadError != null) {
+        return _PlanLoadState(error: _loadError, onRetry: _loadActivePlan);
+      }
+      // No plans yet — show plan manager so user can create one
+      return Scaffold(
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.planSwitch)),
+        body: PlanManagerScreen(
+          repository: widget.repository,
+          onPlanActivated: _loadActivePlan,
+        ),
+      );
     }
 
     return ListenableBuilder(
@@ -256,6 +323,14 @@ class _AppShellState extends State<AppShell> {
                   body: IndexedStack(
                     index: _selectedIndex,
                     children: [
+                      ExploreScreen(
+                        controller: controller,
+                        onOpenSearch: _openAddPoints,
+                        searchRequest: _exploreSearchRequest,
+                        onOpenWork: (_) => _openMap(),
+                        onPlanCreated: _reloadAndOpenPlan,
+                        onPlanUpdated: _loadActivePlan,
+                      ),
                       PlanScreen(
                         controller: controller,
                         settings: _settings,
@@ -269,15 +344,13 @@ class _AppShellState extends State<AppShell> {
                       PilgrimageMapScreen(
                         controller: controller,
                         settings: _settings,
+                        onStartSearch: _openExploreSearch,
                       ),
-                      RecordsScreen(
+                      ProfileScreen(
                         controller: controller,
                         settings: _settings,
-                      ),
-                      SettingsScreen(
-                        settings: _settings,
                         repository: widget.repository,
-                        onChanged: _saveSettings,
+                        onSettingsChanged: _saveSettings,
                       ),
                     ],
                   ),
@@ -321,6 +394,11 @@ class _AppShellState extends State<AppShell> {
                       },
                       destinations: [
                         NavigationDestination(
+                          icon: const Icon(Icons.explore_outlined),
+                          selectedIcon: const Icon(Icons.explore),
+                          label: AppLocalizations.of(context)!.tabExplore,
+                        ),
+                        NavigationDestination(
                           icon: const Icon(Icons.checklist_outlined),
                           selectedIcon: const Icon(Icons.checklist),
                           label: AppLocalizations.of(context)!.tabPlan,
@@ -331,14 +409,9 @@ class _AppShellState extends State<AppShell> {
                           label: AppLocalizations.of(context)!.tabMap,
                         ),
                         NavigationDestination(
-                          icon: const Icon(Icons.collections_bookmark_outlined),
-                          selectedIcon: const Icon(Icons.collections_bookmark),
-                          label: AppLocalizations.of(context)!.tabRecords,
-                        ),
-                        NavigationDestination(
-                          icon: const Icon(Icons.settings_outlined),
-                          selectedIcon: const Icon(Icons.settings),
-                          label: AppLocalizations.of(context)!.tabSettings,
+                          icon: const Icon(Icons.person_outline),
+                          selectedIcon: const Icon(Icons.person),
+                          label: AppLocalizations.of(context)!.tabProfile,
                         ),
                       ],
                     ),

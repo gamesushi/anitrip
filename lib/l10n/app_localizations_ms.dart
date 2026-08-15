@@ -866,6 +866,27 @@ class AppLocalizationsMs extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'Tunjukkan tanda lakaran kecil';
 
   @override
+  String get generateRecommendedRoute => 'Jana laluan yang disyorkan';
+
+  @override
+  String get exportRouteToMap => 'Eksport laluan ke peta';
+
+  @override
+  String get tooltipShowRecommendedRoutes => 'Paparkan laluan yang disyorkan';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'Laluan yang disyorkan telah dijana: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints =>
+      'Titik di kawasan ini tidak mencukupi untuk menjana laluan';
+
+  @override
+  String get routeExportFailed => 'Tidak dapat membuka aplikasi peta';
+
+  @override
   String get tooltipPoint => 'Titik ziarah';
 
   @override
@@ -2381,4 +2402,149 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'Penggunaan tetap img-tc.anitabi.cn, sesuai digunakan apabila sumber lalai rasmi sering disekat.';
+
+  @override
+  String get tabExplore => 'Terokai';
+
+  @override
+  String get exploreSearchHint => 'Cari karya, tempat, bandar';
+
+  @override
+  String get exploreMyWorks => 'Karya Saya';
+
+  @override
+  String get exploreHotWorks => 'Karya Popular';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count lokasi';
+  }
+
+  @override
+  String get exploreEmpty => 'Tiada karya lagi';
+
+  @override
+  String get exploreLoadError =>
+      'Gagal memuatkan. Semak rangkaian dan cuba lagi.';
+
+  @override
+  String get tabProfile => 'Saya';
+
+  @override
+  String get profileTitle => 'Ziarah Saya';
+
+  @override
+  String get profileStatCheckins => 'daftar';
+
+  @override
+  String get profileWorks => 'karya';
+
+  @override
+  String get profileCities => 'bandar';
+
+  @override
+  String get profileFootprints => 'Jejak';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count kali';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'Belum ada daftar masuk';
+
+  @override
+  String get profileEmptyWorks => 'Belum ada karya didaftar';
+
+  @override
+  String get profileEmptyCities => 'Belum ada bandar dilawati';
+
+  @override
+  String get profileManageRecords => 'Urus rekod';
+
+  @override
+  String get profileFavorites => 'Kegemaran Saya';
+
+  @override
+  String get profileFavoritesSoon => 'Akan datang';
+
+  @override
+  String get exploreAddToPlan => 'Tambah ke rancangan';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'Import $count lokasi';
+  }
+
+  @override
+  String get exploreImporting => 'Mengimport…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return '$count lokasi diimport';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'Karya ditambah; tiada lokasi';
+
+  @override
+  String get exploreImportFailed =>
+      'Import gagal. Semak rangkaian dan cuba lagi.';
+
+  @override
+  String get exploreViewOnMap => 'Lihat di peta';
+
+  @override
+  String get smartPartition => 'Pembahagian pintar';
+
+  @override
+  String get partitionByDistance => 'Ikut jarak';
+
+  @override
+  String get partitionByCount => 'Ikut bilangan';
+
+  @override
+  String get partitionThreshold => 'Ambang jarak';
+
+  @override
+  String get partitionGroups => 'Kawasan';
+
+  @override
+  String get partitionGenerate => 'Jana kawasan';
+
+  @override
+  String get partitionGenerating => 'Menjana…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'Kawasan $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups kawasan · $points lokasi';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return '$count kawasan dijana';
+  }
+
+  @override
+  String get partitionFailed => 'Gagal menjana kawasan';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'Berhampiran $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return '$count lokasi · $areas kawasan diimport';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return 'Ziarah $title';
+  }
 }

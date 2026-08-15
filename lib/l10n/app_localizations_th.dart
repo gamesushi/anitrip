@@ -861,6 +861,26 @@ class AppLocalizationsTh extends AppLocalizations {
   String get tooltipShowThumbnailMarkers => 'แสดงเครื่องหมายภาพขนาดย่อ';
 
   @override
+  String get generateRecommendedRoute => 'สร้างเส้นทางที่แนะนำ';
+
+  @override
+  String get exportRouteToMap => 'ส่งออกเส้นทางไปยังแผนที่';
+
+  @override
+  String get tooltipShowRecommendedRoutes => 'แสดงเส้นทางที่แนะนำ';
+
+  @override
+  String routeGenerated(Object summary) {
+    return 'สร้างเส้นทางที่แนะนำแล้ว: $summary';
+  }
+
+  @override
+  String get routeTooFewPoints => 'จุดในพื้นที่นี้ไม่เพียงพอในการสร้างเส้นทาง';
+
+  @override
+  String get routeExportFailed => 'ไม่สามารถเปิดแอปแผนที่ได้';
+
+  @override
   String get tooltipPoint => 'จุดแสวงบุญ';
 
   @override
@@ -2363,4 +2383,149 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String get anitabiSrcMirrorDesc =>
       'แก้ไขการใช้งาน img-tc.anitabi.cn เหมาะสำหรับใช้เมื่อแหล่งที่มาเริ่มต้นอย่างเป็นทางการมักถูกบล็อก';
+
+  @override
+  String get tabExplore => 'สำรวจ';
+
+  @override
+  String get exploreSearchHint => 'ค้นหาผลงาน สถานที่ เมือง';
+
+  @override
+  String get exploreMyWorks => 'ผลงานของฉัน';
+
+  @override
+  String get exploreHotWorks => 'ผลงานยอดนิยม';
+
+  @override
+  String explorePointCount(int count) {
+    return '$count จุด';
+  }
+
+  @override
+  String get exploreEmpty => 'ยังไม่มีข้อมูลผลงาน';
+
+  @override
+  String get exploreLoadError =>
+      'โหลดข้อมูลไม่สำเร็จ ตรวจสอบเครือข่ายแล้วลองใหม่';
+
+  @override
+  String get tabProfile => 'ของฉัน';
+
+  @override
+  String get profileTitle => 'การเดินทางของฉัน';
+
+  @override
+  String get profileStatCheckins => 'เช็คอิน';
+
+  @override
+  String get profileWorks => 'ผลงาน';
+
+  @override
+  String get profileCities => 'เมือง';
+
+  @override
+  String get profileFootprints => 'รอยเท้า';
+
+  @override
+  String profileCheckinTimes(int count) {
+    return '$count ครั้ง';
+  }
+
+  @override
+  String get profileEmptyFootprints => 'ยังไม่มีการเช็คอิน';
+
+  @override
+  String get profileEmptyWorks => 'ยังไม่มีผลงานที่เช็คอิน';
+
+  @override
+  String get profileEmptyCities => 'ยังไม่มีเมืองที่ไป';
+
+  @override
+  String get profileManageRecords => 'จัดการบันทึก';
+
+  @override
+  String get profileFavorites => 'รายการโปรด';
+
+  @override
+  String get profileFavoritesSoon => 'เร็ว ๆ นี้';
+
+  @override
+  String get exploreAddToPlan => 'เพิ่มลงแผน';
+
+  @override
+  String exploreAddWorkPoints(int count) {
+    return 'นำเข้า $count จุด';
+  }
+
+  @override
+  String get exploreImporting => 'กำลังนำเข้า…';
+
+  @override
+  String exploreImportSuccess(int count) {
+    return 'นำเข้า $count จุดแล้ว';
+  }
+
+  @override
+  String get exploreImportNoPoints => 'เพิ่มผลงานแล้ว ยังไม่มีจุด';
+
+  @override
+  String get exploreImportFailed =>
+      'นำเข้าไม่สำเร็จ ตรวจสอบเครือข่ายแล้วลองใหม่';
+
+  @override
+  String get exploreViewOnMap => 'ดูบนแผนที่';
+
+  @override
+  String get smartPartition => 'แบ่งพื้นที่อัตโนมัติ';
+
+  @override
+  String get partitionByDistance => 'ตามระยะทาง';
+
+  @override
+  String get partitionByCount => 'ตามจำนวนกลุ่ม';
+
+  @override
+  String get partitionThreshold => 'เกณฑ์ระยะทาง';
+
+  @override
+  String get partitionGroups => 'จำนวนพื้นที่';
+
+  @override
+  String get partitionGenerate => 'สร้างพื้นที่';
+
+  @override
+  String get partitionGenerating => 'กำลังสร้าง…';
+
+  @override
+  String partitionGroupName(int index) {
+    return 'พื้นที่ $index';
+  }
+
+  @override
+  String partitionSummary(int groups, int points) {
+    return '$groups พื้นที่ · $points จุด';
+  }
+
+  @override
+  String partitionSuccess(int count) {
+    return 'สร้าง $count พื้นที่แล้ว';
+  }
+
+  @override
+  String get partitionFailed => 'สร้างพื้นที่ไม่สำเร็จ';
+
+  @override
+  String partitionAreaNearStation(String station) {
+    return 'ใกล้ $station';
+  }
+
+  @override
+  String exploreImportWithAreas(int count, int areas) {
+    return 'นำเข้า $count จุด · $areas พื้นที่';
+  }
+
+  @override
+  String planNameForWork(String title) {
+    return '$title จาริกแสวงบุญ';
+  }
 }
