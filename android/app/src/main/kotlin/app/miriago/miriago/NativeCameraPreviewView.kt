@@ -360,7 +360,8 @@ class NativeCameraPreviewView(
     }
 
     private fun normalizeAndCropImage(file: File) {
-        val bitmap = BitmapFactory.decodeFile(file.absolutePath) ?: return
+        // 以降采样方式解码，避免以全分辨率把高像素照片一次性载入内存（Google Play 性能建议）。
+        val bitmap = decodeSampledBitmap(file.absolutePath, MAX_BITMAP_SIDE) ?: return
         val oriented = applyExifOrientation(bitmap, file)
         val output = if (cropCaptureToAspectRatio) {
             cropBitmapToTargetAspectRatio(oriented)
@@ -378,6 +379,35 @@ class NativeCameraPreviewView(
             oriented.recycle()
         }
         bitmap.recycle()
+    }
+
+    companion object {
+        // 解码位图时允许的最大边长（px）。以降采样方式加载，避免高像素照片占用过多内存；
+        // 仅在图片长/宽超过该值时才降采样，普通照片基本不受影响。可按需调整。
+        private const val MAX_BITMAP_SIDE = 3072
+    }
+
+    private fun decodeSampledBitmap(path: String, maxSide: Int): Bitmap? {
+        val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+        BitmapFactory.decodeFile(path, bounds)
+        val options = BitmapFactory.Options().apply {
+            inSampleSize = calculateInSampleSize(bounds, maxSide)
+        }
+        return BitmapFactory.decodeFile(path, options)
+    }
+
+    private fun calculateInSampleSize(options: BitmapFactory.Options, maxSide: Int): Int {
+        val height = options.outHeight
+        val width = options.outWidth
+        var inSampleSize = 1
+        if (height > maxSide || width > maxSide) {
+            val halfHeight = height / 2
+            val halfWidth = width / 2
+            while (halfHeight / inSampleSize >= maxSide && halfWidth / inSampleSize >= maxSide) {
+                inSampleSize *= 2
+            }
+        }
+        return inSampleSize
     }
 
     private fun applyExifOrientation(bitmap: Bitmap, file: File): Bitmap {

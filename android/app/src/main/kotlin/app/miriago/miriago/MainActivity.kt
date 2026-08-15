@@ -7,8 +7,10 @@ import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.net.Uri
 import android.os.Build
+import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import androidx.core.view.WindowCompat
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -17,6 +19,24 @@ import java.io.File
 class MainActivity : FlutterActivity() {
     private var planFileChannel: MethodChannel? = null
     private var pendingPlanPath: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // 启用无边框（edge-to-edge）显示：让应用内容延伸到状态栏/导航栏下方，
+        // 满足 Android 15+（targetSdk 35+）要求（Google Play 预发布报告建议处理边衬区）。
+        // 这里用 androidx.core 的 WindowCompat（即 EdgeToEdge.enable() 内部调用的核心 API），
+        // 因为 androidx.activity 的 EdgeToEdge 在本工程 AGP 9 / Gradle 9 / Kotlin 2.3 工具链下，
+        // 其 api-jar 变体无法被 Kotlin 编译器解析（报 “Unresolved reference 'EdgeToEdge'”），
+        // 而 androidx.core 是 Flutter 必然包含且版本很新的依赖，可稳定编译。
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        // 系统栏设为透明，并关闭对比度强制，确保内容真正延伸到系统栏之下。
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        window.navigationBarColor = android.graphics.Color.TRANSPARENT
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isStatusBarContrastEnforced = false
+            window.isNavigationBarContrastEnforced = false
+        }
+    }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
