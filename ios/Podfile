@@ -53,7 +53,7 @@ post_install do |installer|
     flutter_app_path_line = 'FLUTTER_APPLICATION_PATH = /Users/hebeihang/DEV/sns/anitrip'
     flutter_target_line = 'FLUTTER_TARGET = lib/main.dart'
     flutter_build_name_line = 'FLUTTER_BUILD_NAME = 1.1.5'
-    flutter_build_number_line = 'FLUTTER_BUILD_NUMBER = 22'
+    flutter_build_number_line = 'FLUTTER_BUILD_NUMBER = 23'
     pods_runner_dir = File.join(File.dirname(__FILE__), 'Pods', 'Target Support Files', 'Pods-Runner')
     ['debug', 'release', 'profile'].each do |config|
       config_path = File.join(pods_runner_dir, "Pods-Runner.#{config}.xcconfig")
