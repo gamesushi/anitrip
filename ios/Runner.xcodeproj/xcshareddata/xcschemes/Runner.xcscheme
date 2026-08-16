@@ -115,5 +115,23 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Copy MapLibre dSYM into archive"
+               scriptText = "SRC=&quot;${PROJECT_DIR}/maplibre-dsym/MapLibre_ios_device.framework.dSYM&quot;&#10;if [ -d &quot;${SRC}&quot; ] &amp;&amp; [ -n &quot;${ARCHIVE_PATH}&quot; ]; then&#10;  mkdir -p &quot;${ARCHIVE_PATH}/dSYMs&quot;&#10;  cp -R &quot;${SRC}&quot; &quot;${ARCHIVE_PATH}/dSYMs/&quot;&#10;  echo &quot;Copied MapLibre dSYM into ${ARCHIVE_PATH}/dSYMs&quot;&#10;else&#10;  echo &quot;WARNING: MapLibre dSYM not copied (SRC=${SRC} ARCHIVE_PATH=${ARCHIVE_PATH})&quot;&#10;fi">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "97C146ED1CF9000F007C117D"
+                     BuildableName = "Runner.app"
+                     BlueprintName = "Runner"
+                     ReferencedContainer = "container:Runner.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>

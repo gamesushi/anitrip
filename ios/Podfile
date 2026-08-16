@@ -209,13 +209,24 @@ post_install do |installer|
             if [ "${ACTION}" = "archive" ]; then
               SRC="${PROJECT_DIR}/maplibre-dsym/MapLibre_ios_device.framework.dSYM"
               if [ -d "${SRC}" ]; then
+                mkdir -p "${DWARF_DSYM_FOLDER_PATH}"
                 cp -R "${SRC}" "${DWARF_DSYM_FOLDER_PATH}/"
-                echo "Copied MapLibre device dSYM into archive"
+                echo "Copied MapLibre device dSYM into ${DWARF_DSYM_FOLDER_PATH}"
               else
                 echo "WARNING: MapLibre dSYM missing at ${SRC}; run 'pod install' to fetch the version-matched dSYM"
               fi
             fi
           SCRIPT
+          # Force this phase to always execute during archive. Xcode 14+ may skip
+          # Run Script phases with empty input/output when "based on dependency
+          # analysis" is enabled, which would silently skip the dSYM copy and make
+          # the archive fail UUID validation. The scheme Archive post-action is the
+          # primary, most reliable mechanism; this phase is a belt-and-suspenders.
+          begin
+            phase.always_out_of_date = true
+          rescue
+            # fall back silently on Xcodeproj versions without this accessor
+          end
           project.save
           puts "MapLibre dSYM: injected 'Copy MapLibre dSYM' build phase into Runner."
         end
