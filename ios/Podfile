@@ -52,8 +52,14 @@ post_install do |installer|
     flutter_root_line = 'FLUTTER_ROOT = /opt/homebrew/share/flutter'
     flutter_app_path_line = 'FLUTTER_APPLICATION_PATH = /Users/hebeihang/DEV/sns/anitrip'
     flutter_target_line = 'FLUTTER_TARGET = lib/main.dart'
-    flutter_build_name_line = 'FLUTTER_BUILD_NAME = 1.1.5'
-    flutter_build_number_line = 'FLUTTER_BUILD_NUMBER = 23'
+    # Derive build name/number from Generated.xcconfig (which `flutter pub get`
+    # fills from pubspec.yaml's `version: x.y.z+N`) instead of hardcoding them,
+    # so they can never drift out of sync with pubspec when the version is bumped.
+    _xc = File.read(generated_xcconfig)
+    _bn = _xc[/FLUTTER_BUILD_NAME\s*=\s*(\S+)/, 1] || '1.0.0'
+    _bno = _xc[/FLUTTER_BUILD_NUMBER\s*=\s*(\S+)/, 1] || '1'
+    flutter_build_name_line = "FLUTTER_BUILD_NAME = #{_bn}"
+    flutter_build_number_line = "FLUTTER_BUILD_NUMBER = #{_bno}"
     pods_runner_dir = File.join(File.dirname(__FILE__), 'Pods', 'Target Support Files', 'Pods-Runner')
     ['debug', 'release', 'profile'].each do |config|
       config_path = File.join(pods_runner_dir, "Pods-Runner.#{config}.xcconfig")
