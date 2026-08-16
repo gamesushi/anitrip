@@ -1218,6 +1218,8 @@
   "exploreSearchHint": "搜索作品、地名、城市",
   "exploreMyWorks": "我的作品",
   "exploreHotWorks": "热门作品",
+  "exploreCollectionKyotoAnimation": "京阿尼名作选",
+  "exploreCollectionMakotoShinkai": "新海诚剧场",
   "explorePointCount": "{count} 个地点",
   "@explorePointCount": {
     "placeholders": {

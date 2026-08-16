@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../../app_theme.dart';
 import '../explore_work_item.dart';
 import '../poster_resolver.dart';
+import '../../data/anilist_title_service.dart';
+import '../../widgets/anitabi_network_image.dart';
+import '../../widgets/image_load_limiter.dart';
+import 'localized_title.dart';
 
 /// A single search-result row for the Explore in-app search: poster thumbnail
 /// on the left, title + metadata on the right — similar to anitabi.cn's search
@@ -12,12 +16,14 @@ class SearchWorkTile extends StatelessWidget {
     required this.item,
     required this.onTap,
     this.posterResolver,
+    this.imageLoadLimiter,
     super.key,
   });
 
   final ExploreWorkItem item;
   final VoidCallback onTap;
   final PosterResolver? posterResolver;
+  final ImageLoadLimiter? imageLoadLimiter;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +39,11 @@ class SearchWorkTile extends StatelessWidget {
               child: SizedBox(
                 width: 56,
                 height: 56,
-                child: _Poster(item: item, posterResolver: posterResolver),
+                child: _Poster(
+                  item: item,
+                  posterResolver: posterResolver,
+                  imageLoadLimiter: imageLoadLimiter,
+                ),
               ),
             ),
             const SizedBox(width: 12),
@@ -42,8 +52,8 @@ class SearchWorkTile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    item.title,
+                  LocalizedTitle(
+                    item: item,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -94,20 +104,24 @@ class _MetadataRow extends StatelessWidget {
 }
 
 class _Poster extends StatelessWidget {
-  const _Poster({required this.item, this.posterResolver});
+  const _Poster({
+    required this.item,
+    this.posterResolver,
+    this.imageLoadLimiter,
+  });
 
   final ExploreWorkItem item;
   final PosterResolver? posterResolver;
+  final ImageLoadLimiter? imageLoadLimiter;
 
   Widget _network(String url) {
-    return Image.network(
-      url,
+    return AnitabiNetworkImage(
+      url: url,
       fit: BoxFit.cover,
-      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-        if (wasSynchronouslyLoaded || frame != null) return child;
-        return _FallbackTile(item: item);
-      },
-      errorBuilder: (context, error, stackTrace) => _FallbackTile(item: item),
+      gaplessPlayback: true,
+      loadLimiter: imageLoadLimiter,
+      loadingBuilder: (_) => _FallbackTile(item: item),
+      errorBuilder: (_) => _FallbackTile(item: item),
     );
   }
 
@@ -148,7 +162,15 @@ class _FallbackTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = item.title.trim();
+    final localeName = Localizations.localeOf(context).languageCode;
+    final title = localeName.startsWith('zh')
+        ? ((item.titleZh?.isNotEmpty ?? false)
+            ? item.titleZh!
+            : (item.titleOriginal ?? ''))
+        : (AnilistTitleService.instance.peekEnglishTitle(
+                  item.bangumiId ?? -1,
+                ) ??
+                (item.titleOriginal ?? ''));
     final glyph =
         title.runes.isEmpty ? '?' : String.fromCharCode(title.runes.first);
     final palette = _palettes[title.hashCode.abs() % _palettes.length];

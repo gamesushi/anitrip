@@ -1218,6 +1218,8 @@
   "exploreSearchHint": "Search works, places, cities",
   "exploreMyWorks": "My Works",
   "exploreHotWorks": "Popular Works",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "Makoto Shinkai Films",
   "explorePointCount": "{count} spots",
   "exploreEmpty": "No works available yet",
   "exploreLoadError": "Failed to load works. Check your network and retry.",

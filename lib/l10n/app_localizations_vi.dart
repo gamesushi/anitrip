@@ -2427,6 +2427,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get exploreHotWorks => 'Tác phẩm phổ biến';
 
   @override
+  String get exploreCollectionKyotoAnimation => 'Kyoto Animation';
+
+  @override
+  String get exploreCollectionMakotoShinkai => 'Phim của Makoto Shinkai';
+
+  @override
   String explorePointCount(int count) {
     return '$count địa điểm';
   }

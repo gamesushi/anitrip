@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../explore_work_item.dart';
 import '../poster_resolver.dart';
+import '../../widgets/image_load_limiter.dart';
 import 'work_card.dart';
 
 /// Horizontally scrolling row of [WorkCard]s under a section header.
@@ -11,6 +12,7 @@ class HorizontalWorkList extends StatelessWidget {
     required this.onWorkTap,
     this.pointLabelBuilder,
     this.posterResolver,
+    this.imageLoadLimiter,
     super.key,
   });
 
@@ -22,6 +24,10 @@ class HorizontalWorkList extends StatelessWidget {
   final String? Function(ExploreWorkItem item)? pointLabelBuilder;
 
   final PosterResolver? posterResolver;
+
+  /// Caps simultaneous cover downloads so iOS's connection pool and the image
+  /// CDN don't drop requests (which leaves some covers on the placeholder).
+  final ImageLoadLimiter? imageLoadLimiter;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +46,7 @@ class HorizontalWorkList extends StatelessWidget {
             item: item,
             pointLabel: pointLabelBuilder?.call(item),
             posterResolver: posterResolver,
+            imageLoadLimiter: imageLoadLimiter,
             onTap: () => onWorkTap(item),
           );
         },

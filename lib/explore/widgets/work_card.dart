@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import '../../app_theme.dart';
 import '../explore_work_item.dart';
 import '../poster_resolver.dart';
+import '../../data/anilist_title_service.dart';
+import '../../widgets/anitabi_network_image.dart';
+import '../../widgets/image_load_limiter.dart';
+import 'localized_title.dart';
 
 /// Single work card on the Explore tab: 2:3 poster area + title + a secondary
-/// line (point count, else city). When [ExploreWorkItem.imageUrl] is null
-/// (current MVP — no work-level poster source), the poster falls back to a
+/// line (point count, else city). When [ExploreWorkItem.imageUrl] is null the
+/// poster falls back to a Bangumi subject resolver and finally to a
 /// deterministic gradient tile with the work's first character.
 class WorkCard extends StatelessWidget {
   const WorkCard({
@@ -14,6 +18,7 @@ class WorkCard extends StatelessWidget {
     required this.onTap,
     this.pointLabel,
     this.posterResolver,
+    this.imageLoadLimiter,
     super.key,
   });
 
@@ -25,6 +30,10 @@ class WorkCard extends StatelessWidget {
   /// Resolves a Bangumi poster when [ExploreWorkItem.imageUrl] is null. When
   /// null too, the card shows the placeholder tile.
   final PosterResolver? posterResolver;
+
+  /// Caps simultaneous cover downloads so the connection pool / CDN don't drop
+  /// requests (leaving some covers stuck on the placeholder tile).
+  final ImageLoadLimiter? imageLoadLimiter;
 
   final VoidCallback onTap;
 
@@ -46,12 +55,16 @@ class WorkCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: AspectRatio(
                 aspectRatio: 2 / 3,
-                child: _Poster(item: item, posterResolver: posterResolver),
+                child: _Poster(
+                  item: item,
+                  posterResolver: posterResolver,
+                  imageLoadLimiter: imageLoadLimiter,
+                ),
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              item.title,
+            LocalizedTitle(
+              item: item,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
@@ -82,24 +95,27 @@ class WorkCard extends StatelessWidget {
 }
 
 class _Poster extends StatelessWidget {
-  const _Poster({required this.item, this.posterResolver});
+  const _Poster({
+    required this.item,
+    this.posterResolver,
+    this.imageLoadLimiter,
+  });
 
   final ExploreWorkItem item;
   final PosterResolver? posterResolver;
+  final ImageLoadLimiter? imageLoadLimiter;
 
   Widget _network(String url) {
-    return Image.network(
-      url,
+    // AnitabiNetworkImage retries across candidate hosts (image.anitabi.cn →
+    // img-tc.anitabi.cn mirror) and honours the shared load limiter, so a
+    // transient drop no longer strands a cover on the placeholder tile.
+    return AnitabiNetworkImage(
+      url: url,
       fit: BoxFit.cover,
-      // Keep the placeholder tile visible until the first frame decodes, so the
-      // poster never flashes blank while loading.
-      frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-        if (wasSynchronouslyLoaded || frame != null) {
-          return child;
-        }
-        return _FallbackTile(item: item);
-      },
-      errorBuilder: (context, error, stackTrace) => _FallbackTile(item: item),
+      gaplessPlayback: true,
+      loadLimiter: imageLoadLimiter,
+      loadingBuilder: (_) => _FallbackTile(item: item),
+      errorBuilder: (_) => _FallbackTile(item: item),
     );
   }
 
@@ -144,7 +160,15 @@ class _FallbackTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = item.title.trim();
+    final localeName = Localizations.localeOf(context).languageCode;
+    final title = localeName.startsWith('zh')
+        ? ((item.titleZh?.isNotEmpty ?? false)
+            ? item.titleZh!
+            : (item.titleOriginal ?? ''))
+        : (AnilistTitleService.instance.peekEnglishTitle(
+                  item.bangumiId ?? -1,
+                ) ??
+                (item.titleOriginal ?? ''));
     final glyph = title.runes.isEmpty
         ? '?'
         : String.fromCharCode(title.runes.first);

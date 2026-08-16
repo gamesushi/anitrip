@@ -5,6 +5,7 @@ import 'app_theme.dart';
 import 'data/anitabi_image_source_scope.dart';
 import 'data/pilgrimage_repository.dart';
 import 'explore/explore_screen.dart';
+import 'explore/explore_work_item.dart';
 import 'map/pilgrimage_map_screen.dart';
 import 'plan/add_points_screen.dart';
 import 'plan/plan_manager_screen.dart';
@@ -148,6 +149,20 @@ class _AppShellState extends State<AppShell> {
       // Index 2 since ExploreScreen was inserted at index 0.
       _selectedIndex = 2;
     });
+  }
+
+  /// Opens a tapped work on the map. Works live in per-work plans, so when the
+  /// tapped work belongs to a plan other than the active one we switch the
+  /// active plan first (and reload the controller) before jumping to the map.
+  Future<void> _openWorkOnMap(ExploreWorkItem item) async {
+    final planId = item.planId;
+    if (planId != null && planId != _planController?.plan.id) {
+      await widget.repository.setActivePlan(planId);
+      await _loadActivePlan();
+    }
+    if (mounted) {
+      _openMap();
+    }
   }
 
   /// Tapping the map tab's search bar should open the unified in-app search
@@ -327,7 +342,7 @@ class _AppShellState extends State<AppShell> {
                         controller: controller,
                         onOpenSearch: _openAddPoints,
                         searchRequest: _exploreSearchRequest,
-                        onOpenWork: (_) => _openMap(),
+                        onOpenWork: _openWorkOnMap,
                         onPlanCreated: _reloadAndOpenPlan,
                         onPlanUpdated: _loadActivePlan,
                       ),

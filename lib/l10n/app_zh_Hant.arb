@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "搜尋作品、地名、城市",
   "exploreMyWorks": "我的作品",
   "exploreHotWorks": "熱門作品",
+  "exploreCollectionKyotoAnimation": "京阿尼名作選",
+  "exploreCollectionMakotoShinkai": "新海誠劇場",
   "explorePointCount": "{count} 個地點",
   "exploreEmpty": "暫無作品數據",
   "exploreLoadError": "作品數據加載失敗，請檢查網絡後重試",

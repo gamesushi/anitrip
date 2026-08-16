@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "ค้นหาผลงาน สถานที่ เมือง",
   "exploreMyWorks": "ผลงานของฉัน",
   "exploreHotWorks": "ผลงานยอดนิยม",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "ผลงานชินไค มาคุโตะ",
   "explorePointCount": "{count} จุด",
   "exploreEmpty": "ยังไม่มีข้อมูลผลงาน",
   "exploreLoadError": "โหลดข้อมูลไม่สำเร็จ ตรวจสอบเครือข่ายแล้วลองใหม่",

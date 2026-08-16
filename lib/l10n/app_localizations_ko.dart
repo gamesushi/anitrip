@@ -2335,6 +2335,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exploreHotWorks => '인기 작품';
 
   @override
+  String get exploreCollectionKyotoAnimation => '교토 애니메이션';
+
+  @override
+  String get exploreCollectionMakotoShinkai => '신카이 마코토 작품';
+
+  @override
   String explorePointCount(int count) {
     return '명소 $count곳';
   }

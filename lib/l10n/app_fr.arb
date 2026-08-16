@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "Rechercher œuvres, lieux, villes",
   "exploreMyWorks": "Mes œuvres",
   "exploreHotWorks": "Œuvres populaires",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "Films de Makoto Shinkai",
   "explorePointCount": "{count} lieux",
   "exploreEmpty": "Aucune œuvre disponible",
   "exploreLoadError": "Échec du chargement. Vérifiez le réseau et réessayez.",

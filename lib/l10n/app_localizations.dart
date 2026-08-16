@@ -4376,6 +4376,18 @@ abstract class AppLocalizations {
   /// **'热门作品'**
   String get exploreHotWorks;
 
+  /// No description provided for @exploreCollectionKyotoAnimation.
+  ///
+  /// In zh, this message translates to:
+  /// **'京阿尼名作选'**
+  String get exploreCollectionKyotoAnimation;
+
+  /// No description provided for @exploreCollectionMakotoShinkai.
+  ///
+  /// In zh, this message translates to:
+  /// **'新海诚剧场'**
+  String get exploreCollectionMakotoShinkai;
+
   /// No description provided for @explorePointCount.
   ///
   /// In zh, this message translates to:

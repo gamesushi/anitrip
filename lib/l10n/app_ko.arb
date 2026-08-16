@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "작품, 지명, 도시 검색",
   "exploreMyWorks": "내 작품",
   "exploreHotWorks": "인기 작품",
+  "exploreCollectionKyotoAnimation": "교토 애니메이션",
+  "exploreCollectionMakotoShinkai": "신카이 마코토 작품",
   "explorePointCount": "명소 {count}곳",
   "exploreEmpty": "작품 데이터가 없습니다",
   "exploreLoadError": "작품 데이터를 불러오지 못했습니다. 네트워크를 확인 후 다시 시도하세요.",

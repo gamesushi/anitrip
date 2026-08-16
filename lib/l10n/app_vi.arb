@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "Tìm tác phẩm, địa danh, thành phố",
   "exploreMyWorks": "Tác phẩm của tôi",
   "exploreHotWorks": "Tác phẩm phổ biến",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "Phim của Makoto Shinkai",
   "explorePointCount": "{count} địa điểm",
   "exploreEmpty": "Chưa có dữ liệu tác phẩm",
   "exploreLoadError": "Tải thất bại. Kiểm tra mạng và thử lại.",

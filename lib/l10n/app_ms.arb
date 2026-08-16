@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "Cari karya, tempat, bandar",
   "exploreMyWorks": "Karya Saya",
   "exploreHotWorks": "Karya Popular",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "Filem Makoto Shinkai",
   "explorePointCount": "{count} lokasi",
   "exploreEmpty": "Tiada karya lagi",
   "exploreLoadError": "Gagal memuatkan. Semak rangkaian dan cuba lagi.",

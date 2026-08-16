@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "Поиск: тайтлы, места, города",
   "exploreMyWorks": "Мои тайтлы",
   "exploreHotWorks": "Популярное",
+  "exploreCollectionKyotoAnimation": "Kyoto Animation",
+  "exploreCollectionMakotoShinkai": "Фильмы Макото Синкая",
   "explorePointCount": "{count} мест",
   "exploreEmpty": "Нет данных о тайтлах",
   "exploreLoadError": "Не удалось загрузить. Проверьте сеть и повторите.",

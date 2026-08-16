@@ -2437,6 +2437,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get exploreHotWorks => 'Популярное';
 
   @override
+  String get exploreCollectionKyotoAnimation => 'Kyoto Animation';
+
+  @override
+  String get exploreCollectionMakotoShinkai => 'Фильмы Макото Синкая';
+
+  @override
   String explorePointCount(int count) {
     return '$count мест';
   }

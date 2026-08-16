@@ -2427,6 +2427,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get exploreHotWorks => 'Œuvres populaires';
 
   @override
+  String get exploreCollectionKyotoAnimation => 'Kyoto Animation';
+
+  @override
+  String get exploreCollectionMakotoShinkai => 'Films de Makoto Shinkai';
+
+  @override
   String explorePointCount(int count) {
     return '$count lieux';
   }

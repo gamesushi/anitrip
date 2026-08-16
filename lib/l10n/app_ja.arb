@@ -1212,6 +1212,8 @@
   "exploreSearchHint": "作品・地名・都市を検索",
   "exploreMyWorks": "マイ作品",
   "exploreHotWorks": "人気作品",
+  "exploreCollectionKyotoAnimation": "京都アニメーション",
+  "exploreCollectionMakotoShinkai": "新海誠劇場",
   "explorePointCount": "{count} 箇所",
   "exploreEmpty": "作品データがありません",
   "exploreLoadError": "作品データの読み込みに失敗しました。ネットワークを確認して再試行してください。",

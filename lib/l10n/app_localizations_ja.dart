@@ -2342,6 +2342,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get exploreHotWorks => '人気作品';
 
   @override
+  String get exploreCollectionKyotoAnimation => '京都アニメーション';
+
+  @override
+  String get exploreCollectionMakotoShinkai => '新海誠劇場';
+
+  @override
   String explorePointCount(int count) {
     return '$count 箇所';
   }

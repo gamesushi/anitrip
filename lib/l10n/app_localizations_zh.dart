@@ -2307,6 +2307,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get exploreHotWorks => '热门作品';
 
   @override
+  String get exploreCollectionKyotoAnimation => '京阿尼名作选';
+
+  @override
+  String get exploreCollectionMakotoShinkai => '新海诚剧场';
+
+  @override
   String explorePointCount(int count) {
     return '$count 个地点';
   }
@@ -4739,6 +4745,12 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get exploreHotWorks => '熱門作品';
+
+  @override
+  String get exploreCollectionKyotoAnimation => '京阿尼名作選';
+
+  @override
+  String get exploreCollectionMakotoShinkai => '新海誠劇場';
 
   @override
   String explorePointCount(int count) {

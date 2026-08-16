@@ -6,8 +6,10 @@ import '../app_theme.dart';
 import '../data/anitabi_client.dart';
 import '../data/pilgrimage_repository.dart';
 import '../l10n/app_localizations.dart';
+import '../plan/pilgrimage_models.dart';
 import '../plan/pilgrimage_plan_controller.dart';
 import '../plan/station_name_resolver.dart';
+import '../widgets/image_load_limiter.dart';
 import '../widgets/snackbar_helper.dart';
 import 'curated_collections.dart';
 import 'explore_work_item.dart';
@@ -15,6 +17,7 @@ import 'poster_resolver.dart';
 import 'work_importer.dart';
 import 'widgets/explore_search_bar.dart';
 import 'widgets/horizontal_work_list.dart';
+import 'widgets/localized_title.dart';
 import 'widgets/search_work_tile.dart';
 import 'widgets/work_section_header.dart';
 
@@ -43,9 +46,6 @@ class ExploreScreen extends StatefulWidget {
   /// search and resets the signal.
   final ValueNotifier<bool>? searchRequest;
 
-  /// Invoked when a work card is tapped.
-  final ValueChanged<ExploreWorkItem> onOpenWork;
-
   /// Invoked after a new per-work plan is created & imported, so AppShell can
   /// reload the active plan and switch to the Plan tab.
   final Future<void> Function() onPlanCreated;
@@ -55,6 +55,11 @@ class ExploreScreen extends StatefulWidget {
   final Future<void> Function() onPlanUpdated;
 
   final AnitabiClient? anitabiClient;
+
+  /// Invoked when a work card is tapped. Receives the tapped item (which may
+  /// carry a [ExploreWorkItem.planId]) so the shell can switch to the owning
+  /// plan before opening the map.
+  final Future<void> Function(ExploreWorkItem item) onOpenWork;
 
   @override
   State<ExploreScreen> createState() => _ExploreScreenState();
@@ -69,9 +74,18 @@ class _ExploreScreenState extends State<ExploreScreen>
   late final AnitabiClient _anitabiClient;
   final PosterResolver _posterResolver = PosterResolver();
   final StationNameResolver _stationResolver = StationNameResolver();
+  // Caps simultaneous cover downloads so iOS's per-host connection pool and the
+  // image CDN don't drop requests (which previously left some covers stuck on
+  // the placeholder tile). Mirrors the map's thumbnail limiter.
+  final ImageLoadLimiter _posterLoadLimiter = ImageLoadLimiter(6);
   WorkImporter? _workImporter;
   bool _isImporting = false;
   late Future<List<ExploreWorkItem>> _catalogFuture;
+
+  /// All of the user's plans, loaded once (and on pull-to-refresh). "我的作品"
+  /// aggregates works across every plan instead of only the active one, because
+  /// each imported work lives in its own per-work plan.
+  List<PilgrimagePlan>? _allPlans;
 
   // --- In-app search state ---
   final TextEditingController _searchController = TextEditingController();
@@ -89,6 +103,19 @@ class _ExploreScreenState extends State<ExploreScreen>
     _anitabiClient = widget.anitabiClient ?? AnitabiClient();
     _catalogFuture = _loadCatalog();
     widget.searchRequest?.addListener(_onSearchRequested);
+    _loadAllPlans();
+  }
+
+  Future<void> _loadAllPlans() async {
+    final repository = widget.controller.repository;
+    if (repository == null) {
+      return;
+    }
+    final plans = await repository.loadPlans();
+    if (!mounted) {
+      return;
+    }
+    setState(() => _allPlans = plans);
   }
 
   @override
@@ -106,16 +133,6 @@ class _ExploreScreenState extends State<ExploreScreen>
       widget.searchRequest?.value = false;
       _startSearch();
     }
-  }
-
-  /// Whether [item] is already imported into the active plan (matched by
-  /// Bangumi id).
-  bool _isInPlan(ExploreWorkItem item) {
-    final bangumiId = item.bangumiId;
-    if (bangumiId == null) {
-      return false;
-    }
-    return widget.controller.plan.works.any((w) => w.bangumiId == bangumiId);
   }
 
   /// Explore's core workflow change: tapping a not-yet-added work imports it
@@ -148,8 +165,8 @@ class _ExploreScreenState extends State<ExploreScreen>
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  item.title,
+                LocalizedTitle(
+                  item: item,
                   style: const TextStyle(
                     fontSize: 19,
                     fontWeight: FontWeight.w800,
@@ -226,6 +243,9 @@ class _ExploreScreenState extends State<ExploreScreen>
       if (!mounted) {
         return;
       }
+      // Refresh the aggregated "我的作品" list so the newly imported work shows
+      // up immediately (the active-plan-only view would have missed it).
+      unawaited(_loadAllPlans());
       // Resolve transit-hub names and rename areas in the background, retrying
       // on Overpass failures — never blocks the import.
       if (result.createdAreas.isNotEmpty) {
@@ -329,21 +349,60 @@ class _ExploreScreenState extends State<ExploreScreen>
       _catalogFuture = future;
     });
     await future;
+    await _loadAllPlans();
   }
 
-  /// Local works from the active plan, with per-work point counts.
+  /// Works the user has imported, aggregated across ALL plans (each imported
+  /// work lives in its own per-work plan, so the active plan alone only ever
+  /// shows the most recently added work). Deduplicated by Bangumi id; point
+  /// counts are summed per work. While plans are still loading this falls back
+  /// to the active plan so the section never flickers away.
   List<ExploreWorkItem> _localWorks() {
-    final plan = widget.controller.plan;
-    final counts = <String, int>{};
-    for (final point in plan.points) {
-      counts.update(point.work.id, (value) => value + 1, ifAbsent: () => 1);
+    final plans = _allPlans ?? [widget.controller.plan];
+    final workByKey = <String, (PilgrimageWork, String)>{};
+    final pointCounts = <String, int>{};
+    for (final plan in plans) {
+      final counts = <String, int>{};
+      for (final point in plan.points) {
+        counts.update(point.work.id, (value) => value + 1, ifAbsent: () => 1);
+      }
+      for (final work in plan.works) {
+        // Key by Bangumi id when available (so the same work imported into
+        // multiple plans collapses to one card); fall back to the work's own
+        // id for Bangumi-less works so they aren't dropped.
+        final key = work.bangumiId?.toString() ?? work.id;
+        pointCounts[key] = (pointCounts[key] ?? 0) + (counts[work.id] ?? 0);
+        workByKey.putIfAbsent(key, () => (work, plan.id));
+      }
     }
-    return plan.works
+    return workByKey.entries
         .map(
-          (work) =>
-              ExploreWorkItem.fromLocal(work, pointCount: counts[work.id] ?? 0),
+          (entry) => ExploreWorkItem.fromLocal(
+            entry.value.$1,
+            pointCount: pointCounts[entry.key] ?? 0,
+            planId: entry.value.$2,
+          ),
         )
         .toList(growable: false);
+  }
+
+  /// Whether [item] is already imported. A local work carries its owning
+  /// [ExploreWorkItem.planId], so it's treated as imported immediately. For
+  /// catalog items (no planId) we match by Bangumi id across ALL plans, not
+  /// just the active one — so tapping a work added to a different plan opens
+  /// it instead of re-triggering the import sheet.
+  bool _isInPlan(ExploreWorkItem item) {
+    if (item.planId != null) {
+      return true;
+    }
+    final bangumiId = item.bangumiId;
+    if (bangumiId == null) {
+      return false;
+    }
+    final plans = _allPlans ?? [widget.controller.plan];
+    return plans.any(
+      (plan) => plan.works.any((work) => work.bangumiId == bangumiId),
+    );
   }
 
   String? _pointLabel(ExploreWorkItem item) {
@@ -410,14 +469,13 @@ class _ExploreScreenState extends State<ExploreScreen>
       final lower = query.toLowerCase();
       final results = catalog
           .where((item) =>
-              item.title.toLowerCase().contains(lower) ||
-              (item.subtitle?.toLowerCase().contains(lower) ?? false) ||
+              item.searchableText.toLowerCase().contains(lower) ||
               (item.city?.toLowerCase().contains(lower) ?? false))
           .toList();
       // Sort: exact title match first, then prefix, then substring.
       results.sort((a, b) {
-        final aTitle = a.title.toLowerCase();
-        final bTitle = b.title.toLowerCase();
+        final aTitle = a.searchableText.toLowerCase();
+        final bTitle = b.searchableText.toLowerCase();
         final aExact = aTitle == lower ? 0 : aTitle.startsWith(lower) ? 1 : 2;
         final bExact = bTitle == lower ? 0 : bTitle.startsWith(lower) ? 1 : 2;
         if (aExact != bExact) return aExact.compareTo(bExact);
@@ -557,6 +615,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                     items: localWorks,
                     pointLabelBuilder: _pointLabel,
                     posterResolver: _posterResolver,
+                    imageLoadLimiter: _posterLoadLimiter,
                     onWorkTap: _onWorkTap,
                   ),
                 ),
@@ -589,6 +648,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                       collectionLimit: _collectionLimit,
                       pointLabelBuilder: _pointLabel,
                       posterResolver: _posterResolver,
+                      imageLoadLimiter: _posterLoadLimiter,
                       onWorkTap: _onWorkTap,
                     );
                   },
@@ -611,6 +671,7 @@ class _CatalogSections extends StatelessWidget {
     required this.collectionLimit,
     required this.pointLabelBuilder,
     required this.posterResolver,
+    required this.imageLoadLimiter,
     required this.onWorkTap,
   });
 
@@ -620,6 +681,7 @@ class _CatalogSections extends StatelessWidget {
   final int collectionLimit;
   final String? Function(ExploreWorkItem item) pointLabelBuilder;
   final PosterResolver posterResolver;
+  final ImageLoadLimiter imageLoadLimiter;
   final ValueChanged<ExploreWorkItem> onWorkTap;
 
   @override
@@ -634,6 +696,7 @@ class _CatalogSections extends StatelessWidget {
         items: hotWorks,
         pointLabelBuilder: pointLabelBuilder,
         posterResolver: posterResolver,
+        imageLoadLimiter: imageLoadLimiter,
         onWorkTap: onWorkTap,
       ),
     ];
@@ -647,12 +710,13 @@ class _CatalogSections extends StatelessWidget {
         continue;
       }
       sections
-        ..add(WorkSectionHeader(title: collection.title))
+        ..add(WorkSectionHeader(title: collection.localizedTitle(context)))
         ..add(
           HorizontalWorkList(
             items: matches,
             pointLabelBuilder: pointLabelBuilder,
             posterResolver: posterResolver,
+            imageLoadLimiter: imageLoadLimiter,
             onWorkTap: onWorkTap,
           ),
         );

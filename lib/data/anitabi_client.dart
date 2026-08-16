@@ -346,12 +346,14 @@ class AnitabiPointLookupResult {
 class AnitabiMapWorkLite {
   const AnitabiMapWorkLite({
     required this.bangumiId,
-    required this.title,
+    this.titleZh,
+    this.titleOriginal,
     required this.subtitle,
     required this.city,
     required this.center,
     required this.zoom,
     required this.points,
+    this.imageUrl,
   });
 
   factory AnitabiMapWorkLite.fromCompactJson(List<Object?> json) {
@@ -359,22 +361,59 @@ class AnitabiMapWorkLite {
     final centerLng = (json[10] as num?)?.toDouble() ?? 135.0;
     return AnitabiMapWorkLite(
       bangumiId: (json[0] as num).toInt(),
-      title: _preferredString(json[1], json[3]) ?? 'Anitabi',
+      titleZh: _compactStringValue(json[1]),
+      titleOriginal: _compactStringValue(json[3]),
       subtitle: _compactStringValue(json[3]) ?? '',
       city: _compactStringValue(json[4]) ?? '未设置地区',
       center: LatLng(centerLat, centerLng),
       zoom: (json[11] as num?)?.toDouble() ?? 12,
       points: _compactLitePoints(json[12]),
+      imageUrl: _anitabiImageUrl(_compactStringValue(json[6])),
     );
   }
 
   final int bangumiId;
-  final String title;
+
+  /// Chinese name from the anitabi static index (index 1). `null` for some
+  /// foreign/older works that only carry an original name.
+  final String? titleZh;
+
+  /// Original name (index 3) — Japanese for anime, English/Latin for Western
+  /// titles. Shown when the UI locale is not Chinese.
+  final String? titleOriginal;
+
+  /// Default display title (Chinese-preferred). Kept for call sites without a
+  /// locale context (e.g. the import screen).
+  String get title =>
+      titleZh?.isNotEmpty == true ? titleZh! : (titleOriginal ?? 'Anitabi');
+
+  /// Locale-aware display title: Chinese locales show [titleZh]; all others
+  /// show [titleOriginal]. Falls back to the other field when one is missing.
+  String displayTitle([String? localeName]) {
+    final isZh =
+        localeName == null || localeName.toLowerCase().startsWith('zh');
+    if (isZh) {
+      return titleZh?.isNotEmpty == true
+          ? titleZh!
+          : (titleOriginal ?? 'Anitabi');
+    }
+    return titleOriginal?.isNotEmpty == true
+        ? titleOriginal!
+        : (titleZh ?? 'Anitabi');
+  }
+
+  /// Locale-independent name used for matching/caching.
+  String get matchTitle => titleZh ?? titleOriginal ?? '';
+
   final String subtitle;
   final String city;
   final LatLng center;
   final double zoom;
   final Map<String, AnitabiMapLitePoint> points;
+
+  /// Cover/poster URL from the anitabi static index (index 6 of the compact
+  /// row). `null` when the index provides no image.
+  final String? imageUrl;
 
   AnitabiMapLitePoint? pointById(String pointId) {
     return points[pointId];
@@ -552,10 +591,6 @@ class AnitabiPoint {
 String? _stringValue(Object? value) {
   final text = value?.toString().trim();
   return text?.isEmpty == true ? null : text;
-}
-
-String? _preferredString(Object? primary, Object? fallback) {
-  return _compactStringValue(primary) ?? _compactStringValue(fallback);
 }
 
 String? _compactStringValue(Object? value) {
