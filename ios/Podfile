@@ -73,4 +73,151 @@ post_install do |installer|
   else
     puts "Warning: #{generated_xcconfig} not found; FLUTTER_ROOT may be missing at build time."
   end
+
+  # --- MapLibre dSYM auto-fetch + Runner build-phase injection ---
+  # The maplibre_ios plugin vendors MapLibre as a PREBUILT xcframework shipped inside the
+  # plugin (at .dart_tool/maplibre_xcframework/MapLibre.xcframework, reachable via the
+  # .symlinks/plugins/maplibre_ios symlink). It is NOT a CocoaPods pod, so it never shows up
+  # in installer.pod_targets / Podfile.lock / ios/Pods. That xcframework ships WITHOUT a dSYM,
+  # so Xcode archive validation fails with:
+  #   "The archive did not include a dSYM for the MapLibre.framework with the UUIDs [...]"
+  # Fix: read the vendored framework's version from its Info.plist, download the version-matched
+  # dSYM from maplibre-native's GitHub release, and inject a Run Script phase into the Runner
+  # target that copies it into the archive's dSYMs folder during `archive`.
+  begin
+    require 'fileutils'
+    require 'xcodeproj'
+    ios_dir = File.dirname(__FILE__)
+
+    # Resolve the MapLibre version via several fallbacks, using the first that yields one:
+    #   1. The vendored MapLibre.framework's Info.plist (CFBundleShortVersionString) — reflects
+    #      exactly what gets embedded. Search Pods, the resolved maplibre_ios plugin symlink
+    #      (points into the pub cache, outside ios), and the whole ios tree.
+    #   2. CocoaPods' in-memory resolution (pod_targets / aggregate_targets), in case a future
+    #      plugin version switches to the CocoaPods MapLibre pod.
+    #   3. Podfile.lock on disk (present from a prior install; flushed after post_install).
+    ml_version = nil
+    begin
+      # MapLibre is vendored inside the maplibre_ios plugin as a prebuilt xcframework
+      # (.dart_tool/maplibre_xcframework/MapLibre.xcframework/.../MapLibre.framework), NOT a
+      # CocoaPods pod. Scan for its Info.plist across the likely locations.
+      search_roots = [
+        File.join(ios_dir, 'Pods'),
+        File.join(ios_dir, '.symlinks'),
+      ]
+      # Resolve the maplibre_ios plugin symlink — it points into the pub cache (outside ios),
+      # which is where the vendored xcframework actually lives.
+      plugin_symlink = File.join(ios_dir, '.symlinks', 'plugins', 'maplibre_ios')
+      if File.exist?(plugin_symlink)
+        begin
+          search_roots << File.realpath(plugin_symlink)
+        rescue
+          search_roots << plugin_symlink
+        end
+      end
+      search_roots << ios_dir # whole ios tree, filtered below
+      plist_paths = search_roots.flat_map do |root|
+        # FNM_DOTMATCH so hidden dirs (.dart_tool, .symlinks) are traversed too.
+        Dir.glob(File.join(root, '**', 'MapLibre.framework', 'Info.plist'), File::FNM_DOTMATCH)
+      end.reject { |p| p.include?('DerivedData') || p.include?('/build/') }.uniq
+      plist_path = plist_paths.first
+      if plist_path && File.exist?(plist_path)
+        # Info.plist is a *binary* plist, so a plain UTF-8 read raises. Use PlistBuddy
+        # (always present on macOS, where CocoaPods runs) to extract the version, with a
+        # binary-safe fallback scan.
+        v = `/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "#{plist_path}" 2>/dev/null`.strip
+        if v =~ /\A\d+\.\d+\.\d+\z/
+          ml_version = v
+        else
+          data = File.binread(plist_path).force_encoding('UTF-8')
+          m = data.match(/CFBundleShortVersionString\b.*?([\d.]+)/m)
+          ml_version = m[1] if m
+        end
+      end
+    rescue
+      # ignore, try next strategy
+    end
+
+    if ml_version.nil?
+      begin
+        candidates = (installer.pod_targets rescue []) +
+                     (installer.aggregate_targets.flat_map(&:pod_targets) rescue [])
+        ml_target = candidates.find { |pt| pt.name.to_s.downcase.include?('maplibre') }
+        if ml_target && ml_target.specs && !ml_target.specs.empty?
+          ml_version = ml_target.specs.first.version.to_s
+        end
+      rescue
+        ml_version = nil
+      end
+    end
+
+    if ml_version.nil?
+      lock_path = File.join(ios_dir, 'Podfile.lock')
+      if File.exist?(lock_path)
+        File.foreach(lock_path) do |line|
+          m = line.match(/MapLibre\s+\((\d+\.\d+\.\d+)\)/)
+          ml_version = m[1] if m
+        end
+      end
+    end
+
+    if ml_version.nil?
+      puts 'MapLibre dSYM: could not resolve MapLibre version; skipping dSYM fetch (run pod install again).'
+    else
+      dsym_dir = File.join(ios_dir, 'maplibre-dsym')
+      version_marker = File.join(dsym_dir, '.ml_version')
+      current = File.exist?(version_marker) ? File.read(version_marker).strip : nil
+      dsym_present = Dir.exist?(File.join(dsym_dir, 'MapLibre_ios_device.framework.dSYM'))
+      need_download = (current != ml_version) || !dsym_present
+
+      if need_download
+        puts "MapLibre dSYM: fetching dSYM for MapLibre #{ml_version} ..."
+        FileUtils.mkdir_p(dsym_dir)
+        zip_path = File.join(dsym_dir, 'MapLibre_ios_device.framework.dSYM.zip')
+        url = "https://github.com/maplibre/maplibre-native/releases/download/ios-v#{ml_version}/MapLibre_ios_device.framework.dSYM.zip"
+        if system('curl', '-fL', '-o', zip_path, url) && File.exist?(zip_path)
+          FileUtils.rm_rf(File.join(dsym_dir, 'MapLibre_ios_device.framework.dSYM'))
+          if system('unzip', '-o', '-q', zip_path, '-d', dsym_dir)
+            File.write(version_marker, ml_version)
+            File.delete(zip_path) if File.exist?(zip_path)
+            puts "MapLibre dSYM: saved to #{dsym_dir}"
+          else
+            puts "MapLibre dSYM: unzip failed."
+          end
+        else
+          puts "MapLibre dSYM: download failed (network needed during pod install). Archive step will warn until resolved."
+        end
+      else
+        puts "MapLibre dSYM: already present for MapLibre #{ml_version}, skipping download."
+      end
+
+      # Inject (or refresh) the Run Script phase into the Runner target.
+      runner_proj = File.join(ios_dir, 'Runner.xcodeproj')
+      if File.exist?(runner_proj)
+        project = Xcodeproj::Project.open(runner_proj)
+        runner_target = project.targets.find { |t| t.name == 'Runner' }
+        if runner_target
+          runner_target.build_phases.delete_if { |p| p.respond_to?(:name) && p.name == 'Copy MapLibre dSYM' }
+          phase = runner_target.new_shell_script_build_phase('Copy MapLibre dSYM')
+          phase.shell_script = <<~'SCRIPT'
+            if [ "${ACTION}" = "archive" ]; then
+              SRC="${PROJECT_DIR}/maplibre-dsym/MapLibre_ios_device.framework.dSYM"
+              if [ -d "${SRC}" ]; then
+                cp -R "${SRC}" "${DWARF_DSYM_FOLDER_PATH}/"
+                echo "Copied MapLibre device dSYM into archive"
+              else
+                echo "WARNING: MapLibre dSYM missing at ${SRC}; run 'pod install' to fetch the version-matched dSYM"
+              fi
+            fi
+          SCRIPT
+          project.save
+          puts "MapLibre dSYM: injected 'Copy MapLibre dSYM' build phase into Runner."
+        end
+      else
+        puts "MapLibre dSYM: Runner.xcodeproj not found; skipping build-phase injection."
+      end
+    end
+  rescue => e
+    puts "MapLibre dSYM: automation skipped due to error: #{e.message}"
+  end
 end

@@ -205,6 +205,7 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				31749A8E5EA388F455429EFF /* [CP] Copy Pods Resources */,
+				AC8217D8BA8906EE0017051E /* Copy MapLibre dSYM */,
 			);
 			buildRules = (
 			);
@@ -351,6 +352,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
+		};
+		AC8217D8BA8906EE0017051E /* Copy MapLibre dSYM */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy MapLibre dSYM";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${ACTION}\" = \"archive\" ]; then\n  SRC=\"${PROJECT_DIR}/maplibre-dsym/MapLibre_ios_device.framework.dSYM\"\n  if [ -d \"${SRC}\" ]; then\n    cp -R \"${SRC}\" \"${DWARF_DSYM_FOLDER_PATH}/\"\n    echo \"Copied MapLibre device dSYM into archive\"\n  else\n    echo \"WARNING: MapLibre dSYM missing at ${SRC}; run 'pod install' to fetch the version-matched dSYM\"\n  fi\nfi\n";
 		};
 		B1A4633B5181C5E654C4F346 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
