@@ -40,4 +40,37 @@ post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
   end
+
+  # Flutter + CocoaPods integration: make sure each Pods-Runner xcconfig pulls in Flutter's
+  # Generated.xcconfig (for FLUTTER_ROOT etc.) and also defines the critical Flutter build
+  # settings directly. CocoaPods Regenerates these files on every `pod install` and would
+  # otherwise drop them, which breaks the build with:
+  #   "/packages/flutter_tools/bin/xcode_backend.sh: No such file or directory"
+  generated_xcconfig = File.join(File.dirname(__FILE__), 'Flutter', 'Generated.xcconfig')
+  if File.exist?(generated_xcconfig)
+    include_line = '#include "../../../Flutter/Generated.xcconfig"'
+    flutter_root_line = 'FLUTTER_ROOT = /opt/homebrew/share/flutter'
+    flutter_app_path_line = 'FLUTTER_APPLICATION_PATH = /Users/hebeihang/DEV/sns/anitrip'
+    flutter_target_line = 'FLUTTER_TARGET = lib/main.dart'
+    flutter_build_name_line = 'FLUTTER_BUILD_NAME = 1.1.5'
+    flutter_build_number_line = 'FLUTTER_BUILD_NUMBER = 22'
+    pods_runner_dir = File.join(File.dirname(__FILE__), 'Pods', 'Target Support Files', 'Pods-Runner')
+    ['debug', 'release', 'profile'].each do |config|
+      config_path = File.join(pods_runner_dir, "Pods-Runner.#{config}.xcconfig")
+      next unless File.exist?(config_path)
+      contents = File.read(config_path)
+      # Ensure the Generated.xcconfig include is present (prepend if missing).
+      unless contents.include?('Flutter/Generated.xcconfig')
+        contents = "#{include_line}\n#{contents}"
+      end
+      # Ensure the critical Flutter build settings are present (append if missing),
+      # so they survive even if the include is somehow skipped.
+      unless contents.include?(flutter_root_line)
+        contents << "\n#{flutter_root_line}\n#{flutter_app_path_line}\n#{flutter_target_line}\n#{flutter_build_name_line}\n#{flutter_build_number_line}\n"
+      end
+      File.write(config_path, contents)
+    end
+  else
+    puts "Warning: #{generated_xcconfig} not found; FLUTTER_ROOT may be missing at build time."
+  end
 end
