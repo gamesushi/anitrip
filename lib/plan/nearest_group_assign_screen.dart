@@ -16,6 +16,7 @@ import '../widgets/constrained_menu_anchor.dart';
 import '../widgets/snackbar_helper.dart';
 import 'pilgrimage_models.dart';
 import 'plan_group_utils.dart';
+import '../../l10n/app_localizations.dart';
 
 class NearestGroupAssignScreen extends StatefulWidget {
   const NearestGroupAssignScreen({
@@ -99,6 +100,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final mapPoints = selectedItemsLast<PilgrimagePoint>(
       _ungroupedPoints,
       isSelected: (point) => point.id == _selectedPoint?.id,
@@ -115,11 +117,11 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             onPressed: () => Navigator.of(context).pop(_didUpdate),
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('最近分配'),
+          title: Text(l10n.mapImportOrganizeNearestAssign),
         ),
         body: Stack(
           children: [
@@ -273,6 +275,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
   }
 
   Future<void> _confirmAssign() async {
+    final l10n = AppLocalizations.of(context)!;
     if (_isSaving) {
       return;
     }
@@ -282,17 +285,18 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       (total, ids) => total + ids.length,
     );
     if (count == 0) {
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('当前距离内没有可分配点位')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.noAssignablePointsWithinTheCurrentDistance)));
       return;
     }
     final confirmed = await showConfirmActionDialog(
       context,
-      title: '确认最近分配',
+      title: l10n.confirmRecentAssignment,
       message:
-          '将把 $count 个未分组点位分配到最近的片区关键点，最大距离为 ${_formatDistance(_distanceMeters)}。',
-      confirmLabel: '开始分配',
+          l10n.willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2((count).toString(), (_formatDistance(_distanceMeters)).toString()),
+      confirmLabel: l10n.startAssignment,
       icon: Icons.near_me_outlined,
     );
     if (!confirmed || !mounted) {
@@ -303,6 +307,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       _isSaving = true;
     });
     try {
+      final l10n = AppLocalizations.of(context)!;
       await widget.repository.saveAppSettings(
         widget.settings.copyWith(nearestAssignDistanceMeters: _distanceMeters),
       );
@@ -325,8 +330,9 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(SnackBar(content: Text('已分配 $count 个点位')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.assignedPoints3((count).toString()))));
     } catch (_) {
+      final l10n = AppLocalizations.of(context)!;
       if (!mounted) {
         return;
       }
@@ -335,7 +341,7 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('最近分配失败')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.recentAssignmentFailed)));
     }
   }
 
@@ -346,9 +352,10 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       status: VisitStatus.pending,
       onSetCurrent: () {},
       onOpenCamera: () {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(
           context,
-        ).showReplacingSnackBar(const SnackBar(content: Text('请先完成片区分配')));
+        ).showReplacingSnackBar(SnackBar(content: Text(l10n.finishAreaAssignmentFirst)));
       },
       onComplete: () {},
       onReplaceReference: _replaceReferenceImage,
@@ -479,6 +486,7 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final targetGroup = _targetGroup;
     final selectedBoxPoints = _selectedBoxPoints;
     final mapPoints = selectedItemsLast<PilgrimagePoint>(
@@ -497,11 +505,11 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             onPressed: () => Navigator.of(context).pop(_didUpdate),
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('框选分配'),
+          title: Text(l10n.btnBoxSelectAssign),
         ),
         body: Stack(
           children: [
@@ -651,28 +659,31 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
   }
 
   Future<void> _confirmAssignBox() async {
+    final l10n = AppLocalizations.of(context)!;
     if (_isSaving) {
       return;
     }
     final targetGroup = _targetGroup;
     final points = _selectedBoxPoints;
     if (targetGroup == null) {
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('请先创建片区')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.createAnAreaFirst)));
       return;
     }
     if (points.isEmpty) {
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('框选范围内没有未分组点位')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.noUngroupedPointsWithinTheBoxSelection)));
       return;
     }
     final confirmed = await showConfirmActionDialog(
       context,
-      title: '确认框选分配',
-      message: '将把 ${points.length} 个未分组点位移动到「${targetGroup.name}」。',
-      confirmLabel: '分配',
+      title: l10n.confirmBoxSelectionAssignment,
+      message: l10n.willMoveUngroupedPointsTo2((points.length).toString(), (targetGroup.name).toString()),
+      confirmLabel: l10n.assign,
       icon: Icons.select_all_outlined,
     );
     if (!confirmed || !mounted) {
@@ -683,6 +694,7 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
       _isSaving = true;
     });
     try {
+      final l10n = AppLocalizations.of(context)!;
       final updatedPlan = await widget.repository.movePointsToGroup(
         planId: _plan.id,
         pointIds: points.map((point) => point.id).toSet(),
@@ -700,9 +712,10 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
         _isSaving = false;
       });
       ScaffoldMessenger.of(context).showReplacingSnackBar(
-        SnackBar(content: Text('已分配 ${points.length} 个点位')),
+        SnackBar(content: Text(l10n.assignedPoints4((points.length).toString()))),
       );
     } catch (_) {
+      final l10n = AppLocalizations.of(context)!;
       if (!mounted) {
         return;
       }
@@ -711,7 +724,7 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showReplacingSnackBar(const SnackBar(content: Text('框选分配失败')));
+      ).showReplacingSnackBar(SnackBar(content: Text(l10n.boxSelectionAssignmentFailed)));
     }
   }
 
@@ -722,9 +735,10 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
       status: VisitStatus.pending,
       onSetCurrent: () {},
       onOpenCamera: () {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(
           context,
-        ).showReplacingSnackBar(const SnackBar(content: Text('请先完成片区分配')));
+        ).showReplacingSnackBar(SnackBar(content: Text(l10n.finishAreaAssignmentFirst)));
       },
       onComplete: () {},
       onReplaceReference: _replaceReferenceImage,
@@ -799,6 +813,7 @@ class _BoxAssignPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return DecoratedBox(
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.96),
@@ -830,7 +845,7 @@ class _BoxAssignPanel extends StatelessWidget {
                           icon: const Icon(Icons.folder_outlined, size: 18),
                           style: AppButtonStyles.compactOutlinedButton(),
                           label: Text(
-                            targetGroup?.name ?? '选择片区',
+                            targetGroup?.name ?? l10n.selectArea,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -863,7 +878,7 @@ class _BoxAssignPanel extends StatelessWidget {
                       isBoxSelecting ? Icons.close : Icons.select_all_outlined,
                       size: 17,
                     ),
-                    label: Text(isBoxSelecting ? '结束框选' : '框选'),
+                    label: Text(isBoxSelecting ? l10n.endBoxSelect : l10n.boxSelect),
                   ),
                 ),
               ],
@@ -873,7 +888,7 @@ class _BoxAssignPanel extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    '已框选 $selectedCount / 未分组 $ungroupedCount',
+                    l10n.selectedUngrouped((selectedCount).toString(), (ungroupedCount).toString()),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -893,7 +908,7 @@ class _BoxAssignPanel extends StatelessWidget {
                         ? null
                         : onAssign,
                     style: AppButtonStyles.compactFilledButton(),
-                    child: Text(isSaving ? '分配中' : '分配'),
+                    child: Text(isSaving ? l10n.assigning : l10n.assign),
                   ),
                 ),
               ],
@@ -960,6 +975,7 @@ class _NearestAssignPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return DecoratedBox(
       decoration: BoxDecoration(
         color: AppColors.surface.withValues(alpha: 0.96),
@@ -977,7 +993,7 @@ class _NearestAssignPanel extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    '最大距离 ${_formatDistance(distanceMeters)} · 可分配 $assignableCount/$ungroupedCount',
+                    l10n.maxDistanceAssignable((_formatDistance(distanceMeters)).toString(), (assignableCount).toString(), (ungroupedCount).toString()),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -991,14 +1007,14 @@ class _NearestAssignPanel extends StatelessWidget {
                   height: 36,
                   child: FilledButton(
                     onPressed: isSaving || groupCount == 0 ? null : onAssign,
-                    child: Text(isSaving ? '分配中' : '分配'),
+                    child: Text(isSaving ? l10n.assigning : l10n.assign),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 4),
-            const Text(
-              '未分组点位会分配到距离最近、且在最大距离范围内的片区关键点。',
+            Text(
+              l10n.ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance,
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 12,
@@ -1039,6 +1055,7 @@ class _NearestAssignPointCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     return Padding(
       padding: EdgeInsets.fromLTRB(12, 0, 12, 12 + bottomInset),
@@ -1074,7 +1091,7 @@ class _NearestAssignPointCard extends StatelessWidget {
                     const SizedBox(height: 3),
                     Text(
                       nearestGroup == null
-                          ? '没有可用片区关键点'
+                          ? l10n.noAvailableAreaAnchors
                           : '${nearestGroup!.name} · ${_formatDistance(distanceMeters ?? 0)}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -1088,7 +1105,7 @@ class _NearestAssignPointCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              OutlinedButton(onPressed: onOpenDetail, child: const Text('详情')),
+              OutlinedButton(onPressed: onOpenDetail, child: Text(l10n.mapImportPointDetailBtn)),
             ],
           ),
         ),
@@ -1108,6 +1125,7 @@ class _NearestAssignHintCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     return Padding(
       padding: EdgeInsets.fromLTRB(12, 0, 12, 12 + bottomInset),
@@ -1121,8 +1139,8 @@ class _NearestAssignHintCard extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Text(
             groupCount == 0
-                ? '请先创建片区（可用「智能分区」一键生成）'
-                : '未分组 $ungroupedCount 个 · 点击地图点位查看详情',
+                ? l10n.createAnAreaFirstYouCanUseSmartZoningToGenerateOne
+                : l10n.ungroupedTapAMapPointForDetails((ungroupedCount).toString()),
             textAlign: TextAlign.center,
             style: const TextStyle(
               color: AppColors.textSecondary,
@@ -1149,9 +1167,10 @@ class _AssignPointMarker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final color = assignable ? AppColors.accent : AppColors.surfaceMuted;
     return IconButton(
-      tooltip: assignable ? '可分配点位' : '距离外点位',
+      tooltip: assignable ? l10n.assignablePoints : l10n.outOfRangePoints,
       onPressed: onTap,
       style: IconButton.styleFrom(
         backgroundColor: selected ? AppColors.accentDark : color,

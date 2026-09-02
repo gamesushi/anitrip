@@ -306,22 +306,22 @@ class AppLocalizationsTh extends AppLocalizations {
   String get labelNote => 'หมายเหตุ';
 
   @override
-  String get themeClassicGreen => 'สีเขียวคลาสสิก';
+  String get themeClassicGreen => 'Classic green';
 
   @override
-  String get themeDeepBlue => 'สีน้ำเงินเข้ม';
+  String get themeDeepBlue => 'Deep blue';
 
   @override
-  String get themeCherryPink => 'ผงซากุระ';
+  String get themeCherryPink => 'Cherry pink';
 
   @override
-  String get themeTwilightPurple => 'ทไวไลท์สีม่วง';
+  String get themeTwilightPurple => 'Twilight purple';
 
   @override
-  String get themeMiriaYellow => 'สีส้มอำพัน';
+  String get themeMiriaYellow => 'Honey orange';
 
   @override
-  String get themeGraphite => 'กราไฟท์สีดำ';
+  String get themeGraphite => 'Graphite black';
 
   @override
   String get themeAurora => 'ปรับแต่ง';
@@ -2533,5 +2533,1346 @@ class AppLocalizationsTh extends AppLocalizations {
   @override
   String planNameForWork(String title) {
     return '$title จาริกแสวงบุญ';
+  }
+
+  @override
+  String get btnCopy => 'คัดลอก';
+
+  @override
+  String get btnShare => 'แชร์';
+
+  @override
+  String get btnView => 'ดู';
+
+  @override
+  String get imageViewerSaveTitle => 'บันทึกรูปภาพ';
+
+  @override
+  String get imageViewerSaveToGallery => 'บันทึกลงคลังภาพ';
+
+  @override
+  String get imageViewerLoading => 'กำลังโหลดรูปภาพ';
+
+  @override
+  String get imageViewerEmpty => 'ไม่มีรูปภาพ';
+
+  @override
+  String get imageViewerUnavailable => 'ไม่สามารถใช้รูปภาพได้';
+
+  @override
+  String get imageViewerReadFailed => 'อ่านรูปภาพไม่สำเร็จ';
+
+  @override
+  String get imageViewerSaved => 'บันทึกรูปภาพแล้ว';
+
+  @override
+  String get imageViewerSavedToGallery => 'บันทึกลงคลังภาพแล้ว';
+
+  @override
+  String get imageViewerSaveFailed => 'บันทึกไม่สำเร็จ';
+
+  @override
+  String get imageViewerSaveCancelled => 'ยกเลิกการบันทึก';
+
+  @override
+  String get appShellPlanFileImportFailed => 'นำเข้าไฟล์แผนไม่สำเร็จ';
+
+  @override
+  String get appShellPlanLoadFailed => 'โหลดแผนไม่สำเร็จ';
+
+  @override
+  String get appShellPlanLoading => 'กำลังโหลดแผนจาริก';
+
+  @override
+  String get appShellRetryHint => 'โปรดลองอีกครั้งในภายหลัง';
+
+  @override
+  String get appShellLoadingHint => 'กำลังเตรียมจุดวันนี้และเป้าหมายปัจจุบัน';
+
+  @override
+  String get recordDetailTitle => 'รายละเอียดบันทึก';
+
+  @override
+  String get recordDetailAutoGrading => 'จับคู่สีอัตโนมัติ';
+
+  @override
+  String get recordDetailDelete => 'ลบบันทึก';
+
+  @override
+  String get recordDetailViewPoint => 'ดูรายละเอียดจุด';
+
+  @override
+  String get recordDetailDeleteConfirmBody =>
+      'จะลบเฉพาะบันทึกนี้ สถานะการเยือนจุดจะไม่เปลี่ยนแปลง';
+
+  @override
+  String get recordDetailDeletePhotoFile => 'ลบไฟล์รูปภาพด้วย';
+
+  @override
+  String get recordDetailExportPrefUnsupported =>
+      'แพลตฟอร์มนี้ยังไม่รองรับการบันทึกค่ากำหนดการส่งออก';
+
+  @override
+  String get recordDetailPointMissing =>
+      'จุดของบันทึกนี้ไม่อยู่ในแผนปัจจุบันแล้ว แต่รูปภาพและการส่งออกยังใช้งานได้';
+
+  @override
+  String get pointRecordsTitle => 'บันทึกการถ่ายภาพของจุด';
+
+  @override
+  String pointRecordsCount(int count) {
+    return '$count รายการ';
+  }
+
+  @override
+  String get pointRecordsEmpty => 'ยังไม่มีบันทึกการถ่ายภาพสำหรับจุดนี้';
+
+  @override
+  String get labelUngrouped => 'ไม่จัดกลุ่ม';
+
+  @override
+  String get labelGraded => 'ปรับสีแล้ว';
+
+  @override
+  String get labelOriginal => 'ต้นฉบับ';
+
+  @override
+  String get gradingBrightness => 'ความสว่าง';
+
+  @override
+  String get gradingExposure => 'การเปิดรับแสง';
+
+  @override
+  String get gradingContrast => 'ความเปรียบต่าง';
+
+  @override
+  String get gradingSaturation => 'ความอิ่มตัวของสี';
+
+  @override
+  String get gradingTemperature => 'อุณหภูมิสี';
+
+  @override
+  String get gradingTint => 'โทนสี';
+
+  @override
+  String get gradingHighlights => 'ไฮไลต์';
+
+  @override
+  String get gradingShadows => 'เงา';
+
+  @override
+  String get gradingRedShadow => 'R เงา';
+
+  @override
+  String get gradingRedMid => 'R กลางโทน';
+
+  @override
+  String get gradingRedHighlight => 'R ไฮไลต์';
+
+  @override
+  String get gradingGreenShadow => 'G เงา';
+
+  @override
+  String get gradingGreenMid => 'G กลางโทน';
+
+  @override
+  String get gradingGreenHighlight => 'G ไฮไลต์';
+
+  @override
+  String get gradingBlueShadow => 'B เงา';
+
+  @override
+  String get gradingBlueMid => 'B กลางโทน';
+
+  @override
+  String get gradingBlueHighlight => 'B ไฮไลต์';
+
+  @override
+  String get recordDetailCapturedPhoto => 'ภาพของคุณ';
+
+  @override
+  String get failedToReadPilgrimagePhoto2 => 'Failed to read pilgrimage photo';
+
+  @override
+  String get noReferenceImageAvailableForAuto2 =>
+      'No reference image available for auto color match';
+
+  @override
+  String get autoColorMatchFailed2 => 'Auto color match failed';
+
+  @override
+  String get autoColorParametersGenerated2 => 'Auto color parameters generated';
+
+  @override
+  String get revertedToOriginalPhoto2 => 'Reverted to original photo';
+
+  @override
+  String get matchTheColorToneAutomaticallyFirst2 =>
+      'Match the color tone automatically first';
+
+  @override
+  String get colorGradingResultSaved2 => 'Color grading result saved';
+
+  @override
+  String get failedToReadPhoto2 => 'Failed to read photo';
+
+  @override
+  String get matching2 => 'Matching…';
+
+  @override
+  String get autoMatchTone2 => 'Auto match tone';
+
+  @override
+  String get reference2 => 'Reference';
+
+  @override
+  String get noReferenceImage2 => 'No reference image';
+
+  @override
+  String get original2 => 'Original';
+
+  @override
+  String get graded3 => 'Graded';
+
+  @override
+  String get showingOriginal2 => 'Showing original';
+
+  @override
+  String get holdToShowOriginal2 => 'Hold to show original';
+
+  @override
+  String get matchMode2 => 'Match mode';
+
+  @override
+  String get restoredLastColorGradingParameters2 =>
+      'Restored last color grading parameters';
+
+  @override
+  String get saveTheGradedResultAfterAuto2 =>
+      'Save the graded result after auto matching';
+
+  @override
+  String get toneMatching2 => 'Tone matching';
+
+  @override
+  String get gradingIntensity2 => 'Grading intensity';
+
+  @override
+  String get gradingParameters2 => 'Grading parameters';
+
+  @override
+  String get showsTheParametersActuallyAppliedAt2 =>
+      'Shows the parameters actually applied at the current grading intensity.';
+
+  @override
+  String get contrast2 => 'Contrast';
+
+  @override
+  String get saturation2 => 'Saturation';
+
+  @override
+  String get redShadows2 => 'Red shadows';
+
+  @override
+  String get redMidtones2 => 'Red midtones';
+
+  @override
+  String get redHighlights2 => 'Red highlights';
+
+  @override
+  String get greenShadows2 => 'Green shadows';
+
+  @override
+  String get greenMidtones2 => 'Green midtones';
+
+  @override
+  String get greenHighlights2 => 'Green highlights';
+
+  @override
+  String get blueShadows2 => 'Blue shadows';
+
+  @override
+  String get blueMidtones2 => 'Blue midtones';
+
+  @override
+  String get blueHighlights2 => 'Blue highlights';
+
+  @override
+  String get saveResult2 => 'Save result';
+
+  @override
+  String get afterSavingTheRecordDetailAnd2 =>
+      'After saving, the record detail and export use the graded photo; the original and grading parameters are kept.';
+
+  @override
+  String get saving2 => 'Saving…';
+
+  @override
+  String get saveColorGrading2 => 'Save color grading';
+
+  @override
+  String get manualOrder2 => 'Manual order';
+
+  @override
+  String get noAssignablePointsWithinTheCurrent2 =>
+      'No assignable points within the current distance';
+
+  @override
+  String get confirmNearestAssignment2 => 'Confirm nearest assignment';
+
+  @override
+  String get startAssigning2 => 'Start assigning';
+
+  @override
+  String get nearestAssignmentFailed2 => 'Nearest assignment failed';
+
+  @override
+  String get finishAreaAssignmentFirst2 => 'Finish area assignment first';
+
+  @override
+  String get createAnAreaFirst2 => 'Create an area first';
+
+  @override
+  String get noUngroupedPointsInTheSelection2 =>
+      'No ungrouped points in the selection';
+
+  @override
+  String get confirmBoxSelectionAssignment2 =>
+      'Confirm box selection assignment';
+
+  @override
+  String get assign2 => 'Assign';
+
+  @override
+  String get boxSelectionAssignmentFailed2 => 'Box selection assignment failed';
+
+  @override
+  String get selectArea2 => 'Select area';
+
+  @override
+  String get finishBoxSelection2 => 'Finish box selection';
+
+  @override
+  String get boxSelect2 => 'Box select';
+
+  @override
+  String get assigning2 => 'Assigning…';
+
+  @override
+  String get ungroupedPointsAreAssignedToThe2 =>
+      'Ungrouped points are assigned to the nearest area anchor within the maximum distance.';
+
+  @override
+  String get noAvailableAreaAnchors2 => 'No available area anchors';
+
+  @override
+  String get createAnAreaFirstUseSmart2 =>
+      'Create an area first (use “Smart Partition” for one-tap generation)';
+
+  @override
+  String get assignablePoints2 => 'Assignable points';
+
+  @override
+  String get pointsOutOfRange2 => 'Points out of range';
+
+  @override
+  String get eGHttpsWwAnitabiCn2 =>
+      'e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get thisWorkWasNotFoundOn2 => 'This work was not found on Anitabi';
+
+  @override
+  String get thisWorkHasNoAnitabiPoints2 =>
+      'This work has no Anitabi points yet';
+
+  @override
+  String get thisBangumiEntryHasNoMatching2 =>
+      'This Bangumi entry has no matching work in Anitabi\'s map data. Try adding the same anime, original work, or a related entry.';
+
+  @override
+  String get theWorkExistsOnAnitabiBut2 =>
+      'The work exists on Anitabi, but there are no importable map points yet.';
+
+  @override
+  String get newArea2 => 'New area';
+
+  @override
+  String get areaCreationFailed2 => 'Area creation failed';
+
+  @override
+  String get renameArea2 => 'Rename area';
+
+  @override
+  String get areaName2 => 'Area name';
+
+  @override
+  String get areaRenameFailed2 => 'Area rename failed';
+
+  @override
+  String get failedToSaveSortOrder2 => 'Failed to save sort order';
+
+  @override
+  String get failedToGenerateRecommendedRoute2 =>
+      'Failed to generate recommended route';
+
+  @override
+  String get failedToSaveAnchor2 => 'Failed to save anchor';
+
+  @override
+  String get deleteArea2 => 'Delete area';
+
+  @override
+  String get areaDeletionFailed2 => 'Area deletion failed';
+
+  @override
+  String get failedToSaveAreaOrder2 => 'Failed to save area order';
+
+  @override
+  String get ungroupedPoints2 => 'Ungrouped points';
+
+  @override
+  String get areaNameCannotBeEmpty2 => 'Area name cannot be empty';
+
+  @override
+  String get create2 => 'Create';
+
+  @override
+  String get areaActions2 => 'Area actions';
+
+  @override
+  String get rename2 => 'Rename';
+
+  @override
+  String get setAnchor2 => 'Set anchor';
+
+  @override
+  String get switchToUnordered2 => 'Switch to unordered';
+
+  @override
+  String get switchToManualOrder2 => 'Switch to manual order';
+
+  @override
+  String get importContent2 => 'Import content';
+
+  @override
+  String get chooseWhatToImport2 => 'Choose what to import';
+
+  @override
+  String get importingWillNotModifyCurrentData2 =>
+      'Importing will not modify current data.';
+
+  @override
+  String get planStructure2 => 'Plan structure';
+
+  @override
+  String get worksAreasPointsCompletionStatusAnd2 =>
+      'Works, areas, points, completion status, and current target.';
+
+  @override
+  String get captureRecords2 => 'Capture records';
+
+  @override
+  String get v1FilesContainNoPhotoAssets2 =>
+      'v1 files contain no photo assets; only the plan structure is imported.';
+
+  @override
+  String get thisPackageHasNoCaptureRecords2 =>
+      'This package has no capture records.';
+
+  @override
+  String get imagesAndResourceFiles2 => 'Images and resource files';
+
+  @override
+  String get packageNotes2 => 'Package notes';
+
+  @override
+  String get missingOrCompatibilityInfoRecordedDuring2 =>
+      'Missing or compatibility info recorded during export.';
+
+  @override
+  String get importing2 => 'Importing…';
+
+  @override
+  String get importSelected2 => 'Import selected';
+
+  @override
+  String get importFailed2 => 'Import failed';
+
+  @override
+  String get thisPackageHasNoRecoverableResource2 =>
+      'This package has no recoverable resource files.';
+
+  @override
+  String get resourcesWereRecordedButNoRecoverable2 =>
+      'Resources were recorded, but no recoverable resource files are present.';
+
+  @override
+  String get resources2 => 'Resources';
+
+  @override
+  String get version2 => 'Version';
+
+  @override
+  String get pointName2 => 'Point name';
+
+  @override
+  String get subtitle2 => 'Subtitle';
+
+  @override
+  String get episodeScene2 => 'Episode / Scene';
+
+  @override
+  String get sourceId2 => 'Source ID';
+
+  @override
+  String get referenceImageUrl2 => 'Reference image URL';
+
+  @override
+  String get recordCount2 => 'Record count';
+
+  @override
+  String get yes2 => 'Yes';
+
+  @override
+  String get no2 => 'No';
+
+  @override
+  String get recordId2 => 'Record ID';
+
+  @override
+  String get referenceMode2 => 'Reference mode';
+
+  @override
+  String get graded4 => 'Graded?';
+
+  @override
+  String get photoFileName2 => 'Photo file name';
+
+  @override
+  String get gradedPhotoFileName2 => 'Graded photo file name';
+
+  @override
+  String customXyzUrlMustIncludeZ2(Object x, Object y, Object z) {
+    return 'Custom XYZ URL must include $z, $x, $y and use http/https.';
+  }
+
+  @override
+  String get customMaplibreStyleUrlMustUse2 =>
+      'Custom MapLibre style URL must use http/https.';
+
+  @override
+  String get photoImportFailedPleaseChooseAgain2 =>
+      'Photo import failed, please choose again.';
+
+  @override
+  String get readingReferenceRatioPleaseWaitBefore2 =>
+      'Reading reference ratio, please wait before capturing.';
+
+  @override
+  String get cameraPermissionRequired2 => 'Camera permission required';
+
+  @override
+  String get nativeCameraFailedToInitialize2 =>
+      'Native camera failed to initialize';
+
+  @override
+  String get switchToLandscapeUi2 => 'Switch to landscape UI';
+
+  @override
+  String get importFromAlbum3 => 'Import from album';
+
+  @override
+  String get switchCamera3 => 'Switch camera';
+
+  @override
+  String get switchToPortraitUi2 => 'Switch to portrait UI';
+
+  @override
+  String get checkPhoto2 => 'Check photo';
+
+  @override
+  String get flash2 => 'Flash';
+
+  @override
+  String get switchCamera4 => 'Switch camera';
+
+  @override
+  String get importFromAlbum4 => 'Import from album';
+
+  @override
+  String get iosNativeCameraDidNotStart2 => 'iOS native camera did not start';
+
+  @override
+  String get savingRecord2 => 'Saving record…';
+
+  @override
+  String get backingUpPilgrimagePhotos2 => 'Backing up pilgrimage photos…';
+
+  @override
+  String get generatingComparison2 => 'Generating comparison…';
+
+  @override
+  String get updatingPointStatus2 => 'Updating point status…';
+
+  @override
+  String get savingTheRecordPleaseWait2 => 'Saving the record, please wait.';
+
+  @override
+  String get confirmRecord2 => 'Confirm record';
+
+  @override
+  String get saveRecord2 => 'Save record';
+
+  @override
+  String get saveAndMarkComplete2 => 'Save and mark complete';
+
+  @override
+  String get savedAndMarkedComplete2 => 'Saved and marked complete';
+
+  @override
+  String get recordSaved2 => 'Record saved';
+
+  @override
+  String get saveFailedPleaseTryAgainLater2 =>
+      'Save failed, please try again later.';
+
+  @override
+  String get loadingReference2 => 'Loading reference…';
+
+  @override
+  String get referenceTemporarilyUnavailable2 =>
+      'Reference temporarily unavailable';
+
+  @override
+  String get anitripPhoto2 => 'anitrip photo';
+
+  @override
+  String willAssignCountUngroupedPointsTo2(Object count, Object dist) {
+    return 'Will assign $count ungrouped points to the nearest area anchor, max distance $dist.';
+  }
+
+  @override
+  String assignedCountPoints2(Object count) {
+    return 'Assigned $count points';
+  }
+
+  @override
+  String willMovePointsUngroupedPointsTo2(Object group, Object points) {
+    return 'Will move $points ungrouped points to “$group”.';
+  }
+
+  @override
+  String assignedPointsPoints2(Object points) {
+    return 'Assigned $points points';
+  }
+
+  @override
+  String selectedSelUngroupedUng2(Object sel, Object ung) {
+    return 'Selected $sel / Ungrouped $ung';
+  }
+
+  @override
+  String maxDistanceDistAssignableAUng2(Object a, Object dist, Object ung) {
+    return 'Max distance $dist · Assignable $a / $ung';
+  }
+
+  @override
+  String ungUngroupedTapAMapPoint2(Object ung) {
+    return '$ung ungrouped · tap a map point for details';
+  }
+
+  @override
+  String workHasNoImportableAnitabiPoints2(Object work) {
+    return '“$work” has no importable Anitabi points yet.';
+  }
+
+  @override
+  String deleteGroupItsCountPointsWill2(Object count, Object group) {
+    return 'Delete “$group”? Its $count points will move to ungrouped.';
+  }
+
+  @override
+  String groupsAreasPointsPoints2(Object groups, Object points) {
+    return '$groups areas · $points points';
+  }
+
+  @override
+  String pointsPointsAnchorOrder2(Object anchor, Object order, Object points) {
+    return '$points points · $anchor · $order';
+  }
+
+  @override
+  String countPointsAwaitingOrganization2(Object count) {
+    return '$count points awaiting organization';
+  }
+
+  @override
+  String recordsRecordsIncludingPhotoPathsAnd2(Object records) {
+    return '$records records, including photo paths and grading parameters.';
+  }
+
+  @override
+  String importedPlanPlan2(Object plan) {
+    return 'Imported plan “$plan”';
+  }
+
+  @override
+  String importedPlanPlanSomeResourcesWere2(Object plan) {
+    return 'Imported plan “$plan”; some resources were not restored';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles3(Object count) {
+    return 'The package has $count resource files; this platform cannot restore them yet.';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles4(Object count) {
+    return 'The package has $count resource files and they will be restored to local storage.';
+  }
+
+  @override
+  String countLandmarks2(Object count) {
+    return '$count landmarks';
+  }
+
+  @override
+  String countScreenshots2(Object count) {
+    return '$count screenshots';
+  }
+
+  @override
+  String nativeCameraFailedToInitializeError2(Object error) {
+    return 'Native camera failed to initialize: $error';
+  }
+
+  @override
+  String get savingRecordStage => 'Saving record...';
+
+  @override
+  String get backingUpPilgrimagePhotoStage => 'Backing up pilgrimage photo...';
+
+  @override
+  String get generatingComparisonImageStage => 'Generating comparison...';
+
+  @override
+  String get updatingPointStatusStage => 'Updating point status...';
+
+  @override
+  String get savingRecordPleaseWait => 'Saving record, please wait.';
+
+  @override
+  String get confirmRecordTitle => 'Confirm Record';
+
+  @override
+  String get saveRecord => 'Save Record';
+
+  @override
+  String get saveAndMarkComplete => 'Save & Mark Complete';
+
+  @override
+  String get savedAndMarkedComplete => 'Saved & marked complete';
+
+  @override
+  String get recordSaved => 'Record saved';
+
+  @override
+  String get backupSavedToAlbumSuffix => ', and backed up to album';
+
+  @override
+  String get albumBackupFailedSuffix => '; album backup failed';
+
+  @override
+  String nextPointNameSuffix(String name) {
+    return 'next: $name';
+  }
+
+  @override
+  String get comparisonSavedToAlbumSuffix => ', comparison saved to album';
+
+  @override
+  String get referenceUnavailableComparisonSuffix =>
+      ', reference unavailable, comparison not generated';
+
+  @override
+  String get capturedUnavailableComparisonSuffix =>
+      ', pilgrimage photo unavailable, comparison not generated';
+
+  @override
+  String get comparisonGalleryFailedSuffix =>
+      ', comparison save to album failed';
+
+  @override
+  String get comparisonRenderFailedSuffix => ', comparison generation failed';
+
+  @override
+  String get saveToAlbum => 'Save to Album';
+
+  @override
+  String get savedToAlbum => 'Saved to album';
+
+  @override
+  String get saveFailedRetry => 'Save failed, please retry.';
+
+  @override
+  String get referenceModeLabel => 'Reference Mode';
+
+  @override
+  String get newArea => 'New area';
+
+  @override
+  String get areaCreationFailed => 'Area creation failed';
+
+  @override
+  String get renameArea => 'Rename area';
+
+  @override
+  String get areaName => 'Area name';
+
+  @override
+  String get areaRenameFailed => 'Area rename failed';
+
+  @override
+  String get sortOrderSaveFailed => 'Sort order save failed';
+
+  @override
+  String get recommendedRouteGenerationFailed =>
+      'Recommended route generation failed';
+
+  @override
+  String pointsAbout(String routeorderedPointslength) {
+    return '$routeorderedPointslength points · about ';
+  }
+
+  @override
+  String onFoot(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters on foot';
+  }
+
+  @override
+  String get anchorSaveFailed => 'Anchor save failed';
+
+  @override
+  String get deleteArea => 'Delete area';
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints(
+    String groupname,
+    String pointCount,
+  ) {
+    return 'Delete \"$groupname\"? $pointCount points will be moved to ungrouped points.';
+  }
+
+  @override
+  String get areaDeletionFailed => 'Area deletion failed';
+
+  @override
+  String get areaOrderSaveFailed => 'Area order save failed';
+
+  @override
+  String get ungroupedPoints => 'Ungrouped points';
+
+  @override
+  String get areaNameCannotBeEmpty => 'Area name cannot be empty';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String areasPoints(String groupCount, String planpointslength) {
+    return '$groupCount areas · $planpointslength points';
+  }
+
+  @override
+  String get manualOrder => 'Manual order';
+
+  @override
+  String points(String pointCount, String anchorLabel, String orderLabel) {
+    return '$pointCount points · $anchorLabel · $orderLabel';
+  }
+
+  @override
+  String get areaActions => 'Area actions';
+
+  @override
+  String get rename => 'Rename';
+
+  @override
+  String get setAnchor => 'Set anchor';
+
+  @override
+  String get switchToUnordered => 'Switch to unordered';
+
+  @override
+  String get switchToManualOrder => 'Switch to manual order';
+
+  @override
+  String pointsAwaitingOrganization(String pointCount) {
+    return '$pointCount points awaiting organization';
+  }
+
+  @override
+  String get noAssignablePointsWithinTheCurrentDistance =>
+      'No assignable points within the current distance';
+
+  @override
+  String get confirmRecentAssignment => 'Confirm recent assignment';
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return 'Will assign $count ungrouped points to the nearest area anchor, with a maximum distance of $formatDistancedistanceMeters.';
+  }
+
+  @override
+  String assignedPoints(String count) {
+    return 'Assigned $count points';
+  }
+
+  @override
+  String get recentAssignmentFailed => 'Recent assignment failed';
+
+  @override
+  String get finishAreaAssignmentFirst => 'Finish area assignment first';
+
+  @override
+  String get createAnAreaFirst => 'Create an area first';
+
+  @override
+  String get noUngroupedPointsWithinTheBoxSelection =>
+      'No ungrouped points within the box selection';
+
+  @override
+  String get confirmBoxSelectionAssignment =>
+      'Confirm box selection assignment';
+
+  @override
+  String willMoveUngroupedPointsTo(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return 'Will move $pointslength ungrouped points to \"$targetGroupname\".';
+  }
+
+  @override
+  String get assign => 'Assign';
+
+  @override
+  String assignedPoints2(String pointslength) {
+    return 'Assigned $pointslength points';
+  }
+
+  @override
+  String get boxSelectionAssignmentFailed => 'Box selection assignment failed';
+
+  @override
+  String get selectArea => 'Select area';
+
+  @override
+  String get boxSelect => 'Box select';
+
+  @override
+  String get endBoxSelect => 'End box select';
+
+  @override
+  String selectedUngrouped(String selectedCount, String ungroupedCount) {
+    return 'Selected $selectedCount / ungrouped $ungroupedCount';
+  }
+
+  @override
+  String get assigning => 'Assigning';
+
+  @override
+  String maxDistanceAssignable(
+    String formatDistancedistanceMeters,
+    String assignableCount,
+    String ungroupedCount,
+  ) {
+    return 'Max distance $formatDistancedistanceMeters · assignable $assignableCount/$ungroupedCount';
+  }
+
+  @override
+  String
+  get ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance =>
+      'Ungrouped points are assigned to the nearest area anchor within the maximum distance.';
+
+  @override
+  String get noAvailableAreaAnchors => 'No available area anchors';
+
+  @override
+  String get createAnAreaFirstYouCanUseSmartZoningToGenerateOne =>
+      'Create an area first (you can use \"Smart zoning\" to generate one).';
+
+  @override
+  String ungroupedTapAMapPointForDetails(String ungroupedCount) {
+    return 'Ungrouped $ungroupedCount · tap a map point for details';
+  }
+
+  @override
+  String get outOfRangePoints => 'Out-of-range points';
+
+  @override
+  String get assignablePoints => 'Assignable points';
+
+  @override
+  String get importContent => 'Import content';
+
+  @override
+  String get selectImportContent => 'Select import content';
+
+  @override
+  String get importingWillNotModifyCurrentData =>
+      'Importing will not modify current data.';
+
+  @override
+  String get planStructure => 'Plan structure';
+
+  @override
+  String get worksAreasPointsCompletionStatusAndCurrentGoals =>
+      'Works, areas, points, completion status, and current goals.';
+
+  @override
+  String get captureRecords => 'Capture records';
+
+  @override
+  String get v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported =>
+      'v1 files do not include photo assets; only the plan structure is imported.';
+
+  @override
+  String recordsIncludingPhotoPathsAndColorGradingParameters(
+    String packagevisitRecordCount,
+  ) {
+    return '$packagevisitRecordCount records, including photo paths and color grading parameters.';
+  }
+
+  @override
+  String get thisPackageHasNoCaptureRecords =>
+      'This package has no capture records.';
+
+  @override
+  String get imagesAndResourceFiles => 'Images and resource files';
+
+  @override
+  String get notesInPackage => 'Notes in package';
+
+  @override
+  String get missingOrCompatibilityNotesRecordedDuringExport =>
+      'Missing or compatibility notes recorded during export.';
+
+  @override
+  String get importSelectedContent => 'Import selected content';
+
+  @override
+  String get importing => 'Importing...';
+
+  @override
+  String importedPlan(String importedPlanname) {
+    return 'Imported plan \"$importedPlanname\"';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored(String importedPlanname) {
+    return 'Imported plan \"$importedPlanname\", but some assets were not restored';
+  }
+
+  @override
+  String get importFailed => 'Import failed';
+
+  @override
+  String get thisPackageHasNoRecoverableAssetFiles =>
+      'This package has no recoverable asset files.';
+
+  @override
+  String get thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles =>
+      'The package recorded assets, but there are no recoverable asset files.';
+
+  @override
+  String get assets => 'Assets';
+
+  @override
+  String get version => 'Version';
+
+  @override
+  String get pointName => 'Point name';
+
+  @override
+  String get subtitle => 'Subtitle';
+
+  @override
+  String get episodeScene => 'Episode/Scene';
+
+  @override
+  String get sourceId => 'Source ID';
+
+  @override
+  String get referenceImageUrl => 'Reference image URL';
+
+  @override
+  String get recordCount => 'Record count';
+
+  @override
+  String get no => 'No';
+
+  @override
+  String get yes => 'Yes';
+
+  @override
+  String get gradedPhotoFileName => 'Graded photo file name';
+
+  @override
+  String get photoFileName => 'Photo file name';
+
+  @override
+  String get colorGraded => 'Color graded';
+
+  @override
+  String get recordId => 'Record ID';
+
+  @override
+  String get customMaplibreStyleUrlMustUseHttpHttps =>
+      'Custom MapLibre style URL must use http/https.';
+
+  @override
+  String get thisWorkWasnTFoundInAnitabi =>
+      'This work wasn\'t found in Anitabi';
+
+  @override
+  String get thisWorkHasNoAnitabiPointsYet =>
+      'This work has no Anitabi points yet';
+
+  @override
+  String
+  get thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName =>
+      'This Bangumi entry has no matching work in Anitabi map data. Try adding an animation, original work, or related entry with the same name.';
+
+  @override
+  String
+  get thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet =>
+      'This work exists in Anitabi, but there are no map points available to import yet.';
+
+  @override
+  String noImportableAnitabiPointsForYet(String workTitle) {
+    return 'No importable Anitabi points for \"$workTitle\" yet.';
+  }
+
+  @override
+  String get workPilgrimage => '<work> pilgrimage';
+
+  @override
+  String get areaN => 'Area N';
+
+  @override
+  String get loadingReferenceImage => 'Loading reference image';
+
+  @override
+  String get referenceImageUnavailable => 'Reference image unavailable';
+
+  @override
+  String get eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj =>
+      'e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get anitripImage => 'anitrip image';
+
+  @override
+  String landmarks(String itempointCount) {
+    return '$itempointCount landmarks';
+  }
+
+  @override
+  String screenshots(String itempointCount) {
+    return '$itempointCount screenshots';
+  }
+
+  @override
+  String get latestWorks => 'Latest works';
+
+  @override
+  String get nPlaces => 'N places';
+
+  @override
+  String get imageViewerShareSubject => 'รูปภาพ anitrip';
+
+  @override
+  String get imageViewerShareText => 'รูปภาพ anitrip';
+
+  @override
+  String get mapMarkerPilgrimagePoint => 'จุดสถานที่ศักดิ์สิทธ์';
+
+  @override
+  String get mapMapLibreUrlRequireHttp =>
+      'URL style MapLibre แบบกำหนดเองต้องใช้ http/https';
+
+  @override
+  String pointsAbout2(String routeorderedPointslength) {
+    return '$routeorderedPointslength points · about ';
+  }
+
+  @override
+  String onFoot2(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters on foot';
+  }
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints2(
+    String groupname,
+    String pointCount,
+  ) {
+    return 'Delete \"$groupname\"? $pointCount points will be moved to ungrouped points.';
+  }
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return 'Will assign $count ungrouped points to the nearest area anchor, with a maximum distance of $formatDistancedistanceMeters.';
+  }
+
+  @override
+  String get startAssignment => 'Start assignment';
+
+  @override
+  String assignedPoints3(String count) {
+    return 'Assigned $count points';
+  }
+
+  @override
+  String willMoveUngroupedPointsTo2(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return 'Will move $pointslength ungrouped points to \"$targetGroupname\".';
+  }
+
+  @override
+  String assignedPoints4(String pointslength) {
+    return 'Assigned $pointslength points';
+  }
+
+  @override
+  String importedPlan2(String importedPlanname) {
+    return 'Imported plan \"$importedPlanname\"';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored2(String importedPlanname) {
+    return 'Imported plan \"$importedPlanname\", but some assets were not restored';
+  }
+
+  @override
+  String get colorMatchNatural => 'Natural';
+
+  @override
+  String get colorMatchStandard => 'Standard';
+
+  @override
+  String get colorMatchStrong => 'Strong match';
+
+  @override
+  String get aspectRatioAuto => 'Auto';
+
+  @override
+  String get aspectRatioNative => 'Native ratio';
+
+  @override
+  String get themeCustom => 'Custom';
+
+  @override
+  String get importPackageV2Data => 'v2 data package';
+
+  @override
+  String get csvHeaderWork => 'Work';
+
+  @override
+  String get csvHeaderArea => 'Area';
+
+  @override
+  String get csvHeaderPointName => 'Point name';
+
+  @override
+  String get csvHeaderSubtitle => 'Subtitle';
+
+  @override
+  String get csvHeaderLatitude => 'Latitude';
+
+  @override
+  String get csvHeaderLongitude => 'Longitude';
+
+  @override
+  String get csvHeaderEpisodeScene => 'Episode/Scene';
+
+  @override
+  String get csvHeaderSource => 'Source';
+
+  @override
+  String get csvHeaderSourceId => 'Source ID';
+
+  @override
+  String get csvHeaderRefImageUrl => 'Reference image URL';
+
+  @override
+  String get csvHeaderCompleted => 'Completed';
+
+  @override
+  String get csvHeaderRecordCount => 'Record count';
+
+  @override
+  String get csvHeaderRecordId => 'Record ID';
+
+  @override
+  String get csvHeaderCapturedAt => 'Captured at';
+
+  @override
+  String get csvHeaderRefMode => 'Reference mode';
+
+  @override
+  String get csvHeaderColorGraded => 'Color graded';
+
+  @override
+  String get csvHeaderPhotoFile => 'Photo file name';
+
+  @override
+  String get csvHeaderGradedPhotoFile => 'Graded photo file name';
+
+  @override
+  String get refCacheNone => 'No reference images need caching for this plan';
+
+  @override
+  String refCacheDone(String succeeded, String total) {
+    return 'Cached $succeeded/$total full reference images';
+  }
+
+  @override
+  String refCacheDoneFailed(String succeeded, String total, String failed) {
+    return 'Cached $succeeded/$total full reference images, $failed failed';
+  }
+
+  @override
+  String refCacheProgress(String processed, String total, String succeeded) {
+    return 'Caching $processed/$total full reference images, $succeeded succeeded';
+  }
+
+  @override
+  String get anitabiUrlInvalidHttps => 'Enter a valid HTTPS URL';
+
+  @override
+  String get anitabiUrlNoAccount =>
+      'URL must not contain account, query, or fragment';
+
+  @override
+  String get anitabiUrlNoLocal => 'Cannot use localhost or LAN addresses';
+
+  @override
+  String packageAssetsRestoreLocal(String packageTotalAssetCount) {
+    return '$packageTotalAssetCount asset files in the package will be restored to local storage.';
+  }
+
+  @override
+  String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
+    return '$packageTotalAssetCount asset files in the package; restoring in-package assets is not supported on this platform yet.';
   }
 }

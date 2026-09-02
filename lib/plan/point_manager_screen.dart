@@ -69,7 +69,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
   var _selectionMode = false;
 
   List<PlanGroupBucket> get _groups =>
-      planGroupBuckets(_plan, _plan.completedPointIds);
+      planGroupBuckets(context, _plan, _plan.completedPointIds);
 
   int get _actualGroupCount =>
       _groups.where((group) => !group.isUngrouped).length;
@@ -137,7 +137,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
             if (!_isSaving && _plan.points.isNotEmpty)
               IconButton(
                 tooltip: _isCachingFullReferences
-                    ? _fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.managePlanCachingProgress
+                    ? _fullReferenceCacheProgress?.localizedLabel(context) ?? AppLocalizations.of(context)!.managePlanCachingProgress
                     : AppLocalizations.of(context)!.managePlanCacheFullReference,
                 onPressed: _selectionMode ? null : _handleReferenceCachePressed,
                 icon: _isCachingFullReferences
@@ -452,11 +452,13 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
 
   Future<void> _showAnchorSheet(PlanGroupBucket group) async {
     if (group.isUngrouped) {
-      return _showInfo('未分配点位没有关键点。');
+      final l10n = AppLocalizations.of(context)!;
+      return _showInfo(l10n.msgNoAnchorForUnassigned);
     }
     final sourceGroup = group.group;
     if (sourceGroup == null) {
-      return _showInfo('片区不存在。');
+      final l10n = AppLocalizations.of(context)!;
+      return _showInfo(l10n.msgAreaNotExist);
     }
     final settings = await widget.repository.loadAppSettings();
     if (!mounted) {
@@ -489,10 +491,12 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
 
   Future<void> _showOrderModeSheet(PlanGroupBucket group) {
     if (group.isUngrouped) {
-      return _showInfo('未分配点位不需要排序方式。');
+      final l10n = AppLocalizations.of(context)!;
+      return _showInfo(l10n.msgNoOrderForUnassigned);
     }
     if (group.group == null) {
-      return _showInfo('片区不存在。');
+      final l10n = AppLocalizations.of(context)!;
+      return _showInfo(l10n.msgAreaNotExist);
     }
     return showModalBottomSheet<void>(
       context: context,
@@ -1079,7 +1083,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
         });
         if (progress != null) {
           messenger.showReplacingSnackBar(
-            SnackBar(content: Text(progress.label)),
+            SnackBar(content: Text(progress.localizedLabel(context))),
           );
         }
       }
@@ -1088,7 +1092,7 @@ class _PointManagerScreenState extends State<PointManagerScreen> {
 
   Future<void> _handleReferenceCachePressed() async {
     if (_isCachingFullReferences) {
-      return _showInfo(_fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.msgCachingFullReferenceProgress);
+      return _showInfo(_fullReferenceCacheProgress?.localizedLabel(context) ?? AppLocalizations.of(context)!.msgCachingFullReferenceProgress);
     }
     final points = pointsNeedingFullReferenceCache(_plan.points);
     if (points.isEmpty) {
@@ -1161,9 +1165,10 @@ class _PlanManagerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final orderLabel = group.group?.orderMode == PlanGroupOrderMode.manual
-        ? '手动排序'
-        : '无序';
+        ? l10n.manualOrder
+        : l10n.groupOrderModeNone;
     final anchorLabel = group.group?.anchorName ?? AppLocalizations.of(context)!.labelAnchorNotSet;
 
     return Padding(

@@ -9,6 +9,8 @@ import '../data/reference_asset_paths.dart';
 import '../plan/pilgrimage_models.dart';
 import 'plan_export_v2.dart';
 import 'plan_package.dart';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 enum PlanImportPackageKind { legacyJson, anitripZip }
 
@@ -62,9 +64,9 @@ class PlanImportPackage {
 
   int get visitRecordCount => package.visitRecords.length;
 
-  String get versionLabel => switch (kind) {
+  String versionLabel(BuildContext context) => switch (kind) {
     PlanImportPackageKind.legacyJson => 'v1.0 JSON',
-    PlanImportPackageKind.anitripZip => 'v2 数据包',
+    PlanImportPackageKind.anitripZip => AppLocalizations.of(context)!.importPackageV2Data,
   };
 }
 

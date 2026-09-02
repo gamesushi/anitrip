@@ -24,7 +24,7 @@ extension ComparisonOutputWidthValue on ComparisonOutputWidth {
   };
 
   String get label => switch (this) {
-    ComparisonOutputWidth.auto => '自动',
+    ComparisonOutputWidth.auto => 'Auto',
     ComparisonOutputWidth.w1080 => '1080px',
     ComparisonOutputWidth.w1920 => '1920px',
     ComparisonOutputWidth.w2560 => '2560px',
@@ -42,12 +42,12 @@ extension ComparisonOutputWidthValue on ComparisonOutputWidth {
 
 extension ComparisonMetadataFieldLabel on ComparisonMetadataField {
   String get label => switch (this) {
-    ComparisonMetadataField.capturedAt => '拍摄时间',
-    ComparisonMetadataField.workTitle => '作品',
-    ComparisonMetadataField.pointName => '地点',
-    ComparisonMetadataField.coordinates => '坐标',
+    ComparisonMetadataField.capturedAt => 'Time',
+    ComparisonMetadataField.workTitle => 'Work',
+    ComparisonMetadataField.pointName => 'Point',
+    ComparisonMetadataField.coordinates => 'Coordinates',
     ComparisonMetadataField.anitabiId => 'Anitabi ID',
-    ComparisonMetadataField.episodeLabel => '场景',
+    ComparisonMetadataField.episodeLabel => 'Episode',
   };
 
   String getLocalizedLabel(BuildContext context) => switch (this) {

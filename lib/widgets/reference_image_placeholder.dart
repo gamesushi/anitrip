@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../../l10n/app_localizations.dart';
 
 enum ReferenceImagePlaceholderState { loading, unavailable, empty }
 
@@ -18,10 +19,11 @@ class ReferenceImagePlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final label = switch (state) {
-      ReferenceImagePlaceholderState.loading => '参考图加载中',
-      ReferenceImagePlaceholderState.unavailable => '参考图暂不可用',
-      ReferenceImagePlaceholderState.empty => '暂无参考图',
+      ReferenceImagePlaceholderState.loading => l10n.loadingReferenceImage,
+      ReferenceImagePlaceholderState.unavailable => l10n.referenceImageUnavailable,
+      ReferenceImagePlaceholderState.empty => l10n.addPointsRefImageTooltipEmpty,
     };
 
     return ColoredBox(

@@ -4,6 +4,22 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>es</string>
+		<string>fr</string>
+		<string>it</string>
+		<string>ja</string>
+		<string>ko</string>
+		<string>ms</string>
+		<string>pt</string>
+		<string>ru</string>
+		<string>th</string>
+		<string>vi</string>
+		<string>zh-Hans</string>
+		<string>zh-Hant</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -46,17 +62,17 @@
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
 	<key>NSCameraUsageDescription</key>
-	<string>anitrip 需要使用相机来拍摄巡礼照片。</string>
+	<string>anitrip needs camera access so you can take comparison photos at anime pilgrimage spots.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>anitrip 需要定位来在地图上显示当前位置。</string>
+	<string>anitrip needs your location to show your current position on the pilgrimage map.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>anitrip 可能需要定位权限来在巡礼地图中显示当前位置和辅助记录巡礼地点。</string>
+	<string>anitrip may use your location to show it on the pilgrimage map and to help record the spots you visit.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>anitrip 可能需要使用麦克风来支持拍摄相关功能中的声音采集。</string>
+	<string>anitrip may need microphone access to capture sound while recording at pilgrimage spots.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>anitrip 需要保存巡礼对比图到相册。</string>
+	<string>anitrip needs to save your side-by-side pilgrimage comparison images to your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>anitrip 需要访问相册来导入巡礼图片和参考图。</string>
+	<string>anitrip needs access to your photo library to import pilgrimage photos and reference images.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

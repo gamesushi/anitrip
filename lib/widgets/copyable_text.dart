@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../l10n/app_localizations.dart';
+
 OverlayEntry? _activeCopyOverlay;
 
 final NavigatorObserver copyOverlayNavigatorObserver =
@@ -148,7 +150,7 @@ class _CopyOverlay extends StatelessWidget {
               child: FilledButton.tonalIcon(
                 onPressed: onCopy,
                 icon: const Icon(Icons.copy_outlined, size: 16),
-                label: const Text('复制'),
+                label: Text(AppLocalizations.of(context)!.btnCopy),
                 style: FilledButton.styleFrom(
                   fixedSize: const Size(82, 42),
                   visualDensity: VisualDensity.compact,

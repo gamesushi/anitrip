@@ -1,0 +1,9 @@
+/* Localized permission request strings for anitrip. */
+/* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
+
+"NSCameraUsageDescription" = "anitrip은 성지순례 비교 사진을 촬영하기 위해 카메라 접근 권한이 필요합니다.";
+"NSLocationWhenInUseUsageDescription" = "anitrip은 순례 지도에 현재 위치를 표시하기 위해 위치 접근 권한이 필요합니다.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip은 순례 지도에 현재 위치를 표시하고 방문한 순례지 기록을 돕기 위해 위치 정보를 사용할 수 있습니다.";
+"NSMicrophoneUsageDescription" = "anitrip은 순례지에서 촬영할 때 소리를 녹음하기 위해 마이크 접근 권한이 필요할 수 있습니다.";
+"NSPhotoLibraryAddUsageDescription" = "anitrip은 순례 비교 이미지를 사진 보관함에 저장하기 위해 접근 권한이 필요합니다.";
+"NSPhotoLibraryUsageDescription" = "anitrip은 순례 사진과 참고 이미지를 가져오기 위해 사진 보관함 접근 권한이 필요합니다.";

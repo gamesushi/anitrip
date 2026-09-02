@@ -62,6 +62,7 @@ class _VisitRecordConfirmationScreenState
   String? _savingStage;
 
   Future<void> _save({required bool completePoint}) async {
+    final l10n = AppLocalizations.of(context)!;
     final controller = widget.controller;
     if (controller == null || _saving) {
       Navigator.of(context).pop();
@@ -70,7 +71,7 @@ class _VisitRecordConfirmationScreenState
 
     setState(() {
       _saving = true;
-      _savingStage = '保存记录中...';
+      _savingStage = l10n.savingRecordStage;
     });
 
     String? referenceImagePath;
@@ -102,7 +103,7 @@ class _VisitRecordConfirmationScreenState
     var galleryBackupSucceeded = false;
     if (widget.saveVisitPhotoToGallery) {
       if (mounted) {
-        setState(() => _savingStage = '备份巡礼照片中...');
+        setState(() => _savingStage = l10n.backingUpPilgrimagePhotoStage);
       }
       attemptedGalleryBackup = true;
       galleryBackupSucceeded = await saveImageToGallery(widget.photoPath);
@@ -111,7 +112,7 @@ class _VisitRecordConfirmationScreenState
     AutoComparisonGalleryResult? comparisonBackupResult;
     if (record != null && widget.autoSaveComparisonToGallery) {
       if (mounted) {
-        setState(() => _savingStage = '生成对比图中...');
+        setState(() => _savingStage = l10n.generatingComparisonImageStage);
       }
       comparisonBackupResult = await autoSaveComparisonImageToGallery(
         record: record,
@@ -128,7 +129,7 @@ class _VisitRecordConfirmationScreenState
     String? nextPointName;
     if (completePoint) {
       if (mounted) {
-        setState(() => _savingStage = '更新点位状态中...');
+        setState(() => _savingStage = l10n.updatingPointStatusStage);
       }
       controller.completePoint(widget.point);
       nextPointName = controller.currentPoint?.name;
@@ -141,7 +142,7 @@ class _VisitRecordConfirmationScreenState
       _saving = false;
       _savingStage = null;
     });
-    final message = _saveSuccessMessage(
+    final message = _saveSuccessMessage(context,
       completePoint: completePoint,
       nextPointName: nextPointName,
       attemptedGalleryBackup: attemptedGalleryBackup,
@@ -161,17 +162,18 @@ class _VisitRecordConfirmationScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return PopScope(
       canPop: !_saving,
       onPopInvokedWithResult: (didPop, _) {
         if (!didPop && _saving) {
           ScaffoldMessenger.of(
             context,
-          ).showReplacingSnackBar(const SnackBar(content: Text('正在保存记录，请稍候。')));
+          ).showReplacingSnackBar(SnackBar(content: Text(l10n.savingRecordPleaseWait)));
         }
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text('确认记录')),
+        appBar: AppBar(title: Text(l10n.confirmRecordTitle)),
         body: ListView(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
           children: [
@@ -215,18 +217,18 @@ class _VisitRecordConfirmationScreenState
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.save_outlined, size: 18),
-              label: Text(_saving ? '保存中' : '保存记录'),
+              label: Text(_saving ? l10n.saving2 : l10n.saveRecord),
             ),
             const SizedBox(height: 8),
             OutlinedButton.icon(
               onPressed: _saving ? null : () => _save(completePoint: true),
               icon: const Icon(Icons.check_circle_outline, size: 18),
-              label: const Text('保存并标记完成'),
+              label: Text(l10n.saveAndMarkComplete),
             ),
             const SizedBox(height: 8),
             TextButton(
               onPressed: _saving ? null : () => Navigator.of(context).pop(),
-              child: const Text('取消'),
+              child: Text(l10n.btnCancel),
             ),
           ],
         ),
@@ -243,34 +245,47 @@ bool shouldAutoSaveVisitPhotoToGallery(AppSettings settings) {
       defaultTargetPlatform == TargetPlatform.iOS;
 }
 
-String _saveSuccessMessage({
+String _saveSuccessMessage(
+  BuildContext context, {
   required bool completePoint,
   required String? nextPointName,
   required bool attemptedGalleryBackup,
   required bool galleryBackupSucceeded,
   required AutoComparisonGalleryResult? comparisonBackupResult,
 }) {
-  final base = completePoint ? '已保存并标记完成' : '记录已保存';
+  final l10n = AppLocalizations.of(context)!;
+  final base = completePoint
+      ? l10n.savedAndMarkedComplete
+      : l10n.recordSaved;
   final backupText = attemptedGalleryBackup
-      ? (galleryBackupSucceeded ? '，并备份到相册' : '；相册备份失败')
+      ? (galleryBackupSucceeded
+          ? l10n.backupSavedToAlbumSuffix
+          : l10n.albumBackupFailedSuffix)
       : '';
-  final comparisonText = _comparisonBackupMessage(comparisonBackupResult);
+  final comparisonText = _comparisonBackupMessage(context, comparisonBackupResult);
   final nextText = completePoint && nextPointName != null
-      ? '，下一个：$nextPointName'
+      ? l10n.nextPointNameSuffix(nextPointName)
       : '';
   return '$base$backupText$comparisonText$nextText';
 }
 
-String _comparisonBackupMessage(AutoComparisonGalleryResult? result) {
+String _comparisonBackupMessage(
+  BuildContext context,
+  AutoComparisonGalleryResult? result,
+) {
   if (result == null) {
     return '';
   }
+  final l10n = AppLocalizations.of(context)!;
   return switch (result.status) {
-    AutoComparisonGalleryStatus.saved => '，对比图已保存到相册',
-    AutoComparisonGalleryStatus.referenceUnavailable => '，参考图不可用，未生成对比图',
-    AutoComparisonGalleryStatus.capturedPhotoUnavailable => '，巡礼图不可用，未生成对比图',
-    AutoComparisonGalleryStatus.galleryFailed => '，对比图保存到相册失败',
-    AutoComparisonGalleryStatus.renderFailed => '，对比图生成失败',
+    AutoComparisonGalleryStatus.saved => l10n.comparisonSavedToAlbumSuffix,
+    AutoComparisonGalleryStatus.referenceUnavailable =>
+      l10n.referenceUnavailableComparisonSuffix,
+    AutoComparisonGalleryStatus.capturedPhotoUnavailable =>
+      l10n.capturedUnavailableComparisonSuffix,
+    AutoComparisonGalleryStatus.galleryFailed =>
+      l10n.comparisonGalleryFailedSuffix,
+    AutoComparisonGalleryStatus.renderFailed => l10n.comparisonRenderFailedSuffix,
   };
 }
 
@@ -278,6 +293,7 @@ Future<void> _showGallerySaveSheet(
   BuildContext context,
   String photoPath,
 ) async {
+  final l10n = AppLocalizations.of(context)!;
   final action = await showModalBottomSheet<String>(
     context: context,
     builder: (context) => SafeArea(
@@ -287,7 +303,7 @@ Future<void> _showGallerySaveSheet(
           const SizedBox(height: 12),
           ListTile(
             leading: const Icon(Icons.save_alt_outlined),
-            title: const Text('保存到相册'),
+            title: Text(l10n.saveToAlbum),
             onTap: () => Navigator.of(context).pop('save'),
           ),
           const SizedBox(height: 12),
@@ -302,7 +318,7 @@ Future<void> _showGallerySaveSheet(
   if (!context.mounted) return;
 
   ScaffoldMessenger.of(context).showReplacingSnackBar(
-    SnackBar(content: Text(success ? '已保存到相册' : '保存失败，请稍后重试。')),
+    SnackBar(content: Text(success ? l10n.savedToAlbum : l10n.saveFailedRetry)),
   );
 }
 
@@ -321,11 +337,12 @@ class _ComparisonPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         _ImageCompareTile(
-          label: '参考图',
+          label: l10n.reference2,
           child: _ReferencePreview(
             bytes: referenceBytes,
             imagePath: referenceImagePath,
@@ -340,7 +357,7 @@ class _ComparisonPanel extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         _ImageCompareTile(
-          label: '巡礼图',
+          label: l10n.recordDetailCapturedPhoto,
           child: VisitRecordPhoto(path: photoPath, fit: BoxFit.contain),
           onTap: () => ImageViewerScreen.show(context, filePath: photoPath),
           onLongPress: () => _showGallerySaveSheet(context, photoPath),
@@ -464,6 +481,7 @@ class _InfoPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -475,8 +493,8 @@ class _InfoPanel extends StatelessWidget {
         children: [
           const Icon(Icons.layers_outlined, color: AppColors.textSecondary),
           const SizedBox(width: 8),
-          const Text(
-            '参考模式',
+          Text(
+            l10n.referenceModeLabel,
             style: TextStyle(
               color: AppColors.textSecondary,
               fontSize: 13,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../plan/pilgrimage_models.dart';
 import '../plan/pilgrimage_plan_controller.dart';
 import '../records/visit_record_photo_stub.dart'
@@ -76,6 +77,7 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
   }
 
   void _restoreSavedGrading() {
+
     final savedMode = _record.colorGradingMode;
     if (savedMode != null) {
       _selectedMode = ColorMatchMode.values.firstWhere(
@@ -151,16 +153,17 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
   }
 
   Future<void> _runAutoMatch() async {
+    final l10n = AppLocalizations.of(context)!;
     final captured = _capturedBytes;
     final reference = _referenceBytes;
     final messenger = ScaffoldMessenger.of(context);
     if (captured == null) {
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('巡礼图读取失败')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(l10n.failedToReadPilgrimagePhoto2)));
       return;
     }
     if (reference == null) {
       messenger.showReplacingSnackBar(
-        const SnackBar(content: Text('没有可用于自动调色的参考图')),
+        SnackBar(content: Text(l10n.noReferenceImageAvailableForAuto2)),
       );
       return;
     }
@@ -191,11 +194,12 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
     });
 
     messenger.showReplacingSnackBar(
-      SnackBar(content: Text(result == null ? '自动调色失败' : '已生成自动调色参数')),
+      SnackBar(content: Text(result == null ? l10n.autoColorMatchFailed2 : l10n.autoColorParametersGenerated2)),
     );
   }
 
   Future<void> _save() async {
+    final l10n = AppLocalizations.of(context)!;
     final captured = _capturedBytes;
     final targetParams = _targetParams;
     final messenger = ScaffoldMessenger.of(context);
@@ -212,13 +216,13 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
       }
 
       setState(() => _saving = false);
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('已还原为原图')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(l10n.revertedToOriginalPhoto2)));
       Navigator.of(context).pop(updated);
       return;
     }
     if (targetParams == null) {
       messenger.showReplacingSnackBar(
-        const SnackBar(content: Text('请先自动匹配色调')),
+        SnackBar(content: Text(l10n.matchTheColorToneAutomaticallyFirst2)),
       );
       return;
     }
@@ -234,7 +238,7 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
         return;
       }
       setState(() => _saving = false);
-      messenger.showReplacingSnackBar(const SnackBar(content: Text('保存失败')));
+      messenger.showReplacingSnackBar(SnackBar(content: Text(l10n.imageViewerSaveFailed)));
       return;
     }
 
@@ -252,7 +256,7 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
     }
 
     setState(() => _saving = false);
-    messenger.showReplacingSnackBar(const SnackBar(content: Text('已保存调色结果')));
+    messenger.showReplacingSnackBar(SnackBar(content: Text(l10n.colorGradingResultSaved2)));
     Navigator.of(context).pop(updated);
   }
 
@@ -269,22 +273,24 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('自动调色'),
-        actions: [TextButton(onPressed: _reset, child: const Text('重置'))],
+        title: Text(l10n.recordDetailAutoGrading),
+        actions: [TextButton(onPressed: _reset, child: Text(l10n.tooltipReset))],
       ),
       body: _buildBody(context),
     );
   }
 
   Widget _buildBody(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     if (_loading) {
-      return const Center(child: CircularProgressIndicator());
+      return Center(child: CircularProgressIndicator());
     }
 
     if (_loadError != null || _capturedBytes == null) {
-      return const Center(child: Text('照片读取失败'));
+      return Center(child: Text(l10n.failedToReadPhoto2));
     }
 
     return ListView(
@@ -296,7 +302,7 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
           activeParams: _activeParams,
           showOriginal: _showOriginal || _targetParams == null,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _OriginalHoldButton(
           enabled: _targetParams != null,
           showOriginal: _showOriginal,
@@ -304,7 +310,7 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
             setState(() => _showOriginal = showOriginal);
           },
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _ModeSelector(
           selectedMode: _selectedMode,
           onChanged: (mode) {
@@ -318,18 +324,18 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
             });
           },
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _ScorePanel(
           hasSavedParams: _targetParams != null,
           beforeScore: _beforeScore,
           currentToneScore: _currentToneScore,
           afterScore: _afterScore,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         FilledButton.icon(
           onPressed: _matching ? null : _runAutoMatch,
           icon: _matching
-              ? const SizedBox(
+              ? SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
@@ -337,19 +343,19 @@ class _ColorGradingScreenState extends State<ColorGradingScreen> {
                     color: Colors.white,
                   ),
                 )
-              : const Icon(Icons.auto_fix_high_outlined, size: 18),
-          label: Text(_matching ? '匹配中...' : '自动匹配色调'),
+              : Icon(Icons.auto_fix_high_outlined, size: 18),
+          label: Text(_matching ? l10n.matching2 : l10n.autoMatchTone2),
         ),
         if (_targetParams != null) ...[
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _IntensityControl(
             value: _intensity,
             onChanged: (value) => setState(() => _intensity = value),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           _ParameterSummary(activeParams: _activeParams),
         ],
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         _SavePanel(saving: _saving, onSave: _save),
       ],
     );
@@ -371,6 +377,7 @@ class _StackedPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -381,14 +388,14 @@ class _StackedPreview extends StatelessWidget {
       child: Column(
         children: [
           _PreviewPane(
-            label: '参考图',
+            label: l10n.reference2,
             child: referenceBytes == null
-                ? const Center(child: Text('没有参考图'))
+                ? Center(child: Text(l10n.noReferenceImage2))
                 : Image.memory(referenceBytes!, fit: BoxFit.contain),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           _PreviewPane(
-            label: showOriginal ? '原图' : '调色后',
+            label: showOriginal ? l10n.original2 : l10n.graded3,
             child: showOriginal
                 ? Image.memory(capturedBytes, fit: BoxFit.contain)
                 : ColorFiltered(
@@ -412,6 +419,7 @@ class _PreviewPane extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return AspectRatio(
       aspectRatio: 16 / 9,
       child: ClipRRect(
@@ -468,6 +476,7 @@ class _OriginalHoldButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Listener(
       onPointerDown: enabled ? (_) => onChanged(true) : null,
       onPointerUp: enabled ? (_) => onChanged(false) : null,
@@ -475,7 +484,7 @@ class _OriginalHoldButton extends StatelessWidget {
       child: OutlinedButton.icon(
         onPressed: enabled ? () {} : null,
         icon: Icon(showOriginal ? Icons.visibility : Icons.visibility_outlined),
-        label: Text(showOriginal ? '正在显示原图' : '按住显示原图'),
+        label: Text(showOriginal ? l10n.showingOriginal2 : l10n.holdToShowOriginal2),
       ),
     );
   }
@@ -489,6 +498,7 @@ class _ModeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -499,22 +509,22 @@ class _ModeSelector extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            '匹配模式',
+          Text(
+            l10n.matchMode2,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w800,
               letterSpacing: 0,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: [
               for (final mode in ColorMatchMode.values)
                 ChoiceChip(
-                  label: Text(mode.label),
+                  label: Text(mode.getLocalizedLabel(context)),
                   selected: selectedMode == mode,
                   showCheckmark: false,
                   onSelected: (_) => onChanged(mode),
@@ -560,6 +570,7 @@ class _ScorePanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -571,10 +582,10 @@ class _ScorePanel extends StatelessWidget {
           ? Row(
               children: [
                 Icon(Icons.auto_fix_high_outlined, color: AppColors.accent),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    hasSavedParams ? '已恢复上次调色参数' : '自动匹配后可保存调色结果',
+                    hasSavedParams ? l10n.restoredLastColorGradingParameters2 : l10n.saveTheGradedResultAfterAuto2,
                     style: const TextStyle(
                       color: AppColors.textSecondary,
                       fontSize: 13,
@@ -588,25 +599,25 @@ class _ScorePanel extends StatelessWidget {
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Text(
-                  '色调匹配',
+                Text(
+                  l10n.toneMatching2,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
                     letterSpacing: 0,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Row(
                   children: [
-                    _ScoreValue(label: '原图', score: beforeScore!),
-                    const Icon(
+                    _ScoreValue(label: l10n.original2, score: beforeScore!),
+                    Icon(
                       Icons.arrow_forward,
                       size: 18,
                       color: AppColors.textSecondary,
                     ),
-                    _ScoreValue(label: '当前', score: currentToneScore ?? 0),
-                    const Icon(
+                    _ScoreValue(label: l10n.statusCurrent, score: currentToneScore ?? 0),
+                    Icon(
                       Icons.arrow_forward,
                       size: 18,
                       color: AppColors.textSecondary,
@@ -628,6 +639,7 @@ class _ScoreValue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Expanded(
       child: Column(
         children: [
@@ -663,6 +675,7 @@ class _IntensityControl extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     final percent = (value * 100).round();
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 12, 14, 8),
@@ -676,8 +689,8 @@ class _IntensityControl extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text(
-                '调色强度',
+              Text(
+                l10n.gradingIntensity2,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w800,
@@ -716,6 +729,7 @@ class _ParameterSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -728,9 +742,9 @@ class _ParameterSummary extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: Text(
-                  '调色参数',
+                  l10n.gradingParameters2,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
@@ -740,14 +754,14 @@ class _ParameterSummary extends StatelessWidget {
               ),
               TextButton.icon(
                 onPressed: () => _showParameterSheet(context),
-                icon: const Icon(Icons.tune, size: 18),
-                label: const Text('查看'),
+                icon: Icon(Icons.tune, size: 18),
+                label: Text(l10n.btnView),
               ),
             ],
           ),
-          const SizedBox(height: 4),
-          const Text(
-            '显示当前调色强度下实际生效的参数。',
+          SizedBox(height: 4),
+          Text(
+            l10n.showsTheParametersActuallyAppliedAt2,
             style: TextStyle(
               color: AppColors.textSecondary,
               fontSize: 13,
@@ -777,24 +791,25 @@ class _ParameterSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     final items = <_ParameterItem>[
-      _ParameterItem('亮度', activeParams.brightness, -0.25, 0.25),
-      _ParameterItem('曝光', activeParams.exposure, -1.0, 1.0),
-      _ParameterItem('对比度', activeParams.contrast, 0.7, 1.4),
-      _ParameterItem('饱和度', activeParams.saturation, 0.5, 1.6),
-      _ParameterItem('色温', activeParams.temperature, -1.0, 1.0),
-      _ParameterItem('色调', activeParams.tint, -1.0, 1.0),
-      _ParameterItem('高光', activeParams.highlights, -1.0, 1.0),
-      _ParameterItem('阴影', activeParams.shadows, -1.0, 1.0),
-      _ParameterItem('红暗部曲线', activeParams.redShadowCurve, -1.0, 1.0),
-      _ParameterItem('红中间调曲线', activeParams.redMidCurve, -1.0, 1.0),
-      _ParameterItem('红高光曲线', activeParams.redHighlightCurve, -1.0, 1.0),
-      _ParameterItem('绿暗部曲线', activeParams.greenShadowCurve, -1.0, 1.0),
-      _ParameterItem('绿中间调曲线', activeParams.greenMidCurve, -1.0, 1.0),
-      _ParameterItem('绿高光曲线', activeParams.greenHighlightCurve, -1.0, 1.0),
-      _ParameterItem('蓝暗部曲线', activeParams.blueShadowCurve, -1.0, 1.0),
-      _ParameterItem('蓝中间调曲线', activeParams.blueMidCurve, -1.0, 1.0),
-      _ParameterItem('蓝高光曲线', activeParams.blueHighlightCurve, -1.0, 1.0),
+      _ParameterItem(l10n.gradingBrightness, activeParams.brightness, -0.25, 0.25),
+      _ParameterItem(l10n.gradingExposure, activeParams.exposure, -1.0, 1.0),
+      _ParameterItem(l10n.contrast2, activeParams.contrast, 0.7, 1.4),
+      _ParameterItem(l10n.saturation2, activeParams.saturation, 0.5, 1.6),
+      _ParameterItem(l10n.gradingTemperature, activeParams.temperature, -1.0, 1.0),
+      _ParameterItem(l10n.gradingTint, activeParams.tint, -1.0, 1.0),
+      _ParameterItem(l10n.gradingHighlights, activeParams.highlights, -1.0, 1.0),
+      _ParameterItem(l10n.gradingShadows, activeParams.shadows, -1.0, 1.0),
+      _ParameterItem(l10n.redShadows2, activeParams.redShadowCurve, -1.0, 1.0),
+      _ParameterItem(l10n.redMidtones2, activeParams.redMidCurve, -1.0, 1.0),
+      _ParameterItem(l10n.redHighlights2, activeParams.redHighlightCurve, -1.0, 1.0),
+      _ParameterItem(l10n.greenShadows2, activeParams.greenShadowCurve, -1.0, 1.0),
+      _ParameterItem(l10n.greenMidtones2, activeParams.greenMidCurve, -1.0, 1.0),
+      _ParameterItem(l10n.greenHighlights2, activeParams.greenHighlightCurve, -1.0, 1.0),
+      _ParameterItem(l10n.blueShadows2, activeParams.blueShadowCurve, -1.0, 1.0),
+      _ParameterItem(l10n.blueMidtones2, activeParams.blueMidCurve, -1.0, 1.0),
+      _ParameterItem(l10n.blueHighlights2, activeParams.blueHighlightCurve, -1.0, 1.0),
     ];
 
     return SafeArea(
@@ -805,12 +820,12 @@ class _ParameterSheet extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
           itemCount: items.length + 1,
           separatorBuilder: (_, index) => index == 0
-              ? const SizedBox(height: 10)
-              : const Divider(height: 18),
+              ? SizedBox(height: 10)
+              : Divider(height: 18),
           itemBuilder: (context, index) {
             if (index == 0) {
-              return const Text(
-                '调色参数',
+              return Text(
+                l10n.gradingParameters2,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w900,
@@ -842,6 +857,7 @@ class _ParameterRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final activeT = ((item.value - item.min) / (item.max - item.min))
         .clamp(0.0, 1.0)
         .toDouble();
@@ -873,7 +889,7 @@ class _ParameterRow extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         ClipRRect(
           borderRadius: BorderRadius.circular(4),
           child: LinearProgressIndicator(
@@ -896,6 +912,7 @@ class _SavePanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -906,28 +923,28 @@ class _SavePanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text(
-            '保存结果',
+          Text(
+            l10n.saveResult2,
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w800,
               letterSpacing: 0,
             ),
           ),
-          const SizedBox(height: 6),
-          const Text(
-            '保存后记录详情和导出会使用调色后的图片，原图和调色参数会保留。',
+          SizedBox(height: 6),
+          Text(
+            l10n.afterSavingTheRecordDetailAnd2,
             style: TextStyle(
               color: AppColors.textSecondary,
               fontSize: 13,
               letterSpacing: 0,
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
           FilledButton.icon(
             onPressed: saving ? null : onSave,
             icon: saving
-                ? const SizedBox(
+                ? SizedBox(
                     width: 16,
                     height: 16,
                     child: CircularProgressIndicator(
@@ -935,8 +952,8 @@ class _SavePanel extends StatelessWidget {
                       color: Colors.white,
                     ),
                   )
-                : const Icon(Icons.save_outlined, size: 18),
-            label: Text(saving ? '保存中...' : '保存调色结果'),
+                : Icon(Icons.save_outlined, size: 18),
+            label: Text(saving ? l10n.saving2 : l10n.saveColorGrading2),
           ),
         ],
       ),

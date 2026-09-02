@@ -4,6 +4,7 @@ import 'package:flutter_map_maplibre/flutter_map_maplibre.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../plan/pilgrimage_models.dart';
+import '../l10n/app_localizations.dart';
 
 const openFreeMapStyleUrl = 'https://tiles.openfreemap.org/styles/liberty';
 const openStreetMapTileUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -22,13 +23,11 @@ class OpenFreeMapStyleOption {
   const OpenFreeMapStyleOption({
     required this.style,
     required this.label,
-    required this.description,
     required this.styleUrl,
   });
 
   final OpenFreeMapStyle style;
   final String label;
-  final String description;
   final String styleUrl;
 }
 
@@ -36,43 +35,36 @@ class MapTileProviderOption {
   const MapTileProviderOption({
     required this.provider,
     required this.label,
-    required this.description,
   });
 
   final MapTileProvider provider;
   final String label;
-  final String description;
 }
 
 const openFreeMapStyleOptions = [
   OpenFreeMapStyleOption(
     style: OpenFreeMapStyle.liberty,
     label: 'Liberty',
-    description: '默认样式，信息密度较高。',
     styleUrl: 'https://tiles.openfreemap.org/styles/liberty',
   ),
   OpenFreeMapStyleOption(
     style: OpenFreeMapStyle.bright,
     label: 'Bright',
-    description: '明亮标准样式。',
     styleUrl: 'https://tiles.openfreemap.org/styles/bright',
   ),
   OpenFreeMapStyleOption(
     style: OpenFreeMapStyle.positron,
     label: 'Positron',
-    description: '浅色低干扰样式。',
     styleUrl: 'https://tiles.openfreemap.org/styles/positron',
   ),
   OpenFreeMapStyleOption(
     style: OpenFreeMapStyle.dark,
     label: 'Dark',
-    description: '深色地图样式。',
     styleUrl: 'https://tiles.openfreemap.org/styles/dark',
   ),
   OpenFreeMapStyleOption(
     style: OpenFreeMapStyle.fiord,
     label: 'Fiord',
-    description: '柔和地形风格。',
     styleUrl: 'https://tiles.openfreemap.org/styles/fiord',
   ),
 ];
@@ -81,22 +73,18 @@ const mapTileProviderOptions = [
   MapTileProviderOption(
     provider: MapTileProvider.openFreeMap,
     label: 'OpenFreeMap',
-    description: '默认地图，使用 MapLibre style。',
   ),
   MapTileProviderOption(
     provider: MapTileProvider.openStreetMap,
     label: 'OpenStreetMap',
-    description: '使用 OpenStreetMap 标准 XYZ 瓦片。',
   ),
   MapTileProviderOption(
     provider: MapTileProvider.customXyz,
-    label: '自定义 XYZ',
-    description: '使用包含 {z}/{x}/{y} 的栅格瓦片 URL。',
+    label: 'Custom XYZ',
   ),
   MapTileProviderOption(
     provider: MapTileProvider.customMapLibreStyle,
-    label: '自定义 MapLibre',
-    description: '使用自定义 MapLibre style URL。',
+    label: 'Custom MapLibre',
   ),
 ];
 
@@ -228,16 +216,17 @@ RichAttributionWidget configuredMapAttribution(AppSettings settings) {
   );
 }
 
-String? validateMapTileSettings(AppSettings settings) {
+String? validateMapTileSettings(BuildContext context, AppSettings settings) {
+  final l10n = AppLocalizations.of(context)!;
   return switch (settings.mapTileProvider) {
     MapTileProvider.customXyz =>
       isValidXyzTileUrl(settings.customXyzTileUrl.trim())
           ? null
-          : '自定义 XYZ URL 需要包含 {z}、{x}、{y}，并使用 http/https。',
+          : l10n.mapCustomXyzUrlInvalid,
     MapTileProvider.customMapLibreStyle =>
       _isHttpUrl(settings.customMapLibreStyleUrl.trim())
           ? null
-          : '自定义 MapLibre style URL 需要使用 http/https。',
+          : l10n.mapMapLibreUrlRequireHttp,
     _ => null,
   };
 }

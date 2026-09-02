@@ -147,6 +147,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
         return;
       }
       final groups = planGroupBuckets(
+        context,
         _controller.plan,
         _controller.completedPointIds,
       );
@@ -258,6 +259,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
 
   void _selectPoint(PilgrimagePoint point) {
     final groups = planGroupBuckets(
+      context,
       _controller.plan,
       _controller.completedPointIds,
     );
@@ -483,6 +485,7 @@ class _PilgrimageMapScreenState extends State<PilgrimageMapScreen> {
   @override
   Widget build(BuildContext context) {
     final groups = planGroupBuckets(
+      context,
       _controller.plan,
       _controller.completedPointIds,
     );

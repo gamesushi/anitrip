@@ -3,13 +3,17 @@ import 'dart:typed_data';
 import 'package:file_selector/file_selector.dart' as file_selector;
 
 import 'plan_export_delivery_result.dart';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
+  required BuildContext context,
   required String fileName,
   required String mimeType,
   required String extension,
 }) async {
   final location = await _getSaveLocation(
+    context: context,
     fileName: fileName,
     mimeType: mimeType,
     extension: extension,
@@ -25,6 +29,7 @@ Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
 }
 
 Future<PlanExportDeliveryResult> deliverPlanExportImpl({
+  required BuildContext context,
   required List<int> bytes,
   required String fileName,
   required String mimeType,
@@ -33,6 +38,7 @@ Future<PlanExportDeliveryResult> deliverPlanExportImpl({
   required String extension,
 }) async {
   final location = await _getSaveLocation(
+    context: context,
     fileName: fileName,
     mimeType: mimeType,
     extension: extension,
@@ -52,6 +58,7 @@ Future<file_selector.FileSaveLocation?> _getSaveLocation({
   required String fileName,
   required String mimeType,
   required String extension,
+  required BuildContext context,
 }) {
   return file_selector.getSaveLocation(
     acceptedTypeGroups: [
@@ -62,7 +69,7 @@ Future<file_selector.FileSaveLocation?> _getSaveLocation({
       ),
     ],
     suggestedName: fileName,
-    confirmButtonText: '保存',
+    confirmButtonText: AppLocalizations.of(context)!.btnSave,
   );
 }
 

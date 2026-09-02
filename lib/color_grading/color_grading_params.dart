@@ -1,15 +1,18 @@
 import 'dart:math';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 enum ColorMatchMode {
   natural,
   standard,
   strong;
 
-  String get label {
+  String getLocalizedLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return switch (this) {
-      ColorMatchMode.natural => '自然',
-      ColorMatchMode.standard => '标准',
-      ColorMatchMode.strong => '强匹配',
+      ColorMatchMode.natural => l10n.colorMatchNatural,
+      ColorMatchMode.standard => l10n.colorMatchStandard,
+      ColorMatchMode.strong => l10n.colorMatchStrong,
     };
   }
 }

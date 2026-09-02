@@ -36,21 +36,16 @@ import 'visit_record_confirmation_screen.dart';
 enum AwesomeReferenceMode { overlay, split, pinned }
 
 extension AwesomeReferenceModeLabel on AwesomeReferenceMode {
-  String get label {
+  String label(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return switch (this) {
-      AwesomeReferenceMode.overlay => '叠影',
-      AwesomeReferenceMode.split => '上下',
-      AwesomeReferenceMode.pinned => '小窗',
+      AwesomeReferenceMode.overlay => l10n.cameraRefModeOverlay,
+      AwesomeReferenceMode.split => l10n.cameraRefModeSplit,
+      AwesomeReferenceMode.pinned => l10n.cameraRefModePinned,
     };
   }
 
-  String getName(BuildContext context) {
-    return switch (this) {
-      AwesomeReferenceMode.overlay => AppLocalizations.of(context)!.cameraRefModeOverlay,
-      AwesomeReferenceMode.split => AppLocalizations.of(context)!.cameraRefModeSplit,
-      AwesomeReferenceMode.pinned => AppLocalizations.of(context)!.cameraRefModePinned,
-    };
-  }
+  String getName(BuildContext context) => label(context);
 }
 
 class CamerawesomeReferenceScreen extends StatefulWidget {
@@ -81,7 +76,8 @@ class _CamerawesomeReferenceScreenState
   XFile? _galleryImage;
   AwesomeReferenceMode _mode = AwesomeReferenceMode.overlay;
   bool _nativeCameraFailed = false;
-  String? _nativeCameraError;
+  String? _nativeCameraErrorCode;
+  String? _nativeCameraErrorDetail;
   double? _referenceAspectRatio;
   bool _referenceAspectRatioLoading = false;
   int _referenceAspectRatioRequest = 0;
@@ -176,6 +172,7 @@ class _CamerawesomeReferenceScreenState
   }
 
   Future<void> _pickGalleryImage() async {
+    final l10n = AppLocalizations.of(context)!;
     final picked = await _pickImageInPortrait();
     if (picked == null || !mounted) {
       return;
@@ -194,7 +191,7 @@ class _CamerawesomeReferenceScreenState
       }
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('照片导入失败，请重新选择。')));
+      ).showSnackBar(SnackBar(content: Text(l10n.photoImportFailedPleaseChooseAgain2)));
       return;
     }
     await _openConfirmation(photoPath, capturedAtOverride: capturedAt);
@@ -248,7 +245,7 @@ class _CamerawesomeReferenceScreenState
           point: widget.point,
           controller: widget.controller,
           photoPath: photoPath,
-          referenceMode: _mode.label,
+          referenceMode: _mode.label(context),
           referenceBytes: _localReferenceBytes,
           referenceImagePath: widget.point.referenceFullImagePath,
           referenceImageUrl: _localReferenceBytes != null
@@ -294,6 +291,7 @@ class _CamerawesomeReferenceScreenState
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     final referenceFullImagePath = widget.point.referenceFullImagePath;
     final reference = _ReferenceImageSource(
       bytes: _localReferenceBytes,
@@ -343,7 +341,8 @@ class _CamerawesomeReferenceScreenState
               onNativeUnavailable: () {
                 setState(() {
                   _nativeCameraFailed = true;
-                  _nativeCameraError = _nativeCameraController.error;
+                  _nativeCameraErrorCode = _nativeCameraController.errorCode;
+                  _nativeCameraErrorDetail = _nativeCameraController.errorDetail;
                 });
               },
               onModeChanged: (mode) => setState(() => _mode = mode),
@@ -351,7 +350,7 @@ class _CamerawesomeReferenceScreenState
               onCapture: () async {
                 if (_shouldWaitForReferenceAspectRatio(reference)) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('正在读取参考图比例，请稍后拍摄。')),
+                    SnackBar(content: Text(l10n.readingReferenceRatioPleaseWaitBefore2)),
                   );
                   return;
                 }
@@ -377,10 +376,11 @@ class _CamerawesomeReferenceScreenState
               enablePhysicalButton: true,
               onMediaCaptureEvent: _handleCaptureEvent,
               builder: (cameraState, preview) {
-                if (_nativeCameraError != null &&
+                if (_nativeCameraErrorCode != null &&
                     defaultTargetPlatform == TargetPlatform.iOS) {
                   return _NativeCameraUnavailableMessage(
-                    message: _nativeCameraError!,
+                    errorCode: _nativeCameraErrorCode!,
+                    detail: _nativeCameraErrorDetail,
                   );
                 }
                 return _ReferenceCameraOverlay(
@@ -551,7 +551,8 @@ class _NativeCameraController extends ChangeNotifier {
   int? _viewId;
   var _ready = false;
   var _busy = false;
-  String? _error;
+  String? _errorCode;
+  String? _errorDetail;
   var _minZoomRatio = 1.0;
   var _maxZoomRatio = 1.0;
   var _zoomRatio = 1.0;
@@ -571,7 +572,6 @@ class _NativeCameraController extends ChangeNotifier {
 
   bool get ready => _ready;
   bool get busy => _busy;
-  String? get error => _error;
   double get minZoomRatio => _minZoomRatio;
   double get maxZoomRatio => _maxZoomRatio;
   double get zoomRatio => _zoomRatio;
@@ -580,6 +580,8 @@ class _NativeCameraController extends ChangeNotifier {
   String get lensMode => _lensMode;
   bool get supportsTelephoto => _supportsTelephoto;
   bool get configuringCapture => _configuringCapture;
+  String? get errorCode => _errorCode;
+  String? get errorDetail => _errorDetail;
 
   Future<void> attach(int viewId) async {
     if (_channel != null && _viewId == viewId) {
@@ -595,7 +597,8 @@ class _NativeCameraController extends ChangeNotifier {
     if (defaultTargetPlatform == TargetPlatform.android) {
       final permission = await Permission.camera.request();
       if (!permission.isGranted) {
-        _error = '需要相机权限';
+        _errorCode = 'permission';
+        _errorDetail = null;
         notifyListeners();
         return;
       }
@@ -610,12 +613,15 @@ class _NativeCameraController extends ChangeNotifier {
       );
       _applyZoomState(result);
       _ready = true;
-      _error = null;
+      _errorCode = null;
+      _errorDetail = null;
       await _runCaptureConfiguration();
     } on PlatformException catch (error) {
-      _error = error.message ?? '原生相机初始化失败';
+      _errorCode = 'init';
+      _errorDetail = error.message;
     } catch (error) {
-      _error = '原生相机初始化失败：$error';
+      _errorCode = 'init';
+      _errorDetail = error.toString();
     }
     notifyListeners();
   }
@@ -870,6 +876,7 @@ class _NativeReferenceCameraBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return AnimatedBuilder(
       animation: controller,
       builder: (context, child) {
@@ -880,7 +887,7 @@ class _NativeReferenceCameraBody extends StatelessWidget {
             preferredInitialZoomRatio: settings.cameraMinZoom,
           ),
         );
-        if (controller.error != null) {
+        if (controller.errorCode != null) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             onNativeUnavailable();
           });
@@ -977,6 +984,7 @@ class _NativeCameraStage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final safeMode = mode == AwesomeReferenceMode.pinned
         ? AwesomeReferenceMode.overlay
         : mode;
@@ -1077,6 +1085,7 @@ class _AspectStageFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final ratio = aspectRatio <= 0 ? 16 / 9 : aspectRatio;
 
     return LayoutBuilder(
@@ -1116,6 +1125,7 @@ class _NativeCameraPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     if (defaultTargetPlatform == TargetPlatform.android) {
       return AndroidView(
         viewType: 'seichi/native_camera_preview',
@@ -1154,6 +1164,7 @@ class _CameraDebugFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return child;
   }
 }
@@ -1252,26 +1263,27 @@ class _NativeCameraTopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 0),
       child: Row(
         children: [
           _CameraCircleButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             icon: Icons.arrow_back,
             onPressed: () => Navigator.of(context).maybePop(),
           ),
           const Spacer(),
           _CameraCircleButton(
-            tooltip: '参考图',
+            tooltip: l10n.reference2,
             icon: Icons.image_outlined,
             onPressed: onPickReference,
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           _NativeFlashButton(controller: controller, showTooltip: true),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           _CameraCircleButton(
-            tooltip: '切换横屏 UI',
+            tooltip: l10n.switchToLandscapeUi2,
             icon: Icons.screen_rotation_alt_outlined,
             onPressed: onPreferLandscapeUi,
           ),
@@ -1306,6 +1318,7 @@ class _NativeCameraBottomPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 6),
@@ -1318,18 +1331,18 @@ class _NativeCameraBottomPanel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _ModeSelector(mode: mode, onChanged: onModeChanged),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           _NativeZoomAndOpacityControls(
             controller: controller,
             settings: settings,
             overlayOpacity: overlayOpacity,
             onOpacityChanged: onOpacityChanged,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Row(
             children: [
               _CameraActionButton(
-                tooltip: '相册导入',
+                tooltip: l10n.importFromAlbum3,
                 icon: galleryImage == null
                     ? Icons.photo_library_outlined
                     : Icons.photo_library,
@@ -1342,7 +1355,7 @@ class _NativeCameraBottomPanel extends StatelessWidget {
               ),
               const Spacer(),
               _CameraActionButton(
-                tooltip: '切换镜头',
+                tooltip: l10n.switchCamera3,
                 icon: _nativeLensIcon(controller),
                 text: _nativeLensText(controller),
                 onPressed: controller.switchLens,
@@ -1390,6 +1403,7 @@ class _NativeLandscapeCameraLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ColoredBox(
       color: const Color(0xFF090A0D),
       child: SafeArea(
@@ -1476,6 +1490,7 @@ class _NativeLandscapeLeftRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return _CameraDebugFrame(
       color: _CameraDebugColors.leftRail,
       label: 'left',
@@ -1488,7 +1503,7 @@ class _NativeLandscapeLeftRail extends StatelessWidget {
               _CameraCircleButton(
                 size: metrics.controlButtonSize,
                 iconSize: metrics.controlIconSize,
-                tooltip: '返回',
+                tooltip: l10n.tooltipBack,
                 icon: Icons.arrow_back,
                 onPressed: onBack,
               ),
@@ -1496,7 +1511,7 @@ class _NativeLandscapeLeftRail extends StatelessWidget {
               _CameraCircleButton(
                 size: metrics.controlButtonSize,
                 iconSize: metrics.controlIconSize,
-                tooltip: '参考图',
+                tooltip: l10n.reference2,
                 icon: Icons.image_outlined,
                 onPressed: onPickReference,
               ),
@@ -1527,6 +1542,7 @@ class _NativeLandscapeZoomRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final minZoom = math.max(controller.minZoomRatio, settings.cameraMinZoom);
     final maxZoom = math.min(controller.maxZoomRatio, settings.cameraMaxZoom);
     final effectiveMin = maxZoom <= minZoom ? controller.minZoomRatio : minZoom;
@@ -1588,6 +1604,7 @@ class _NativeLandscapeRightRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return _CameraDebugFrame(
       color: _CameraDebugColors.rightRail,
       label: 'right',
@@ -1611,7 +1628,7 @@ class _NativeLandscapeRightRail extends StatelessWidget {
                 _CameraCircleButton(
                   size: layout.controlButtonSize,
                   iconSize: layout.controlIconSize,
-                  tooltip: '切换镜头',
+                  tooltip: l10n.switchCamera3,
                   icon: _nativeLensIcon(controller),
                   text: _nativeLensText(controller),
                   onPressed: controller.switchLens,
@@ -1619,7 +1636,7 @@ class _NativeLandscapeRightRail extends StatelessWidget {
                 _CameraCircleButton(
                   size: layout.controlButtonSize,
                   iconSize: layout.controlIconSize,
-                  tooltip: '切换竖屏 UI',
+                  tooltip: l10n.switchToPortraitUi2,
                   icon: Icons.screen_rotation_alt_outlined,
                   onPressed: onPreferPortraitUi,
                 ),
@@ -1675,7 +1692,7 @@ class _NativeLandscapeRightRail extends StatelessWidget {
                         ? _CameraActionButton(
                             size: layout.actionButtonSize,
                             iconSize: layout.actionIconSize,
-                            tooltip: '检查照片',
+                            tooltip: l10n.checkPhoto2,
                             icon: Icons.fact_check_outlined,
                             onPressed: () {},
                           )
@@ -1797,6 +1814,7 @@ class _NativeFlashButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     final icon = switch (controller.flashMode) {
       'off' => Icons.flash_off,
       'on' => Icons.flash_on,
@@ -1807,7 +1825,7 @@ class _NativeFlashButton extends StatelessWidget {
     return _CameraCircleButton(
       size: size ?? 44,
       iconSize: iconSize ?? 21,
-      tooltip: showTooltip ? '闪光灯' : null,
+      tooltip: showTooltip ? l10n.flash2 : null,
       icon: icon,
       onPressed: controller.cycleFlashMode,
     );
@@ -1841,6 +1859,7 @@ class _NativeZoomAndOpacityControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final minZoom = math.max(controller.minZoomRatio, settings.cameraMinZoom);
     final maxZoom = math.min(controller.maxZoomRatio, settings.cameraMaxZoom);
     final effectiveMin = maxZoom <= minZoom ? controller.minZoomRatio : minZoom;
@@ -1898,6 +1917,7 @@ class _NativeCaptureButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Material(
       color: Colors.white.withValues(alpha: 0.32),
       shape: const CircleBorder(),
@@ -1914,7 +1934,7 @@ class _NativeCaptureButton extends StatelessWidget {
             border: Border.all(color: Colors.white, width: 4),
           ),
           child: busy
-              ? const SizedBox(
+              ? SizedBox(
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(
@@ -1989,6 +2009,7 @@ class _ReferenceCameraOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final usesLandscapeUi =
         MediaQuery.orientationOf(context) == Orientation.landscape;
 
@@ -2068,6 +2089,7 @@ class _ReferenceModeLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     if (!reference.hasImage) {
       return const SizedBox.shrink();
     }
@@ -2141,6 +2163,7 @@ class _ReferenceFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       width: width,
       height: height,
@@ -2171,6 +2194,7 @@ class _LandscapeReferenceModeLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return _LandscapeCanvas(
       child: Stack(
         fit: StackFit.expand,
@@ -2226,6 +2250,7 @@ class _LandscapeCanvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return child;
   }
 }
@@ -2237,6 +2262,7 @@ class _LandscapeReferenceFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.42),
@@ -2262,24 +2288,25 @@ class _CameraTopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.fromLTRB(14, 10, 14, 0),
       child: Row(
         children: [
           _CameraCircleButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             icon: Icons.arrow_back,
             onPressed: () => Navigator.of(context).maybePop(),
           ),
           const Spacer(),
           _CameraCircleButton(
-            tooltip: '参考图',
+            tooltip: l10n.reference2,
             icon: Icons.image_outlined,
             onPressed: onPickReference,
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           _CompactFlashButton(state: state, showTooltip: true),
-          const SizedBox(width: 8),
+          SizedBox(width: 8),
           _CompactCameraSwitchButton(state: state, showTooltip: true),
         ],
       ),
@@ -2316,6 +2343,7 @@ class _LandscapeCameraLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return _LandscapeCanvas(
       child: Stack(
         children: [
@@ -2343,7 +2371,7 @@ class _LandscapeCameraLayout extends StatelessWidget {
                     onZoomChanged: onZoomChanged,
                   ),
                 ),
-                const SizedBox(width: 14),
+                SizedBox(width: 14),
                 _LandscapeCaptureRail(
                   state: state,
                   galleryImage: galleryImage,
@@ -2381,6 +2409,7 @@ class _LandscapeControlPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.58),
@@ -2392,7 +2421,7 @@ class _LandscapeControlPanel extends StatelessWidget {
         child: Row(
           children: [
             _ModeSelector(mode: mode, onChanged: onModeChanged),
-            const SizedBox(width: 14),
+            SizedBox(width: 14),
             Expanded(
               child: _ZoomAndOpacityControls(
                 state: state,
@@ -2423,6 +2452,7 @@ class _LandscapeCaptureRail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     final hasGalleryImage = galleryImage != null;
 
     return DecoratedBox(
@@ -2437,20 +2467,20 @@ class _LandscapeCaptureRail extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             _CameraActionButton(
-              tooltip: '相册导入',
+              tooltip: l10n.importFromAlbum3,
               icon: hasGalleryImage
                   ? Icons.photo_library
                   : Icons.photo_library_outlined,
               onPressed: onPickGallery,
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             _CompactCameraSwitchButton(state: state, showTooltip: true),
-            const SizedBox(width: 12),
+            SizedBox(width: 12),
             _ReferenceCaptureButton(state: state, compact: true),
             if (hasGalleryImage) ...[
-              const SizedBox(width: 18),
+              SizedBox(width: 18),
               _CameraActionButton(
-                tooltip: '检查照片',
+                tooltip: l10n.checkPhoto2,
                 icon: Icons.fact_check_outlined,
                 onPressed: () {},
               ),
@@ -2481,6 +2511,7 @@ class _CameraCircleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final button = IconButton.filled(
       tooltip: tooltip,
       constraints: BoxConstraints.tight(Size(size, size)),
@@ -2508,6 +2539,7 @@ class _CompactFlashButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return StreamBuilder<SensorConfig>(
       stream: state.sensorConfig$,
       initialData: state.sensorConfig,
@@ -2526,7 +2558,7 @@ class _CompactFlashButton extends StatelessWidget {
             };
 
             return _CameraCircleButton(
-              tooltip: showTooltip ? '闪光灯' : null,
+              tooltip: showTooltip ? l10n.flash2 : null,
               icon: icon,
               onPressed: sensorConfig.switchCameraFlash,
             );
@@ -2548,8 +2580,9 @@ class _CompactCameraSwitchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return _CameraCircleButton(
-      tooltip: showTooltip ? '切换摄像头' : null,
+      tooltip: showTooltip ? l10n.switchCamera4 : null,
       icon: Icons.cameraswitch_outlined,
       onPressed: () => state.switchCameraSensor(
         zoom: state.sensorConfig.zoom,
@@ -2588,6 +2621,7 @@ class _CameraBottomPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       width: double.infinity,
       margin: EdgeInsets.fromLTRB(0, 0, 0, isLandscape ? 0 : 6),
@@ -2600,7 +2634,7 @@ class _CameraBottomPanel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _ModeSelector(mode: mode, onChanged: onModeChanged),
-          const SizedBox(height: 6),
+          SizedBox(height: 6),
           _ZoomAndOpacityControls(
             state: state,
             zoom: zoom,
@@ -2609,12 +2643,12 @@ class _CameraBottomPanel extends StatelessWidget {
             onZoomChanged: onZoomChanged,
             onOpacityChanged: onOpacityChanged,
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               _CameraActionButton(
-                tooltip: '相册导入',
+                tooltip: l10n.importFromAlbum3,
                 icon: galleryImage == null
                     ? Icons.photo_library_outlined
                     : Icons.photo_library,
@@ -2624,7 +2658,7 @@ class _CameraBottomPanel extends StatelessWidget {
               _ReferenceCaptureButton(state: state),
               const Spacer(),
               _CameraActionButton(
-                tooltip: '检查照片',
+                tooltip: l10n.checkPhoto2,
                 icon: Icons.fact_check_outlined,
                 onPressed: galleryImage == null ? null : () {},
               ),
@@ -2644,6 +2678,7 @@ class _ModeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final modes = [
       (AwesomeReferenceMode.overlay, Icons.layers_outlined),
       (AwesomeReferenceMode.split, Icons.splitscreen_outlined),
@@ -2694,6 +2729,7 @@ class _ModeColumnSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final modes = [
       (AwesomeReferenceMode.overlay, Icons.layers_outlined),
       (AwesomeReferenceMode.split, Icons.splitscreen_outlined),
@@ -2733,6 +2769,7 @@ class _ModeIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Tooltip(
       message: label,
       child: InkWell(
@@ -2759,7 +2796,7 @@ class _ModeIconButton extends StatelessWidget {
                 size: metrics.controlIconSize - 3,
                 color: selected ? AppColors.textPrimary : Colors.white70,
               ),
-              const SizedBox(height: 1),
+              SizedBox(height: 1),
               Text(
                 label,
                 style: TextStyle(
@@ -2794,6 +2831,7 @@ class _ModeChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       customBorder: compact
           ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
@@ -2852,6 +2890,7 @@ class _ZoomAndOpacityControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         _CameraZoomSlider(
@@ -2978,6 +3017,7 @@ class _CameraZoomSliderState extends State<_CameraZoomSlider> {
 
   @override
   Widget build(BuildContext context) {
+
     return ValueListenableBuilder<double>(
       valueListenable: widget.zoom,
       builder: (context, normalizedZoom, child) {
@@ -3091,6 +3131,7 @@ class _VerticalCameraSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final safeValue = value.clamp(0.0, 1.0);
 
     return LayoutBuilder(
@@ -3217,6 +3258,7 @@ class _ReferenceCaptureButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Material(
       color: Colors.white.withValues(alpha: 0.32),
       shape: const CircleBorder(),
@@ -3269,6 +3311,7 @@ class _CameraActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final button = IconButton(
       tooltip: tooltip,
       constraints: BoxConstraints.tight(Size(size, size)),
@@ -3302,6 +3345,7 @@ class _CameraButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final label = text;
     if (label == null) {
       return Icon(icon, size: iconSize);
@@ -3341,9 +3385,10 @@ class _GalleryImportButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     if (!showLabel) {
       return _CameraActionButton(
-        tooltip: '从相册导入',
+        tooltip: l10n.importFromAlbum4,
         icon: Icons.add_photo_alternate_outlined,
         size: size,
         iconSize: iconSize,
@@ -3352,7 +3397,7 @@ class _GalleryImportButton extends StatelessWidget {
     }
 
     return Tooltip(
-      message: '从相册导入',
+      message: l10n.importFromAlbum4,
       child: TextButton.icon(
         style: TextButton.styleFrom(
           foregroundColor: Colors.white,
@@ -3363,8 +3408,8 @@ class _GalleryImportButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         icon: Icon(Icons.add_photo_alternate_outlined, size: iconSize),
-        label: const Text(
-          '导入',
+        label: Text(
+          l10n.importExportImportSection,
           style: TextStyle(fontSize: 11, fontWeight: FontWeight.w800),
         ),
       ),
@@ -3387,6 +3432,7 @@ class _SliderRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Row(
       children: [
         Icon(icon, size: 16, color: Colors.white70),
@@ -3447,6 +3493,7 @@ class _WebCameraFallback extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return SafeArea(
       child: Column(
         children: [
@@ -3486,7 +3533,7 @@ class _WebCameraFallback extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 _ModeSelector(mode: mode, onChanged: onModeChanged),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 _SliderRow(
                   icon: Icons.opacity,
                   value: overlayOpacity,
@@ -3496,20 +3543,20 @@ class _WebCameraFallback extends StatelessWidget {
                 Row(
                   children: [
                     _CameraActionButton(
-                      tooltip: '相册导入',
+                      tooltip: l10n.importFromAlbum3,
                       icon: galleryImage == null
                           ? Icons.photo_library_outlined
                           : Icons.photo_library,
                       onPressed: onPickGallery,
                     ),
                     const Spacer(),
-                    const Icon(
+                    Icon(
                       Icons.photo_camera_outlined,
                       color: Colors.white,
                       size: 36,
                     ),
                     const Spacer(),
-                    const SizedBox(width: 48),
+                    SizedBox(width: 48),
                   ],
                 ),
               ],
@@ -3529,6 +3576,7 @@ class _FallbackTopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+      final l10n = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
@@ -3540,9 +3588,9 @@ class _FallbackTopBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             onPressed: () => Navigator.of(context).maybePop(),
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(Icons.arrow_back),
           ),
           Expanded(
             child: Text(
@@ -3557,9 +3605,9 @@ class _FallbackTopBar extends StatelessWidget {
             ),
           ),
           IconButton(
-            tooltip: '参考图',
+            tooltip: l10n.reference2,
             onPressed: onPickReference,
-            icon: const Icon(Icons.image_outlined),
+            icon: Icon(Icons.image_outlined),
           ),
         ],
       ),
@@ -3572,6 +3620,7 @@ class _FallbackPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ColoredBox(
       color: AppColors.surfaceMuted,
       child: Center(
@@ -3596,12 +3645,22 @@ class _FallbackPreview extends StatelessWidget {
 }
 
 class _NativeCameraUnavailableMessage extends StatelessWidget {
-  const _NativeCameraUnavailableMessage({required this.message});
+  const _NativeCameraUnavailableMessage({
+    required this.errorCode,
+    this.detail,
+  });
 
-  final String message;
+  final String errorCode;
+  final String? detail;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final message = switch (errorCode) {
+      'permission' => l10n.cameraPermissionRequired2,
+      _ =>
+        '${l10n.nativeCameraFailedToInitialize2}${detail != null ? ': $detail' : ''}',
+    };
     return ColoredBox(
       color: const Color(0xFF090A0D),
       child: SafeArea(
@@ -3611,22 +3670,22 @@ class _NativeCameraUnavailableMessage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Icon(
+                Icon(
                   Icons.error_outline,
                   color: Colors.white70,
                   size: 36,
                 ),
-                const SizedBox(height: 12),
-                const Text(
-                  'iOS 原生相机未启动',
-                  style: TextStyle(
+                SizedBox(height: 12),
+                Text(
+                  l10n.iosNativeCameraDidNotStart2,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
                 Text(
                   message,
                   textAlign: TextAlign.center,
@@ -3636,11 +3695,11 @@ class _NativeCameraUnavailableMessage extends StatelessWidget {
                     letterSpacing: 0,
                   ),
                 ),
-                const SizedBox(height: 18),
+                SizedBox(height: 18),
                 FilledButton.icon(
                   onPressed: () => Navigator.of(context).maybePop(),
-                  icon: const Icon(Icons.arrow_back),
-                  label: const Text('返回'),
+                  icon: Icon(Icons.arrow_back),
+                  label: Text(l10n.tooltipBack),
                 ),
               ],
             ),
@@ -3680,6 +3739,7 @@ class _ReferenceImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     final safeScale = scale.clamp(0.8, 1.0);
     final bytes = source.bytes;
     final Widget image;
@@ -3708,7 +3768,7 @@ class _ReferenceImageView extends StatelessWidget {
         height: double.infinity,
         fit: fit,
         loadingBuilder: (_) {
-          return const ColoredBox(
+          return ColoredBox(
             color: Colors.black,
             child: Center(
               child: CircularProgressIndicator(
@@ -3748,6 +3808,7 @@ class _ReferenceError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return ColoredBox(
       color: AppColors.surfaceMuted,
       child: Center(

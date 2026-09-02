@@ -6,6 +6,7 @@ import '../app_theme.dart';
 import '../map/map_tile_config.dart';
 import '../utils/selected_item_order.dart';
 import 'pilgrimage_models.dart';
+import '../../l10n/app_localizations.dart';
 
 class GroupAnchorSelection {
   const GroupAnchorSelection({
@@ -70,6 +71,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final selectedPosition = _selectedPoint?.position ?? _manualPosition;
     final mapPoints = selectedItemsLast<PilgrimagePoint>(
       widget.points,
@@ -78,12 +80,12 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('选择关键点'),
+        title: Text(l10n.dialogSelectAnchorTitle),
         actions: [
           TextButton(
             onPressed: () =>
                 Navigator.of(context).pop(const GroupAnchorSelection.clear()),
-            child: const Text('清除'),
+            child: Text(l10n.btnClear),
           ),
         ],
       ),
@@ -143,7 +145,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
               child: Column(
                 children: [
                   _MapToolButton(
-                    tooltip: _manualPickMode ? '关闭地图点选' : '在地图上选点',
+                    tooltip: _manualPickMode ? l10n.tooltipCloseMapSelect : l10n.tooltipSelectOnMap,
                     selected: _manualPickMode,
                     onTap: () {
                       setState(() {
@@ -154,7 +156,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
                   ),
                   const SizedBox(height: 8),
                   _MapToolButton(
-                    tooltip: '输入经纬度',
+                    tooltip: l10n.dialogInputCoordinatesTitle,
                     selected: false,
                     onTap: _showCoordinateInput,
                     icon: Icons.edit_location_alt_outlined,
@@ -216,8 +218,9 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
     final result = await showDialog<LatLng>(
       context: context,
       builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
         return AlertDialog(
-          title: const Text('输入经纬度'),
+          title: Text(l10n.dialogInputCoordinatesTitle),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -227,7 +230,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
                   signed: true,
                   decimal: true,
                 ),
-                decoration: const InputDecoration(labelText: '纬度'),
+                decoration: InputDecoration(labelText: l10n.manualAddPointLatitude),
               ),
               const SizedBox(height: 8),
               TextField(
@@ -236,14 +239,14 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
                   signed: true,
                   decimal: true,
                 ),
-                decoration: const InputDecoration(labelText: '经度'),
+                decoration: InputDecoration(labelText: l10n.manualAddPointLongitude),
               ),
             ],
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('取消'),
+              child: Text(l10n.btnCancel),
             ),
             FilledButton(
               onPressed: () {
@@ -263,7 +266,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
                 }
                 Navigator.of(context).pop(LatLng(latitude, longitude));
               },
-              child: const Text('确定'),
+              child: Text(l10n.btnConfirm),
             ),
           ],
         );
@@ -283,6 +286,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
   }
 
   void _saveSelection() {
+    final l10n = AppLocalizations.of(context)!;
     final selectedPoint = _selectedPoint;
     if (selectedPoint != null) {
       Navigator.of(context).pop(
@@ -300,7 +304,7 @@ class _GroupAnchorPickerScreenState extends State<GroupAnchorPickerScreen> {
     }
     Navigator.of(context).pop(
       GroupAnchorSelection(
-        name: '手动关键点',
+        name: l10n.labelManualAnchor,
         position: manualPosition,
         pointId: null,
       ),
@@ -316,8 +320,9 @@ class _AnchorPointMarker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return IconButton(
-      tooltip: '选择点位',
+      tooltip: l10n.tooltipSelectPoint,
       onPressed: onTap,
       style: IconButton.styleFrom(
         backgroundColor: selected ? AppColors.accent : AppColors.surface,
@@ -393,12 +398,13 @@ class _AnchorSelectionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final bottomInset = MediaQuery.paddingOf(context).bottom;
     final point = selectedPoint;
     final position = point?.position ?? manualPosition;
-    final title = point?.name ?? (position == null ? '尚未选择关键点' : '手动关键点');
+    final title = point?.name ?? (position == null ? l10n.labelAnchorNotSelected : l10n.labelManualAnchor);
     final subtitle = point == null
-        ? (manualPickMode ? '点击地图任意位置设置关键点' : '可点选点位、地图或输入经纬度')
+        ? (manualPickMode ? l10n.msgClickMapToSetAnchor : l10n.msgSelectAnchorMethods)
         : '${groupNameForPoint(point)} / ${point.subtitle}';
 
     return Container(
@@ -445,7 +451,7 @@ class _AnchorSelectionCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          FilledButton(onPressed: onSave, child: const Text('保存')),
+          FilledButton(onPressed: onSave, child: Text(l10n.btnSave)),
         ],
       ),
     );

@@ -10,6 +10,8 @@ import '../plan/reference_image_status.dart';
 import 'plan_export_asset_stub.dart'
     if (dart.library.io) 'plan_export_asset_io.dart';
 import 'plan_package.dart';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 enum PlanExportV2Mode { planOnly, planWithRecords }
 
@@ -67,6 +69,7 @@ Future<PlanExportV2Result> buildPlanExportV2Package({
   required PilgrimagePlan plan,
   required List<PilgrimageVisitRecord> visitRecords,
   required PlanExportV2Options options,
+  required BuildContext context,
   DateTime? exportedAt,
   ExportNetworkBytesReader? networkBytesReader,
 }) async {
@@ -306,9 +309,9 @@ Future<PlanExportV2Result> buildPlanExportV2Package({
       ),
     ),
   );
-  addString('points.csv', _pointsCsv(plan, visitRecords));
+  addString('points.csv', _pointsCsv(plan, visitRecords, context));
   if (options.includeRecords) {
-    addString('records.csv', _recordsCsv(plan, records));
+    addString('records.csv', _recordsCsv(plan, records, context));
   }
 
   final bytes = ZipEncoder().encode(archive);
@@ -530,30 +533,32 @@ class _RecordAssetRefs {
 String _pointsCsv(
   PilgrimagePlan plan,
   List<PilgrimageVisitRecord> visitRecords,
+  BuildContext context,
 ) {
+  final l10n = AppLocalizations.of(context)!;
   final recordCounts = <String, int>{};
   for (final record in visitRecords) {
     recordCounts[record.pointId] = (recordCounts[record.pointId] ?? 0) + 1;
   }
   final lines = <List<Object?>>[
     [
-      '作品',
-      '片区',
-      '点位名',
-      '副标题',
-      '纬度',
-      '经度',
-      '集数/场景',
-      '来源',
-      '来源ID',
-      '参考图URL',
-      '已完成',
-      '记录数',
+      l10n.csvHeaderWork,
+      l10n.csvHeaderArea,
+      l10n.csvHeaderPointName,
+      l10n.csvHeaderSubtitle,
+      l10n.csvHeaderLatitude,
+      l10n.csvHeaderLongitude,
+      l10n.csvHeaderEpisodeScene,
+      l10n.csvHeaderSource,
+      l10n.csvHeaderSourceId,
+      l10n.csvHeaderRefImageUrl,
+      l10n.csvHeaderCompleted,
+      l10n.csvHeaderRecordCount,
     ],
     for (final point in plan.points)
       [
         point.work.title,
-        _groupName(plan, point.groupId),
+        _groupName(plan, point.groupId, context),
         point.name,
         point.subtitle,
         point.position.latitude,
@@ -562,27 +567,28 @@ String _pointsCsv(
         point.source.name,
         point.sourceId,
         isLocalUploadedReference(point) ? null : point.referenceImageUrl,
-        plan.completedPointIds.contains(point.id) ? '是' : '否',
+        plan.completedPointIds.contains(point.id) ? l10n.yes : l10n.no,
         recordCounts[point.id] ?? 0,
       ],
   ];
   return _csv(lines);
 }
 
-String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records) {
+String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records, BuildContext context) {
+  final l10n = AppLocalizations.of(context)!;
   final pointById = {for (final point in plan.points) point.id: point};
   final lines = <List<Object?>>[
-    ['作品', '片区', '点位名', '记录ID', '拍摄时间', '参考模式', '是否调色', '照片文件名', '调色照片文件名'],
+    [l10n.csvHeaderWork, l10n.csvHeaderArea, l10n.csvHeaderPointName, l10n.csvHeaderRecordId, l10n.csvHeaderCapturedAt, l10n.csvHeaderRefMode, l10n.csvHeaderColorGraded, l10n.csvHeaderPhotoFile, l10n.csvHeaderGradedPhotoFile],
     for (final record in records)
       [
         pointById[record.pointId]?.work.title ??
             record.displayWorkTitleSnapshot,
-        _groupName(plan, pointById[record.pointId]?.groupId),
+        _groupName(plan, pointById[record.pointId]?.groupId, context),
         pointById[record.pointId]?.name ?? record.displayPointNameSnapshot,
         record.id,
         record.capturedAt.toIso8601String(),
         record.referenceMode,
-        record.hasColorGrading ? '是' : '否',
+        record.hasColorGrading ? l10n.yes : l10n.no,
         _fileName(record.photoPath),
         record.gradedPhotoPath == null
             ? ''
@@ -592,12 +598,13 @@ String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records) {
   return _csv(lines);
 }
 
-String _groupName(PilgrimagePlan plan, String? groupId) {
+String _groupName(PilgrimagePlan plan, String? groupId, BuildContext context) {
+  final l10n = AppLocalizations.of(context)!;
   if (groupId == null) {
-    return '未分组';
+    return l10n.labelUngrouped;
   }
   return plan.groups.where((group) => group.id == groupId).firstOrNull?.name ??
-      '未知片区';
+      l10n.labelUnknownArea;
 }
 
 String _prettyJson(Object? value) {

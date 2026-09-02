@@ -92,6 +92,7 @@ class PlanGroupBucket {
 }
 
 List<PlanGroupBucket> planGroupBuckets(
+  BuildContext context,
   PilgrimagePlan plan,
   Set<String> completedPointIds,
 ) {
@@ -120,7 +121,7 @@ List<PlanGroupBucket> planGroupBuckets(
   buckets.add(
     PlanGroupBucket(
       id: 'ungrouped',
-      name: '未分组',
+      name: AppLocalizations.of(context)!.labelUngrouped,
       points: ungroupedPoints,
       completedCount: ungroupedPoints
           .where((point) => completedPointIds.contains(point.id))

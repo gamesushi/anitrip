@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../plan/pilgrimage_models.dart';
 import 'image_load_limiter.dart';
 import 'reference_thumbnail_stub.dart'
@@ -17,7 +18,7 @@ class MapThumbnailMarker extends StatelessWidget {
     this.localPath,
     this.imageUrl,
     this.imageSource = AnitabiImageSource.auto,
-    this.tooltip = '巡礼点',
+    this.tooltip = '',
     super.key,
   });
 
@@ -34,6 +35,7 @@ class MapThumbnailMarker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final pinColor =
         markerColor ?? (imported ? AppColors.textSecondary : AppColors.accent);
     final bubbleWidth = selected ? 76.0 : 64.0;
@@ -48,7 +50,7 @@ class MapThumbnailMarker extends StatelessWidget {
     final tailBottom = markerHeight - dotTop - 3;
 
     return Tooltip(
-      message: tooltip,
+      message: tooltip.isEmpty ? l10n.mapMarkerPilgrimagePoint : tooltip,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: onTap,

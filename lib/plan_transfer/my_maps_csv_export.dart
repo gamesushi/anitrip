@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import '../plan/pilgrimage_models.dart';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 const myMapsCsvMimeType = 'text/csv';
 const myMapsCsvExtension = 'csv';
@@ -18,6 +20,7 @@ class MyMapsCsvExportResult {
 }
 
 MyMapsCsvExportResult buildMyMapsCsvExport({
+  required BuildContext context,
   required PilgrimagePlan plan,
   DateTime? exportedAt,
 }) {
@@ -41,7 +44,7 @@ MyMapsCsvExportResult buildMyMapsCsvExport({
   final groupsById = {for (final group in plan.groups) group.id: group};
   for (final point in plan.points) {
     final group = point.groupId == null ? null : groupsById[point.groupId];
-    final groupName = group?.name ?? '未分组';
+    final groupName = group?.name ?? AppLocalizations.of(context)!.labelUngrouped;
     rows.add([
       point.name,
       point.position.latitude.toStringAsFixed(7),

@@ -96,12 +96,12 @@
   "copyLabelPointName": "ポイント名",
   "copyLabelGroupAnchor": "エリアのポイント",
   "labelNote": "述べる",
-  "themeClassicGreen": "クラシックグリーン",
-  "themeDeepBlue": "ディープブルー",
-  "themeCherryPink": "さくらパウダー",
-  "themeTwilightPurple": "トワイライトパープル",
-  "themeMiriaYellow": "アンバーオレンジ",
-  "themeGraphite": "グラファイトブラック",
+  "themeClassicGreen": "Classic green",
+  "themeDeepBlue": "Deep blue",
+  "themeCherryPink": "Cherry pink",
+  "themeTwilightPurple": "Twilight purple",
+  "themeMiriaYellow": "Honey orange",
+  "themeGraphite": "Graphite black",
   "themeAurora": "カスタマイズ",
   "aspectAuto": "自動",
   "aspectNative": "ネイティブのプロポーション",
@@ -1256,5 +1256,717 @@
   "routeGenerated": "推奨ルートを生成しました：{summary}",
   "routeTooFewPoints": "このエリアのポイントが不足しており、ルートを生成できません",
   "exportRouteToMap": "ルートを地図に書き出し",
-  "routeExportFailed": "マップアプリを開けませんでした"
+  "routeExportFailed": "マップアプリを開けませんでした",
+  "btnCopy": "コピー",
+  "btnShare": "共有",
+  "btnView": "表示",
+  "imageViewerSaveTitle": "画像を保存",
+  "imageViewerSaveToGallery": "フォトライブラリに保存",
+  "imageViewerLoading": "画像を読み込み中",
+  "imageViewerEmpty": "画像はありません",
+  "imageViewerUnavailable": "画像を利用できません",
+  "imageViewerReadFailed": "画像を読み込めませんでした",
+  "imageViewerSaved": "画像を保存しました",
+  "imageViewerSavedToGallery": "フォトライブラリに保存しました",
+  "imageViewerSaveFailed": "保存に失敗しました",
+  "imageViewerSaveCancelled": "保存をキャンセルしました",
+  "appShellPlanFileImportFailed": "計画ファイルの読み込みに失敗しました",
+  "appShellPlanLoadFailed": "計画の読み込みに失敗しました",
+  "appShellPlanLoading": "巡礼計画を読み込み中",
+  "appShellRetryHint": "しばらくしてからもう一度お試しください。",
+  "appShellLoadingHint": "本日の地点と現在の目標を準備しています。",
+  "recordDetailTitle": "記録の詳細",
+  "recordDetailAutoGrading": "自動色合わせ",
+  "recordDetailDelete": "記録を削除",
+  "recordDetailViewPoint": "地点の詳細を見る",
+  "recordDetailDeleteConfirmBody": "この巡礼記録のみを削除します。地点の達成状態は変わりません。",
+  "recordDetailDeletePhotoFile": "写真ファイルも削除する",
+  "recordDetailExportPrefUnsupported": "このプラットフォームでは書き出し設定の保存に対応していません。",
+  "recordDetailPointMissing": "この記録に対応する地点は現在の計画にありません。写真と書き出し機能は引き続き利用できます。",
+  "pointRecordsTitle": "地点の撮影記録",
+  "pointRecordsCount": "{count} 件",
+  "@pointRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pointRecordsEmpty": "この地点にはまだ撮影記録がありません",
+  "labelUngrouped": "未グループ",
+  "labelGraded": "色調整済み",
+  "labelOriginal": "元画像",
+  "gradingBrightness": "明るさ",
+  "gradingExposure": "露出",
+  "gradingContrast": "コントラスト",
+  "gradingSaturation": "彩度",
+  "gradingTemperature": "色温度",
+  "gradingTint": "色合い",
+  "gradingHighlights": "ハイライト",
+  "gradingShadows": "シャドウ",
+  "gradingRedShadow": "Rシャドウ",
+  "gradingRedMid": "R中間調",
+  "gradingRedHighlight": "Rハイライト",
+  "gradingGreenShadow": "Gシャドウ",
+  "gradingGreenMid": "G中間調",
+  "gradingGreenHighlight": "Gハイライト",
+  "gradingBlueShadow": "Bシャドウ",
+  "gradingBlueMid": "B中間調",
+  "gradingBlueHighlight": "Bハイライト",
+  "recordDetailCapturedPhoto": "巡礼写真",
+  "failedToReadPilgrimagePhoto2": "巡礼写真の読み込みに失敗",
+  "noReferenceImageAvailableForAuto2": "自動カラー調整に使える参考図がありません",
+  "autoColorMatchFailed2": "自動カラー調整に失敗",
+  "autoColorParametersGenerated2": "自動カラー補正パラメータを生成しました",
+  "revertedToOriginalPhoto2": "元の写真に戻しました",
+  "matchTheColorToneAutomaticallyFirst2": "まず自動で色調を合わせてください",
+  "colorGradingResultSaved2": "カラー補正結果を保存しました",
+  "failedToReadPhoto2": "写真の読み込みに失敗",
+  "matching2": "照合中…",
+  "autoMatchTone2": "自動色調合わせ",
+  "reference2": "参考図",
+  "noReferenceImage2": "参考図がありません",
+  "original2": "元画像",
+  "graded3": "補正後",
+  "showingOriginal2": "元画像を表示中",
+  "holdToShowOriginal2": "長押しで元画像を表示",
+  "matchMode2": "マッチモード",
+  "restoredLastColorGradingParameters2": "前回のカラー補正パラメータを復元",
+  "saveTheGradedResultAfterAuto2": "自動照合後に補正結果を保存できます",
+  "toneMatching2": "色調合わせ",
+  "gradingIntensity2": "補正強度",
+  "gradingParameters2": "カラー補正パラメータ",
+  "showsTheParametersActuallyAppliedAt2": "現在の補正強度で実際に適用されるパラメータを表示します。",
+  "contrast2": "コントラスト",
+  "saturation2": "彩度",
+  "redShadows2": "赤シャドウ",
+  "redMidtones2": "赤中間調",
+  "redHighlights2": "赤ハイライト",
+  "greenShadows2": "緑シャドウ",
+  "greenMidtones2": "緑中間調",
+  "greenHighlights2": "緑ハイライト",
+  "blueShadows2": "青シャドウ",
+  "blueMidtones2": "青中間調",
+  "blueHighlights2": "青ハイライト",
+  "saveResult2": "結果を保存",
+  "afterSavingTheRecordDetailAnd2": "保存後、記録詳細と書き出しには補正後の写真が使われ、元画像と補正パラメータは残ります。",
+  "saving2": "保存中…",
+  "saveColorGrading2": "カラー補正を保存",
+  "manualOrder2": "手動順序",
+  "noAssignablePointsWithinTheCurrent2": "現在の距離内に割り当て可能なポイントがありません",
+  "confirmNearestAssignment2": "最近割り当てを確定",
+  "startAssigning2": "割り当て開始",
+  "nearestAssignmentFailed2": "最近割り当てに失敗",
+  "finishAreaAssignmentFirst2": "まずエリア割り当てを完了してください",
+  "createAnAreaFirst2": "まずエリアを作成してください",
+  "noUngroupedPointsInTheSelection2": "選択範囲内に未分類ポイントがありません",
+  "confirmBoxSelectionAssignment2": "枠選択割り当てを確定",
+  "assign2": "割り当て",
+  "boxSelectionAssignmentFailed2": "枠選択割り当てに失敗",
+  "selectArea2": "エリアを選択",
+  "finishBoxSelection2": "枠選択を終了",
+  "boxSelect2": "枠選択",
+  "assigning2": "割り当て中…",
+  "ungroupedPointsAreAssignedToThe2": "未分類ポイントは最大距離内で最も近いエリアの基点に割り当てられます。",
+  "noAvailableAreaAnchors2": "利用可能なエリア基点がありません",
+  "createAnAreaFirstUseSmart2": "まずエリアを作成してください（「スマート分割」でワンタップ生成）",
+  "assignablePoints2": "割り当て可能ポイント",
+  "pointsOutOfRange2": "範囲外ポイント",
+  "eGHttpsWwAnitabiCn2": "e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "thisWorkWasNotFoundOn2": "この作品はAnitabiで見つかりませんでした",
+  "thisWorkHasNoAnitabiPoints2": "この作品には現在Anitabiポイントがありません",
+  "thisBangumiEntryHasNoMatching2": "このBangumi項目はAnitabi地図データに一致する作品がありません。同名アニメや原作、関連項目の追加を試してください。",
+  "theWorkExistsOnAnitabiBut2": "作品はAnitabiにありますが、現在インポート可能な地図ポイントはありません。",
+  "newArea2": "新規エリア",
+  "areaCreationFailed2": "エリア作成に失敗",
+  "renameArea2": "エリア名変更",
+  "areaName2": "エリア名",
+  "areaRenameFailed2": "エリア名変更に失敗",
+  "failedToSaveSortOrder2": "並び順の保存に失敗",
+  "failedToGenerateRecommendedRoute2": "おすすめルートの生成に失敗",
+  "failedToSaveAnchor2": "基点の保存に失敗",
+  "deleteArea2": "エリアを削除",
+  "areaDeletionFailed2": "エリア削除に失敗",
+  "failedToSaveAreaOrder2": "エリア順序の保存に失敗",
+  "ungroupedPoints2": "未分類ポイント",
+  "areaNameCannotBeEmpty2": "エリア名は空にできません",
+  "create2": "作成",
+  "areaActions2": "エリア操作",
+  "rename2": "名前変更",
+  "setAnchor2": "基点を設定",
+  "switchToUnordered2": "順序なしに切替",
+  "switchToManualOrder2": "手動順序に切替",
+  "importContent2": "インポート内容",
+  "chooseWhatToImport2": "インポートする項目を選択",
+  "importingWillNotModifyCurrentData2": "インポートしても現在のデータは変更されません。",
+  "planStructure2": "計画構造",
+  "worksAreasPointsCompletionStatusAnd2": "作品・エリア・ポイント・完了状況・現在の目標。",
+  "captureRecords2": "撮影記録",
+  "v1FilesContainNoPhotoAssets2": "v1ファイルは写真資産を含まず、計画構造のみインポートされます。",
+  "thisPackageHasNoCaptureRecords2": "このパッケージに撮影記録はありません。",
+  "imagesAndResourceFiles2": "画像とリソースファイル",
+  "packageNotes2": "パッケージメモ",
+  "missingOrCompatibilityInfoRecordedDuring2": "書き出し時に記録された欠落・互換性情報。",
+  "importing2": "インポート中…",
+  "importSelected2": "選択項目をインポート",
+  "importFailed2": "インポート失敗",
+  "thisPackageHasNoRecoverableResource2": "このパッケージに復元可能なリソースはありません。",
+  "resourcesWereRecordedButNoRecoverable2": "リソースは記録されていますが、復元可能なファイルがありません。",
+  "resources2": "リソース",
+  "version2": "バージョン",
+  "pointName2": "ポイント名",
+  "subtitle2": "サブタイトル",
+  "episodeScene2": "話数／シーン",
+  "sourceId2": "ソースID",
+  "referenceImageUrl2": "参考図URL",
+  "recordCount2": "記録数",
+  "yes2": "はい",
+  "no2": "いいえ",
+  "recordId2": "記録ID",
+  "referenceMode2": "参考モード",
+  "graded4": "補正済?",
+  "photoFileName2": "写真ファイル名",
+  "gradedPhotoFileName2": "補正後写真ファイル名",
+  "customXyzUrlMustIncludeZ2": "カスタムXYZ URLは{z},{x},{y}を含み、http/httpsを使用してください。",
+  "customMaplibreStyleUrlMustUse2": "カスタムMapLibreスタイルURLはhttp/httpsを使用してください。",
+  "photoImportFailedPleaseChooseAgain2": "写真のインポートに失敗しました。再度選択してください。",
+  "readingReferenceRatioPleaseWaitBefore2": "参考図の比率を読み込み中です。撮影までお待ちください。",
+  "cameraPermissionRequired2": "カメラ権限が必要です",
+  "nativeCameraFailedToInitialize2": "ネイティブカメラの初期化に失敗",
+  "switchToLandscapeUi2": "横向きUIに切替",
+  "importFromAlbum3": "アルバムから取り込み",
+  "switchCamera3": "カメラ切替",
+  "switchToPortraitUi2": "縦向きUIに切替",
+  "checkPhoto2": "写真を確認",
+  "flash2": "フラッシュ",
+  "switchCamera4": "カメラ切替",
+  "importFromAlbum4": "アルバムから取り込み",
+  "iosNativeCameraDidNotStart2": "iOSネイティブカメラが起動しませんでした",
+  "savingRecord2": "記録を保存中…",
+  "backingUpPilgrimagePhotos2": "巡礼写真をバックアップ中…",
+  "generatingComparison2": "比較図を生成中…",
+  "updatingPointStatus2": "ポイント状態を更新中…",
+  "savingTheRecordPleaseWait2": "記録を保存中です。お待ちください。",
+  "confirmRecord2": "記録を確定",
+  "saveRecord2": "記録を保存",
+  "saveAndMarkComplete2": "保存して完了にする",
+  "savedAndMarkedComplete2": "保存して完了にしました",
+  "recordSaved2": "記録を保存しました",
+  "saveFailedPleaseTryAgainLater2": "保存に失敗しました。後ほど再度お試しください。",
+  "loadingReference2": "参考図を読み込み中…",
+  "referenceTemporarilyUnavailable2": "参考図は一時的に利用できません",
+  "anitripPhoto2": "anitrip photo",
+  "willAssignCountUngroupedPointsTo2": "Will assign {count} ungrouped points to the nearest area anchor, max distance {dist}.",
+  "assignedCountPoints2": "{count} ポイントを割り当てました",
+  "willMovePointsUngroupedPointsTo2": "Will move {points} ungrouped points to “{group}”.",
+  "assignedPointsPoints2": "{points} ポイントを割り当てました",
+  "selectedSelUngroupedUng2": "選択 {sel} / 未分類 {ung}",
+  "maxDistanceDistAssignableAUng2": "最大距離 {dist} · 割当可 {a} / {ung}",
+  "ungUngroupedTapAMapPoint2": "未分類 {ung} 個 · 地図ポイントをタップして詳細表示",
+  "workHasNoImportableAnitabiPoints2": "「{work}」にはインポート可能なAnitabiポイントがありません。",
+  "deleteGroupItsCountPointsWill2": "「{group}」を削除しますか？中の{count}ポイントは未分類に移動します。",
+  "groupsAreasPointsPoints2": "{groups} エリア · {points} ポイント",
+  "pointsPointsAnchorOrder2": "{points} ポイント · {anchor} · {order}",
+  "countPointsAwaitingOrganization2": "{count} ポイントを整理待ち",
+  "recordsRecordsIncludingPhotoPathsAnd2": "{records} 件の記録（写真パスと補正パラメータを含む）。",
+  "importedPlanPlan2": "計画「{plan}」をインポートしました",
+  "importedPlanPlanSomeResourcesWere2": "計画「{plan}」をインポート（一部リソース未復元）",
+  "thePackageHasCountResourceFiles3": "パッケージに{count}個のリソースがありますが、このプラットフォームでは復元できません。",
+  "thePackageHasCountResourceFiles4": "パッケージに{count}個のリソースがあり、本機ストレージへ復元します。",
+  "countLandmarks2": "{count} ランドマーク",
+  "countScreenshots2": "{count} スクリーンショット",
+  "nativeCameraFailedToInitializeError2": "ネイティブカメラの初期化に失敗：{error}",
+  "savingRecordStage": "記録保存中…",
+  "backingUpPilgrimagePhotoStage": "巡礼写真をバックアップ中…",
+  "generatingComparisonImageStage": "比較画像生成中…",
+  "updatingPointStatusStage": "ポイント状態更新中…",
+  "savingRecordPleaseWait": "記録を保存中です。少々お待ちください。",
+  "confirmRecordTitle": "記録の確認",
+  "saveRecord": "記録を保存",
+  "saveAndMarkComplete": "保存して完了にする",
+  "savedAndMarkedComplete": "保存して完了にしました",
+  "recordSaved": "記録を保存しました",
+  "backupSavedToAlbumSuffix": "、アルバムにバックアップしました",
+  "albumBackupFailedSuffix": "；アルバムバックアップ失敗",
+  "nextPointNameSuffix": "次：{name}",
+  "@nextPointNameSuffix": {
+    "description": "Success message suffix with the next point name",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSavedToAlbumSuffix": "、比較図をアルバムに保存",
+  "referenceUnavailableComparisonSuffix": "、参考図不可、比較図未作成",
+  "capturedUnavailableComparisonSuffix": "、巡礼図不可、比較図未作成",
+  "comparisonGalleryFailedSuffix": "、比較図のアルバム保存失敗",
+  "comparisonRenderFailedSuffix": "、比較図生成失敗",
+  "saveToAlbum": "アルバムに保存",
+  "savedToAlbum": "アルバムに保存しました",
+  "saveFailedRetry": "保存失敗、後でもう一度お試しください。",
+  "referenceModeLabel": "参照モード",
+  "newArea": "New area",
+  "areaCreationFailed": "Area creation failed",
+  "renameArea": "Rename area",
+  "areaName": "Area name",
+  "areaRenameFailed": "Area rename failed",
+  "sortOrderSaveFailed": "Sort order save failed",
+  "recommendedRouteGenerationFailed": "Recommended route generation failed",
+  "pointsAbout": "{routeorderedPointslength} points · about ",
+  "@pointsAbout": {
+    "description": "Auto-localized: {routeorderedPointslength} points · about ",
+    "placeholders": {
+      "routeorderedPointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "onFoot": "{formatRouteDistanceroutetotalDistanceMeters} on foot",
+  "@onFoot": {
+    "description": "Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot",
+    "placeholders": {
+      "formatRouteDistanceroutetotalDistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "anchorSaveFailed": "Anchor save failed",
+  "deleteArea": "Delete area",
+  "deletePointsWillBeMovedToUngroupedPoints": "Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+  "@deletePointsWillBeMovedToUngroupedPoints": {
+    "description": "Auto-localized: Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+    "placeholders": {
+      "groupname": {
+        "type": "String"
+      },
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "areaDeletionFailed": "Area deletion failed",
+  "areaOrderSaveFailed": "Area order save failed",
+  "ungroupedPoints": "Ungrouped points",
+  "areaNameCannotBeEmpty": "Area name cannot be empty",
+  "create": "Create",
+  "areasPoints": "{groupCount} areas · {planpointslength} points",
+  "@areasPoints": {
+    "description": "Auto-localized: {groupCount} areas · {planpointslength} points",
+    "placeholders": {
+      "groupCount": {
+        "type": "String"
+      },
+      "planpointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "manualOrder": "Manual order",
+  "points": "{pointCount} points · {anchorLabel} · {orderLabel}",
+  "@points": {
+    "description": "Auto-localized: {pointCount} points · {anchorLabel} · {orderLabel}",
+    "placeholders": {
+      "pointCount": {
+        "type": "String"
+      },
+      "anchorLabel": {
+        "type": "String"
+      },
+      "orderLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "areaActions": "Area actions",
+  "rename": "Rename",
+  "setAnchor": "Set anchor",
+  "switchToUnordered": "Switch to unordered",
+  "switchToManualOrder": "Switch to manual order",
+  "pointsAwaitingOrganization": "{pointCount} points awaiting organization",
+  "@pointsAwaitingOrganization": {
+    "description": "Auto-localized: {pointCount} points awaiting organization",
+    "placeholders": {
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "noAssignablePointsWithinTheCurrentDistance": "No assignable points within the current distance",
+  "confirmRecentAssignment": "Confirm recent assignment",
+  "willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf": "Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+  "@willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf": {
+    "description": "Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "assignedPoints": "Assigned {count} points",
+  "@assignedPoints": {
+    "description": "Auto-localized: Assigned {count} points",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "recentAssignmentFailed": "Recent assignment failed",
+  "finishAreaAssignmentFirst": "Finish area assignment first",
+  "createAnAreaFirst": "Create an area first",
+  "noUngroupedPointsWithinTheBoxSelection": "No ungrouped points within the box selection",
+  "confirmBoxSelectionAssignment": "Confirm box selection assignment",
+  "willMoveUngroupedPointsTo": "Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+  "@willMoveUngroupedPointsTo": {
+    "description": "Auto-localized: Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      },
+      "targetGroupname": {
+        "type": "String"
+      }
+    }
+  },
+  "assign": "Assign",
+  "assignedPoints2": "Assigned {pointslength} points",
+  "@assignedPoints2": {
+    "description": "Auto-localized: Assigned {pointslength} points",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "boxSelectionAssignmentFailed": "Box selection assignment failed",
+  "selectArea": "Select area",
+  "boxSelect": "Box select",
+  "endBoxSelect": "End box select",
+  "selectedUngrouped": "Selected {selectedCount} / ungrouped {ungroupedCount}",
+  "@selectedUngrouped": {
+    "description": "Auto-localized: Selected {selectedCount} / ungrouped {ungroupedCount}",
+    "placeholders": {
+      "selectedCount": {
+        "type": "String"
+      },
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "assigning": "Assigning",
+  "maxDistanceAssignable": "Max distance {formatDistancedistanceMeters} · assignable {assignableCount}/{ungroupedCount}",
+  "@maxDistanceAssignable": {
+    "description": "Auto-localized: Max distance {formatDistancedistanceMeters} · assignable {assignableCount}/{ungroupedCount}",
+    "placeholders": {
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      },
+      "assignableCount": {
+        "type": "String"
+      },
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance": "Ungrouped points are assigned to the nearest area anchor within the maximum distance.",
+  "noAvailableAreaAnchors": "No available area anchors",
+  "createAnAreaFirstYouCanUseSmartZoningToGenerateOne": "Create an area first (you can use \"Smart zoning\" to generate one).",
+  "ungroupedTapAMapPointForDetails": "Ungrouped {ungroupedCount} · tap a map point for details",
+  "@ungroupedTapAMapPointForDetails": {
+    "description": "Auto-localized: Ungrouped {ungroupedCount} · tap a map point for details",
+    "placeholders": {
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "outOfRangePoints": "Out-of-range points",
+  "assignablePoints": "Assignable points",
+  "importContent": "Import content",
+  "selectImportContent": "Select import content",
+  "importingWillNotModifyCurrentData": "Importing will not modify current data.",
+  "planStructure": "Plan structure",
+  "worksAreasPointsCompletionStatusAndCurrentGoals": "Works, areas, points, completion status, and current goals.",
+  "captureRecords": "Capture records",
+  "v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported": "v1 files do not include photo assets; only the plan structure is imported.",
+  "recordsIncludingPhotoPathsAndColorGradingParameters": "{packagevisitRecordCount} records, including photo paths and color grading parameters.",
+  "@recordsIncludingPhotoPathsAndColorGradingParameters": {
+    "description": "Auto-localized: {packagevisitRecordCount} records, including photo paths and color grading parameters.",
+    "placeholders": {
+      "packagevisitRecordCount": {
+        "type": "String"
+      }
+    }
+  },
+  "thisPackageHasNoCaptureRecords": "This package has no capture records.",
+  "imagesAndResourceFiles": "Images and resource files",
+  "notesInPackage": "Notes in package",
+  "missingOrCompatibilityNotesRecordedDuringExport": "Missing or compatibility notes recorded during export.",
+  "importSelectedContent": "Import selected content",
+  "importing": "Importing...",
+  "importedPlan": "Imported plan \"{importedPlanname}\"",
+  "@importedPlan": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\"",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlanButSomeAssetsWereNotRestored": "Imported plan \"{importedPlanname}\", but some assets were not restored",
+  "@importedPlanButSomeAssetsWereNotRestored": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\", but some assets were not restored",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importFailed": "Import failed",
+  "thisPackageHasNoRecoverableAssetFiles": "This package has no recoverable asset files.",
+  "thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles": "The package recorded assets, but there are no recoverable asset files.",
+  "assets": "Assets",
+  "version": "Version",
+  "pointName": "Point name",
+  "subtitle": "Subtitle",
+  "episodeScene": "Episode/Scene",
+  "sourceId": "Source ID",
+  "referenceImageUrl": "Reference image URL",
+  "recordCount": "Record count",
+  "no": "No",
+  "yes": "Yes",
+  "gradedPhotoFileName": "Graded photo file name",
+  "photoFileName": "Photo file name",
+  "colorGraded": "Color graded",
+  "recordId": "Record ID",
+  "customMaplibreStyleUrlMustUseHttpHttps": "Custom MapLibre style URL must use http/https.",
+  "thisWorkWasnTFoundInAnitabi": "This work wasn't found in Anitabi",
+  "thisWorkHasNoAnitabiPointsYet": "This work has no Anitabi points yet",
+  "thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName": "This Bangumi entry has no matching work in Anitabi map data. Try adding an animation, original work, or related entry with the same name.",
+  "thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet": "This work exists in Anitabi, but there are no map points available to import yet.",
+  "noImportableAnitabiPointsForYet": "No importable Anitabi points for \"{workTitle}\" yet.",
+  "@noImportableAnitabiPointsForYet": {
+    "description": "Auto-localized: No importable Anitabi points for \"{workTitle}\" yet.",
+    "placeholders": {
+      "workTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "workPilgrimage": "<work> pilgrimage",
+  "areaN": "Area N",
+  "loadingReferenceImage": "Loading reference image",
+  "referenceImageUnavailable": "Reference image unavailable",
+  "eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj": "e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitripImage": "anitrip image",
+  "landmarks": "{itempointCount} landmarks",
+  "@landmarks": {
+    "description": "Auto-localized: {itempointCount} landmarks",
+    "placeholders": {
+      "itempointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "screenshots": "{itempointCount} screenshots",
+  "@screenshots": {
+    "description": "Auto-localized: {itempointCount} screenshots",
+    "placeholders": {
+      "itempointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "latestWorks": "Latest works",
+  "nPlaces": "N places",
+  "imageViewerShareSubject": "anitripの画像",
+  "imageViewerShareText": "anitripの画像",
+  "mapMarkerPilgrimagePoint": "巡礼地点",
+  "mapMapLibreUrlRequireHttp": "カスタム MapLibre スタイル URL は http/https を使用してください。",
+  "pointsAbout2": "{routeorderedPointslength} points · about ",
+  "@pointsAbout2": {
+    "description": "Auto-localized: {routeorderedPointslength} points · about ",
+    "placeholders": {
+      "routeorderedPointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "onFoot2": "{formatRouteDistanceroutetotalDistanceMeters} on foot",
+  "@onFoot2": {
+    "description": "Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot",
+    "placeholders": {
+      "formatRouteDistanceroutetotalDistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePointsWillBeMovedToUngroupedPoints2": "Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+  "@deletePointsWillBeMovedToUngroupedPoints2": {
+    "description": "Auto-localized: Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+    "placeholders": {
+      "groupname": {
+        "type": "String"
+      },
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2": "Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+  "@willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2": {
+    "description": "Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "startAssignment": "Start assignment",
+  "assignedPoints3": "Assigned {count} points",
+  "@assignedPoints3": {
+    "description": "Auto-localized: Assigned {count} points",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "willMoveUngroupedPointsTo2": "Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+  "@willMoveUngroupedPointsTo2": {
+    "description": "Auto-localized: Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      },
+      "targetGroupname": {
+        "type": "String"
+      }
+    }
+  },
+  "assignedPoints4": "Assigned {pointslength} points",
+  "@assignedPoints4": {
+    "description": "Auto-localized: Assigned {pointslength} points",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlan2": "Imported plan \"{importedPlanname}\"",
+  "@importedPlan2": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\"",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlanButSomeAssetsWereNotRestored2": "Imported plan \"{importedPlanname}\", but some assets were not restored",
+  "@importedPlanButSomeAssetsWereNotRestored2": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\", but some assets were not restored",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "colorMatchNatural": "Natural",
+  "colorMatchStandard": "Standard",
+  "colorMatchStrong": "Strong match",
+  "aspectRatioAuto": "Auto",
+  "aspectRatioNative": "Native ratio",
+  "themeCustom": "Custom",
+  "importPackageV2Data": "v2 data package",
+  "csvHeaderWork": "Work",
+  "csvHeaderArea": "Area",
+  "csvHeaderPointName": "Point name",
+  "csvHeaderSubtitle": "Subtitle",
+  "csvHeaderLatitude": "Latitude",
+  "csvHeaderLongitude": "Longitude",
+  "csvHeaderEpisodeScene": "Episode/Scene",
+  "csvHeaderSource": "Source",
+  "csvHeaderSourceId": "Source ID",
+  "csvHeaderRefImageUrl": "Reference image URL",
+  "csvHeaderCompleted": "Completed",
+  "csvHeaderRecordCount": "Record count",
+  "csvHeaderRecordId": "Record ID",
+  "csvHeaderCapturedAt": "Captured at",
+  "csvHeaderRefMode": "Reference mode",
+  "csvHeaderColorGraded": "Color graded",
+  "csvHeaderPhotoFile": "Photo file name",
+  "csvHeaderGradedPhotoFile": "Graded photo file name",
+  "refCacheNone": "No reference images need caching for this plan",
+  "refCacheDone": "Cached {succeeded}/{total} full reference images",
+  "@refCacheDone": {
+    "description": "Auto-localized: Cached {succeeded}/{total} full reference images",
+    "placeholders": {
+      "succeeded": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "refCacheDoneFailed": "Cached {succeeded}/{total} full reference images, {failed} failed",
+  "@refCacheDoneFailed": {
+    "description": "Auto-localized: Cached {succeeded}/{total} full reference images, {failed} failed",
+    "placeholders": {
+      "succeeded": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "failed": {
+        "type": "String"
+      }
+    }
+  },
+  "refCacheProgress": "Caching {processed}/{total} full reference images, {succeeded} succeeded",
+  "@refCacheProgress": {
+    "description": "Auto-localized: Caching {processed}/{total} full reference images, {succeeded} succeeded",
+    "placeholders": {
+      "processed": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "succeeded": {
+        "type": "String"
+      }
+    }
+  },
+  "anitabiUrlInvalidHttps": "Enter a valid HTTPS URL",
+  "anitabiUrlNoAccount": "URL must not contain account, query, or fragment",
+  "anitabiUrlNoLocal": "Cannot use localhost or LAN addresses",
+  "packageAssetsRestoreLocal": "{packageTotalAssetCount} asset files in the package will be restored to local storage.",
+  "@packageAssetsRestoreLocal": {
+    "description": "Auto-localized: {packageTotalAssetCount} asset files in the package will be restored to local storage.",
+    "placeholders": {
+      "packageTotalAssetCount": {
+        "type": "String"
+      }
+    }
+  },
+  "packageAssetsNoPlatformRestore": "{packageTotalAssetCount} asset files in the package; restoring in-package assets is not supported on this platform yet.",
+  "@packageAssetsNoPlatformRestore": {
+    "description": "Auto-localized: {packageTotalAssetCount} asset files in the package; restoring in-package assets is not supported on this platform yet.",
+    "placeholders": {
+      "packageTotalAssetCount": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1475,11 +1475,13 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     }
 
     if (error is AnitabiWorkNotFoundException) {
-      return 'Anitabi 中没有找到这个作品';
+      final l10n = AppLocalizations.of(context)!;
+      return l10n.thisWorkWasnTFoundInAnitabi;
     }
 
     if (error is AnitabiNoPointsException) {
-      return '当前作品暂无 Anitabi 点位';
+      final l10n = AppLocalizations.of(context)!;
+      return l10n.thisWorkHasNoAnitabiPointsYet;
     }
 
     if (error is AnitabiPartialPointsException) {
@@ -1506,11 +1508,13 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     }
 
     if (error is AnitabiWorkNotFoundException) {
-      return '这个 Bangumi 条目在 Anitabi 地图数据中没有对应作品。可以尝试添加同名动画、原作或其它关联条目。';
+      final l10n = AppLocalizations.of(context)!;
+      return l10n.thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName;
     }
 
     if (error is AnitabiNoPointsException) {
-      return 'Anitabi 中能找到这个作品，但当前还没有可导入的地图点位。';
+      final l10n = AppLocalizations.of(context)!;
+      return l10n.thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet;
     }
 
     if (error is AnitabiPartialPointsException) {
@@ -2331,11 +2335,12 @@ class _NoAnitabiPointsState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Text(
-          '「$workTitle」暂无可导入的 Anitabi 点位。',
+          l10n.noImportableAnitabiPointsForYet((workTitle).toString()),
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: AppColors.textSecondary,

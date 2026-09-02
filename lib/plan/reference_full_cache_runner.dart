@@ -7,6 +7,8 @@ import '../data/pilgrimage_repository.dart';
 import '../utils/limited_concurrency.dart';
 import 'pilgrimage_models.dart';
 import 'reference_image_status.dart';
+import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 class ReferenceFullCacheProgress {
   const ReferenceFullCacheProgress({
@@ -23,16 +25,17 @@ class ReferenceFullCacheProgress {
   final int failed;
   final bool done;
 
-  String get label {
+  String localizedLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     if (total == 0) {
-      return '当前计划没有需要缓存的参考图';
+      return l10n.refCacheNone;
     }
     if (done) {
       return failed == 0
-          ? '已缓存 $succeeded/$total 张完整参考图'
-          : '已缓存 $succeeded/$total 张完整参考图，失败 $failed 张';
+          ? l10n.refCacheDone((succeeded).toString(), (total).toString())
+          : l10n.refCacheDoneFailed((succeeded).toString(), (total).toString(), (failed).toString());
     }
-    return '正在缓存完整参考图 $processed/$total，成功 $succeeded';
+    return l10n.refCacheProgress((processed).toString(), (total).toString(), (succeeded).toString());
   }
 }
 

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../data/anitabi_image_source_scope.dart';
 import '../color_grading/color_grading_params.dart';
 import '../color_grading/color_grading_screen.dart';
@@ -50,6 +51,7 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final resolvedPoint = widget.point;
     final referenceImagePath = _resolvedReferenceImagePath(resolvedPoint);
     final referenceImageUrl = _resolvedReferenceImageUrl(resolvedPoint);
@@ -57,20 +59,20 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('记录详情'),
+        title: Text(l10n.recordDetailTitle),
         actions: [
           IconButton(
-            tooltip: '自动调色',
+            tooltip: l10n.recordDetailAutoGrading,
             onPressed: () => _openColorGrading(context),
             icon: const Icon(Icons.auto_fix_high_outlined),
           ),
           IconButton(
-            tooltip: '导出对比图',
+            tooltip: l10n.comparisonExportTitle,
             onPressed: () => _exportComparison(context, resolvedPoint),
             icon: const Icon(Icons.ios_share_outlined),
           ),
           IconButton(
-            tooltip: '删除记录',
+            tooltip: l10n.recordDetailDelete,
             onPressed: () => _confirmDelete(context),
             icon: const Icon(Icons.delete_outline),
           ),
@@ -114,7 +116,7 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
               child: OutlinedButton.icon(
                 onPressed: () => _showPointDetail(resolvedPoint),
                 icon: const Icon(Icons.place_outlined, size: 18),
-                label: const Text('查看点位详情'),
+                label: Text(l10n.recordDetailViewPoint),
               ),
             ),
             const SizedBox(height: 12),
@@ -123,18 +125,18 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
             children: [
               _DetailRow(
                 icon: Icons.schedule,
-                label: '拍摄时间',
+                  label: l10n.comparisonMetaCapturedAt,
                 value: _formatDateTime(_record.capturedAt),
               ),
               if (resolvedPoint != null) ...[
                 _DetailRow(
                   icon: Icons.grid_view_outlined,
-                  label: '片区',
-                  value: _groupName(resolvedPoint, group),
+                  label: l10n.labelArea,
+                  value: _groupName(resolvedPoint, group, l10n),
                 ),
                 _DetailRow(
                   icon: Icons.local_movies_outlined,
-                  label: '场景',
+                  label: l10n.comparisonMetaEpisode,
                   value: resolvedPoint.displayEpisodeLabel,
                 ),
               ],
@@ -225,15 +227,16 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
     final shouldDelete = await showDialog<bool>(
       context: context,
       builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text('删除记录'),
+              title: Text(l10n.recordDetailDelete),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('只删除这条巡礼记录，不会改变点位完成状态。'),
+                  Text(l10n.recordDetailDeleteConfirmBody),
                   const SizedBox(height: 12),
                   Row(
                     children: [
@@ -244,7 +247,7 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
                         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         visualDensity: VisualDensity.compact,
                       ),
-                      const Text('同时删除照片文件'),
+                      Text(l10n.recordDetailDeletePhotoFile),
                     ],
                   ),
                 ],
@@ -252,11 +255,11 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
-                  child: const Text('取消'),
+                  child: Text(l10n.btnCancel),
                 ),
                 FilledButton(
                   onPressed: () => Navigator.of(context).pop(true),
-                  child: const Text('删除'),
+                  child: Text(l10n.btnDelete),
                 ),
               ],
             );
@@ -290,11 +293,12 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
   }
 
   void _exportComparison(BuildContext context, PilgrimagePoint? resolvedPoint) {
+    final l10n = AppLocalizations.of(context)!;
     final capturedPath = resolveVisitRecordDisplayPhotoPath(_record);
     if (capturedPath == null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('巡礼图不可用，无法导出对比图片。')));
+      ).showSnackBar(SnackBar(content: Text(l10n.comparisonErrCapturedUnavailable)));
       return;
     }
 
@@ -324,7 +328,7 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
     if (repository == null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('当前平台暂不支持保存导出偏好。')));
+      ).showSnackBar(SnackBar(content: Text(l10n.recordDetailExportPrefUnsupported)));
       return;
     }
 
@@ -334,7 +338,7 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
       referenceImageUrl: _resolvedReferenceImageUrl(resolvedPoint),
       capturedPath: capturedPath,
       metadata: meta,
-      colorGradingSummary: _colorGradingSummary(),
+      colorGradingSummary: _colorGradingSummary(l10n),
       repository: repository,
     );
   }
@@ -371,14 +375,18 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
         .firstOrNull;
   }
 
-  String _groupName(PilgrimagePoint point, PilgrimagePlanGroup? group) {
+  String _groupName(
+    PilgrimagePoint point,
+    PilgrimagePlanGroup? group,
+    AppLocalizations l10n,
+  ) {
     if (point.groupId == null) {
-      return '未分组';
+      return l10n.labelUngrouped;
     }
-    return group?.name ?? '未知片区';
+    return group?.name ?? l10n.labelUnknownGroup;
   }
 
-  String? _colorGradingSummary() {
+  String? _colorGradingSummary(AppLocalizations l10n) {
     final paramsJson = _record.colorGradingParamsJson;
     if (paramsJson == null || paramsJson.isEmpty) {
       return null;
@@ -404,7 +412,6 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
 
       String signed(double value) =>
           '${value >= 0 ? '+' : ''}${value.toStringAsFixed(2)}';
-      String plain(double value) => value.toStringAsFixed(2);
       bool changed(double value, double fallback) =>
           (value - fallback).abs() >= threshold;
       void addZeroBased(String label, double value, double fallback) {
@@ -413,32 +420,28 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
         }
       }
 
-      addZeroBased('亮度', params.brightness, defaults.brightness);
-      addZeroBased('曝光', params.exposure, defaults.exposure);
-      if (changed(params.contrast, defaults.contrast)) {
-        parts.add('对比 ${plain(params.contrast)}');
-      }
-      if (changed(params.saturation, defaults.saturation)) {
-        parts.add('饱和 ${plain(params.saturation)}');
-      }
-      addZeroBased('色温', params.temperature, defaults.temperature);
-      addZeroBased('色调', params.tint, defaults.tint);
-      addZeroBased('高光', params.highlights, defaults.highlights);
-      addZeroBased('阴影', params.shadows, defaults.shadows);
-      addZeroBased('R暗', params.redShadowCurve, defaults.redShadowCurve);
-      addZeroBased('R中', params.redMidCurve, defaults.redMidCurve);
-      addZeroBased('R亮', params.redHighlightCurve, defaults.redHighlightCurve);
-      addZeroBased('G暗', params.greenShadowCurve, defaults.greenShadowCurve);
-      addZeroBased('G中', params.greenMidCurve, defaults.greenMidCurve);
+      addZeroBased(l10n.gradingBrightness, params.brightness, defaults.brightness);
+      addZeroBased(l10n.gradingExposure, params.exposure, defaults.exposure);
+      addZeroBased(l10n.gradingContrast, params.contrast, defaults.contrast);
+      addZeroBased(l10n.gradingSaturation, params.saturation, defaults.saturation);
+      addZeroBased(l10n.gradingTemperature, params.temperature, defaults.temperature);
+      addZeroBased(l10n.gradingTint, params.tint, defaults.tint);
+      addZeroBased(l10n.gradingHighlights, params.highlights, defaults.highlights);
+      addZeroBased(l10n.gradingShadows, params.shadows, defaults.shadows);
+      addZeroBased(l10n.gradingRedShadow, params.redShadowCurve, defaults.redShadowCurve);
+      addZeroBased(l10n.gradingRedMid, params.redMidCurve, defaults.redMidCurve);
+      addZeroBased(l10n.gradingRedHighlight, params.redHighlightCurve, defaults.redHighlightCurve);
+      addZeroBased(l10n.gradingGreenShadow, params.greenShadowCurve, defaults.greenShadowCurve);
+      addZeroBased(l10n.gradingGreenMid, params.greenMidCurve, defaults.greenMidCurve);
       addZeroBased(
-        'G亮',
+        l10n.gradingGreenHighlight,
         params.greenHighlightCurve,
         defaults.greenHighlightCurve,
       );
-      addZeroBased('B暗', params.blueShadowCurve, defaults.blueShadowCurve);
-      addZeroBased('B中', params.blueMidCurve, defaults.blueMidCurve);
+      addZeroBased(l10n.gradingBlueShadow, params.blueShadowCurve, defaults.blueShadowCurve);
+      addZeroBased(l10n.gradingBlueMid, params.blueMidCurve, defaults.blueMidCurve);
       addZeroBased(
-        'B亮',
+        l10n.gradingBlueHighlight,
         params.blueHighlightCurve,
         defaults.blueHighlightCurve,
       );
@@ -466,12 +469,13 @@ class _RecordComparisonPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final photoPath = resolveVisitRecordDisplayPhotoPath(record);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         _RecordImageTile(
-          label: '参考图',
+          label: l10n.labelReference,
           child: _RecordReferencePhoto(
             path: referenceImagePath,
             url: referenceImageUrl,
@@ -484,7 +488,7 @@ class _RecordComparisonPanel extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         _RecordImageTile(
-          label: '巡礼图',
+          label: l10n.recordDetailCapturedPhoto,
           child: VisitRecordPhoto(path: photoPath, fit: BoxFit.contain),
           onTap: () => ImageViewerScreen.show(context, filePath: photoPath),
         ),
@@ -588,6 +592,7 @@ class _OrphanRecordNotice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -595,13 +600,13 @@ class _OrphanRecordNotice extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.warning.withValues(alpha: 0.35)),
       ),
-      child: const Row(
+      child: Row(
         children: [
           Icon(Icons.link_off_outlined, color: AppColors.warning, size: 19),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Expanded(
             child: Text(
-              '这条记录对应的点位已不在当前计划中，照片和导出功能仍然可以使用。',
+              l10n.recordDetailPointMissing,
               style: TextStyle(
                 color: AppColors.textPrimary,
                 fontSize: 13,

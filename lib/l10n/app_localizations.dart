@@ -704,7 +704,7 @@ abstract class AppLocalizations {
   /// No description provided for @themeDeepBlue.
   ///
   /// In zh, this message translates to:
-  /// **'深邃蓝'**
+  /// **'深湖蓝'**
   String get themeDeepBlue;
 
   /// No description provided for @themeCherryPink.
@@ -722,7 +722,7 @@ abstract class AppLocalizations {
   /// No description provided for @themeMiriaYellow.
   ///
   /// In zh, this message translates to:
-  /// **'琥珀橙'**
+  /// **'蜜蜡橙'**
   String get themeMiriaYellow;
 
   /// No description provided for @themeGraphite.
@@ -4609,6 +4609,2321 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'{title} 巡礼'**
   String planNameForWork(String title);
+
+  /// No description provided for @btnCopy.
+  ///
+  /// In zh, this message translates to:
+  /// **'复制'**
+  String get btnCopy;
+
+  /// No description provided for @btnShare.
+  ///
+  /// In zh, this message translates to:
+  /// **'分享'**
+  String get btnShare;
+
+  /// No description provided for @btnView.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看'**
+  String get btnView;
+
+  /// No description provided for @imageViewerSaveTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存图片'**
+  String get imageViewerSaveTitle;
+
+  /// No description provided for @imageViewerSaveToGallery.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存到相册'**
+  String get imageViewerSaveToGallery;
+
+  /// No description provided for @imageViewerLoading.
+  ///
+  /// In zh, this message translates to:
+  /// **'图片加载中'**
+  String get imageViewerLoading;
+
+  /// No description provided for @imageViewerEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'暂无图片'**
+  String get imageViewerEmpty;
+
+  /// No description provided for @imageViewerUnavailable.
+  ///
+  /// In zh, this message translates to:
+  /// **'图片暂不可用'**
+  String get imageViewerUnavailable;
+
+  /// No description provided for @imageViewerReadFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'图片读取失败'**
+  String get imageViewerReadFailed;
+
+  /// No description provided for @imageViewerSaved.
+  ///
+  /// In zh, this message translates to:
+  /// **'图片已保存'**
+  String get imageViewerSaved;
+
+  /// No description provided for @imageViewerSavedToGallery.
+  ///
+  /// In zh, this message translates to:
+  /// **'已保存到相册'**
+  String get imageViewerSavedToGallery;
+
+  /// No description provided for @imageViewerSaveFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存失败'**
+  String get imageViewerSaveFailed;
+
+  /// No description provided for @imageViewerSaveCancelled.
+  ///
+  /// In zh, this message translates to:
+  /// **'已取消保存'**
+  String get imageViewerSaveCancelled;
+
+  /// No description provided for @appShellPlanFileImportFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'计划文件导入失败'**
+  String get appShellPlanFileImportFailed;
+
+  /// No description provided for @appShellPlanLoadFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'计划加载失败'**
+  String get appShellPlanLoadFailed;
+
+  /// No description provided for @appShellPlanLoading.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在加载巡礼计划'**
+  String get appShellPlanLoading;
+
+  /// No description provided for @appShellRetryHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'请稍后重试。'**
+  String get appShellRetryHint;
+
+  /// No description provided for @appShellLoadingHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'准备今日点位和当前目标。'**
+  String get appShellLoadingHint;
+
+  /// No description provided for @recordDetailTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录详情'**
+  String get recordDetailTitle;
+
+  /// No description provided for @recordDetailAutoGrading.
+  ///
+  /// In zh, this message translates to:
+  /// **'自动调色'**
+  String get recordDetailAutoGrading;
+
+  /// No description provided for @recordDetailDelete.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除记录'**
+  String get recordDetailDelete;
+
+  /// No description provided for @recordDetailViewPoint.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看点位详情'**
+  String get recordDetailViewPoint;
+
+  /// No description provided for @recordDetailDeleteConfirmBody.
+  ///
+  /// In zh, this message translates to:
+  /// **'只删除这条巡礼记录，不会改变点位完成状态。'**
+  String get recordDetailDeleteConfirmBody;
+
+  /// No description provided for @recordDetailDeletePhotoFile.
+  ///
+  /// In zh, this message translates to:
+  /// **'同时删除照片文件'**
+  String get recordDetailDeletePhotoFile;
+
+  /// No description provided for @recordDetailExportPrefUnsupported.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前平台暂不支持保存导出偏好。'**
+  String get recordDetailExportPrefUnsupported;
+
+  /// No description provided for @recordDetailPointMissing.
+  ///
+  /// In zh, this message translates to:
+  /// **'这条记录对应的点位已不在当前计划中，照片和导出功能仍然可以使用。'**
+  String get recordDetailPointMissing;
+
+  /// No description provided for @pointRecordsTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'点位拍摄记录'**
+  String get pointRecordsTitle;
+
+  /// No description provided for @pointRecordsCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 条'**
+  String pointRecordsCount(int count);
+
+  /// No description provided for @pointRecordsEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'这个点位还没有拍摄记录'**
+  String get pointRecordsEmpty;
+
+  /// No description provided for @labelUngrouped.
+  ///
+  /// In zh, this message translates to:
+  /// **'未分组'**
+  String get labelUngrouped;
+
+  /// No description provided for @labelGraded.
+  ///
+  /// In zh, this message translates to:
+  /// **'已调色'**
+  String get labelGraded;
+
+  /// No description provided for @labelOriginal.
+  ///
+  /// In zh, this message translates to:
+  /// **'原图'**
+  String get labelOriginal;
+
+  /// No description provided for @gradingBrightness.
+  ///
+  /// In zh, this message translates to:
+  /// **'亮度'**
+  String get gradingBrightness;
+
+  /// No description provided for @gradingExposure.
+  ///
+  /// In zh, this message translates to:
+  /// **'曝光'**
+  String get gradingExposure;
+
+  /// No description provided for @gradingContrast.
+  ///
+  /// In zh, this message translates to:
+  /// **'对比'**
+  String get gradingContrast;
+
+  /// No description provided for @gradingSaturation.
+  ///
+  /// In zh, this message translates to:
+  /// **'饱和'**
+  String get gradingSaturation;
+
+  /// No description provided for @gradingTemperature.
+  ///
+  /// In zh, this message translates to:
+  /// **'色温'**
+  String get gradingTemperature;
+
+  /// No description provided for @gradingTint.
+  ///
+  /// In zh, this message translates to:
+  /// **'色调'**
+  String get gradingTint;
+
+  /// No description provided for @gradingHighlights.
+  ///
+  /// In zh, this message translates to:
+  /// **'高光'**
+  String get gradingHighlights;
+
+  /// No description provided for @gradingShadows.
+  ///
+  /// In zh, this message translates to:
+  /// **'阴影'**
+  String get gradingShadows;
+
+  /// No description provided for @gradingRedShadow.
+  ///
+  /// In zh, this message translates to:
+  /// **'R暗'**
+  String get gradingRedShadow;
+
+  /// No description provided for @gradingRedMid.
+  ///
+  /// In zh, this message translates to:
+  /// **'R中'**
+  String get gradingRedMid;
+
+  /// No description provided for @gradingRedHighlight.
+  ///
+  /// In zh, this message translates to:
+  /// **'R亮'**
+  String get gradingRedHighlight;
+
+  /// No description provided for @gradingGreenShadow.
+  ///
+  /// In zh, this message translates to:
+  /// **'G暗'**
+  String get gradingGreenShadow;
+
+  /// No description provided for @gradingGreenMid.
+  ///
+  /// In zh, this message translates to:
+  /// **'G中'**
+  String get gradingGreenMid;
+
+  /// No description provided for @gradingGreenHighlight.
+  ///
+  /// In zh, this message translates to:
+  /// **'G亮'**
+  String get gradingGreenHighlight;
+
+  /// No description provided for @gradingBlueShadow.
+  ///
+  /// In zh, this message translates to:
+  /// **'B暗'**
+  String get gradingBlueShadow;
+
+  /// No description provided for @gradingBlueMid.
+  ///
+  /// In zh, this message translates to:
+  /// **'B中'**
+  String get gradingBlueMid;
+
+  /// No description provided for @gradingBlueHighlight.
+  ///
+  /// In zh, this message translates to:
+  /// **'B亮'**
+  String get gradingBlueHighlight;
+
+  /// No description provided for @recordDetailCapturedPhoto.
+  ///
+  /// In zh, this message translates to:
+  /// **'巡礼图'**
+  String get recordDetailCapturedPhoto;
+
+  /// No description provided for @failedToReadPilgrimagePhoto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to read pilgrimage photo'**
+  String get failedToReadPilgrimagePhoto2;
+
+  /// No description provided for @noReferenceImageAvailableForAuto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No reference image available for auto color match'**
+  String get noReferenceImageAvailableForAuto2;
+
+  /// No description provided for @autoColorMatchFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Auto color match failed'**
+  String get autoColorMatchFailed2;
+
+  /// No description provided for @autoColorParametersGenerated2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Auto color parameters generated'**
+  String get autoColorParametersGenerated2;
+
+  /// No description provided for @revertedToOriginalPhoto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reverted to original photo'**
+  String get revertedToOriginalPhoto2;
+
+  /// No description provided for @matchTheColorToneAutomaticallyFirst2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Match the color tone automatically first'**
+  String get matchTheColorToneAutomaticallyFirst2;
+
+  /// No description provided for @colorGradingResultSaved2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Color grading result saved'**
+  String get colorGradingResultSaved2;
+
+  /// No description provided for @failedToReadPhoto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to read photo'**
+  String get failedToReadPhoto2;
+
+  /// No description provided for @matching2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Matching…'**
+  String get matching2;
+
+  /// No description provided for @autoMatchTone2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Auto match tone'**
+  String get autoMatchTone2;
+
+  /// No description provided for @reference2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reference'**
+  String get reference2;
+
+  /// No description provided for @noReferenceImage2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No reference image'**
+  String get noReferenceImage2;
+
+  /// No description provided for @original2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Original'**
+  String get original2;
+
+  /// No description provided for @graded3.
+  ///
+  /// In zh, this message translates to:
+  /// **'Graded'**
+  String get graded3;
+
+  /// No description provided for @showingOriginal2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Showing original'**
+  String get showingOriginal2;
+
+  /// No description provided for @holdToShowOriginal2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Hold to show original'**
+  String get holdToShowOriginal2;
+
+  /// No description provided for @matchMode2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Match mode'**
+  String get matchMode2;
+
+  /// No description provided for @restoredLastColorGradingParameters2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Restored last color grading parameters'**
+  String get restoredLastColorGradingParameters2;
+
+  /// No description provided for @saveTheGradedResultAfterAuto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save the graded result after auto matching'**
+  String get saveTheGradedResultAfterAuto2;
+
+  /// No description provided for @toneMatching2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Tone matching'**
+  String get toneMatching2;
+
+  /// No description provided for @gradingIntensity2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Grading intensity'**
+  String get gradingIntensity2;
+
+  /// No description provided for @gradingParameters2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Grading parameters'**
+  String get gradingParameters2;
+
+  /// No description provided for @showsTheParametersActuallyAppliedAt2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Shows the parameters actually applied at the current grading intensity.'**
+  String get showsTheParametersActuallyAppliedAt2;
+
+  /// No description provided for @contrast2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Contrast'**
+  String get contrast2;
+
+  /// No description provided for @saturation2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Saturation'**
+  String get saturation2;
+
+  /// No description provided for @redShadows2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Red shadows'**
+  String get redShadows2;
+
+  /// No description provided for @redMidtones2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Red midtones'**
+  String get redMidtones2;
+
+  /// No description provided for @redHighlights2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Red highlights'**
+  String get redHighlights2;
+
+  /// No description provided for @greenShadows2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Green shadows'**
+  String get greenShadows2;
+
+  /// No description provided for @greenMidtones2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Green midtones'**
+  String get greenMidtones2;
+
+  /// No description provided for @greenHighlights2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Green highlights'**
+  String get greenHighlights2;
+
+  /// No description provided for @blueShadows2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Blue shadows'**
+  String get blueShadows2;
+
+  /// No description provided for @blueMidtones2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Blue midtones'**
+  String get blueMidtones2;
+
+  /// No description provided for @blueHighlights2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Blue highlights'**
+  String get blueHighlights2;
+
+  /// No description provided for @saveResult2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save result'**
+  String get saveResult2;
+
+  /// No description provided for @afterSavingTheRecordDetailAnd2.
+  ///
+  /// In zh, this message translates to:
+  /// **'After saving, the record detail and export use the graded photo; the original and grading parameters are kept.'**
+  String get afterSavingTheRecordDetailAnd2;
+
+  /// No description provided for @saving2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Saving…'**
+  String get saving2;
+
+  /// No description provided for @saveColorGrading2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save color grading'**
+  String get saveColorGrading2;
+
+  /// No description provided for @manualOrder2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Manual order'**
+  String get manualOrder2;
+
+  /// No description provided for @noAssignablePointsWithinTheCurrent2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No assignable points within the current distance'**
+  String get noAssignablePointsWithinTheCurrent2;
+
+  /// No description provided for @confirmNearestAssignment2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Confirm nearest assignment'**
+  String get confirmNearestAssignment2;
+
+  /// No description provided for @startAssigning2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Start assigning'**
+  String get startAssigning2;
+
+  /// No description provided for @nearestAssignmentFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Nearest assignment failed'**
+  String get nearestAssignmentFailed2;
+
+  /// No description provided for @finishAreaAssignmentFirst2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Finish area assignment first'**
+  String get finishAreaAssignmentFirst2;
+
+  /// No description provided for @createAnAreaFirst2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Create an area first'**
+  String get createAnAreaFirst2;
+
+  /// No description provided for @noUngroupedPointsInTheSelection2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No ungrouped points in the selection'**
+  String get noUngroupedPointsInTheSelection2;
+
+  /// No description provided for @confirmBoxSelectionAssignment2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Confirm box selection assignment'**
+  String get confirmBoxSelectionAssignment2;
+
+  /// No description provided for @assign2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Assign'**
+  String get assign2;
+
+  /// No description provided for @boxSelectionAssignmentFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Box selection assignment failed'**
+  String get boxSelectionAssignmentFailed2;
+
+  /// No description provided for @selectArea2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Select area'**
+  String get selectArea2;
+
+  /// No description provided for @finishBoxSelection2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Finish box selection'**
+  String get finishBoxSelection2;
+
+  /// No description provided for @boxSelect2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Box select'**
+  String get boxSelect2;
+
+  /// No description provided for @assigning2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Assigning…'**
+  String get assigning2;
+
+  /// No description provided for @ungroupedPointsAreAssignedToThe2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Ungrouped points are assigned to the nearest area anchor within the maximum distance.'**
+  String get ungroupedPointsAreAssignedToThe2;
+
+  /// No description provided for @noAvailableAreaAnchors2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No available area anchors'**
+  String get noAvailableAreaAnchors2;
+
+  /// No description provided for @createAnAreaFirstUseSmart2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Create an area first (use “Smart Partition” for one-tap generation)'**
+  String get createAnAreaFirstUseSmart2;
+
+  /// No description provided for @assignablePoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Assignable points'**
+  String get assignablePoints2;
+
+  /// No description provided for @pointsOutOfRange2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Points out of range'**
+  String get pointsOutOfRange2;
+
+  /// No description provided for @eGHttpsWwAnitabiCn2.
+  ///
+  /// In zh, this message translates to:
+  /// **'e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj'**
+  String get eGHttpsWwAnitabiCn2;
+
+  /// No description provided for @thisWorkWasNotFoundOn2.
+  ///
+  /// In zh, this message translates to:
+  /// **'This work was not found on Anitabi'**
+  String get thisWorkWasNotFoundOn2;
+
+  /// No description provided for @thisWorkHasNoAnitabiPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'This work has no Anitabi points yet'**
+  String get thisWorkHasNoAnitabiPoints2;
+
+  /// No description provided for @thisBangumiEntryHasNoMatching2.
+  ///
+  /// In zh, this message translates to:
+  /// **'This Bangumi entry has no matching work in Anitabi\'s map data. Try adding the same anime, original work, or a related entry.'**
+  String get thisBangumiEntryHasNoMatching2;
+
+  /// No description provided for @theWorkExistsOnAnitabiBut2.
+  ///
+  /// In zh, this message translates to:
+  /// **'The work exists on Anitabi, but there are no importable map points yet.'**
+  String get theWorkExistsOnAnitabiBut2;
+
+  /// No description provided for @newArea2.
+  ///
+  /// In zh, this message translates to:
+  /// **'New area'**
+  String get newArea2;
+
+  /// No description provided for @areaCreationFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area creation failed'**
+  String get areaCreationFailed2;
+
+  /// No description provided for @renameArea2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Rename area'**
+  String get renameArea2;
+
+  /// No description provided for @areaName2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area name'**
+  String get areaName2;
+
+  /// No description provided for @areaRenameFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area rename failed'**
+  String get areaRenameFailed2;
+
+  /// No description provided for @failedToSaveSortOrder2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to save sort order'**
+  String get failedToSaveSortOrder2;
+
+  /// No description provided for @failedToGenerateRecommendedRoute2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to generate recommended route'**
+  String get failedToGenerateRecommendedRoute2;
+
+  /// No description provided for @failedToSaveAnchor2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to save anchor'**
+  String get failedToSaveAnchor2;
+
+  /// No description provided for @deleteArea2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Delete area'**
+  String get deleteArea2;
+
+  /// No description provided for @areaDeletionFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area deletion failed'**
+  String get areaDeletionFailed2;
+
+  /// No description provided for @failedToSaveAreaOrder2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Failed to save area order'**
+  String get failedToSaveAreaOrder2;
+
+  /// No description provided for @ungroupedPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Ungrouped points'**
+  String get ungroupedPoints2;
+
+  /// No description provided for @areaNameCannotBeEmpty2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area name cannot be empty'**
+  String get areaNameCannotBeEmpty2;
+
+  /// No description provided for @create2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Create'**
+  String get create2;
+
+  /// No description provided for @areaActions2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Area actions'**
+  String get areaActions2;
+
+  /// No description provided for @rename2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Rename'**
+  String get rename2;
+
+  /// No description provided for @setAnchor2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Set anchor'**
+  String get setAnchor2;
+
+  /// No description provided for @switchToUnordered2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch to unordered'**
+  String get switchToUnordered2;
+
+  /// No description provided for @switchToManualOrder2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch to manual order'**
+  String get switchToManualOrder2;
+
+  /// No description provided for @importContent2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Import content'**
+  String get importContent2;
+
+  /// No description provided for @chooseWhatToImport2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Choose what to import'**
+  String get chooseWhatToImport2;
+
+  /// No description provided for @importingWillNotModifyCurrentData2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Importing will not modify current data.'**
+  String get importingWillNotModifyCurrentData2;
+
+  /// No description provided for @planStructure2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Plan structure'**
+  String get planStructure2;
+
+  /// No description provided for @worksAreasPointsCompletionStatusAnd2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Works, areas, points, completion status, and current target.'**
+  String get worksAreasPointsCompletionStatusAnd2;
+
+  /// No description provided for @captureRecords2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Capture records'**
+  String get captureRecords2;
+
+  /// No description provided for @v1FilesContainNoPhotoAssets2.
+  ///
+  /// In zh, this message translates to:
+  /// **'v1 files contain no photo assets; only the plan structure is imported.'**
+  String get v1FilesContainNoPhotoAssets2;
+
+  /// No description provided for @thisPackageHasNoCaptureRecords2.
+  ///
+  /// In zh, this message translates to:
+  /// **'This package has no capture records.'**
+  String get thisPackageHasNoCaptureRecords2;
+
+  /// No description provided for @imagesAndResourceFiles2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Images and resource files'**
+  String get imagesAndResourceFiles2;
+
+  /// No description provided for @packageNotes2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Package notes'**
+  String get packageNotes2;
+
+  /// No description provided for @missingOrCompatibilityInfoRecordedDuring2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Missing or compatibility info recorded during export.'**
+  String get missingOrCompatibilityInfoRecordedDuring2;
+
+  /// No description provided for @importing2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Importing…'**
+  String get importing2;
+
+  /// No description provided for @importSelected2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Import selected'**
+  String get importSelected2;
+
+  /// No description provided for @importFailed2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Import failed'**
+  String get importFailed2;
+
+  /// No description provided for @thisPackageHasNoRecoverableResource2.
+  ///
+  /// In zh, this message translates to:
+  /// **'This package has no recoverable resource files.'**
+  String get thisPackageHasNoRecoverableResource2;
+
+  /// No description provided for @resourcesWereRecordedButNoRecoverable2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Resources were recorded, but no recoverable resource files are present.'**
+  String get resourcesWereRecordedButNoRecoverable2;
+
+  /// No description provided for @resources2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Resources'**
+  String get resources2;
+
+  /// No description provided for @version2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Version'**
+  String get version2;
+
+  /// No description provided for @pointName2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Point name'**
+  String get pointName2;
+
+  /// No description provided for @subtitle2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Subtitle'**
+  String get subtitle2;
+
+  /// No description provided for @episodeScene2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Episode / Scene'**
+  String get episodeScene2;
+
+  /// No description provided for @sourceId2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Source ID'**
+  String get sourceId2;
+
+  /// No description provided for @referenceImageUrl2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reference image URL'**
+  String get referenceImageUrl2;
+
+  /// No description provided for @recordCount2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Record count'**
+  String get recordCount2;
+
+  /// No description provided for @yes2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Yes'**
+  String get yes2;
+
+  /// No description provided for @no2.
+  ///
+  /// In zh, this message translates to:
+  /// **'No'**
+  String get no2;
+
+  /// No description provided for @recordId2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Record ID'**
+  String get recordId2;
+
+  /// No description provided for @referenceMode2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reference mode'**
+  String get referenceMode2;
+
+  /// No description provided for @graded4.
+  ///
+  /// In zh, this message translates to:
+  /// **'Graded?'**
+  String get graded4;
+
+  /// No description provided for @photoFileName2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Photo file name'**
+  String get photoFileName2;
+
+  /// No description provided for @gradedPhotoFileName2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Graded photo file name'**
+  String get gradedPhotoFileName2;
+
+  /// No description provided for @customXyzUrlMustIncludeZ2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Custom XYZ URL must include {z}, {x}, {y} and use http/https.'**
+  String customXyzUrlMustIncludeZ2(Object x, Object y, Object z);
+
+  /// No description provided for @customMaplibreStyleUrlMustUse2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Custom MapLibre style URL must use http/https.'**
+  String get customMaplibreStyleUrlMustUse2;
+
+  /// No description provided for @photoImportFailedPleaseChooseAgain2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Photo import failed, please choose again.'**
+  String get photoImportFailedPleaseChooseAgain2;
+
+  /// No description provided for @readingReferenceRatioPleaseWaitBefore2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reading reference ratio, please wait before capturing.'**
+  String get readingReferenceRatioPleaseWaitBefore2;
+
+  /// No description provided for @cameraPermissionRequired2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Camera permission required'**
+  String get cameraPermissionRequired2;
+
+  /// No description provided for @nativeCameraFailedToInitialize2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Native camera failed to initialize'**
+  String get nativeCameraFailedToInitialize2;
+
+  /// No description provided for @switchToLandscapeUi2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch to landscape UI'**
+  String get switchToLandscapeUi2;
+
+  /// No description provided for @importFromAlbum3.
+  ///
+  /// In zh, this message translates to:
+  /// **'Import from album'**
+  String get importFromAlbum3;
+
+  /// No description provided for @switchCamera3.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch camera'**
+  String get switchCamera3;
+
+  /// No description provided for @switchToPortraitUi2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch to portrait UI'**
+  String get switchToPortraitUi2;
+
+  /// No description provided for @checkPhoto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Check photo'**
+  String get checkPhoto2;
+
+  /// No description provided for @flash2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Flash'**
+  String get flash2;
+
+  /// No description provided for @switchCamera4.
+  ///
+  /// In zh, this message translates to:
+  /// **'Switch camera'**
+  String get switchCamera4;
+
+  /// No description provided for @importFromAlbum4.
+  ///
+  /// In zh, this message translates to:
+  /// **'Import from album'**
+  String get importFromAlbum4;
+
+  /// No description provided for @iosNativeCameraDidNotStart2.
+  ///
+  /// In zh, this message translates to:
+  /// **'iOS native camera did not start'**
+  String get iosNativeCameraDidNotStart2;
+
+  /// No description provided for @savingRecord2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Saving record…'**
+  String get savingRecord2;
+
+  /// No description provided for @backingUpPilgrimagePhotos2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Backing up pilgrimage photos…'**
+  String get backingUpPilgrimagePhotos2;
+
+  /// No description provided for @generatingComparison2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Generating comparison…'**
+  String get generatingComparison2;
+
+  /// No description provided for @updatingPointStatus2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Updating point status…'**
+  String get updatingPointStatus2;
+
+  /// No description provided for @savingTheRecordPleaseWait2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Saving the record, please wait.'**
+  String get savingTheRecordPleaseWait2;
+
+  /// No description provided for @confirmRecord2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Confirm record'**
+  String get confirmRecord2;
+
+  /// No description provided for @saveRecord2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save record'**
+  String get saveRecord2;
+
+  /// No description provided for @saveAndMarkComplete2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save and mark complete'**
+  String get saveAndMarkComplete2;
+
+  /// No description provided for @savedAndMarkedComplete2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Saved and marked complete'**
+  String get savedAndMarkedComplete2;
+
+  /// No description provided for @recordSaved2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Record saved'**
+  String get recordSaved2;
+
+  /// No description provided for @saveFailedPleaseTryAgainLater2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Save failed, please try again later.'**
+  String get saveFailedPleaseTryAgainLater2;
+
+  /// No description provided for @loadingReference2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Loading reference…'**
+  String get loadingReference2;
+
+  /// No description provided for @referenceTemporarilyUnavailable2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Reference temporarily unavailable'**
+  String get referenceTemporarilyUnavailable2;
+
+  /// No description provided for @anitripPhoto2.
+  ///
+  /// In zh, this message translates to:
+  /// **'anitrip photo'**
+  String get anitripPhoto2;
+
+  /// No description provided for @willAssignCountUngroupedPointsTo2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Will assign {count} ungrouped points to the nearest area anchor, max distance {dist}.'**
+  String willAssignCountUngroupedPointsTo2(Object count, Object dist);
+
+  /// No description provided for @assignedCountPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Assigned {count} points'**
+  String assignedCountPoints2(Object count);
+
+  /// No description provided for @willMovePointsUngroupedPointsTo2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Will move {points} ungrouped points to “{group}”.'**
+  String willMovePointsUngroupedPointsTo2(Object group, Object points);
+
+  /// No description provided for @assignedPointsPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Assigned {points} points'**
+  String assignedPointsPoints2(Object points);
+
+  /// No description provided for @selectedSelUngroupedUng2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Selected {sel} / Ungrouped {ung}'**
+  String selectedSelUngroupedUng2(Object sel, Object ung);
+
+  /// No description provided for @maxDistanceDistAssignableAUng2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Max distance {dist} · Assignable {a} / {ung}'**
+  String maxDistanceDistAssignableAUng2(Object a, Object dist, Object ung);
+
+  /// No description provided for @ungUngroupedTapAMapPoint2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{ung} ungrouped · tap a map point for details'**
+  String ungUngroupedTapAMapPoint2(Object ung);
+
+  /// No description provided for @workHasNoImportableAnitabiPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'“{work}” has no importable Anitabi points yet.'**
+  String workHasNoImportableAnitabiPoints2(Object work);
+
+  /// No description provided for @deleteGroupItsCountPointsWill2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Delete “{group}”? Its {count} points will move to ungrouped.'**
+  String deleteGroupItsCountPointsWill2(Object count, Object group);
+
+  /// No description provided for @groupsAreasPointsPoints2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{groups} areas · {points} points'**
+  String groupsAreasPointsPoints2(Object groups, Object points);
+
+  /// No description provided for @pointsPointsAnchorOrder2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{points} points · {anchor} · {order}'**
+  String pointsPointsAnchorOrder2(Object anchor, Object order, Object points);
+
+  /// No description provided for @countPointsAwaitingOrganization2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} points awaiting organization'**
+  String countPointsAwaitingOrganization2(Object count);
+
+  /// No description provided for @recordsRecordsIncludingPhotoPathsAnd2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{records} records, including photo paths and grading parameters.'**
+  String recordsRecordsIncludingPhotoPathsAnd2(Object records);
+
+  /// No description provided for @importedPlanPlan2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Imported plan “{plan}”'**
+  String importedPlanPlan2(Object plan);
+
+  /// No description provided for @importedPlanPlanSomeResourcesWere2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Imported plan “{plan}”; some resources were not restored'**
+  String importedPlanPlanSomeResourcesWere2(Object plan);
+
+  /// No description provided for @thePackageHasCountResourceFiles3.
+  ///
+  /// In zh, this message translates to:
+  /// **'The package has {count} resource files; this platform cannot restore them yet.'**
+  String thePackageHasCountResourceFiles3(Object count);
+
+  /// No description provided for @thePackageHasCountResourceFiles4.
+  ///
+  /// In zh, this message translates to:
+  /// **'The package has {count} resource files and they will be restored to local storage.'**
+  String thePackageHasCountResourceFiles4(Object count);
+
+  /// No description provided for @countLandmarks2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} landmarks'**
+  String countLandmarks2(Object count);
+
+  /// No description provided for @countScreenshots2.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} screenshots'**
+  String countScreenshots2(Object count);
+
+  /// No description provided for @nativeCameraFailedToInitializeError2.
+  ///
+  /// In zh, this message translates to:
+  /// **'Native camera failed to initialize: {error}'**
+  String nativeCameraFailedToInitializeError2(Object error);
+
+  /// No description provided for @savingRecordStage.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存记录中...'**
+  String get savingRecordStage;
+
+  /// No description provided for @backingUpPilgrimagePhotoStage.
+  ///
+  /// In zh, this message translates to:
+  /// **'备份巡礼照片中...'**
+  String get backingUpPilgrimagePhotoStage;
+
+  /// No description provided for @generatingComparisonImageStage.
+  ///
+  /// In zh, this message translates to:
+  /// **'生成对比图中...'**
+  String get generatingComparisonImageStage;
+
+  /// No description provided for @updatingPointStatusStage.
+  ///
+  /// In zh, this message translates to:
+  /// **'更新点位状态中...'**
+  String get updatingPointStatusStage;
+
+  /// No description provided for @savingRecordPleaseWait.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在保存记录，请稍候。'**
+  String get savingRecordPleaseWait;
+
+  /// No description provided for @confirmRecordTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'确认记录'**
+  String get confirmRecordTitle;
+
+  /// No description provided for @saveRecord.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存记录'**
+  String get saveRecord;
+
+  /// No description provided for @saveAndMarkComplete.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存并标记完成'**
+  String get saveAndMarkComplete;
+
+  /// No description provided for @savedAndMarkedComplete.
+  ///
+  /// In zh, this message translates to:
+  /// **'已保存并标记完成'**
+  String get savedAndMarkedComplete;
+
+  /// No description provided for @recordSaved.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录已保存'**
+  String get recordSaved;
+
+  /// No description provided for @backupSavedToAlbumSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，并备份到相册'**
+  String get backupSavedToAlbumSuffix;
+
+  /// No description provided for @albumBackupFailedSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'；相册备份失败'**
+  String get albumBackupFailedSuffix;
+
+  /// Success message suffix with the next point name
+  ///
+  /// In zh, this message translates to:
+  /// **'下一个：{name}'**
+  String nextPointNameSuffix(String name);
+
+  /// No description provided for @comparisonSavedToAlbumSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，对比图已保存到相册'**
+  String get comparisonSavedToAlbumSuffix;
+
+  /// No description provided for @referenceUnavailableComparisonSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，参考图不可用，未生成对比图'**
+  String get referenceUnavailableComparisonSuffix;
+
+  /// No description provided for @capturedUnavailableComparisonSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，巡礼图不可用，未生成对比图'**
+  String get capturedUnavailableComparisonSuffix;
+
+  /// No description provided for @comparisonGalleryFailedSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，对比图保存到相册失败'**
+  String get comparisonGalleryFailedSuffix;
+
+  /// No description provided for @comparisonRenderFailedSuffix.
+  ///
+  /// In zh, this message translates to:
+  /// **'，对比图生成失败'**
+  String get comparisonRenderFailedSuffix;
+
+  /// No description provided for @saveToAlbum.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存到相册'**
+  String get saveToAlbum;
+
+  /// No description provided for @savedToAlbum.
+  ///
+  /// In zh, this message translates to:
+  /// **'已保存到相册'**
+  String get savedToAlbum;
+
+  /// No description provided for @saveFailedRetry.
+  ///
+  /// In zh, this message translates to:
+  /// **'保存失败，请稍后重试。'**
+  String get saveFailedRetry;
+
+  /// No description provided for @referenceModeLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考模式'**
+  String get referenceModeLabel;
+
+  /// No description provided for @newArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'新建片区'**
+  String get newArea;
+
+  /// No description provided for @areaCreationFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区创建失败'**
+  String get areaCreationFailed;
+
+  /// No description provided for @renameArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'重命名片区'**
+  String get renameArea;
+
+  /// No description provided for @areaName.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区名称'**
+  String get areaName;
+
+  /// No description provided for @areaRenameFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区改名失败'**
+  String get areaRenameFailed;
+
+  /// No description provided for @sortOrderSaveFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'排序方式保存失败'**
+  String get sortOrderSaveFailed;
+
+  /// No description provided for @recommendedRouteGenerationFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'推荐路线生成失败'**
+  String get recommendedRouteGenerationFailed;
+
+  /// Auto-localized: {routeorderedPointslength} points · about
+  ///
+  /// In zh, this message translates to:
+  /// **'{routeorderedPointslength} 个点位 · 约 '**
+  String pointsAbout(String routeorderedPointslength);
+
+  /// Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot
+  ///
+  /// In zh, this message translates to:
+  /// **'{formatRouteDistanceroutetotalDistanceMeters} 步行'**
+  String onFoot(String formatRouteDistanceroutetotalDistanceMeters);
+
+  /// No description provided for @anchorSaveFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'关键点保存失败'**
+  String get anchorSaveFailed;
+
+  /// No description provided for @deleteArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除片区'**
+  String get deleteArea;
+
+  /// Auto-localized: Delete "{groupname}"? {pointCount} points will be moved to ungrouped points.
+  ///
+  /// In zh, this message translates to:
+  /// **'确定删除「{groupname}」吗？其中 {pointCount} 个点位会移入未分配点位。'**
+  String deletePointsWillBeMovedToUngroupedPoints(
+    String groupname,
+    String pointCount,
+  );
+
+  /// No description provided for @areaDeletionFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区删除失败'**
+  String get areaDeletionFailed;
+
+  /// No description provided for @areaOrderSaveFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区顺序保存失败'**
+  String get areaOrderSaveFailed;
+
+  /// No description provided for @ungroupedPoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'未分配点位'**
+  String get ungroupedPoints;
+
+  /// No description provided for @areaNameCannotBeEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区名不能为空'**
+  String get areaNameCannotBeEmpty;
+
+  /// No description provided for @create.
+  ///
+  /// In zh, this message translates to:
+  /// **'创建'**
+  String get create;
+
+  /// Auto-localized: {groupCount} areas · {planpointslength} points
+  ///
+  /// In zh, this message translates to:
+  /// **'{groupCount} 个片区 · {planpointslength} 个点位'**
+  String areasPoints(String groupCount, String planpointslength);
+
+  /// No description provided for @manualOrder.
+  ///
+  /// In zh, this message translates to:
+  /// **'手动排序'**
+  String get manualOrder;
+
+  /// Auto-localized: {pointCount} points · {anchorLabel} · {orderLabel}
+  ///
+  /// In zh, this message translates to:
+  /// **'{pointCount} 点位 · {anchorLabel} · {orderLabel}'**
+  String points(String pointCount, String anchorLabel, String orderLabel);
+
+  /// No description provided for @areaActions.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区操作'**
+  String get areaActions;
+
+  /// No description provided for @rename.
+  ///
+  /// In zh, this message translates to:
+  /// **'重命名'**
+  String get rename;
+
+  /// No description provided for @setAnchor.
+  ///
+  /// In zh, this message translates to:
+  /// **'设置关键点'**
+  String get setAnchor;
+
+  /// No description provided for @switchToUnordered.
+  ///
+  /// In zh, this message translates to:
+  /// **'切换为无序'**
+  String get switchToUnordered;
+
+  /// No description provided for @switchToManualOrder.
+  ///
+  /// In zh, this message translates to:
+  /// **'切换为手动排序'**
+  String get switchToManualOrder;
+
+  /// Auto-localized: {pointCount} points awaiting organization
+  ///
+  /// In zh, this message translates to:
+  /// **'{pointCount} 个点位等待整理'**
+  String pointsAwaitingOrganization(String pointCount);
+
+  /// No description provided for @noAssignablePointsWithinTheCurrentDistance.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前距离内没有可分配点位'**
+  String get noAssignablePointsWithinTheCurrentDistance;
+
+  /// No description provided for @confirmRecentAssignment.
+  ///
+  /// In zh, this message translates to:
+  /// **'确认最近分配'**
+  String get confirmRecentAssignment;
+
+  /// Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.
+  ///
+  /// In zh, this message translates to:
+  /// **'将把 {count} 个未分组点位分配到最近的片区关键点，最大距离为 {formatDistancedistanceMeters}。'**
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf(
+    String count,
+    String formatDistancedistanceMeters,
+  );
+
+  /// Auto-localized: Assigned {count} points
+  ///
+  /// In zh, this message translates to:
+  /// **'已分配 {count} 个点位'**
+  String assignedPoints(String count);
+
+  /// No description provided for @recentAssignmentFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'最近分配失败'**
+  String get recentAssignmentFailed;
+
+  /// No description provided for @finishAreaAssignmentFirst.
+  ///
+  /// In zh, this message translates to:
+  /// **'请先完成片区分配'**
+  String get finishAreaAssignmentFirst;
+
+  /// No description provided for @createAnAreaFirst.
+  ///
+  /// In zh, this message translates to:
+  /// **'请先创建片区'**
+  String get createAnAreaFirst;
+
+  /// No description provided for @noUngroupedPointsWithinTheBoxSelection.
+  ///
+  /// In zh, this message translates to:
+  /// **'框选范围内没有未分组点位'**
+  String get noUngroupedPointsWithinTheBoxSelection;
+
+  /// No description provided for @confirmBoxSelectionAssignment.
+  ///
+  /// In zh, this message translates to:
+  /// **'确认框选分配'**
+  String get confirmBoxSelectionAssignment;
+
+  /// Auto-localized: Will move {pointslength} ungrouped points to "{targetGroupname}".
+  ///
+  /// In zh, this message translates to:
+  /// **'将把 {pointslength} 个未分组点位移动到「{targetGroupname}」。'**
+  String willMoveUngroupedPointsTo(String pointslength, String targetGroupname);
+
+  /// No description provided for @assign.
+  ///
+  /// In zh, this message translates to:
+  /// **'分配'**
+  String get assign;
+
+  /// Auto-localized: Assigned {pointslength} points
+  ///
+  /// In zh, this message translates to:
+  /// **'已分配 {pointslength} 个点位'**
+  String assignedPoints2(String pointslength);
+
+  /// No description provided for @boxSelectionAssignmentFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'框选分配失败'**
+  String get boxSelectionAssignmentFailed;
+
+  /// No description provided for @selectArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'选择片区'**
+  String get selectArea;
+
+  /// No description provided for @boxSelect.
+  ///
+  /// In zh, this message translates to:
+  /// **'框选'**
+  String get boxSelect;
+
+  /// No description provided for @endBoxSelect.
+  ///
+  /// In zh, this message translates to:
+  /// **'结束框选'**
+  String get endBoxSelect;
+
+  /// Auto-localized: Selected {selectedCount} / ungrouped {ungroupedCount}
+  ///
+  /// In zh, this message translates to:
+  /// **'已框选 {selectedCount} / 未分组 {ungroupedCount}'**
+  String selectedUngrouped(String selectedCount, String ungroupedCount);
+
+  /// No description provided for @assigning.
+  ///
+  /// In zh, this message translates to:
+  /// **'分配中'**
+  String get assigning;
+
+  /// Auto-localized: Max distance {formatDistancedistanceMeters} · assignable {assignableCount}/{ungroupedCount}
+  ///
+  /// In zh, this message translates to:
+  /// **'最大距离 {formatDistancedistanceMeters} · 可分配 {assignableCount}/{ungroupedCount}'**
+  String maxDistanceAssignable(
+    String formatDistancedistanceMeters,
+    String assignableCount,
+    String ungroupedCount,
+  );
+
+  /// No description provided for @ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance.
+  ///
+  /// In zh, this message translates to:
+  /// **'未分组点位会分配到距离最近、且在最大距离范围内的片区关键点。'**
+  String
+  get ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance;
+
+  /// No description provided for @noAvailableAreaAnchors.
+  ///
+  /// In zh, this message translates to:
+  /// **'没有可用片区关键点'**
+  String get noAvailableAreaAnchors;
+
+  /// No description provided for @createAnAreaFirstYouCanUseSmartZoningToGenerateOne.
+  ///
+  /// In zh, this message translates to:
+  /// **'请先创建片区（可用「智能分区」一键生成）'**
+  String get createAnAreaFirstYouCanUseSmartZoningToGenerateOne;
+
+  /// Auto-localized: Ungrouped {ungroupedCount} · tap a map point for details
+  ///
+  /// In zh, this message translates to:
+  /// **'未分组 {ungroupedCount} 个 · 点击地图点位查看详情'**
+  String ungroupedTapAMapPointForDetails(String ungroupedCount);
+
+  /// No description provided for @outOfRangePoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'距离外点位'**
+  String get outOfRangePoints;
+
+  /// No description provided for @assignablePoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'可分配点位'**
+  String get assignablePoints;
+
+  /// No description provided for @importContent.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入内容'**
+  String get importContent;
+
+  /// No description provided for @selectImportContent.
+  ///
+  /// In zh, this message translates to:
+  /// **'选择导入内容'**
+  String get selectImportContent;
+
+  /// No description provided for @importingWillNotModifyCurrentData.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入前不会修改当前数据。'**
+  String get importingWillNotModifyCurrentData;
+
+  /// No description provided for @planStructure.
+  ///
+  /// In zh, this message translates to:
+  /// **'计划结构'**
+  String get planStructure;
+
+  /// No description provided for @worksAreasPointsCompletionStatusAndCurrentGoals.
+  ///
+  /// In zh, this message translates to:
+  /// **'作品、片区、点位、完成状态和当前目标。'**
+  String get worksAreasPointsCompletionStatusAndCurrentGoals;
+
+  /// No description provided for @captureRecords.
+  ///
+  /// In zh, this message translates to:
+  /// **'拍摄记录'**
+  String get captureRecords;
+
+  /// No description provided for @v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported.
+  ///
+  /// In zh, this message translates to:
+  /// **'v1 文件不包含照片资源，仅导入计划结构。'**
+  String get v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported;
+
+  /// Auto-localized: {packagevisitRecordCount} records, including photo paths and color grading parameters.
+  ///
+  /// In zh, this message translates to:
+  /// **'{packagevisitRecordCount} 条记录，包含照片路径和调色参数。'**
+  String recordsIncludingPhotoPathsAndColorGradingParameters(
+    String packagevisitRecordCount,
+  );
+
+  /// No description provided for @thisPackageHasNoCaptureRecords.
+  ///
+  /// In zh, this message translates to:
+  /// **'这个包里没有拍摄记录。'**
+  String get thisPackageHasNoCaptureRecords;
+
+  /// No description provided for @imagesAndResourceFiles.
+  ///
+  /// In zh, this message translates to:
+  /// **'图片和资源文件'**
+  String get imagesAndResourceFiles;
+
+  /// No description provided for @notesInPackage.
+  ///
+  /// In zh, this message translates to:
+  /// **'包内提示'**
+  String get notesInPackage;
+
+  /// No description provided for @missingOrCompatibilityNotesRecordedDuringExport.
+  ///
+  /// In zh, this message translates to:
+  /// **'导出时记录的缺失或兼容信息。'**
+  String get missingOrCompatibilityNotesRecordedDuringExport;
+
+  /// No description provided for @importSelectedContent.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入所选内容'**
+  String get importSelectedContent;
+
+  /// No description provided for @importing.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入中...'**
+  String get importing;
+
+  /// Auto-localized: Imported plan "{importedPlanname}"
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入计划「{importedPlanname}」'**
+  String importedPlan(String importedPlanname);
+
+  /// Auto-localized: Imported plan "{importedPlanname}", but some assets were not restored
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入计划「{importedPlanname}」，部分资源未恢复'**
+  String importedPlanButSomeAssetsWereNotRestored(String importedPlanname);
+
+  /// No description provided for @importFailed.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入失败'**
+  String get importFailed;
+
+  /// No description provided for @thisPackageHasNoRecoverableAssetFiles.
+  ///
+  /// In zh, this message translates to:
+  /// **'这个包里没有可恢复的资源文件。'**
+  String get thisPackageHasNoRecoverableAssetFiles;
+
+  /// No description provided for @thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles.
+  ///
+  /// In zh, this message translates to:
+  /// **'包内记录了资源，但没有可恢复的资源文件。'**
+  String get thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles;
+
+  /// No description provided for @assets.
+  ///
+  /// In zh, this message translates to:
+  /// **'资源'**
+  String get assets;
+
+  /// No description provided for @version.
+  ///
+  /// In zh, this message translates to:
+  /// **'版本'**
+  String get version;
+
+  /// No description provided for @pointName.
+  ///
+  /// In zh, this message translates to:
+  /// **'点位名'**
+  String get pointName;
+
+  /// No description provided for @subtitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'副标题'**
+  String get subtitle;
+
+  /// No description provided for @episodeScene.
+  ///
+  /// In zh, this message translates to:
+  /// **'集数/场景'**
+  String get episodeScene;
+
+  /// No description provided for @sourceId.
+  ///
+  /// In zh, this message translates to:
+  /// **'来源ID'**
+  String get sourceId;
+
+  /// No description provided for @referenceImageUrl.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考图URL'**
+  String get referenceImageUrl;
+
+  /// No description provided for @recordCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录数'**
+  String get recordCount;
+
+  /// No description provided for @no.
+  ///
+  /// In zh, this message translates to:
+  /// **'否'**
+  String get no;
+
+  /// No description provided for @yes.
+  ///
+  /// In zh, this message translates to:
+  /// **'是'**
+  String get yes;
+
+  /// No description provided for @gradedPhotoFileName.
+  ///
+  /// In zh, this message translates to:
+  /// **'调色照片文件名'**
+  String get gradedPhotoFileName;
+
+  /// No description provided for @photoFileName.
+  ///
+  /// In zh, this message translates to:
+  /// **'照片文件名'**
+  String get photoFileName;
+
+  /// No description provided for @colorGraded.
+  ///
+  /// In zh, this message translates to:
+  /// **'是否调色'**
+  String get colorGraded;
+
+  /// No description provided for @recordId.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录ID'**
+  String get recordId;
+
+  /// No description provided for @customMaplibreStyleUrlMustUseHttpHttps.
+  ///
+  /// In zh, this message translates to:
+  /// **'自定义 MapLibre style URL 需要使用 http/https。'**
+  String get customMaplibreStyleUrlMustUseHttpHttps;
+
+  /// No description provided for @thisWorkWasnTFoundInAnitabi.
+  ///
+  /// In zh, this message translates to:
+  /// **'Anitabi 中没有找到这个作品'**
+  String get thisWorkWasnTFoundInAnitabi;
+
+  /// No description provided for @thisWorkHasNoAnitabiPointsYet.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前作品暂无 Anitabi 点位'**
+  String get thisWorkHasNoAnitabiPointsYet;
+
+  /// No description provided for @thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName.
+  ///
+  /// In zh, this message translates to:
+  /// **'这个 Bangumi 条目在 Anitabi 地图数据中没有对应作品。可以尝试添加同名动画、原作或其它关联条目。'**
+  String
+  get thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName;
+
+  /// No description provided for @thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet.
+  ///
+  /// In zh, this message translates to:
+  /// **'Anitabi 中能找到这个作品，但当前还没有可导入的地图点位。'**
+  String get thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet;
+
+  /// Auto-localized: No importable Anitabi points for "{workTitle}" yet.
+  ///
+  /// In zh, this message translates to:
+  /// **'「{workTitle}」暂无可导入的 Anitabi 点位。'**
+  String noImportableAnitabiPointsForYet(String workTitle);
+
+  /// No description provided for @workPilgrimage.
+  ///
+  /// In zh, this message translates to:
+  /// **'<work> 巡礼'**
+  String get workPilgrimage;
+
+  /// No description provided for @areaN.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区 N'**
+  String get areaN;
+
+  /// No description provided for @loadingReferenceImage.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考图加载中'**
+  String get loadingReferenceImage;
+
+  /// No description provided for @referenceImageUnavailable.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考图暂不可用'**
+  String get referenceImageUnavailable;
+
+  /// No description provided for @eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj.
+  ///
+  /// In zh, this message translates to:
+  /// **'例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj'**
+  String get eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj;
+
+  /// No description provided for @anitripImage.
+  ///
+  /// In zh, this message translates to:
+  /// **'anitrip 图片'**
+  String get anitripImage;
+
+  /// Auto-localized: {itempointCount} landmarks
+  ///
+  /// In zh, this message translates to:
+  /// **'{itempointCount} 地标'**
+  String landmarks(String itempointCount);
+
+  /// Auto-localized: {itempointCount} screenshots
+  ///
+  /// In zh, this message translates to:
+  /// **'{itempointCount} 截图'**
+  String screenshots(String itempointCount);
+
+  /// No description provided for @latestWorks.
+  ///
+  /// In zh, this message translates to:
+  /// **'最新作品'**
+  String get latestWorks;
+
+  /// No description provided for @nPlaces.
+  ///
+  /// In zh, this message translates to:
+  /// **'N 个地点'**
+  String get nPlaces;
+
+  /// No description provided for @imageViewerShareSubject.
+  ///
+  /// In zh, this message translates to:
+  /// **'anitrip 图片'**
+  String get imageViewerShareSubject;
+
+  /// No description provided for @imageViewerShareText.
+  ///
+  /// In zh, this message translates to:
+  /// **'anitrip 图片'**
+  String get imageViewerShareText;
+
+  /// No description provided for @mapMarkerPilgrimagePoint.
+  ///
+  /// In zh, this message translates to:
+  /// **'巡礼点'**
+  String get mapMarkerPilgrimagePoint;
+
+  /// No description provided for @mapMapLibreUrlRequireHttp.
+  ///
+  /// In zh, this message translates to:
+  /// **'自定义 MapLibre style URL 需要使用 http/https。'**
+  String get mapMapLibreUrlRequireHttp;
+
+  /// Auto-localized: {routeorderedPointslength} points · about
+  ///
+  /// In zh, this message translates to:
+  /// **'{routeorderedPointslength} 个点位 · 约 '**
+  String pointsAbout2(String routeorderedPointslength);
+
+  /// Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot
+  ///
+  /// In zh, this message translates to:
+  /// **'{formatRouteDistanceroutetotalDistanceMeters} 步行'**
+  String onFoot2(String formatRouteDistanceroutetotalDistanceMeters);
+
+  /// Auto-localized: Delete "{groupname}"? {pointCount} points will be moved to ungrouped points.
+  ///
+  /// In zh, this message translates to:
+  /// **'确定删除「{groupname}」吗？其中 {pointCount} 个点位会移入未分配点位。'**
+  String deletePointsWillBeMovedToUngroupedPoints2(
+    String groupname,
+    String pointCount,
+  );
+
+  /// Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.
+  ///
+  /// In zh, this message translates to:
+  /// **'将把 {count} 个未分组点位分配到最近的片区关键点，最大距离为 {formatDistancedistanceMeters}。'**
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2(
+    String count,
+    String formatDistancedistanceMeters,
+  );
+
+  /// No description provided for @startAssignment.
+  ///
+  /// In zh, this message translates to:
+  /// **'开始分配'**
+  String get startAssignment;
+
+  /// Auto-localized: Assigned {count} points
+  ///
+  /// In zh, this message translates to:
+  /// **'已分配 {count} 个点位'**
+  String assignedPoints3(String count);
+
+  /// Auto-localized: Will move {pointslength} ungrouped points to "{targetGroupname}".
+  ///
+  /// In zh, this message translates to:
+  /// **'将把 {pointslength} 个未分组点位移动到「{targetGroupname}」。'**
+  String willMoveUngroupedPointsTo2(
+    String pointslength,
+    String targetGroupname,
+  );
+
+  /// Auto-localized: Assigned {pointslength} points
+  ///
+  /// In zh, this message translates to:
+  /// **'已分配 {pointslength} 个点位'**
+  String assignedPoints4(String pointslength);
+
+  /// Auto-localized: Imported plan "{importedPlanname}"
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入计划「{importedPlanname}」'**
+  String importedPlan2(String importedPlanname);
+
+  /// Auto-localized: Imported plan "{importedPlanname}", but some assets were not restored
+  ///
+  /// In zh, this message translates to:
+  /// **'已导入计划「{importedPlanname}」，部分资源未恢复'**
+  String importedPlanButSomeAssetsWereNotRestored2(String importedPlanname);
+
+  /// No description provided for @colorMatchNatural.
+  ///
+  /// In zh, this message translates to:
+  /// **'自然'**
+  String get colorMatchNatural;
+
+  /// No description provided for @colorMatchStandard.
+  ///
+  /// In zh, this message translates to:
+  /// **'标准'**
+  String get colorMatchStandard;
+
+  /// No description provided for @colorMatchStrong.
+  ///
+  /// In zh, this message translates to:
+  /// **'强匹配'**
+  String get colorMatchStrong;
+
+  /// No description provided for @aspectRatioAuto.
+  ///
+  /// In zh, this message translates to:
+  /// **'自动'**
+  String get aspectRatioAuto;
+
+  /// No description provided for @aspectRatioNative.
+  ///
+  /// In zh, this message translates to:
+  /// **'原生比例'**
+  String get aspectRatioNative;
+
+  /// No description provided for @themeCustom.
+  ///
+  /// In zh, this message translates to:
+  /// **'自定义'**
+  String get themeCustom;
+
+  /// No description provided for @importPackageV2Data.
+  ///
+  /// In zh, this message translates to:
+  /// **'v2 数据包'**
+  String get importPackageV2Data;
+
+  /// No description provided for @csvHeaderWork.
+  ///
+  /// In zh, this message translates to:
+  /// **'作品'**
+  String get csvHeaderWork;
+
+  /// No description provided for @csvHeaderArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'片区'**
+  String get csvHeaderArea;
+
+  /// No description provided for @csvHeaderPointName.
+  ///
+  /// In zh, this message translates to:
+  /// **'点位名'**
+  String get csvHeaderPointName;
+
+  /// No description provided for @csvHeaderSubtitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'副标题'**
+  String get csvHeaderSubtitle;
+
+  /// No description provided for @csvHeaderLatitude.
+  ///
+  /// In zh, this message translates to:
+  /// **'纬度'**
+  String get csvHeaderLatitude;
+
+  /// No description provided for @csvHeaderLongitude.
+  ///
+  /// In zh, this message translates to:
+  /// **'经度'**
+  String get csvHeaderLongitude;
+
+  /// No description provided for @csvHeaderEpisodeScene.
+  ///
+  /// In zh, this message translates to:
+  /// **'集数/场景'**
+  String get csvHeaderEpisodeScene;
+
+  /// No description provided for @csvHeaderSource.
+  ///
+  /// In zh, this message translates to:
+  /// **'来源'**
+  String get csvHeaderSource;
+
+  /// No description provided for @csvHeaderSourceId.
+  ///
+  /// In zh, this message translates to:
+  /// **'来源ID'**
+  String get csvHeaderSourceId;
+
+  /// No description provided for @csvHeaderRefImageUrl.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考图URL'**
+  String get csvHeaderRefImageUrl;
+
+  /// No description provided for @csvHeaderCompleted.
+  ///
+  /// In zh, this message translates to:
+  /// **'已完成'**
+  String get csvHeaderCompleted;
+
+  /// No description provided for @csvHeaderRecordCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录数'**
+  String get csvHeaderRecordCount;
+
+  /// No description provided for @csvHeaderRecordId.
+  ///
+  /// In zh, this message translates to:
+  /// **'记录ID'**
+  String get csvHeaderRecordId;
+
+  /// No description provided for @csvHeaderCapturedAt.
+  ///
+  /// In zh, this message translates to:
+  /// **'拍摄时间'**
+  String get csvHeaderCapturedAt;
+
+  /// No description provided for @csvHeaderRefMode.
+  ///
+  /// In zh, this message translates to:
+  /// **'参考模式'**
+  String get csvHeaderRefMode;
+
+  /// No description provided for @csvHeaderColorGraded.
+  ///
+  /// In zh, this message translates to:
+  /// **'是否调色'**
+  String get csvHeaderColorGraded;
+
+  /// No description provided for @csvHeaderPhotoFile.
+  ///
+  /// In zh, this message translates to:
+  /// **'照片文件名'**
+  String get csvHeaderPhotoFile;
+
+  /// No description provided for @csvHeaderGradedPhotoFile.
+  ///
+  /// In zh, this message translates to:
+  /// **'调色照片文件名'**
+  String get csvHeaderGradedPhotoFile;
+
+  /// No description provided for @refCacheNone.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前计划没有需要缓存的参考图'**
+  String get refCacheNone;
+
+  /// Auto-localized: Cached {succeeded}/{total} full reference images
+  ///
+  /// In zh, this message translates to:
+  /// **'已缓存 \$succeeded/\$total 张完整参考图'**
+  String refCacheDone(String succeeded, String total);
+
+  /// Auto-localized: Cached {succeeded}/{total} full reference images, {failed} failed
+  ///
+  /// In zh, this message translates to:
+  /// **'已缓存 \$succeeded/\$total 张完整参考图，失败 \$failed 张'**
+  String refCacheDoneFailed(String succeeded, String total, String failed);
+
+  /// Auto-localized: Caching {processed}/{total} full reference images, {succeeded} succeeded
+  ///
+  /// In zh, this message translates to:
+  /// **'正在缓存完整参考图 \$processed/\$total，成功 \$succeeded'**
+  String refCacheProgress(String processed, String total, String succeeded);
+
+  /// No description provided for @anitabiUrlInvalidHttps.
+  ///
+  /// In zh, this message translates to:
+  /// **'请输入有效的 HTTPS 地址'**
+  String get anitabiUrlInvalidHttps;
+
+  /// No description provided for @anitabiUrlNoAccount.
+  ///
+  /// In zh, this message translates to:
+  /// **'地址不能包含账号、查询参数或片段'**
+  String get anitabiUrlNoAccount;
+
+  /// No description provided for @anitabiUrlNoLocal.
+  ///
+  /// In zh, this message translates to:
+  /// **'不能使用本机或局域网地址'**
+  String get anitabiUrlNoLocal;
+
+  /// Auto-localized: {packageTotalAssetCount} asset files in the package will be restored to local storage.
+  ///
+  /// In zh, this message translates to:
+  /// **'包内有 \${packageTotalAssetCount} 个资源文件，将恢复到本机存储。'**
+  String packageAssetsRestoreLocal(String packageTotalAssetCount);
+
+  /// Auto-localized: {packageTotalAssetCount} asset files in the package; restoring in-package assets is not supported on this platform yet.
+  ///
+  /// In zh, this message translates to:
+  /// **'包内有 \${packageTotalAssetCount} 个资源文件；当前平台暂不支持恢复包内资源。'**
+  String packageAssetsNoPlatformRestore(String packageTotalAssetCount);
 }
 
 class _AppLocalizationsDelegate

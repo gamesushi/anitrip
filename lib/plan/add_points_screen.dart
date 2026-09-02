@@ -549,6 +549,7 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.anitabiLinkImportTitle)),
       body: Form(
@@ -572,7 +573,7 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
                   decoration: stableInputDecoration(
                     labelText: AppLocalizations.of(context)!.anitabiLinkImportLabel,
                     hintText:
-                        '例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj',
+                        l10n.eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj,
                   ),
                   keyboardType: TextInputType.url,
                   textInputAction: TextInputAction.done,
@@ -580,8 +581,8 @@ class _AnitabiLinkImportScreenState extends State<_AnitabiLinkImportScreen> {
                   onFieldSubmitted: (_) => _openImport(),
                 ),
                 const SizedBox(height: 10),
-                const Text(
-                  '如果链接里包含作品 ID，会只加载对应作品；如果还包含点位 ID，会自动选中该点位。没有作品 ID 的链接需要先在 Anitabi 中进入对应作品后重新复制。',
+                Text(
+                  l10n.anitabiLinkImportHelp,
                   style: TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 12,
@@ -1115,6 +1116,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final workOptions = _workOptions;
     final hasPlanWorks = workOptions.isNotEmpty;
     final editingPoint = _editingPoint;
@@ -1206,7 +1208,7 @@ class _ManualPointFormScreenState extends State<_ManualPointFormScreen> {
                     TextFormField(
                       controller: _fallbackWorkCityController,
                       decoration: InputDecoration(
-                        labelText: '作品主要地区',
+                        labelText: l10n.manualAddPointWorkArea,
                         hintText: AppLocalizations.of(context)!.manualAddWorkAreaHint(widget.plan.area),
                       ),
                       textInputAction: TextInputAction.next,

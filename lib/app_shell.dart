@@ -292,9 +292,9 @@ class _AppShellState extends State<AppShell> {
       if (!mounted) {
         return;
       }
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('计划文件导入失败')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.appShellPlanFileImportFailed)),
+      );
     }
   }
 
@@ -450,6 +450,7 @@ class _PlanLoadState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final hasError = error != null;
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: Center(
@@ -465,7 +466,7 @@ class _PlanLoadState extends StatelessWidget {
               ),
               const SizedBox(height: 12),
               Text(
-                hasError ? '计划加载失败' : '正在加载巡礼计划',
+                hasError ? l10n.appShellPlanLoadFailed : l10n.appShellPlanLoading,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w800,
@@ -474,7 +475,7 @@ class _PlanLoadState extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                hasError ? '请稍后重试。' : '准备今日点位和当前目标。',
+                hasError ? l10n.appShellRetryHint : l10n.appShellLoadingHint,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: AppColors.textSecondary,
@@ -499,7 +500,7 @@ class _PlanLoadState extends StatelessWidget {
                 OutlinedButton.icon(
                   onPressed: onRetry,
                   icon: const Icon(Icons.refresh, size: 18),
-                  label: const Text('重试'),
+                  label: Text(l10n.btnRetry),
                 )
               else
                 const SizedBox(

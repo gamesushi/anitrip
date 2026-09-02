@@ -300,7 +300,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get themeClassicGreen => '经典绿';
 
   @override
-  String get themeDeepBlue => '深邃蓝';
+  String get themeDeepBlue => '深湖蓝';
 
   @override
   String get themeCherryPink => '樱花粉';
@@ -309,7 +309,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get themeTwilightPurple => '暮光紫';
 
   @override
-  String get themeMiriaYellow => '琥珀橙';
+  String get themeMiriaYellow => '蜜蜡橙';
 
   @override
   String get themeGraphite => '石墨黑';
@@ -2442,6 +2442,1331 @@ class AppLocalizationsZh extends AppLocalizations {
   String planNameForWork(String title) {
     return '$title 巡礼';
   }
+
+  @override
+  String get btnCopy => '复制';
+
+  @override
+  String get btnShare => '分享';
+
+  @override
+  String get btnView => '查看';
+
+  @override
+  String get imageViewerSaveTitle => '保存图片';
+
+  @override
+  String get imageViewerSaveToGallery => '保存到相册';
+
+  @override
+  String get imageViewerLoading => '图片加载中';
+
+  @override
+  String get imageViewerEmpty => '暂无图片';
+
+  @override
+  String get imageViewerUnavailable => '图片暂不可用';
+
+  @override
+  String get imageViewerReadFailed => '图片读取失败';
+
+  @override
+  String get imageViewerSaved => '图片已保存';
+
+  @override
+  String get imageViewerSavedToGallery => '已保存到相册';
+
+  @override
+  String get imageViewerSaveFailed => '保存失败';
+
+  @override
+  String get imageViewerSaveCancelled => '已取消保存';
+
+  @override
+  String get appShellPlanFileImportFailed => '计划文件导入失败';
+
+  @override
+  String get appShellPlanLoadFailed => '计划加载失败';
+
+  @override
+  String get appShellPlanLoading => '正在加载巡礼计划';
+
+  @override
+  String get appShellRetryHint => '请稍后重试。';
+
+  @override
+  String get appShellLoadingHint => '准备今日点位和当前目标。';
+
+  @override
+  String get recordDetailTitle => '记录详情';
+
+  @override
+  String get recordDetailAutoGrading => '自动调色';
+
+  @override
+  String get recordDetailDelete => '删除记录';
+
+  @override
+  String get recordDetailViewPoint => '查看点位详情';
+
+  @override
+  String get recordDetailDeleteConfirmBody => '只删除这条巡礼记录，不会改变点位完成状态。';
+
+  @override
+  String get recordDetailDeletePhotoFile => '同时删除照片文件';
+
+  @override
+  String get recordDetailExportPrefUnsupported => '当前平台暂不支持保存导出偏好。';
+
+  @override
+  String get recordDetailPointMissing => '这条记录对应的点位已不在当前计划中，照片和导出功能仍然可以使用。';
+
+  @override
+  String get pointRecordsTitle => '点位拍摄记录';
+
+  @override
+  String pointRecordsCount(int count) {
+    return '$count 条';
+  }
+
+  @override
+  String get pointRecordsEmpty => '这个点位还没有拍摄记录';
+
+  @override
+  String get labelUngrouped => '未分组';
+
+  @override
+  String get labelGraded => '已调色';
+
+  @override
+  String get labelOriginal => '原图';
+
+  @override
+  String get gradingBrightness => '亮度';
+
+  @override
+  String get gradingExposure => '曝光';
+
+  @override
+  String get gradingContrast => '对比';
+
+  @override
+  String get gradingSaturation => '饱和';
+
+  @override
+  String get gradingTemperature => '色温';
+
+  @override
+  String get gradingTint => '色调';
+
+  @override
+  String get gradingHighlights => '高光';
+
+  @override
+  String get gradingShadows => '阴影';
+
+  @override
+  String get gradingRedShadow => 'R暗';
+
+  @override
+  String get gradingRedMid => 'R中';
+
+  @override
+  String get gradingRedHighlight => 'R亮';
+
+  @override
+  String get gradingGreenShadow => 'G暗';
+
+  @override
+  String get gradingGreenMid => 'G中';
+
+  @override
+  String get gradingGreenHighlight => 'G亮';
+
+  @override
+  String get gradingBlueShadow => 'B暗';
+
+  @override
+  String get gradingBlueMid => 'B中';
+
+  @override
+  String get gradingBlueHighlight => 'B亮';
+
+  @override
+  String get recordDetailCapturedPhoto => '巡礼图';
+
+  @override
+  String get failedToReadPilgrimagePhoto2 => 'Failed to read pilgrimage photo';
+
+  @override
+  String get noReferenceImageAvailableForAuto2 =>
+      'No reference image available for auto color match';
+
+  @override
+  String get autoColorMatchFailed2 => 'Auto color match failed';
+
+  @override
+  String get autoColorParametersGenerated2 => 'Auto color parameters generated';
+
+  @override
+  String get revertedToOriginalPhoto2 => 'Reverted to original photo';
+
+  @override
+  String get matchTheColorToneAutomaticallyFirst2 =>
+      'Match the color tone automatically first';
+
+  @override
+  String get colorGradingResultSaved2 => 'Color grading result saved';
+
+  @override
+  String get failedToReadPhoto2 => 'Failed to read photo';
+
+  @override
+  String get matching2 => 'Matching…';
+
+  @override
+  String get autoMatchTone2 => 'Auto match tone';
+
+  @override
+  String get reference2 => 'Reference';
+
+  @override
+  String get noReferenceImage2 => 'No reference image';
+
+  @override
+  String get original2 => 'Original';
+
+  @override
+  String get graded3 => 'Graded';
+
+  @override
+  String get showingOriginal2 => 'Showing original';
+
+  @override
+  String get holdToShowOriginal2 => 'Hold to show original';
+
+  @override
+  String get matchMode2 => 'Match mode';
+
+  @override
+  String get restoredLastColorGradingParameters2 =>
+      'Restored last color grading parameters';
+
+  @override
+  String get saveTheGradedResultAfterAuto2 =>
+      'Save the graded result after auto matching';
+
+  @override
+  String get toneMatching2 => 'Tone matching';
+
+  @override
+  String get gradingIntensity2 => 'Grading intensity';
+
+  @override
+  String get gradingParameters2 => 'Grading parameters';
+
+  @override
+  String get showsTheParametersActuallyAppliedAt2 =>
+      'Shows the parameters actually applied at the current grading intensity.';
+
+  @override
+  String get contrast2 => 'Contrast';
+
+  @override
+  String get saturation2 => 'Saturation';
+
+  @override
+  String get redShadows2 => 'Red shadows';
+
+  @override
+  String get redMidtones2 => 'Red midtones';
+
+  @override
+  String get redHighlights2 => 'Red highlights';
+
+  @override
+  String get greenShadows2 => 'Green shadows';
+
+  @override
+  String get greenMidtones2 => 'Green midtones';
+
+  @override
+  String get greenHighlights2 => 'Green highlights';
+
+  @override
+  String get blueShadows2 => 'Blue shadows';
+
+  @override
+  String get blueMidtones2 => 'Blue midtones';
+
+  @override
+  String get blueHighlights2 => 'Blue highlights';
+
+  @override
+  String get saveResult2 => 'Save result';
+
+  @override
+  String get afterSavingTheRecordDetailAnd2 =>
+      'After saving, the record detail and export use the graded photo; the original and grading parameters are kept.';
+
+  @override
+  String get saving2 => 'Saving…';
+
+  @override
+  String get saveColorGrading2 => 'Save color grading';
+
+  @override
+  String get manualOrder2 => 'Manual order';
+
+  @override
+  String get noAssignablePointsWithinTheCurrent2 =>
+      'No assignable points within the current distance';
+
+  @override
+  String get confirmNearestAssignment2 => 'Confirm nearest assignment';
+
+  @override
+  String get startAssigning2 => 'Start assigning';
+
+  @override
+  String get nearestAssignmentFailed2 => 'Nearest assignment failed';
+
+  @override
+  String get finishAreaAssignmentFirst2 => 'Finish area assignment first';
+
+  @override
+  String get createAnAreaFirst2 => 'Create an area first';
+
+  @override
+  String get noUngroupedPointsInTheSelection2 =>
+      'No ungrouped points in the selection';
+
+  @override
+  String get confirmBoxSelectionAssignment2 =>
+      'Confirm box selection assignment';
+
+  @override
+  String get assign2 => 'Assign';
+
+  @override
+  String get boxSelectionAssignmentFailed2 => 'Box selection assignment failed';
+
+  @override
+  String get selectArea2 => 'Select area';
+
+  @override
+  String get finishBoxSelection2 => 'Finish box selection';
+
+  @override
+  String get boxSelect2 => 'Box select';
+
+  @override
+  String get assigning2 => 'Assigning…';
+
+  @override
+  String get ungroupedPointsAreAssignedToThe2 =>
+      'Ungrouped points are assigned to the nearest area anchor within the maximum distance.';
+
+  @override
+  String get noAvailableAreaAnchors2 => 'No available area anchors';
+
+  @override
+  String get createAnAreaFirstUseSmart2 =>
+      'Create an area first (use “Smart Partition” for one-tap generation)';
+
+  @override
+  String get assignablePoints2 => 'Assignable points';
+
+  @override
+  String get pointsOutOfRange2 => 'Points out of range';
+
+  @override
+  String get eGHttpsWwAnitabiCn2 =>
+      'e.g. https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get thisWorkWasNotFoundOn2 => 'This work was not found on Anitabi';
+
+  @override
+  String get thisWorkHasNoAnitabiPoints2 =>
+      'This work has no Anitabi points yet';
+
+  @override
+  String get thisBangumiEntryHasNoMatching2 =>
+      'This Bangumi entry has no matching work in Anitabi\'s map data. Try adding the same anime, original work, or a related entry.';
+
+  @override
+  String get theWorkExistsOnAnitabiBut2 =>
+      'The work exists on Anitabi, but there are no importable map points yet.';
+
+  @override
+  String get newArea2 => 'New area';
+
+  @override
+  String get areaCreationFailed2 => 'Area creation failed';
+
+  @override
+  String get renameArea2 => 'Rename area';
+
+  @override
+  String get areaName2 => 'Area name';
+
+  @override
+  String get areaRenameFailed2 => 'Area rename failed';
+
+  @override
+  String get failedToSaveSortOrder2 => 'Failed to save sort order';
+
+  @override
+  String get failedToGenerateRecommendedRoute2 =>
+      'Failed to generate recommended route';
+
+  @override
+  String get failedToSaveAnchor2 => 'Failed to save anchor';
+
+  @override
+  String get deleteArea2 => 'Delete area';
+
+  @override
+  String get areaDeletionFailed2 => 'Area deletion failed';
+
+  @override
+  String get failedToSaveAreaOrder2 => 'Failed to save area order';
+
+  @override
+  String get ungroupedPoints2 => 'Ungrouped points';
+
+  @override
+  String get areaNameCannotBeEmpty2 => 'Area name cannot be empty';
+
+  @override
+  String get create2 => 'Create';
+
+  @override
+  String get areaActions2 => 'Area actions';
+
+  @override
+  String get rename2 => 'Rename';
+
+  @override
+  String get setAnchor2 => 'Set anchor';
+
+  @override
+  String get switchToUnordered2 => 'Switch to unordered';
+
+  @override
+  String get switchToManualOrder2 => 'Switch to manual order';
+
+  @override
+  String get importContent2 => 'Import content';
+
+  @override
+  String get chooseWhatToImport2 => 'Choose what to import';
+
+  @override
+  String get importingWillNotModifyCurrentData2 =>
+      'Importing will not modify current data.';
+
+  @override
+  String get planStructure2 => 'Plan structure';
+
+  @override
+  String get worksAreasPointsCompletionStatusAnd2 =>
+      'Works, areas, points, completion status, and current target.';
+
+  @override
+  String get captureRecords2 => 'Capture records';
+
+  @override
+  String get v1FilesContainNoPhotoAssets2 =>
+      'v1 files contain no photo assets; only the plan structure is imported.';
+
+  @override
+  String get thisPackageHasNoCaptureRecords2 =>
+      'This package has no capture records.';
+
+  @override
+  String get imagesAndResourceFiles2 => 'Images and resource files';
+
+  @override
+  String get packageNotes2 => 'Package notes';
+
+  @override
+  String get missingOrCompatibilityInfoRecordedDuring2 =>
+      'Missing or compatibility info recorded during export.';
+
+  @override
+  String get importing2 => 'Importing…';
+
+  @override
+  String get importSelected2 => 'Import selected';
+
+  @override
+  String get importFailed2 => 'Import failed';
+
+  @override
+  String get thisPackageHasNoRecoverableResource2 =>
+      'This package has no recoverable resource files.';
+
+  @override
+  String get resourcesWereRecordedButNoRecoverable2 =>
+      'Resources were recorded, but no recoverable resource files are present.';
+
+  @override
+  String get resources2 => 'Resources';
+
+  @override
+  String get version2 => 'Version';
+
+  @override
+  String get pointName2 => 'Point name';
+
+  @override
+  String get subtitle2 => 'Subtitle';
+
+  @override
+  String get episodeScene2 => 'Episode / Scene';
+
+  @override
+  String get sourceId2 => 'Source ID';
+
+  @override
+  String get referenceImageUrl2 => 'Reference image URL';
+
+  @override
+  String get recordCount2 => 'Record count';
+
+  @override
+  String get yes2 => 'Yes';
+
+  @override
+  String get no2 => 'No';
+
+  @override
+  String get recordId2 => 'Record ID';
+
+  @override
+  String get referenceMode2 => 'Reference mode';
+
+  @override
+  String get graded4 => 'Graded?';
+
+  @override
+  String get photoFileName2 => 'Photo file name';
+
+  @override
+  String get gradedPhotoFileName2 => 'Graded photo file name';
+
+  @override
+  String customXyzUrlMustIncludeZ2(Object x, Object y, Object z) {
+    return 'Custom XYZ URL must include $z, $x, $y and use http/https.';
+  }
+
+  @override
+  String get customMaplibreStyleUrlMustUse2 =>
+      'Custom MapLibre style URL must use http/https.';
+
+  @override
+  String get photoImportFailedPleaseChooseAgain2 =>
+      'Photo import failed, please choose again.';
+
+  @override
+  String get readingReferenceRatioPleaseWaitBefore2 =>
+      'Reading reference ratio, please wait before capturing.';
+
+  @override
+  String get cameraPermissionRequired2 => 'Camera permission required';
+
+  @override
+  String get nativeCameraFailedToInitialize2 =>
+      'Native camera failed to initialize';
+
+  @override
+  String get switchToLandscapeUi2 => 'Switch to landscape UI';
+
+  @override
+  String get importFromAlbum3 => 'Import from album';
+
+  @override
+  String get switchCamera3 => 'Switch camera';
+
+  @override
+  String get switchToPortraitUi2 => 'Switch to portrait UI';
+
+  @override
+  String get checkPhoto2 => 'Check photo';
+
+  @override
+  String get flash2 => 'Flash';
+
+  @override
+  String get switchCamera4 => 'Switch camera';
+
+  @override
+  String get importFromAlbum4 => 'Import from album';
+
+  @override
+  String get iosNativeCameraDidNotStart2 => 'iOS native camera did not start';
+
+  @override
+  String get savingRecord2 => 'Saving record…';
+
+  @override
+  String get backingUpPilgrimagePhotos2 => 'Backing up pilgrimage photos…';
+
+  @override
+  String get generatingComparison2 => 'Generating comparison…';
+
+  @override
+  String get updatingPointStatus2 => 'Updating point status…';
+
+  @override
+  String get savingTheRecordPleaseWait2 => 'Saving the record, please wait.';
+
+  @override
+  String get confirmRecord2 => 'Confirm record';
+
+  @override
+  String get saveRecord2 => 'Save record';
+
+  @override
+  String get saveAndMarkComplete2 => 'Save and mark complete';
+
+  @override
+  String get savedAndMarkedComplete2 => 'Saved and marked complete';
+
+  @override
+  String get recordSaved2 => 'Record saved';
+
+  @override
+  String get saveFailedPleaseTryAgainLater2 =>
+      'Save failed, please try again later.';
+
+  @override
+  String get loadingReference2 => 'Loading reference…';
+
+  @override
+  String get referenceTemporarilyUnavailable2 =>
+      'Reference temporarily unavailable';
+
+  @override
+  String get anitripPhoto2 => 'anitrip photo';
+
+  @override
+  String willAssignCountUngroupedPointsTo2(Object count, Object dist) {
+    return 'Will assign $count ungrouped points to the nearest area anchor, max distance $dist.';
+  }
+
+  @override
+  String assignedCountPoints2(Object count) {
+    return 'Assigned $count points';
+  }
+
+  @override
+  String willMovePointsUngroupedPointsTo2(Object group, Object points) {
+    return 'Will move $points ungrouped points to “$group”.';
+  }
+
+  @override
+  String assignedPointsPoints2(Object points) {
+    return 'Assigned $points points';
+  }
+
+  @override
+  String selectedSelUngroupedUng2(Object sel, Object ung) {
+    return 'Selected $sel / Ungrouped $ung';
+  }
+
+  @override
+  String maxDistanceDistAssignableAUng2(Object a, Object dist, Object ung) {
+    return 'Max distance $dist · Assignable $a / $ung';
+  }
+
+  @override
+  String ungUngroupedTapAMapPoint2(Object ung) {
+    return '$ung ungrouped · tap a map point for details';
+  }
+
+  @override
+  String workHasNoImportableAnitabiPoints2(Object work) {
+    return '“$work” has no importable Anitabi points yet.';
+  }
+
+  @override
+  String deleteGroupItsCountPointsWill2(Object count, Object group) {
+    return 'Delete “$group”? Its $count points will move to ungrouped.';
+  }
+
+  @override
+  String groupsAreasPointsPoints2(Object groups, Object points) {
+    return '$groups areas · $points points';
+  }
+
+  @override
+  String pointsPointsAnchorOrder2(Object anchor, Object order, Object points) {
+    return '$points points · $anchor · $order';
+  }
+
+  @override
+  String countPointsAwaitingOrganization2(Object count) {
+    return '$count points awaiting organization';
+  }
+
+  @override
+  String recordsRecordsIncludingPhotoPathsAnd2(Object records) {
+    return '$records records, including photo paths and grading parameters.';
+  }
+
+  @override
+  String importedPlanPlan2(Object plan) {
+    return 'Imported plan “$plan”';
+  }
+
+  @override
+  String importedPlanPlanSomeResourcesWere2(Object plan) {
+    return 'Imported plan “$plan”; some resources were not restored';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles3(Object count) {
+    return 'The package has $count resource files; this platform cannot restore them yet.';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles4(Object count) {
+    return 'The package has $count resource files and they will be restored to local storage.';
+  }
+
+  @override
+  String countLandmarks2(Object count) {
+    return '$count landmarks';
+  }
+
+  @override
+  String countScreenshots2(Object count) {
+    return '$count screenshots';
+  }
+
+  @override
+  String nativeCameraFailedToInitializeError2(Object error) {
+    return 'Native camera failed to initialize: $error';
+  }
+
+  @override
+  String get savingRecordStage => '保存记录中...';
+
+  @override
+  String get backingUpPilgrimagePhotoStage => '备份巡礼照片中...';
+
+  @override
+  String get generatingComparisonImageStage => '生成对比图中...';
+
+  @override
+  String get updatingPointStatusStage => '更新点位状态中...';
+
+  @override
+  String get savingRecordPleaseWait => '正在保存记录，请稍候。';
+
+  @override
+  String get confirmRecordTitle => '确认记录';
+
+  @override
+  String get saveRecord => '保存记录';
+
+  @override
+  String get saveAndMarkComplete => '保存并标记完成';
+
+  @override
+  String get savedAndMarkedComplete => '已保存并标记完成';
+
+  @override
+  String get recordSaved => '记录已保存';
+
+  @override
+  String get backupSavedToAlbumSuffix => '，并备份到相册';
+
+  @override
+  String get albumBackupFailedSuffix => '；相册备份失败';
+
+  @override
+  String nextPointNameSuffix(String name) {
+    return '下一个：$name';
+  }
+
+  @override
+  String get comparisonSavedToAlbumSuffix => '，对比图已保存到相册';
+
+  @override
+  String get referenceUnavailableComparisonSuffix => '，参考图不可用，未生成对比图';
+
+  @override
+  String get capturedUnavailableComparisonSuffix => '，巡礼图不可用，未生成对比图';
+
+  @override
+  String get comparisonGalleryFailedSuffix => '，对比图保存到相册失败';
+
+  @override
+  String get comparisonRenderFailedSuffix => '，对比图生成失败';
+
+  @override
+  String get saveToAlbum => '保存到相册';
+
+  @override
+  String get savedToAlbum => '已保存到相册';
+
+  @override
+  String get saveFailedRetry => '保存失败，请稍后重试。';
+
+  @override
+  String get referenceModeLabel => '参考模式';
+
+  @override
+  String get newArea => '新建片区';
+
+  @override
+  String get areaCreationFailed => '片区创建失败';
+
+  @override
+  String get renameArea => '重命名片区';
+
+  @override
+  String get areaName => '片区名称';
+
+  @override
+  String get areaRenameFailed => '片区改名失败';
+
+  @override
+  String get sortOrderSaveFailed => '排序方式保存失败';
+
+  @override
+  String get recommendedRouteGenerationFailed => '推荐路线生成失败';
+
+  @override
+  String pointsAbout(String routeorderedPointslength) {
+    return '$routeorderedPointslength 个点位 · 约 ';
+  }
+
+  @override
+  String onFoot(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters 步行';
+  }
+
+  @override
+  String get anchorSaveFailed => '关键点保存失败';
+
+  @override
+  String get deleteArea => '删除片区';
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints(
+    String groupname,
+    String pointCount,
+  ) {
+    return '确定删除「$groupname」吗？其中 $pointCount 个点位会移入未分配点位。';
+  }
+
+  @override
+  String get areaDeletionFailed => '片区删除失败';
+
+  @override
+  String get areaOrderSaveFailed => '片区顺序保存失败';
+
+  @override
+  String get ungroupedPoints => '未分配点位';
+
+  @override
+  String get areaNameCannotBeEmpty => '片区名不能为空';
+
+  @override
+  String get create => '创建';
+
+  @override
+  String areasPoints(String groupCount, String planpointslength) {
+    return '$groupCount 个片区 · $planpointslength 个点位';
+  }
+
+  @override
+  String get manualOrder => '手动排序';
+
+  @override
+  String points(String pointCount, String anchorLabel, String orderLabel) {
+    return '$pointCount 点位 · $anchorLabel · $orderLabel';
+  }
+
+  @override
+  String get areaActions => '片区操作';
+
+  @override
+  String get rename => '重命名';
+
+  @override
+  String get setAnchor => '设置关键点';
+
+  @override
+  String get switchToUnordered => '切换为无序';
+
+  @override
+  String get switchToManualOrder => '切换为手动排序';
+
+  @override
+  String pointsAwaitingOrganization(String pointCount) {
+    return '$pointCount 个点位等待整理';
+  }
+
+  @override
+  String get noAssignablePointsWithinTheCurrentDistance => '当前距离内没有可分配点位';
+
+  @override
+  String get confirmRecentAssignment => '确认最近分配';
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return '将把 $count 个未分组点位分配到最近的片区关键点，最大距离为 $formatDistancedistanceMeters。';
+  }
+
+  @override
+  String assignedPoints(String count) {
+    return '已分配 $count 个点位';
+  }
+
+  @override
+  String get recentAssignmentFailed => '最近分配失败';
+
+  @override
+  String get finishAreaAssignmentFirst => '请先完成片区分配';
+
+  @override
+  String get createAnAreaFirst => '请先创建片区';
+
+  @override
+  String get noUngroupedPointsWithinTheBoxSelection => '框选范围内没有未分组点位';
+
+  @override
+  String get confirmBoxSelectionAssignment => '确认框选分配';
+
+  @override
+  String willMoveUngroupedPointsTo(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return '将把 $pointslength 个未分组点位移动到「$targetGroupname」。';
+  }
+
+  @override
+  String get assign => '分配';
+
+  @override
+  String assignedPoints2(String pointslength) {
+    return '已分配 $pointslength 个点位';
+  }
+
+  @override
+  String get boxSelectionAssignmentFailed => '框选分配失败';
+
+  @override
+  String get selectArea => '选择片区';
+
+  @override
+  String get boxSelect => '框选';
+
+  @override
+  String get endBoxSelect => '结束框选';
+
+  @override
+  String selectedUngrouped(String selectedCount, String ungroupedCount) {
+    return '已框选 $selectedCount / 未分组 $ungroupedCount';
+  }
+
+  @override
+  String get assigning => '分配中';
+
+  @override
+  String maxDistanceAssignable(
+    String formatDistancedistanceMeters,
+    String assignableCount,
+    String ungroupedCount,
+  ) {
+    return '最大距离 $formatDistancedistanceMeters · 可分配 $assignableCount/$ungroupedCount';
+  }
+
+  @override
+  String
+  get ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance =>
+      '未分组点位会分配到距离最近、且在最大距离范围内的片区关键点。';
+
+  @override
+  String get noAvailableAreaAnchors => '没有可用片区关键点';
+
+  @override
+  String get createAnAreaFirstYouCanUseSmartZoningToGenerateOne =>
+      '请先创建片区（可用「智能分区」一键生成）';
+
+  @override
+  String ungroupedTapAMapPointForDetails(String ungroupedCount) {
+    return '未分组 $ungroupedCount 个 · 点击地图点位查看详情';
+  }
+
+  @override
+  String get outOfRangePoints => '距离外点位';
+
+  @override
+  String get assignablePoints => '可分配点位';
+
+  @override
+  String get importContent => '导入内容';
+
+  @override
+  String get selectImportContent => '选择导入内容';
+
+  @override
+  String get importingWillNotModifyCurrentData => '导入前不会修改当前数据。';
+
+  @override
+  String get planStructure => '计划结构';
+
+  @override
+  String get worksAreasPointsCompletionStatusAndCurrentGoals =>
+      '作品、片区、点位、完成状态和当前目标。';
+
+  @override
+  String get captureRecords => '拍摄记录';
+
+  @override
+  String get v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported =>
+      'v1 文件不包含照片资源，仅导入计划结构。';
+
+  @override
+  String recordsIncludingPhotoPathsAndColorGradingParameters(
+    String packagevisitRecordCount,
+  ) {
+    return '$packagevisitRecordCount 条记录，包含照片路径和调色参数。';
+  }
+
+  @override
+  String get thisPackageHasNoCaptureRecords => '这个包里没有拍摄记录。';
+
+  @override
+  String get imagesAndResourceFiles => '图片和资源文件';
+
+  @override
+  String get notesInPackage => '包内提示';
+
+  @override
+  String get missingOrCompatibilityNotesRecordedDuringExport =>
+      '导出时记录的缺失或兼容信息。';
+
+  @override
+  String get importSelectedContent => '导入所选内容';
+
+  @override
+  String get importing => '导入中...';
+
+  @override
+  String importedPlan(String importedPlanname) {
+    return '已导入计划「$importedPlanname」';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored(String importedPlanname) {
+    return '已导入计划「$importedPlanname」，部分资源未恢复';
+  }
+
+  @override
+  String get importFailed => '导入失败';
+
+  @override
+  String get thisPackageHasNoRecoverableAssetFiles => '这个包里没有可恢复的资源文件。';
+
+  @override
+  String get thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles =>
+      '包内记录了资源，但没有可恢复的资源文件。';
+
+  @override
+  String get assets => '资源';
+
+  @override
+  String get version => '版本';
+
+  @override
+  String get pointName => '点位名';
+
+  @override
+  String get subtitle => '副标题';
+
+  @override
+  String get episodeScene => '集数/场景';
+
+  @override
+  String get sourceId => '来源ID';
+
+  @override
+  String get referenceImageUrl => '参考图URL';
+
+  @override
+  String get recordCount => '记录数';
+
+  @override
+  String get no => '否';
+
+  @override
+  String get yes => '是';
+
+  @override
+  String get gradedPhotoFileName => '调色照片文件名';
+
+  @override
+  String get photoFileName => '照片文件名';
+
+  @override
+  String get colorGraded => '是否调色';
+
+  @override
+  String get recordId => '记录ID';
+
+  @override
+  String get customMaplibreStyleUrlMustUseHttpHttps =>
+      '自定义 MapLibre style URL 需要使用 http/https。';
+
+  @override
+  String get thisWorkWasnTFoundInAnitabi => 'Anitabi 中没有找到这个作品';
+
+  @override
+  String get thisWorkHasNoAnitabiPointsYet => '当前作品暂无 Anitabi 点位';
+
+  @override
+  String
+  get thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName =>
+      '这个 Bangumi 条目在 Anitabi 地图数据中没有对应作品。可以尝试添加同名动画、原作或其它关联条目。';
+
+  @override
+  String
+  get thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet =>
+      'Anitabi 中能找到这个作品，但当前还没有可导入的地图点位。';
+
+  @override
+  String noImportableAnitabiPointsForYet(String workTitle) {
+    return '「$workTitle」暂无可导入的 Anitabi 点位。';
+  }
+
+  @override
+  String get workPilgrimage => '<work> 巡礼';
+
+  @override
+  String get areaN => '片区 N';
+
+  @override
+  String get loadingReferenceImage => '参考图加载中';
+
+  @override
+  String get referenceImageUnavailable => '参考图暂不可用';
+
+  @override
+  String get eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj =>
+      '例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get anitripImage => 'anitrip 图片';
+
+  @override
+  String landmarks(String itempointCount) {
+    return '$itempointCount 地标';
+  }
+
+  @override
+  String screenshots(String itempointCount) {
+    return '$itempointCount 截图';
+  }
+
+  @override
+  String get latestWorks => '最新作品';
+
+  @override
+  String get nPlaces => 'N 个地点';
+
+  @override
+  String get imageViewerShareSubject => 'anitrip 图片';
+
+  @override
+  String get imageViewerShareText => 'anitrip 图片';
+
+  @override
+  String get mapMarkerPilgrimagePoint => '巡礼点';
+
+  @override
+  String get mapMapLibreUrlRequireHttp =>
+      '自定义 MapLibre style URL 需要使用 http/https。';
+
+  @override
+  String pointsAbout2(String routeorderedPointslength) {
+    return '$routeorderedPointslength 个点位 · 约 ';
+  }
+
+  @override
+  String onFoot2(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters 步行';
+  }
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints2(
+    String groupname,
+    String pointCount,
+  ) {
+    return '确定删除「$groupname」吗？其中 $pointCount 个点位会移入未分配点位。';
+  }
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return '将把 $count 个未分组点位分配到最近的片区关键点，最大距离为 $formatDistancedistanceMeters。';
+  }
+
+  @override
+  String get startAssignment => '开始分配';
+
+  @override
+  String assignedPoints3(String count) {
+    return '已分配 $count 个点位';
+  }
+
+  @override
+  String willMoveUngroupedPointsTo2(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return '将把 $pointslength 个未分组点位移动到「$targetGroupname」。';
+  }
+
+  @override
+  String assignedPoints4(String pointslength) {
+    return '已分配 $pointslength 个点位';
+  }
+
+  @override
+  String importedPlan2(String importedPlanname) {
+    return '已导入计划「$importedPlanname」';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored2(String importedPlanname) {
+    return '已导入计划「$importedPlanname」，部分资源未恢复';
+  }
+
+  @override
+  String get colorMatchNatural => '自然';
+
+  @override
+  String get colorMatchStandard => '标准';
+
+  @override
+  String get colorMatchStrong => '强匹配';
+
+  @override
+  String get aspectRatioAuto => '自动';
+
+  @override
+  String get aspectRatioNative => '原生比例';
+
+  @override
+  String get themeCustom => '自定义';
+
+  @override
+  String get importPackageV2Data => 'v2 数据包';
+
+  @override
+  String get csvHeaderWork => '作品';
+
+  @override
+  String get csvHeaderArea => '片区';
+
+  @override
+  String get csvHeaderPointName => '点位名';
+
+  @override
+  String get csvHeaderSubtitle => '副标题';
+
+  @override
+  String get csvHeaderLatitude => '纬度';
+
+  @override
+  String get csvHeaderLongitude => '经度';
+
+  @override
+  String get csvHeaderEpisodeScene => '集数/场景';
+
+  @override
+  String get csvHeaderSource => '来源';
+
+  @override
+  String get csvHeaderSourceId => '来源ID';
+
+  @override
+  String get csvHeaderRefImageUrl => '参考图URL';
+
+  @override
+  String get csvHeaderCompleted => '已完成';
+
+  @override
+  String get csvHeaderRecordCount => '记录数';
+
+  @override
+  String get csvHeaderRecordId => '记录ID';
+
+  @override
+  String get csvHeaderCapturedAt => '拍摄时间';
+
+  @override
+  String get csvHeaderRefMode => '参考模式';
+
+  @override
+  String get csvHeaderColorGraded => '是否调色';
+
+  @override
+  String get csvHeaderPhotoFile => '照片文件名';
+
+  @override
+  String get csvHeaderGradedPhotoFile => '调色照片文件名';
+
+  @override
+  String get refCacheNone => '当前计划没有需要缓存的参考图';
+
+  @override
+  String refCacheDone(String succeeded, String total) {
+    return '已缓存 \$succeeded/\$total 张完整参考图';
+  }
+
+  @override
+  String refCacheDoneFailed(String succeeded, String total, String failed) {
+    return '已缓存 \$succeeded/\$total 张完整参考图，失败 \$failed 张';
+  }
+
+  @override
+  String refCacheProgress(String processed, String total, String succeeded) {
+    return '正在缓存完整参考图 \$processed/\$total，成功 \$succeeded';
+  }
+
+  @override
+  String get anitabiUrlInvalidHttps => '请输入有效的 HTTPS 地址';
+
+  @override
+  String get anitabiUrlNoAccount => '地址不能包含账号、查询参数或片段';
+
+  @override
+  String get anitabiUrlNoLocal => '不能使用本机或局域网地址';
+
+  @override
+  String packageAssetsRestoreLocal(String packageTotalAssetCount) {
+    return '包内有 \$$packageTotalAssetCount 个资源文件，将恢复到本机存储。';
+  }
+
+  @override
+  String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
+    return '包内有 \$$packageTotalAssetCount 个资源文件；当前平台暂不支持恢复包内资源。';
+  }
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -2737,19 +4062,19 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   String get labelNote => '備註';
 
   @override
-  String get themeClassicGreen => '經典綠';
+  String get themeClassicGreen => '经典绿';
 
   @override
-  String get themeDeepBlue => '深邃藍';
+  String get themeDeepBlue => '深湖蓝';
 
   @override
-  String get themeCherryPink => '櫻花粉';
+  String get themeCherryPink => '樱花粉';
 
   @override
   String get themeTwilightPurple => '暮光紫';
 
   @override
-  String get themeMiriaYellow => '琥珀橙';
+  String get themeMiriaYellow => '蜜蜡橙';
 
   @override
   String get themeGraphite => '石墨黑';
@@ -4881,5 +6206,1306 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
   @override
   String planNameForWork(String title) {
     return '$title 巡禮';
+  }
+
+  @override
+  String get btnCopy => '複製';
+
+  @override
+  String get btnShare => '分享';
+
+  @override
+  String get btnView => '檢視';
+
+  @override
+  String get imageViewerSaveTitle => '儲存圖片';
+
+  @override
+  String get imageViewerSaveToGallery => '儲存到相簿';
+
+  @override
+  String get imageViewerLoading => '圖片載入中';
+
+  @override
+  String get imageViewerEmpty => '暫無圖片';
+
+  @override
+  String get imageViewerUnavailable => '圖片暫不可用';
+
+  @override
+  String get imageViewerReadFailed => '圖片讀取失敗';
+
+  @override
+  String get imageViewerSaved => '圖片已儲存';
+
+  @override
+  String get imageViewerSavedToGallery => '已儲存到相簿';
+
+  @override
+  String get imageViewerSaveFailed => '儲存失敗';
+
+  @override
+  String get imageViewerSaveCancelled => '已取消儲存';
+
+  @override
+  String get appShellPlanFileImportFailed => '計劃檔案匯入失敗';
+
+  @override
+  String get appShellPlanLoadFailed => '計劃載入失敗';
+
+  @override
+  String get appShellPlanLoading => '正在載入巡禮計劃';
+
+  @override
+  String get appShellRetryHint => '請稍後重試。';
+
+  @override
+  String get appShellLoadingHint => '準備今日點位與目前目標。';
+
+  @override
+  String get recordDetailTitle => '記錄詳情';
+
+  @override
+  String get recordDetailAutoGrading => '自動調色';
+
+  @override
+  String get recordDetailDelete => '刪除記錄';
+
+  @override
+  String get recordDetailViewPoint => '查看點位詳情';
+
+  @override
+  String get recordDetailDeleteConfirmBody => '只會刪除這筆巡禮記錄，不會改變點位完成狀態。';
+
+  @override
+  String get recordDetailDeletePhotoFile => '同時刪除照片檔案';
+
+  @override
+  String get recordDetailExportPrefUnsupported => '目前平台尚不支援儲存匯出偏好。';
+
+  @override
+  String get recordDetailPointMissing => '這筆記錄對應的點位已不在目前計劃中，照片與匯出功能仍可使用。';
+
+  @override
+  String get pointRecordsTitle => '點位拍攝記錄';
+
+  @override
+  String pointRecordsCount(int count) {
+    return '$count 筆';
+  }
+
+  @override
+  String get pointRecordsEmpty => '這個點位還沒有拍攝記錄';
+
+  @override
+  String get labelUngrouped => '未分組';
+
+  @override
+  String get labelGraded => '已調色';
+
+  @override
+  String get labelOriginal => '原圖';
+
+  @override
+  String get gradingBrightness => '亮度';
+
+  @override
+  String get gradingExposure => '曝光';
+
+  @override
+  String get gradingContrast => '對比';
+
+  @override
+  String get gradingSaturation => '飽和';
+
+  @override
+  String get gradingTemperature => '色溫';
+
+  @override
+  String get gradingTint => '色調';
+
+  @override
+  String get gradingHighlights => '高光';
+
+  @override
+  String get gradingShadows => '陰影';
+
+  @override
+  String get gradingRedShadow => 'R暗';
+
+  @override
+  String get gradingRedMid => 'R中';
+
+  @override
+  String get gradingRedHighlight => 'R亮';
+
+  @override
+  String get gradingGreenShadow => 'G暗';
+
+  @override
+  String get gradingGreenMid => 'G中';
+
+  @override
+  String get gradingGreenHighlight => 'G亮';
+
+  @override
+  String get gradingBlueShadow => 'B暗';
+
+  @override
+  String get gradingBlueMid => 'B中';
+
+  @override
+  String get gradingBlueHighlight => 'B亮';
+
+  @override
+  String get recordDetailCapturedPhoto => '巡禮圖';
+
+  @override
+  String get failedToReadPilgrimagePhoto2 => '巡禮圖讀取失敗';
+
+  @override
+  String get noReferenceImageAvailableForAuto2 => '沒有可用於自動調色的參考圖';
+
+  @override
+  String get autoColorMatchFailed2 => '自動調色失敗';
+
+  @override
+  String get autoColorParametersGenerated2 => '已生成自動調色參數';
+
+  @override
+  String get revertedToOriginalPhoto2 => '已還原為原圖';
+
+  @override
+  String get matchTheColorToneAutomaticallyFirst2 => '請先自動匹配色調';
+
+  @override
+  String get colorGradingResultSaved2 => '已保存調色結果';
+
+  @override
+  String get failedToReadPhoto2 => '照片讀取失敗';
+
+  @override
+  String get matching2 => '匹配中…';
+
+  @override
+  String get autoMatchTone2 => '自動匹配色調';
+
+  @override
+  String get reference2 => '參考圖';
+
+  @override
+  String get noReferenceImage2 => '沒有參考圖';
+
+  @override
+  String get original2 => '原圖';
+
+  @override
+  String get graded3 => '調色後';
+
+  @override
+  String get showingOriginal2 => '正在顯示原圖';
+
+  @override
+  String get holdToShowOriginal2 => '按住顯示原圖';
+
+  @override
+  String get matchMode2 => '匹配模式';
+
+  @override
+  String get restoredLastColorGradingParameters2 => '已恢復上次調色參數';
+
+  @override
+  String get saveTheGradedResultAfterAuto2 => '自動匹配後可保存調色結果';
+
+  @override
+  String get toneMatching2 => '色調匹配';
+
+  @override
+  String get gradingIntensity2 => '調色強度';
+
+  @override
+  String get gradingParameters2 => '調色參數';
+
+  @override
+  String get showsTheParametersActuallyAppliedAt2 => '顯示目前調色強度下實際生效的參數。';
+
+  @override
+  String get contrast2 => '對比度';
+
+  @override
+  String get saturation2 => '飽和度';
+
+  @override
+  String get redShadows2 => '紅暗部曲線';
+
+  @override
+  String get redMidtones2 => '紅中間調曲線';
+
+  @override
+  String get redHighlights2 => '紅高光曲線';
+
+  @override
+  String get greenShadows2 => '綠暗部曲線';
+
+  @override
+  String get greenMidtones2 => '綠中間調曲線';
+
+  @override
+  String get greenHighlights2 => '綠高光曲線';
+
+  @override
+  String get blueShadows2 => '藍暗部曲線';
+
+  @override
+  String get blueMidtones2 => '藍中間調曲線';
+
+  @override
+  String get blueHighlights2 => '藍高光曲線';
+
+  @override
+  String get saveResult2 => '保存結果';
+
+  @override
+  String get afterSavingTheRecordDetailAnd2 =>
+      '保存後記錄詳情和匯出會使用調色後的圖片，原圖和調色參數會保留。';
+
+  @override
+  String get saving2 => '保存中…';
+
+  @override
+  String get saveColorGrading2 => '保存調色結果';
+
+  @override
+  String get manualOrder2 => '手動排序';
+
+  @override
+  String get noAssignablePointsWithinTheCurrent2 => '當前距離內沒有可分配點位';
+
+  @override
+  String get confirmNearestAssignment2 => '確認最近分配';
+
+  @override
+  String get startAssigning2 => '開始分配';
+
+  @override
+  String get nearestAssignmentFailed2 => '最近分配失敗';
+
+  @override
+  String get finishAreaAssignmentFirst2 => '請先完成片區分配';
+
+  @override
+  String get createAnAreaFirst2 => '請先建立片區';
+
+  @override
+  String get noUngroupedPointsInTheSelection2 => '框選範圍內沒有未分組點位';
+
+  @override
+  String get confirmBoxSelectionAssignment2 => '確認框選分配';
+
+  @override
+  String get assign2 => '分配';
+
+  @override
+  String get boxSelectionAssignmentFailed2 => '框選分配失敗';
+
+  @override
+  String get selectArea2 => '選擇片區';
+
+  @override
+  String get finishBoxSelection2 => '結束框選';
+
+  @override
+  String get boxSelect2 => '框選';
+
+  @override
+  String get assigning2 => '分配中…';
+
+  @override
+  String get ungroupedPointsAreAssignedToThe2 =>
+      '未分組點位會分配到距離最近、且在最大距離範圍內的片區關鍵點。';
+
+  @override
+  String get noAvailableAreaAnchors2 => '沒有可用片區關鍵點';
+
+  @override
+  String get createAnAreaFirstUseSmart2 => '請先建立片區（可用「智慧分區」一鍵生成）';
+
+  @override
+  String get assignablePoints2 => '可分配點位';
+
+  @override
+  String get pointsOutOfRange2 => '距離外點位';
+
+  @override
+  String get eGHttpsWwAnitabiCn2 =>
+      '例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get thisWorkWasNotFoundOn2 => 'Anitabi 中沒有找到這個作品';
+
+  @override
+  String get thisWorkHasNoAnitabiPoints2 => '目前作品暫無 Anitabi 點位';
+
+  @override
+  String get thisBangumiEntryHasNoMatching2 =>
+      '這個 Bangumi 條目在 Anitabi 地圖資料中沒有對應作品。可以嘗試新增同名動畫、原作或其它關聯條目。';
+
+  @override
+  String get theWorkExistsOnAnitabiBut2 => 'Anitabi 中能找到這個作品，但目前還沒有可匯入的地圖點位。';
+
+  @override
+  String get newArea2 => '新建片區';
+
+  @override
+  String get areaCreationFailed2 => '片區建立失敗';
+
+  @override
+  String get renameArea2 => '重新命名片區';
+
+  @override
+  String get areaName2 => '片區名稱';
+
+  @override
+  String get areaRenameFailed2 => '片區改名失敗';
+
+  @override
+  String get failedToSaveSortOrder2 => '排序方式保存失敗';
+
+  @override
+  String get failedToGenerateRecommendedRoute2 => '推薦路線生成失敗';
+
+  @override
+  String get failedToSaveAnchor2 => '關鍵點保存失敗';
+
+  @override
+  String get deleteArea2 => '刪除片區';
+
+  @override
+  String get areaDeletionFailed2 => '片區刪除失敗';
+
+  @override
+  String get failedToSaveAreaOrder2 => '片區順序保存失敗';
+
+  @override
+  String get ungroupedPoints2 => '未分配點位';
+
+  @override
+  String get areaNameCannotBeEmpty2 => '片區名不能為空';
+
+  @override
+  String get create2 => '建立';
+
+  @override
+  String get areaActions2 => '片區操作';
+
+  @override
+  String get rename2 => '重新命名';
+
+  @override
+  String get setAnchor2 => '設定關鍵點';
+
+  @override
+  String get switchToUnordered2 => '切換為無序';
+
+  @override
+  String get switchToManualOrder2 => '切換為手動排序';
+
+  @override
+  String get importContent2 => '匯入內容';
+
+  @override
+  String get chooseWhatToImport2 => '選擇匯入內容';
+
+  @override
+  String get importingWillNotModifyCurrentData2 => '匯入前不會修改目前資料。';
+
+  @override
+  String get planStructure2 => '計劃結構';
+
+  @override
+  String get worksAreasPointsCompletionStatusAnd2 => '作品、片區、點位、完成狀態和目前目標。';
+
+  @override
+  String get captureRecords2 => '拍攝記錄';
+
+  @override
+  String get v1FilesContainNoPhotoAssets2 => 'v1 檔案不包含照片資源，僅匯入計劃結構。';
+
+  @override
+  String get thisPackageHasNoCaptureRecords2 => '這個包裡沒有拍攝記錄。';
+
+  @override
+  String get imagesAndResourceFiles2 => '圖片和資源文件';
+
+  @override
+  String get packageNotes2 => '包內提示';
+
+  @override
+  String get missingOrCompatibilityInfoRecordedDuring2 => '匯出時記錄的缺失或相容資訊。';
+
+  @override
+  String get importing2 => '匯入中…';
+
+  @override
+  String get importSelected2 => '匯入所選內容';
+
+  @override
+  String get importFailed2 => '匯入失敗';
+
+  @override
+  String get thisPackageHasNoRecoverableResource2 => '這個包裡沒有可恢復的資源文件。';
+
+  @override
+  String get resourcesWereRecordedButNoRecoverable2 => '包內記錄了資源，但沒有可恢復的資源文件。';
+
+  @override
+  String get resources2 => '資源';
+
+  @override
+  String get version2 => '版本';
+
+  @override
+  String get pointName2 => '點位名';
+
+  @override
+  String get subtitle2 => '副標題';
+
+  @override
+  String get episodeScene2 => '集數/場景';
+
+  @override
+  String get sourceId2 => '來源ID';
+
+  @override
+  String get referenceImageUrl2 => '參考圖URL';
+
+  @override
+  String get recordCount2 => '記錄數';
+
+  @override
+  String get yes2 => '是';
+
+  @override
+  String get no2 => '否';
+
+  @override
+  String get recordId2 => '記錄ID';
+
+  @override
+  String get referenceMode2 => '參考模式';
+
+  @override
+  String get graded4 => '是否調色';
+
+  @override
+  String get photoFileName2 => '照片檔名';
+
+  @override
+  String get gradedPhotoFileName2 => '調色照片檔名';
+
+  @override
+  String customXyzUrlMustIncludeZ2(Object x, Object y, Object z) {
+    return '自訂 XYZ URL 需要包含 $z、$x、$y，並使用 http/https。';
+  }
+
+  @override
+  String get customMaplibreStyleUrlMustUse2 =>
+      '自訂 MapLibre style URL 需要使用 http/https。';
+
+  @override
+  String get photoImportFailedPleaseChooseAgain2 => '照片匯入失敗，請重新選擇。';
+
+  @override
+  String get readingReferenceRatioPleaseWaitBefore2 => '正在讀取參考圖比例，請稍後拍攝。';
+
+  @override
+  String get cameraPermissionRequired2 => '需要相機權限';
+
+  @override
+  String get nativeCameraFailedToInitialize2 => '原生相機初始化失敗';
+
+  @override
+  String get switchToLandscapeUi2 => '切換橫屏 UI';
+
+  @override
+  String get importFromAlbum3 => '相簿匯入';
+
+  @override
+  String get switchCamera3 => '切換鏡頭';
+
+  @override
+  String get switchToPortraitUi2 => '切換豎屏 UI';
+
+  @override
+  String get checkPhoto2 => '檢查照片';
+
+  @override
+  String get flash2 => '閃光燈';
+
+  @override
+  String get switchCamera4 => '切換攝像頭';
+
+  @override
+  String get importFromAlbum4 => '從相簿匯入';
+
+  @override
+  String get iosNativeCameraDidNotStart2 => 'iOS 原生相機未啟動';
+
+  @override
+  String get savingRecord2 => '保存記錄中…';
+
+  @override
+  String get backingUpPilgrimagePhotos2 => '備份巡禮照片中…';
+
+  @override
+  String get generatingComparison2 => '生成對比圖中…';
+
+  @override
+  String get updatingPointStatus2 => '更新點位狀態中…';
+
+  @override
+  String get savingTheRecordPleaseWait2 => '正在保存記錄，請稍候。';
+
+  @override
+  String get confirmRecord2 => '確認記錄';
+
+  @override
+  String get saveRecord2 => '保存記錄';
+
+  @override
+  String get saveAndMarkComplete2 => '保存並標記完成';
+
+  @override
+  String get savedAndMarkedComplete2 => '已保存並標記完成';
+
+  @override
+  String get recordSaved2 => '記錄已保存';
+
+  @override
+  String get saveFailedPleaseTryAgainLater2 => '保存失敗，請稍後重試。';
+
+  @override
+  String get loadingReference2 => '參考圖載入中';
+
+  @override
+  String get referenceTemporarilyUnavailable2 => '參考圖暫不可用';
+
+  @override
+  String get anitripPhoto2 => 'anitrip 圖片';
+
+  @override
+  String willAssignCountUngroupedPointsTo2(Object count, Object dist) {
+    return '將把 $count 個未分組點位分配到最近的片區關鍵點，最大距離為 $dist。';
+  }
+
+  @override
+  String assignedCountPoints2(Object count) {
+    return '已分配 $count 個點位';
+  }
+
+  @override
+  String willMovePointsUngroupedPointsTo2(Object group, Object points) {
+    return '將把 $points 個未分組點位移動到「$group」。';
+  }
+
+  @override
+  String assignedPointsPoints2(Object points) {
+    return '已分配 $points 個點位';
+  }
+
+  @override
+  String selectedSelUngroupedUng2(Object sel, Object ung) {
+    return '已框選 $sel / 未分組 $ung';
+  }
+
+  @override
+  String maxDistanceDistAssignableAUng2(Object a, Object dist, Object ung) {
+    return '最大距離 $dist · 可分配 $a / $ung';
+  }
+
+  @override
+  String ungUngroupedTapAMapPoint2(Object ung) {
+    return '未分組 $ung 個 · 點擊地圖點位查看詳情';
+  }
+
+  @override
+  String workHasNoImportableAnitabiPoints2(Object work) {
+    return '「$work」暫無可匯入的 Anitabi 點位。';
+  }
+
+  @override
+  String deleteGroupItsCountPointsWill2(Object count, Object group) {
+    return '確定刪除「$group」嗎？其中 $count 個點位會移入未分配點位。';
+  }
+
+  @override
+  String groupsAreasPointsPoints2(Object groups, Object points) {
+    return '$groups 個片區 · $points 個點位';
+  }
+
+  @override
+  String pointsPointsAnchorOrder2(Object anchor, Object order, Object points) {
+    return '$points 點位 · $anchor · $order';
+  }
+
+  @override
+  String countPointsAwaitingOrganization2(Object count) {
+    return '$count 個點位等待整理';
+  }
+
+  @override
+  String recordsRecordsIncludingPhotoPathsAnd2(Object records) {
+    return '$records 條記錄，包含照片路徑和調色參數。';
+  }
+
+  @override
+  String importedPlanPlan2(Object plan) {
+    return '已匯入計畫「$plan」';
+  }
+
+  @override
+  String importedPlanPlanSomeResourcesWere2(Object plan) {
+    return '已匯入計畫「$plan」，部分資源未恢復';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles3(Object count) {
+    return '包內有 $count 個資源文件；目前平台暫不支援恢復包內資源。';
+  }
+
+  @override
+  String thePackageHasCountResourceFiles4(Object count) {
+    return '包內有 $count 個資源文件，將恢復到本機儲存。';
+  }
+
+  @override
+  String countLandmarks2(Object count) {
+    return '$count 地標';
+  }
+
+  @override
+  String countScreenshots2(Object count) {
+    return '$count 截圖';
+  }
+
+  @override
+  String nativeCameraFailedToInitializeError2(Object error) {
+    return '原生相機初始化失敗：$error';
+  }
+
+  @override
+  String get savingRecordStage => '保存记录中...';
+
+  @override
+  String get backingUpPilgrimagePhotoStage => '备份巡礼照片中...';
+
+  @override
+  String get generatingComparisonImageStage => '生成对比图中...';
+
+  @override
+  String get updatingPointStatusStage => '更新点位状态中...';
+
+  @override
+  String get savingRecordPleaseWait => '正在保存记录，请稍候。';
+
+  @override
+  String get confirmRecordTitle => '确认记录';
+
+  @override
+  String get saveRecord => '保存记录';
+
+  @override
+  String get saveAndMarkComplete => '保存并标记完成';
+
+  @override
+  String get savedAndMarkedComplete => '已保存并标记完成';
+
+  @override
+  String get recordSaved => '记录已保存';
+
+  @override
+  String get backupSavedToAlbumSuffix => '，并备份到相册';
+
+  @override
+  String get albumBackupFailedSuffix => '；相册备份失败';
+
+  @override
+  String nextPointNameSuffix(String name) {
+    return '下一个：$name';
+  }
+
+  @override
+  String get comparisonSavedToAlbumSuffix => '，对比图已保存到相册';
+
+  @override
+  String get referenceUnavailableComparisonSuffix => '，参考图不可用，未生成对比图';
+
+  @override
+  String get capturedUnavailableComparisonSuffix => '，巡礼图不可用，未生成对比图';
+
+  @override
+  String get comparisonGalleryFailedSuffix => '，对比图保存到相册失败';
+
+  @override
+  String get comparisonRenderFailedSuffix => '，对比图生成失败';
+
+  @override
+  String get saveToAlbum => '保存到相册';
+
+  @override
+  String get savedToAlbum => '已保存到相册';
+
+  @override
+  String get saveFailedRetry => '保存失败，请稍后重试。';
+
+  @override
+  String get referenceModeLabel => '参考模式';
+
+  @override
+  String get newArea => '新建片区';
+
+  @override
+  String get areaCreationFailed => '片区创建失败';
+
+  @override
+  String get renameArea => '重命名片区';
+
+  @override
+  String get areaName => '片区名称';
+
+  @override
+  String get areaRenameFailed => '片区改名失败';
+
+  @override
+  String get sortOrderSaveFailed => '排序方式保存失败';
+
+  @override
+  String get recommendedRouteGenerationFailed => '推荐路线生成失败';
+
+  @override
+  String pointsAbout(String routeorderedPointslength) {
+    return '$routeorderedPointslength 个点位 · 约 ';
+  }
+
+  @override
+  String onFoot(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters 步行';
+  }
+
+  @override
+  String get anchorSaveFailed => '关键点保存失败';
+
+  @override
+  String get deleteArea => '删除片区';
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints(
+    String groupname,
+    String pointCount,
+  ) {
+    return '确定删除「$groupname」吗？其中 $pointCount 个点位会移入未分配点位。';
+  }
+
+  @override
+  String get areaDeletionFailed => '片区删除失败';
+
+  @override
+  String get areaOrderSaveFailed => '片区顺序保存失败';
+
+  @override
+  String get ungroupedPoints => '未分配点位';
+
+  @override
+  String get areaNameCannotBeEmpty => '片区名不能为空';
+
+  @override
+  String get create => '创建';
+
+  @override
+  String areasPoints(String groupCount, String planpointslength) {
+    return '$groupCount 个片区 · $planpointslength 个点位';
+  }
+
+  @override
+  String get manualOrder => '手动排序';
+
+  @override
+  String points(String pointCount, String anchorLabel, String orderLabel) {
+    return '$pointCount 点位 · $anchorLabel · $orderLabel';
+  }
+
+  @override
+  String get areaActions => '片区操作';
+
+  @override
+  String get rename => '重命名';
+
+  @override
+  String get setAnchor => '设置关键点';
+
+  @override
+  String get switchToUnordered => '切换为无序';
+
+  @override
+  String get switchToManualOrder => '切换为手动排序';
+
+  @override
+  String pointsAwaitingOrganization(String pointCount) {
+    return '$pointCount 个点位等待整理';
+  }
+
+  @override
+  String get noAssignablePointsWithinTheCurrentDistance => '当前距离内没有可分配点位';
+
+  @override
+  String get confirmRecentAssignment => '确认最近分配';
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return '将把 $count 个未分组点位分配到最近的片区关键点，最大距离为 $formatDistancedistanceMeters。';
+  }
+
+  @override
+  String assignedPoints(String count) {
+    return '已分配 $count 个点位';
+  }
+
+  @override
+  String get recentAssignmentFailed => '最近分配失败';
+
+  @override
+  String get finishAreaAssignmentFirst => '请先完成片区分配';
+
+  @override
+  String get createAnAreaFirst => '请先创建片区';
+
+  @override
+  String get noUngroupedPointsWithinTheBoxSelection => '框选范围内没有未分组点位';
+
+  @override
+  String get confirmBoxSelectionAssignment => '确认框选分配';
+
+  @override
+  String willMoveUngroupedPointsTo(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return '将把 $pointslength 个未分组点位移动到「$targetGroupname」。';
+  }
+
+  @override
+  String get assign => '分配';
+
+  @override
+  String assignedPoints2(String pointslength) {
+    return '已分配 $pointslength 个点位';
+  }
+
+  @override
+  String get boxSelectionAssignmentFailed => '框选分配失败';
+
+  @override
+  String get selectArea => '选择片区';
+
+  @override
+  String get boxSelect => '框选';
+
+  @override
+  String get endBoxSelect => '结束框选';
+
+  @override
+  String selectedUngrouped(String selectedCount, String ungroupedCount) {
+    return '已框选 $selectedCount / 未分组 $ungroupedCount';
+  }
+
+  @override
+  String get assigning => '分配中';
+
+  @override
+  String maxDistanceAssignable(
+    String formatDistancedistanceMeters,
+    String assignableCount,
+    String ungroupedCount,
+  ) {
+    return '最大距离 $formatDistancedistanceMeters · 可分配 $assignableCount/$ungroupedCount';
+  }
+
+  @override
+  String
+  get ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance =>
+      '未分组点位会分配到距离最近、且在最大距离范围内的片区关键点。';
+
+  @override
+  String get noAvailableAreaAnchors => '没有可用片区关键点';
+
+  @override
+  String get createAnAreaFirstYouCanUseSmartZoningToGenerateOne =>
+      '请先创建片区（可用「智能分区」一键生成）';
+
+  @override
+  String ungroupedTapAMapPointForDetails(String ungroupedCount) {
+    return '未分组 $ungroupedCount 个 · 点击地图点位查看详情';
+  }
+
+  @override
+  String get outOfRangePoints => '距离外点位';
+
+  @override
+  String get assignablePoints => '可分配点位';
+
+  @override
+  String get importContent => '导入内容';
+
+  @override
+  String get selectImportContent => '选择导入内容';
+
+  @override
+  String get importingWillNotModifyCurrentData => '导入前不会修改当前数据。';
+
+  @override
+  String get planStructure => '计划结构';
+
+  @override
+  String get worksAreasPointsCompletionStatusAndCurrentGoals =>
+      '作品、片区、点位、完成状态和当前目标。';
+
+  @override
+  String get captureRecords => '拍摄记录';
+
+  @override
+  String get v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported =>
+      'v1 文件不包含照片资源，仅导入计划结构。';
+
+  @override
+  String recordsIncludingPhotoPathsAndColorGradingParameters(
+    String packagevisitRecordCount,
+  ) {
+    return '$packagevisitRecordCount 条记录，包含照片路径和调色参数。';
+  }
+
+  @override
+  String get thisPackageHasNoCaptureRecords => '这个包里没有拍摄记录。';
+
+  @override
+  String get imagesAndResourceFiles => '图片和资源文件';
+
+  @override
+  String get notesInPackage => '包内提示';
+
+  @override
+  String get missingOrCompatibilityNotesRecordedDuringExport =>
+      '导出时记录的缺失或兼容信息。';
+
+  @override
+  String get importSelectedContent => '导入所选内容';
+
+  @override
+  String get importing => '导入中...';
+
+  @override
+  String importedPlan(String importedPlanname) {
+    return '已导入计划「$importedPlanname」';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored(String importedPlanname) {
+    return '已导入计划「$importedPlanname」，部分资源未恢复';
+  }
+
+  @override
+  String get importFailed => '导入失败';
+
+  @override
+  String get thisPackageHasNoRecoverableAssetFiles => '这个包里没有可恢复的资源文件。';
+
+  @override
+  String get thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles =>
+      '包内记录了资源，但没有可恢复的资源文件。';
+
+  @override
+  String get assets => '资源';
+
+  @override
+  String get version => '版本';
+
+  @override
+  String get pointName => '点位名';
+
+  @override
+  String get subtitle => '副标题';
+
+  @override
+  String get episodeScene => '集数/场景';
+
+  @override
+  String get sourceId => '来源ID';
+
+  @override
+  String get referenceImageUrl => '参考图URL';
+
+  @override
+  String get recordCount => '记录数';
+
+  @override
+  String get no => '否';
+
+  @override
+  String get yes => '是';
+
+  @override
+  String get gradedPhotoFileName => '调色照片文件名';
+
+  @override
+  String get photoFileName => '照片文件名';
+
+  @override
+  String get colorGraded => '是否调色';
+
+  @override
+  String get recordId => '记录ID';
+
+  @override
+  String get customMaplibreStyleUrlMustUseHttpHttps =>
+      '自定义 MapLibre style URL 需要使用 http/https。';
+
+  @override
+  String get thisWorkWasnTFoundInAnitabi => 'Anitabi 中没有找到这个作品';
+
+  @override
+  String get thisWorkHasNoAnitabiPointsYet => '当前作品暂无 Anitabi 点位';
+
+  @override
+  String
+  get thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName =>
+      '这个 Bangumi 条目在 Anitabi 地图数据中没有对应作品。可以尝试添加同名动画、原作或其它关联条目。';
+
+  @override
+  String
+  get thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet =>
+      'Anitabi 中能找到这个作品，但当前还没有可导入的地图点位。';
+
+  @override
+  String noImportableAnitabiPointsForYet(String workTitle) {
+    return '「$workTitle」暂无可导入的 Anitabi 点位。';
+  }
+
+  @override
+  String get workPilgrimage => '<work> 巡礼';
+
+  @override
+  String get areaN => '片区 N';
+
+  @override
+  String get loadingReferenceImage => '参考图加载中';
+
+  @override
+  String get referenceImageUnavailable => '参考图暂不可用';
+
+  @override
+  String get eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj =>
+      '例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj';
+
+  @override
+  String get anitripImage => 'anitrip 图片';
+
+  @override
+  String landmarks(String itempointCount) {
+    return '$itempointCount 地标';
+  }
+
+  @override
+  String screenshots(String itempointCount) {
+    return '$itempointCount 截图';
+  }
+
+  @override
+  String get latestWorks => '最新作品';
+
+  @override
+  String get nPlaces => 'N 个地点';
+
+  @override
+  String get imageViewerShareSubject => 'anitrip 圖片';
+
+  @override
+  String get imageViewerShareText => 'anitrip 圖片';
+
+  @override
+  String get mapMarkerPilgrimagePoint => '巡禮點';
+
+  @override
+  String get mapMapLibreUrlRequireHttp =>
+      '自訂 MapLibre style URL 需要使用 http/https。';
+
+  @override
+  String pointsAbout2(String routeorderedPointslength) {
+    return '$routeorderedPointslength 个点位 · 约 ';
+  }
+
+  @override
+  String onFoot2(String formatRouteDistanceroutetotalDistanceMeters) {
+    return '$formatRouteDistanceroutetotalDistanceMeters 步行';
+  }
+
+  @override
+  String deletePointsWillBeMovedToUngroupedPoints2(
+    String groupname,
+    String pointCount,
+  ) {
+    return '确定删除「$groupname」吗？其中 $pointCount 个点位会移入未分配点位。';
+  }
+
+  @override
+  String willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2(
+    String count,
+    String formatDistancedistanceMeters,
+  ) {
+    return '将把 $count 个未分组点位分配到最近的片区关键点，最大距离为 $formatDistancedistanceMeters。';
+  }
+
+  @override
+  String get startAssignment => '开始分配';
+
+  @override
+  String assignedPoints3(String count) {
+    return '已分配 $count 个点位';
+  }
+
+  @override
+  String willMoveUngroupedPointsTo2(
+    String pointslength,
+    String targetGroupname,
+  ) {
+    return '将把 $pointslength 个未分组点位移动到「$targetGroupname」。';
+  }
+
+  @override
+  String assignedPoints4(String pointslength) {
+    return '已分配 $pointslength 个点位';
+  }
+
+  @override
+  String importedPlan2(String importedPlanname) {
+    return '已导入计划「$importedPlanname」';
+  }
+
+  @override
+  String importedPlanButSomeAssetsWereNotRestored2(String importedPlanname) {
+    return '已导入计划「$importedPlanname」，部分资源未恢复';
+  }
+
+  @override
+  String get colorMatchNatural => '自然';
+
+  @override
+  String get colorMatchStandard => '标准';
+
+  @override
+  String get colorMatchStrong => '强匹配';
+
+  @override
+  String get aspectRatioAuto => '自动';
+
+  @override
+  String get aspectRatioNative => '原生比例';
+
+  @override
+  String get themeCustom => '自定义';
+
+  @override
+  String get importPackageV2Data => 'v2 数据包';
+
+  @override
+  String get csvHeaderWork => '作品';
+
+  @override
+  String get csvHeaderArea => '片区';
+
+  @override
+  String get csvHeaderPointName => '点位名';
+
+  @override
+  String get csvHeaderSubtitle => '副标题';
+
+  @override
+  String get csvHeaderLatitude => '纬度';
+
+  @override
+  String get csvHeaderLongitude => '经度';
+
+  @override
+  String get csvHeaderEpisodeScene => '集数/场景';
+
+  @override
+  String get csvHeaderSource => '来源';
+
+  @override
+  String get csvHeaderSourceId => '来源ID';
+
+  @override
+  String get csvHeaderRefImageUrl => '参考图URL';
+
+  @override
+  String get csvHeaderCompleted => '已完成';
+
+  @override
+  String get csvHeaderRecordCount => '记录数';
+
+  @override
+  String get csvHeaderRecordId => '记录ID';
+
+  @override
+  String get csvHeaderCapturedAt => '拍摄时间';
+
+  @override
+  String get csvHeaderRefMode => '参考模式';
+
+  @override
+  String get csvHeaderColorGraded => '是否调色';
+
+  @override
+  String get csvHeaderPhotoFile => '照片文件名';
+
+  @override
+  String get csvHeaderGradedPhotoFile => '调色照片文件名';
+
+  @override
+  String get refCacheNone => '当前计划没有需要缓存的参考图';
+
+  @override
+  String refCacheDone(String succeeded, String total) {
+    return '已缓存 \$succeeded/\$total 张完整参考图';
+  }
+
+  @override
+  String refCacheDoneFailed(String succeeded, String total, String failed) {
+    return '已缓存 \$succeeded/\$total 张完整参考图，失败 \$failed 张';
+  }
+
+  @override
+  String refCacheProgress(String processed, String total, String succeeded) {
+    return '正在缓存完整参考图 \$processed/\$total，成功 \$succeeded';
+  }
+
+  @override
+  String get anitabiUrlInvalidHttps => '请输入有效的 HTTPS 地址';
+
+  @override
+  String get anitabiUrlNoAccount => '地址不能包含账号、查询参数或片段';
+
+  @override
+  String get anitabiUrlNoLocal => '不能使用本机或局域网地址';
+
+  @override
+  String packageAssetsRestoreLocal(String packageTotalAssetCount) {
+    return '包内有 \$$packageTotalAssetCount 个资源文件，将恢复到本机存储。';
+  }
+
+  @override
+  String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
+    return '包内有 \$$packageTotalAssetCount 个资源文件；当前平台暂不支持恢复包内资源。';
   }
 }

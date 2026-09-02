@@ -88,11 +88,11 @@
   "copyLabelPointName": "點位名稱",
   "copyLabelGroupAnchor": "片區關鍵點",
   "labelNote": "備註",
-  "themeClassicGreen": "經典綠",
-  "themeDeepBlue": "深邃藍",
-  "themeCherryPink": "櫻花粉",
+  "themeClassicGreen": "经典绿",
+  "themeDeepBlue": "深湖蓝",
+  "themeCherryPink": "樱花粉",
   "themeTwilightPurple": "暮光紫",
-  "themeMiriaYellow": "琥珀橙",
+  "themeMiriaYellow": "蜜蜡橙",
   "themeGraphite": "石墨黑",
   "themeAurora": "自定義",
   "aspectAuto": "自動",
@@ -1256,5 +1256,717 @@
   "routeGenerated": "已生成推薦路線：{summary}",
   "routeTooFewPoints": "該片區點位不足，無法生成路線",
   "exportRouteToMap": "匯出路線到地圖",
-  "routeExportFailed": "無法開啟地圖應用程式"
+  "routeExportFailed": "無法開啟地圖應用程式",
+  "btnCopy": "複製",
+  "btnShare": "分享",
+  "btnView": "檢視",
+  "imageViewerSaveTitle": "儲存圖片",
+  "imageViewerSaveToGallery": "儲存到相簿",
+  "imageViewerLoading": "圖片載入中",
+  "imageViewerEmpty": "暫無圖片",
+  "imageViewerUnavailable": "圖片暫不可用",
+  "imageViewerReadFailed": "圖片讀取失敗",
+  "imageViewerSaved": "圖片已儲存",
+  "imageViewerSavedToGallery": "已儲存到相簿",
+  "imageViewerSaveFailed": "儲存失敗",
+  "imageViewerSaveCancelled": "已取消儲存",
+  "appShellPlanFileImportFailed": "計劃檔案匯入失敗",
+  "appShellPlanLoadFailed": "計劃載入失敗",
+  "appShellPlanLoading": "正在載入巡禮計劃",
+  "appShellRetryHint": "請稍後重試。",
+  "appShellLoadingHint": "準備今日點位與目前目標。",
+  "recordDetailTitle": "記錄詳情",
+  "recordDetailAutoGrading": "自動調色",
+  "recordDetailDelete": "刪除記錄",
+  "recordDetailViewPoint": "查看點位詳情",
+  "recordDetailDeleteConfirmBody": "只會刪除這筆巡禮記錄，不會改變點位完成狀態。",
+  "recordDetailDeletePhotoFile": "同時刪除照片檔案",
+  "recordDetailExportPrefUnsupported": "目前平台尚不支援儲存匯出偏好。",
+  "recordDetailPointMissing": "這筆記錄對應的點位已不在目前計劃中，照片與匯出功能仍可使用。",
+  "pointRecordsTitle": "點位拍攝記錄",
+  "pointRecordsCount": "{count} 筆",
+  "@pointRecordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pointRecordsEmpty": "這個點位還沒有拍攝記錄",
+  "labelUngrouped": "未分組",
+  "labelGraded": "已調色",
+  "labelOriginal": "原圖",
+  "gradingBrightness": "亮度",
+  "gradingExposure": "曝光",
+  "gradingContrast": "對比",
+  "gradingSaturation": "飽和",
+  "gradingTemperature": "色溫",
+  "gradingTint": "色調",
+  "gradingHighlights": "高光",
+  "gradingShadows": "陰影",
+  "gradingRedShadow": "R暗",
+  "gradingRedMid": "R中",
+  "gradingRedHighlight": "R亮",
+  "gradingGreenShadow": "G暗",
+  "gradingGreenMid": "G中",
+  "gradingGreenHighlight": "G亮",
+  "gradingBlueShadow": "B暗",
+  "gradingBlueMid": "B中",
+  "gradingBlueHighlight": "B亮",
+  "recordDetailCapturedPhoto": "巡禮圖",
+  "failedToReadPilgrimagePhoto2": "巡禮圖讀取失敗",
+  "noReferenceImageAvailableForAuto2": "沒有可用於自動調色的參考圖",
+  "autoColorMatchFailed2": "自動調色失敗",
+  "autoColorParametersGenerated2": "已生成自動調色參數",
+  "revertedToOriginalPhoto2": "已還原為原圖",
+  "matchTheColorToneAutomaticallyFirst2": "請先自動匹配色調",
+  "colorGradingResultSaved2": "已保存調色結果",
+  "failedToReadPhoto2": "照片讀取失敗",
+  "matching2": "匹配中…",
+  "autoMatchTone2": "自動匹配色調",
+  "reference2": "參考圖",
+  "noReferenceImage2": "沒有參考圖",
+  "original2": "原圖",
+  "graded3": "調色後",
+  "showingOriginal2": "正在顯示原圖",
+  "holdToShowOriginal2": "按住顯示原圖",
+  "matchMode2": "匹配模式",
+  "restoredLastColorGradingParameters2": "已恢復上次調色參數",
+  "saveTheGradedResultAfterAuto2": "自動匹配後可保存調色結果",
+  "toneMatching2": "色調匹配",
+  "gradingIntensity2": "調色強度",
+  "gradingParameters2": "調色參數",
+  "showsTheParametersActuallyAppliedAt2": "顯示目前調色強度下實際生效的參數。",
+  "contrast2": "對比度",
+  "saturation2": "飽和度",
+  "redShadows2": "紅暗部曲線",
+  "redMidtones2": "紅中間調曲線",
+  "redHighlights2": "紅高光曲線",
+  "greenShadows2": "綠暗部曲線",
+  "greenMidtones2": "綠中間調曲線",
+  "greenHighlights2": "綠高光曲線",
+  "blueShadows2": "藍暗部曲線",
+  "blueMidtones2": "藍中間調曲線",
+  "blueHighlights2": "藍高光曲線",
+  "saveResult2": "保存結果",
+  "afterSavingTheRecordDetailAnd2": "保存後記錄詳情和匯出會使用調色後的圖片，原圖和調色參數會保留。",
+  "saving2": "保存中…",
+  "saveColorGrading2": "保存調色結果",
+  "manualOrder2": "手動排序",
+  "noAssignablePointsWithinTheCurrent2": "當前距離內沒有可分配點位",
+  "confirmNearestAssignment2": "確認最近分配",
+  "startAssigning2": "開始分配",
+  "nearestAssignmentFailed2": "最近分配失敗",
+  "finishAreaAssignmentFirst2": "請先完成片區分配",
+  "createAnAreaFirst2": "請先建立片區",
+  "noUngroupedPointsInTheSelection2": "框選範圍內沒有未分組點位",
+  "confirmBoxSelectionAssignment2": "確認框選分配",
+  "assign2": "分配",
+  "boxSelectionAssignmentFailed2": "框選分配失敗",
+  "selectArea2": "選擇片區",
+  "finishBoxSelection2": "結束框選",
+  "boxSelect2": "框選",
+  "assigning2": "分配中…",
+  "ungroupedPointsAreAssignedToThe2": "未分組點位會分配到距離最近、且在最大距離範圍內的片區關鍵點。",
+  "noAvailableAreaAnchors2": "沒有可用片區關鍵點",
+  "createAnAreaFirstUseSmart2": "請先建立片區（可用「智慧分區」一鍵生成）",
+  "assignablePoints2": "可分配點位",
+  "pointsOutOfRange2": "距離外點位",
+  "eGHttpsWwAnitabiCn2": "例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "thisWorkWasNotFoundOn2": "Anitabi 中沒有找到這個作品",
+  "thisWorkHasNoAnitabiPoints2": "目前作品暫無 Anitabi 點位",
+  "thisBangumiEntryHasNoMatching2": "這個 Bangumi 條目在 Anitabi 地圖資料中沒有對應作品。可以嘗試新增同名動畫、原作或其它關聯條目。",
+  "theWorkExistsOnAnitabiBut2": "Anitabi 中能找到這個作品，但目前還沒有可匯入的地圖點位。",
+  "newArea2": "新建片區",
+  "areaCreationFailed2": "片區建立失敗",
+  "renameArea2": "重新命名片區",
+  "areaName2": "片區名稱",
+  "areaRenameFailed2": "片區改名失敗",
+  "failedToSaveSortOrder2": "排序方式保存失敗",
+  "failedToGenerateRecommendedRoute2": "推薦路線生成失敗",
+  "failedToSaveAnchor2": "關鍵點保存失敗",
+  "deleteArea2": "刪除片區",
+  "areaDeletionFailed2": "片區刪除失敗",
+  "failedToSaveAreaOrder2": "片區順序保存失敗",
+  "ungroupedPoints2": "未分配點位",
+  "areaNameCannotBeEmpty2": "片區名不能為空",
+  "create2": "建立",
+  "areaActions2": "片區操作",
+  "rename2": "重新命名",
+  "setAnchor2": "設定關鍵點",
+  "switchToUnordered2": "切換為無序",
+  "switchToManualOrder2": "切換為手動排序",
+  "importContent2": "匯入內容",
+  "chooseWhatToImport2": "選擇匯入內容",
+  "importingWillNotModifyCurrentData2": "匯入前不會修改目前資料。",
+  "planStructure2": "計劃結構",
+  "worksAreasPointsCompletionStatusAnd2": "作品、片區、點位、完成狀態和目前目標。",
+  "captureRecords2": "拍攝記錄",
+  "v1FilesContainNoPhotoAssets2": "v1 檔案不包含照片資源，僅匯入計劃結構。",
+  "thisPackageHasNoCaptureRecords2": "這個包裡沒有拍攝記錄。",
+  "imagesAndResourceFiles2": "圖片和資源文件",
+  "packageNotes2": "包內提示",
+  "missingOrCompatibilityInfoRecordedDuring2": "匯出時記錄的缺失或相容資訊。",
+  "importing2": "匯入中…",
+  "importSelected2": "匯入所選內容",
+  "importFailed2": "匯入失敗",
+  "thisPackageHasNoRecoverableResource2": "這個包裡沒有可恢復的資源文件。",
+  "resourcesWereRecordedButNoRecoverable2": "包內記錄了資源，但沒有可恢復的資源文件。",
+  "resources2": "資源",
+  "version2": "版本",
+  "pointName2": "點位名",
+  "subtitle2": "副標題",
+  "episodeScene2": "集數/場景",
+  "sourceId2": "來源ID",
+  "referenceImageUrl2": "參考圖URL",
+  "recordCount2": "記錄數",
+  "yes2": "是",
+  "no2": "否",
+  "recordId2": "記錄ID",
+  "referenceMode2": "參考模式",
+  "graded4": "是否調色",
+  "photoFileName2": "照片檔名",
+  "gradedPhotoFileName2": "調色照片檔名",
+  "customXyzUrlMustIncludeZ2": "自訂 XYZ URL 需要包含 {z}、{x}、{y}，並使用 http/https。",
+  "customMaplibreStyleUrlMustUse2": "自訂 MapLibre style URL 需要使用 http/https。",
+  "photoImportFailedPleaseChooseAgain2": "照片匯入失敗，請重新選擇。",
+  "readingReferenceRatioPleaseWaitBefore2": "正在讀取參考圖比例，請稍後拍攝。",
+  "cameraPermissionRequired2": "需要相機權限",
+  "nativeCameraFailedToInitialize2": "原生相機初始化失敗",
+  "switchToLandscapeUi2": "切換橫屏 UI",
+  "importFromAlbum3": "相簿匯入",
+  "switchCamera3": "切換鏡頭",
+  "switchToPortraitUi2": "切換豎屏 UI",
+  "checkPhoto2": "檢查照片",
+  "flash2": "閃光燈",
+  "switchCamera4": "切換攝像頭",
+  "importFromAlbum4": "從相簿匯入",
+  "iosNativeCameraDidNotStart2": "iOS 原生相機未啟動",
+  "savingRecord2": "保存記錄中…",
+  "backingUpPilgrimagePhotos2": "備份巡禮照片中…",
+  "generatingComparison2": "生成對比圖中…",
+  "updatingPointStatus2": "更新點位狀態中…",
+  "savingTheRecordPleaseWait2": "正在保存記錄，請稍候。",
+  "confirmRecord2": "確認記錄",
+  "saveRecord2": "保存記錄",
+  "saveAndMarkComplete2": "保存並標記完成",
+  "savedAndMarkedComplete2": "已保存並標記完成",
+  "recordSaved2": "記錄已保存",
+  "saveFailedPleaseTryAgainLater2": "保存失敗，請稍後重試。",
+  "loadingReference2": "參考圖載入中",
+  "referenceTemporarilyUnavailable2": "參考圖暫不可用",
+  "anitripPhoto2": "anitrip 圖片",
+  "willAssignCountUngroupedPointsTo2": "將把 {count} 個未分組點位分配到最近的片區關鍵點，最大距離為 {dist}。",
+  "assignedCountPoints2": "已分配 {count} 個點位",
+  "willMovePointsUngroupedPointsTo2": "將把 {points} 個未分組點位移動到「{group}」。",
+  "assignedPointsPoints2": "已分配 {points} 個點位",
+  "selectedSelUngroupedUng2": "已框選 {sel} / 未分組 {ung}",
+  "maxDistanceDistAssignableAUng2": "最大距離 {dist} · 可分配 {a} / {ung}",
+  "ungUngroupedTapAMapPoint2": "未分組 {ung} 個 · 點擊地圖點位查看詳情",
+  "workHasNoImportableAnitabiPoints2": "「{work}」暫無可匯入的 Anitabi 點位。",
+  "deleteGroupItsCountPointsWill2": "確定刪除「{group}」嗎？其中 {count} 個點位會移入未分配點位。",
+  "groupsAreasPointsPoints2": "{groups} 個片區 · {points} 個點位",
+  "pointsPointsAnchorOrder2": "{points} 點位 · {anchor} · {order}",
+  "countPointsAwaitingOrganization2": "{count} 個點位等待整理",
+  "recordsRecordsIncludingPhotoPathsAnd2": "{records} 條記錄，包含照片路徑和調色參數。",
+  "importedPlanPlan2": "已匯入計畫「{plan}」",
+  "importedPlanPlanSomeResourcesWere2": "已匯入計畫「{plan}」，部分資源未恢復",
+  "thePackageHasCountResourceFiles3": "包內有 {count} 個資源文件；目前平台暫不支援恢復包內資源。",
+  "thePackageHasCountResourceFiles4": "包內有 {count} 個資源文件，將恢復到本機儲存。",
+  "countLandmarks2": "{count} 地標",
+  "countScreenshots2": "{count} 截圖",
+  "nativeCameraFailedToInitializeError2": "原生相機初始化失敗：{error}",
+  "savingRecordStage": "保存记录中...",
+  "backingUpPilgrimagePhotoStage": "备份巡礼照片中...",
+  "generatingComparisonImageStage": "生成对比图中...",
+  "updatingPointStatusStage": "更新点位状态中...",
+  "savingRecordPleaseWait": "正在保存记录，请稍候。",
+  "confirmRecordTitle": "确认记录",
+  "saveRecord": "保存记录",
+  "saveAndMarkComplete": "保存并标记完成",
+  "savedAndMarkedComplete": "已保存并标记完成",
+  "recordSaved": "记录已保存",
+  "backupSavedToAlbumSuffix": "，并备份到相册",
+  "albumBackupFailedSuffix": "；相册备份失败",
+  "nextPointNameSuffix": "下一个：{name}",
+  "@nextPointNameSuffix": {
+    "description": "Success message suffix with the next point name",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "comparisonSavedToAlbumSuffix": "，对比图已保存到相册",
+  "referenceUnavailableComparisonSuffix": "，参考图不可用，未生成对比图",
+  "capturedUnavailableComparisonSuffix": "，巡礼图不可用，未生成对比图",
+  "comparisonGalleryFailedSuffix": "，对比图保存到相册失败",
+  "comparisonRenderFailedSuffix": "，对比图生成失败",
+  "saveToAlbum": "保存到相册",
+  "savedToAlbum": "已保存到相册",
+  "saveFailedRetry": "保存失败，请稍后重试。",
+  "referenceModeLabel": "参考模式",
+  "newArea": "新建片区",
+  "areaCreationFailed": "片区创建失败",
+  "renameArea": "重命名片区",
+  "areaName": "片区名称",
+  "areaRenameFailed": "片区改名失败",
+  "sortOrderSaveFailed": "排序方式保存失败",
+  "recommendedRouteGenerationFailed": "推荐路线生成失败",
+  "pointsAbout": "{routeorderedPointslength} 个点位 · 约 ",
+  "@pointsAbout": {
+    "description": "Auto-localized: {routeorderedPointslength} points · about ",
+    "placeholders": {
+      "routeorderedPointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "onFoot": "{formatRouteDistanceroutetotalDistanceMeters} 步行",
+  "@onFoot": {
+    "description": "Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot",
+    "placeholders": {
+      "formatRouteDistanceroutetotalDistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "anchorSaveFailed": "关键点保存失败",
+  "deleteArea": "删除片区",
+  "deletePointsWillBeMovedToUngroupedPoints": "确定删除「{groupname}」吗？其中 {pointCount} 个点位会移入未分配点位。",
+  "@deletePointsWillBeMovedToUngroupedPoints": {
+    "description": "Auto-localized: Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+    "placeholders": {
+      "groupname": {
+        "type": "String"
+      },
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "areaDeletionFailed": "片区删除失败",
+  "areaOrderSaveFailed": "片区顺序保存失败",
+  "ungroupedPoints": "未分配点位",
+  "areaNameCannotBeEmpty": "片区名不能为空",
+  "create": "创建",
+  "areasPoints": "{groupCount} 个片区 · {planpointslength} 个点位",
+  "@areasPoints": {
+    "description": "Auto-localized: {groupCount} areas · {planpointslength} points",
+    "placeholders": {
+      "groupCount": {
+        "type": "String"
+      },
+      "planpointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "manualOrder": "手动排序",
+  "points": "{pointCount} 点位 · {anchorLabel} · {orderLabel}",
+  "@points": {
+    "description": "Auto-localized: {pointCount} points · {anchorLabel} · {orderLabel}",
+    "placeholders": {
+      "pointCount": {
+        "type": "String"
+      },
+      "anchorLabel": {
+        "type": "String"
+      },
+      "orderLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "areaActions": "片区操作",
+  "rename": "重命名",
+  "setAnchor": "设置关键点",
+  "switchToUnordered": "切换为无序",
+  "switchToManualOrder": "切换为手动排序",
+  "pointsAwaitingOrganization": "{pointCount} 个点位等待整理",
+  "@pointsAwaitingOrganization": {
+    "description": "Auto-localized: {pointCount} points awaiting organization",
+    "placeholders": {
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "noAssignablePointsWithinTheCurrentDistance": "当前距离内没有可分配点位",
+  "confirmRecentAssignment": "确认最近分配",
+  "willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf": "将把 {count} 个未分组点位分配到最近的片区关键点，最大距离为 {formatDistancedistanceMeters}。",
+  "@willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf": {
+    "description": "Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "assignedPoints": "已分配 {count} 个点位",
+  "@assignedPoints": {
+    "description": "Auto-localized: Assigned {count} points",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "recentAssignmentFailed": "最近分配失败",
+  "finishAreaAssignmentFirst": "请先完成片区分配",
+  "createAnAreaFirst": "请先创建片区",
+  "noUngroupedPointsWithinTheBoxSelection": "框选范围内没有未分组点位",
+  "confirmBoxSelectionAssignment": "确认框选分配",
+  "willMoveUngroupedPointsTo": "将把 {pointslength} 个未分组点位移动到「{targetGroupname}」。",
+  "@willMoveUngroupedPointsTo": {
+    "description": "Auto-localized: Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      },
+      "targetGroupname": {
+        "type": "String"
+      }
+    }
+  },
+  "assign": "分配",
+  "assignedPoints2": "已分配 {pointslength} 个点位",
+  "@assignedPoints2": {
+    "description": "Auto-localized: Assigned {pointslength} points",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "boxSelectionAssignmentFailed": "框选分配失败",
+  "selectArea": "选择片区",
+  "boxSelect": "框选",
+  "endBoxSelect": "结束框选",
+  "selectedUngrouped": "已框选 {selectedCount} / 未分组 {ungroupedCount}",
+  "@selectedUngrouped": {
+    "description": "Auto-localized: Selected {selectedCount} / ungrouped {ungroupedCount}",
+    "placeholders": {
+      "selectedCount": {
+        "type": "String"
+      },
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "assigning": "分配中",
+  "maxDistanceAssignable": "最大距离 {formatDistancedistanceMeters} · 可分配 {assignableCount}/{ungroupedCount}",
+  "@maxDistanceAssignable": {
+    "description": "Auto-localized: Max distance {formatDistancedistanceMeters} · assignable {assignableCount}/{ungroupedCount}",
+    "placeholders": {
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      },
+      "assignableCount": {
+        "type": "String"
+      },
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "ungroupedPointsAreAssignedToTheNearestAreaAnchorWithinTheMaximumDistance": "未分组点位会分配到距离最近、且在最大距离范围内的片区关键点。",
+  "noAvailableAreaAnchors": "没有可用片区关键点",
+  "createAnAreaFirstYouCanUseSmartZoningToGenerateOne": "请先创建片区（可用「智能分区」一键生成）",
+  "ungroupedTapAMapPointForDetails": "未分组 {ungroupedCount} 个 · 点击地图点位查看详情",
+  "@ungroupedTapAMapPointForDetails": {
+    "description": "Auto-localized: Ungrouped {ungroupedCount} · tap a map point for details",
+    "placeholders": {
+      "ungroupedCount": {
+        "type": "String"
+      }
+    }
+  },
+  "outOfRangePoints": "距离外点位",
+  "assignablePoints": "可分配点位",
+  "importContent": "导入内容",
+  "selectImportContent": "选择导入内容",
+  "importingWillNotModifyCurrentData": "导入前不会修改当前数据。",
+  "planStructure": "计划结构",
+  "worksAreasPointsCompletionStatusAndCurrentGoals": "作品、片区、点位、完成状态和当前目标。",
+  "captureRecords": "拍摄记录",
+  "v1FilesDoNotIncludePhotoAssetsOnlyThePlanStructureIsImported": "v1 文件不包含照片资源，仅导入计划结构。",
+  "recordsIncludingPhotoPathsAndColorGradingParameters": "{packagevisitRecordCount} 条记录，包含照片路径和调色参数。",
+  "@recordsIncludingPhotoPathsAndColorGradingParameters": {
+    "description": "Auto-localized: {packagevisitRecordCount} records, including photo paths and color grading parameters.",
+    "placeholders": {
+      "packagevisitRecordCount": {
+        "type": "String"
+      }
+    }
+  },
+  "thisPackageHasNoCaptureRecords": "这个包里没有拍摄记录。",
+  "imagesAndResourceFiles": "图片和资源文件",
+  "notesInPackage": "包内提示",
+  "missingOrCompatibilityNotesRecordedDuringExport": "导出时记录的缺失或兼容信息。",
+  "importSelectedContent": "导入所选内容",
+  "importing": "导入中...",
+  "importedPlan": "已导入计划「{importedPlanname}」",
+  "@importedPlan": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\"",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlanButSomeAssetsWereNotRestored": "已导入计划「{importedPlanname}」，部分资源未恢复",
+  "@importedPlanButSomeAssetsWereNotRestored": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\", but some assets were not restored",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importFailed": "导入失败",
+  "thisPackageHasNoRecoverableAssetFiles": "这个包里没有可恢复的资源文件。",
+  "thePackageRecordedAssetsButThereAreNoRecoverableAssetFiles": "包内记录了资源，但没有可恢复的资源文件。",
+  "assets": "资源",
+  "version": "版本",
+  "pointName": "点位名",
+  "subtitle": "副标题",
+  "episodeScene": "集数/场景",
+  "sourceId": "来源ID",
+  "referenceImageUrl": "参考图URL",
+  "recordCount": "记录数",
+  "no": "否",
+  "yes": "是",
+  "gradedPhotoFileName": "调色照片文件名",
+  "photoFileName": "照片文件名",
+  "colorGraded": "是否调色",
+  "recordId": "记录ID",
+  "customMaplibreStyleUrlMustUseHttpHttps": "自定义 MapLibre style URL 需要使用 http/https。",
+  "thisWorkWasnTFoundInAnitabi": "Anitabi 中没有找到这个作品",
+  "thisWorkHasNoAnitabiPointsYet": "当前作品暂无 Anitabi 点位",
+  "thisBangumiEntryHasNoMatchingWorkInAnitabiMapDataTryAddingAnAnimationOriginalWorkOrRelatedEntryWithTheSameName": "这个 Bangumi 条目在 Anitabi 地图数据中没有对应作品。可以尝试添加同名动画、原作或其它关联条目。",
+  "thisWorkExistsInAnitabiButThereAreNoMapPointsAvailableToImportYet": "Anitabi 中能找到这个作品，但当前还没有可导入的地图点位。",
+  "noImportableAnitabiPointsForYet": "「{workTitle}」暂无可导入的 Anitabi 点位。",
+  "@noImportableAnitabiPointsForYet": {
+    "description": "Auto-localized: No importable Anitabi points for \"{workTitle}\" yet.",
+    "placeholders": {
+      "workTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "workPilgrimage": "<work> 巡礼",
+  "areaN": "片区 N",
+  "loadingReferenceImage": "参考图加载中",
+  "referenceImageUnavailable": "参考图暂不可用",
+  "eGHttpsWwAnitabiCnMapBangumiid8290PidQdmnf6iqj": "例如 https://ww.anitabi.cn/map?bangumiId=8290&pid=qdmnf6iqj",
+  "anitripImage": "anitrip 图片",
+  "landmarks": "{itempointCount} 地标",
+  "@landmarks": {
+    "description": "Auto-localized: {itempointCount} landmarks",
+    "placeholders": {
+      "itempointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "screenshots": "{itempointCount} 截图",
+  "@screenshots": {
+    "description": "Auto-localized: {itempointCount} screenshots",
+    "placeholders": {
+      "itempointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "latestWorks": "最新作品",
+  "nPlaces": "N 个地点",
+  "imageViewerShareSubject": "anitrip 圖片",
+  "imageViewerShareText": "anitrip 圖片",
+  "mapMarkerPilgrimagePoint": "巡禮點",
+  "mapMapLibreUrlRequireHttp": "自訂 MapLibre style URL 需要使用 http/https。",
+  "pointsAbout2": "{routeorderedPointslength} 个点位 · 约 ",
+  "@pointsAbout2": {
+    "description": "Auto-localized: {routeorderedPointslength} points · about ",
+    "placeholders": {
+      "routeorderedPointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "onFoot2": "{formatRouteDistanceroutetotalDistanceMeters} 步行",
+  "@onFoot2": {
+    "description": "Auto-localized: {formatRouteDistanceroutetotalDistanceMeters} on foot",
+    "placeholders": {
+      "formatRouteDistanceroutetotalDistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePointsWillBeMovedToUngroupedPoints2": "确定删除「{groupname}」吗？其中 {pointCount} 个点位会移入未分配点位。",
+  "@deletePointsWillBeMovedToUngroupedPoints2": {
+    "description": "Auto-localized: Delete \"{groupname}\"? {pointCount} points will be moved to ungrouped points.",
+    "placeholders": {
+      "groupname": {
+        "type": "String"
+      },
+      "pointCount": {
+        "type": "String"
+      }
+    }
+  },
+  "willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2": "将把 {count} 个未分组点位分配到最近的片区关键点，最大距离为 {formatDistancedistanceMeters}。",
+  "@willAssignUngroupedPointsToTheNearestAreaAnchorWithAMaximumDistanceOf2": {
+    "description": "Auto-localized: Will assign {count} ungrouped points to the nearest area anchor, with a maximum distance of {formatDistancedistanceMeters}.",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "formatDistancedistanceMeters": {
+        "type": "String"
+      }
+    }
+  },
+  "startAssignment": "开始分配",
+  "assignedPoints3": "已分配 {count} 个点位",
+  "@assignedPoints3": {
+    "description": "Auto-localized: Assigned {count} points",
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "willMoveUngroupedPointsTo2": "将把 {pointslength} 个未分组点位移动到「{targetGroupname}」。",
+  "@willMoveUngroupedPointsTo2": {
+    "description": "Auto-localized: Will move {pointslength} ungrouped points to \"{targetGroupname}\".",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      },
+      "targetGroupname": {
+        "type": "String"
+      }
+    }
+  },
+  "assignedPoints4": "已分配 {pointslength} 个点位",
+  "@assignedPoints4": {
+    "description": "Auto-localized: Assigned {pointslength} points",
+    "placeholders": {
+      "pointslength": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlan2": "已导入计划「{importedPlanname}」",
+  "@importedPlan2": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\"",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "importedPlanButSomeAssetsWereNotRestored2": "已导入计划「{importedPlanname}」，部分资源未恢复",
+  "@importedPlanButSomeAssetsWereNotRestored2": {
+    "description": "Auto-localized: Imported plan \"{importedPlanname}\", but some assets were not restored",
+    "placeholders": {
+      "importedPlanname": {
+        "type": "String"
+      }
+    }
+  },
+  "colorMatchNatural": "自然",
+  "colorMatchStandard": "标准",
+  "colorMatchStrong": "强匹配",
+  "aspectRatioAuto": "自动",
+  "aspectRatioNative": "原生比例",
+  "themeCustom": "自定义",
+  "importPackageV2Data": "v2 数据包",
+  "csvHeaderWork": "作品",
+  "csvHeaderArea": "片区",
+  "csvHeaderPointName": "点位名",
+  "csvHeaderSubtitle": "副标题",
+  "csvHeaderLatitude": "纬度",
+  "csvHeaderLongitude": "经度",
+  "csvHeaderEpisodeScene": "集数/场景",
+  "csvHeaderSource": "来源",
+  "csvHeaderSourceId": "来源ID",
+  "csvHeaderRefImageUrl": "参考图URL",
+  "csvHeaderCompleted": "已完成",
+  "csvHeaderRecordCount": "记录数",
+  "csvHeaderRecordId": "记录ID",
+  "csvHeaderCapturedAt": "拍摄时间",
+  "csvHeaderRefMode": "参考模式",
+  "csvHeaderColorGraded": "是否调色",
+  "csvHeaderPhotoFile": "照片文件名",
+  "csvHeaderGradedPhotoFile": "调色照片文件名",
+  "refCacheNone": "当前计划没有需要缓存的参考图",
+  "refCacheDone": "已缓存 $succeeded/$total 张完整参考图",
+  "@refCacheDone": {
+    "description": "Auto-localized: Cached {succeeded}/{total} full reference images",
+    "placeholders": {
+      "succeeded": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "refCacheDoneFailed": "已缓存 $succeeded/$total 张完整参考图，失败 $failed 张",
+  "@refCacheDoneFailed": {
+    "description": "Auto-localized: Cached {succeeded}/{total} full reference images, {failed} failed",
+    "placeholders": {
+      "succeeded": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "failed": {
+        "type": "String"
+      }
+    }
+  },
+  "refCacheProgress": "正在缓存完整参考图 $processed/$total，成功 $succeeded",
+  "@refCacheProgress": {
+    "description": "Auto-localized: Caching {processed}/{total} full reference images, {succeeded} succeeded",
+    "placeholders": {
+      "processed": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      },
+      "succeeded": {
+        "type": "String"
+      }
+    }
+  },
+  "anitabiUrlInvalidHttps": "请输入有效的 HTTPS 地址",
+  "anitabiUrlNoAccount": "地址不能包含账号、查询参数或片段",
+  "anitabiUrlNoLocal": "不能使用本机或局域网地址",
+  "packageAssetsRestoreLocal": "包内有 ${packageTotalAssetCount} 个资源文件，将恢复到本机存储。",
+  "@packageAssetsRestoreLocal": {
+    "description": "Auto-localized: {packageTotalAssetCount} asset files in the package will be restored to local storage.",
+    "placeholders": {
+      "packageTotalAssetCount": {
+        "type": "String"
+      }
+    }
+  },
+  "packageAssetsNoPlatformRestore": "包内有 ${packageTotalAssetCount} 个资源文件；当前平台暂不支持恢复包内资源。",
+  "@packageAssetsNoPlatformRestore": {
+    "description": "Auto-localized: {packageTotalAssetCount} asset files in the package; restoring in-package assets is not supported on this platform yet.",
+    "placeholders": {
+      "packageTotalAssetCount": {
+        "type": "String"
+      }
+    }
+  }
 }

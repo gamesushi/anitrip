@@ -95,15 +95,16 @@ enum AppThemePalette {
   graphite,
   aurora;
 
-  String get label {
+  String getLocalizedLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return switch (this) {
-      AppThemePalette.classicGreen => '\u7ecf\u5178\u7eff',
-      AppThemePalette.deepBlue => '\u6df1\u9083\u84dd',
-      AppThemePalette.cherryPink => '\u6a31\u82b1\u7c89',
-      AppThemePalette.twilightPurple => '\u66ae\u5149\u7d2b',
-      AppThemePalette.miriaYellow => '\u7435\u73c0\u6a59',
-      AppThemePalette.graphite => '\u77f3\u58a8\u9ed1',
-      AppThemePalette.aurora => '\u81ea\u5b9a\u4e49',
+      AppThemePalette.classicGreen => l10n.themeClassicGreen,
+      AppThemePalette.deepBlue => l10n.themeDeepBlue,
+      AppThemePalette.cherryPink => l10n.themeCherryPink,
+      AppThemePalette.twilightPurple => l10n.themeTwilightPurple,
+      AppThemePalette.miriaYellow => l10n.themeMiriaYellow,
+      AppThemePalette.graphite => l10n.themeGraphite,
+      AppThemePalette.aurora => l10n.themeCustom,
     };
   }
 }
@@ -111,10 +112,11 @@ enum AppThemePalette {
 enum AppThemeMode { light, dark, system }
 
 extension CameraPhotoAspectRatioLabel on CameraPhotoAspectRatio {
-  String get label {
+  String getLocalizedLabel(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return switch (this) {
-      CameraPhotoAspectRatio.auto => '自动',
-      CameraPhotoAspectRatio.native => '原生比例',
+      CameraPhotoAspectRatio.auto => l10n.aspectRatioAuto,
+      CameraPhotoAspectRatio.native => l10n.aspectRatioNative,
       CameraPhotoAspectRatio.landscape16x9 => '16:9',
       CameraPhotoAspectRatio.cinema21x9 => '21:9',
       CameraPhotoAspectRatio.standard4x3 => '4:3',

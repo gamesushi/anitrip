@@ -1,0 +1,9 @@
+/* Localized permission request strings for anitrip. */
+/* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
+
+"NSCameraUsageDescription" = "O anitrip precisa acessar a câmera para tirar fotos comparativas nos locais de peregrinação.";
+"NSLocationWhenInUseUsageDescription" = "O anitrip precisa da sua localização para mostrar sua posição atual no mapa de peregrinação.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "O anitrip pode usar sua localização para mostrá-la no mapa de peregrinação e ajudar a registrar os locais visitados.";
+"NSMicrophoneUsageDescription" = "O anitrip pode precisar acessar o microfone para capturar áudio ao gravar nos locais de peregrinação.";
+"NSPhotoLibraryAddUsageDescription" = "O anitrip precisa salvar as imagens comparativas de peregrinação na sua biblioteca de fotos.";
+"NSPhotoLibraryUsageDescription" = "O anitrip precisa acessar sua biblioteca de fotos para importar fotos de peregrinação e imagens de referência.";

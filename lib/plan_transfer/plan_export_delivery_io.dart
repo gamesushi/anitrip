@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:file_selector/file_selector.dart' as file_selector;
 import 'package:flutter/widgets.dart';
+import '../l10n/app_localizations.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart' as share_plus;
@@ -10,6 +11,7 @@ import 'package:share_plus/share_plus.dart' as share_plus;
 import 'plan_export_delivery_result.dart';
 
 Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
+  required BuildContext context,
   required String fileName,
   required String mimeType,
   required String extension,
@@ -19,6 +21,7 @@ Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
   }
 
   final location = await _getSaveLocation(
+    context: context,
     fileName: fileName,
     mimeType: mimeType,
     extension: extension,
@@ -34,6 +37,7 @@ Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
 }
 
 Future<PlanExportDeliveryResult> deliverPlanExportImpl({
+  required BuildContext context,
   required List<int> bytes,
   required String fileName,
   required String mimeType,
@@ -58,6 +62,7 @@ Future<PlanExportDeliveryResult> deliverPlanExportImpl({
   }
 
   final location = await _getSaveLocation(
+    context: context,
     fileName: fileName,
     mimeType: mimeType,
     extension: extension,
@@ -77,6 +82,7 @@ Future<file_selector.FileSaveLocation?> _getSaveLocation({
   required String fileName,
   required String mimeType,
   required String extension,
+  required BuildContext context,
 }) {
   return file_selector.getSaveLocation(
     acceptedTypeGroups: [
@@ -87,7 +93,7 @@ Future<file_selector.FileSaveLocation?> _getSaveLocation({
       ),
     ],
     suggestedName: fileName,
-    confirmButtonText: '保存',
+    confirmButtonText: AppLocalizations.of(context)!.btnSave,
   );
 }
 

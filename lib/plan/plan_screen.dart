@@ -124,6 +124,7 @@ class _PlanScreenState extends State<PlanScreen> {
       }
 
       final group = planGroupBuckets(
+        this.context,
         controller.plan,
         controller.completedPointIds,
       ).elementAtOrNull(_selectedGroupIndex);
@@ -244,7 +245,7 @@ class _PlanScreenState extends State<PlanScreen> {
   @override
   Widget build(BuildContext context) {
     final plan = controller.plan;
-    final groups = planGroupBuckets(plan, controller.completedPointIds);
+    final groups = planGroupBuckets(context, plan, controller.completedPointIds);
     if (_selectedGroupIndex >= groups.length) {
       _selectedGroupIndex = groups.isEmpty ? 0 : groups.length - 1;
     }
@@ -481,7 +482,7 @@ class _PlanScreenState extends State<PlanScreen> {
 
   Future<void> _handleReferenceCachePressed() async {
     if (_isCachingFullReferences) {
-      _showSnackBar(_fullReferenceCacheProgress?.label ?? AppLocalizations.of(context)!.cacheDownloading);
+      _showSnackBar(_fullReferenceCacheProgress?.localizedLabel(context) ?? AppLocalizations.of(context)!.cacheDownloading);
       return;
     }
 
@@ -550,7 +551,7 @@ class _PlanScreenState extends State<PlanScreen> {
         });
         if (progress != null) {
           messenger.showReplacingSnackBar(
-            SnackBar(content: Text(progress.label)),
+            SnackBar(content: Text(progress.localizedLabel(context))),
           );
         }
       }
@@ -583,7 +584,7 @@ class _ReferenceCacheIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tooltip = isCaching ? progress?.label ?? AppLocalizations.of(context)!.cacheDownloading : AppLocalizations.of(context)!.cacheTitle;
+    final tooltip = isCaching ? progress?.localizedLabel(context) ?? AppLocalizations.of(context)!.cacheDownloading : AppLocalizations.of(context)!.cacheTitle;
     return IconButton(
       tooltip: tooltip,
       onPressed: onPressed,

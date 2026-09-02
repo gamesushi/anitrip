@@ -7,6 +7,7 @@ import '../../data/anilist_title_service.dart';
 import '../../widgets/anitabi_network_image.dart';
 import '../../widgets/image_load_limiter.dart';
 import 'localized_title.dart';
+import '../../../l10n/app_localizations.dart';
 
 /// A single search-result row for the Explore in-app search: poster thumbnail
 /// on the left, title + metadata on the right — similar to anitabi.cn's search
@@ -85,10 +86,11 @@ class _MetadataRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final parts = <String>[
       if (item.city != null && item.city!.isNotEmpty) item.city!,
-      if (item.pointCount != null) '${item.pointCount} 地标',
-      if (item.pointCount != null) '${item.pointCount} 截图',
+      if (item.pointCount != null) l10n.landmarks((item.pointCount).toString()),
+      if (item.pointCount != null) l10n.screenshots((item.pointCount).toString()),
     ];
     return Text(
       parts.join(' · '),

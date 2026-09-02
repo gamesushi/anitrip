@@ -1,0 +1,9 @@
+/* Localized permission request strings for anitrip. */
+/* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
+
+"NSCameraUsageDescription" = "anitrip ต้องการเข้าถึงกล้องเพื่อถ่ายภาพเปรียบเทียบในสถานที่จาริกแสวงบุญ";
+"NSLocationWhenInUseUsageDescription" = "anitrip ต้องการตำแหน่งของคุณเพื่อแสดงตำแหน่งปัจจุบันบนแผนที่จาริกแสวงบุญ";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip อาจใช้ตำแหน่งของคุณเพื่อแสดงบนแผนที่และช่วยบันทึกสถานที่ที่คุณไปเยือน";
+"NSMicrophoneUsageDescription" = "anitrip อาจต้องการเข้าถึงไมโครโฟนเพื่อบันทึกเสียงขณะถ่ายทำในสถานที่จาริกแสวงบุญ";
+"NSPhotoLibraryAddUsageDescription" = "anitrip ต้องการบันทึกภาพเปรียบเทียบการจาริกแสวงบุญลงในคลังภาพของคุณ";
+"NSPhotoLibraryUsageDescription" = "anitrip ต้องการเข้าถึงคลังภาพเพื่อนำเข้าภาพจาริกแสวงบุญและภาพอ้างอิง";

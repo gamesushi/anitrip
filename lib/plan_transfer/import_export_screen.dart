@@ -268,6 +268,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         exportedAt: exportedAt,
       );
       final destination = await preparePlanExportDestination(
+        context: context,
         fileName: fileName,
         mimeType: anitripExportPackageMimeType,
         extension: seichiPlanFileExtension,
@@ -276,6 +277,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         throw const _ExportAbortedException();
       }
       final package = await buildPlanExportV2Package(
+        context: context,
         plan: widget.plan,
         visitRecords: records,
         options: options,
@@ -285,6 +287,7 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         throw const _ExportAbortedException();
       }
       final result = await deliverPlanExport(
+        context: context,
         bytes: package.bytes,
         fileName: package.fileName,
         mimeType: anitripExportPackageMimeType,
@@ -384,11 +387,12 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
 
   Future<void> _exportMyMapsCsv() async {
     await _runExport((generation) async {
-      final export = buildMyMapsCsvExport(plan: widget.plan);
+      final export = buildMyMapsCsvExport(context: context, plan: widget.plan);
       if (!_isCurrentExport(generation)) {
         throw const _ExportAbortedException();
       }
       final destination = await preparePlanExportDestination(
+        context: context,
         fileName: export.fileName,
         mimeType: export.mimeType,
         extension: myMapsCsvExtension,
@@ -397,11 +401,12 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         throw const _ExportAbortedException();
       }
       final result = await deliverPlanExport(
+        context: context,
         bytes: export.bytes,
         fileName: export.fileName,
         mimeType: export.mimeType,
         shareSubject: widget.plan.name,
-        shareText: 'anitrip My Maps CSV：${widget.plan.name}',
+        shareText: AppLocalizations.of(context)!.exportShareLabel(widget.plan.name),
         extension: myMapsCsvExtension,
         destination: destination,
       );

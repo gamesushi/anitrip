@@ -1,0 +1,9 @@
+/* Localized permission request strings for anitrip. */
+/* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
+
+"NSCameraUsageDescription" = "anitrip needs camera access so you can take comparison photos at anime pilgrimage spots.";
+"NSLocationWhenInUseUsageDescription" = "anitrip needs your location to show your current position on the pilgrimage map.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip may use your location to show it on the pilgrimage map and to help record the spots you visit.";
+"NSMicrophoneUsageDescription" = "anitrip may need microphone access to capture sound while recording at pilgrimage spots.";
+"NSPhotoLibraryAddUsageDescription" = "anitrip needs to save your side-by-side pilgrimage comparison images to your photo library.";
+"NSPhotoLibraryUsageDescription" = "anitrip needs access to your photo library to import pilgrimage photos and reference images.";

@@ -62,6 +62,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final groups = _groups;
 
     return PopScope(
@@ -75,11 +76,11 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            tooltip: '返回',
+            tooltip: l10n.tooltipBack,
             onPressed: () => Navigator.of(context).pop(_didUpdate),
             icon: const Icon(Icons.arrow_back),
           ),
-          title: const Text('片区管理'),
+          title: Text(l10n.mapImportOrganizeGroupManager),
           actions: [
             if (_isSaving)
               const Padding(
@@ -95,7 +96,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
         floatingActionButton: FloatingActionButton.extended(
           onPressed: _isSaving ? null : _createGroup,
           icon: const Icon(Icons.add),
-          label: const Text('新建片区'),
+          label: Text(l10n.newArea),
         ),
         body: ReorderableListView.builder(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 96),
@@ -143,6 +144,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
   }
 
   Future<void> _createGroup() async {
+    final l10n = AppLocalizations.of(context)!;
     final name = await showDialog<String>(
       context: context,
       builder: (context) => const _CreatePlanGroupDialog(),
@@ -169,31 +171,32 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
           createdAt: now,
         ),
       ),
-      failureMessage: '片区创建失败',
+      failureMessage: l10n.areaCreationFailed,
     );
   }
 
   Future<void> _renameGroup(PilgrimagePlanGroup group) async {
+    final l10n = AppLocalizations.of(context)!;
     final controller = TextEditingController(text: group.name);
     final name = await showDialog<String>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('重命名片区'),
+        title: Text(l10n.renameArea),
         content: TextField(
           controller: controller,
           autofocus: true,
-          decoration: const InputDecoration(labelText: '片区名称'),
+          decoration: InputDecoration(labelText: l10n.areaName),
           textInputAction: TextInputAction.done,
           onSubmitted: (value) => Navigator.of(context).pop(value),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('取消'),
+            child: Text(l10n.btnCancel),
           ),
           FilledButton(
             onPressed: () => Navigator.of(context).pop(controller.text),
-            child: const Text('保存'),
+            child: Text(l10n.btnSave),
           ),
         ],
       ),
@@ -213,11 +216,12 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
         groupId: group.id,
         name: trimmedName,
       ),
-      failureMessage: '片区改名失败',
+      failureMessage: l10n.areaRenameFailed,
     );
   }
 
   Future<void> _toggleOrderMode(PilgrimagePlanGroup group) {
+    final l10n = AppLocalizations.of(context)!;
     final nextMode = group.orderMode == PlanGroupOrderMode.manual
         ? PlanGroupOrderMode.unordered
         : PlanGroupOrderMode.manual;
@@ -226,11 +230,12 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
         planId: _plan.id,
         group: _copyGroup(group, orderMode: nextMode),
       ),
-      failureMessage: '排序方式保存失败',
+      failureMessage: l10n.sortOrderSaveFailed,
     );
   }
 
   Future<void> _generateRoute(PilgrimagePlanGroup group) async {
+    final l10n = AppLocalizations.of(context)!;
     final route = recommendedRouteForGroup(group, _plan.points);
     if (route.orderedPoints.length < 2) {
       if (mounted) {
@@ -260,13 +265,14 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
           group: _copyGroup(group, orderMode: PlanGroupOrderMode.manual),
         );
       },
-      failureMessage: '推荐路线生成失败',
+      failureMessage: l10n.recommendedRouteGenerationFailed,
     );
 
     if (updated != null && mounted) {
+      final l10n = AppLocalizations.of(context)!;
       final summary =
-          '${route.orderedPoints.length} 个点位 · 约 '
-          '${formatRouteDistance(route.totalDistanceMeters)} 步行';
+          l10n.pointsAbout2((route.orderedPoints.length).toString()) +
+          l10n.onFoot2((formatRouteDistance(route.totalDistanceMeters)).toString());
       ScaffoldMessenger.of(context).showReplacingSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.routeGenerated(summary)),
@@ -308,6 +314,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
   }
 
   Future<void> _setGroupAnchor(PilgrimagePlanGroup group) async {
+    final l10n = AppLocalizations.of(context)!;
     final settings = await widget.repository.loadAppSettings();
     if (!mounted) {
       return;
@@ -336,7 +343,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
           anchorPointId: selection.pointId,
         ),
       ),
-      failureMessage: '关键点保存失败',
+      failureMessage: l10n.anchorSaveFailed,
     );
   }
 
@@ -344,20 +351,21 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
     PilgrimagePlanGroup group,
     int pointCount,
   ) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('删除片区'),
-        content: Text('确定删除「${group.name}」吗？其中 $pointCount 个点位会移入未分配点位。'),
+        title: Text(l10n.deleteArea),
+        content: Text(l10n.deletePointsWillBeMovedToUngroupedPoints2((group.name).toString(), (pointCount).toString())),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('取消'),
+            child: Text(l10n.btnCancel),
           ),
           FilledButton.icon(
             onPressed: () => Navigator.of(context).pop(true),
             icon: const Icon(Icons.delete_outline, size: 18),
-            label: const Text('删除'),
+            label: Text(l10n.btnDelete),
           ),
         ],
       ),
@@ -371,11 +379,12 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
         planId: _plan.id,
         groupId: group.id,
       ),
-      failureMessage: '片区删除失败',
+      failureMessage: l10n.areaDeletionFailed,
     );
   }
 
   Future<void> _reorderGroups(int oldIndex, int newIndex) async {
+    final l10n = AppLocalizations.of(context)!;
     final groups = _groups;
     if (_isSaving || oldIndex >= groups.length || newIndex > groups.length) {
       return;
@@ -395,7 +404,7 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
         }
         return updatedPlan;
       },
-      failureMessage: '片区顺序保存失败',
+      failureMessage: l10n.areaOrderSaveFailed,
     );
   }
 
@@ -467,16 +476,18 @@ class _PlanGroupManagerScreenState extends State<PlanGroupManagerScreen> {
   }
 
   String _groupNameForPoint(PilgrimagePoint point) {
+    final l10n = AppLocalizations.of(context)!;
     final groupId = point.groupId;
     if (groupId == null) {
-      return '未分配点位';
+      final l10n = AppLocalizations.of(context)!;
+      return l10n.ungroupedPoints;
     }
     return _plan.groups
         .firstWhere(
           (group) => group.id == groupId,
           orElse: () => PilgrimagePlanGroup(
             id: groupId,
-            name: '未知片区',
+            name: l10n.labelUnknownArea,
             orderIndex: 0,
             createdAt: DateTime.fromMillisecondsSinceEpoch(0),
           ),
@@ -506,7 +517,8 @@ class _CreatePlanGroupDialogState extends State<_CreatePlanGroupDialog> {
     final trimmedName = _controller.text.trim();
     if (trimmedName.isEmpty) {
       setState(() {
-        _errorText = '片区名不能为空';
+        final l10n = AppLocalizations.of(context)!;
+        _errorText = l10n.areaNameCannotBeEmpty;
       });
       return;
     }
@@ -515,12 +527,13 @@ class _CreatePlanGroupDialogState extends State<_CreatePlanGroupDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return AlertDialog(
-      title: const Text('新建片区'),
+      title: Text(l10n.newArea),
       content: TextField(
         controller: _controller,
         autofocus: true,
-        decoration: InputDecoration(labelText: '片区名称', errorText: _errorText),
+        decoration: InputDecoration(labelText: l10n.areaName, errorText: _errorText),
         textInputAction: TextInputAction.done,
         onChanged: (_) {
           if (_errorText == null) {
@@ -535,9 +548,9 @@ class _CreatePlanGroupDialogState extends State<_CreatePlanGroupDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('取消'),
+          child: Text(l10n.btnCancel),
         ),
-        FilledButton(onPressed: _submit, child: const Text('创建')),
+        FilledButton(onPressed: _submit, child: Text(l10n.create)),
       ],
     );
   }
@@ -551,6 +564,7 @@ class _PlanGroupManagerHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Container(
@@ -580,7 +594,7 @@ class _PlanGroupManagerHeader extends StatelessWidget {
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    '$groupCount 个片区 · ${plan.points.length} 个点位',
+                    l10n.areasPoints((groupCount).toString(), (plan.points.length).toString()),
                     style: const TextStyle(
                       color: AppColors.textSecondary,
                       fontSize: 13,
@@ -624,10 +638,11 @@ class _PlanGroupCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final orderLabel = group.orderMode == PlanGroupOrderMode.manual
-        ? '手动排序'
-        : '无序';
-    final anchorLabel = group.anchorName ?? '未设置关键点';
+        ? l10n.manualOrder
+        : l10n.groupOrderModeNone;
+    final anchorLabel = group.anchorName ?? l10n.labelNoAnchor;
 
     return Material(
       color: AppColors.surface,
@@ -667,7 +682,7 @@ class _PlanGroupCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    '$pointCount 点位 · $anchorLabel · $orderLabel',
+                    l10n.points((pointCount).toString(), (anchorLabel).toString(), (orderLabel).toString()),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -680,7 +695,7 @@ class _PlanGroupCard extends StatelessWidget {
               ),
             ),
             PopupMenuButton<String>(
-              tooltip: '片区操作',
+              tooltip: l10n.areaActions,
               enabled: !isBusy,
               onSelected: (value) {
                 switch (value) {
@@ -699,14 +714,14 @@ class _PlanGroupCard extends StatelessWidget {
                 }
               },
               itemBuilder: (context) => [
-                const PopupMenuItem(value: 'rename', child: Text('重命名')),
-                const PopupMenuItem(value: 'anchor', child: Text('设置关键点')),
+                PopupMenuItem(value: 'rename', child: Text(l10n.rename)),
+                PopupMenuItem(value: 'anchor', child: Text(l10n.setAnchor)),
                 PopupMenuItem(
                   value: 'order',
                   child: Text(
                     group.orderMode == PlanGroupOrderMode.manual
-                        ? '切换为无序'
-                        : '切换为手动排序',
+                        ? l10n.switchToUnordered
+                        : l10n.switchToManualOrder,
                   ),
                 ),
                 PopupMenuItem(
@@ -721,7 +736,7 @@ class _PlanGroupCard extends StatelessWidget {
                     AppLocalizations.of(context)!.exportRouteToMap,
                   ),
                 ),
-                const PopupMenuItem(value: 'delete', child: Text('删除片区')),
+                PopupMenuItem(value: 'delete', child: Text(l10n.deleteArea)),
               ],
             ),
           ],
@@ -738,6 +753,7 @@ class _UngroupedGroupCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -753,8 +769,8 @@ class _UngroupedGroupCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '未分配点位',
+                Text(
+                  l10n.ungroupedPoints,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w800,
@@ -763,7 +779,7 @@ class _UngroupedGroupCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '$pointCount 个点位等待整理',
+                  l10n.pointsAwaitingOrganization((pointCount).toString()),
                   style: const TextStyle(
                     color: AppColors.textSecondary,
                     fontSize: 12,

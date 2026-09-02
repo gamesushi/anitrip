@@ -110,7 +110,7 @@ List<PilgrimagePoint> orderedPointsForGroup(
 String formatRouteDistance(double meters) {
   if (meters >= 1000) {
     final km = meters / 1000;
-    return '${km.toStringAsFixed(km >= 10 ? 0 : 1)} 公里';
+    return '${km.toStringAsFixed(km >= 10 ? 0 : 1)} km';
   }
-  return '${meters.round()} 米';
+  return '${meters.round()} m';
 }

@@ -1282,7 +1282,7 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
                     final testSettings = settings.copyWith(
                       customMapLibreStyleUrl: value.trim(),
                     );
-                    return validateMapTileSettings(testSettings);
+                    return validateMapTileSettings(context, testSettings);
                   },
                   onSaved: (value) {
                     _update(
@@ -1292,11 +1292,11 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
                 ),
               ),
             ],
-            if (validateMapTileSettings(settings) != null) ...[
+            if (validateMapTileSettings(context, settings) != null) ...[
               const SizedBox(height: 10),
               _InfoRow(
                 icon: Icons.error_outline,
-                text: validateMapTileSettings(settings)!,
+                text: validateMapTileSettings(context, settings)!,
               ),
             ],
           ],
@@ -2795,7 +2795,7 @@ class _CustomThemeColorDialogState extends State<_CustomThemeColorDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: Text(AppLocalizations.of(context)!.btnCancel),
         ),
-        FilledButton(onPressed: _submit, child: const Text('\u6dfb\u52a0')),
+        FilledButton(onPressed: _submit, child: const Text('AppLocalizations.of(context)!.btnAdd')),
       ],
     );
   }
@@ -3713,7 +3713,7 @@ extension _LocalizedThemePalette on AppThemePalette {
 String _localizeColorName(BuildContext context, String name) {
   if (name == AppLocalizations.of(context)!.aspectCustom ||
       name == 'custom' ||
-      name == '\u81ea\u5b9a\u4e49') {
+      name == 'AppLocalizations.of(context)!.themeCustom') {
     return AppLocalizations.of(context)!.themeAurora;
   }
   return name;

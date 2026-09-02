@@ -1,0 +1,9 @@
+/* Localized permission request strings for anitrip. */
+/* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
+
+"NSCameraUsageDescription" = "anitrip 需要使用相機來拍攝巡禮照片。";
+"NSLocationWhenInUseUsageDescription" = "anitrip 需要定位來在地圖上顯示目前位置。";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip 可能需要定位權限來在巡禮地圖中顯示目前位置並輔助記錄巡禮地點。";
+"NSMicrophoneUsageDescription" = "anitrip 可能需要使用麥克風來支援拍攝相關功能中的聲音擷取。";
+"NSPhotoLibraryAddUsageDescription" = "anitrip 需要將巡禮對比圖儲存到相簿。";
+"NSPhotoLibraryUsageDescription" = "anitrip 需要存取相簿來匯入巡禮圖片和參考圖。";

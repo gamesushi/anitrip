@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
+import '../l10n/app_localizations.dart';
 import '../plan/pilgrimage_models.dart';
 import '../plan/pilgrimage_plan_controller.dart';
 import 'visit_record_detail_screen.dart';
@@ -28,7 +29,9 @@ class PointVisitRecordsScreen extends StatelessWidget {
         final records = controller.recordsForPoint(point.id);
 
         return Scaffold(
-          appBar: AppBar(title: const Text('点位拍摄记录')),
+          appBar: AppBar(
+            title: Text(AppLocalizations.of(context)!.pointRecordsTitle),
+          ),
           body: ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             children: [
@@ -79,6 +82,7 @@ class _PointRecordsHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
@@ -131,7 +135,7 @@ class _PointRecordsHeader extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           Text(
-            '$count 条',
+            l10n.pointRecordsCount(count),
             style: TextStyle(
               color: AppColors.accentDark,
               fontSize: 15,
@@ -157,17 +161,17 @@ class _EmptyPointRecords extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppColors.border),
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Icon(
+          const Icon(
             Icons.photo_library_outlined,
             color: AppColors.textSecondary,
             size: 34,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
-            '这个点位还没有拍摄记录',
-            style: TextStyle(
+            AppLocalizations.of(context)!.pointRecordsEmpty,
+            style: const TextStyle(
               color: AppColors.textSecondary,
               fontWeight: FontWeight.w700,
               letterSpacing: 0,
@@ -230,9 +234,9 @@ class _PointVisitRecordCard extends StatelessWidget {
                           label: record.referenceMode,
                         ),
                         if (record.hasColorGrading)
-                          const _RecordMetaChip(
+                          _RecordMetaChip(
                             icon: Icons.auto_fix_high_outlined,
-                            label: '已调色',
+                            label: AppLocalizations.of(context)!.labelGraded,
                           ),
                       ],
                     ),
