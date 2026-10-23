@@ -2133,5 +2133,85 @@
   "planShareCopy": "คัดลอกข้อความแชร์",
   "planShareCopied": "คัดลอกข้อความแชร์แล้ว",
   "planShareFile": "แชร์ไฟล์ .sjhplan",
-  "planShareFileDesc": "เปิดแชร์ของระบบพร้อมแพ็กเกจและข้อความด้านบน"
+  "planShareFileDesc": "เปิดแชร์ของระบบพร้อมแพ็กเกจและข้อความด้านบน",
+  "tripPlannerTitle": "วางแผนการเดินทาง",
+  "tripPlannerEmpty": "ยังไม่มีจุดจาริก เพิ่มสักสองสามจุดก่อนวางแผน",
+  "tripPlannerOverview": "ภาพรวม",
+  "tripPlannerDaysNeeded": "แนะนำ {count} วัน",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "ระยะทาง {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "รวมประมาณ {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "รูปแบบการเดินทาง",
+  "tripPlannerModeWalk": "เดินเท้า",
+  "tripPlannerModeTransit": "ขนส่งสาธารณะ",
+  "tripPlannerModeDrive": "ขับรถ",
+  "tripPlannerBudgetLabel": "เวลาต่อวัน",
+  "tripPlannerBudgetOption": "{hours} ชม.",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "เวลาต่อจุด",
+  "tripPlannerSpotOption": "{minutes} นาที",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "วันที่ {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} จุด · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "ออกเดินทาง {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "ประเมินจากระยะทางเส้นตรง × ค่าอ้อม ÷ ความเร็วเฉลี่ย ไม่รวมความชัน สภาพถนน และเวลาเปิดทำการ ควรเผื่อเวลาไว้"
 }

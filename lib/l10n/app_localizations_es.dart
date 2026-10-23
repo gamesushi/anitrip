@@ -4295,4 +4295,76 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get planShareFileDesc =>
       'Abre el panel de compartir con el paquete y el texto de arriba';
+
+  @override
+  String get tripPlannerTitle => 'Planificador de viaje';
+
+  @override
+  String get tripPlannerEmpty =>
+      'Añade algunos lugares antes de planificar el viaje';
+
+  @override
+  String get tripPlannerOverview => 'Resumen';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '$count días sugeridos';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'Distancia a recorrer $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'Unos $duration en total';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'Modo de viaje';
+
+  @override
+  String get tripPlannerModeWalk => 'A pie';
+
+  @override
+  String get tripPlannerModeTransit => 'Transporte público';
+
+  @override
+  String get tripPlannerModeDrive => 'En coche';
+
+  @override
+  String get tripPlannerBudgetLabel => 'Tiempo diario';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours h';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'Tiempo por lugar';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'Día $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count lugares · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'Salida $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'Estimado a partir de la distancia en línea recta × factor de desvío ÷ velocidad media. No incluye desnivel, estado de las carreteras ni horarios: deja margen.';
 }

@@ -4144,4 +4144,75 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get planShareFileDesc => '시스템 공유를 열어 데이터 패키지와 위 설명을 함께 보냅니다';
+
+  @override
+  String get tripPlannerTitle => '일정 계획';
+
+  @override
+  String get tripPlannerEmpty => '아직 순례지가 없습니다. 몇 곳 추가한 뒤 일정을 계획하세요';
+
+  @override
+  String get tripPlannerOverview => '개요';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '$count일 추천';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return '이동 거리 $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return '총 약 $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => '이동 수단';
+
+  @override
+  String get tripPlannerModeWalk => '도보';
+
+  @override
+  String get tripPlannerModeTransit => '대중교통';
+
+  @override
+  String get tripPlannerModeDrive => '자가용';
+
+  @override
+  String get tripPlannerBudgetLabel => '하루 가능 시간';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours시간';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => '지점당 체류';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes분';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return '$index일차';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count곳 · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return '출발 $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      '직선거리 × 우회 계수 ÷ 평균 속도로 추정합니다. 고도, 도로 상황, 영업시간은 반영되지 않으니 여유를 두세요.';
 }

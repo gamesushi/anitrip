@@ -2133,5 +2133,85 @@
   "planShareCopy": "Copiar texto para compartir",
   "planShareCopied": "Texto para compartir copiado",
   "planShareFile": "Compartir archivo .sjhplan",
-  "planShareFileDesc": "Abre el panel de compartir con el paquete y el texto de arriba"
+  "planShareFileDesc": "Abre el panel de compartir con el paquete y el texto de arriba",
+  "tripPlannerTitle": "Planificador de viaje",
+  "tripPlannerEmpty": "Añade algunos lugares antes de planificar el viaje",
+  "tripPlannerOverview": "Resumen",
+  "tripPlannerDaysNeeded": "{count} días sugeridos",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "Distancia a recorrer {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "Unos {duration} en total",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "Modo de viaje",
+  "tripPlannerModeWalk": "A pie",
+  "tripPlannerModeTransit": "Transporte público",
+  "tripPlannerModeDrive": "En coche",
+  "tripPlannerBudgetLabel": "Tiempo diario",
+  "tripPlannerBudgetOption": "{hours} h",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "Tiempo por lugar",
+  "tripPlannerSpotOption": "{minutes} min",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "Día {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} lugares · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "Salida {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "Estimado a partir de la distancia en línea recta × factor de desvío ÷ velocidad media. No incluye desnivel, estado de las carreteras ni horarios: deja margen."
 }

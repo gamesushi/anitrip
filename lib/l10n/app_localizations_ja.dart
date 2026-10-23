@@ -4151,4 +4151,75 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get planShareFileDesc => 'システム共有を開き、パッケージと上記の説明を一緒に送ります';
+
+  @override
+  String get tripPlannerTitle => '行程プラン';
+
+  @override
+  String get tripPlannerEmpty => '巡礼地がまだありません。いくつか追加してから行程を組みましょう';
+
+  @override
+  String get tripPlannerOverview => '概要';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '$count 日間の提案';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return '移動距離 $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return '合計およそ $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => '移動手段';
+
+  @override
+  String get tripPlannerModeWalk => '徒歩';
+
+  @override
+  String get tripPlannerModeTransit => '公共交通機関';
+
+  @override
+  String get tripPlannerModeDrive => '車';
+
+  @override
+  String get tripPlannerBudgetLabel => '1日の目安時間';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours 時間';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => '1箇所あたり';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes 分';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return '$index 日目';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count 箇所 · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return '出発 $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      '直線距離 × 迂回係数 ÷ 平均速度で算出した目安です。勾配や道路状況、営業時間は含まれません。余裕を持って計画してください。';
 }

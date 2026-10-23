@@ -4272,4 +4272,76 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get planShareFileDesc =>
       'Открывает системный экспорт с пакетом и текстом выше';
+
+  @override
+  String get tripPlannerTitle => 'Планировщик поездки';
+
+  @override
+  String get tripPlannerEmpty =>
+      'Добавьте несколько мест, прежде чем планировать поездку';
+
+  @override
+  String get tripPlannerOverview => 'Обзор';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return 'Рекомендуется $count дн.';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'Расстояние $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'Всего около $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'Способ передвижения';
+
+  @override
+  String get tripPlannerModeWalk => 'Пешком';
+
+  @override
+  String get tripPlannerModeTransit => 'Общественный транспорт';
+
+  @override
+  String get tripPlannerModeDrive => 'На автомобиле';
+
+  @override
+  String get tripPlannerBudgetLabel => 'Время в день';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours ч';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'Время на точку';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes мин';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'День $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count мест · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'Выезд $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'Оценка по прямой дистанции × коэффициент объезда ÷ средняя скорость. Перепад высот, состояние дорог и часы работы не учитываются — закладывайте запас.';
 }

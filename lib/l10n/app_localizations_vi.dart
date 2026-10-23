@@ -4260,4 +4260,76 @@ class AppLocalizationsVi extends AppLocalizations {
   @override
   String get planShareFileDesc =>
       'Mở chia sẻ hệ thống với gói dữ liệu và nội dung ở trên';
+
+  @override
+  String get tripPlannerTitle => 'Lập kế hoạch hành trình';
+
+  @override
+  String get tripPlannerEmpty =>
+      'Chưa có địa điểm nào — hãy thêm vài điểm trước khi lập kế hoạch';
+
+  @override
+  String get tripPlannerOverview => 'Tổng quan';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return 'Gợi ý $count ngày';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'Quãng đường $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'Tổng khoảng $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'Phương thức di chuyển';
+
+  @override
+  String get tripPlannerModeWalk => 'Đi bộ';
+
+  @override
+  String get tripPlannerModeTransit => 'Giao thông công cộng';
+
+  @override
+  String get tripPlannerModeDrive => 'Lái xe';
+
+  @override
+  String get tripPlannerBudgetLabel => 'Thời gian mỗi ngày';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours giờ';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'Thời gian mỗi điểm';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes phút';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'Ngày $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count điểm · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'Khởi hành $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'Ước tính từ khoảng cách đường thẳng × hệ số vòng ÷ tốc độ trung bình. Không bao gồm độ cao, tình trạng đường và giờ mở cửa — hãy chừa thời gian dự phòng.';
 }

@@ -2354,5 +2354,85 @@
   "planShareCopy": "复制分享文案",
   "planShareCopied": "分享文案已复制",
   "planShareFile": "分享 .sjhplan 文件",
-  "planShareFileDesc": "调起系统分享，把数据包和上面的说明一起发出去"
+  "planShareFileDesc": "调起系统分享，把数据包和上面的说明一起发出去",
+  "tripPlannerTitle": "行程规划",
+  "tripPlannerEmpty": "还没有巡礼点，先添加几个再规划行程",
+  "tripPlannerOverview": "概览",
+  "tripPlannerDaysNeeded": "建议 {count} 天",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "移动距离 {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "合计约 {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "出行方式",
+  "tripPlannerModeWalk": "步行",
+  "tripPlannerModeTransit": "公共交通",
+  "tripPlannerModeDrive": "驾车",
+  "tripPlannerBudgetLabel": "每天可用",
+  "tripPlannerBudgetOption": "{hours} 小时",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "每点停留",
+  "tripPlannerSpotOption": "{minutes} 分钟",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "第 {index} 天",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} 个点 · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "出发 {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "按直线距离 × 绕行系数 ÷ 平均速度估算，未含爬升、路况与营业时间，请自行留余量。"
 }

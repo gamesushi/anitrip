@@ -2133,5 +2133,85 @@
   "planShareCopy": "Скопировать текст",
   "planShareCopied": "Текст скопирован",
   "planShareFile": "Поделиться файлом .sjhplan",
-  "planShareFileDesc": "Открывает системный экспорт с пакетом и текстом выше"
+  "planShareFileDesc": "Открывает системный экспорт с пакетом и текстом выше",
+  "tripPlannerTitle": "Планировщик поездки",
+  "tripPlannerEmpty": "Добавьте несколько мест, прежде чем планировать поездку",
+  "tripPlannerOverview": "Обзор",
+  "tripPlannerDaysNeeded": "Рекомендуется {count} дн.",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "Расстояние {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "Всего около {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "Способ передвижения",
+  "tripPlannerModeWalk": "Пешком",
+  "tripPlannerModeTransit": "Общественный транспорт",
+  "tripPlannerModeDrive": "На автомобиле",
+  "tripPlannerBudgetLabel": "Время в день",
+  "tripPlannerBudgetOption": "{hours} ч",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "Время на точку",
+  "tripPlannerSpotOption": "{minutes} мин",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "День {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} мест · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "Выезд {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "Оценка по прямой дистанции × коэффициент объезда ÷ средняя скорость. Перепад высот, состояние дорог и часы работы не учитываются — закладывайте запас."
 }

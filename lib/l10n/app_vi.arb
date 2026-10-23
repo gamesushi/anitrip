@@ -2133,5 +2133,85 @@
   "planShareCopy": "Sao chép nội dung chia sẻ",
   "planShareCopied": "Đã sao chép nội dung chia sẻ",
   "planShareFile": "Chia sẻ tệp .sjhplan",
-  "planShareFileDesc": "Mở chia sẻ hệ thống với gói dữ liệu và nội dung ở trên"
+  "planShareFileDesc": "Mở chia sẻ hệ thống với gói dữ liệu và nội dung ở trên",
+  "tripPlannerTitle": "Lập kế hoạch hành trình",
+  "tripPlannerEmpty": "Chưa có địa điểm nào — hãy thêm vài điểm trước khi lập kế hoạch",
+  "tripPlannerOverview": "Tổng quan",
+  "tripPlannerDaysNeeded": "Gợi ý {count} ngày",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "Quãng đường {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "Tổng khoảng {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "Phương thức di chuyển",
+  "tripPlannerModeWalk": "Đi bộ",
+  "tripPlannerModeTransit": "Giao thông công cộng",
+  "tripPlannerModeDrive": "Lái xe",
+  "tripPlannerBudgetLabel": "Thời gian mỗi ngày",
+  "tripPlannerBudgetOption": "{hours} giờ",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "Thời gian mỗi điểm",
+  "tripPlannerSpotOption": "{minutes} phút",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "Ngày {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} điểm · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "Khởi hành {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "Ước tính từ khoảng cách đường thẳng × hệ số vòng ÷ tốc độ trung bình. Không bao gồm độ cao, tình trạng đường và giờ mở cửa — hãy chừa thời gian dự phòng."
 }

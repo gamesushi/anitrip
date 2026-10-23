@@ -4228,4 +4228,75 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get planShareFileDesc => 'เปิดแชร์ของระบบพร้อมแพ็กเกจและข้อความด้านบน';
+
+  @override
+  String get tripPlannerTitle => 'วางแผนการเดินทาง';
+
+  @override
+  String get tripPlannerEmpty => 'ยังไม่มีจุดจาริก เพิ่มสักสองสามจุดก่อนวางแผน';
+
+  @override
+  String get tripPlannerOverview => 'ภาพรวม';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return 'แนะนำ $count วัน';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'ระยะทาง $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'รวมประมาณ $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'รูปแบบการเดินทาง';
+
+  @override
+  String get tripPlannerModeWalk => 'เดินเท้า';
+
+  @override
+  String get tripPlannerModeTransit => 'ขนส่งสาธารณะ';
+
+  @override
+  String get tripPlannerModeDrive => 'ขับรถ';
+
+  @override
+  String get tripPlannerBudgetLabel => 'เวลาต่อวัน';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours ชม.';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'เวลาต่อจุด';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes นาที';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'วันที่ $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count จุด · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'ออกเดินทาง $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'ประเมินจากระยะทางเส้นตรง × ค่าอ้อม ÷ ความเร็วเฉลี่ย ไม่รวมความชัน สภาพถนน และเวลาเปิดทำการ ควรเผื่อเวลาไว้';
 }

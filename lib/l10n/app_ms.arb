@@ -2133,5 +2133,85 @@
   "planShareCopy": "Salin teks kongsi",
   "planShareCopied": "Teks kongsi disalin",
   "planShareFile": "Kongsi fail .sjhplan",
-  "planShareFileDesc": "Buka perkongsian sistem dengan pakej dan teks di atas"
+  "planShareFileDesc": "Buka perkongsian sistem dengan pakej dan teks di atas",
+  "tripPlannerTitle": "Perancang perjalanan",
+  "tripPlannerEmpty": "Belum ada lokasi ziarah — tambah beberapa sebelum merancang perjalanan",
+  "tripPlannerOverview": "Gambaran keseluruhan",
+  "tripPlannerDaysNeeded": "Cadangkan {count} hari",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "Jarak pergerakan {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "Jumlah kira-kira {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "Cara pergerakan",
+  "tripPlannerModeWalk": "Berjalan kaki",
+  "tripPlannerModeTransit": "Pengangkutan awam",
+  "tripPlannerModeDrive": "Memandu",
+  "tripPlannerBudgetLabel": "Masa setiap hari",
+  "tripPlannerBudgetOption": "{hours} jam",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "Masa setiap lokasi",
+  "tripPlannerSpotOption": "{minutes} minit",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "Hari {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} lokasi · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "Berlepas {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "Anggaran daripada jarak garis lurus × faktor lencongan ÷ kelajuan purata. Tidak termasuk ketinggian, keadaan jalan dan waktu operasi — sediakan masa tambahan."
 }

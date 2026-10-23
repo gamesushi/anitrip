@@ -4238,4 +4238,75 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get planShareFileDesc =>
       'Opens the system share sheet with the package and the text above';
+
+  @override
+  String get tripPlannerTitle => 'Trip Planner';
+
+  @override
+  String get tripPlannerEmpty => 'Add a few spots before planning the trip';
+
+  @override
+  String get tripPlannerOverview => 'Overview';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '$count days suggested';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'Moving distance $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'About $duration in total';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'Travel mode';
+
+  @override
+  String get tripPlannerModeWalk => 'On foot';
+
+  @override
+  String get tripPlannerModeTransit => 'Public transit';
+
+  @override
+  String get tripPlannerModeDrive => 'Driving';
+
+  @override
+  String get tripPlannerBudgetLabel => 'Daily budget';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours h';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'Time per spot';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'Day $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count spots · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'Depart $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'Estimated from straight-line distance × detour factor ÷ average speed. Elevation, road conditions and opening hours are not included — keep some slack.';
 }

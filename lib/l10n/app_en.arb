@@ -2206,5 +2206,85 @@
   "planShareCopy": "Copy share text",
   "planShareCopied": "Share text copied",
   "planShareFile": "Share .sjhplan file",
-  "planShareFileDesc": "Opens the system share sheet with the package and the text above"
+  "planShareFileDesc": "Opens the system share sheet with the package and the text above",
+  "tripPlannerTitle": "Trip Planner",
+  "tripPlannerEmpty": "Add a few spots before planning the trip",
+  "tripPlannerOverview": "Overview",
+  "tripPlannerDaysNeeded": "{count} days suggested",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "Moving distance {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "About {duration} in total",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "Travel mode",
+  "tripPlannerModeWalk": "On foot",
+  "tripPlannerModeTransit": "Public transit",
+  "tripPlannerModeDrive": "Driving",
+  "tripPlannerBudgetLabel": "Daily budget",
+  "tripPlannerBudgetOption": "{hours} h",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "Time per spot",
+  "tripPlannerSpotOption": "{minutes} min",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "Day {index}",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} spots · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "Depart {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "Estimated from straight-line distance × detour factor ÷ average speed. Elevation, road conditions and opening hours are not included — keep some slack."
 }

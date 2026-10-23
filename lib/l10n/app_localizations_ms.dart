@@ -4252,4 +4252,76 @@ class AppLocalizationsMs extends AppLocalizations {
   @override
   String get planShareFileDesc =>
       'Buka perkongsian sistem dengan pakej dan teks di atas';
+
+  @override
+  String get tripPlannerTitle => 'Perancang perjalanan';
+
+  @override
+  String get tripPlannerEmpty =>
+      'Belum ada lokasi ziarah — tambah beberapa sebelum merancang perjalanan';
+
+  @override
+  String get tripPlannerOverview => 'Gambaran keseluruhan';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return 'Cadangkan $count hari';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return 'Jarak pergerakan $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return 'Jumlah kira-kira $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => 'Cara pergerakan';
+
+  @override
+  String get tripPlannerModeWalk => 'Berjalan kaki';
+
+  @override
+  String get tripPlannerModeTransit => 'Pengangkutan awam';
+
+  @override
+  String get tripPlannerModeDrive => 'Memandu';
+
+  @override
+  String get tripPlannerBudgetLabel => 'Masa setiap hari';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours jam';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => 'Masa setiap lokasi';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes minit';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return 'Hari $index';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count lokasi · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return 'Berlepas $time';
+  }
+
+  @override
+  String get tripPlannerNote =>
+      'Anggaran daripada jarak garis lurus × faktor lencongan ÷ kelajuan purata. Tidak termasuk ketinggian, keadaan jalan dan waktu operasi — sediakan masa tambahan.';
 }

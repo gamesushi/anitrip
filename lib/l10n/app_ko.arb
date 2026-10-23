@@ -2133,5 +2133,85 @@
   "planShareCopy": "공유 문구 복사",
   "planShareCopied": "공유 문구를 복사했습니다",
   "planShareFile": ".sjhplan 파일 공유",
-  "planShareFileDesc": "시스템 공유를 열어 데이터 패키지와 위 설명을 함께 보냅니다"
+  "planShareFileDesc": "시스템 공유를 열어 데이터 패키지와 위 설명을 함께 보냅니다",
+  "tripPlannerTitle": "일정 계획",
+  "tripPlannerEmpty": "아직 순례지가 없습니다. 몇 곳 추가한 뒤 일정을 계획하세요",
+  "tripPlannerOverview": "개요",
+  "tripPlannerDaysNeeded": "{count}일 추천",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "이동 거리 {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "총 약 {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "이동 수단",
+  "tripPlannerModeWalk": "도보",
+  "tripPlannerModeTransit": "대중교통",
+  "tripPlannerModeDrive": "자가용",
+  "tripPlannerBudgetLabel": "하루 가능 시간",
+  "tripPlannerBudgetOption": "{hours}시간",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "지점당 체류",
+  "tripPlannerSpotOption": "{minutes}분",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "{index}일차",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count}곳 · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "출발 {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "직선거리 × 우회 계수 ÷ 평균 속도로 추정합니다. 고도, 도로 상황, 영업시간은 반영되지 않으니 여유를 두세요."
 }

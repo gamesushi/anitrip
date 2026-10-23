@@ -18,6 +18,7 @@ import 'add_points_screen.dart';
 import 'plan_group_utils.dart';
 import 'plan_memo_screen.dart';
 import 'plan_completion_screen.dart';
+import 'trip_planner_screen.dart';
 import 'pilgrimage_models.dart';
 import 'pilgrimage_plan_controller.dart';
 import 'reference_full_cache_runner.dart';
@@ -282,6 +283,8 @@ class _PlanScreenState extends State<PlanScreen> {
                   _openPlanMemo();
                 case _PlanMenuAction.completion:
                   _openCompletion();
+                case _PlanMenuAction.tripPlanner:
+                  _openTripPlanner();
               }
             },
             itemBuilder: (context) => [
@@ -311,6 +314,13 @@ class _PlanScreenState extends State<PlanScreen> {
                 child: ListTile(
                   leading: Icon(Icons.emoji_events_outlined),
                   title: Text(AppLocalizations.of(context)!.planCompletionMenu),
+                ),
+              ),
+              PopupMenuItem(
+                value: _PlanMenuAction.tripPlanner,
+                child: ListTile(
+                  leading: Icon(Icons.alt_route_outlined),
+                  title: Text(AppLocalizations.of(context)!.tripPlannerTitle),
                 ),
               ),
             ],
@@ -412,6 +422,14 @@ class _PlanScreenState extends State<PlanScreen> {
     await Navigator.of(context).push<void>(
       MaterialPageRoute<void>(
         builder: (_) => PlanCompletionScreen(plan: controller.plan),
+      ),
+    );
+  }
+
+  Future<void> _openTripPlanner() async {
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(
+        builder: (_) => TripPlannerScreen(plan: controller.plan),
       ),
     );
   }
@@ -589,7 +607,13 @@ class _PlanScreenState extends State<PlanScreen> {
   }
 }
 
-enum _PlanMenuAction { switchPlan, managePoints, memo, completion }
+enum _PlanMenuAction {
+  switchPlan,
+  managePoints,
+  memo,
+  completion,
+  tripPlanner,
+}
 
 class _ReferenceCacheIconButton extends StatelessWidget {
   const _ReferenceCacheIconButton({

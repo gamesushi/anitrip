@@ -4118,6 +4118,76 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get planShareFileDesc => '调起系统分享，把数据包和上面的说明一起发出去';
+
+  @override
+  String get tripPlannerTitle => '行程规划';
+
+  @override
+  String get tripPlannerEmpty => '还没有巡礼点，先添加几个再规划行程';
+
+  @override
+  String get tripPlannerOverview => '概览';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '建议 $count 天';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return '移动距离 $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return '合计约 $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => '出行方式';
+
+  @override
+  String get tripPlannerModeWalk => '步行';
+
+  @override
+  String get tripPlannerModeTransit => '公共交通';
+
+  @override
+  String get tripPlannerModeDrive => '驾车';
+
+  @override
+  String get tripPlannerBudgetLabel => '每天可用';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours 小时';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => '每点停留';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes 分钟';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return '第 $index 天';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count 个点 · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return '出发 $time';
+  }
+
+  @override
+  String get tripPlannerNote => '按直线距离 × 绕行系数 ÷ 平均速度估算，未含爬升、路况与营业时间，请自行留余量。';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -8211,4 +8281,74 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get planShareFileDesc => '叫出系統分享，把資料包和上面的說明一起送出';
+
+  @override
+  String get tripPlannerTitle => '行程規劃';
+
+  @override
+  String get tripPlannerEmpty => '還沒有巡禮點，先新增幾個再規劃行程';
+
+  @override
+  String get tripPlannerOverview => '總覽';
+
+  @override
+  String tripPlannerDaysNeeded(int count) {
+    return '建議 $count 天';
+  }
+
+  @override
+  String tripPlannerTotalDistance(String distance) {
+    return '移動距離 $distance';
+  }
+
+  @override
+  String tripPlannerTotalDuration(String duration) {
+    return '合計約 $duration';
+  }
+
+  @override
+  String get tripPlannerModeLabel => '交通方式';
+
+  @override
+  String get tripPlannerModeWalk => '步行';
+
+  @override
+  String get tripPlannerModeTransit => '公共交通';
+
+  @override
+  String get tripPlannerModeDrive => '駕車';
+
+  @override
+  String get tripPlannerBudgetLabel => '每天可用';
+
+  @override
+  String tripPlannerBudgetOption(int hours) {
+    return '$hours 小時';
+  }
+
+  @override
+  String get tripPlannerSpotLabel => '每點停留';
+
+  @override
+  String tripPlannerSpotOption(int minutes) {
+    return '$minutes 分鐘';
+  }
+
+  @override
+  String tripPlannerDayTitle(int index) {
+    return '第 $index 天';
+  }
+
+  @override
+  String tripPlannerDayMeta(int count, String distance, String duration) {
+    return '$count 個點 · $distance · $duration';
+  }
+
+  @override
+  String tripPlannerDeparture(String time) {
+    return '出發 $time';
+  }
+
+  @override
+  String get tripPlannerNote => '依直線距離 × 繞行係數 ÷ 平均速度估算，未含爬升、路況與營業時間，請自行保留彈性。';
 }

@@ -2206,5 +2206,85 @@
   "planShareCopy": "複製分享文案",
   "planShareCopied": "分享文案已複製",
   "planShareFile": "分享 .sjhplan 檔案",
-  "planShareFileDesc": "叫出系統分享，把資料包和上面的說明一起送出"
+  "planShareFileDesc": "叫出系統分享，把資料包和上面的說明一起送出",
+  "tripPlannerTitle": "行程規劃",
+  "tripPlannerEmpty": "還沒有巡禮點，先新增幾個再規劃行程",
+  "tripPlannerOverview": "總覽",
+  "tripPlannerDaysNeeded": "建議 {count} 天",
+  "@tripPlannerDaysNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerTotalDistance": "移動距離 {distance}",
+  "@tripPlannerTotalDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerTotalDuration": "合計約 {duration}",
+  "@tripPlannerTotalDuration": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerModeLabel": "交通方式",
+  "tripPlannerModeWalk": "步行",
+  "tripPlannerModeTransit": "公共交通",
+  "tripPlannerModeDrive": "駕車",
+  "tripPlannerBudgetLabel": "每天可用",
+  "tripPlannerBudgetOption": "{hours} 小時",
+  "@tripPlannerBudgetOption": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerSpotLabel": "每點停留",
+  "tripPlannerSpotOption": "{minutes} 分鐘",
+  "@tripPlannerSpotOption": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayTitle": "第 {index} 天",
+  "@tripPlannerDayTitle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "tripPlannerDayMeta": "{count} 個點 · {distance} · {duration}",
+  "@tripPlannerDayMeta": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "distance": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerDeparture": "出發 {time}",
+  "@tripPlannerDeparture": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tripPlannerNote": "依直線距離 × 繞行係數 ÷ 平均速度估算，未含爬升、路況與營業時間，請自行保留彈性。"
 }

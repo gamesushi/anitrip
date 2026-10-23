@@ -7530,6 +7530,114 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'调起系统分享，把数据包和上面的说明一起发出去'**
   String get planShareFileDesc;
+
+  /// No description provided for @tripPlannerTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'行程规划'**
+  String get tripPlannerTitle;
+
+  /// No description provided for @tripPlannerEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有巡礼点，先添加几个再规划行程'**
+  String get tripPlannerEmpty;
+
+  /// No description provided for @tripPlannerOverview.
+  ///
+  /// In zh, this message translates to:
+  /// **'概览'**
+  String get tripPlannerOverview;
+
+  /// No description provided for @tripPlannerDaysNeeded.
+  ///
+  /// In zh, this message translates to:
+  /// **'建议 {count} 天'**
+  String tripPlannerDaysNeeded(int count);
+
+  /// No description provided for @tripPlannerTotalDistance.
+  ///
+  /// In zh, this message translates to:
+  /// **'移动距离 {distance}'**
+  String tripPlannerTotalDistance(String distance);
+
+  /// No description provided for @tripPlannerTotalDuration.
+  ///
+  /// In zh, this message translates to:
+  /// **'合计约 {duration}'**
+  String tripPlannerTotalDuration(String duration);
+
+  /// No description provided for @tripPlannerModeLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'出行方式'**
+  String get tripPlannerModeLabel;
+
+  /// No description provided for @tripPlannerModeWalk.
+  ///
+  /// In zh, this message translates to:
+  /// **'步行'**
+  String get tripPlannerModeWalk;
+
+  /// No description provided for @tripPlannerModeTransit.
+  ///
+  /// In zh, this message translates to:
+  /// **'公共交通'**
+  String get tripPlannerModeTransit;
+
+  /// No description provided for @tripPlannerModeDrive.
+  ///
+  /// In zh, this message translates to:
+  /// **'驾车'**
+  String get tripPlannerModeDrive;
+
+  /// No description provided for @tripPlannerBudgetLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'每天可用'**
+  String get tripPlannerBudgetLabel;
+
+  /// No description provided for @tripPlannerBudgetOption.
+  ///
+  /// In zh, this message translates to:
+  /// **'{hours} 小时'**
+  String tripPlannerBudgetOption(int hours);
+
+  /// No description provided for @tripPlannerSpotLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'每点停留'**
+  String get tripPlannerSpotLabel;
+
+  /// No description provided for @tripPlannerSpotOption.
+  ///
+  /// In zh, this message translates to:
+  /// **'{minutes} 分钟'**
+  String tripPlannerSpotOption(int minutes);
+
+  /// No description provided for @tripPlannerDayTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'第 {index} 天'**
+  String tripPlannerDayTitle(int index);
+
+  /// No description provided for @tripPlannerDayMeta.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 个点 · {distance} · {duration}'**
+  String tripPlannerDayMeta(int count, String distance, String duration);
+
+  /// No description provided for @tripPlannerDeparture.
+  ///
+  /// In zh, this message translates to:
+  /// **'出发 {time}'**
+  String tripPlannerDeparture(String time);
+
+  /// No description provided for @tripPlannerNote.
+  ///
+  /// In zh, this message translates to:
+  /// **'按直线距离 × 绕行系数 ÷ 平均速度估算，未含爬升、路况与营业时间，请自行留余量。'**
+  String get tripPlannerNote;
 }
 
 class _AppLocalizationsDelegate
