@@ -4094,4 +4094,54 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => '이 순례 목록 공유';
+
+  @override
+  String get planShareSectionDesc =>
+      '.sjhplan 파일을 이 설명과 함께 보내면, 받는 사람이 anitrip으로 열어 동일한 목록을 가져올 수 있습니다.';
+
+  @override
+  String planShareTitle(String name) {
+    return '$name 순례 목록';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '작품 $works개 · 순례지 $points곳';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return '지역: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return '인증 $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return '순례 기록 $count건 포함';
+  }
+
+  @override
+  String get planShareFooter => '.sjhplan을 anitrip으로 열면 동일한 목록을 가져올 수 있습니다';
+
+  @override
+  String get planShareEmpty => '아직 순례지가 없습니다. 몇 개 추가한 뒤 공유하세요';
+
+  @override
+  String get planShareCopy => '공유 문구 복사';
+
+  @override
+  String get planShareCopied => '공유 문구를 복사했습니다';
+
+  @override
+  String get planShareFile => '.sjhplan 파일 공유';
+
+  @override
+  String get planShareFileDesc => '시스템 공유를 열어 데이터 패키지와 위 설명을 함께 보냅니다';
 }

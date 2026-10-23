@@ -2076,5 +2076,62 @@
   "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
   "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
   "gpsPermissionDenied": "需要定位权限才能记录轨迹",
-  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "planShareSection": "Chia sẻ danh sách hành hương này",
+  "planShareSectionDesc": "Gửi tệp .sjhplan kèm đoạn mô tả này — người nhận có thể mở bằng anitrip để nhập chính xác cùng một danh sách.",
+  "planShareTitle": "Danh sách hành hương {name}",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} tác phẩm · {points} địa điểm",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "Khu vực: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "Đã check-in {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "Bao gồm {count} bản ghi hành hương",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "Mở .sjhplan bằng anitrip để nhập cùng một danh sách",
+  "planShareEmpty": "Chưa có địa điểm nào — hãy thêm vài địa điểm trước khi chia sẻ",
+  "planShareCopy": "Sao chép nội dung chia sẻ",
+  "planShareCopied": "Đã sao chép nội dung chia sẻ",
+  "planShareFile": "Chia sẻ tệp .sjhplan",
+  "planShareFileDesc": "Mở chia sẻ hệ thống với gói dữ liệu và nội dung ở trên"
 }

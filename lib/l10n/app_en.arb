@@ -2149,5 +2149,62 @@
   "gpsTrackSaved": "Track saved: {count} samples, {distance}",
   "gpsLocationServiceDisabled": "Location services are off. Enable them in system settings before recording.",
   "gpsPermissionDenied": "Location permission is required to record a track",
-  "gpsPermissionDeniedForever": "Location permission is permanently denied. Enable it in system settings."
+  "gpsPermissionDeniedForever": "Location permission is permanently denied. Enable it in system settings.",
+  "planShareSection": "Share this pilgrimage list",
+  "planShareSectionDesc": "Send the .sjhplan file together with this description — the recipient can open it with anitrip to import the exact same list.",
+  "planShareTitle": "{name} pilgrimage list",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} works · {points} spots",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "Area: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "Checked in {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "Includes {count} visit records",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "Open the .sjhplan with anitrip to import the same list",
+  "planShareEmpty": "No spots yet — add a few before sharing",
+  "planShareCopy": "Copy share text",
+  "planShareCopied": "Share text copied",
+  "planShareFile": "Share .sjhplan file",
+  "planShareFileDesc": "Opens the system share sheet with the package and the text above"
 }

@@ -4068,6 +4068,56 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => '分享此巡礼清单';
+
+  @override
+  String get planShareSectionDesc =>
+      '把 .sjhplan 连同这段说明一起发到群里或社交平台，对方用 anitrip 打开即可导入同一份清单。';
+
+  @override
+  String planShareTitle(String name) {
+    return '$name 巡礼清单';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works 部作品 · $points 个巡礼点';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return '地区：$area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return '已打卡 $completed/$total（$percent%）';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return '含 $count 条巡礼记录';
+  }
+
+  @override
+  String get planShareFooter => '用 anitrip 打开 .sjhplan 即可导入同一份清单';
+
+  @override
+  String get planShareEmpty => '还没有巡礼点，先添加几个再分享吧';
+
+  @override
+  String get planShareCopy => '复制分享文案';
+
+  @override
+  String get planShareCopied => '分享文案已复制';
+
+  @override
+  String get planShareFile => '分享 .sjhplan 文件';
+
+  @override
+  String get planShareFileDesc => '调起系统分享，把数据包和上面的说明一起发出去';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -8111,4 +8161,54 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get gpsPermissionDeniedForever => '定位權限已被永久拒絕，請在系統設定中開啟';
+
+  @override
+  String get planShareSection => '分享此巡禮清單';
+
+  @override
+  String get planShareSectionDesc =>
+      '把 .sjhplan 連同這段說明一起發到群組或社群平台，對方用 anitrip 開啟即可匯入同一份清單。';
+
+  @override
+  String planShareTitle(String name) {
+    return '$name 巡禮清單';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works 部作品 · $points 個巡禮點';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return '地區：$area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return '已打卡 $completed/$total（$percent%）';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return '含 $count 條巡禮記錄';
+  }
+
+  @override
+  String get planShareFooter => '用 anitrip 開啟 .sjhplan 即可匯入同一份清單';
+
+  @override
+  String get planShareEmpty => '還沒有巡禮點，先新增幾個再分享吧';
+
+  @override
+  String get planShareCopy => '複製分享文案';
+
+  @override
+  String get planShareCopied => '分享文案已複製';
+
+  @override
+  String get planShareFile => '分享 .sjhplan 檔案';
+
+  @override
+  String get planShareFileDesc => '叫出系統分享，把資料包和上面的說明一起送出';
 }

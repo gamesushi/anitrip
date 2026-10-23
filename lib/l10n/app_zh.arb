@@ -2297,5 +2297,62 @@
   "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
   "@gpsPermissionDeniedForever": {
     "description": "Message shown when location permission is permanently denied."
-  }
+  },
+  "planShareSection": "分享此巡礼清单",
+  "planShareSectionDesc": "把 .sjhplan 连同这段说明一起发到群里或社交平台，对方用 anitrip 打开即可导入同一份清单。",
+  "planShareTitle": "{name} 巡礼清单",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} 部作品 · {points} 个巡礼点",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "地区：{area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "已打卡 {completed}/{total}（{percent}%）",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "含 {count} 条巡礼记录",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "用 anitrip 打开 .sjhplan 即可导入同一份清单",
+  "planShareEmpty": "还没有巡礼点，先添加几个再分享吧",
+  "planShareCopy": "复制分享文案",
+  "planShareCopied": "分享文案已复制",
+  "planShareFile": "分享 .sjhplan 文件",
+  "planShareFileDesc": "调起系统分享，把数据包和上面的说明一起发出去"
 }

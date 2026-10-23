@@ -4207,4 +4207,57 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => 'Chia sẻ danh sách hành hương này';
+
+  @override
+  String get planShareSectionDesc =>
+      'Gửi tệp .sjhplan kèm đoạn mô tả này — người nhận có thể mở bằng anitrip để nhập chính xác cùng một danh sách.';
+
+  @override
+  String planShareTitle(String name) {
+    return 'Danh sách hành hương $name';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works tác phẩm · $points địa điểm';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'Khu vực: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'Đã check-in $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'Bao gồm $count bản ghi hành hương';
+  }
+
+  @override
+  String get planShareFooter =>
+      'Mở .sjhplan bằng anitrip để nhập cùng một danh sách';
+
+  @override
+  String get planShareEmpty =>
+      'Chưa có địa điểm nào — hãy thêm vài địa điểm trước khi chia sẻ';
+
+  @override
+  String get planShareCopy => 'Sao chép nội dung chia sẻ';
+
+  @override
+  String get planShareCopied => 'Đã sao chép nội dung chia sẻ';
+
+  @override
+  String get planShareFile => 'Chia sẻ tệp .sjhplan';
+
+  @override
+  String get planShareFileDesc =>
+      'Mở chia sẻ hệ thống với gói dữ liệu và nội dung ở trên';
 }

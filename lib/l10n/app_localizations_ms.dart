@@ -4199,4 +4199,57 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => 'Kongsi senarai ziarah ini';
+
+  @override
+  String get planShareSectionDesc =>
+      'Hantar fail .sjhplan bersama penerangan ini — penerima boleh membukanya dengan anitrip untuk mengimport senarai yang sama.';
+
+  @override
+  String planShareTitle(String name) {
+    return 'Senarai ziarah $name';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works karya · $points lokasi';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'Kawasan: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'Telah dikunjungi $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'Termasuk $count rekod lawatan';
+  }
+
+  @override
+  String get planShareFooter =>
+      'Buka .sjhplan dengan anitrip untuk mengimport senarai yang sama';
+
+  @override
+  String get planShareEmpty =>
+      'Belum ada lokasi ziarah — tambah beberapa sebelum berkongsi';
+
+  @override
+  String get planShareCopy => 'Salin teks kongsi';
+
+  @override
+  String get planShareCopied => 'Teks kongsi disalin';
+
+  @override
+  String get planShareFile => 'Kongsi fail .sjhplan';
+
+  @override
+  String get planShareFileDesc =>
+      'Buka perkongsian sistem dengan pakej dan teks di atas';
 }

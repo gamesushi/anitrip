@@ -4219,4 +4219,57 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => 'Поделиться этим списком паломничества';
+
+  @override
+  String get planShareSectionDesc =>
+      'Отправьте файл .sjhplan вместе с этим описанием — получатель сможет открыть его в anitrip и импортировать тот же список.';
+
+  @override
+  String planShareTitle(String name) {
+    return 'Список паломничества: $name';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return 'Работ: $works · мест: $points';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'Регион: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'Отмечено $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'Включает $count записей посещений';
+  }
+
+  @override
+  String get planShareFooter =>
+      'Откройте .sjhplan в anitrip, чтобы импортировать тот же список';
+
+  @override
+  String get planShareEmpty =>
+      'Пока нет мест — добавьте несколько перед публикацией';
+
+  @override
+  String get planShareCopy => 'Скопировать текст';
+
+  @override
+  String get planShareCopied => 'Текст скопирован';
+
+  @override
+  String get planShareFile => 'Поделиться файлом .sjhplan';
+
+  @override
+  String get planShareFileDesc =>
+      'Открывает системный экспорт с пакетом и текстом выше';
 }

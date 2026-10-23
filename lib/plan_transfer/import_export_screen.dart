@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:file_selector/file_selector.dart' as file_selector;
 
+import 'package:flutter/services.dart';
+
 import '../app_theme.dart';
 import '../l10n/app_localizations.dart';
 import '../data/pilgrimage_repository.dart';
@@ -13,6 +15,7 @@ import 'plan_export_delivery.dart';
 import 'plan_export_delivery_result.dart';
 import 'plan_export_size_estimator.dart';
 import 'plan_export_v2.dart';
+import 'plan_share_summary.dart';
 import 'plan_import_package.dart';
 import 'plan_import_preview_screen.dart';
 import 'plan_package.dart' show seichiPlanFileExtension, seichiPlanMimeType;
@@ -38,8 +41,11 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
   var _importing = false;
   var _exportGeneration = 0;
   var _estimateGeneration = 0;
+  var _shareGeneration = 0;
   PlanExportSizeEstimate? _sizeEstimate;
   var _estimatingSize = false;
+  var _shareLoading = true;
+  PlanShareSummary? _shareSummary;
 
   bool get _usesExternalIosImport => isIosPlatform;
 
@@ -47,12 +53,14 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
   void initState() {
     super.initState();
     _refreshSizeEstimate();
+    _refreshShareSummary();
   }
 
   @override
   void dispose() {
     _exportGeneration++;
     _estimateGeneration++;
+    _shareGeneration++;
     super.dispose();
   }
 
@@ -129,6 +137,20 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
                 _refreshSizeEstimate();
               },
               onExport: _exportV2,
+            ),
+            const SizedBox(height: 20),
+            _SectionTitle(
+              icon: Icons.campaign_outlined,
+              title: AppLocalizations.of(context)!.planShareSection,
+              subtitle: AppLocalizations.of(context)!.planShareSectionDesc,
+            ),
+            const SizedBox(height: 10),
+            _PlanShareCard(
+              summary: _shareSummary,
+              loading: _shareLoading,
+              enabled: !_exporting && !_importing,
+              onCopy: _copyShareMessage,
+              onShareFile: _sharePlanPackage,
             ),
             const SizedBox(height: 20),
             _SectionTitle(
@@ -242,7 +264,69 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
     );
   }
 
-  Future<void> _exportV2() async {
+  Future<void> _refreshShareSummary() async {
+    final generation = ++_shareGeneration;
+    try {
+      final records = await widget.repository.loadVisitRecords(widget.plan.id);
+      if (!mounted || generation != _shareGeneration) {
+        return;
+      }
+      setState(() {
+        _shareSummary = buildPlanShareSummary(
+          plan: widget.plan,
+          visitRecords: records,
+        );
+        _shareLoading = false;
+      });
+    } catch (_) {
+      if (!mounted || generation != _shareGeneration) {
+        return;
+      }
+      setState(() {
+        // 记录读不到时退化为只含计划本身的摘要，分享入口仍可用。
+        _shareSummary = buildPlanShareSummary(plan: widget.plan);
+        _shareLoading = false;
+      });
+    }
+  }
+
+  /// 当前用于分享的说明文字（供复制按钮与文件分享共用）。
+  String _shareMessage(BuildContext context) {
+    final summary = _shareSummary;
+    if (summary == null) {
+      return AppLocalizations.of(context)!.exportShareLabel(widget.plan.name);
+    }
+    return buildPlanShareMessage(AppLocalizations.of(context)!, summary);
+  }
+
+  Future<void> _copyShareMessage() async {
+    final l10n = AppLocalizations.of(context)!;
+    final summary = _shareSummary;
+    if (summary == null || summary.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showReplacingSnackBar(SnackBar(content: Text(l10n.planShareEmpty)));
+      return;
+    }
+    await Clipboard.setData(ClipboardData(text: _shareMessage(context)));
+    if (!mounted) {
+      return;
+    }
+    ScaffoldMessenger.of(context)
+        .showReplacingSnackBar(SnackBar(content: Text(l10n.planShareCopied)));
+  }
+
+  Future<void> _sharePlanPackage() async {
+    final summary = _shareSummary;
+    if (summary != null && summary.isEmpty) {
+      ScaffoldMessenger.of(context).showReplacingSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.planShareEmpty)),
+      );
+      return;
+    }
+    await _exportV2(shareMessage: _shareMessage(context));
+  }
+
+  Future<void> _exportV2({String? shareMessage}) async {
     await _runExport((generation) async {
       final exportedAt = DateTime.now();
       final options = PlanExportV2Options(
@@ -292,7 +376,8 @@ class _ImportExportScreenState extends State<ImportExportScreen> {
         fileName: package.fileName,
         mimeType: anitripExportPackageMimeType,
         shareSubject: widget.plan.name,
-        shareText: AppLocalizations.of(context)!.exportShareLabel(widget.plan.name),
+        shareText: shareMessage ??
+            AppLocalizations.of(context)!.exportShareLabel(widget.plan.name),
         extension: seichiPlanFileExtension,
         destination: destination,
       );
@@ -565,6 +650,160 @@ class _PlanExportSummary extends StatelessWidget {
   }
 }
 
+class _PlanShareCard extends StatelessWidget {
+  const _PlanShareCard({
+    required this.summary,
+    required this.loading,
+    required this.enabled,
+    required this.onCopy,
+    required this.onShareFile,
+  });
+
+  final PlanShareSummary? summary;
+  final bool loading;
+  final bool enabled;
+  final VoidCallback onCopy;
+  final VoidCallback onShareFile;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (loading || summary == null)
+            Row(
+              children: [
+                const SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    l10n.importExportEstimateEstimating,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          else ...[
+            _SharePreview(summary: summary!, l10n: l10n),
+            const SizedBox(height: 10),
+            Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: enabled ? onCopy : null,
+                    icon: const Icon(Icons.content_copy_outlined, size: 18),
+                    label: Text(l10n.planShareCopy),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: enabled ? onShareFile : null,
+                    icon: const Icon(Icons.ios_share_outlined, size: 18),
+                    label: Text(l10n.planShareFile),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _SharePreview extends StatelessWidget {
+  const _SharePreview({required this.summary, required this.l10n});
+
+  final PlanShareSummary summary;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final lines = <String>[
+      l10n.planShareStats(summary.workCount, summary.pointCount),
+    ];
+    if (summary.area.isNotEmpty) {
+      lines.add(l10n.planShareArea(summary.area));
+    }
+    if (summary.hasProgress) {
+      lines.add(
+        l10n.planShareProgress(
+          summary.completedCount,
+          summary.pointCount,
+          summary.progressPercent,
+        ),
+      );
+    }
+    if (summary.recordCount > 0) {
+      lines.add(l10n.planShareRecords(summary.recordCount));
+    }
+
+    if (summary.isEmpty) {
+      return Row(
+        children: [
+          Icon(Icons.info_outline, size: 18, color: AppColors.textSecondary),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              l10n.planShareEmpty,
+              style: const TextStyle(
+                color: AppColors.textSecondary,
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          l10n.planShareTitle(summary.planName),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 0,
+          ),
+        ),
+        const SizedBox(height: 3),
+        for (final line in lines)
+          Text(
+            line,
+            style: const TextStyle(
+              color: AppColors.textSecondary,
+              fontSize: 12,
+              letterSpacing: 0,
+            ),
+          ),
+      ],
+    );
+  }
+}
+
 class _SectionTitle extends StatelessWidget {
   const _SectionTitle({
     required this.icon,
@@ -664,15 +903,22 @@ class _BackupOptions extends StatelessWidget {
                 : (values) => onModeChanged(values.first),
           ),
           const SizedBox(height: 10),
-          SwitchListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              AppLocalizations.of(context)!.importExportIncludeCache,
-              style: TextStyle(fontWeight: FontWeight.w800, letterSpacing: 0),
+          // 外层 Container 有背景色，ListTile 必须自带 Material，
+          // 否则 debug 下会报「ink splashes may be invisible」。
+          Material(
+            color: AppColors.surface,
+            borderRadius: BorderRadius.circular(8),
+            clipBehavior: Clip.antiAlias,
+            child: SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              title: Text(
+                AppLocalizations.of(context)!.importExportIncludeCache,
+                style: TextStyle(fontWeight: FontWeight.w800, letterSpacing: 0),
+              ),
+              subtitle: Text(AppLocalizations.of(context)!.importExportIncludeCacheDesc),
+              value: includeFullReferenceCache,
+              onChanged: exporting ? null : onFullReferenceChanged,
             ),
-            subtitle: Text(AppLocalizations.of(context)!.importExportIncludeCacheDesc),
-            value: includeFullReferenceCache,
-            onChanged: exporting ? null : onFullReferenceChanged,
           ),
           const SizedBox(height: 2),
           _ExportSizeEstimateRow(

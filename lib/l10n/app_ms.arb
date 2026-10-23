@@ -2076,5 +2076,62 @@
   "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
   "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
   "gpsPermissionDenied": "需要定位权限才能记录轨迹",
-  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "planShareSection": "Kongsi senarai ziarah ini",
+  "planShareSectionDesc": "Hantar fail .sjhplan bersama penerangan ini — penerima boleh membukanya dengan anitrip untuk mengimport senarai yang sama.",
+  "planShareTitle": "Senarai ziarah {name}",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} karya · {points} lokasi",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "Kawasan: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "Telah dikunjungi {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "Termasuk {count} rekod lawatan",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "Buka .sjhplan dengan anitrip untuk mengimport senarai yang sama",
+  "planShareEmpty": "Belum ada lokasi ziarah — tambah beberapa sebelum berkongsi",
+  "planShareCopy": "Salin teks kongsi",
+  "planShareCopied": "Teks kongsi disalin",
+  "planShareFile": "Kongsi fail .sjhplan",
+  "planShareFileDesc": "Buka perkongsian sistem dengan pakej dan teks di atas"
 }

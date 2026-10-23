@@ -4101,4 +4101,54 @@ class AppLocalizationsJa extends AppLocalizations {
   @override
   String get gpsPermissionDeniedForever =>
       '位置情報の権限が永久に拒否されています。システム設定で有効にしてください。';
+
+  @override
+  String get planShareSection => 'この巡礼リストを共有';
+
+  @override
+  String get planShareSectionDesc =>
+      '.sjhplan をこの説明と一緒に送れば、受け取った人が anitrip で開いて同じリストを取り込めます。';
+
+  @override
+  String planShareTitle(String name) {
+    return '$name 巡礼リスト';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '作品 $works 件 · 巡礼地 $points 件';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'エリア：$area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return '巡礼済み $completed/$total（$percent%）';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return '巡礼記録 $count 件を含む';
+  }
+
+  @override
+  String get planShareFooter => '.sjhplan を anitrip で開けば同じリストを取り込めます';
+
+  @override
+  String get planShareEmpty => '巡礼地がまだありません。いくつか追加してから共有しましょう';
+
+  @override
+  String get planShareCopy => '共有文をコピー';
+
+  @override
+  String get planShareCopied => '共有文をコピーしました';
+
+  @override
+  String get planShareFile => '.sjhplan を共有';
+
+  @override
+  String get planShareFileDesc => 'システム共有を開き、パッケージと上記の説明を一緒に送ります';
 }

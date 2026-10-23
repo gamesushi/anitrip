@@ -7452,6 +7452,84 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'定位权限已被永久拒绝，请在系统设置中开启'**
   String get gpsPermissionDeniedForever;
+
+  /// No description provided for @planShareSection.
+  ///
+  /// In zh, this message translates to:
+  /// **'分享此巡礼清单'**
+  String get planShareSection;
+
+  /// No description provided for @planShareSectionDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'把 .sjhplan 连同这段说明一起发到群里或社交平台，对方用 anitrip 打开即可导入同一份清单。'**
+  String get planShareSectionDesc;
+
+  /// No description provided for @planShareTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'{name} 巡礼清单'**
+  String planShareTitle(String name);
+
+  /// No description provided for @planShareStats.
+  ///
+  /// In zh, this message translates to:
+  /// **'{works} 部作品 · {points} 个巡礼点'**
+  String planShareStats(int works, int points);
+
+  /// No description provided for @planShareArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'地区：{area}'**
+  String planShareArea(String area);
+
+  /// No description provided for @planShareProgress.
+  ///
+  /// In zh, this message translates to:
+  /// **'已打卡 {completed}/{total}（{percent}%）'**
+  String planShareProgress(int completed, int total, int percent);
+
+  /// No description provided for @planShareRecords.
+  ///
+  /// In zh, this message translates to:
+  /// **'含 {count} 条巡礼记录'**
+  String planShareRecords(int count);
+
+  /// No description provided for @planShareFooter.
+  ///
+  /// In zh, this message translates to:
+  /// **'用 anitrip 打开 .sjhplan 即可导入同一份清单'**
+  String get planShareFooter;
+
+  /// No description provided for @planShareEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有巡礼点，先添加几个再分享吧'**
+  String get planShareEmpty;
+
+  /// No description provided for @planShareCopy.
+  ///
+  /// In zh, this message translates to:
+  /// **'复制分享文案'**
+  String get planShareCopy;
+
+  /// No description provided for @planShareCopied.
+  ///
+  /// In zh, this message translates to:
+  /// **'分享文案已复制'**
+  String get planShareCopied;
+
+  /// No description provided for @planShareFile.
+  ///
+  /// In zh, this message translates to:
+  /// **'分享 .sjhplan 文件'**
+  String get planShareFile;
+
+  /// No description provided for @planShareFileDesc.
+  ///
+  /// In zh, this message translates to:
+  /// **'调起系统分享，把数据包和上面的说明一起发出去'**
+  String get planShareFileDesc;
 }
 
 class _AppLocalizationsDelegate

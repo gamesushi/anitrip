@@ -2149,5 +2149,62 @@
   "gpsTrackSaved": "トラックを保存しました：{count} 件、{distance}",
   "gpsLocationServiceDisabled": "位置情報サービスが無効です。システム設定で有効にしてから記録してください。",
   "gpsPermissionDenied": "トラックの記録には位置情報の権限が必要です",
-  "gpsPermissionDeniedForever": "位置情報の権限が永久に拒否されています。システム設定で有効にしてください。"
+  "gpsPermissionDeniedForever": "位置情報の権限が永久に拒否されています。システム設定で有効にしてください。",
+  "planShareSection": "この巡礼リストを共有",
+  "planShareSectionDesc": ".sjhplan をこの説明と一緒に送れば、受け取った人が anitrip で開いて同じリストを取り込めます。",
+  "planShareTitle": "{name} 巡礼リスト",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "作品 {works} 件 · 巡礼地 {points} 件",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "エリア：{area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "巡礼済み {completed}/{total}（{percent}%）",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "巡礼記録 {count} 件を含む",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": ".sjhplan を anitrip で開けば同じリストを取り込めます",
+  "planShareEmpty": "巡礼地がまだありません。いくつか追加してから共有しましょう",
+  "planShareCopy": "共有文をコピー",
+  "planShareCopied": "共有文をコピーしました",
+  "planShareFile": ".sjhplan を共有",
+  "planShareFileDesc": "システム共有を開き、パッケージと上記の説明を一緒に送ります"
 }

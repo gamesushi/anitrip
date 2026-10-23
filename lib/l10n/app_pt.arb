@@ -2076,5 +2076,62 @@
   "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
   "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
   "gpsPermissionDenied": "需要定位权限才能记录轨迹",
-  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "planShareSection": "Compartilhar esta lista de peregrinação",
+  "planShareSectionDesc": "Envie o arquivo .sjhplan junto com esta descrição; quem receber pode abri-lo com o anitrip e importar a mesma lista.",
+  "planShareTitle": "Lista de peregrinação: {name}",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} obras · {points} locais",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "Área: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "Visitados {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "Inclui {count} registos de visita",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "Abra o .sjhplan com o anitrip para importar a mesma lista",
+  "planShareEmpty": "Ainda sem locais: adicione alguns antes de compartilhar",
+  "planShareCopy": "Copiar texto de partilha",
+  "planShareCopied": "Texto de partilha copiado",
+  "planShareFile": "Compartilhar arquivo .sjhplan",
+  "planShareFileDesc": "Abre a partilha do sistema com o pacote e o texto acima"
 }

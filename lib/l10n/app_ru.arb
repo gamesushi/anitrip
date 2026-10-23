@@ -2076,5 +2076,62 @@
   "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
   "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
   "gpsPermissionDenied": "需要定位权限才能记录轨迹",
-  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "planShareSection": "Поделиться этим списком паломничества",
+  "planShareSectionDesc": "Отправьте файл .sjhplan вместе с этим описанием — получатель сможет открыть его в anitrip и импортировать тот же список.",
+  "planShareTitle": "Список паломничества: {name}",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "Работ: {works} · мест: {points}",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "Регион: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "Отмечено {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "Включает {count} записей посещений",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "Откройте .sjhplan в anitrip, чтобы импортировать тот же список",
+  "planShareEmpty": "Пока нет мест — добавьте несколько перед публикацией",
+  "planShareCopy": "Скопировать текст",
+  "planShareCopied": "Текст скопирован",
+  "planShareFile": "Поделиться файлом .sjhplan",
+  "planShareFileDesc": "Открывает системный экспорт с пакетом и текстом выше"
 }

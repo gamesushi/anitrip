@@ -4229,4 +4229,57 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => 'Compartilhar esta lista de peregrinação';
+
+  @override
+  String get planShareSectionDesc =>
+      'Envie o arquivo .sjhplan junto com esta descrição; quem receber pode abri-lo com o anitrip e importar a mesma lista.';
+
+  @override
+  String planShareTitle(String name) {
+    return 'Lista de peregrinação: $name';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works obras · $points locais';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'Área: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'Visitados $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'Inclui $count registos de visita';
+  }
+
+  @override
+  String get planShareFooter =>
+      'Abra o .sjhplan com o anitrip para importar a mesma lista';
+
+  @override
+  String get planShareEmpty =>
+      'Ainda sem locais: adicione alguns antes de compartilhar';
+
+  @override
+  String get planShareCopy => 'Copiar texto de partilha';
+
+  @override
+  String get planShareCopied => 'Texto de partilha copiado';
+
+  @override
+  String get planShareFile => 'Compartilhar arquivo .sjhplan';
+
+  @override
+  String get planShareFileDesc =>
+      'Abre a partilha do sistema com o pacote e o texto acima';
 }

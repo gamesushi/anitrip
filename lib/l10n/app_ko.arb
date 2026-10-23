@@ -2076,5 +2076,62 @@
   "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
   "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
   "gpsPermissionDenied": "需要定位权限才能记录轨迹",
-  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "planShareSection": "이 순례 목록 공유",
+  "planShareSectionDesc": ".sjhplan 파일을 이 설명과 함께 보내면, 받는 사람이 anitrip으로 열어 동일한 목록을 가져올 수 있습니다.",
+  "planShareTitle": "{name} 순례 목록",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "작품 {works}개 · 순례지 {points}곳",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "지역: {area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "인증 {completed}/{total} ({percent}%)",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "순례 기록 {count}건 포함",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": ".sjhplan을 anitrip으로 열면 동일한 목록을 가져올 수 있습니다",
+  "planShareEmpty": "아직 순례지가 없습니다. 몇 개 추가한 뒤 공유하세요",
+  "planShareCopy": "공유 문구 복사",
+  "planShareCopied": "공유 문구를 복사했습니다",
+  "planShareFile": ".sjhplan 파일 공유",
+  "planShareFileDesc": "시스템 공유를 열어 데이터 패키지와 위 설명을 함께 보냅니다"
 }

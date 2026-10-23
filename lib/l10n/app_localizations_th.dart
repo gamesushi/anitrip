@@ -4177,4 +4177,55 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
+
+  @override
+  String get planShareSection => 'แชร์รายการจาริกแสวงบุญนี้';
+
+  @override
+  String get planShareSectionDesc =>
+      'ส่งไฟล์ .sjhplan พร้อมคำอธิบายนี้ไปได้เลย ผู้รับสามารถเปิดด้วย anitrip เพื่อนำเข้ารายการเดียวกัน';
+
+  @override
+  String planShareTitle(String name) {
+    return 'รายการจาริกแสวงบุญ $name';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works เรื่อง · $points จุด';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'พื้นที่: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'เช็คอินแล้ว $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'รวมบันทึกการจาริก $count รายการ';
+  }
+
+  @override
+  String get planShareFooter =>
+      'เปิด .sjhplan ด้วย anitrip เพื่อนำเข้ารายการเดียวกัน';
+
+  @override
+  String get planShareEmpty => 'ยังไม่มีจุดจาริก เพิ่มสักสองสามจุดก่อนแชร์';
+
+  @override
+  String get planShareCopy => 'คัดลอกข้อความแชร์';
+
+  @override
+  String get planShareCopied => 'คัดลอกข้อความแชร์แล้ว';
+
+  @override
+  String get planShareFile => 'แชร์ไฟล์ .sjhplan';
+
+  @override
+  String get planShareFileDesc => 'เปิดแชร์ของระบบพร้อมแพ็กเกจและข้อความด้านบน';
 }

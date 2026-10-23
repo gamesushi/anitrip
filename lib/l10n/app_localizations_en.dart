@@ -4186,4 +4186,56 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get gpsPermissionDeniedForever =>
       'Location permission is permanently denied. Enable it in system settings.';
+
+  @override
+  String get planShareSection => 'Share this pilgrimage list';
+
+  @override
+  String get planShareSectionDesc =>
+      'Send the .sjhplan file together with this description — the recipient can open it with anitrip to import the exact same list.';
+
+  @override
+  String planShareTitle(String name) {
+    return '$name pilgrimage list';
+  }
+
+  @override
+  String planShareStats(int works, int points) {
+    return '$works works · $points spots';
+  }
+
+  @override
+  String planShareArea(String area) {
+    return 'Area: $area';
+  }
+
+  @override
+  String planShareProgress(int completed, int total, int percent) {
+    return 'Checked in $completed/$total ($percent%)';
+  }
+
+  @override
+  String planShareRecords(int count) {
+    return 'Includes $count visit records';
+  }
+
+  @override
+  String get planShareFooter =>
+      'Open the .sjhplan with anitrip to import the same list';
+
+  @override
+  String get planShareEmpty => 'No spots yet — add a few before sharing';
+
+  @override
+  String get planShareCopy => 'Copy share text';
+
+  @override
+  String get planShareCopied => 'Share text copied';
+
+  @override
+  String get planShareFile => 'Share .sjhplan file';
+
+  @override
+  String get planShareFileDesc =>
+      'Opens the system share sheet with the package and the text above';
 }

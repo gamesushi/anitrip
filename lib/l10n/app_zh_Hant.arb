@@ -2149,5 +2149,62 @@
   "gpsTrackSaved": "軌跡已儲存：{count} 個點，{distance}",
   "gpsLocationServiceDisabled": "定位服務未開啟，請在系統設定中啟用後再記錄",
   "gpsPermissionDenied": "需要定位權限才能記錄軌跡",
-  "gpsPermissionDeniedForever": "定位權限已被永久拒絕，請在系統設定中開啟"
+  "gpsPermissionDeniedForever": "定位權限已被永久拒絕，請在系統設定中開啟",
+  "planShareSection": "分享此巡禮清單",
+  "planShareSectionDesc": "把 .sjhplan 連同這段說明一起發到群組或社群平台，對方用 anitrip 開啟即可匯入同一份清單。",
+  "planShareTitle": "{name} 巡禮清單",
+  "@planShareTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareStats": "{works} 部作品 · {points} 個巡禮點",
+  "@planShareStats": {
+    "placeholders": {
+      "works": {
+        "type": "int"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareArea": "地區：{area}",
+  "@planShareArea": {
+    "placeholders": {
+      "area": {
+        "type": "String"
+      }
+    }
+  },
+  "planShareProgress": "已打卡 {completed}/{total}（{percent}%）",
+  "@planShareProgress": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareRecords": "含 {count} 條巡禮記錄",
+  "@planShareRecords": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "planShareFooter": "用 anitrip 開啟 .sjhplan 即可匯入同一份清單",
+  "planShareEmpty": "還沒有巡禮點，先新增幾個再分享吧",
+  "planShareCopy": "複製分享文案",
+  "planShareCopied": "分享文案已複製",
+  "planShareFile": "分享 .sjhplan 檔案",
+  "planShareFileDesc": "叫出系統分享，把資料包和上面的說明一起送出"
 }
