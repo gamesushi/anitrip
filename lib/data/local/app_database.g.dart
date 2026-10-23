@@ -4290,6 +4290,36 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         requiredDuringInsert: false,
         defaultValue: const Constant(10),
       );
+  static const VerificationMeta _cacheTilesOfflineMeta = const VerificationMeta(
+    'cacheTilesOffline',
+  );
+  @override
+  late final GeneratedColumn<bool> cacheTilesOffline = GeneratedColumn<bool>(
+    'cache_tiles_offline',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("cache_tiles_offline" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _gpsTrackEnabledMeta = const VerificationMeta(
+    'gpsTrackEnabled',
+  );
+  @override
+  late final GeneratedColumn<bool> gpsTrackEnabled = GeneratedColumn<bool>(
+    'gps_track_enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("gps_track_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
   static const VerificationMeta _languageMeta = const VerificationMeta(
     'language',
   );
@@ -4332,6 +4362,8 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
     customCameraAspectRatioHeight,
     mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads,
+    cacheTilesOffline,
+    gpsTrackEnabled,
     language,
   ];
   @override
@@ -4585,6 +4617,24 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         ),
       );
     }
+    if (data.containsKey('cache_tiles_offline')) {
+      context.handle(
+        _cacheTilesOfflineMeta,
+        cacheTilesOffline.isAcceptableOrUnknown(
+          data['cache_tiles_offline']!,
+          _cacheTilesOfflineMeta,
+        ),
+      );
+    }
+    if (data.containsKey('gps_track_enabled')) {
+      context.handle(
+        _gpsTrackEnabledMeta,
+        gpsTrackEnabled.isAcceptableOrUnknown(
+          data['gps_track_enabled']!,
+          _gpsTrackEnabledMeta,
+        ),
+      );
+    }
     if (data.containsKey('language')) {
       context.handle(
         _languageMeta,
@@ -4712,6 +4762,14 @@ class $AppSettingsEntriesTable extends AppSettingsEntries
         DriftSqlType.int,
         data['${effectivePrefix}map_thumbnail_concurrent_loads'],
       )!,
+      cacheTilesOffline: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}cache_tiles_offline'],
+      )!,
+      gpsTrackEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}gps_track_enabled'],
+      )!,
       language: attachedDatabase.typeMapping.read(
         DriftSqlType.string,
         data['${effectivePrefix}language'],
@@ -4755,6 +4813,8 @@ class AppSettingsEntry extends DataClass
   final double customCameraAspectRatioHeight;
   final int mapThumbnailVisibleThreshold;
   final int mapThumbnailConcurrentLoads;
+  final bool cacheTilesOffline;
+  final bool gpsTrackEnabled;
   final String language;
   const AppSettingsEntry({
     required this.id,
@@ -4785,6 +4845,8 @@ class AppSettingsEntry extends DataClass
     required this.customCameraAspectRatioHeight,
     required this.mapThumbnailVisibleThreshold,
     required this.mapThumbnailConcurrentLoads,
+    required this.cacheTilesOffline,
+    required this.gpsTrackEnabled,
     required this.language,
   });
   @override
@@ -4838,6 +4900,8 @@ class AppSettingsEntry extends DataClass
     map['map_thumbnail_concurrent_loads'] = Variable<int>(
       mapThumbnailConcurrentLoads,
     );
+    map['cache_tiles_offline'] = Variable<bool>(cacheTilesOffline);
+    map['gps_track_enabled'] = Variable<bool>(gpsTrackEnabled);
     map['language'] = Variable<String>(language);
     return map;
   }
@@ -4872,6 +4936,8 @@ class AppSettingsEntry extends DataClass
       customCameraAspectRatioHeight: Value(customCameraAspectRatioHeight),
       mapThumbnailVisibleThreshold: Value(mapThumbnailVisibleThreshold),
       mapThumbnailConcurrentLoads: Value(mapThumbnailConcurrentLoads),
+      cacheTilesOffline: Value(cacheTilesOffline),
+      gpsTrackEnabled: Value(gpsTrackEnabled),
       language: Value(language),
     );
   }
@@ -4942,6 +5008,8 @@ class AppSettingsEntry extends DataClass
       mapThumbnailConcurrentLoads: serializer.fromJson<int>(
         json['mapThumbnailConcurrentLoads'],
       ),
+      cacheTilesOffline: serializer.fromJson<bool>(json['cacheTilesOffline']),
+      gpsTrackEnabled: serializer.fromJson<bool>(json['gpsTrackEnabled']),
       language: serializer.fromJson<String>(json['language']),
     );
   }
@@ -4997,6 +5065,8 @@ class AppSettingsEntry extends DataClass
       'mapThumbnailConcurrentLoads': serializer.toJson<int>(
         mapThumbnailConcurrentLoads,
       ),
+      'cacheTilesOffline': serializer.toJson<bool>(cacheTilesOffline),
+      'gpsTrackEnabled': serializer.toJson<bool>(gpsTrackEnabled),
       'language': serializer.toJson<String>(language),
     };
   }
@@ -5030,6 +5100,8 @@ class AppSettingsEntry extends DataClass
     double? customCameraAspectRatioHeight,
     int? mapThumbnailVisibleThreshold,
     int? mapThumbnailConcurrentLoads,
+    bool? cacheTilesOffline,
+    bool? gpsTrackEnabled,
     String? language,
   }) => AppSettingsEntry(
     id: id ?? this.id,
@@ -5070,6 +5142,8 @@ class AppSettingsEntry extends DataClass
         mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads:
         mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+    cacheTilesOffline: cacheTilesOffline ?? this.cacheTilesOffline,
+    gpsTrackEnabled: gpsTrackEnabled ?? this.gpsTrackEnabled,
     language: language ?? this.language,
   );
   AppSettingsEntry copyWithCompanion(AppSettingsEntriesCompanion data) {
@@ -5150,6 +5224,12 @@ class AppSettingsEntry extends DataClass
       mapThumbnailConcurrentLoads: data.mapThumbnailConcurrentLoads.present
           ? data.mapThumbnailConcurrentLoads.value
           : this.mapThumbnailConcurrentLoads,
+      cacheTilesOffline: data.cacheTilesOffline.present
+          ? data.cacheTilesOffline.value
+          : this.cacheTilesOffline,
+      gpsTrackEnabled: data.gpsTrackEnabled.present
+          ? data.gpsTrackEnabled.value
+          : this.gpsTrackEnabled,
       language: data.language.present ? data.language.value : this.language,
     );
   }
@@ -5191,6 +5271,8 @@ class AppSettingsEntry extends DataClass
             'mapThumbnailVisibleThreshold: $mapThumbnailVisibleThreshold, ',
           )
           ..write('mapThumbnailConcurrentLoads: $mapThumbnailConcurrentLoads, ')
+          ..write('cacheTilesOffline: $cacheTilesOffline, ')
+          ..write('gpsTrackEnabled: $gpsTrackEnabled, ')
           ..write('language: $language')
           ..write(')'))
         .toString();
@@ -5226,6 +5308,8 @@ class AppSettingsEntry extends DataClass
     customCameraAspectRatioHeight,
     mapThumbnailVisibleThreshold,
     mapThumbnailConcurrentLoads,
+    cacheTilesOffline,
+    gpsTrackEnabled,
     language,
   ]);
   @override
@@ -5266,6 +5350,8 @@ class AppSettingsEntry extends DataClass
               this.mapThumbnailVisibleThreshold &&
           other.mapThumbnailConcurrentLoads ==
               this.mapThumbnailConcurrentLoads &&
+          other.cacheTilesOffline == this.cacheTilesOffline &&
+          other.gpsTrackEnabled == this.gpsTrackEnabled &&
           other.language == this.language);
 }
 
@@ -5298,6 +5384,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
   final Value<double> customCameraAspectRatioHeight;
   final Value<int> mapThumbnailVisibleThreshold;
   final Value<int> mapThumbnailConcurrentLoads;
+  final Value<bool> cacheTilesOffline;
+  final Value<bool> gpsTrackEnabled;
   final Value<String> language;
   final Value<int> rowid;
   const AppSettingsEntriesCompanion({
@@ -5329,6 +5417,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     this.customCameraAspectRatioHeight = const Value.absent(),
     this.mapThumbnailVisibleThreshold = const Value.absent(),
     this.mapThumbnailConcurrentLoads = const Value.absent(),
+    this.cacheTilesOffline = const Value.absent(),
+    this.gpsTrackEnabled = const Value.absent(),
     this.language = const Value.absent(),
     this.rowid = const Value.absent(),
   });
@@ -5361,6 +5451,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     this.customCameraAspectRatioHeight = const Value.absent(),
     this.mapThumbnailVisibleThreshold = const Value.absent(),
     this.mapThumbnailConcurrentLoads = const Value.absent(),
+    this.cacheTilesOffline = const Value.absent(),
+    this.gpsTrackEnabled = const Value.absent(),
     this.language = const Value.absent(),
     this.rowid = const Value.absent(),
   }) : id = Value(id);
@@ -5393,6 +5485,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     Expression<double>? customCameraAspectRatioHeight,
     Expression<int>? mapThumbnailVisibleThreshold,
     Expression<int>? mapThumbnailConcurrentLoads,
+    Expression<bool>? cacheTilesOffline,
+    Expression<bool>? gpsTrackEnabled,
     Expression<String>? language,
     Expression<int>? rowid,
   }) {
@@ -5441,6 +5535,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
         'map_thumbnail_visible_threshold': mapThumbnailVisibleThreshold,
       if (mapThumbnailConcurrentLoads != null)
         'map_thumbnail_concurrent_loads': mapThumbnailConcurrentLoads,
+      if (cacheTilesOffline != null) 'cache_tiles_offline': cacheTilesOffline,
+      if (gpsTrackEnabled != null) 'gps_track_enabled': gpsTrackEnabled,
       if (language != null) 'language': language,
       if (rowid != null) 'rowid': rowid,
     });
@@ -5475,6 +5571,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
     Value<double>? customCameraAspectRatioHeight,
     Value<int>? mapThumbnailVisibleThreshold,
     Value<int>? mapThumbnailConcurrentLoads,
+    Value<bool>? cacheTilesOffline,
+    Value<bool>? gpsTrackEnabled,
     Value<String>? language,
     Value<int>? rowid,
   }) {
@@ -5520,6 +5618,8 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
           mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
       mapThumbnailConcurrentLoads:
           mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+      cacheTilesOffline: cacheTilesOffline ?? this.cacheTilesOffline,
+      gpsTrackEnabled: gpsTrackEnabled ?? this.gpsTrackEnabled,
       language: language ?? this.language,
       rowid: rowid ?? this.rowid,
     );
@@ -5642,6 +5742,12 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
         mapThumbnailConcurrentLoads.value,
       );
     }
+    if (cacheTilesOffline.present) {
+      map['cache_tiles_offline'] = Variable<bool>(cacheTilesOffline.value);
+    }
+    if (gpsTrackEnabled.present) {
+      map['gps_track_enabled'] = Variable<bool>(gpsTrackEnabled.value);
+    }
     if (language.present) {
       map['language'] = Variable<String>(language.value);
     }
@@ -5688,7 +5794,2016 @@ class AppSettingsEntriesCompanion extends UpdateCompanion<AppSettingsEntry> {
             'mapThumbnailVisibleThreshold: $mapThumbnailVisibleThreshold, ',
           )
           ..write('mapThumbnailConcurrentLoads: $mapThumbnailConcurrentLoads, ')
+          ..write('cacheTilesOffline: $cacheTilesOffline, ')
+          ..write('gpsTrackEnabled: $gpsTrackEnabled, ')
           ..write('language: $language, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $AnchorCorrectionsTable extends AnchorCorrections
+    with TableInfo<$AnchorCorrectionsTable, AnchorCorrection> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AnchorCorrectionsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _planIdMeta = const VerificationMeta('planId');
+  @override
+  late final GeneratedColumn<String> planId = GeneratedColumn<String>(
+    'plan_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _pointIdMeta = const VerificationMeta(
+    'pointId',
+  );
+  @override
+  late final GeneratedColumn<String> pointId = GeneratedColumn<String>(
+    'point_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _workIdMeta = const VerificationMeta('workId');
+  @override
+  late final GeneratedColumn<String> workId = GeneratedColumn<String>(
+    'work_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _workTitleMeta = const VerificationMeta(
+    'workTitle',
+  );
+  @override
+  late final GeneratedColumn<String> workTitle = GeneratedColumn<String>(
+    'work_title',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _pointNameMeta = const VerificationMeta(
+    'pointName',
+  );
+  @override
+  late final GeneratedColumn<String> pointName = GeneratedColumn<String>(
+    'point_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _sourceMeta = const VerificationMeta('source');
+  @override
+  late final GeneratedColumn<String> source = GeneratedColumn<String>(
+    'source',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _sourceIdMeta = const VerificationMeta(
+    'sourceId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceId = GeneratedColumn<String>(
+    'source_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _pointLatitudeMeta = const VerificationMeta(
+    'pointLatitude',
+  );
+  @override
+  late final GeneratedColumn<double> pointLatitude = GeneratedColumn<double>(
+    'point_latitude',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _pointLongitudeMeta = const VerificationMeta(
+    'pointLongitude',
+  );
+  @override
+  late final GeneratedColumn<double> pointLongitude = GeneratedColumn<double>(
+    'point_longitude',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _suggestedLatitudeMeta = const VerificationMeta(
+    'suggestedLatitude',
+  );
+  @override
+  late final GeneratedColumn<double> suggestedLatitude =
+      GeneratedColumn<double>(
+        'suggested_latitude',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _suggestedLongitudeMeta =
+      const VerificationMeta('suggestedLongitude');
+  @override
+  late final GeneratedColumn<double> suggestedLongitude =
+      GeneratedColumn<double>(
+        'suggested_longitude',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _photoPathMeta = const VerificationMeta(
+    'photoPath',
+  );
+  @override
+  late final GeneratedColumn<String> photoPath = GeneratedColumn<String>(
+    'photo_path',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('submitted'),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _exportedAtMeta = const VerificationMeta(
+    'exportedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> exportedAt = GeneratedColumn<DateTime>(
+    'exported_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    planId,
+    pointId,
+    workId,
+    workTitle,
+    pointName,
+    source,
+    sourceId,
+    pointLatitude,
+    pointLongitude,
+    suggestedLatitude,
+    suggestedLongitude,
+    description,
+    photoPath,
+    status,
+    createdAt,
+    exportedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'anchor_corrections';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AnchorCorrection> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('plan_id')) {
+      context.handle(
+        _planIdMeta,
+        planId.isAcceptableOrUnknown(data['plan_id']!, _planIdMeta),
+      );
+    }
+    if (data.containsKey('point_id')) {
+      context.handle(
+        _pointIdMeta,
+        pointId.isAcceptableOrUnknown(data['point_id']!, _pointIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_pointIdMeta);
+    }
+    if (data.containsKey('work_id')) {
+      context.handle(
+        _workIdMeta,
+        workId.isAcceptableOrUnknown(data['work_id']!, _workIdMeta),
+      );
+    }
+    if (data.containsKey('work_title')) {
+      context.handle(
+        _workTitleMeta,
+        workTitle.isAcceptableOrUnknown(data['work_title']!, _workTitleMeta),
+      );
+    }
+    if (data.containsKey('point_name')) {
+      context.handle(
+        _pointNameMeta,
+        pointName.isAcceptableOrUnknown(data['point_name']!, _pointNameMeta),
+      );
+    }
+    if (data.containsKey('source')) {
+      context.handle(
+        _sourceMeta,
+        source.isAcceptableOrUnknown(data['source']!, _sourceMeta),
+      );
+    }
+    if (data.containsKey('source_id')) {
+      context.handle(
+        _sourceIdMeta,
+        sourceId.isAcceptableOrUnknown(data['source_id']!, _sourceIdMeta),
+      );
+    }
+    if (data.containsKey('point_latitude')) {
+      context.handle(
+        _pointLatitudeMeta,
+        pointLatitude.isAcceptableOrUnknown(
+          data['point_latitude']!,
+          _pointLatitudeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_pointLatitudeMeta);
+    }
+    if (data.containsKey('point_longitude')) {
+      context.handle(
+        _pointLongitudeMeta,
+        pointLongitude.isAcceptableOrUnknown(
+          data['point_longitude']!,
+          _pointLongitudeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_pointLongitudeMeta);
+    }
+    if (data.containsKey('suggested_latitude')) {
+      context.handle(
+        _suggestedLatitudeMeta,
+        suggestedLatitude.isAcceptableOrUnknown(
+          data['suggested_latitude']!,
+          _suggestedLatitudeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('suggested_longitude')) {
+      context.handle(
+        _suggestedLongitudeMeta,
+        suggestedLongitude.isAcceptableOrUnknown(
+          data['suggested_longitude']!,
+          _suggestedLongitudeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('photo_path')) {
+      context.handle(
+        _photoPathMeta,
+        photoPath.isAcceptableOrUnknown(data['photo_path']!, _photoPathMeta),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('exported_at')) {
+      context.handle(
+        _exportedAtMeta,
+        exportedAt.isAcceptableOrUnknown(data['exported_at']!, _exportedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AnchorCorrection map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AnchorCorrection(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      planId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}plan_id'],
+      ),
+      pointId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}point_id'],
+      )!,
+      workId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}work_id'],
+      ),
+      workTitle: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}work_title'],
+      ),
+      pointName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}point_name'],
+      ),
+      source: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source'],
+      ),
+      sourceId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_id'],
+      ),
+      pointLatitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}point_latitude'],
+      )!,
+      pointLongitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}point_longitude'],
+      )!,
+      suggestedLatitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}suggested_latitude'],
+      ),
+      suggestedLongitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}suggested_longitude'],
+      ),
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      photoPath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_path'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      exportedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}exported_at'],
+      ),
+    );
+  }
+
+  @override
+  $AnchorCorrectionsTable createAlias(String alias) {
+    return $AnchorCorrectionsTable(attachedDatabase, alias);
+  }
+}
+
+class AnchorCorrection extends DataClass
+    implements Insertable<AnchorCorrection> {
+  final String id;
+  final String? planId;
+  final String pointId;
+  final String? workId;
+  final String? workTitle;
+  final String? pointName;
+  final String? source;
+  final String? sourceId;
+  final double pointLatitude;
+  final double pointLongitude;
+  final double? suggestedLatitude;
+  final double? suggestedLongitude;
+  final String? description;
+  final String? photoPath;
+  final String status;
+  final DateTime createdAt;
+  final DateTime? exportedAt;
+  const AnchorCorrection({
+    required this.id,
+    this.planId,
+    required this.pointId,
+    this.workId,
+    this.workTitle,
+    this.pointName,
+    this.source,
+    this.sourceId,
+    required this.pointLatitude,
+    required this.pointLongitude,
+    this.suggestedLatitude,
+    this.suggestedLongitude,
+    this.description,
+    this.photoPath,
+    required this.status,
+    required this.createdAt,
+    this.exportedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || planId != null) {
+      map['plan_id'] = Variable<String>(planId);
+    }
+    map['point_id'] = Variable<String>(pointId);
+    if (!nullToAbsent || workId != null) {
+      map['work_id'] = Variable<String>(workId);
+    }
+    if (!nullToAbsent || workTitle != null) {
+      map['work_title'] = Variable<String>(workTitle);
+    }
+    if (!nullToAbsent || pointName != null) {
+      map['point_name'] = Variable<String>(pointName);
+    }
+    if (!nullToAbsent || source != null) {
+      map['source'] = Variable<String>(source);
+    }
+    if (!nullToAbsent || sourceId != null) {
+      map['source_id'] = Variable<String>(sourceId);
+    }
+    map['point_latitude'] = Variable<double>(pointLatitude);
+    map['point_longitude'] = Variable<double>(pointLongitude);
+    if (!nullToAbsent || suggestedLatitude != null) {
+      map['suggested_latitude'] = Variable<double>(suggestedLatitude);
+    }
+    if (!nullToAbsent || suggestedLongitude != null) {
+      map['suggested_longitude'] = Variable<double>(suggestedLongitude);
+    }
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || photoPath != null) {
+      map['photo_path'] = Variable<String>(photoPath);
+    }
+    map['status'] = Variable<String>(status);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    if (!nullToAbsent || exportedAt != null) {
+      map['exported_at'] = Variable<DateTime>(exportedAt);
+    }
+    return map;
+  }
+
+  AnchorCorrectionsCompanion toCompanion(bool nullToAbsent) {
+    return AnchorCorrectionsCompanion(
+      id: Value(id),
+      planId: planId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(planId),
+      pointId: Value(pointId),
+      workId: workId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(workId),
+      workTitle: workTitle == null && nullToAbsent
+          ? const Value.absent()
+          : Value(workTitle),
+      pointName: pointName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pointName),
+      source: source == null && nullToAbsent
+          ? const Value.absent()
+          : Value(source),
+      sourceId: sourceId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sourceId),
+      pointLatitude: Value(pointLatitude),
+      pointLongitude: Value(pointLongitude),
+      suggestedLatitude: suggestedLatitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(suggestedLatitude),
+      suggestedLongitude: suggestedLongitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(suggestedLongitude),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      photoPath: photoPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoPath),
+      status: Value(status),
+      createdAt: Value(createdAt),
+      exportedAt: exportedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(exportedAt),
+    );
+  }
+
+  factory AnchorCorrection.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AnchorCorrection(
+      id: serializer.fromJson<String>(json['id']),
+      planId: serializer.fromJson<String?>(json['planId']),
+      pointId: serializer.fromJson<String>(json['pointId']),
+      workId: serializer.fromJson<String?>(json['workId']),
+      workTitle: serializer.fromJson<String?>(json['workTitle']),
+      pointName: serializer.fromJson<String?>(json['pointName']),
+      source: serializer.fromJson<String?>(json['source']),
+      sourceId: serializer.fromJson<String?>(json['sourceId']),
+      pointLatitude: serializer.fromJson<double>(json['pointLatitude']),
+      pointLongitude: serializer.fromJson<double>(json['pointLongitude']),
+      suggestedLatitude: serializer.fromJson<double?>(
+        json['suggestedLatitude'],
+      ),
+      suggestedLongitude: serializer.fromJson<double?>(
+        json['suggestedLongitude'],
+      ),
+      description: serializer.fromJson<String?>(json['description']),
+      photoPath: serializer.fromJson<String?>(json['photoPath']),
+      status: serializer.fromJson<String>(json['status']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      exportedAt: serializer.fromJson<DateTime?>(json['exportedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'planId': serializer.toJson<String?>(planId),
+      'pointId': serializer.toJson<String>(pointId),
+      'workId': serializer.toJson<String?>(workId),
+      'workTitle': serializer.toJson<String?>(workTitle),
+      'pointName': serializer.toJson<String?>(pointName),
+      'source': serializer.toJson<String?>(source),
+      'sourceId': serializer.toJson<String?>(sourceId),
+      'pointLatitude': serializer.toJson<double>(pointLatitude),
+      'pointLongitude': serializer.toJson<double>(pointLongitude),
+      'suggestedLatitude': serializer.toJson<double?>(suggestedLatitude),
+      'suggestedLongitude': serializer.toJson<double?>(suggestedLongitude),
+      'description': serializer.toJson<String?>(description),
+      'photoPath': serializer.toJson<String?>(photoPath),
+      'status': serializer.toJson<String>(status),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'exportedAt': serializer.toJson<DateTime?>(exportedAt),
+    };
+  }
+
+  AnchorCorrection copyWith({
+    String? id,
+    Value<String?> planId = const Value.absent(),
+    String? pointId,
+    Value<String?> workId = const Value.absent(),
+    Value<String?> workTitle = const Value.absent(),
+    Value<String?> pointName = const Value.absent(),
+    Value<String?> source = const Value.absent(),
+    Value<String?> sourceId = const Value.absent(),
+    double? pointLatitude,
+    double? pointLongitude,
+    Value<double?> suggestedLatitude = const Value.absent(),
+    Value<double?> suggestedLongitude = const Value.absent(),
+    Value<String?> description = const Value.absent(),
+    Value<String?> photoPath = const Value.absent(),
+    String? status,
+    DateTime? createdAt,
+    Value<DateTime?> exportedAt = const Value.absent(),
+  }) => AnchorCorrection(
+    id: id ?? this.id,
+    planId: planId.present ? planId.value : this.planId,
+    pointId: pointId ?? this.pointId,
+    workId: workId.present ? workId.value : this.workId,
+    workTitle: workTitle.present ? workTitle.value : this.workTitle,
+    pointName: pointName.present ? pointName.value : this.pointName,
+    source: source.present ? source.value : this.source,
+    sourceId: sourceId.present ? sourceId.value : this.sourceId,
+    pointLatitude: pointLatitude ?? this.pointLatitude,
+    pointLongitude: pointLongitude ?? this.pointLongitude,
+    suggestedLatitude: suggestedLatitude.present
+        ? suggestedLatitude.value
+        : this.suggestedLatitude,
+    suggestedLongitude: suggestedLongitude.present
+        ? suggestedLongitude.value
+        : this.suggestedLongitude,
+    description: description.present ? description.value : this.description,
+    photoPath: photoPath.present ? photoPath.value : this.photoPath,
+    status: status ?? this.status,
+    createdAt: createdAt ?? this.createdAt,
+    exportedAt: exportedAt.present ? exportedAt.value : this.exportedAt,
+  );
+  AnchorCorrection copyWithCompanion(AnchorCorrectionsCompanion data) {
+    return AnchorCorrection(
+      id: data.id.present ? data.id.value : this.id,
+      planId: data.planId.present ? data.planId.value : this.planId,
+      pointId: data.pointId.present ? data.pointId.value : this.pointId,
+      workId: data.workId.present ? data.workId.value : this.workId,
+      workTitle: data.workTitle.present ? data.workTitle.value : this.workTitle,
+      pointName: data.pointName.present ? data.pointName.value : this.pointName,
+      source: data.source.present ? data.source.value : this.source,
+      sourceId: data.sourceId.present ? data.sourceId.value : this.sourceId,
+      pointLatitude: data.pointLatitude.present
+          ? data.pointLatitude.value
+          : this.pointLatitude,
+      pointLongitude: data.pointLongitude.present
+          ? data.pointLongitude.value
+          : this.pointLongitude,
+      suggestedLatitude: data.suggestedLatitude.present
+          ? data.suggestedLatitude.value
+          : this.suggestedLatitude,
+      suggestedLongitude: data.suggestedLongitude.present
+          ? data.suggestedLongitude.value
+          : this.suggestedLongitude,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      photoPath: data.photoPath.present ? data.photoPath.value : this.photoPath,
+      status: data.status.present ? data.status.value : this.status,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      exportedAt: data.exportedAt.present
+          ? data.exportedAt.value
+          : this.exportedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AnchorCorrection(')
+          ..write('id: $id, ')
+          ..write('planId: $planId, ')
+          ..write('pointId: $pointId, ')
+          ..write('workId: $workId, ')
+          ..write('workTitle: $workTitle, ')
+          ..write('pointName: $pointName, ')
+          ..write('source: $source, ')
+          ..write('sourceId: $sourceId, ')
+          ..write('pointLatitude: $pointLatitude, ')
+          ..write('pointLongitude: $pointLongitude, ')
+          ..write('suggestedLatitude: $suggestedLatitude, ')
+          ..write('suggestedLongitude: $suggestedLongitude, ')
+          ..write('description: $description, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('status: $status, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('exportedAt: $exportedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    planId,
+    pointId,
+    workId,
+    workTitle,
+    pointName,
+    source,
+    sourceId,
+    pointLatitude,
+    pointLongitude,
+    suggestedLatitude,
+    suggestedLongitude,
+    description,
+    photoPath,
+    status,
+    createdAt,
+    exportedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AnchorCorrection &&
+          other.id == this.id &&
+          other.planId == this.planId &&
+          other.pointId == this.pointId &&
+          other.workId == this.workId &&
+          other.workTitle == this.workTitle &&
+          other.pointName == this.pointName &&
+          other.source == this.source &&
+          other.sourceId == this.sourceId &&
+          other.pointLatitude == this.pointLatitude &&
+          other.pointLongitude == this.pointLongitude &&
+          other.suggestedLatitude == this.suggestedLatitude &&
+          other.suggestedLongitude == this.suggestedLongitude &&
+          other.description == this.description &&
+          other.photoPath == this.photoPath &&
+          other.status == this.status &&
+          other.createdAt == this.createdAt &&
+          other.exportedAt == this.exportedAt);
+}
+
+class AnchorCorrectionsCompanion extends UpdateCompanion<AnchorCorrection> {
+  final Value<String> id;
+  final Value<String?> planId;
+  final Value<String> pointId;
+  final Value<String?> workId;
+  final Value<String?> workTitle;
+  final Value<String?> pointName;
+  final Value<String?> source;
+  final Value<String?> sourceId;
+  final Value<double> pointLatitude;
+  final Value<double> pointLongitude;
+  final Value<double?> suggestedLatitude;
+  final Value<double?> suggestedLongitude;
+  final Value<String?> description;
+  final Value<String?> photoPath;
+  final Value<String> status;
+  final Value<DateTime> createdAt;
+  final Value<DateTime?> exportedAt;
+  final Value<int> rowid;
+  const AnchorCorrectionsCompanion({
+    this.id = const Value.absent(),
+    this.planId = const Value.absent(),
+    this.pointId = const Value.absent(),
+    this.workId = const Value.absent(),
+    this.workTitle = const Value.absent(),
+    this.pointName = const Value.absent(),
+    this.source = const Value.absent(),
+    this.sourceId = const Value.absent(),
+    this.pointLatitude = const Value.absent(),
+    this.pointLongitude = const Value.absent(),
+    this.suggestedLatitude = const Value.absent(),
+    this.suggestedLongitude = const Value.absent(),
+    this.description = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.status = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.exportedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  AnchorCorrectionsCompanion.insert({
+    required String id,
+    this.planId = const Value.absent(),
+    required String pointId,
+    this.workId = const Value.absent(),
+    this.workTitle = const Value.absent(),
+    this.pointName = const Value.absent(),
+    this.source = const Value.absent(),
+    this.sourceId = const Value.absent(),
+    required double pointLatitude,
+    required double pointLongitude,
+    this.suggestedLatitude = const Value.absent(),
+    this.suggestedLongitude = const Value.absent(),
+    this.description = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.status = const Value.absent(),
+    required DateTime createdAt,
+    this.exportedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       pointId = Value(pointId),
+       pointLatitude = Value(pointLatitude),
+       pointLongitude = Value(pointLongitude),
+       createdAt = Value(createdAt);
+  static Insertable<AnchorCorrection> custom({
+    Expression<String>? id,
+    Expression<String>? planId,
+    Expression<String>? pointId,
+    Expression<String>? workId,
+    Expression<String>? workTitle,
+    Expression<String>? pointName,
+    Expression<String>? source,
+    Expression<String>? sourceId,
+    Expression<double>? pointLatitude,
+    Expression<double>? pointLongitude,
+    Expression<double>? suggestedLatitude,
+    Expression<double>? suggestedLongitude,
+    Expression<String>? description,
+    Expression<String>? photoPath,
+    Expression<String>? status,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? exportedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (planId != null) 'plan_id': planId,
+      if (pointId != null) 'point_id': pointId,
+      if (workId != null) 'work_id': workId,
+      if (workTitle != null) 'work_title': workTitle,
+      if (pointName != null) 'point_name': pointName,
+      if (source != null) 'source': source,
+      if (sourceId != null) 'source_id': sourceId,
+      if (pointLatitude != null) 'point_latitude': pointLatitude,
+      if (pointLongitude != null) 'point_longitude': pointLongitude,
+      if (suggestedLatitude != null) 'suggested_latitude': suggestedLatitude,
+      if (suggestedLongitude != null) 'suggested_longitude': suggestedLongitude,
+      if (description != null) 'description': description,
+      if (photoPath != null) 'photo_path': photoPath,
+      if (status != null) 'status': status,
+      if (createdAt != null) 'created_at': createdAt,
+      if (exportedAt != null) 'exported_at': exportedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  AnchorCorrectionsCompanion copyWith({
+    Value<String>? id,
+    Value<String?>? planId,
+    Value<String>? pointId,
+    Value<String?>? workId,
+    Value<String?>? workTitle,
+    Value<String?>? pointName,
+    Value<String?>? source,
+    Value<String?>? sourceId,
+    Value<double>? pointLatitude,
+    Value<double>? pointLongitude,
+    Value<double?>? suggestedLatitude,
+    Value<double?>? suggestedLongitude,
+    Value<String?>? description,
+    Value<String?>? photoPath,
+    Value<String>? status,
+    Value<DateTime>? createdAt,
+    Value<DateTime?>? exportedAt,
+    Value<int>? rowid,
+  }) {
+    return AnchorCorrectionsCompanion(
+      id: id ?? this.id,
+      planId: planId ?? this.planId,
+      pointId: pointId ?? this.pointId,
+      workId: workId ?? this.workId,
+      workTitle: workTitle ?? this.workTitle,
+      pointName: pointName ?? this.pointName,
+      source: source ?? this.source,
+      sourceId: sourceId ?? this.sourceId,
+      pointLatitude: pointLatitude ?? this.pointLatitude,
+      pointLongitude: pointLongitude ?? this.pointLongitude,
+      suggestedLatitude: suggestedLatitude ?? this.suggestedLatitude,
+      suggestedLongitude: suggestedLongitude ?? this.suggestedLongitude,
+      description: description ?? this.description,
+      photoPath: photoPath ?? this.photoPath,
+      status: status ?? this.status,
+      createdAt: createdAt ?? this.createdAt,
+      exportedAt: exportedAt ?? this.exportedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (planId.present) {
+      map['plan_id'] = Variable<String>(planId.value);
+    }
+    if (pointId.present) {
+      map['point_id'] = Variable<String>(pointId.value);
+    }
+    if (workId.present) {
+      map['work_id'] = Variable<String>(workId.value);
+    }
+    if (workTitle.present) {
+      map['work_title'] = Variable<String>(workTitle.value);
+    }
+    if (pointName.present) {
+      map['point_name'] = Variable<String>(pointName.value);
+    }
+    if (source.present) {
+      map['source'] = Variable<String>(source.value);
+    }
+    if (sourceId.present) {
+      map['source_id'] = Variable<String>(sourceId.value);
+    }
+    if (pointLatitude.present) {
+      map['point_latitude'] = Variable<double>(pointLatitude.value);
+    }
+    if (pointLongitude.present) {
+      map['point_longitude'] = Variable<double>(pointLongitude.value);
+    }
+    if (suggestedLatitude.present) {
+      map['suggested_latitude'] = Variable<double>(suggestedLatitude.value);
+    }
+    if (suggestedLongitude.present) {
+      map['suggested_longitude'] = Variable<double>(suggestedLongitude.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (photoPath.present) {
+      map['photo_path'] = Variable<String>(photoPath.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (exportedAt.present) {
+      map['exported_at'] = Variable<DateTime>(exportedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AnchorCorrectionsCompanion(')
+          ..write('id: $id, ')
+          ..write('planId: $planId, ')
+          ..write('pointId: $pointId, ')
+          ..write('workId: $workId, ')
+          ..write('workTitle: $workTitle, ')
+          ..write('pointName: $pointName, ')
+          ..write('source: $source, ')
+          ..write('sourceId: $sourceId, ')
+          ..write('pointLatitude: $pointLatitude, ')
+          ..write('pointLongitude: $pointLongitude, ')
+          ..write('suggestedLatitude: $suggestedLatitude, ')
+          ..write('suggestedLongitude: $suggestedLongitude, ')
+          ..write('description: $description, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('status: $status, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('exportedAt: $exportedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GpsTracksTable extends GpsTracks
+    with TableInfo<$GpsTracksTable, GpsTrack> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GpsTracksTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _planIdMeta = const VerificationMeta('planId');
+  @override
+  late final GeneratedColumn<String> planId = GeneratedColumn<String>(
+    'plan_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(''),
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  @override
+  late final GeneratedColumn<int> startedAt = GeneratedColumn<int>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _endedAtMeta = const VerificationMeta(
+    'endedAt',
+  );
+  @override
+  late final GeneratedColumn<int> endedAt = GeneratedColumn<int>(
+    'ended_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('recording'),
+  );
+  static const VerificationMeta _pointCountMeta = const VerificationMeta(
+    'pointCount',
+  );
+  @override
+  late final GeneratedColumn<int> pointCount = GeneratedColumn<int>(
+    'point_count',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _distanceMetersMeta = const VerificationMeta(
+    'distanceMeters',
+  );
+  @override
+  late final GeneratedColumn<double> distanceMeters = GeneratedColumn<double>(
+    'distance_meters',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0.0),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    planId,
+    title,
+    startedAt,
+    endedAt,
+    status,
+    pointCount,
+    distanceMeters,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'gps_tracks';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GpsTrack> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('plan_id')) {
+      context.handle(
+        _planIdMeta,
+        planId.isAcceptableOrUnknown(data['plan_id']!, _planIdMeta),
+      );
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    if (data.containsKey('ended_at')) {
+      context.handle(
+        _endedAtMeta,
+        endedAt.isAcceptableOrUnknown(data['ended_at']!, _endedAtMeta),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    }
+    if (data.containsKey('point_count')) {
+      context.handle(
+        _pointCountMeta,
+        pointCount.isAcceptableOrUnknown(data['point_count']!, _pointCountMeta),
+      );
+    }
+    if (data.containsKey('distance_meters')) {
+      context.handle(
+        _distanceMetersMeta,
+        distanceMeters.isAcceptableOrUnknown(
+          data['distance_meters']!,
+          _distanceMetersMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  GpsTrack map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GpsTrack(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      planId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}plan_id'],
+      ),
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}started_at'],
+      )!,
+      endedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}ended_at'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      pointCount: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}point_count'],
+      )!,
+      distanceMeters: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}distance_meters'],
+      )!,
+    );
+  }
+
+  @override
+  $GpsTracksTable createAlias(String alias) {
+    return $GpsTracksTable(attachedDatabase, alias);
+  }
+}
+
+class GpsTrack extends DataClass implements Insertable<GpsTrack> {
+  final String id;
+  final String? planId;
+  final String title;
+  final int startedAt;
+  final int? endedAt;
+
+  /// recording / paused / completed
+  final String status;
+  final int pointCount;
+  final double distanceMeters;
+  const GpsTrack({
+    required this.id,
+    this.planId,
+    required this.title,
+    required this.startedAt,
+    this.endedAt,
+    required this.status,
+    required this.pointCount,
+    required this.distanceMeters,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || planId != null) {
+      map['plan_id'] = Variable<String>(planId);
+    }
+    map['title'] = Variable<String>(title);
+    map['started_at'] = Variable<int>(startedAt);
+    if (!nullToAbsent || endedAt != null) {
+      map['ended_at'] = Variable<int>(endedAt);
+    }
+    map['status'] = Variable<String>(status);
+    map['point_count'] = Variable<int>(pointCount);
+    map['distance_meters'] = Variable<double>(distanceMeters);
+    return map;
+  }
+
+  GpsTracksCompanion toCompanion(bool nullToAbsent) {
+    return GpsTracksCompanion(
+      id: Value(id),
+      planId: planId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(planId),
+      title: Value(title),
+      startedAt: Value(startedAt),
+      endedAt: endedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endedAt),
+      status: Value(status),
+      pointCount: Value(pointCount),
+      distanceMeters: Value(distanceMeters),
+    );
+  }
+
+  factory GpsTrack.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GpsTrack(
+      id: serializer.fromJson<String>(json['id']),
+      planId: serializer.fromJson<String?>(json['planId']),
+      title: serializer.fromJson<String>(json['title']),
+      startedAt: serializer.fromJson<int>(json['startedAt']),
+      endedAt: serializer.fromJson<int?>(json['endedAt']),
+      status: serializer.fromJson<String>(json['status']),
+      pointCount: serializer.fromJson<int>(json['pointCount']),
+      distanceMeters: serializer.fromJson<double>(json['distanceMeters']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'planId': serializer.toJson<String?>(planId),
+      'title': serializer.toJson<String>(title),
+      'startedAt': serializer.toJson<int>(startedAt),
+      'endedAt': serializer.toJson<int?>(endedAt),
+      'status': serializer.toJson<String>(status),
+      'pointCount': serializer.toJson<int>(pointCount),
+      'distanceMeters': serializer.toJson<double>(distanceMeters),
+    };
+  }
+
+  GpsTrack copyWith({
+    String? id,
+    Value<String?> planId = const Value.absent(),
+    String? title,
+    int? startedAt,
+    Value<int?> endedAt = const Value.absent(),
+    String? status,
+    int? pointCount,
+    double? distanceMeters,
+  }) => GpsTrack(
+    id: id ?? this.id,
+    planId: planId.present ? planId.value : this.planId,
+    title: title ?? this.title,
+    startedAt: startedAt ?? this.startedAt,
+    endedAt: endedAt.present ? endedAt.value : this.endedAt,
+    status: status ?? this.status,
+    pointCount: pointCount ?? this.pointCount,
+    distanceMeters: distanceMeters ?? this.distanceMeters,
+  );
+  GpsTrack copyWithCompanion(GpsTracksCompanion data) {
+    return GpsTrack(
+      id: data.id.present ? data.id.value : this.id,
+      planId: data.planId.present ? data.planId.value : this.planId,
+      title: data.title.present ? data.title.value : this.title,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+      endedAt: data.endedAt.present ? data.endedAt.value : this.endedAt,
+      status: data.status.present ? data.status.value : this.status,
+      pointCount: data.pointCount.present
+          ? data.pointCount.value
+          : this.pointCount,
+      distanceMeters: data.distanceMeters.present
+          ? data.distanceMeters.value
+          : this.distanceMeters,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GpsTrack(')
+          ..write('id: $id, ')
+          ..write('planId: $planId, ')
+          ..write('title: $title, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('endedAt: $endedAt, ')
+          ..write('status: $status, ')
+          ..write('pointCount: $pointCount, ')
+          ..write('distanceMeters: $distanceMeters')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    planId,
+    title,
+    startedAt,
+    endedAt,
+    status,
+    pointCount,
+    distanceMeters,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GpsTrack &&
+          other.id == this.id &&
+          other.planId == this.planId &&
+          other.title == this.title &&
+          other.startedAt == this.startedAt &&
+          other.endedAt == this.endedAt &&
+          other.status == this.status &&
+          other.pointCount == this.pointCount &&
+          other.distanceMeters == this.distanceMeters);
+}
+
+class GpsTracksCompanion extends UpdateCompanion<GpsTrack> {
+  final Value<String> id;
+  final Value<String?> planId;
+  final Value<String> title;
+  final Value<int> startedAt;
+  final Value<int?> endedAt;
+  final Value<String> status;
+  final Value<int> pointCount;
+  final Value<double> distanceMeters;
+  final Value<int> rowid;
+  const GpsTracksCompanion({
+    this.id = const Value.absent(),
+    this.planId = const Value.absent(),
+    this.title = const Value.absent(),
+    this.startedAt = const Value.absent(),
+    this.endedAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.pointCount = const Value.absent(),
+    this.distanceMeters = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  GpsTracksCompanion.insert({
+    required String id,
+    this.planId = const Value.absent(),
+    this.title = const Value.absent(),
+    required int startedAt,
+    this.endedAt = const Value.absent(),
+    this.status = const Value.absent(),
+    this.pointCount = const Value.absent(),
+    this.distanceMeters = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       startedAt = Value(startedAt);
+  static Insertable<GpsTrack> custom({
+    Expression<String>? id,
+    Expression<String>? planId,
+    Expression<String>? title,
+    Expression<int>? startedAt,
+    Expression<int>? endedAt,
+    Expression<String>? status,
+    Expression<int>? pointCount,
+    Expression<double>? distanceMeters,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (planId != null) 'plan_id': planId,
+      if (title != null) 'title': title,
+      if (startedAt != null) 'started_at': startedAt,
+      if (endedAt != null) 'ended_at': endedAt,
+      if (status != null) 'status': status,
+      if (pointCount != null) 'point_count': pointCount,
+      if (distanceMeters != null) 'distance_meters': distanceMeters,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  GpsTracksCompanion copyWith({
+    Value<String>? id,
+    Value<String?>? planId,
+    Value<String>? title,
+    Value<int>? startedAt,
+    Value<int?>? endedAt,
+    Value<String>? status,
+    Value<int>? pointCount,
+    Value<double>? distanceMeters,
+    Value<int>? rowid,
+  }) {
+    return GpsTracksCompanion(
+      id: id ?? this.id,
+      planId: planId ?? this.planId,
+      title: title ?? this.title,
+      startedAt: startedAt ?? this.startedAt,
+      endedAt: endedAt ?? this.endedAt,
+      status: status ?? this.status,
+      pointCount: pointCount ?? this.pointCount,
+      distanceMeters: distanceMeters ?? this.distanceMeters,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (planId.present) {
+      map['plan_id'] = Variable<String>(planId.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<int>(startedAt.value);
+    }
+    if (endedAt.present) {
+      map['ended_at'] = Variable<int>(endedAt.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (pointCount.present) {
+      map['point_count'] = Variable<int>(pointCount.value);
+    }
+    if (distanceMeters.present) {
+      map['distance_meters'] = Variable<double>(distanceMeters.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GpsTracksCompanion(')
+          ..write('id: $id, ')
+          ..write('planId: $planId, ')
+          ..write('title: $title, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('endedAt: $endedAt, ')
+          ..write('status: $status, ')
+          ..write('pointCount: $pointCount, ')
+          ..write('distanceMeters: $distanceMeters, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GpsTrackSamplesTable extends GpsTrackSamples
+    with TableInfo<$GpsTrackSamplesTable, GpsTrackSample> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GpsTrackSamplesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _trackIdMeta = const VerificationMeta(
+    'trackId',
+  );
+  @override
+  late final GeneratedColumn<String> trackId = GeneratedColumn<String>(
+    'track_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _seqMeta = const VerificationMeta('seq');
+  @override
+  late final GeneratedColumn<int> seq = GeneratedColumn<int>(
+    'seq',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _latitudeMeta = const VerificationMeta(
+    'latitude',
+  );
+  @override
+  late final GeneratedColumn<double> latitude = GeneratedColumn<double>(
+    'latitude',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _longitudeMeta = const VerificationMeta(
+    'longitude',
+  );
+  @override
+  late final GeneratedColumn<double> longitude = GeneratedColumn<double>(
+    'longitude',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _altitudeMeta = const VerificationMeta(
+    'altitude',
+  );
+  @override
+  late final GeneratedColumn<double> altitude = GeneratedColumn<double>(
+    'altitude',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _accuracyMeta = const VerificationMeta(
+    'accuracy',
+  );
+  @override
+  late final GeneratedColumn<double> accuracy = GeneratedColumn<double>(
+    'accuracy',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _recordedAtMeta = const VerificationMeta(
+    'recordedAt',
+  );
+  @override
+  late final GeneratedColumn<int> recordedAt = GeneratedColumn<int>(
+    'recorded_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    trackId,
+    seq,
+    latitude,
+    longitude,
+    altitude,
+    accuracy,
+    recordedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'gps_track_samples';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GpsTrackSample> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('track_id')) {
+      context.handle(
+        _trackIdMeta,
+        trackId.isAcceptableOrUnknown(data['track_id']!, _trackIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_trackIdMeta);
+    }
+    if (data.containsKey('seq')) {
+      context.handle(
+        _seqMeta,
+        seq.isAcceptableOrUnknown(data['seq']!, _seqMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_seqMeta);
+    }
+    if (data.containsKey('latitude')) {
+      context.handle(
+        _latitudeMeta,
+        latitude.isAcceptableOrUnknown(data['latitude']!, _latitudeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_latitudeMeta);
+    }
+    if (data.containsKey('longitude')) {
+      context.handle(
+        _longitudeMeta,
+        longitude.isAcceptableOrUnknown(data['longitude']!, _longitudeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_longitudeMeta);
+    }
+    if (data.containsKey('altitude')) {
+      context.handle(
+        _altitudeMeta,
+        altitude.isAcceptableOrUnknown(data['altitude']!, _altitudeMeta),
+      );
+    }
+    if (data.containsKey('accuracy')) {
+      context.handle(
+        _accuracyMeta,
+        accuracy.isAcceptableOrUnknown(data['accuracy']!, _accuracyMeta),
+      );
+    }
+    if (data.containsKey('recorded_at')) {
+      context.handle(
+        _recordedAtMeta,
+        recordedAt.isAcceptableOrUnknown(data['recorded_at']!, _recordedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_recordedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  GpsTrackSample map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GpsTrackSample(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      trackId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}track_id'],
+      )!,
+      seq: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}seq'],
+      )!,
+      latitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}latitude'],
+      )!,
+      longitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}longitude'],
+      )!,
+      altitude: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}altitude'],
+      ),
+      accuracy: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}accuracy'],
+      ),
+      recordedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}recorded_at'],
+      )!,
+    );
+  }
+
+  @override
+  $GpsTrackSamplesTable createAlias(String alias) {
+    return $GpsTrackSamplesTable(attachedDatabase, alias);
+  }
+}
+
+class GpsTrackSample extends DataClass implements Insertable<GpsTrackSample> {
+  final String id;
+  final String trackId;
+
+  /// 轨迹内的序号，保证导出与渲染顺序稳定。
+  final int seq;
+  final double latitude;
+  final double longitude;
+  final double? altitude;
+  final double? accuracy;
+  final int recordedAt;
+  const GpsTrackSample({
+    required this.id,
+    required this.trackId,
+    required this.seq,
+    required this.latitude,
+    required this.longitude,
+    this.altitude,
+    this.accuracy,
+    required this.recordedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['track_id'] = Variable<String>(trackId);
+    map['seq'] = Variable<int>(seq);
+    map['latitude'] = Variable<double>(latitude);
+    map['longitude'] = Variable<double>(longitude);
+    if (!nullToAbsent || altitude != null) {
+      map['altitude'] = Variable<double>(altitude);
+    }
+    if (!nullToAbsent || accuracy != null) {
+      map['accuracy'] = Variable<double>(accuracy);
+    }
+    map['recorded_at'] = Variable<int>(recordedAt);
+    return map;
+  }
+
+  GpsTrackSamplesCompanion toCompanion(bool nullToAbsent) {
+    return GpsTrackSamplesCompanion(
+      id: Value(id),
+      trackId: Value(trackId),
+      seq: Value(seq),
+      latitude: Value(latitude),
+      longitude: Value(longitude),
+      altitude: altitude == null && nullToAbsent
+          ? const Value.absent()
+          : Value(altitude),
+      accuracy: accuracy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(accuracy),
+      recordedAt: Value(recordedAt),
+    );
+  }
+
+  factory GpsTrackSample.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GpsTrackSample(
+      id: serializer.fromJson<String>(json['id']),
+      trackId: serializer.fromJson<String>(json['trackId']),
+      seq: serializer.fromJson<int>(json['seq']),
+      latitude: serializer.fromJson<double>(json['latitude']),
+      longitude: serializer.fromJson<double>(json['longitude']),
+      altitude: serializer.fromJson<double?>(json['altitude']),
+      accuracy: serializer.fromJson<double?>(json['accuracy']),
+      recordedAt: serializer.fromJson<int>(json['recordedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'trackId': serializer.toJson<String>(trackId),
+      'seq': serializer.toJson<int>(seq),
+      'latitude': serializer.toJson<double>(latitude),
+      'longitude': serializer.toJson<double>(longitude),
+      'altitude': serializer.toJson<double?>(altitude),
+      'accuracy': serializer.toJson<double?>(accuracy),
+      'recordedAt': serializer.toJson<int>(recordedAt),
+    };
+  }
+
+  GpsTrackSample copyWith({
+    String? id,
+    String? trackId,
+    int? seq,
+    double? latitude,
+    double? longitude,
+    Value<double?> altitude = const Value.absent(),
+    Value<double?> accuracy = const Value.absent(),
+    int? recordedAt,
+  }) => GpsTrackSample(
+    id: id ?? this.id,
+    trackId: trackId ?? this.trackId,
+    seq: seq ?? this.seq,
+    latitude: latitude ?? this.latitude,
+    longitude: longitude ?? this.longitude,
+    altitude: altitude.present ? altitude.value : this.altitude,
+    accuracy: accuracy.present ? accuracy.value : this.accuracy,
+    recordedAt: recordedAt ?? this.recordedAt,
+  );
+  GpsTrackSample copyWithCompanion(GpsTrackSamplesCompanion data) {
+    return GpsTrackSample(
+      id: data.id.present ? data.id.value : this.id,
+      trackId: data.trackId.present ? data.trackId.value : this.trackId,
+      seq: data.seq.present ? data.seq.value : this.seq,
+      latitude: data.latitude.present ? data.latitude.value : this.latitude,
+      longitude: data.longitude.present ? data.longitude.value : this.longitude,
+      altitude: data.altitude.present ? data.altitude.value : this.altitude,
+      accuracy: data.accuracy.present ? data.accuracy.value : this.accuracy,
+      recordedAt: data.recordedAt.present
+          ? data.recordedAt.value
+          : this.recordedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GpsTrackSample(')
+          ..write('id: $id, ')
+          ..write('trackId: $trackId, ')
+          ..write('seq: $seq, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('altitude: $altitude, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('recordedAt: $recordedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    trackId,
+    seq,
+    latitude,
+    longitude,
+    altitude,
+    accuracy,
+    recordedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GpsTrackSample &&
+          other.id == this.id &&
+          other.trackId == this.trackId &&
+          other.seq == this.seq &&
+          other.latitude == this.latitude &&
+          other.longitude == this.longitude &&
+          other.altitude == this.altitude &&
+          other.accuracy == this.accuracy &&
+          other.recordedAt == this.recordedAt);
+}
+
+class GpsTrackSamplesCompanion extends UpdateCompanion<GpsTrackSample> {
+  final Value<String> id;
+  final Value<String> trackId;
+  final Value<int> seq;
+  final Value<double> latitude;
+  final Value<double> longitude;
+  final Value<double?> altitude;
+  final Value<double?> accuracy;
+  final Value<int> recordedAt;
+  final Value<int> rowid;
+  const GpsTrackSamplesCompanion({
+    this.id = const Value.absent(),
+    this.trackId = const Value.absent(),
+    this.seq = const Value.absent(),
+    this.latitude = const Value.absent(),
+    this.longitude = const Value.absent(),
+    this.altitude = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    this.recordedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  GpsTrackSamplesCompanion.insert({
+    required String id,
+    required String trackId,
+    required int seq,
+    required double latitude,
+    required double longitude,
+    this.altitude = const Value.absent(),
+    this.accuracy = const Value.absent(),
+    required int recordedAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       trackId = Value(trackId),
+       seq = Value(seq),
+       latitude = Value(latitude),
+       longitude = Value(longitude),
+       recordedAt = Value(recordedAt);
+  static Insertable<GpsTrackSample> custom({
+    Expression<String>? id,
+    Expression<String>? trackId,
+    Expression<int>? seq,
+    Expression<double>? latitude,
+    Expression<double>? longitude,
+    Expression<double>? altitude,
+    Expression<double>? accuracy,
+    Expression<int>? recordedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (trackId != null) 'track_id': trackId,
+      if (seq != null) 'seq': seq,
+      if (latitude != null) 'latitude': latitude,
+      if (longitude != null) 'longitude': longitude,
+      if (altitude != null) 'altitude': altitude,
+      if (accuracy != null) 'accuracy': accuracy,
+      if (recordedAt != null) 'recorded_at': recordedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  GpsTrackSamplesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? trackId,
+    Value<int>? seq,
+    Value<double>? latitude,
+    Value<double>? longitude,
+    Value<double?>? altitude,
+    Value<double?>? accuracy,
+    Value<int>? recordedAt,
+    Value<int>? rowid,
+  }) {
+    return GpsTrackSamplesCompanion(
+      id: id ?? this.id,
+      trackId: trackId ?? this.trackId,
+      seq: seq ?? this.seq,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      altitude: altitude ?? this.altitude,
+      accuracy: accuracy ?? this.accuracy,
+      recordedAt: recordedAt ?? this.recordedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (trackId.present) {
+      map['track_id'] = Variable<String>(trackId.value);
+    }
+    if (seq.present) {
+      map['seq'] = Variable<int>(seq.value);
+    }
+    if (latitude.present) {
+      map['latitude'] = Variable<double>(latitude.value);
+    }
+    if (longitude.present) {
+      map['longitude'] = Variable<double>(longitude.value);
+    }
+    if (altitude.present) {
+      map['altitude'] = Variable<double>(altitude.value);
+    }
+    if (accuracy.present) {
+      map['accuracy'] = Variable<double>(accuracy.value);
+    }
+    if (recordedAt.present) {
+      map['recorded_at'] = Variable<int>(recordedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GpsTrackSamplesCompanion(')
+          ..write('id: $id, ')
+          ..write('trackId: $trackId, ')
+          ..write('seq: $seq, ')
+          ..write('latitude: $latitude, ')
+          ..write('longitude: $longitude, ')
+          ..write('altitude: $altitude, ')
+          ..write('accuracy: $accuracy, ')
+          ..write('recordedAt: $recordedAt, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -5705,6 +7820,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $VisitRecordsTable visitRecords = $VisitRecordsTable(this);
   late final $AppSettingsEntriesTable appSettingsEntries =
       $AppSettingsEntriesTable(this);
+  late final $AnchorCorrectionsTable anchorCorrections =
+      $AnchorCorrectionsTable(this);
+  late final $GpsTracksTable gpsTracks = $GpsTracksTable(this);
+  late final $GpsTrackSamplesTable gpsTrackSamples = $GpsTrackSamplesTable(
+    this,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -5716,6 +7837,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     points,
     visitRecords,
     appSettingsEntries,
+    anchorCorrections,
+    gpsTracks,
+    gpsTrackSamples,
   ];
 }
 
@@ -8521,6 +10645,8 @@ typedef $$AppSettingsEntriesTableCreateCompanionBuilder =
       Value<double> customCameraAspectRatioHeight,
       Value<int> mapThumbnailVisibleThreshold,
       Value<int> mapThumbnailConcurrentLoads,
+      Value<bool> cacheTilesOffline,
+      Value<bool> gpsTrackEnabled,
       Value<String> language,
       Value<int> rowid,
     });
@@ -8554,6 +10680,8 @@ typedef $$AppSettingsEntriesTableUpdateCompanionBuilder =
       Value<double> customCameraAspectRatioHeight,
       Value<int> mapThumbnailVisibleThreshold,
       Value<int> mapThumbnailConcurrentLoads,
+      Value<bool> cacheTilesOffline,
+      Value<bool> gpsTrackEnabled,
       Value<String> language,
       Value<int> rowid,
     });
@@ -8704,6 +10832,16 @@ class $$AppSettingsEntriesTableFilterComposer
 
   ColumnFilters<int> get mapThumbnailConcurrentLoads => $composableBuilder(
     column: $table.mapThumbnailConcurrentLoads,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get cacheTilesOffline => $composableBuilder(
+    column: $table.cacheTilesOffline,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get gpsTrackEnabled => $composableBuilder(
+    column: $table.gpsTrackEnabled,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -8864,6 +11002,16 @@ class $$AppSettingsEntriesTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<bool> get cacheTilesOffline => $composableBuilder(
+    column: $table.cacheTilesOffline,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get gpsTrackEnabled => $composableBuilder(
+    column: $table.gpsTrackEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<String> get language => $composableBuilder(
     column: $table.language,
     builder: (column) => ColumnOrderings(column),
@@ -9013,6 +11161,16 @@ class $$AppSettingsEntriesTableAnnotationComposer
     builder: (column) => column,
   );
 
+  GeneratedColumn<bool> get cacheTilesOffline => $composableBuilder(
+    column: $table.cacheTilesOffline,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get gpsTrackEnabled => $composableBuilder(
+    column: $table.gpsTrackEnabled,
+    builder: (column) => column,
+  );
+
   GeneratedColumn<String> get language =>
       $composableBuilder(column: $table.language, builder: (column) => column);
 }
@@ -9088,6 +11246,8 @@ class $$AppSettingsEntriesTableTableManager
                     const Value.absent(),
                 Value<int> mapThumbnailVisibleThreshold = const Value.absent(),
                 Value<int> mapThumbnailConcurrentLoads = const Value.absent(),
+                Value<bool> cacheTilesOffline = const Value.absent(),
+                Value<bool> gpsTrackEnabled = const Value.absent(),
                 Value<String> language = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => AppSettingsEntriesCompanion(
@@ -9119,6 +11279,8 @@ class $$AppSettingsEntriesTableTableManager
                 customCameraAspectRatioHeight: customCameraAspectRatioHeight,
                 mapThumbnailVisibleThreshold: mapThumbnailVisibleThreshold,
                 mapThumbnailConcurrentLoads: mapThumbnailConcurrentLoads,
+                cacheTilesOffline: cacheTilesOffline,
+                gpsTrackEnabled: gpsTrackEnabled,
                 language: language,
                 rowid: rowid,
               ),
@@ -9155,6 +11317,8 @@ class $$AppSettingsEntriesTableTableManager
                     const Value.absent(),
                 Value<int> mapThumbnailVisibleThreshold = const Value.absent(),
                 Value<int> mapThumbnailConcurrentLoads = const Value.absent(),
+                Value<bool> cacheTilesOffline = const Value.absent(),
+                Value<bool> gpsTrackEnabled = const Value.absent(),
                 Value<String> language = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
               }) => AppSettingsEntriesCompanion.insert(
@@ -9186,6 +11350,8 @@ class $$AppSettingsEntriesTableTableManager
                 customCameraAspectRatioHeight: customCameraAspectRatioHeight,
                 mapThumbnailVisibleThreshold: mapThumbnailVisibleThreshold,
                 mapThumbnailConcurrentLoads: mapThumbnailConcurrentLoads,
+                cacheTilesOffline: cacheTilesOffline,
+                gpsTrackEnabled: gpsTrackEnabled,
                 language: language,
                 rowid: rowid,
               ),
@@ -9218,6 +11384,979 @@ typedef $$AppSettingsEntriesTableProcessedTableManager =
       AppSettingsEntry,
       PrefetchHooks Function()
     >;
+typedef $$AnchorCorrectionsTableCreateCompanionBuilder =
+    AnchorCorrectionsCompanion Function({
+      required String id,
+      Value<String?> planId,
+      required String pointId,
+      Value<String?> workId,
+      Value<String?> workTitle,
+      Value<String?> pointName,
+      Value<String?> source,
+      Value<String?> sourceId,
+      required double pointLatitude,
+      required double pointLongitude,
+      Value<double?> suggestedLatitude,
+      Value<double?> suggestedLongitude,
+      Value<String?> description,
+      Value<String?> photoPath,
+      Value<String> status,
+      required DateTime createdAt,
+      Value<DateTime?> exportedAt,
+      Value<int> rowid,
+    });
+typedef $$AnchorCorrectionsTableUpdateCompanionBuilder =
+    AnchorCorrectionsCompanion Function({
+      Value<String> id,
+      Value<String?> planId,
+      Value<String> pointId,
+      Value<String?> workId,
+      Value<String?> workTitle,
+      Value<String?> pointName,
+      Value<String?> source,
+      Value<String?> sourceId,
+      Value<double> pointLatitude,
+      Value<double> pointLongitude,
+      Value<double?> suggestedLatitude,
+      Value<double?> suggestedLongitude,
+      Value<String?> description,
+      Value<String?> photoPath,
+      Value<String> status,
+      Value<DateTime> createdAt,
+      Value<DateTime?> exportedAt,
+      Value<int> rowid,
+    });
+
+class $$AnchorCorrectionsTableFilterComposer
+    extends Composer<_$AppDatabase, $AnchorCorrectionsTable> {
+  $$AnchorCorrectionsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get planId => $composableBuilder(
+    column: $table.planId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get pointId => $composableBuilder(
+    column: $table.pointId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get workId => $composableBuilder(
+    column: $table.workId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get workTitle => $composableBuilder(
+    column: $table.workTitle,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get pointName => $composableBuilder(
+    column: $table.pointName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceId => $composableBuilder(
+    column: $table.sourceId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get pointLatitude => $composableBuilder(
+    column: $table.pointLatitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get pointLongitude => $composableBuilder(
+    column: $table.pointLongitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get suggestedLatitude => $composableBuilder(
+    column: $table.suggestedLatitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get suggestedLongitude => $composableBuilder(
+    column: $table.suggestedLongitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AnchorCorrectionsTableOrderingComposer
+    extends Composer<_$AppDatabase, $AnchorCorrectionsTable> {
+  $$AnchorCorrectionsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get planId => $composableBuilder(
+    column: $table.planId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get pointId => $composableBuilder(
+    column: $table.pointId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get workId => $composableBuilder(
+    column: $table.workId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get workTitle => $composableBuilder(
+    column: $table.workTitle,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get pointName => $composableBuilder(
+    column: $table.pointName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get source => $composableBuilder(
+    column: $table.source,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceId => $composableBuilder(
+    column: $table.sourceId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get pointLatitude => $composableBuilder(
+    column: $table.pointLatitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get pointLongitude => $composableBuilder(
+    column: $table.pointLongitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get suggestedLatitude => $composableBuilder(
+    column: $table.suggestedLatitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get suggestedLongitude => $composableBuilder(
+    column: $table.suggestedLongitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AnchorCorrectionsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AnchorCorrectionsTable> {
+  $$AnchorCorrectionsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get planId =>
+      $composableBuilder(column: $table.planId, builder: (column) => column);
+
+  GeneratedColumn<String> get pointId =>
+      $composableBuilder(column: $table.pointId, builder: (column) => column);
+
+  GeneratedColumn<String> get workId =>
+      $composableBuilder(column: $table.workId, builder: (column) => column);
+
+  GeneratedColumn<String> get workTitle =>
+      $composableBuilder(column: $table.workTitle, builder: (column) => column);
+
+  GeneratedColumn<String> get pointName =>
+      $composableBuilder(column: $table.pointName, builder: (column) => column);
+
+  GeneratedColumn<String> get source =>
+      $composableBuilder(column: $table.source, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceId =>
+      $composableBuilder(column: $table.sourceId, builder: (column) => column);
+
+  GeneratedColumn<double> get pointLatitude => $composableBuilder(
+    column: $table.pointLatitude,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get pointLongitude => $composableBuilder(
+    column: $table.pointLongitude,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get suggestedLatitude => $composableBuilder(
+    column: $table.suggestedLatitude,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get suggestedLongitude => $composableBuilder(
+    column: $table.suggestedLongitude,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get photoPath =>
+      $composableBuilder(column: $table.photoPath, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get exportedAt => $composableBuilder(
+    column: $table.exportedAt,
+    builder: (column) => column,
+  );
+}
+
+class $$AnchorCorrectionsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AnchorCorrectionsTable,
+          AnchorCorrection,
+          $$AnchorCorrectionsTableFilterComposer,
+          $$AnchorCorrectionsTableOrderingComposer,
+          $$AnchorCorrectionsTableAnnotationComposer,
+          $$AnchorCorrectionsTableCreateCompanionBuilder,
+          $$AnchorCorrectionsTableUpdateCompanionBuilder,
+          (
+            AnchorCorrection,
+            BaseReferences<
+              _$AppDatabase,
+              $AnchorCorrectionsTable,
+              AnchorCorrection
+            >,
+          ),
+          AnchorCorrection,
+          PrefetchHooks Function()
+        > {
+  $$AnchorCorrectionsTableTableManager(
+    _$AppDatabase db,
+    $AnchorCorrectionsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AnchorCorrectionsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AnchorCorrectionsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AnchorCorrectionsTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String?> planId = const Value.absent(),
+                Value<String> pointId = const Value.absent(),
+                Value<String?> workId = const Value.absent(),
+                Value<String?> workTitle = const Value.absent(),
+                Value<String?> pointName = const Value.absent(),
+                Value<String?> source = const Value.absent(),
+                Value<String?> sourceId = const Value.absent(),
+                Value<double> pointLatitude = const Value.absent(),
+                Value<double> pointLongitude = const Value.absent(),
+                Value<double?> suggestedLatitude = const Value.absent(),
+                Value<double?> suggestedLongitude = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime?> exportedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AnchorCorrectionsCompanion(
+                id: id,
+                planId: planId,
+                pointId: pointId,
+                workId: workId,
+                workTitle: workTitle,
+                pointName: pointName,
+                source: source,
+                sourceId: sourceId,
+                pointLatitude: pointLatitude,
+                pointLongitude: pointLongitude,
+                suggestedLatitude: suggestedLatitude,
+                suggestedLongitude: suggestedLongitude,
+                description: description,
+                photoPath: photoPath,
+                status: status,
+                createdAt: createdAt,
+                exportedAt: exportedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                Value<String?> planId = const Value.absent(),
+                required String pointId,
+                Value<String?> workId = const Value.absent(),
+                Value<String?> workTitle = const Value.absent(),
+                Value<String?> pointName = const Value.absent(),
+                Value<String?> source = const Value.absent(),
+                Value<String?> sourceId = const Value.absent(),
+                required double pointLatitude,
+                required double pointLongitude,
+                Value<double?> suggestedLatitude = const Value.absent(),
+                Value<double?> suggestedLongitude = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                required DateTime createdAt,
+                Value<DateTime?> exportedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AnchorCorrectionsCompanion.insert(
+                id: id,
+                planId: planId,
+                pointId: pointId,
+                workId: workId,
+                workTitle: workTitle,
+                pointName: pointName,
+                source: source,
+                sourceId: sourceId,
+                pointLatitude: pointLatitude,
+                pointLongitude: pointLongitude,
+                suggestedLatitude: suggestedLatitude,
+                suggestedLongitude: suggestedLongitude,
+                description: description,
+                photoPath: photoPath,
+                status: status,
+                createdAt: createdAt,
+                exportedAt: exportedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AnchorCorrectionsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AnchorCorrectionsTable,
+      AnchorCorrection,
+      $$AnchorCorrectionsTableFilterComposer,
+      $$AnchorCorrectionsTableOrderingComposer,
+      $$AnchorCorrectionsTableAnnotationComposer,
+      $$AnchorCorrectionsTableCreateCompanionBuilder,
+      $$AnchorCorrectionsTableUpdateCompanionBuilder,
+      (
+        AnchorCorrection,
+        BaseReferences<
+          _$AppDatabase,
+          $AnchorCorrectionsTable,
+          AnchorCorrection
+        >,
+      ),
+      AnchorCorrection,
+      PrefetchHooks Function()
+    >;
+typedef $$GpsTracksTableCreateCompanionBuilder =
+    GpsTracksCompanion Function({
+      required String id,
+      Value<String?> planId,
+      Value<String> title,
+      required int startedAt,
+      Value<int?> endedAt,
+      Value<String> status,
+      Value<int> pointCount,
+      Value<double> distanceMeters,
+      Value<int> rowid,
+    });
+typedef $$GpsTracksTableUpdateCompanionBuilder =
+    GpsTracksCompanion Function({
+      Value<String> id,
+      Value<String?> planId,
+      Value<String> title,
+      Value<int> startedAt,
+      Value<int?> endedAt,
+      Value<String> status,
+      Value<int> pointCount,
+      Value<double> distanceMeters,
+      Value<int> rowid,
+    });
+
+class $$GpsTracksTableFilterComposer
+    extends Composer<_$AppDatabase, $GpsTracksTable> {
+  $$GpsTracksTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get planId => $composableBuilder(
+    column: $table.planId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get endedAt => $composableBuilder(
+    column: $table.endedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get pointCount => $composableBuilder(
+    column: $table.pointCount,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get distanceMeters => $composableBuilder(
+    column: $table.distanceMeters,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GpsTracksTableOrderingComposer
+    extends Composer<_$AppDatabase, $GpsTracksTable> {
+  $$GpsTracksTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get planId => $composableBuilder(
+    column: $table.planId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get endedAt => $composableBuilder(
+    column: $table.endedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get pointCount => $composableBuilder(
+    column: $table.pointCount,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get distanceMeters => $composableBuilder(
+    column: $table.distanceMeters,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GpsTracksTableAnnotationComposer
+    extends Composer<_$AppDatabase, $GpsTracksTable> {
+  $$GpsTracksTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get planId =>
+      $composableBuilder(column: $table.planId, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<int> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+
+  GeneratedColumn<int> get endedAt =>
+      $composableBuilder(column: $table.endedAt, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<int> get pointCount => $composableBuilder(
+    column: $table.pointCount,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get distanceMeters => $composableBuilder(
+    column: $table.distanceMeters,
+    builder: (column) => column,
+  );
+}
+
+class $$GpsTracksTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GpsTracksTable,
+          GpsTrack,
+          $$GpsTracksTableFilterComposer,
+          $$GpsTracksTableOrderingComposer,
+          $$GpsTracksTableAnnotationComposer,
+          $$GpsTracksTableCreateCompanionBuilder,
+          $$GpsTracksTableUpdateCompanionBuilder,
+          (GpsTrack, BaseReferences<_$AppDatabase, $GpsTracksTable, GpsTrack>),
+          GpsTrack,
+          PrefetchHooks Function()
+        > {
+  $$GpsTracksTableTableManager(_$AppDatabase db, $GpsTracksTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GpsTracksTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GpsTracksTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GpsTracksTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String?> planId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<int> startedAt = const Value.absent(),
+                Value<int?> endedAt = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<int> pointCount = const Value.absent(),
+                Value<double> distanceMeters = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GpsTracksCompanion(
+                id: id,
+                planId: planId,
+                title: title,
+                startedAt: startedAt,
+                endedAt: endedAt,
+                status: status,
+                pointCount: pointCount,
+                distanceMeters: distanceMeters,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                Value<String?> planId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                required int startedAt,
+                Value<int?> endedAt = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<int> pointCount = const Value.absent(),
+                Value<double> distanceMeters = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GpsTracksCompanion.insert(
+                id: id,
+                planId: planId,
+                title: title,
+                startedAt: startedAt,
+                endedAt: endedAt,
+                status: status,
+                pointCount: pointCount,
+                distanceMeters: distanceMeters,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GpsTracksTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GpsTracksTable,
+      GpsTrack,
+      $$GpsTracksTableFilterComposer,
+      $$GpsTracksTableOrderingComposer,
+      $$GpsTracksTableAnnotationComposer,
+      $$GpsTracksTableCreateCompanionBuilder,
+      $$GpsTracksTableUpdateCompanionBuilder,
+      (GpsTrack, BaseReferences<_$AppDatabase, $GpsTracksTable, GpsTrack>),
+      GpsTrack,
+      PrefetchHooks Function()
+    >;
+typedef $$GpsTrackSamplesTableCreateCompanionBuilder =
+    GpsTrackSamplesCompanion Function({
+      required String id,
+      required String trackId,
+      required int seq,
+      required double latitude,
+      required double longitude,
+      Value<double?> altitude,
+      Value<double?> accuracy,
+      required int recordedAt,
+      Value<int> rowid,
+    });
+typedef $$GpsTrackSamplesTableUpdateCompanionBuilder =
+    GpsTrackSamplesCompanion Function({
+      Value<String> id,
+      Value<String> trackId,
+      Value<int> seq,
+      Value<double> latitude,
+      Value<double> longitude,
+      Value<double?> altitude,
+      Value<double?> accuracy,
+      Value<int> recordedAt,
+      Value<int> rowid,
+    });
+
+class $$GpsTrackSamplesTableFilterComposer
+    extends Composer<_$AppDatabase, $GpsTrackSamplesTable> {
+  $$GpsTrackSamplesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get trackId => $composableBuilder(
+    column: $table.trackId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get seq => $composableBuilder(
+    column: $table.seq,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get latitude => $composableBuilder(
+    column: $table.latitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get longitude => $composableBuilder(
+    column: $table.longitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get altitude => $composableBuilder(
+    column: $table.altitude,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GpsTrackSamplesTableOrderingComposer
+    extends Composer<_$AppDatabase, $GpsTrackSamplesTable> {
+  $$GpsTrackSamplesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get trackId => $composableBuilder(
+    column: $table.trackId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get seq => $composableBuilder(
+    column: $table.seq,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get latitude => $composableBuilder(
+    column: $table.latitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get longitude => $composableBuilder(
+    column: $table.longitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get altitude => $composableBuilder(
+    column: $table.altitude,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get accuracy => $composableBuilder(
+    column: $table.accuracy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GpsTrackSamplesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $GpsTrackSamplesTable> {
+  $$GpsTrackSamplesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get trackId =>
+      $composableBuilder(column: $table.trackId, builder: (column) => column);
+
+  GeneratedColumn<int> get seq =>
+      $composableBuilder(column: $table.seq, builder: (column) => column);
+
+  GeneratedColumn<double> get latitude =>
+      $composableBuilder(column: $table.latitude, builder: (column) => column);
+
+  GeneratedColumn<double> get longitude =>
+      $composableBuilder(column: $table.longitude, builder: (column) => column);
+
+  GeneratedColumn<double> get altitude =>
+      $composableBuilder(column: $table.altitude, builder: (column) => column);
+
+  GeneratedColumn<double> get accuracy =>
+      $composableBuilder(column: $table.accuracy, builder: (column) => column);
+
+  GeneratedColumn<int> get recordedAt => $composableBuilder(
+    column: $table.recordedAt,
+    builder: (column) => column,
+  );
+}
+
+class $$GpsTrackSamplesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GpsTrackSamplesTable,
+          GpsTrackSample,
+          $$GpsTrackSamplesTableFilterComposer,
+          $$GpsTrackSamplesTableOrderingComposer,
+          $$GpsTrackSamplesTableAnnotationComposer,
+          $$GpsTrackSamplesTableCreateCompanionBuilder,
+          $$GpsTrackSamplesTableUpdateCompanionBuilder,
+          (
+            GpsTrackSample,
+            BaseReferences<
+              _$AppDatabase,
+              $GpsTrackSamplesTable,
+              GpsTrackSample
+            >,
+          ),
+          GpsTrackSample,
+          PrefetchHooks Function()
+        > {
+  $$GpsTrackSamplesTableTableManager(
+    _$AppDatabase db,
+    $GpsTrackSamplesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GpsTrackSamplesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GpsTrackSamplesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GpsTrackSamplesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> trackId = const Value.absent(),
+                Value<int> seq = const Value.absent(),
+                Value<double> latitude = const Value.absent(),
+                Value<double> longitude = const Value.absent(),
+                Value<double?> altitude = const Value.absent(),
+                Value<double?> accuracy = const Value.absent(),
+                Value<int> recordedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GpsTrackSamplesCompanion(
+                id: id,
+                trackId: trackId,
+                seq: seq,
+                latitude: latitude,
+                longitude: longitude,
+                altitude: altitude,
+                accuracy: accuracy,
+                recordedAt: recordedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String trackId,
+                required int seq,
+                required double latitude,
+                required double longitude,
+                Value<double?> altitude = const Value.absent(),
+                Value<double?> accuracy = const Value.absent(),
+                required int recordedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => GpsTrackSamplesCompanion.insert(
+                id: id,
+                trackId: trackId,
+                seq: seq,
+                latitude: latitude,
+                longitude: longitude,
+                altitude: altitude,
+                accuracy: accuracy,
+                recordedAt: recordedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GpsTrackSamplesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GpsTrackSamplesTable,
+      GpsTrackSample,
+      $$GpsTrackSamplesTableFilterComposer,
+      $$GpsTrackSamplesTableOrderingComposer,
+      $$GpsTrackSamplesTableAnnotationComposer,
+      $$GpsTrackSamplesTableCreateCompanionBuilder,
+      $$GpsTrackSamplesTableUpdateCompanionBuilder,
+      (
+        GpsTrackSample,
+        BaseReferences<_$AppDatabase, $GpsTrackSamplesTable, GpsTrackSample>,
+      ),
+      GpsTrackSample,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -9234,4 +12373,10 @@ class $AppDatabaseManager {
       $$VisitRecordsTableTableManager(_db, _db.visitRecords);
   $$AppSettingsEntriesTableTableManager get appSettingsEntries =>
       $$AppSettingsEntriesTableTableManager(_db, _db.appSettingsEntries);
+  $$AnchorCorrectionsTableTableManager get anchorCorrections =>
+      $$AnchorCorrectionsTableTableManager(_db, _db.anchorCorrections);
+  $$GpsTracksTableTableManager get gpsTracks =>
+      $$GpsTracksTableTableManager(_db, _db.gpsTracks);
+  $$GpsTrackSamplesTableTableManager get gpsTrackSamples =>
+      $$GpsTrackSamplesTableTableManager(_db, _db.gpsTrackSamples);
 }

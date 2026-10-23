@@ -1,5 +1,6 @@
 {
   "@@locale": "ja",
+  "legalViewOnline": "最新版をウェブで見る",
   "tabPlan": "プラン",
   "tabMap": "地図",
   "tabRecords": "記録",
@@ -160,7 +161,7 @@
   "mapAnitabiImageSourceSection": "アニタビ画像出典",
   "mapThumbnailSection": "地図のサムネイル",
   "mapThumbnailThresholdTitle": "サムネイル表示閾値",
-  "mapThumbnailThresholdDesc": "ビュー内に {threshold} ポイントしかない場合は、サムネイルが表示されます。  を超える場合はドットのみが表示されます。",
+  "mapThumbnailThresholdDesc": "表示範囲内の地点が {threshold} 件以下ならすべてサムネイル表示します。より密集している場合はビュー中心に近い {threshold} 件だけを残し、他はドット表示にします。",
   "mapConcurrentLoadsTitle": "同時画像リクエストの数",
   "mapConcurrentLoadsDesc": "マップのサムネイルの表示、ポイントのインポート時のキャッシュ サムネイル、参照マップのバッチ キャッシュの表示に使用されます。数値が大きいほど速度は速くなりますが、ネットワークへの負担も大きくなります。",
   "mapThumbnailThresholdZeroHint": "しきい値を 0 にすると、マップ上にサムネイルが表示されません。",
@@ -1968,5 +1969,185 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "すべての作品 ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "作品 {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "行きたい作品を選ぶ",
+  "mapWorkFilterSelectAll": "すべて選択",
+  "mapWorkFilterHideUnselected": "未選択の作品を隠す",
+  "mapWorkFilterProgress": "訪問済み {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "この場所には {count} 作品",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "行きたい作品にチェックすると、地図ではその作品だけが強調されます",
+  "mapFocusBanner": "表示中：{title}のみ",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "すべての作品を表示",
+  "radarTooltip": "周辺の聖地レーダー",
+  "radarScanning": "周辺の巡礼スポットをスキャン中...",
+  "radarFoundCount": "近くに {count} か所のアニメ聖地を発見",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "周辺5km以内にアニメ聖地は見つかりませんでした",
+  "radarRescanArea": "このエリアを再スキャン",
+  "radarClose": "レーダーを閉じる",
+  "radarDistance": "スキャン中心から {distance}",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "作品を計画に追加",
+  "radarAlreadyInPlan": "計画に追加済み",
+  "radarViewInPlan": "計画内で表示",
+  "radarImportSuccess": "{count} か所の巡礼ポイントを追加しました",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "聖地の詳細",
+  "radarLoadingPoint": "スポット情報を読み込み中...",
+  "reportLocationError": "位置情報の誤りを報告",
+  "correctionTitle": "位置のズレを報告",
+  "correctionCurrentLocation": "現在の座標",
+  "correctionUseMyLocation": "現在地を使う",
+  "correctionGettingLocation": "位置情報を取得中…",
+  "correctionSuggestedLocation": "提案する座標",
+  "correctionLatitude": "緯度",
+  "correctionLongitude": "経度",
+  "correctionDescription": "状況の説明",
+  "correctionDescriptionHint": "例：実際の撮影ポイントはピンから北に約50m…",
+  "correctionAddPhoto": "写真を追加",
+  "correctionSubmit": "送信",
+  "correctionSubmitting": "送信中…",
+  "correctionSuccessTitle": "報告をありがとうございます",
+  "correctionSuccessBody": "位置情報の報告を保存しました。後ほど確認します。",
+  "correctionNeedDetail": "説明を記入するか写真を追加してください",
+  "correctionLocationDenied": "位置情報を取得できません。座標を手入力するか説明を記入してください",
+  "correctionQueueTitle": "位置情報の誤り報告",
+  "correctionQueueSubtitle": "寄せられた座標の誤り報告を確認・書き出し",
+  "correctionQueueEmpty": "まだ未対応の報告はありません。ピンがずれているときは、スポット詳細から「位置情報の誤りを報告」を選んでください。",
+  "correctionQueuePending": "{count} 件が未対応",
+  "correctionQueueExport": "JSONを書き出す",
+  "correctionQueueExportHint": "書き出したファイルを管理者に送って確認してもらいます。書き出し済みの報告は対応済みになり、未対応リストから外れます。",
+  "correctionQueueDelete": "この報告を削除",
+  "correctionQueueDeleteConfirm": "この報告を削除しますか？",
+  "correctionQueueDeleteConfirmBody": "削除すると元に戻せません。",
+  "correctionQueueExported": "{count} 件の報告を書き出しました",
+  "correctionQueueNoSuggestion": "提案座標なし",
+  "correctionQueueHasPhoto": "写真あり",
+  "@correctionQueuePending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@correctionQueueExported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "キャンセル",
+  "delete": "削除",
+  "planCompletionMenu": "進捗",
+  "planCompletionTitle": "巡礼の進捗",
+  "planCompletionSummary": "{total} 箇所中 {completed} 箇所を訪問",
+  "planCompletionAllDone": "すべて制覇しました、おめでとうございます！",
+  "planCompletionGroupSection": "グループ別",
+  "planCompletionVisitedSection": "訪問済み",
+  "planCompletionRemainingSection": "未訪問",
+  "planCompletionEmptyVisited": "まだ訪問記録がありません。",
+  "planCompletionEmptyPoints": "この巡礼プランにはまだスポットがありません。",
+  "planCompletionRemainingCount": "残り {count} 箇所",
+  "@planCompletionSummary": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@planCompletionRemainingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapOfflineCacheSection": "オフライン地図",
+  "mapCacheTilesOffline": "地図タイルをキャッシュ（オフライン）",
+  "mapCacheTilesOfflineSubtitle": "自分でホストした XYZ ソースのタイルをローカルに保存し、オフラインでも地図を表示できます。サードパーティの地図（OSM / CARTO など）はライセンスの都合でオフラインキャッシュできません。",
+  "mapCacheTilesOnlyCustomXyz": "オフラインタイルキャッシュは「カスタム XYZ」ソースのみ対応しています。上の地図ソースを切り替えてください。",
+  "mapClearTileCache": "オフラインタイルキャッシュを削除",
+  "mapTileCacheSize": "現在のキャッシュサイズ：{size}",
+  "btnClearing": "削除中…",
+  "gpsTrackSection": "GPS トラック記録",
+  "gpsTrackEnabledTitle": "トラック記録を有効化",
+  "gpsTrackEnabledSubtitle": "地図画面から手動で巡礼ルートの記録を開始します。記録はフォアグラウンドのみで、他のアプリに切り替えると自動的に一時停止します。",
+  "gpsTrackTooltipStart": "記録を開始",
+  "gpsTrackTooltipPause": "記録を一時停止",
+  "gpsTrackTooltipResume": "記録を再開",
+  "gpsTrackTooltipStop": "記録を終了して保存",
+  "gpsTrackDuration": "時間 {value}",
+  "gpsTrackDistance": "距離 {value}",
+  "gpsTrackPointCount": "サンプル {value}",
+  "gpsTrackRecording": "記録中",
+  "gpsTrackPaused": "一時停止",
+  "gpsTrackSaved": "トラックを保存しました：{count} 件、{distance}",
+  "gpsLocationServiceDisabled": "位置情報サービスが無効です。システム設定で有効にしてから記録してください。",
+  "gpsPermissionDenied": "トラックの記録には位置情報の権限が必要です",
+  "gpsPermissionDeniedForever": "位置情報の権限が永久に拒否されています。システム設定で有効にしてください。"
 }

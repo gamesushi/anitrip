@@ -363,6 +363,8 @@ class _NearestGroupAssignScreenState extends State<NearestGroupAssignScreen> {
       groups: _plan.groups,
       onMoveToGroup: _movePointToGroup,
       navigationApp: widget.settings.navigationApp,
+      repository: widget.repository,
+      planId: _plan.id,
     );
   }
 
@@ -746,6 +748,8 @@ class _BoxGroupAssignScreenState extends State<BoxGroupAssignScreen> {
       groups: _plan.groups,
       onMoveToGroup: _movePointToGroup,
       navigationApp: widget.settings.navigationApp,
+      repository: widget.repository,
+      planId: _plan.id,
     );
   }
 

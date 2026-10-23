@@ -26,6 +26,8 @@
 	<string>anitrip</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSPrivacyPolicyURL</key>
+	<string>https://gamesushi.github.io/anitrip/privacy_policy.html</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -64,11 +66,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>anitrip needs camera access so you can take comparison photos at anime pilgrimage spots.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>anitrip needs your location to show your current position on the pilgrimage map.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>anitrip may use your location to show it on the pilgrimage map and to help record the spots you visit.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>anitrip may need microphone access to capture sound while recording at pilgrimage spots.</string>
+	<string>anitrip needs your location to show your current position on the pilgrimage map, to measure the distance to nearby spots, to attach your current coordinate when you report a location error, and to record your walking route while GPS track recording is active (foreground only).</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>anitrip needs to save your side-by-side pilgrimage comparison images to your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

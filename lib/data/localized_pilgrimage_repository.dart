@@ -417,4 +417,26 @@ class LocalizedPilgrimageRepository implements PilgrimageRepository {
   Future<void> saveAppSettings(AppSettings settings) {
     return delegate.saveAppSettings(settings);
   }
+
+  @override
+  Future<void> submitAnchorCorrection(AnchorCorrectionInput correction) {
+    return delegate.submitAnchorCorrection(correction);
+  }
+
+  @override
+  Future<List<AnchorCorrectionReport>> loadAnchorCorrections({
+    bool onlyPending = true,
+  }) {
+    return delegate.loadAnchorCorrections(onlyPending: onlyPending);
+  }
+
+  @override
+  Future<void> markAnchorCorrectionsExported(List<String> ids) {
+    return delegate.markAnchorCorrectionsExported(ids);
+  }
+
+  @override
+  Future<void> deleteAnchorCorrection(String id) {
+    return delegate.deleteAnchorCorrection(id);
+  }
 }

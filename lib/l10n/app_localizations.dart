@@ -119,6 +119,12 @@ abstract class AppLocalizations {
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
 
+  /// Link label on the in-app legal document screen that opens the latest online version of the document (GitHub Pages).
+  ///
+  /// In zh, this message translates to:
+  /// **'在网页查看最新版本'**
+  String get legalViewOnline;
+
   /// No description provided for @tabPlan.
   ///
   /// In zh, this message translates to:
@@ -1082,7 +1088,7 @@ abstract class AppLocalizations {
   /// No description provided for @mapThumbnailThresholdDesc.
   ///
   /// In zh, this message translates to:
-  /// **'视图内点位不超过 {threshold} 个时显示缩略图；超过时仅显示圆点。'**
+  /// **'视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。'**
   String mapThumbnailThresholdDesc(Object threshold);
 
   /// No description provided for @mapConcurrentLoadsTitle.
@@ -6924,6 +6930,528 @@ abstract class AppLocalizations {
   /// In zh, this message translates to:
   /// **'包内有 \${packageTotalAssetCount} 个资源文件；当前平台暂不支持恢复包内资源。'**
   String packageAssetsNoPlatformRestore(String packageTotalAssetCount);
+
+  /// No description provided for @mapWorkFilterAllLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'全部作品 ({total})'**
+  String mapWorkFilterAllLabel(int total);
+
+  /// No description provided for @mapWorkFilterSelectedLabel.
+  ///
+  /// In zh, this message translates to:
+  /// **'作品 {selected}/{total}'**
+  String mapWorkFilterSelectedLabel(int selected, int total);
+
+  /// No description provided for @mapWorkFilterTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'选择想去的作品'**
+  String get mapWorkFilterTitle;
+
+  /// No description provided for @mapWorkFilterSelectAll.
+  ///
+  /// In zh, this message translates to:
+  /// **'全选'**
+  String get mapWorkFilterSelectAll;
+
+  /// No description provided for @mapWorkFilterHideUnselected.
+  ///
+  /// In zh, this message translates to:
+  /// **'隐藏未勾选的作品'**
+  String get mapWorkFilterHideUnselected;
+
+  /// No description provided for @mapWorkFilterProgress.
+  ///
+  /// In zh, this message translates to:
+  /// **'已打卡 {done}/{total}'**
+  String mapWorkFilterProgress(int done, int total);
+
+  /// No description provided for @mapSpotTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'该地点有 {count} 部作品'**
+  String mapSpotTitle(int count);
+
+  /// No description provided for @mapSpotHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'勾选想去的作品，地图只高亮已勾选的作品'**
+  String get mapSpotHint;
+
+  /// No description provided for @mapFocusBanner.
+  ///
+  /// In zh, this message translates to:
+  /// **'仅显示：{title}'**
+  String mapFocusBanner(String title);
+
+  /// No description provided for @mapFocusClear.
+  ///
+  /// In zh, this message translates to:
+  /// **'显示全部作品'**
+  String get mapFocusClear;
+
+  /// No description provided for @radarTooltip.
+  ///
+  /// In zh, this message translates to:
+  /// **'周边圣地雷达'**
+  String get radarTooltip;
+
+  /// No description provided for @radarScanning.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在扫描周边圣地...'**
+  String get radarScanning;
+
+  /// No description provided for @radarFoundCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'附近发现 {count} 处动漫圣地'**
+  String radarFoundCount(int count);
+
+  /// No description provided for @radarNoSpotsFound.
+  ///
+  /// In zh, this message translates to:
+  /// **'周边 5km 内未收录动漫圣地'**
+  String get radarNoSpotsFound;
+
+  /// No description provided for @radarRescanArea.
+  ///
+  /// In zh, this message translates to:
+  /// **'在此区域扫描'**
+  String get radarRescanArea;
+
+  /// No description provided for @radarClose.
+  ///
+  /// In zh, this message translates to:
+  /// **'关闭雷达'**
+  String get radarClose;
+
+  /// No description provided for @radarDistance.
+  ///
+  /// In zh, this message translates to:
+  /// **'距扫描中心 {distance}'**
+  String radarDistance(String distance);
+
+  /// No description provided for @radarAddToPlan.
+  ///
+  /// In zh, this message translates to:
+  /// **'导入此作品至计划'**
+  String get radarAddToPlan;
+
+  /// No description provided for @radarAlreadyInPlan.
+  ///
+  /// In zh, this message translates to:
+  /// **'已在计划中'**
+  String get radarAlreadyInPlan;
+
+  /// No description provided for @radarViewInPlan.
+  ///
+  /// In zh, this message translates to:
+  /// **'在计划中查看'**
+  String get radarViewInPlan;
+
+  /// No description provided for @radarImportSuccess.
+  ///
+  /// In zh, this message translates to:
+  /// **'已成功导入 {count} 个巡礼点'**
+  String radarImportSuccess(int count);
+
+  /// No description provided for @radarSpotDetail.
+  ///
+  /// In zh, this message translates to:
+  /// **'圣地详情'**
+  String get radarSpotDetail;
+
+  /// No description provided for @radarLoadingPoint.
+  ///
+  /// In zh, this message translates to:
+  /// **'正在加载点位信息...'**
+  String get radarLoadingPoint;
+
+  /// No description provided for @reportLocationError.
+  ///
+  /// In zh, this message translates to:
+  /// **'报告位置错误'**
+  String get reportLocationError;
+
+  /// No description provided for @correctionTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'上报坐标偏差'**
+  String get correctionTitle;
+
+  /// No description provided for @correctionCurrentLocation.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前坐标'**
+  String get correctionCurrentLocation;
+
+  /// No description provided for @correctionUseMyLocation.
+  ///
+  /// In zh, this message translates to:
+  /// **'用我的当前位置'**
+  String get correctionUseMyLocation;
+
+  /// No description provided for @correctionGettingLocation.
+  ///
+  /// In zh, this message translates to:
+  /// **'获取定位中…'**
+  String get correctionGettingLocation;
+
+  /// No description provided for @correctionSuggestedLocation.
+  ///
+  /// In zh, this message translates to:
+  /// **'建议坐标'**
+  String get correctionSuggestedLocation;
+
+  /// No description provided for @correctionLatitude.
+  ///
+  /// In zh, this message translates to:
+  /// **'纬度'**
+  String get correctionLatitude;
+
+  /// No description provided for @correctionLongitude.
+  ///
+  /// In zh, this message translates to:
+  /// **'经度'**
+  String get correctionLongitude;
+
+  /// No description provided for @correctionDescription.
+  ///
+  /// In zh, this message translates to:
+  /// **'情况说明'**
+  String get correctionDescription;
+
+  /// No description provided for @correctionDescriptionHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'例如：实际取景点在地图标注点往北约50米…'**
+  String get correctionDescriptionHint;
+
+  /// No description provided for @correctionAddPhoto.
+  ///
+  /// In zh, this message translates to:
+  /// **'添加照片'**
+  String get correctionAddPhoto;
+
+  /// No description provided for @correctionSubmit.
+  ///
+  /// In zh, this message translates to:
+  /// **'提交'**
+  String get correctionSubmit;
+
+  /// No description provided for @correctionSubmitting.
+  ///
+  /// In zh, this message translates to:
+  /// **'提交中…'**
+  String get correctionSubmitting;
+
+  /// No description provided for @correctionSuccessTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'已收到反馈'**
+  String get correctionSuccessTitle;
+
+  /// No description provided for @correctionSuccessBody.
+  ///
+  /// In zh, this message translates to:
+  /// **'坐标偏差已记录，我们会尽快核对。'**
+  String get correctionSuccessBody;
+
+  /// No description provided for @correctionNeedDetail.
+  ///
+  /// In zh, this message translates to:
+  /// **'请填写说明或添加照片'**
+  String get correctionNeedDetail;
+
+  /// No description provided for @correctionLocationDenied.
+  ///
+  /// In zh, this message translates to:
+  /// **'无法获取定位，请手动输入坐标或填写说明'**
+  String get correctionLocationDenied;
+
+  /// No description provided for @correctionQueueTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'位置纠错报告'**
+  String get correctionQueueTitle;
+
+  /// No description provided for @correctionQueueSubtitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'查看并导出用户提交的坐标纠错报告'**
+  String get correctionQueueSubtitle;
+
+  /// No description provided for @correctionQueueEmpty.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有待处理的纠错报告。当你在地图上发现点位有偏差时，可以在点位详情里「报告位置错误」。'**
+  String get correctionQueueEmpty;
+
+  /// No description provided for @correctionQueuePending.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 条待处理'**
+  String correctionQueuePending(int count);
+
+  /// No description provided for @correctionQueueExport.
+  ///
+  /// In zh, this message translates to:
+  /// **'导出 JSON'**
+  String get correctionQueueExport;
+
+  /// No description provided for @correctionQueueExportHint.
+  ///
+  /// In zh, this message translates to:
+  /// **'导出后可发送给维护者核实。导出完成会自动标记为已处理，不再出现在待处理列表里。'**
+  String get correctionQueueExportHint;
+
+  /// No description provided for @correctionQueueDelete.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除这条报告'**
+  String get correctionQueueDelete;
+
+  /// No description provided for @correctionQueueDeleteConfirm.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除这条纠错报告？'**
+  String get correctionQueueDeleteConfirm;
+
+  /// No description provided for @correctionQueueDeleteConfirmBody.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除后无法恢复。'**
+  String get correctionQueueDeleteConfirmBody;
+
+  /// No description provided for @correctionQueueExported.
+  ///
+  /// In zh, this message translates to:
+  /// **'已导出 {count} 条纠错报告'**
+  String correctionQueueExported(int count);
+
+  /// No description provided for @correctionQueueNoSuggestion.
+  ///
+  /// In zh, this message translates to:
+  /// **'未提供建议坐标'**
+  String get correctionQueueNoSuggestion;
+
+  /// No description provided for @correctionQueueHasPhoto.
+  ///
+  /// In zh, this message translates to:
+  /// **'含照片'**
+  String get correctionQueueHasPhoto;
+
+  /// No description provided for @cancel.
+  ///
+  /// In zh, this message translates to:
+  /// **'取消'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In zh, this message translates to:
+  /// **'删除'**
+  String get delete;
+
+  /// No description provided for @planCompletionMenu.
+  ///
+  /// In zh, this message translates to:
+  /// **'巡礼进度'**
+  String get planCompletionMenu;
+
+  /// No description provided for @planCompletionTitle.
+  ///
+  /// In zh, this message translates to:
+  /// **'巡礼进度'**
+  String get planCompletionTitle;
+
+  /// No description provided for @planCompletionSummary.
+  ///
+  /// In zh, this message translates to:
+  /// **'已打卡 {completed} / {total} 个点位'**
+  String planCompletionSummary(int completed, int total);
+
+  /// No description provided for @planCompletionAllDone.
+  ///
+  /// In zh, this message translates to:
+  /// **'全部走完了，恭喜制霸！'**
+  String get planCompletionAllDone;
+
+  /// No description provided for @planCompletionGroupSection.
+  ///
+  /// In zh, this message translates to:
+  /// **'分组进度'**
+  String get planCompletionGroupSection;
+
+  /// No description provided for @planCompletionVisitedSection.
+  ///
+  /// In zh, this message translates to:
+  /// **'已打卡点位'**
+  String get planCompletionVisitedSection;
+
+  /// No description provided for @planCompletionRemainingSection.
+  ///
+  /// In zh, this message translates to:
+  /// **'待巡礼点位'**
+  String get planCompletionRemainingSection;
+
+  /// No description provided for @planCompletionEmptyVisited.
+  ///
+  /// In zh, this message translates to:
+  /// **'还没有打卡记录。'**
+  String get planCompletionEmptyVisited;
+
+  /// No description provided for @planCompletionEmptyPoints.
+  ///
+  /// In zh, this message translates to:
+  /// **'这个巡礼计划还没有点位。'**
+  String get planCompletionEmptyPoints;
+
+  /// No description provided for @planCompletionRemainingCount.
+  ///
+  /// In zh, this message translates to:
+  /// **'{count} 个点位待巡礼'**
+  String planCompletionRemainingCount(int count);
+
+  /// Settings section for offline map tile caching.
+  ///
+  /// In zh, this message translates to:
+  /// **'离线地图'**
+  String get mapOfflineCacheSection;
+
+  /// Toggle to cache map tiles locally for offline use (self-hosted XYZ only).
+  ///
+  /// In zh, this message translates to:
+  /// **'缓存地图瓦片（离线可用）'**
+  String get mapCacheTilesOffline;
+
+  /// Explains the ToS limit: third-party basemaps cannot be cached offline.
+  ///
+  /// In zh, this message translates to:
+  /// **'将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。'**
+  String get mapCacheTilesOfflineSubtitle;
+
+  /// Note shown when the map source is not a self-hosted Custom XYZ.
+  ///
+  /// In zh, this message translates to:
+  /// **'离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。'**
+  String get mapCacheTilesOnlyCustomXyz;
+
+  /// Button to clear the offline tile cache.
+  ///
+  /// In zh, this message translates to:
+  /// **'清除离线瓦片缓存'**
+  String get mapClearTileCache;
+
+  /// Shows the current offline tile cache size. {size} is a formatted byte count.
+  ///
+  /// In zh, this message translates to:
+  /// **'当前缓存大小：{size}'**
+  String mapTileCacheSize(Object size);
+
+  /// Label shown on the clear-cache button while clearing is in progress.
+  ///
+  /// In zh, this message translates to:
+  /// **'清除中…'**
+  String get btnClearing;
+
+  /// Settings section title for GPS track recording.
+  ///
+  /// In zh, this message translates to:
+  /// **'GPS 轨迹记录'**
+  String get gpsTrackSection;
+
+  /// Master switch that shows the track recording button on the map.
+  ///
+  /// In zh, this message translates to:
+  /// **'启用轨迹记录'**
+  String get gpsTrackEnabledTitle;
+
+  /// Explains that recording is manual and foreground-only.
+  ///
+  /// In zh, this message translates to:
+  /// **'在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。'**
+  String get gpsTrackEnabledSubtitle;
+
+  /// Tooltip for the button that starts track recording.
+  ///
+  /// In zh, this message translates to:
+  /// **'开始记录轨迹'**
+  String get gpsTrackTooltipStart;
+
+  /// Tooltip for the button that pauses track recording.
+  ///
+  /// In zh, this message translates to:
+  /// **'暂停记录'**
+  String get gpsTrackTooltipPause;
+
+  /// Tooltip for the button that resumes a paused track.
+  ///
+  /// In zh, this message translates to:
+  /// **'继续记录'**
+  String get gpsTrackTooltipResume;
+
+  /// Tooltip for the button that finishes and saves the track.
+  ///
+  /// In zh, this message translates to:
+  /// **'结束并保存轨迹'**
+  String get gpsTrackTooltipStop;
+
+  /// Recording stats line showing elapsed time. {value} is a formatted duration.
+  ///
+  /// In zh, this message translates to:
+  /// **'时长 {value}'**
+  String gpsTrackDuration(Object value);
+
+  /// Recording stats line showing total distance. {value} is a formatted distance.
+  ///
+  /// In zh, this message translates to:
+  /// **'距离 {value}'**
+  String gpsTrackDistance(Object value);
+
+  /// Recording stats line showing sample count. {value} is a number.
+  ///
+  /// In zh, this message translates to:
+  /// **'采样 {value}'**
+  String gpsTrackPointCount(Object value);
+
+  /// Status label shown while a track is being recorded.
+  ///
+  /// In zh, this message translates to:
+  /// **'录制中'**
+  String get gpsTrackRecording;
+
+  /// Status label shown while recording is paused.
+  ///
+  /// In zh, this message translates to:
+  /// **'已暂停'**
+  String get gpsTrackPaused;
+
+  /// Snackbar confirming the track was saved. {count} is the sample count, {distance} a formatted distance.
+  ///
+  /// In zh, this message translates to:
+  /// **'轨迹已保存：{count} 个点，{distance}'**
+  String gpsTrackSaved(Object count, Object distance);
+
+  /// Message shown when location services are disabled.
+  ///
+  /// In zh, this message translates to:
+  /// **'定位服务未开启，请在系统设置中启用后再记录'**
+  String get gpsLocationServiceDisabled;
+
+  /// Message shown when location permission is denied.
+  ///
+  /// In zh, this message translates to:
+  /// **'需要定位权限才能记录轨迹'**
+  String get gpsPermissionDenied;
+
+  /// Message shown when location permission is permanently denied.
+  ///
+  /// In zh, this message translates to:
+  /// **'定位权限已被永久拒绝，请在系统设置中开启'**
+  String get gpsPermissionDeniedForever;
 }
 
 class _AppLocalizationsDelegate

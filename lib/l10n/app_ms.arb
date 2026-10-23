@@ -160,7 +160,7 @@
   "mapAnitabiImageSourceSection": "Sumber imej Anitabi",
   "mapThumbnailSection": "Lakaran kenit peta",
   "mapThumbnailThresholdTitle": "Ambang paparan lakaran kenit",
-  "mapThumbnailThresholdDesc": "Apabila tidak ada lebih daripada mata {threshold} dalam paparan, lakaran kecil dipaparkan; apabila terdapat lebih daripada , hanya titik yang dipaparkan.",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "Bilangan permintaan imej serentak",
   "mapConcurrentLoadsDesc": "Digunakan untuk memaparkan lakaran kecil peta, lakaran kecil cache semasa mengimport mata, dan peta rujukan cache kelompok. Nombor yang lebih tinggi boleh menghasilkan kelajuan yang lebih pantas, tetapi juga memberi lebih tekanan pada rangkaian.",
   "mapThumbnailThresholdZeroHint": "Ambang 0 tidak akan memaparkan lakaran kecil pada peta.",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "Semua karya ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "Karya {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "Pilih karya yang ingin dilawati",
+  "mapWorkFilterSelectAll": "Pilih semua",
+  "mapWorkFilterHideUnselected": "Sembunyikan karya yang tidak ditanda",
+  "mapWorkFilterProgress": "Dilawati {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "{count} karya di lokasi ini",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "Tanda karya yang ingin dilawati; peta hanya menonjolkan karya itu",
+  "mapFocusBanner": "Hanya papar: {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "Papar semua karya",
+  "radarTooltip": "Radar tempat anime berhampiran",
+  "radarScanning": "Mengimbas tempat anime berhampiran...",
+  "radarFoundCount": "Menemui {count} tempat anime berdekatan",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "Tiada tempat anime ditemui dalam lingkungan 5 km",
+  "radarRescanArea": "Imbas kawasan ini",
+  "radarClose": "Tutup radar",
+  "radarDistance": "{distance} dari pusat imbasan",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "Import karya ke dalam pelan",
+  "radarAlreadyInPlan": "Sudah ada dalam pelan",
+  "radarViewInPlan": "Lihat dalam pelan",
+  "radarImportSuccess": "Berjaya mengimport {count} tempat",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "Butiran tempat",
+  "radarLoadingPoint": "Memuatkan maklumat tempat...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

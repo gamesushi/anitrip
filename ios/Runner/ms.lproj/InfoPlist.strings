@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip memerlukan akses kamera untuk mengambil gambar perbandingan di lokasi ziarah.";
-"NSLocationWhenInUseUsageDescription" = "anitrip memerlukan lokasi anda untuk memaparkan kedudukan semasa pada peta ziarah.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip mungkin menggunakan lokasi anda untuk memaparkannya pada peta ziarah dan membantu merekod lokasi yang anda lawati.";
-"NSMicrophoneUsageDescription" = "anitrip mungkin memerlukan akses mikrofon untuk merakam audio semasa mengambil gambar di lokasi ziarah.";
+"NSLocationWhenInUseUsageDescription" = "anitrip memerlukan lokasi anda untuk memaparkan kedudukan semasa pada peta ziarah, mengukur jarak ke lokasi ziarah berhampiran, melampirkan koordinat semasa apabila anda melaporkan ralat lokasi, dan merakam laluan perjalanan semasa rakaman trek GPS dihidupkan (semasa aplikasi digunakan sahaja).";
 "NSPhotoLibraryAddUsageDescription" = "anitrip perlu menyimpan imej perbandingan ziarah ke dalam pustaka foto anda.";
 "NSPhotoLibraryUsageDescription" = "anitrip perlu mengakses pustaka foto untuk mengimport gambar ziarah dan imej rujukan.";

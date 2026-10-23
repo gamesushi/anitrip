@@ -9,6 +9,9 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get legalViewOnline => '在网页查看最新版本';
+
+  @override
   String get tabPlan => 'piano';
 
   @override
@@ -524,7 +527,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String mapThumbnailThresholdDesc(Object threshold) {
-    return 'Quando nella vista non sono presenti più di punti $threshold, vengono visualizzate le miniature; quando sono presenti più di , vengono visualizzati solo i punti.';
+    return '视图内点位不超过 $threshold 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 $threshold 个，其余显示为圆点。';
   }
 
   @override
@@ -3946,4 +3949,303 @@ class AppLocalizationsIt extends AppLocalizations {
   String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
     return '$packageTotalAssetCount asset files in the package; restoring in-package assets is not supported on this platform yet.';
   }
+
+  @override
+  String mapWorkFilterAllLabel(int total) {
+    return 'Tutte le opere ($total)';
+  }
+
+  @override
+  String mapWorkFilterSelectedLabel(int selected, int total) {
+    return 'Opere $selected/$total';
+  }
+
+  @override
+  String get mapWorkFilterTitle => 'Scegli le opere da visitare';
+
+  @override
+  String get mapWorkFilterSelectAll => 'Seleziona tutto';
+
+  @override
+  String get mapWorkFilterHideUnselected => 'Nascondi le opere non selezionate';
+
+  @override
+  String mapWorkFilterProgress(int done, int total) {
+    return 'Visitati $done/$total';
+  }
+
+  @override
+  String mapSpotTitle(int count) {
+    return '$count opere in questo luogo';
+  }
+
+  @override
+  String get mapSpotHint =>
+      'Seleziona le opere da visitare: la mappa evidenzia solo quelle';
+
+  @override
+  String mapFocusBanner(String title) {
+    return 'Solo: $title';
+  }
+
+  @override
+  String get mapFocusClear => 'Mostra tutte le opere';
+
+  @override
+  String get radarTooltip => 'Radar dei luoghi anime vicini';
+
+  @override
+  String get radarScanning => 'Scansione dei luoghi anime nelle vicinanze...';
+
+  @override
+  String radarFoundCount(int count) {
+    return 'Trovati $count luoghi anime nelle vicinanze';
+  }
+
+  @override
+  String get radarNoSpotsFound => 'Nessun luogo anime trovato entro 5 km';
+
+  @override
+  String get radarRescanArea => 'Scansiona quest\'area';
+
+  @override
+  String get radarClose => 'Chiudi radar';
+
+  @override
+  String radarDistance(String distance) {
+    return 'A $distance dal centro di scansione';
+  }
+
+  @override
+  String get radarAddToPlan => 'Importa opera nel piano';
+
+  @override
+  String get radarAlreadyInPlan => 'Già nel piano';
+
+  @override
+  String get radarViewInPlan => 'Visualizza nel piano';
+
+  @override
+  String radarImportSuccess(int count) {
+    return 'Importati con successo $count punti';
+  }
+
+  @override
+  String get radarSpotDetail => 'Dettagli del luogo';
+
+  @override
+  String get radarLoadingPoint => 'Caricamento informazioni del luogo...';
+
+  @override
+  String get reportLocationError => '报告位置错误';
+
+  @override
+  String get correctionTitle => '上报坐标偏差';
+
+  @override
+  String get correctionCurrentLocation => '当前坐标';
+
+  @override
+  String get correctionUseMyLocation => '用我的当前位置';
+
+  @override
+  String get correctionGettingLocation => '获取定位中…';
+
+  @override
+  String get correctionSuggestedLocation => '建议坐标';
+
+  @override
+  String get correctionLatitude => '纬度';
+
+  @override
+  String get correctionLongitude => '经度';
+
+  @override
+  String get correctionDescription => '情况说明';
+
+  @override
+  String get correctionDescriptionHint => '例如：实际取景点在地图标注点往北约50米…';
+
+  @override
+  String get correctionAddPhoto => '添加照片';
+
+  @override
+  String get correctionSubmit => '提交';
+
+  @override
+  String get correctionSubmitting => '提交中…';
+
+  @override
+  String get correctionSuccessTitle => '已收到反馈';
+
+  @override
+  String get correctionSuccessBody => '坐标偏差已记录，我们会尽快核对。';
+
+  @override
+  String get correctionNeedDetail => '请填写说明或添加照片';
+
+  @override
+  String get correctionLocationDenied => '无法获取定位，请手动输入坐标或填写说明';
+
+  @override
+  String get correctionQueueTitle => '位置纠错报告';
+
+  @override
+  String get correctionQueueSubtitle => '查看并导出用户提交的坐标纠错报告';
+
+  @override
+  String get correctionQueueEmpty =>
+      '还没有待处理的纠错报告。当你在地图上发现点位有偏差时，可以在点位详情里「报告位置错误」。';
+
+  @override
+  String correctionQueuePending(int count) {
+    return '$count 条待处理';
+  }
+
+  @override
+  String get correctionQueueExport => '导出 JSON';
+
+  @override
+  String get correctionQueueExportHint =>
+      '导出后可发送给维护者核实。导出完成会自动标记为已处理，不再出现在待处理列表里。';
+
+  @override
+  String get correctionQueueDelete => '删除这条报告';
+
+  @override
+  String get correctionQueueDeleteConfirm => '删除这条纠错报告？';
+
+  @override
+  String get correctionQueueDeleteConfirmBody => '删除后无法恢复。';
+
+  @override
+  String correctionQueueExported(int count) {
+    return '已导出 $count 条纠错报告';
+  }
+
+  @override
+  String get correctionQueueNoSuggestion => '未提供建议坐标';
+
+  @override
+  String get correctionQueueHasPhoto => '含照片';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get delete => '删除';
+
+  @override
+  String get planCompletionMenu => '巡礼进度';
+
+  @override
+  String get planCompletionTitle => '巡礼进度';
+
+  @override
+  String planCompletionSummary(int completed, int total) {
+    return '已打卡 $completed / $total 个点位';
+  }
+
+  @override
+  String get planCompletionAllDone => '全部走完了，恭喜制霸！';
+
+  @override
+  String get planCompletionGroupSection => '分组进度';
+
+  @override
+  String get planCompletionVisitedSection => '已打卡点位';
+
+  @override
+  String get planCompletionRemainingSection => '待巡礼点位';
+
+  @override
+  String get planCompletionEmptyVisited => '还没有打卡记录。';
+
+  @override
+  String get planCompletionEmptyPoints => '这个巡礼计划还没有点位。';
+
+  @override
+  String planCompletionRemainingCount(int count) {
+    return '$count 个点位待巡礼';
+  }
+
+  @override
+  String get mapOfflineCacheSection => '离线地图';
+
+  @override
+  String get mapCacheTilesOffline => '缓存地图瓦片（离线可用）';
+
+  @override
+  String get mapCacheTilesOfflineSubtitle =>
+      '将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。';
+
+  @override
+  String get mapCacheTilesOnlyCustomXyz => '离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。';
+
+  @override
+  String get mapClearTileCache => '清除离线瓦片缓存';
+
+  @override
+  String mapTileCacheSize(Object size) {
+    return '当前缓存大小：$size';
+  }
+
+  @override
+  String get btnClearing => '清除中…';
+
+  @override
+  String get gpsTrackSection => 'GPS 轨迹记录';
+
+  @override
+  String get gpsTrackEnabledTitle => '启用轨迹记录';
+
+  @override
+  String get gpsTrackEnabledSubtitle => '在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。';
+
+  @override
+  String get gpsTrackTooltipStart => '开始记录轨迹';
+
+  @override
+  String get gpsTrackTooltipPause => '暂停记录';
+
+  @override
+  String get gpsTrackTooltipResume => '继续记录';
+
+  @override
+  String get gpsTrackTooltipStop => '结束并保存轨迹';
+
+  @override
+  String gpsTrackDuration(Object value) {
+    return '时长 $value';
+  }
+
+  @override
+  String gpsTrackDistance(Object value) {
+    return '距离 $value';
+  }
+
+  @override
+  String gpsTrackPointCount(Object value) {
+    return '采样 $value';
+  }
+
+  @override
+  String get gpsTrackRecording => '录制中';
+
+  @override
+  String get gpsTrackPaused => '已暂停';
+
+  @override
+  String gpsTrackSaved(Object count, Object distance) {
+    return '轨迹已保存：$count 个点，$distance';
+  }
+
+  @override
+  String get gpsLocationServiceDisabled => '定位服务未开启，请在系统设置中启用后再记录';
+
+  @override
+  String get gpsPermissionDenied => '需要定位权限才能记录轨迹';
+
+  @override
+  String get gpsPermissionDeniedForever => '定位权限已被永久拒绝，请在系统设置中开启';
 }

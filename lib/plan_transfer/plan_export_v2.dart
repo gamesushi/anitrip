@@ -69,11 +69,14 @@ Future<PlanExportV2Result> buildPlanExportV2Package({
   required PilgrimagePlan plan,
   required List<PilgrimageVisitRecord> visitRecords,
   required PlanExportV2Options options,
-  required BuildContext context,
+  BuildContext? context,
   DateTime? exportedAt,
   ExportNetworkBytesReader? networkBytesReader,
 }) async {
   final exportTime = exportedAt ?? DateTime.now();
+  final l10n = context == null
+      ? lookupAppLocalizations(const Locale('zh'))
+      : AppLocalizations.of(context)!;
   final archive = Archive();
   final readNetworkBytes = networkBytesReader ?? readExportNetworkBytes;
   final records = options.includeRecords
@@ -309,9 +312,9 @@ Future<PlanExportV2Result> buildPlanExportV2Package({
       ),
     ),
   );
-  addString('points.csv', _pointsCsv(plan, visitRecords, context));
+  addString('points.csv', _pointsCsv(plan, visitRecords, l10n));
   if (options.includeRecords) {
-    addString('records.csv', _recordsCsv(plan, records, context));
+    addString('records.csv', _recordsCsv(plan, records, l10n));
   }
 
   final bytes = ZipEncoder().encode(archive);
@@ -533,9 +536,8 @@ class _RecordAssetRefs {
 String _pointsCsv(
   PilgrimagePlan plan,
   List<PilgrimageVisitRecord> visitRecords,
-  BuildContext context,
+  AppLocalizations l10n,
 ) {
-  final l10n = AppLocalizations.of(context)!;
   final recordCounts = <String, int>{};
   for (final record in visitRecords) {
     recordCounts[record.pointId] = (recordCounts[record.pointId] ?? 0) + 1;
@@ -558,7 +560,7 @@ String _pointsCsv(
     for (final point in plan.points)
       [
         point.work.title,
-        _groupName(plan, point.groupId, context),
+        _groupName(plan, point.groupId, l10n),
         point.name,
         point.subtitle,
         point.position.latitude,
@@ -574,8 +576,7 @@ String _pointsCsv(
   return _csv(lines);
 }
 
-String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records, BuildContext context) {
-  final l10n = AppLocalizations.of(context)!;
+String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records, AppLocalizations l10n) {
   final pointById = {for (final point in plan.points) point.id: point};
   final lines = <List<Object?>>[
     [l10n.csvHeaderWork, l10n.csvHeaderArea, l10n.csvHeaderPointName, l10n.csvHeaderRecordId, l10n.csvHeaderCapturedAt, l10n.csvHeaderRefMode, l10n.csvHeaderColorGraded, l10n.csvHeaderPhotoFile, l10n.csvHeaderGradedPhotoFile],
@@ -583,7 +584,7 @@ String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records, Bui
       [
         pointById[record.pointId]?.work.title ??
             record.displayWorkTitleSnapshot,
-        _groupName(plan, pointById[record.pointId]?.groupId, context),
+        _groupName(plan, pointById[record.pointId]?.groupId, l10n),
         pointById[record.pointId]?.name ?? record.displayPointNameSnapshot,
         record.id,
         record.capturedAt.toIso8601String(),
@@ -598,8 +599,7 @@ String _recordsCsv(PilgrimagePlan plan, List<PilgrimageVisitRecord> records, Bui
   return _csv(lines);
 }
 
-String _groupName(PilgrimagePlan plan, String? groupId, BuildContext context) {
-  final l10n = AppLocalizations.of(context)!;
+String _groupName(PilgrimagePlan plan, String? groupId, AppLocalizations l10n) {
   if (groupId == null) {
     return l10n.labelUngrouped;
   }

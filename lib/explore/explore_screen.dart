@@ -9,6 +9,7 @@ import '../l10n/app_localizations.dart';
 import '../plan/pilgrimage_models.dart';
 import '../plan/pilgrimage_plan_controller.dart';
 import '../plan/station_name_resolver.dart';
+import '../utils/search_text.dart';
 import '../widgets/image_load_limiter.dart';
 import '../widgets/snackbar_helper.dart';
 import 'curated_collections.dart';
@@ -82,6 +83,12 @@ class _ExploreScreenState extends State<ExploreScreen>
   bool _isImporting = false;
   late Future<List<ExploreWorkItem>> _catalogFuture;
 
+  /// True once a catalog load has failed. Lets search mode tell "目录加载失败"
+  /// apart from "无匹配结果" so the user gets a retry instead of a silent
+  /// empty list (the old behaviour masked the network failure behind
+  /// `exploreEmpty`).
+  bool _catalogLoadFailed = false;
+
   /// All of the user's plans, loaded once (and on pull-to-refresh). "我的作品"
   /// aggregates works across every plan instead of only the active one, because
   /// each imported work lives in its own per-work plan.
@@ -101,7 +108,7 @@ class _ExploreScreenState extends State<ExploreScreen>
   void initState() {
     super.initState();
     _anitabiClient = widget.anitabiClient ?? AnitabiClient();
-    _catalogFuture = _loadCatalog();
+    _catalogFuture = _fetchCatalog();
     widget.searchRequest?.addListener(_onSearchRequested);
     _loadAllPlans();
   }
@@ -337,16 +344,32 @@ class _ExploreScreenState extends State<ExploreScreen>
     }
   }
 
-  Future<List<ExploreWorkItem>> _loadCatalog() async {
-    final works = await _anitabiClient.listWorks();
-    return works.map(ExploreWorkItem.fromAnitabi).toList(growable: false);
+  /// Loads the anitabi catalog and tracks success/failure in [_catalogLoadFailed]
+  /// so both the catalog section and search mode can react to a network failure
+  /// (now bounded by the request timeout) rather than hanging forever.
+  Future<List<ExploreWorkItem>> _fetchCatalog() async {
+    try {
+      final works = await _anitabiClient.listWorks();
+      final items =
+          works.map(ExploreWorkItem.fromAnitabi).toList(growable: false);
+      if (mounted) {
+        setState(() => _catalogLoadFailed = false);
+      }
+      return items;
+    } catch (error) {
+      if (mounted) {
+        setState(() => _catalogLoadFailed = true);
+      }
+      rethrow;
+    }
   }
 
   Future<void> _refresh() async {
     _anitabiClient.clearStaticCache();
-    final future = _loadCatalog();
+    final future = _fetchCatalog();
     setState(() {
       _catalogFuture = future;
+      _catalogLoadFailed = false;
     });
     await future;
     await _loadAllPlans();
@@ -462,20 +485,50 @@ class _ExploreScreenState extends State<ExploreScreen>
   }
 
   Future<void> _performSearch(String query) async {
+    if (!mounted) {
+      return;
+    }
+    // Record the query up front so a catalog failure still renders a
+    // "目录加载失败" state (with retry) instead of an empty search box.
+    setState(() => _searchQuery = query);
     try {
       final catalog = await _catalogFuture;
       if (!mounted) return;
 
-      final lower = query.toLowerCase();
-      final results = catalog
-          .where((item) =>
-              item.searchableText.toLowerCase().contains(lower) ||
-              (item.city?.toLowerCase().contains(lower) ?? false))
-          .toList();
+      final tokens = SearchText.tokens(query);
+      final haystacks = <ExploreWorkItem, String>{
+        for (final item in catalog)
+          item: SearchText.normalizedHaystack([
+            item.searchableText,
+            item.city,
+          ]),
+      };
+
+      bool hitTest(String haystack) => SearchText.matchesAll(haystack, tokens);
+      var results = catalog
+          .where((item) => hitTest(haystacks[item]!))
+          .toList(growable: true);
+
+      // Fallback: Latin-script users often only know the romanised title, and
+      // the catalog stores Japanese names. Retry the same query folded to kana.
+      if (results.isEmpty && SearchText.isLatinOnly(query)) {
+        final kana = SearchText.romajiToKana(query);
+        if (kana != null && kana.isNotEmpty) {
+          final kanaTokens = SearchText.tokens(kana);
+          results = catalog
+              .where((item) => SearchText.matchesAll(
+                    haystacks[item]!,
+                    kanaTokens,
+                  ))
+              .toList(growable: true);
+        }
+      }
+
       // Sort: exact title match first, then prefix, then substring.
+      final lower = SearchText.normalize(query);
       results.sort((a, b) {
-        final aTitle = a.searchableText.toLowerCase();
-        final bTitle = b.searchableText.toLowerCase();
+        final aTitle = haystacks[a]!;
+        final bTitle = haystacks[b]!;
         final aExact = aTitle == lower ? 0 : aTitle.startsWith(lower) ? 1 : 2;
         final bExact = bTitle == lower ? 0 : bTitle.startsWith(lower) ? 1 : 2;
         if (aExact != bExact) return aExact.compareTo(bExact);
@@ -484,24 +537,64 @@ class _ExploreScreenState extends State<ExploreScreen>
 
       if (_isSearching && mounted) {
         setState(() {
-          _searchQuery = query;
           _searchResults = results;
         });
       }
     } catch (_) {
-      // Catalog not yet loaded — silently ignore.
+      // Catalog load failed — flag it so search mode shows a retry instead of a
+      // silent "no results" (the old behaviour hid the network failure).
+      if (mounted) {
+        setState(() => _catalogLoadFailed = true);
+      }
     }
   }
 
-  /// Builds the vertical search-result list (or empty / loading states).
+  /// Reloads the catalog (e.g. after a network failure) and re-runs the current
+  /// search query once it's back. Used by the retry button in both the catalog
+  /// section and search mode.
+  Future<void> _retryCatalogAndSearch() async {
+    final query = _searchQuery;
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _catalogLoadFailed = false;
+      _catalogFuture = _fetchCatalog();
+    });
+    try {
+      await _catalogFuture;
+      if (!mounted) {
+        return;
+      }
+      if (query.isNotEmpty) {
+        await _performSearch(query);
+      }
+    } catch (_) {
+      // _fetchCatalog already flagged the failure and the UI reflects it.
+    }
+  }
+
+  /// Builds the vertical search-result list (or empty / loading / error states).
   Widget _buildSearchResults(AppLocalizations l10n) {
     // Show nothing while the query is empty (user hasn't typed yet).
     if (_searchQuery.isEmpty) {
       return const SizedBox.shrink();
     }
 
-    // Still waiting for catalog to load + filter to run.
-    if (_searchResults.isEmpty && _searchQuery.isNotEmpty) {
+    // Catalog couldn't load, so there is nothing to match against. Offer a
+    // retry that reloads the catalog and re-runs the current query — this is
+    // the "目录加载失败" case, distinct from "无匹配结果" below.
+    if (_catalogLoadFailed) {
+      return Center(
+        child: _CatalogError(
+          message: l10n.exploreLoadError,
+          onRetry: _retryCatalogAndSearch,
+        ),
+      );
+    }
+
+    // Still waiting for the debounced filter to run.
+    if (_searchResults.isEmpty) {
       if (_searchTimer?.isActive ?? false) {
         return const Center(
           child: SizedBox(
@@ -625,7 +718,7 @@ class _ExploreScreenState extends State<ExploreScreen>
                   future: _catalogFuture,
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const _CatalogPlaceholder(child: _CatalogLoading());
+                      return const _CatalogSkeleton();
                     }
                     if (snapshot.hasError) {
                       return _CatalogPlaceholder(
@@ -743,15 +836,46 @@ class _CatalogPlaceholder extends StatelessWidget {
   }
 }
 
-class _CatalogLoading extends StatelessWidget {
-  const _CatalogLoading();
+class _CatalogSkeleton extends StatelessWidget {
+  const _CatalogSkeleton();
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      width: 24,
-      height: 24,
-      child: CircularProgressIndicator(strokeWidth: 2),
+    final card = Container(
+      width: 132,
+      decoration: BoxDecoration(
+        color: AppColors.surface,
+        borderRadius: BorderRadius.circular(12),
+      ),
+    );
+    return Padding(
+      key: const Key('catalog_skeleton'),
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Section header placeholder.
+          Container(
+            width: 120,
+            height: 18,
+            decoration: BoxDecoration(
+              color: AppColors.surface,
+              borderRadius: BorderRadius.circular(6),
+            ),
+          ),
+          const SizedBox(height: 12),
+          // Horizontal row of placeholder cards.
+          SizedBox(
+            height: 176,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: 4,
+              separatorBuilder: (_, _) => const SizedBox(width: 12),
+              itemBuilder: (_, _) => card,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

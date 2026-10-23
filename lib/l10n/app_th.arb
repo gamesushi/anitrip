@@ -160,7 +160,7 @@
   "mapAnitabiImageSourceSection": "แหล่งที่มาของภาพ Anitabi",
   "mapThumbnailSection": "ภาพขนาดย่อของแผนที่",
   "mapThumbnailThresholdTitle": "เกณฑ์การแสดงภาพขนาดย่อ",
-  "mapThumbnailThresholdDesc": "เมื่อมีจุดไม่เกิน {threshold} ในมุมมอง ภาพขนาดย่อจะปรากฏขึ้น เมื่อมีมากกว่า  จะแสดงเฉพาะจุดเท่านั้น",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "จำนวนคำขอรูปภาพพร้อมกัน",
   "mapConcurrentLoadsDesc": "ใช้เพื่อแสดงภาพขนาดย่อของแผนที่ ภาพขนาดย่อของแคชเมื่อนำเข้าจุด และแผนที่อ้างอิงแคชเป็นชุด ตัวเลขที่สูงขึ้นอาจส่งผลให้ความเร็วเร็วขึ้น แต่ยังทำให้เครือข่ายมีความตึงเครียดมากขึ้นด้วย",
   "mapThumbnailThresholdZeroHint": "เกณฑ์ 0 จะไม่แสดงภาพขนาดย่อบนแผนที่",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "ทุกเรื่อง ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "เรื่อง {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "เลือกเรื่องที่อยากไป",
+  "mapWorkFilterSelectAll": "เลือกทั้งหมด",
+  "mapWorkFilterHideUnselected": "ซ่อนเรื่องที่ไม่ได้เลือก",
+  "mapWorkFilterProgress": "ไปแล้ว {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "สถานที่นี้มี {count} เรื่อง",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "ติ๊กเรื่องที่อยากไป แผนที่จะเน้นเฉพาะเรื่องที่เลือก",
+  "mapFocusBanner": "แสดงเฉพาะ: {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "แสดงทุกเรื่อง",
+  "radarTooltip": "เรดาร์สถานที่อนิเมะใกล้เคียง",
+  "radarScanning": "กำลังสแกนสถานที่อนิเมะใกล้เคียง...",
+  "radarFoundCount": "พบสถานที่อนิเมะใกล้เคียง {count} แห่ง",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "ไม่พบสถานที่อนิเมะในรัศมี 5 กม.",
+  "radarRescanArea": "สแกนบริเวณนี้",
+  "radarClose": "ปิดเรดาร์",
+  "radarDistance": "{distance} จากจุดศูนย์กลางการสแกน",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "นำเข้าเรื่องนี้ลงแผน",
+  "radarAlreadyInPlan": "มีอยู่ในแผนแล้ว",
+  "radarViewInPlan": "ดูในแผน",
+  "radarImportSuccess": "นำเข้าสำเร็จ {count} จุด",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "รายละเอียดสถานที่",
+  "radarLoadingPoint": "กำลังโหลดข้อมูลจุด...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

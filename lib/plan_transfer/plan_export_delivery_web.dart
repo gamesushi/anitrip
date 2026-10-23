@@ -2,12 +2,14 @@ import 'dart:convert';
 import 'dart:js_interop';
 import 'dart:typed_data';
 
+import 'package:flutter/widgets.dart';
 import 'package:web/web.dart' as web;
 
 import '../desktop/tauri_bridge.dart';
 import 'plan_export_delivery_result.dart';
 
 Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
+  BuildContext? context,
   required String fileName,
   required String mimeType,
   required String extension,
@@ -30,6 +32,7 @@ Future<PreparedPlanExportDestination?> preparePlanExportDestinationImpl({
 }
 
 Future<PlanExportDeliveryResult> deliverPlanExportImpl({
+  BuildContext? context,
   required List<int> bytes,
   required String fileName,
   required String mimeType,
@@ -39,6 +42,7 @@ Future<PlanExportDeliveryResult> deliverPlanExportImpl({
 }) async {
   if (isTauriLauncherAvailable) {
     final destination = await preparePlanExportDestinationImpl(
+      context: context,
       fileName: fileName,
       mimeType: mimeType,
       extension: extension,

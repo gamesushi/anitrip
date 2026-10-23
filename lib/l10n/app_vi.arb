@@ -160,7 +160,7 @@
   "mapAnitabiImageSourceSection": "Nguồn hình ảnh Anitabi",
   "mapThumbnailSection": "Hình thu nhỏ bản đồ",
   "mapThumbnailThresholdTitle": "Ngưỡng hiển thị hình thu nhỏ",
-  "mapThumbnailThresholdDesc": "Khi không có nhiều hơn điểm {threshold} trong chế độ xem, hình thu nhỏ sẽ được hiển thị; khi có nhiều hơn , chỉ hiển thị dấu chấm.",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "Số lượng yêu cầu hình ảnh đồng thời",
   "mapConcurrentLoadsDesc": "Được sử dụng để hiển thị hình thu nhỏ của bản đồ, hình thu nhỏ của bộ đệm khi nhập điểm và bản đồ tham chiếu bộ đệm hàng loạt. Con số cao hơn có thể mang lại tốc độ nhanh hơn nhưng cũng gây căng thẳng hơn cho mạng.",
   "mapThumbnailThresholdZeroHint": "Ngưỡng 0 sẽ không hiển thị hình thu nhỏ trên bản đồ.",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "Tất cả tác phẩm ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "Tác phẩm {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "Chọn tác phẩm muốn đến",
+  "mapWorkFilterSelectAll": "Chọn tất cả",
+  "mapWorkFilterHideUnselected": "Ẩn tác phẩm chưa chọn",
+  "mapWorkFilterProgress": "Đã đến {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "Địa điểm này có {count} tác phẩm",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "Chọn tác phẩm muốn đến; bản đồ chỉ làm nổi bật các tác phẩm đã chọn",
+  "mapFocusBanner": "Chỉ hiển thị: {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "Hiển thị tất cả tác phẩm",
+  "radarTooltip": "Radar thánh địa anime lân cận",
+  "radarScanning": "Đang quét các điểm thánh địa lân cận...",
+  "radarFoundCount": "Tìm thấy {count} thánh địa anime gần đây",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "Không tìm thấy thánh địa anime nào trong bán kính 5 km",
+  "radarRescanArea": "Quét khu vực này",
+  "radarClose": "Đóng radar",
+  "radarDistance": "Cách tâm quét {distance}",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "Thêm tác phẩm vào kế hoạch",
+  "radarAlreadyInPlan": "Đã có trong kế hoạch",
+  "radarViewInPlan": "Xem trong kế hoạch",
+  "radarImportSuccess": "Đã nhập thành công {count} điểm",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "Chi tiết thánh địa",
+  "radarLoadingPoint": "Đang tải thông tin địa điểm...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

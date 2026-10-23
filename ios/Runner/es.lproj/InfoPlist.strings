@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip necesita acceder a la cámara para tomar fotos comparativas en los lugares de peregrinación.";
-"NSLocationWhenInUseUsageDescription" = "anitrip necesita tu ubicación para mostrar tu posición actual en el mapa de peregrinación.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip puede usar tu ubicación para mostrarla en el mapa de peregrinación y ayudarte a registrar los lugares que visitas.";
-"NSMicrophoneUsageDescription" = "anitrip puede necesitar acceder al micrófono para capturar sonido al grabar en los lugares de peregrinación.";
+"NSLocationWhenInUseUsageDescription" = "anitrip necesita tu ubicación para mostrar tu posición actual en el mapa de peregrinación, medir la distancia a los lugares cercanos, adjuntar tu coordenada actual cuando informes de un error de ubicación y registrar tu ruta a pie mientras la grabación de traza GPS esté activa (solo en primer plano).";
 "NSPhotoLibraryAddUsageDescription" = "anitrip necesita guardar en tu fototeca las imágenes comparativas de la peregrinación.";
 "NSPhotoLibraryUsageDescription" = "anitrip necesita acceder a tu fototeca para importar fotos de peregrinación e imágenes de referencia.";

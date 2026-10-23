@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip cần quyền truy cập máy ảnh để chụp ảnh so sánh tại các địa điểm hành hương.";
-"NSLocationWhenInUseUsageDescription" = "anitrip cần vị trí của bạn để hiển thị vị trí hiện tại trên bản đồ hành hương.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip có thể sử dụng vị trí của bạn để hiển thị trên bản đồ hành hương và hỗ trợ ghi lại những địa điểm bạn đã đến.";
-"NSMicrophoneUsageDescription" = "anitrip có thể cần quyền truy cập micro để ghi âm khi quay tại các địa điểm hành hương.";
+"NSLocationWhenInUseUsageDescription" = "anitrip cần vị trí của bạn để hiển thị vị trí hiện tại trên bản đồ hành hương, đo khoảng cách tới các địa điểm gần đó, đính kèm tọa độ hiện tại khi bạn báo lỗi vị trí, và ghi lại lộ trình đi bộ trong khi bạn bật ghi GPS track (chỉ khi đang dùng ứng dụng).";
 "NSPhotoLibraryAddUsageDescription" = "anitrip cần lưu ảnh so sánh hành hương vào thư viện ảnh của bạn.";
 "NSPhotoLibraryUsageDescription" = "anitrip cần truy cập thư viện ảnh để nhập ảnh hành hương và ảnh tham khảo.";

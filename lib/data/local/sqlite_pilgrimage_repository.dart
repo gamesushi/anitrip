@@ -20,6 +20,11 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
     : _database = database ?? AppDatabase(openConnection());
 
   final AppDatabase _database;
+
+  /// 暴露底层数据库，供 GPS 轨迹等附属仓储复用同一个连接，
+  /// 避免为同一数据库文件再开一路连接。
+  AppDatabase get database => _database;
+
   bool _visitRecordPathRepairAttempted = false;
   bool _anitabiSubtitleRepairAttempted = false;
 
@@ -105,6 +110,8 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
         200,
       ),
       mapThumbnailConcurrentLoads: row.mapThumbnailConcurrentLoads.clamp(1, 30),
+      cacheTilesOffline: row.cacheTilesOffline,
+      gpsTrackEnabled: row.gpsTrackEnabled,
       language: row.language,
     );
   }
@@ -1005,9 +1012,98 @@ class SqlitePilgrimageRepository implements PilgrimageRepository {
             mapThumbnailConcurrentLoads: Value(
               settings.mapThumbnailConcurrentLoads.clamp(1, 30),
             ),
+            cacheTilesOffline: Value(settings.cacheTilesOffline),
+            gpsTrackEnabled: Value(settings.gpsTrackEnabled),
             language: Value(settings.language),
           ),
         );
+  }
+
+  @override
+  Future<void> submitAnchorCorrection(AnchorCorrectionInput correction) async {
+    final now = DateTime.now();
+    final id = 'correction-${now.microsecondsSinceEpoch}';
+    await _database
+        .into(_database.anchorCorrections)
+        .insert(
+          AnchorCorrectionsCompanion.insert(
+            id: id,
+            planId: Value(correction.planId),
+            pointId: correction.pointId,
+            workId: Value(correction.workId),
+            workTitle: Value(correction.workTitle),
+            pointName: Value(correction.pointName),
+            source: Value(correction.source),
+            sourceId: Value(correction.sourceId),
+            pointLatitude: correction.pointLatitude,
+            pointLongitude: correction.pointLongitude,
+            suggestedLatitude: Value(correction.suggestedLatitude),
+            suggestedLongitude: Value(correction.suggestedLongitude),
+            description: Value(correction.description),
+            photoPath: Value(correction.photoPath),
+            createdAt: now,
+          ),
+        );
+  }
+
+  @override
+  Future<List<AnchorCorrectionReport>> loadAnchorCorrections({
+    bool onlyPending = true,
+  }) async {
+    final query = _database.select(_database.anchorCorrections);
+    if (onlyPending) {
+      query.where((tbl) => tbl.exportedAt.isNull());
+    }
+    query.orderBy([
+      (tbl) => OrderingTerm(
+        expression: tbl.createdAt,
+        mode: OrderingMode.desc,
+      ),
+    ]);
+    final rows = await query.get();
+    return rows.map(_anchorCorrectionFromRow).toList(growable: false);
+  }
+
+  @override
+  Future<void> markAnchorCorrectionsExported(List<String> ids) async {
+    if (ids.isEmpty) {
+      return;
+    }
+    final now = DateTime.now();
+    await (_database.update(
+      _database.anchorCorrections,
+    )..where((tbl) => tbl.id.isIn(ids))).write(
+      AnchorCorrectionsCompanion(exportedAt: Value(now)),
+    );
+  }
+
+  @override
+  Future<void> deleteAnchorCorrection(String id) async {
+    await (_database.delete(
+      _database.anchorCorrections,
+    )..where((tbl) => tbl.id.equals(id))).go();
+  }
+
+  AnchorCorrectionReport _anchorCorrectionFromRow(AnchorCorrection row) {
+    return AnchorCorrectionReport(
+      id: row.id,
+      planId: row.planId,
+      pointId: row.pointId,
+      workId: row.workId,
+      workTitle: row.workTitle,
+      pointName: row.pointName,
+      source: row.source,
+      sourceId: row.sourceId,
+      pointLatitude: row.pointLatitude,
+      pointLongitude: row.pointLongitude,
+      suggestedLatitude: row.suggestedLatitude,
+      suggestedLongitude: row.suggestedLongitude,
+      description: row.description,
+      photoPath: row.photoPath,
+      status: row.status,
+      createdAt: row.createdAt,
+      exportedAt: row.exportedAt,
+    );
   }
 
   PilgrimageVisitRecord _visitRecordFromRow(VisitRecord row) {

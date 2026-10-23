@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 
 import '../plan/pilgrimage_models.dart';
+import '../utils/network_timeout.dart';
 import 'anitabi_image_url.dart';
 import 'anitabi_service_config.dart';
 import 'anitabi_static_data_reader.dart';
@@ -13,16 +14,22 @@ class AnitabiClient {
     http.Client? httpClient,
     AnitabiStaticDataReader? staticDataReader,
     AnitabiServiceConfig? serviceConfig,
+    Duration requestTimeout = kDefaultRequestTimeout,
   }) : _httpClient = httpClient ?? http.Client(),
+       _requestTimeout = requestTimeout,
        _serviceConfig = serviceConfig,
        _staticDataReader =
            staticDataReader ??
            AnitabiStaticDataReader(
              httpClient: httpClient,
              serviceConfig: serviceConfig,
+             requestTimeout: requestTimeout,
            );
 
   final http.Client _httpClient;
+
+  /// Wall-clock budget per HTTP request. See [kDefaultRequestTimeout].
+  final Duration _requestTimeout;
   final AnitabiServiceConfig? _serviceConfig;
   final AnitabiStaticDataReader _staticDataReader;
   AnitabiStaticIndex? _cachedStaticIndex;
@@ -46,7 +53,11 @@ class AnitabiClient {
     final uri = (_serviceConfig ?? AnitabiServiceConfig.current).apiUri(
       'bangumi/$bangumiId/lite',
     );
-    final response = await _httpClient.get(uri);
+    final response = await withRequestTimeout(
+      _httpClient.get(uri),
+      timeout: _requestTimeout,
+      label: 'GET ${uri.host}${uri.path}',
+    );
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw AnitabiException(response.statusCode, response.body);
     }

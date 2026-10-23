@@ -9,6 +9,7 @@ import 'package:latlong2/latlong.dart';
 import '../app_theme.dart';
 import '../l10n/app_localizations.dart';
 import '../map/map_tile_config.dart';
+import '../map/thumbnail_viewport_selection.dart';
 import '../widgets/snackbar_helper.dart';
 import '../data/anitabi_client.dart';
 import '../data/anitabi_image_url.dart';
@@ -75,9 +76,8 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
   Offset? _selectionStart;
   Offset? _selectionEnd;
   int _loadGeneration = 0;
-  final ValueNotifier<LatLngBounds?> _visibleBoundsNotifier = ValueNotifier(
-    null,
-  );
+  final ValueNotifier<MapThumbnailViewport?> _visibleBoundsNotifier =
+      ValueNotifier(null);
   Timer? _thumbnailBoundsDebounce;
   LatLng? _pendingMapCenter;
   double? _pendingMapZoom;
@@ -1122,12 +1122,15 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     if (!mounted || !_showThumbnailMarkers) {
       return;
     }
-    _visibleBoundsNotifier.value = camera.visibleBounds;
+    _visibleBoundsNotifier.value = MapThumbnailViewport(
+      bounds: camera.visibleBounds,
+      center: camera.center,
+    );
   }
 
   Set<String> _thumbnailPointIdsForCurrentView(
     Iterable<AnitabiPoint> points,
-    LatLngBounds? bounds,
+    MapThumbnailViewport? viewport,
   ) {
     if (!_showThumbnailMarkers) {
       return const <String>{};
@@ -1136,15 +1139,25 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
     if (threshold <= 0) {
       return const <String>{};
     }
-    final visiblePoints = bounds == null
+    final visiblePoints = viewport == null
         ? points.toList(growable: false)
         : points
-              .where((point) => bounds.contains(point.position))
+              .where((point) => viewport.bounds.contains(point.position))
               .toList(growable: false);
-    if (visiblePoints.length > threshold) {
-      return const <String>{};
+    if (viewport == null) {
+      // 首个相机事件之前拿不到视图中心，退化为旧的「全有或全无」。
+      return visiblePoints.length > threshold
+          ? const <String>{}
+          : visiblePoints.map((point) => point.id).toSet();
     }
-    return visiblePoints.map((point) => point.id).toSet();
+    // 密集区不再整体关闭缩略图：按距视图中心由近到远保留 threshold 个。
+    return selectNearestThumbnailIds(
+      items: visiblePoints,
+      positionOf: (point) => point.position,
+      idOf: (point) => point.id,
+      center: viewport.center,
+      threshold: threshold,
+    );
   }
 
   void _toggleThumbnailMarkers() {
@@ -1155,7 +1168,11 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
         _visibleBoundsNotifier.value = null;
       } else {
         try {
-          _visibleBoundsNotifier.value = _mapController.camera.visibleBounds;
+          final camera = _mapController.camera;
+          _visibleBoundsNotifier.value = MapThumbnailViewport(
+            bounds: camera.visibleBounds,
+            center: camera.center,
+          );
         } catch (_) {
           _visibleBoundsNotifier.value = null;
         }
@@ -1299,7 +1316,7 @@ class _AnitabiMapImportScreenState extends State<AnitabiMapImportScreen> {
                       ),
                       children: [
                         configuredMapTileLayer(_settings),
-                        ValueListenableBuilder<LatLngBounds?>(
+                        ValueListenableBuilder<MapThumbnailViewport?>(
                           valueListenable: _visibleBoundsNotifier,
                           builder: (context, visibleBounds, _) {
                             final thumbnailPointIds =

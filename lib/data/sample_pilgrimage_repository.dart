@@ -18,6 +18,7 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
 
   final List<PilgrimagePlan> _plans;
   final List<PilgrimageVisitRecord> _visitRecords;
+  final List<AnchorCorrectionReport> _anchorCorrections = [];
   AppSettings _settings;
   String _activePlanId;
 
@@ -807,6 +808,79 @@ class SamplePilgrimageRepository implements PilgrimageRepository {
     );
     _settings = updated;
     saveWebSettings(updated);
+  }
+
+  @override
+  Future<void> submitAnchorCorrection(AnchorCorrectionInput correction) async {
+    final now = DateTime.now();
+    _anchorCorrections.insert(
+      0,
+      AnchorCorrectionReport(
+        id: 'correction-${now.microsecondsSinceEpoch}',
+        planId: correction.planId,
+        pointId: correction.pointId,
+        workId: correction.workId,
+        workTitle: correction.workTitle,
+        pointName: correction.pointName,
+        source: correction.source,
+        sourceId: correction.sourceId,
+        pointLatitude: correction.pointLatitude,
+        pointLongitude: correction.pointLongitude,
+        suggestedLatitude: correction.suggestedLatitude,
+        suggestedLongitude: correction.suggestedLongitude,
+        description: correction.description,
+        photoPath: correction.photoPath,
+        createdAt: now,
+      ),
+    );
+  }
+
+  @override
+  Future<List<AnchorCorrectionReport>> loadAnchorCorrections({
+    bool onlyPending = true,
+  }) async {
+    final items = _anchorCorrections.where(
+      (item) => !onlyPending || item.exportedAt == null,
+    );
+    return List.unmodifiable(items);
+  }
+
+  @override
+  Future<void> markAnchorCorrectionsExported(List<String> ids) async {
+    if (ids.isEmpty) {
+      return;
+    }
+    final now = DateTime.now();
+    final idSet = ids.toSet();
+    for (var index = 0; index < _anchorCorrections.length; index++) {
+      final item = _anchorCorrections[index];
+      if (!idSet.contains(item.id) || item.exportedAt != null) {
+        continue;
+      }
+      _anchorCorrections[index] = AnchorCorrectionReport(
+        id: item.id,
+        planId: item.planId,
+        pointId: item.pointId,
+        workId: item.workId,
+        workTitle: item.workTitle,
+        pointName: item.pointName,
+        source: item.source,
+        sourceId: item.sourceId,
+        pointLatitude: item.pointLatitude,
+        pointLongitude: item.pointLongitude,
+        suggestedLatitude: item.suggestedLatitude,
+        suggestedLongitude: item.suggestedLongitude,
+        description: item.description,
+        photoPath: item.photoPath,
+        createdAt: item.createdAt,
+        exportedAt: now,
+      );
+    }
+  }
+
+  @override
+  Future<void> deleteAnchorCorrection(String id) async {
+    _anchorCorrections.removeWhere((item) => item.id == id);
   }
 
   List<PilgrimageWork> _appendWorkIfMissing(

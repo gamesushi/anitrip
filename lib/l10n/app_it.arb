@@ -160,7 +160,7 @@
   "mapAnitabiImageSourceSection": "Fonte immagine Anitabi",
   "mapThumbnailSection": "Miniatura della mappa",
   "mapThumbnailThresholdTitle": "Soglia di visualizzazione delle miniature",
-  "mapThumbnailThresholdDesc": "Quando nella vista non sono presenti più di punti {threshold}, vengono visualizzate le miniature; quando sono presenti più di , vengono visualizzati solo i punti.",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "Numero di richieste di immagini simultanee",
   "mapConcurrentLoadsDesc": "Utilizzato per visualizzare le miniature delle mappe, memorizzare nella cache le miniature durante l'importazione di punti e le mappe di riferimento nella cache batch. Numeri più alti possono comportare velocità più elevate, ma anche mettere a dura prova la rete.",
   "mapThumbnailThresholdZeroHint": "Una soglia pari a 0 non visualizzerà le miniature sulla mappa.",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "Tutte le opere ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "Opere {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "Scegli le opere da visitare",
+  "mapWorkFilterSelectAll": "Seleziona tutto",
+  "mapWorkFilterHideUnselected": "Nascondi le opere non selezionate",
+  "mapWorkFilterProgress": "Visitati {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "{count} opere in questo luogo",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "Seleziona le opere da visitare: la mappa evidenzia solo quelle",
+  "mapFocusBanner": "Solo: {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "Mostra tutte le opere",
+  "radarTooltip": "Radar dei luoghi anime vicini",
+  "radarScanning": "Scansione dei luoghi anime nelle vicinanze...",
+  "radarFoundCount": "Trovati {count} luoghi anime nelle vicinanze",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "Nessun luogo anime trovato entro 5 km",
+  "radarRescanArea": "Scansiona quest'area",
+  "radarClose": "Chiudi radar",
+  "radarDistance": "A {distance} dal centro di scansione",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "Importa opera nel piano",
+  "radarAlreadyInPlan": "Già nel piano",
+  "radarViewInPlan": "Visualizza nel piano",
+  "radarImportSuccess": "Importati con successo {count} punti",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "Dettagli del luogo",
+  "radarLoadingPoint": "Caricamento informazioni del luogo...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

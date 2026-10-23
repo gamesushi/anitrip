@@ -141,6 +141,30 @@ TileLayer configuredRasterTileLayer(AppSettings settings, {Key? key}) {
     key: key,
     urlTemplate: xyzTileUrl(settings),
     userAgentPackageName: mapUserAgentPackageName,
+    tileProvider: rasterTileProvider(settings),
+  );
+}
+
+/// ToS 红线：第三方底图（OSM / CARTO / OpenFreeMap）绝不可离线缓存。
+///
+/// 仅当用户切换到「自定义 XYZ」源、并显式开启 [AppSettings.cacheTilesOffline]
+/// 时，才启用 flutter_map 内置瓦片缓存（用于用户自有 / 自建的合规图源）。
+bool offlineCachingAllowed(AppSettings settings) {
+  return settings.mapTileProvider == MapTileProvider.customXyz &&
+      settings.cacheTilesOffline;
+}
+
+/// 决定栅格瓦片层的缓存策略：
+/// - 允许离线缓存时，使用 [BuiltInMapCachingProvider] 把瓦片落盘；
+/// - 否则（含所有第三方底图）使用 [DisabledMapCachingProvider]，绝不缓存。
+TileProvider rasterTileProvider(AppSettings settings) {
+  if (offlineCachingAllowed(settings)) {
+    return NetworkTileProvider(
+      cachingProvider: BuiltInMapCachingProvider.getOrCreateInstance(),
+    );
+  }
+  return NetworkTileProvider(
+    cachingProvider: const DisabledMapCachingProvider(),
   );
 }
 
@@ -150,6 +174,7 @@ String mapTileConfigSignature(AppSettings settings) {
     settings.openFreeMapStyle.name,
     settings.customXyzTileUrl.trim(),
     settings.customMapLibreStyleUrl.trim(),
+    settings.cacheTilesOffline ? 'cache' : 'nocache',
   ].join('|');
 }
 
@@ -216,8 +241,14 @@ RichAttributionWidget configuredMapAttribution(AppSettings settings) {
   );
 }
 
-String? validateMapTileSettings(BuildContext context, AppSettings settings) {
-  final l10n = AppLocalizations.of(context)!;
+/// 校验地图瓦片配置，返回错误文案（null 表示合法）。
+///
+/// [context] 仅用于取本地化文案，**可选**：纯逻辑/单测场景可传 null，
+/// 此时回退到同步的 `lookupAppLocalizations`（无需 widget 树 / Binding）。
+String? validateMapTileSettings(BuildContext? context, AppSettings settings) {
+  final l10n = context == null
+      ? lookupAppLocalizations(const Locale('zh'))
+      : AppLocalizations.of(context)!;
   return switch (settings.mapTileProvider) {
     MapTileProvider.customXyz =>
       isValidXyzTileUrl(settings.customXyzTileUrl.trim())

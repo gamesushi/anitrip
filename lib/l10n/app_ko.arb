@@ -152,7 +152,7 @@
   "mapAnitabiImageSourceSection": "Anitabi 이미지 소스",
   "mapThumbnailSection": "지도 섬네일",
   "mapThumbnailThresholdTitle": "섬네일 표시 임계값",
-  "mapThumbnailThresholdDesc": "뷰 내 포인트가 {threshold}개 이하일 때 섬네일을 표시하고, 초과 시 원형 점만 표시합니다.",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "동시 이미지 요청 수",
   "mapConcurrentLoadsDesc": "지도 섬네일 표시, 가져올 때 섬네일 캐시, 배치 참고 이미지 캐싱에 사용됩니다. 값이 클수록 속도는 빨라지지만 네트워크 부하가 증가합니다.",
   "mapThumbnailThresholdZeroHint": "임계값이 0일 때는 지도에 섬네일이 표시되지 않습니다.",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "모든 작품 ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "작품 {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "가고 싶은 작품 선택",
+  "mapWorkFilterSelectAll": "모두 선택",
+  "mapWorkFilterHideUnselected": "선택하지 않은 작품 숨기기",
+  "mapWorkFilterProgress": "방문 {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "이 장소에는 작품 {count}개",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "가고 싶은 작품을 체크하면 지도에서 해당 작품만 강조됩니다",
+  "mapFocusBanner": "표시 중: {title}만",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "모든 작품 표시",
+  "radarTooltip": "주변 성지 레이더",
+  "radarScanning": "주변 순례 포인트를 스캔하는 중...",
+  "radarFoundCount": "주변에서 애니 성지 {count}곳 발견",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "주변 5km 이내에 등록된 애니 성지가 없습니다",
+  "radarRescanArea": "이 지역 다시 스캔",
+  "radarClose": "레이더 닫기",
+  "radarDistance": "스캔 중심에서 {distance}",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "작품을 계획에 추가",
+  "radarAlreadyInPlan": "이미 계획에 있음",
+  "radarViewInPlan": "계획에서 보기",
+  "radarImportSuccess": "성지 순례 포인트 {count}개를 추가했습니다",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "성지 상세 정보",
+  "radarLoadingPoint": "포인트 정보를 불러오는 중...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

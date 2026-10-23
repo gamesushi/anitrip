@@ -1,5 +1,6 @@
 {
   "@@locale": "zh_Hant",
+  "legalViewOnline": "在網頁查看最新版本",
   "tabPlan": "計劃",
   "tabMap": "地圖",
   "tabRecords": "記錄",
@@ -152,7 +153,7 @@
   "mapAnitabiImageSourceSection": "Anitabi 圖片源",
   "mapThumbnailSection": "地圖縮略圖",
   "mapThumbnailThresholdTitle": "縮略圖顯示閾值",
-  "mapThumbnailThresholdDesc": "視圖內點位不超過 {threshold} 個時顯示縮略圖；超過時僅顯示圓點。",
+  "mapThumbnailThresholdDesc": "視圖內點位不超過 {threshold} 個時全部顯示縮圖；更密集時按距視圖中心由近到遠保留前 {threshold} 個，其餘顯示為圓點。",
   "mapConcurrentLoadsTitle": "圖片同時請求數",
   "mapConcurrentLoadsDesc": "用於地圖縮略圖顯示、導入點位時緩存縮略圖，以及批量緩存參考圖。數值越大速度可能越快，但網絡壓力也更高。",
   "mapThumbnailThresholdZeroHint": "閾值為 0 時不會在地圖上顯示縮略圖。",
@@ -1968,5 +1969,185 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "全部作品 ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "作品 {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "選擇想去的作品",
+  "mapWorkFilterSelectAll": "全選",
+  "mapWorkFilterHideUnselected": "隱藏未勾選的作品",
+  "mapWorkFilterProgress": "已打卡 {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "此地點有 {count} 部作品",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "勾選想去的作品，地圖只會突顯已勾選的作品",
+  "mapFocusBanner": "僅顯示：{title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "顯示全部作品",
+  "radarTooltip": "周邊聖地雷達",
+  "radarScanning": "正在掃描周邊聖地...",
+  "radarFoundCount": "附近發現 {count} 處動漫聖地",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "周邊 5km 內未收錄動漫聖地",
+  "radarRescanArea": "在此區域掃描",
+  "radarClose": "關閉雷達",
+  "radarDistance": "距掃描中心 {distance}",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "匯入此作品至計劃",
+  "radarAlreadyInPlan": "已在計劃中",
+  "radarViewInPlan": "在計劃中查看",
+  "radarImportSuccess": "已成功匯入 {count} 個巡禮點",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "聖地詳情",
+  "radarLoadingPoint": "正在載入點位資訊...",
+  "reportLocationError": "回報位置錯誤",
+  "correctionTitle": "回報座標偏差",
+  "correctionCurrentLocation": "目前座標",
+  "correctionUseMyLocation": "使用我的目前位置",
+  "correctionGettingLocation": "取得定位中…",
+  "correctionSuggestedLocation": "建議座標",
+  "correctionLatitude": "緯度",
+  "correctionLongitude": "經度",
+  "correctionDescription": "情況說明",
+  "correctionDescriptionHint": "例如：實際取景點在地圖標註點往北約 50 公尺…",
+  "correctionAddPhoto": "新增照片",
+  "correctionSubmit": "送出",
+  "correctionSubmitting": "送出中…",
+  "correctionSuccessTitle": "已收到回報",
+  "correctionSuccessBody": "座標偏差已記錄，我們會盡快核對。",
+  "correctionNeedDetail": "請填寫說明或新增照片",
+  "correctionLocationDenied": "無法取得定位，請手動輸入座標或填寫說明",
+  "correctionQueueTitle": "位置糾錯報告",
+  "correctionQueueSubtitle": "檢視並匯出使用者提交的座標糾錯報告",
+  "correctionQueueEmpty": "還沒有待處理的糾錯報告。當你在地圖上發現點位有偏差時，可以在點位詳情裡「回報位置錯誤」。",
+  "correctionQueuePending": "{count} 筆待處理",
+  "correctionQueueExport": "匯出 JSON",
+  "correctionQueueExportHint": "匯出後可傳送給維護者核實。匯出完成會自動標記為已處理，不再出現在待處理清單裡。",
+  "correctionQueueDelete": "刪除這筆報告",
+  "correctionQueueDeleteConfirm": "刪除這筆糾錯報告？",
+  "correctionQueueDeleteConfirmBody": "刪除後無法復原。",
+  "correctionQueueExported": "已匯出 {count} 筆糾錯報告",
+  "correctionQueueNoSuggestion": "未提供建議座標",
+  "correctionQueueHasPhoto": "含照片",
+  "@correctionQueuePending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@correctionQueueExported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "取消",
+  "delete": "刪除",
+  "planCompletionMenu": "巡禮進度",
+  "planCompletionTitle": "巡禮進度",
+  "planCompletionSummary": "已打卡 {completed} / {total} 個點位",
+  "planCompletionAllDone": "全部走完了，恭喜制霸！",
+  "planCompletionGroupSection": "分組進度",
+  "planCompletionVisitedSection": "已打卡點位",
+  "planCompletionRemainingSection": "待巡禮點位",
+  "planCompletionEmptyVisited": "還沒有打卡記錄。",
+  "planCompletionEmptyPoints": "這個巡禮計畫還沒有點位。",
+  "planCompletionRemainingCount": "{count} 個點位待巡禮",
+  "@planCompletionSummary": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@planCompletionRemainingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapOfflineCacheSection": "離線地圖",
+  "mapCacheTilesOffline": "緩存地圖瓦片（離線可用）",
+  "mapCacheTilesOfflineSubtitle": "將您自建 XYZ 源的瓦片保存到本機，無網路時仍可顯示地圖。第三方底圖（OSM / CARTO 等）受版權限制不可離線緩存。",
+  "mapCacheTilesOnlyCustomXyz": "離線瓦片緩存僅支援「自訂 XYZ」源。請先在上方切換地圖源。",
+  "mapClearTileCache": "清除離線瓦片緩存",
+  "mapTileCacheSize": "目前緩存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 軌跡記錄",
+  "gpsTrackEnabledTitle": "啟用軌跡記錄",
+  "gpsTrackEnabledSubtitle": "在地圖頁手動開始記錄巡禮足跡。僅在前台記錄，切換到其他應用程式時會自動暫停。",
+  "gpsTrackTooltipStart": "開始記錄軌跡",
+  "gpsTrackTooltipPause": "暫停記錄",
+  "gpsTrackTooltipResume": "繼續記錄",
+  "gpsTrackTooltipStop": "結束並儲存軌跡",
+  "gpsTrackDuration": "時長 {value}",
+  "gpsTrackDistance": "距離 {value}",
+  "gpsTrackPointCount": "取樣 {value}",
+  "gpsTrackRecording": "錄製中",
+  "gpsTrackPaused": "已暫停",
+  "gpsTrackSaved": "軌跡已儲存：{count} 個點，{distance}",
+  "gpsLocationServiceDisabled": "定位服務未開啟，請在系統設定中啟用後再記錄",
+  "gpsPermissionDenied": "需要定位權限才能記錄軌跡",
+  "gpsPermissionDeniedForever": "定位權限已被永久拒絕，請在系統設定中開啟"
 }

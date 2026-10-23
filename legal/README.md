@@ -1,24 +1,52 @@
-# anitrip 法律/支持页面托管说明
+# anitrip 法律 / 支持页面托管说明
 
-本目录包含提交 App Store 所需的两个公开页面：
+App Store 上架需要两个**外网可访问**的公开页面：
 
-- `privacy_policy.html` — 隐私政策（填 App Store Connect 的 **Privacy Policy URL**）
-- `support.html` — 技术支持页（填 App Store Connect 的 **Support URL**）
+| 用途 | 文件 | 线上地址 |
+| --- | --- | --- |
+| 隐私政策（Privacy Policy URL） | `docs/legal/privacy_policy.html` | `https://gamesushi.github.io/anitrip/privacy_policy.html` |
+| 服务条款（应用内也有，可选公开） | `docs/legal/terms_of_service.html` | `https://gamesushi.github.io/anitrip/terms_of_service.html` |
+| 技术支持（Support URL） | `docs/legal/support.html` | `https://gamesushi.github.io/anitrip/support.html` |
 
-两个页面互相用相对链接引用，需放在同一公开目录下。
+## 唯一真源（重要）
 
-## 托管方式：GitHub Pages（最简单，免费）
+页面内容必须与 App 内「设置 → 关于 → 隐私政策 / 服务条款」**逐字一致**。
+App 内文案的唯一真源是：
 
-1. 在 GitHub 新建仓库，例如 `anitrip-legal`。
-2. 把本目录（`legal/`）下的两个 html 上传到仓库根目录。
-3. 仓库 Settings → Pages → Source 选 `main` 分支 `/ (root)`，保存。
-4. 几分钟后得到公开地址，例如：
-   - 隐私政策：`https://<你的用户名>.github.io/anitrip-legal/privacy_policy.html`
-   - 技术支持：`https://<你的用户名>.github.io/anitrip-legal/support.html`
+```
+lib/settings/legal_documents.dart  (LegalDocumentContent._privacyZh / _privacyEn / _termsZh / _termsEn)
+```
 
-把这俩地址分别填进 App Store Connect 对应字段即可。
+修改政策时，**先改 `legal_documents.dart`，再同步 `docs/legal/*.html`**。
+三个 HTML 文件头部都有 `MAINTAIN-ME` 注释提醒这一点。
+`revisionDateLabel`（当前 `2026-10-23`）也要同步更新。
 
-## 提交前务必修改
+> 不要只改 HTML 然后忘记 dart —— 否则 App 内与网页会出现不一致，App Store 审核可能因此被拒。
 
-- 两个 html 里的邮箱 `privacy@gamesushi.example` / `support@gamesushi.example` → 换成你真实可收信的邮箱。
-- 确认页面能通过浏览器正常打开（Apple 会实际抓取验证，404 会导致提交被拒）。
+## 发布方式：GitHub Pages（仅发布 docs/legal）
+
+仓库已配置 `.github/workflows/deploy-legal.yml`，只把 `docs/legal/` 部署到 GitHub Pages，
+不会把 `docs/` 下的截图、宣传文案等一并公开。
+
+首次启用（只需一次）：
+
+1. 打开 `https://github.com/gamesushi/anitrip` → **Settings → Pages**。
+2. **Source** 选择 **GitHub Actions**（不是 "Deploy from a branch"）。
+3. 把 `docs/legal/` 推到 `main`（或手动在 Actions 里跑 `Deploy Legal Pages`）。
+4. 几分钟后页面上线于 `https://gamesushi.github.io/anitrip/...`。
+
+后续只要 `docs/legal/**` 有改动，push 到 `main` 会自动重新部署。
+
+## 填到 App Store Connect
+
+- **Privacy Policy URL** 字段：
+  `https://gamesushi.github.io/anitrip/privacy_policy.html`
+- **Support URL** 字段：
+  `https://gamesushi.github.io/anitrip/support.html`
+- App 二进制 `ios/Runner/Info.plist` 也已写入 `NSPrivacyPolicyURL`（同上地址），
+  App 内「隐私政策」页底部有「在网页查看最新版本」链接，跳转同一地址。
+
+## 联系人
+
+政策与邮件统一使用开发者邮箱 `bilyhurington@gmail.com`（与 App 内「关于」页一致）。
+不要用 `gamesushi.example` 之类占位邮箱——Apple 会实际抓取验证，占位邮箱会导致提交被拒。

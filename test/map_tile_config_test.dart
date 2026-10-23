@@ -3,18 +3,21 @@ import 'package:anitrip/map/map_tile_config.dart';
 import 'package:anitrip/plan/pilgrimage_models.dart';
 
 void main() {
-  test('uses OpenFreeMap as default MapLibre style', () {
+  test('uses CARTO Voyager as default MapLibre style', () {
     const settings = AppSettings();
 
-    expect(settings.mapTileProvider, MapTileProvider.openFreeMap);
-    expect(settings.openFreeMapStyle, OpenFreeMapStyle.liberty);
+    expect(settings.mapTileProvider, MapTileProvider.customMapLibreStyle);
+    expect(settings.customMapLibreStyleUrl, cartoVoyagerStyleUrl);
     expect(mapProviderUsesMapLibre(settings.mapTileProvider), isTrue);
-    expect(mapLibreStyleUrl(settings), openFreeMapStyleUrl);
-    expect(validateMapTileSettings(settings), isNull);
+    expect(mapLibreStyleUrl(settings), cartoVoyagerStyleUrl);
+    expect(validateMapTileSettings(null, settings), isNull);
   });
 
   test('selects OpenFreeMap style URLs', () {
-    const settings = AppSettings(openFreeMapStyle: OpenFreeMapStyle.positron);
+    const settings = AppSettings(
+      mapTileProvider: MapTileProvider.openFreeMap,
+      openFreeMapStyle: OpenFreeMapStyle.positron,
+    );
 
     expect(
       mapLibreStyleUrl(settings),
@@ -36,8 +39,8 @@ void main() {
       customXyzTileUrl: 'https://example.com/tiles.png',
     );
 
-    expect(validateMapTileSettings(valid), isNull);
-    expect(validateMapTileSettings(invalid), isNotNull);
+    expect(validateMapTileSettings(null, valid), isNull);
+    expect(validateMapTileSettings(null, invalid), isNotNull);
     expect(xyzTileUrl(valid), 'https://example.com/tiles/{z}/{x}/{y}.png');
     expect(xyzTileUrl(invalid), openStreetMapTileUrl);
   });
@@ -52,8 +55,8 @@ void main() {
       customMapLibreStyleUrl: 'ftp://example.com/style.json',
     );
 
-    expect(validateMapTileSettings(valid), isNull);
-    expect(validateMapTileSettings(invalid), isNotNull);
+    expect(validateMapTileSettings(null, valid), isNull);
+    expect(validateMapTileSettings(null, invalid), isNotNull);
     expect(mapLibreStyleUrl(valid), 'https://example.com/style.json');
     expect(mapLibreStyleUrl(invalid), openFreeMapStyleUrl);
   });

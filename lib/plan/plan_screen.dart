@@ -17,6 +17,7 @@ import '../utils/selected_item_order.dart';
 import 'add_points_screen.dart';
 import 'plan_group_utils.dart';
 import 'plan_memo_screen.dart';
+import 'plan_completion_screen.dart';
 import 'pilgrimage_models.dart';
 import 'pilgrimage_plan_controller.dart';
 import 'reference_full_cache_runner.dart';
@@ -279,6 +280,8 @@ class _PlanScreenState extends State<PlanScreen> {
                   widget.onOpenPointManager();
                 case _PlanMenuAction.memo:
                   _openPlanMemo();
+                case _PlanMenuAction.completion:
+                  _openCompletion();
               }
             },
             itemBuilder: (context) => [
@@ -301,6 +304,13 @@ class _PlanScreenState extends State<PlanScreen> {
                 child: ListTile(
                   leading: Icon(Icons.sticky_note_2_outlined),
                   title: Text(AppLocalizations.of(context)!.planMemo),
+                ),
+              ),
+              PopupMenuItem(
+                value: _PlanMenuAction.completion,
+                child: ListTile(
+                  leading: Icon(Icons.emoji_events_outlined),
+                  title: Text(AppLocalizations.of(context)!.planCompletionMenu),
                 ),
               ),
             ],
@@ -398,6 +408,14 @@ class _PlanScreenState extends State<PlanScreen> {
     );
   }
 
+  Future<void> _openCompletion() async {
+    await Navigator.of(context).push<void>(
+      MaterialPageRoute<void>(
+        builder: (_) => PlanCompletionScreen(plan: controller.plan),
+      ),
+    );
+  }
+
   void _openCamera(BuildContext context, PilgrimagePoint point) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -434,6 +452,8 @@ class _PlanScreenState extends State<PlanScreen> {
       onOpenRecord: (record) => _openRecordDetail(context, record),
       onEditPoint: () => _editPoint(context, point),
       navigationApp: settings.navigationApp,
+      repository: controller.repository,
+      planId: controller.plan.id,
     );
   }
 
@@ -569,7 +589,7 @@ class _PlanScreenState extends State<PlanScreen> {
   }
 }
 
-enum _PlanMenuAction { switchPlan, managePoints, memo }
+enum _PlanMenuAction { switchPlan, managePoints, memo, completion }
 
 class _ReferenceCacheIconButton extends StatelessWidget {
   const _ReferenceCacheIconButton({

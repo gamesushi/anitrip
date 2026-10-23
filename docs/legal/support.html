@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+  Support page for App Store Connect (Support URL). Mirrors the app's
+  local-first, no-account positioning. Contact: bilyhurington@gmail.com
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>anitrip — Support</title>
+<style>
+  :root { --bg:#fff; --fg:#1d1d1f; --muted:#6e6e73; --accent:#ff7eb6; --line:#e5e5ea; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--fg); background:var(--bg); line-height:1.7; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  .langswitch { display:flex; gap:8px; justify-content:flex-end; margin-bottom:8px; }
+  .langswitch button { border:1px solid var(--line); background:#fff; color:var(--muted); border-radius:999px; padding:4px 14px; font-size:13px; cursor:pointer; }
+  .langswitch button.active { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  h2 { font-size:20px; margin:36px 0 12px; border-left:4px solid var(--accent); padding-left:12px; }
+  p, li { color:var(--fg); }
+  .meta { color:var(--muted); font-size:14px; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .faq { border:1px solid var(--line); border-radius:12px; padding:4px 20px; margin-top:12px; }
+  .faq h3 { font-size:16px; margin:18px 0 6px; }
+  .faq p { margin:0 0 16px; color:var(--muted); }
+  footer { margin-top:56px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="langswitch">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-zh" onclick="setLang('zh')">中文</button>
+  </div>
+
+  <!-- ============================ ENGLISH ============================ -->
+  <div class="lang lang-en">
+    <h1>anitrip — Support</h1>
+    <p class="meta">Anime pilgrimage planning &amp; camera-reference app by BilyHurington</p>
+
+    <p>anitrip helps you plan anime pilgrimage trips, view spot locations on a map, build routes between spots, and keep photo records of your visits. This page covers common questions and how to reach us.</p>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <h3>"Work data failed to load" / 作品数据加载失败</h3>
+      <p>The app fetches spot reference data from the public anitabi service. Make sure your device has a working internet connection and try again. If the network is slow or unavailable, the Explore tab falls back to a bundled offline snapshot so existing plans still work. The data is read-only reference content; your own plans are stored separately on your device.</p>
+
+      <h3>Map or location is not working</h3>
+      <p>anitrip needs Location permission to show your position and measure distances to nearby spots. Enable it in iOS <em>Settings → anitrip → Location → While Using the App</em>. A network connection is also required to load map tiles. You can switch the map source in Settings.</p>
+
+      <h3>Where is my data stored?</h3>
+      <p>All your plans, routes, and photos are stored <strong>only on your device</strong>. anitrip has no user accounts and does not upload your data to any server. Deleting the app removes your data.</p>
+
+      <h3>How do I back up my plans?</h3>
+      <p>Use the in-app share/export feature to save or move your data (plan package, CSV, or comparison card). Because data stays on-device, we recommend exporting before switching devices or uninstalling.</p>
+
+      <h3>The reference image / spot location looks wrong</h3>
+      <p>Open the spot, then use "Report location error" to submit a correction with your current coordinate and a note. Submissions are stored locally on your device and help the maintainer improve accuracy over time.</p>
+    </div>
+
+    <h2>Contact</h2>
+    <p>Need help? Email <a href="mailto:bilyhurington@gmail.com">bilyhurington@gmail.com</a>.</p>
+    <p>Read our <a href="./privacy_policy.html">Privacy Policy</a> and <a href="./terms_of_service.html">Terms of Service</a>.</p>
+  </div>
+
+  <!-- ============================ 中文 ============================ -->
+  <div class="lang lang-zh" hidden>
+    <h1>anitrip — 技术支持</h1>
+    <p class="meta">动漫圣地巡礼计划与对照拍摄应用 · 开发者 BilyHurington</p>
+
+    <p>anitrip 帮助你规划动漫圣地巡礼行程、在地图上查看巡礼点位置、在点位之间规划路线，并记录你的到访照片。本页汇总常见问题与联系方式。</p>
+
+    <h2>常见问题</h2>
+    <div class="faq">
+      <h3>「作品数据加载失败」</h3>
+      <p>应用会从 anitabi 公开服务拉取巡礼点参考数据。请确认设备联网正常后重试。若网络较慢或不可用，探索页会回退到内置的离线快照，已有机计划仍可正常使用。该数据仅为只读参考内容，你自己的计划单独保存在本机。</p>
+
+      <h3>地图或定位无法使用</h3>
+      <p>anitrip 需要定位权限来显示你的位置并计算与附近巡礼点的距离。请在 iOS「设置 → anitrip → 位置 → 使用 App 期间」中开启。加载地图瓦片也需要联网。你可以在设置中切换地图源。</p>
+
+      <h3>我的数据保存在哪里？</h3>
+      <p>所有计划、路线与照片<strong>仅保存在你的设备本地</strong>。anitrip 没有用户账户，也不会把你的数据上传到任何服务器。删除应用即清除你的数据。</p>
+
+      <h3>如何备份我的计划？</h3>
+      <p>使用应用内的分享 / 导出功能保存或迁移数据（计划包、CSV 或对比图）。由于数据保存在本机，建议在更换设备或卸载前先导出。</p>
+
+      <h3>参考图 / 巡礼点位置看起来不对</h3>
+      <p>打开该巡礼点，使用「报告位置错误」提交修正（附当前坐标与说明）。提交内容仅保存在你本机，有助于维护者逐步提升数据准确性。</p>
+    </div>
+
+    <h2>联系我们</h2>
+    <p>需要帮助？请发送邮件至 <a href="mailto:bilyhurington@gmail.com">bilyhurington@gmail.com</a>。</p>
+    <p>阅读我们的 <a href="./privacy_policy.html">隐私政策</a> 与 <a href="./terms_of_service.html">服务条款</a>。</p>
+  </div>
+
+  <footer>
+    &copy; 2026 BilyHurington. anitrip is a fan-made anime pilgrimage tool and is not affiliated with any anime studio or rights holder.
+  </footer>
+</div>
+<script>
+  function setLang(l) {
+    document.querySelectorAll('.lang').forEach(function (e) { e.hidden = true; });
+    document.querySelector('.lang-' + l).hidden = false;
+    document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    document.getElementById('btn-zh').classList.toggle('active', l === 'zh');
+    document.documentElement.lang = (l === 'zh') ? 'zh' : 'en';
+  }
+</script>
+</body>
+</html>

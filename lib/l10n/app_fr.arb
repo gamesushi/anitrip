@@ -152,7 +152,7 @@
   "mapAnitabiImageSourceSection": "Source d'image Anitabi",
   "mapThumbnailSection": "Vignettes de la carte",
   "mapThumbnailThresholdTitle": "Seuil d'affichage des vignettes",
-  "mapThumbnailThresholdDesc": "Affiche les vignettes s'il y a max {threshold} points en vue ; sinon affiche des points.",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "Requêtes d'images simultanées",
   "mapConcurrentLoadsDesc": "Utilisé pour les vignettes, la mise en cache lors de l'import et le cache en lot. Plus la valeur est élevée, plus c'est rapide, mais la charge réseau augmente.",
   "mapThumbnailThresholdZeroHint": "Si le seuil est 0, les vignettes ne s'afficheront pas.",
@@ -1968,5 +1968,113 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "Toutes les œuvres ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "Œuvres {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "Choisissez les œuvres à visiter",
+  "mapWorkFilterSelectAll": "Tout sélectionner",
+  "mapWorkFilterHideUnselected": "Masquer les œuvres non cochées",
+  "mapWorkFilterProgress": "Visités {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "{count} œuvres à cet endroit",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "Cochez les œuvres à visiter ; la carte ne met en avant que celles-ci",
+  "mapFocusBanner": "Affichage seul : {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "Afficher toutes les œuvres",
+  "radarTooltip": "Radar des lieux de pèlerinage proches",
+  "radarScanning": "Recherche des lieux de pèlerinage proches...",
+  "radarFoundCount": "{count} lieux d'anime trouvés à proximité",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "Aucun lieu d'anime trouvé dans un rayon de 5 km",
+  "radarRescanArea": "Scanner cette zone",
+  "radarClose": "Fermer le radar",
+  "radarDistance": "À {distance} du centre de recherche",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "Importer l'œuvre dans le plan",
+  "radarAlreadyInPlan": "Déjà dans le plan",
+  "radarViewInPlan": "Voir dans le plan",
+  "radarImportSuccess": "{count} points importés avec succès",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "Détails du lieu",
+  "radarLoadingPoint": "Chargement des informations du lieu...",
+  "mapOfflineCacheSection": "离线地图",
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "btnClearing": "清除中…",
+  "gpsTrackSection": "GPS 轨迹记录",
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "gpsTrackTooltipPause": "暂停记录",
+  "gpsTrackTooltipResume": "继续记录",
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "gpsTrackDuration": "时长 {value}",
+  "gpsTrackDistance": "距离 {value}",
+  "gpsTrackPointCount": "采样 {value}",
+  "gpsTrackRecording": "录制中",
+  "gpsTrackPaused": "已暂停",
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启"
 }

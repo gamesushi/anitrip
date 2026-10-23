@@ -172,6 +172,8 @@ class _VisitRecordDetailScreenState extends State<VisitRecordDetailScreen> {
       onOpenRecords: () => _openPointRecords(point),
       onOpenRecord: _openRelatedRecord,
       navigationApp: widget.settings.navigationApp,
+      repository: widget.controller.repository,
+      planId: widget.controller.plan.id,
     );
   }
 

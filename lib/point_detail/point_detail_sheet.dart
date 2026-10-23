@@ -3,9 +3,11 @@ import 'package:image_picker/image_picker.dart';
 import '../l10n/app_localizations.dart';
 
 import '../app_theme.dart';
+import '../data/pilgrimage_repository.dart';
 import '../data/user_reference_image_stub.dart'
     if (dart.library.io) '../data/user_reference_image_io.dart';
 import '../widgets/snackbar_helper.dart';
+import 'anchor_correction_sheet.dart';
 import '../map/map_navigation_launcher.dart';
 import '../plan/pilgrimage_models.dart';
 import '../plan/plan_group_utils.dart';
@@ -36,6 +38,8 @@ class PointDetailSheet extends StatelessWidget {
     this.onEditPoint,
     this.navigationApp = NavigationApp.googleMaps,
     this.navigationLauncher = const MapNavigationLauncher(),
+    this.repository,
+    this.planId,
     super.key,
   });
 
@@ -59,6 +63,8 @@ class PointDetailSheet extends StatelessWidget {
   final VoidCallback? onEditPoint;
   final NavigationApp navigationApp;
   final MapNavigationLauncher navigationLauncher;
+  final PilgrimageRepository? repository;
+  final String? planId;
 
   static Future<void> show(
     BuildContext context, {
@@ -81,6 +87,8 @@ class PointDetailSheet extends StatelessWidget {
     ValueChanged<PilgrimageVisitRecord>? onOpenRecord,
     VoidCallback? onEditPoint,
     NavigationApp navigationApp = NavigationApp.googleMaps,
+    PilgrimageRepository? repository,
+    String? planId,
   }) {
     return showModalBottomSheet<void>(
       context: context,
@@ -103,6 +111,8 @@ class PointDetailSheet extends StatelessWidget {
           onOpenRecord: onOpenRecord,
           onEditPoint: onEditPoint,
           navigationApp: navigationApp,
+          repository: repository,
+          planId: planId,
         );
       },
     );
@@ -368,6 +378,14 @@ class PointDetailSheet extends StatelessWidget {
                           Navigator.of(context).pop();
                           onEditPoint!();
                         },
+                  onReportError: repository == null
+                      ? null
+                      : () => AnchorCorrectionSheet.show(
+                            context,
+                            point: point,
+                            repository: repository!,
+                            planId: planId,
+                          ),
                 ),
               ],
             ),
@@ -445,6 +463,7 @@ class _PointDetailActions extends StatelessWidget {
     required this.onSetCurrent,
     required this.statusAction,
     required this.onEditPoint,
+    this.onReportError,
   });
 
   final PointDetailActionScope scope;
@@ -454,6 +473,7 @@ class _PointDetailActions extends StatelessWidget {
   final VoidCallback? onSetCurrent;
   final _PointStatusAction? statusAction;
   final VoidCallback? onEditPoint;
+  final VoidCallback? onReportError;
 
   @override
   Widget build(BuildContext context) {
@@ -507,6 +527,17 @@ class _PointDetailActions extends StatelessWidget {
         if (managementActions.isNotEmpty) ...[
           const SizedBox(height: 8),
           Row(children: managementActions),
+        ],
+        if (onReportError != null) ...[
+          const SizedBox(height: 8),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: onReportError,
+              icon: const Icon(Icons.report_problem_outlined, size: 18),
+              label: Text(AppLocalizations.of(context)!.reportLocationError),
+            ),
+          ),
         ],
         if (onEditPoint != null) ...[
           const SizedBox(height: 8),

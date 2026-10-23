@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip は聖地巡礼の比較写真を撮影するためにカメラへのアクセスを必要とします。";
-"NSLocationWhenInUseUsageDescription" = "anitrip は巡礼マップ上に現在地を表示するために位置情報へのアクセスを必要とします。";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip は巡礼マップ上に現在地を表示し、訪れた巡礼地の記録を補助するために位置情報を利用する場合があります。";
-"NSMicrophoneUsageDescription" = "anitrip は巡礼地での撮影時に音声を収録するため、マイクへのアクセスを必要とする場合があります。";
+"NSLocationWhenInUseUsageDescription" = "anitrip は巡礼マップ上に現在地を表示し、近くの巡礼地までの距離を測り、位置情報の誤りを報告する際に現在の座標を添付し、さらに GPS トラック記録をオンにしている間（フォアグラウンドのみ）に歩いたルートを記録するために位置情報を必要とします。";
 "NSPhotoLibraryAddUsageDescription" = "anitrip は巡礼の比較画像をフォトライブラリに保存するためにアクセスを必要とします。";
 "NSPhotoLibraryUsageDescription" = "anitrip は巡礼写真や参考画像を読み込むため、フォトライブラリへのアクセスを必要とします。";

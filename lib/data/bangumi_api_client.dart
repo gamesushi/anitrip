@@ -5,12 +5,20 @@ import 'package:http/http.dart' as http;
 
 import '../config/bangumi_config.dart';
 import '../plan/pilgrimage_models.dart';
+import '../utils/network_timeout.dart';
 
 class BangumiApiClient {
-  BangumiApiClient({http.Client? httpClient})
-    : _httpClient = httpClient ?? http.Client();
+  BangumiApiClient({
+    http.Client? httpClient,
+    Duration requestTimeout = kDefaultRequestTimeout,
+  }) : _httpClient = httpClient ?? http.Client(),
+       _requestTimeout = requestTimeout;
 
   final http.Client _httpClient;
+
+  /// Per-request budget so the add-work search shows "failed, retry" instead of
+  /// spinning forever on a dead connection.
+  final Duration _requestTimeout;
 
   Future<List<PilgrimageWork>> searchSubjects(
     String keyword, {
@@ -24,21 +32,25 @@ class BangumiApiClient {
     final uri = Uri.parse(
       '${BangumiConfig.apiBaseUrl}/v0/search/subjects',
     ).replace(queryParameters: const {'limit': '12'});
-    final response = await _httpClient.post(
-      uri,
-      headers: {
-        'Authorization': 'Bearer ${BangumiConfig.apiToken}',
-        'Content-Type': 'application/json',
-        if (!kIsWeb) 'User-Agent': BangumiConfig.userAgent,
-      },
-      body: jsonEncode({
-        'keyword': query,
-        'sort': 'match',
-        if (types.isNotEmpty)
-          'filter': {
-            'type': types.map((type) => type.code).toList(growable: false),
-          },
-      }),
+    final response = await withRequestTimeout(
+      _httpClient.post(
+        uri,
+        headers: {
+          'Authorization': 'Bearer ${BangumiConfig.apiToken}',
+          'Content-Type': 'application/json',
+          if (!kIsWeb) 'User-Agent': BangumiConfig.userAgent,
+        },
+        body: jsonEncode({
+          'keyword': query,
+          'sort': 'match',
+          if (types.isNotEmpty)
+            'filter': {
+              'type': types.map((type) => type.code).toList(growable: false),
+            },
+        }),
+      ),
+      timeout: _requestTimeout,
+      label: 'POST ${uri.host}${uri.path}',
     );
 
     if (response.statusCode < 200 || response.statusCode >= 300) {
@@ -69,14 +81,19 @@ class BangumiApiClient {
     final uri = Uri.parse('${BangumiConfig.apiBaseUrl}/v0/subjects/$bangumiId');
     final http.Response response;
     try {
-      response = await _httpClient.get(
-        uri,
-        headers: {
-          'Authorization': 'Bearer ${BangumiConfig.apiToken}',
-          if (!kIsWeb) 'User-Agent': BangumiConfig.userAgent,
-        },
+      response = await withRequestTimeout(
+        _httpClient.get(
+          uri,
+          headers: {
+            'Authorization': 'Bearer ${BangumiConfig.apiToken}',
+            if (!kIsWeb) 'User-Agent': BangumiConfig.userAgent,
+          },
+        ),
+        timeout: _requestTimeout,
+        label: 'GET ${uri.host}${uri.path}',
       );
     } catch (_) {
+      // Any failure (including a timeout) falls back to the placeholder cover.
       return null;
     }
     if (response.statusCode < 200 || response.statusCode >= 300) {

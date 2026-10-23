@@ -192,6 +192,100 @@ abstract interface class PilgrimageRepository {
   Future<void> deletePlan(String id);
 
   Future<void> saveAppSettings(AppSettings settings);
+
+  /// Submits a user-reported anchor-location correction (the "报告位置错误"
+  /// flow). Stored locally so it survives without a backend; the developer can
+  /// later export/forward the queue to the upstream data source.
+  Future<void> submitAnchorCorrection(AnchorCorrectionInput correction);
+
+  /// Returns collected corrections, newest first.
+  Future<List<AnchorCorrectionReport>> loadAnchorCorrections({
+    bool onlyPending = true,
+  });
+
+  /// Flags [ids] as already handed off, so they stop showing up as pending.
+  Future<void> markAnchorCorrectionsExported(List<String> ids);
+
+  Future<void> deleteAnchorCorrection(String id);
+}
+
+class AnchorCorrectionInput {
+  const AnchorCorrectionInput({
+    this.planId,
+    required this.pointId,
+    this.workId,
+    this.workTitle,
+    this.pointName,
+    this.source,
+    this.sourceId,
+    required this.pointLatitude,
+    required this.pointLongitude,
+    this.suggestedLatitude,
+    this.suggestedLongitude,
+    this.description,
+    this.photoPath,
+  });
+
+  final String? planId;
+  final String pointId;
+  final String? workId;
+  final String? workTitle;
+  final String? pointName;
+  final String? source;
+  final String? sourceId;
+  final double pointLatitude;
+  final double pointLongitude;
+  final double? suggestedLatitude;
+  final double? suggestedLongitude;
+  final String? description;
+  final String? photoPath;
+}
+
+/// A persisted anchor-location correction awaiting review/export.
+///
+/// Named `...Report` to avoid colliding with the drift-generated row class of
+/// the same name (`AnchorCorrection`).
+class AnchorCorrectionReport {
+  const AnchorCorrectionReport({
+    required this.id,
+    required this.pointId,
+    required this.pointLatitude,
+    required this.pointLongitude,
+    required this.createdAt,
+    this.planId,
+    this.workId,
+    this.workTitle,
+    this.pointName,
+    this.source,
+    this.sourceId,
+    this.suggestedLatitude,
+    this.suggestedLongitude,
+    this.description,
+    this.photoPath,
+    this.status = 'submitted',
+    this.exportedAt,
+  });
+
+  final String id;
+  final String? planId;
+  final String pointId;
+  final String? workId;
+  final String? workTitle;
+  final String? pointName;
+  final String? source;
+  final String? sourceId;
+  final double pointLatitude;
+  final double pointLongitude;
+  final double? suggestedLatitude;
+  final double? suggestedLongitude;
+  final String? description;
+  final String? photoPath;
+  final String status;
+  final DateTime createdAt;
+  final DateTime? exportedAt;
+
+  bool get hasSuggestedCoordinate =>
+      suggestedLatitude != null && suggestedLongitude != null;
 }
 
 class PointImageCacheUpdate {

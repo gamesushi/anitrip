@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get legalViewOnline => '最新版をウェブで見る';
+
+  @override
   String get tabPlan => 'プラン';
 
   @override
@@ -500,7 +503,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String mapThumbnailThresholdDesc(Object threshold) {
-    return 'ビュー内に $threshold ポイントしかない場合は、サムネイルが表示されます。  を超える場合はドットのみが表示されます。';
+    return '表示範囲内の地点が $threshold 件以下ならすべてサムネイル表示します。より密集している場合はビュー中心に近い $threshold 件だけを残し、他はドット表示にします。';
   }
 
   @override
@@ -3796,4 +3799,306 @@ class AppLocalizationsJa extends AppLocalizations {
   String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
     return '$packageTotalAssetCount asset files in the package; restoring in-package assets is not supported on this platform yet.';
   }
+
+  @override
+  String mapWorkFilterAllLabel(int total) {
+    return 'すべての作品 ($total)';
+  }
+
+  @override
+  String mapWorkFilterSelectedLabel(int selected, int total) {
+    return '作品 $selected/$total';
+  }
+
+  @override
+  String get mapWorkFilterTitle => '行きたい作品を選ぶ';
+
+  @override
+  String get mapWorkFilterSelectAll => 'すべて選択';
+
+  @override
+  String get mapWorkFilterHideUnselected => '未選択の作品を隠す';
+
+  @override
+  String mapWorkFilterProgress(int done, int total) {
+    return '訪問済み $done/$total';
+  }
+
+  @override
+  String mapSpotTitle(int count) {
+    return 'この場所には $count 作品';
+  }
+
+  @override
+  String get mapSpotHint => '行きたい作品にチェックすると、地図ではその作品だけが強調されます';
+
+  @override
+  String mapFocusBanner(String title) {
+    return '表示中：$titleのみ';
+  }
+
+  @override
+  String get mapFocusClear => 'すべての作品を表示';
+
+  @override
+  String get radarTooltip => '周辺の聖地レーダー';
+
+  @override
+  String get radarScanning => '周辺の巡礼スポットをスキャン中...';
+
+  @override
+  String radarFoundCount(int count) {
+    return '近くに $count か所のアニメ聖地を発見';
+  }
+
+  @override
+  String get radarNoSpotsFound => '周辺5km以内にアニメ聖地は見つかりませんでした';
+
+  @override
+  String get radarRescanArea => 'このエリアを再スキャン';
+
+  @override
+  String get radarClose => 'レーダーを閉じる';
+
+  @override
+  String radarDistance(String distance) {
+    return 'スキャン中心から $distance';
+  }
+
+  @override
+  String get radarAddToPlan => '作品を計画に追加';
+
+  @override
+  String get radarAlreadyInPlan => '計画に追加済み';
+
+  @override
+  String get radarViewInPlan => '計画内で表示';
+
+  @override
+  String radarImportSuccess(int count) {
+    return '$count か所の巡礼ポイントを追加しました';
+  }
+
+  @override
+  String get radarSpotDetail => '聖地の詳細';
+
+  @override
+  String get radarLoadingPoint => 'スポット情報を読み込み中...';
+
+  @override
+  String get reportLocationError => '位置情報の誤りを報告';
+
+  @override
+  String get correctionTitle => '位置のズレを報告';
+
+  @override
+  String get correctionCurrentLocation => '現在の座標';
+
+  @override
+  String get correctionUseMyLocation => '現在地を使う';
+
+  @override
+  String get correctionGettingLocation => '位置情報を取得中…';
+
+  @override
+  String get correctionSuggestedLocation => '提案する座標';
+
+  @override
+  String get correctionLatitude => '緯度';
+
+  @override
+  String get correctionLongitude => '経度';
+
+  @override
+  String get correctionDescription => '状況の説明';
+
+  @override
+  String get correctionDescriptionHint => '例：実際の撮影ポイントはピンから北に約50m…';
+
+  @override
+  String get correctionAddPhoto => '写真を追加';
+
+  @override
+  String get correctionSubmit => '送信';
+
+  @override
+  String get correctionSubmitting => '送信中…';
+
+  @override
+  String get correctionSuccessTitle => '報告をありがとうございます';
+
+  @override
+  String get correctionSuccessBody => '位置情報の報告を保存しました。後ほど確認します。';
+
+  @override
+  String get correctionNeedDetail => '説明を記入するか写真を追加してください';
+
+  @override
+  String get correctionLocationDenied => '位置情報を取得できません。座標を手入力するか説明を記入してください';
+
+  @override
+  String get correctionQueueTitle => '位置情報の誤り報告';
+
+  @override
+  String get correctionQueueSubtitle => '寄せられた座標の誤り報告を確認・書き出し';
+
+  @override
+  String get correctionQueueEmpty =>
+      'まだ未対応の報告はありません。ピンがずれているときは、スポット詳細から「位置情報の誤りを報告」を選んでください。';
+
+  @override
+  String correctionQueuePending(int count) {
+    return '$count 件が未対応';
+  }
+
+  @override
+  String get correctionQueueExport => 'JSONを書き出す';
+
+  @override
+  String get correctionQueueExportHint =>
+      '書き出したファイルを管理者に送って確認してもらいます。書き出し済みの報告は対応済みになり、未対応リストから外れます。';
+
+  @override
+  String get correctionQueueDelete => 'この報告を削除';
+
+  @override
+  String get correctionQueueDeleteConfirm => 'この報告を削除しますか？';
+
+  @override
+  String get correctionQueueDeleteConfirmBody => '削除すると元に戻せません。';
+
+  @override
+  String correctionQueueExported(int count) {
+    return '$count 件の報告を書き出しました';
+  }
+
+  @override
+  String get correctionQueueNoSuggestion => '提案座標なし';
+
+  @override
+  String get correctionQueueHasPhoto => '写真あり';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get delete => '削除';
+
+  @override
+  String get planCompletionMenu => '進捗';
+
+  @override
+  String get planCompletionTitle => '巡礼の進捗';
+
+  @override
+  String planCompletionSummary(int completed, int total) {
+    return '$total 箇所中 $completed 箇所を訪問';
+  }
+
+  @override
+  String get planCompletionAllDone => 'すべて制覇しました、おめでとうございます！';
+
+  @override
+  String get planCompletionGroupSection => 'グループ別';
+
+  @override
+  String get planCompletionVisitedSection => '訪問済み';
+
+  @override
+  String get planCompletionRemainingSection => '未訪問';
+
+  @override
+  String get planCompletionEmptyVisited => 'まだ訪問記録がありません。';
+
+  @override
+  String get planCompletionEmptyPoints => 'この巡礼プランにはまだスポットがありません。';
+
+  @override
+  String planCompletionRemainingCount(int count) {
+    return '残り $count 箇所';
+  }
+
+  @override
+  String get mapOfflineCacheSection => 'オフライン地図';
+
+  @override
+  String get mapCacheTilesOffline => '地図タイルをキャッシュ（オフライン）';
+
+  @override
+  String get mapCacheTilesOfflineSubtitle =>
+      '自分でホストした XYZ ソースのタイルをローカルに保存し、オフラインでも地図を表示できます。サードパーティの地図（OSM / CARTO など）はライセンスの都合でオフラインキャッシュできません。';
+
+  @override
+  String get mapCacheTilesOnlyCustomXyz =>
+      'オフラインタイルキャッシュは「カスタム XYZ」ソースのみ対応しています。上の地図ソースを切り替えてください。';
+
+  @override
+  String get mapClearTileCache => 'オフラインタイルキャッシュを削除';
+
+  @override
+  String mapTileCacheSize(Object size) {
+    return '現在のキャッシュサイズ：$size';
+  }
+
+  @override
+  String get btnClearing => '削除中…';
+
+  @override
+  String get gpsTrackSection => 'GPS トラック記録';
+
+  @override
+  String get gpsTrackEnabledTitle => 'トラック記録を有効化';
+
+  @override
+  String get gpsTrackEnabledSubtitle =>
+      '地図画面から手動で巡礼ルートの記録を開始します。記録はフォアグラウンドのみで、他のアプリに切り替えると自動的に一時停止します。';
+
+  @override
+  String get gpsTrackTooltipStart => '記録を開始';
+
+  @override
+  String get gpsTrackTooltipPause => '記録を一時停止';
+
+  @override
+  String get gpsTrackTooltipResume => '記録を再開';
+
+  @override
+  String get gpsTrackTooltipStop => '記録を終了して保存';
+
+  @override
+  String gpsTrackDuration(Object value) {
+    return '時間 $value';
+  }
+
+  @override
+  String gpsTrackDistance(Object value) {
+    return '距離 $value';
+  }
+
+  @override
+  String gpsTrackPointCount(Object value) {
+    return 'サンプル $value';
+  }
+
+  @override
+  String get gpsTrackRecording => '記録中';
+
+  @override
+  String get gpsTrackPaused => '一時停止';
+
+  @override
+  String gpsTrackSaved(Object count, Object distance) {
+    return 'トラックを保存しました：$count 件、$distance';
+  }
+
+  @override
+  String get gpsLocationServiceDisabled =>
+      '位置情報サービスが無効です。システム設定で有効にしてから記録してください。';
+
+  @override
+  String get gpsPermissionDenied => 'トラックの記録には位置情報の権限が必要です';
+
+  @override
+  String get gpsPermissionDeniedForever =>
+      '位置情報の権限が永久に拒否されています。システム設定で有効にしてください。';
 }

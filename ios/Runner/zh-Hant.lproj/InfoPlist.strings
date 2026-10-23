@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip 需要使用相機來拍攝巡禮照片。";
-"NSLocationWhenInUseUsageDescription" = "anitrip 需要定位來在地圖上顯示目前位置。";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip 可能需要定位權限來在巡禮地圖中顯示目前位置並輔助記錄巡禮地點。";
-"NSMicrophoneUsageDescription" = "anitrip 可能需要使用麥克風來支援拍攝相關功能中的聲音擷取。";
+"NSLocationWhenInUseUsageDescription" = "anitrip 需要定位來在巡禮地圖上顯示目前位置、測量與附近巡禮點的距離、在提交位置糾錯時附帶目前座標，並在你開啟 GPS 軌跡記錄期間（僅前景）記錄行走路線。";
 "NSPhotoLibraryAddUsageDescription" = "anitrip 需要將巡禮對比圖儲存到相簿。";
 "NSPhotoLibraryUsageDescription" = "anitrip 需要存取相簿來匯入巡禮圖片和參考圖。";

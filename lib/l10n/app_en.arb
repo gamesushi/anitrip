@@ -1,5 +1,6 @@
 {
   "@@locale": "en",
+  "legalViewOnline": "View the latest version online",
   "tabPlan": "Plan",
   "tabMap": "Map",
   "tabRecords": "Records",
@@ -152,7 +153,7 @@
   "mapAnitabiImageSourceSection": "Anitabi Image Source",
   "mapThumbnailSection": "Map Thumbnails",
   "mapThumbnailThresholdTitle": "Thumbnail Display Threshold",
-  "mapThumbnailThresholdDesc": "Show thumbnails when there are no more than {threshold} points in view; otherwise show dots.",
+  "mapThumbnailThresholdDesc": "Shows a thumbnail for every point when the view has at most {threshold} points. In denser views it keeps the {threshold} nearest to the view centre and shows the rest as dots.",
   "mapConcurrentLoadsTitle": "Concurrent Image Requests",
   "mapConcurrentLoadsDesc": "Used for map thumbnails, caching thumbnails during import, and batch reference caching. Higher values speed up loads but increase network load.",
   "mapThumbnailThresholdZeroHint": "When threshold is 0, thumbnails will not be shown on the map.",
@@ -1968,5 +1969,185 @@
         "type": "String"
       }
     }
-  }
+  },
+  "mapWorkFilterAllLabel": "All works ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "Works {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "Choose works to visit",
+  "mapWorkFilterSelectAll": "Select all",
+  "mapWorkFilterHideUnselected": "Hide unchecked works",
+  "mapWorkFilterProgress": "Visited {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "{count} works at this spot",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "Check the works you want to visit; the map highlights only those",
+  "mapFocusBanner": "Showing only: {title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "Show all works",
+  "radarTooltip": "Nearby Pilgrimage Radar",
+  "radarScanning": "Scanning nearby pilgrimage spots...",
+  "radarFoundCount": "Found {count} anime spots nearby",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "No anime spots found within 5 km",
+  "radarRescanArea": "Scan this area",
+  "radarClose": "Close radar",
+  "radarDistance": "{distance} from scan center",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "Import work to plan",
+  "radarAlreadyInPlan": "Already in plan",
+  "radarViewInPlan": "View in plan",
+  "radarImportSuccess": "Successfully imported {count} spots",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "Spot details",
+  "radarLoadingPoint": "Loading spot info...",
+  "reportLocationError": "Report location error",
+  "correctionTitle": "Report a location issue",
+  "correctionCurrentLocation": "Current location",
+  "correctionUseMyLocation": "Use my current location",
+  "correctionGettingLocation": "Getting location…",
+  "correctionSuggestedLocation": "Suggested location",
+  "correctionLatitude": "Latitude",
+  "correctionLongitude": "Longitude",
+  "correctionDescription": "Description",
+  "correctionDescriptionHint": "e.g. the actual spot is ~50m north of the marked pin…",
+  "correctionAddPhoto": "Add a photo",
+  "correctionSubmit": "Submit",
+  "correctionSubmitting": "Submitting…",
+  "correctionSuccessTitle": "Thanks for the report",
+  "correctionSuccessBody": "Your location report has been saved and will be reviewed.",
+  "correctionNeedDetail": "Add a description or a photo",
+  "correctionLocationDenied": "Location unavailable; enter coordinates manually or add a note",
+  "correctionQueueTitle": "Location corrections",
+  "correctionQueueSubtitle": "Review and export submitted coordinate corrections",
+  "correctionQueueEmpty": "No pending corrections yet. When a pin looks off, open the spot details and choose “Report location error”.",
+  "correctionQueuePending": "{count} pending",
+  "correctionQueueExport": "Export JSON",
+  "correctionQueueExportHint": "Send the exported file to the maintainer for review. Exported reports are marked as handled and leave the pending list.",
+  "correctionQueueDelete": "Delete this report",
+  "correctionQueueDeleteConfirm": "Delete this correction report?",
+  "correctionQueueDeleteConfirmBody": "This cannot be undone.",
+  "correctionQueueExported": "Exported {count} correction(s)",
+  "correctionQueueNoSuggestion": "No suggested coordinate",
+  "correctionQueueHasPhoto": "Has photo",
+  "@correctionQueuePending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@correctionQueueExported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "planCompletionMenu": "Progress",
+  "planCompletionTitle": "Pilgrimage progress",
+  "planCompletionSummary": "{completed} of {total} spots visited",
+  "planCompletionAllDone": "Every spot visited — you completed it!",
+  "planCompletionGroupSection": "By group",
+  "planCompletionVisitedSection": "Visited",
+  "planCompletionRemainingSection": "Still to visit",
+  "planCompletionEmptyVisited": "Nothing checked in yet.",
+  "planCompletionEmptyPoints": "This plan has no spots yet.",
+  "planCompletionRemainingCount": "{count} spots left",
+  "@planCompletionSummary": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@planCompletionRemainingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapOfflineCacheSection": "Offline Map",
+  "mapCacheTilesOffline": "Cache map tiles (offline)",
+  "mapCacheTilesOfflineSubtitle": "Save tiles from your self-hosted XYZ source locally so the map still loads with no network. Third-party basemaps (OSM / CARTO…) cannot be cached offline due to their license terms.",
+  "mapCacheTilesOnlyCustomXyz": "Offline tile caching is only available for the “Custom XYZ” source. Switch the map source above first.",
+  "mapClearTileCache": "Clear offline tile cache",
+  "mapTileCacheSize": "Current cache size: {size}",
+  "btnClearing": "Clearing…",
+  "gpsTrackSection": "GPS Track Recording",
+  "gpsTrackEnabledTitle": "Enable track recording",
+  "gpsTrackEnabledSubtitle": "Start recording your pilgrimage route manually from the map. Recording is foreground-only and pauses automatically when you switch apps.",
+  "gpsTrackTooltipStart": "Start recording",
+  "gpsTrackTooltipPause": "Pause recording",
+  "gpsTrackTooltipResume": "Resume recording",
+  "gpsTrackTooltipStop": "Finish and save track",
+  "gpsTrackDuration": "Time {value}",
+  "gpsTrackDistance": "Distance {value}",
+  "gpsTrackPointCount": "Samples {value}",
+  "gpsTrackRecording": "Recording",
+  "gpsTrackPaused": "Paused",
+  "gpsTrackSaved": "Track saved: {count} samples, {distance}",
+  "gpsLocationServiceDisabled": "Location services are off. Enable them in system settings before recording.",
+  "gpsPermissionDenied": "Location permission is required to record a track",
+  "gpsPermissionDeniedForever": "Location permission is permanently denied. Enable it in system settings."
 }

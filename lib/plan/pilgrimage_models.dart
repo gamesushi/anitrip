@@ -198,6 +198,8 @@ class AppSettings {
     this.customCameraAspectRatioHeight = 1,
     this.mapThumbnailVisibleThreshold = 40,
     this.mapThumbnailConcurrentLoads = 10,
+    this.cacheTilesOffline = false,
+    this.gpsTrackEnabled = true,
     this.language = 'system',
   });
 
@@ -228,6 +230,11 @@ class AppSettings {
   final double customCameraAspectRatioHeight;
   final int mapThumbnailVisibleThreshold;
   final int mapThumbnailConcurrentLoads;
+  // 离线瓦片缓存开关：仅对「自定义 XYZ」源生效（第三方底图受版权限制不可离线缓存）。
+  final bool cacheTilesOffline;
+  /// GPS 轨迹记录总开关：关闭时地图页不显示录制入口。
+  /// 实际录制始终由用户手动开始（仅前台记录，切后台自动暂停）。
+  final bool gpsTrackEnabled;
   final String language;
 
   AppSettings copyWith({
@@ -258,6 +265,8 @@ class AppSettings {
     double? customCameraAspectRatioHeight,
     int? mapThumbnailVisibleThreshold,
     int? mapThumbnailConcurrentLoads,
+    bool? cacheTilesOffline,
+    bool? gpsTrackEnabled,
     String? language,
   }) {
     return AppSettings(
@@ -301,6 +310,8 @@ class AppSettings {
           mapThumbnailVisibleThreshold ?? this.mapThumbnailVisibleThreshold,
       mapThumbnailConcurrentLoads:
           mapThumbnailConcurrentLoads ?? this.mapThumbnailConcurrentLoads,
+      cacheTilesOffline: cacheTilesOffline ?? this.cacheTilesOffline,
+      gpsTrackEnabled: gpsTrackEnabled ?? this.gpsTrackEnabled,
       language: language ?? this.language,
     );
   }

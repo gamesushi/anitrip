@@ -2,16 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 
+import '../utils/network_timeout.dart';
 import '../desktop/tauri_bridge.dart';
 import 'anitabi_client.dart';
 import 'anitabi_service_config.dart';
 
 class AnitabiStaticDataReader {
-  AnitabiStaticDataReader({http.Client? httpClient, this.serviceConfig})
-    : _httpClient = httpClient ?? http.Client();
+  AnitabiStaticDataReader({
+    http.Client? httpClient,
+    this.serviceConfig,
+    Duration requestTimeout = kFallbackableRequestTimeout,
+  }) : _httpClient = httpClient ?? http.Client(),
+       _requestTimeout = requestTimeout;
 
   final http.Client _httpClient;
   final AnitabiServiceConfig? serviceConfig;
+
+  /// Per-request budget. When it expires the caller's fallback kicks in
+  /// (proxy route on web, bundled snapshot on mobile/desktop) instead of the
+  /// request hanging until the OS socket timeout.
+  final Duration _requestTimeout;
 
   Future<String> read(String fileName, {String? version}) async {
     _validateFileName(fileName);
@@ -75,7 +85,11 @@ class AnitabiStaticDataReader {
   }
 
   Future<http.Response> _checkedGet(Uri uri) async {
-    final response = await _httpClient.get(uri);
+    final response = await withRequestTimeout(
+      _httpClient.get(uri),
+      timeout: _requestTimeout,
+      label: 'GET ${uri.host}${uri.path}',
+    );
     if (response.statusCode < 200 || response.statusCode >= 300) {
       throw AnitabiException(response.statusCode, response.body);
     }

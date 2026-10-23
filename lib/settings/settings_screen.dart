@@ -7,10 +7,14 @@ import '../app_version.dart';
 import '../camera_reference/camera_zoom_capabilities.dart';
 import '../data/pilgrimage_repository.dart';
 import '../desktop/tauri_bridge.dart';
+import '../point_detail/anchor_correction_queue_screen.dart';
 import '../map/map_tile_config.dart';
+import '../map/offline_tile_cache.dart';
 import '../plan/pilgrimage_models.dart';
 import '../records/comparison_export_config.dart';
 import '../records/comparison_export_config_editor.dart';
+import 'legal_documents.dart';
+import 'legal_document_screen.dart';
 import '../records/comparison_export_config_storage_stub.dart'
     if (dart.library.io) '../records/comparison_export_config_storage_io.dart';
 import '../widgets/copyable_text.dart';
@@ -350,6 +354,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   onChanged: widget.onChanged,
                   showMapUrlDialog: _showMapUrlDialog,
                 ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          _SettingsCard(
+            header: _SettingsCardHeader(
+              icon: Icons.report_outlined,
+              title: AppLocalizations.of(context)!.correctionQueueTitle,
+              subtitle: AppLocalizations.of(context)!.correctionQueueSubtitle,
+              onTap: () => _pushDetail(
+                AnchorCorrectionQueueScreen(repository: widget.repository),
               ),
             ),
           ),
@@ -1303,6 +1318,31 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
         ),
         const SizedBox(height: 12),
         _SettingsSection(
+          title: AppLocalizations.of(context)!.mapOfflineCacheSection,
+          children: [
+            _OfflineTileCacheCard(
+              settings: settings,
+              onChanged: _update,
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        _SettingsSection(
+          title: AppLocalizations.of(context)!.gpsTrackSection,
+          children: [
+            _SummarySwitchTile(
+              icon: Icons.timeline_outlined,
+              title: AppLocalizations.of(context)!.gpsTrackEnabledTitle,
+              subtitle: AppLocalizations.of(context)!.gpsTrackEnabledSubtitle,
+              value: settings.gpsTrackEnabled,
+              onChanged: (value) {
+                _update(settings.copyWith(gpsTrackEnabled: value));
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        _SettingsSection(
           title:
               '${AppLocalizations.of(context)!.mapAnitabiImageSourceSection} ${_anitabiImageSourceLabel(context, settings.anitabiImageSource)}',
           children: [
@@ -1371,6 +1411,103 @@ class _MapSettingsPageState extends State<_MapSettingsPage> {
             const SizedBox(height: 8),
             Text(AppLocalizations.of(context)!.mapThumbnailThresholdZeroHint, style: _secondaryTextStyle),
           ],
+        ),
+      ],
+    );
+  }
+}
+
+class _OfflineTileCacheCard extends StatefulWidget {
+  const _OfflineTileCacheCard({
+    required this.settings,
+    required this.onChanged,
+  });
+
+  final AppSettings settings;
+  final ValueChanged<AppSettings> onChanged;
+
+  @override
+  State<_OfflineTileCacheCard> createState() => _OfflineTileCacheCardState();
+}
+
+class _OfflineTileCacheCardState extends State<_OfflineTileCacheCard> {
+  Future<int>? _sizeFuture;
+  bool _clearing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _refreshSize();
+  }
+
+  @override
+  void didUpdateWidget(covariant _OfflineTileCacheCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.settings.mapTileProvider !=
+        widget.settings.mapTileProvider) {
+      // 切换地图源会改变可用缓存大小，重新读取。
+      _refreshSize();
+    }
+  }
+
+  void _refreshSize() {
+    setState(() => _sizeFuture = offlineTileCacheSizeBytes());
+  }
+
+  Future<void> _clear() async {
+    setState(() => _clearing = true);
+    try {
+      await clearOfflineTileCache();
+    } finally {
+      if (mounted) {
+        setState(() => _clearing = false);
+        _refreshSize();
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final isCustomXyz =
+        widget.settings.mapTileProvider == MapTileProvider.customXyz;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (isCustomXyz)
+          _SummarySwitchTile(
+            icon: Icons.download_for_offline_outlined,
+            title: l10n.mapCacheTilesOffline,
+            subtitle: l10n.mapCacheTilesOfflineSubtitle,
+            value: widget.settings.cacheTilesOffline,
+            onChanged: (value) {
+              widget.onChanged(
+                widget.settings.copyWith(cacheTilesOffline: value),
+              );
+              _refreshSize();
+            },
+          )
+        else
+          _InfoRow(
+            icon: Icons.info_outline,
+            text: l10n.mapCacheTilesOnlyCustomXyz,
+          ),
+        const SizedBox(height: 12),
+        FutureBuilder<int>(
+          future: _sizeFuture,
+          builder: (context, snapshot) {
+            final sizeText = snapshot.hasData
+                ? formatCacheSize(snapshot.data!)
+                : '…';
+            return _MapUrlRow(
+              icon: Icons.delete_outline,
+              label: _clearing
+                  ? l10n.btnClearing
+                  : '${l10n.mapClearTileCache} · ${l10n.mapTileCacheSize(sizeText)}',
+              onTap: _clearing ? null : _clear,
+            );
+          },
         ),
       ],
     );
@@ -1637,6 +1774,9 @@ class _AboutSettingsPage extends StatelessWidget {
               label: AppLocalizations.of(context)!.aboutLicenseLabel,
               value: 'MIT License',
             ),
+            const SizedBox(height: 6),
+            _LegalDocumentTile(document: LegalDocument.privacyPolicy),
+            _LegalDocumentTile(document: LegalDocument.termsOfService),
           ],
         ),
         const SizedBox(height: 12),
@@ -3110,10 +3250,11 @@ class _MapUrlRow extends StatelessWidget {
 
   final IconData icon;
   final String label;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
+    final enabled = onTap != null;
     return InkWell(
       borderRadius: BorderRadius.circular(8),
       onTap: onTap,
@@ -3132,9 +3273,11 @@ class _MapUrlRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            const Icon(
-              Icons.edit_outlined,
-              color: AppColors.textSecondary,
+            Icon(
+              Icons.delete_outline,
+              color: enabled
+                  ? AppColors.textSecondary
+                  : AppColors.textSecondary.withValues(alpha: 0.4),
               size: 20,
             ),
           ],
@@ -3524,6 +3667,54 @@ IconData _anitabiImageSourceIcon(AnitabiImageSource source) {
     AnitabiImageSource.official => Icons.image_outlined,
     AnitabiImageSource.mirror => Icons.swap_horiz_outlined,
   };
+}
+
+class _LegalDocumentTile extends StatelessWidget {
+  const _LegalDocumentTile({required this.document});
+
+  final LegalDocument document;
+
+  @override
+  Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context);
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
+        onTap: () => LegalDocumentScreen.open(context, document),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6),
+          child: Row(
+            children: [
+              Icon(
+                document == LegalDocument.privacyPolicy
+                    ? Icons.privacy_tip_outlined
+                    : Icons.description_outlined,
+                color: AppColors.textSecondary,
+                size: 20,
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  LegalDocumentContent.title(document, locale),
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: AppColors.textSecondary,
+                size: 18,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _AboutInfoTile extends StatelessWidget {

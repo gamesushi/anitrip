@@ -15,6 +15,7 @@ class ExploreWorkItem {
     this.bangumiId,
     this.imageUrl,
     this.planId,
+    this.workId,
   });
 
   /// Default display title (Chinese-preferred). Kept as a field so call sites
@@ -46,6 +47,14 @@ class ExploreWorkItem {
   /// card is tapped we switch the active plan to this id so the map/plan
   /// screens show the correct pilgrimage (works live in per-work plans).
   final String? planId;
+
+  /// Id of the local [PilgrimageWork]; lets Bangumi-less local works be found
+  /// on the map. Null for catalog entries.
+  final String? workId;
+
+  /// Key the map uses to identify this work across plans (matches
+  /// `workKeyOf` in map_spots.dart): Bangumi id when known, else the local id.
+  String? get mapWorkKey => bangumiId?.toString() ?? workId;
 
   /// Locale-aware display title: Chinese locales show [titleZh]; all others
   /// show [titleOriginal]. Falls back to the other field when one is missing.
@@ -93,6 +102,7 @@ class ExploreWorkItem {
       pointCount: pointCount,
       bangumiId: work.bangumiId,
       planId: planId,
+      workId: work.id,
     );
   }
 }

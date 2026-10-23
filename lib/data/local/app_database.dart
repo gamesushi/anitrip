@@ -147,20 +147,92 @@ class AppSettingsEntries extends Table {
       integer().withDefault(const Constant(40))();
   IntColumn get mapThumbnailConcurrentLoads =>
       integer().withDefault(const Constant(10))();
+  BoolColumn get cacheTilesOffline =>
+      boolean().withDefault(const Constant(false))();
+  BoolColumn get gpsTrackEnabled =>
+      boolean().withDefault(const Constant(true))();
   TextColumn get language => text().withDefault(const Constant('system'))();
 
   @override
   Set<Column<Object>> get primaryKey => {id};
 }
 
+class AnchorCorrections extends Table {
+  TextColumn get id => text()();
+  TextColumn get planId => text().nullable()();
+  TextColumn get pointId => text()();
+  TextColumn get workId => text().nullable()();
+  TextColumn get workTitle => text().nullable()();
+  TextColumn get pointName => text().nullable()();
+  TextColumn get source => text().nullable()();
+  TextColumn get sourceId => text().nullable()();
+  RealColumn get pointLatitude => real()();
+  RealColumn get pointLongitude => real()();
+  RealColumn get suggestedLatitude => real().nullable()();
+  RealColumn get suggestedLongitude => real().nullable()();
+  TextColumn get description => text().nullable()();
+  TextColumn get photoPath => text().nullable()();
+  TextColumn get status => text().withDefault(const Constant('submitted'))();
+  DateTimeColumn get createdAt => dateTime()();
+  DateTimeColumn get exportedAt => dateTime().nullable()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+/// 一条 GPS 轨迹（前台录制的巡礼足迹）。
+///
+/// 采样点单独存放在 [GpsTrackSamples]，轨迹本身只保留汇总信息，
+/// 便于列表展示而不必读取全部坐标。
+class GpsTracks extends Table {
+  TextColumn get id => text()();
+  TextColumn get planId => text().nullable()();
+  TextColumn get title => text().withDefault(const Constant(''))();
+  IntColumn get startedAt => integer()();
+  IntColumn get endedAt => integer().nullable()();
+  /// recording / paused / completed
+  TextColumn get status => text().withDefault(const Constant('recording'))();
+  IntColumn get pointCount => integer().withDefault(const Constant(0))();
+  RealColumn get distanceMeters => real().withDefault(const Constant(0.0))();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
+/// 轨迹采样点。录制时按批写入，避免每个点都触发一次磁盘写。
+class GpsTrackSamples extends Table {
+  TextColumn get id => text()();
+  TextColumn get trackId => text()();
+  /// 轨迹内的序号，保证导出与渲染顺序稳定。
+  IntColumn get seq => integer()();
+  RealColumn get latitude => real()();
+  RealColumn get longitude => real()();
+  RealColumn get altitude => real().nullable()();
+  RealColumn get accuracy => real().nullable()();
+  IntColumn get recordedAt => integer()();
+
+  @override
+  Set<Column<Object>> get primaryKey => {id};
+}
+
 @DriftDatabase(
-  tables: [Plans, PlanGroups, Works, Points, VisitRecords, AppSettingsEntries],
+  tables: [
+    Plans,
+    PlanGroups,
+    Works,
+    Points,
+    VisitRecords,
+    AppSettingsEntries,
+    AnchorCorrections,
+    GpsTracks,
+    GpsTrackSamples,
+  ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 28;
+  int get schemaVersion => 31;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -429,6 +501,29 @@ class AppDatabase extends _$AppDatabase {
           'language',
           appSettingsEntries,
           appSettingsEntries.language,
+        );
+      }
+      if (from < 29) {
+        await migrator.createTable(anchorCorrections);
+      }
+      if (from < 30) {
+        await _addColumnIfMissing(
+          migrator,
+          'app_settings_entries',
+          'cache_tiles_offline',
+          appSettingsEntries,
+          appSettingsEntries.cacheTilesOffline,
+        );
+      }
+      if (from < 31) {
+        await migrator.createTable(gpsTracks);
+        await migrator.createTable(gpsTrackSamples);
+        await _addColumnIfMissing(
+          migrator,
+          'app_settings_entries',
+          'gps_track_enabled',
+          appSettingsEntries,
+          appSettingsEntries.gpsTrackEnabled,
         );
       }
     },

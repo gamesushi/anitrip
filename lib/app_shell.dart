@@ -6,6 +6,7 @@ import 'data/anitabi_image_source_scope.dart';
 import 'data/pilgrimage_repository.dart';
 import 'explore/explore_screen.dart';
 import 'explore/explore_work_item.dart';
+import 'map/map_spots.dart';
 import 'map/pilgrimage_map_screen.dart';
 import 'plan/add_points_screen.dart';
 import 'plan/plan_manager_screen.dart';
@@ -49,6 +50,9 @@ class _AppShellState extends State<AppShell> {
   /// than jumping to "add content".
   final ValueNotifier<bool> _exploreSearchRequest = ValueNotifier(false);
 
+  /// Asks the map to isolate one work (Explore → "我的作品" / "在地图查看").
+  final ValueNotifier<MapFocusRequest?> _mapFocusRequest = ValueNotifier(null);
+
   @override
   void initState() {
     super.initState();
@@ -75,6 +79,7 @@ class _AppShellState extends State<AppShell> {
   void dispose() {
     _planController?.dispose();
     _exploreSearchRequest.dispose();
+    _mapFocusRequest.dispose();
     super.dispose();
   }
 
@@ -151,18 +156,26 @@ class _AppShellState extends State<AppShell> {
     });
   }
 
-  /// Opens a tapped work on the map. Works live in per-work plans, so when the
-  /// tapped work belongs to a plan other than the active one we switch the
-  /// active plan first (and reload the controller) before jumping to the map.
+  /// Opens a tapped work on the map. The map shows every plan's points at once,
+  /// so we no longer swap the active plan here; we just ask the map to isolate
+  /// that work (the user can clear the focus to see all works again).
   Future<void> _openWorkOnMap(ExploreWorkItem item) async {
-    final planId = item.planId;
-    if (planId != null && planId != _planController?.plan.id) {
-      await widget.repository.setActivePlan(planId);
-      await _loadActivePlan();
+    final workKey = item.mapWorkKey;
+    if (workKey != null) {
+      // A fresh instance each time so re-tapping the same work re-triggers.
+      _mapFocusRequest.value = MapFocusRequest(workKey);
     }
-    if (mounted) {
-      _openMap();
+    _openMap();
+  }
+
+  /// Makes [planId] the active plan. Used by the map when the user acts
+  /// (camera, complete, detail…) on a point that belongs to another plan.
+  Future<void> _activatePlan(String planId) async {
+    if (planId == _planController?.plan.id) {
+      return;
     }
+    await widget.repository.setActivePlan(planId);
+    await _loadActivePlan();
   }
 
   /// Tapping the map tab's search bar should open the unified in-app search
@@ -360,6 +373,9 @@ class _AppShellState extends State<AppShell> {
                         controller: controller,
                         settings: _settings,
                         onStartSearch: _openExploreSearch,
+                        isActive: _selectedIndex == 2,
+                        focusRequest: _mapFocusRequest,
+                        onActivatePlan: _activatePlan,
                       ),
                       ProfileScreen(
                         controller: controller,

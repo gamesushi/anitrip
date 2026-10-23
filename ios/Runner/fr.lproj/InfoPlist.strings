@@ -2,8 +2,6 @@
 /* Keep in sync with Runner/Info.plist and lib/l10n supported locales. */
 
 "NSCameraUsageDescription" = "anitrip a besoin d’accéder à l’appareil photo pour prendre des photos comparatives sur les lieux de pèlerinage.";
-"NSLocationWhenInUseUsageDescription" = "anitrip a besoin de votre position pour l’afficher sur la carte de pèlerinage.";
-"NSLocationAlwaysAndWhenInUseUsageDescription" = "anitrip peut utiliser votre position pour l’afficher sur la carte de pèlerinage et pour vous aider à enregistrer les lieux visités.";
-"NSMicrophoneUsageDescription" = "anitrip peut avoir besoin d’accéder au microphone pour capturer le son lors d’un enregistrement sur un lieu de pèlerinage.";
+"NSLocationWhenInUseUsageDescription" = "anitrip a besoin de votre position pour l’afficher sur la carte de pèlerinage, mesurer la distance jusqu’aux lieux proches, joindre votre coordonnée actuelle lorsque vous signalez une erreur de localisation et enregistrer votre itinéraire à pied lorsque l’enregistrement de trace GPS est actif (au premier plan uniquement).";
 "NSPhotoLibraryAddUsageDescription" = "anitrip doit enregistrer vos images comparatives de pèlerinage dans votre bibliothèque de photos.";
 "NSPhotoLibraryUsageDescription" = "anitrip doit accéder à votre bibliothèque de photos pour importer vos photos de pèlerinage et images de référence.";

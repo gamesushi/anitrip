@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get legalViewOnline => 'View the latest version online';
+
+  @override
   String get tabPlan => 'Plan';
 
   @override
@@ -506,7 +509,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String mapThumbnailThresholdDesc(Object threshold) {
-    return 'Show thumbnails when there are no more than $threshold points in view; otherwise show dots.';
+    return 'Shows a thumbnail for every point when the view has at most $threshold points. In denser views it keeps the $threshold nearest to the view centre and shows the rest as dots.';
   }
 
   @override
@@ -3875,4 +3878,312 @@ class AppLocalizationsEn extends AppLocalizations {
   String packageAssetsNoPlatformRestore(String packageTotalAssetCount) {
     return '$packageTotalAssetCount asset files in the package; restoring in-package assets is not supported on this platform yet.';
   }
+
+  @override
+  String mapWorkFilterAllLabel(int total) {
+    return 'All works ($total)';
+  }
+
+  @override
+  String mapWorkFilterSelectedLabel(int selected, int total) {
+    return 'Works $selected/$total';
+  }
+
+  @override
+  String get mapWorkFilterTitle => 'Choose works to visit';
+
+  @override
+  String get mapWorkFilterSelectAll => 'Select all';
+
+  @override
+  String get mapWorkFilterHideUnselected => 'Hide unchecked works';
+
+  @override
+  String mapWorkFilterProgress(int done, int total) {
+    return 'Visited $done/$total';
+  }
+
+  @override
+  String mapSpotTitle(int count) {
+    return '$count works at this spot';
+  }
+
+  @override
+  String get mapSpotHint =>
+      'Check the works you want to visit; the map highlights only those';
+
+  @override
+  String mapFocusBanner(String title) {
+    return 'Showing only: $title';
+  }
+
+  @override
+  String get mapFocusClear => 'Show all works';
+
+  @override
+  String get radarTooltip => 'Nearby Pilgrimage Radar';
+
+  @override
+  String get radarScanning => 'Scanning nearby pilgrimage spots...';
+
+  @override
+  String radarFoundCount(int count) {
+    return 'Found $count anime spots nearby';
+  }
+
+  @override
+  String get radarNoSpotsFound => 'No anime spots found within 5 km';
+
+  @override
+  String get radarRescanArea => 'Scan this area';
+
+  @override
+  String get radarClose => 'Close radar';
+
+  @override
+  String radarDistance(String distance) {
+    return '$distance from scan center';
+  }
+
+  @override
+  String get radarAddToPlan => 'Import work to plan';
+
+  @override
+  String get radarAlreadyInPlan => 'Already in plan';
+
+  @override
+  String get radarViewInPlan => 'View in plan';
+
+  @override
+  String radarImportSuccess(int count) {
+    return 'Successfully imported $count spots';
+  }
+
+  @override
+  String get radarSpotDetail => 'Spot details';
+
+  @override
+  String get radarLoadingPoint => 'Loading spot info...';
+
+  @override
+  String get reportLocationError => 'Report location error';
+
+  @override
+  String get correctionTitle => 'Report a location issue';
+
+  @override
+  String get correctionCurrentLocation => 'Current location';
+
+  @override
+  String get correctionUseMyLocation => 'Use my current location';
+
+  @override
+  String get correctionGettingLocation => 'Getting location…';
+
+  @override
+  String get correctionSuggestedLocation => 'Suggested location';
+
+  @override
+  String get correctionLatitude => 'Latitude';
+
+  @override
+  String get correctionLongitude => 'Longitude';
+
+  @override
+  String get correctionDescription => 'Description';
+
+  @override
+  String get correctionDescriptionHint =>
+      'e.g. the actual spot is ~50m north of the marked pin…';
+
+  @override
+  String get correctionAddPhoto => 'Add a photo';
+
+  @override
+  String get correctionSubmit => 'Submit';
+
+  @override
+  String get correctionSubmitting => 'Submitting…';
+
+  @override
+  String get correctionSuccessTitle => 'Thanks for the report';
+
+  @override
+  String get correctionSuccessBody =>
+      'Your location report has been saved and will be reviewed.';
+
+  @override
+  String get correctionNeedDetail => 'Add a description or a photo';
+
+  @override
+  String get correctionLocationDenied =>
+      'Location unavailable; enter coordinates manually or add a note';
+
+  @override
+  String get correctionQueueTitle => 'Location corrections';
+
+  @override
+  String get correctionQueueSubtitle =>
+      'Review and export submitted coordinate corrections';
+
+  @override
+  String get correctionQueueEmpty =>
+      'No pending corrections yet. When a pin looks off, open the spot details and choose “Report location error”.';
+
+  @override
+  String correctionQueuePending(int count) {
+    return '$count pending';
+  }
+
+  @override
+  String get correctionQueueExport => 'Export JSON';
+
+  @override
+  String get correctionQueueExportHint =>
+      'Send the exported file to the maintainer for review. Exported reports are marked as handled and leave the pending list.';
+
+  @override
+  String get correctionQueueDelete => 'Delete this report';
+
+  @override
+  String get correctionQueueDeleteConfirm => 'Delete this correction report?';
+
+  @override
+  String get correctionQueueDeleteConfirmBody => 'This cannot be undone.';
+
+  @override
+  String correctionQueueExported(int count) {
+    return 'Exported $count correction(s)';
+  }
+
+  @override
+  String get correctionQueueNoSuggestion => 'No suggested coordinate';
+
+  @override
+  String get correctionQueueHasPhoto => 'Has photo';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get planCompletionMenu => 'Progress';
+
+  @override
+  String get planCompletionTitle => 'Pilgrimage progress';
+
+  @override
+  String planCompletionSummary(int completed, int total) {
+    return '$completed of $total spots visited';
+  }
+
+  @override
+  String get planCompletionAllDone => 'Every spot visited — you completed it!';
+
+  @override
+  String get planCompletionGroupSection => 'By group';
+
+  @override
+  String get planCompletionVisitedSection => 'Visited';
+
+  @override
+  String get planCompletionRemainingSection => 'Still to visit';
+
+  @override
+  String get planCompletionEmptyVisited => 'Nothing checked in yet.';
+
+  @override
+  String get planCompletionEmptyPoints => 'This plan has no spots yet.';
+
+  @override
+  String planCompletionRemainingCount(int count) {
+    return '$count spots left';
+  }
+
+  @override
+  String get mapOfflineCacheSection => 'Offline Map';
+
+  @override
+  String get mapCacheTilesOffline => 'Cache map tiles (offline)';
+
+  @override
+  String get mapCacheTilesOfflineSubtitle =>
+      'Save tiles from your self-hosted XYZ source locally so the map still loads with no network. Third-party basemaps (OSM / CARTO…) cannot be cached offline due to their license terms.';
+
+  @override
+  String get mapCacheTilesOnlyCustomXyz =>
+      'Offline tile caching is only available for the “Custom XYZ” source. Switch the map source above first.';
+
+  @override
+  String get mapClearTileCache => 'Clear offline tile cache';
+
+  @override
+  String mapTileCacheSize(Object size) {
+    return 'Current cache size: $size';
+  }
+
+  @override
+  String get btnClearing => 'Clearing…';
+
+  @override
+  String get gpsTrackSection => 'GPS Track Recording';
+
+  @override
+  String get gpsTrackEnabledTitle => 'Enable track recording';
+
+  @override
+  String get gpsTrackEnabledSubtitle =>
+      'Start recording your pilgrimage route manually from the map. Recording is foreground-only and pauses automatically when you switch apps.';
+
+  @override
+  String get gpsTrackTooltipStart => 'Start recording';
+
+  @override
+  String get gpsTrackTooltipPause => 'Pause recording';
+
+  @override
+  String get gpsTrackTooltipResume => 'Resume recording';
+
+  @override
+  String get gpsTrackTooltipStop => 'Finish and save track';
+
+  @override
+  String gpsTrackDuration(Object value) {
+    return 'Time $value';
+  }
+
+  @override
+  String gpsTrackDistance(Object value) {
+    return 'Distance $value';
+  }
+
+  @override
+  String gpsTrackPointCount(Object value) {
+    return 'Samples $value';
+  }
+
+  @override
+  String get gpsTrackRecording => 'Recording';
+
+  @override
+  String get gpsTrackPaused => 'Paused';
+
+  @override
+  String gpsTrackSaved(Object count, Object distance) {
+    return 'Track saved: $count samples, $distance';
+  }
+
+  @override
+  String get gpsLocationServiceDisabled =>
+      'Location services are off. Enable them in system settings before recording.';
+
+  @override
+  String get gpsPermissionDenied =>
+      'Location permission is required to record a track';
+
+  @override
+  String get gpsPermissionDeniedForever =>
+      'Location permission is permanently denied. Enable it in system settings.';
 }

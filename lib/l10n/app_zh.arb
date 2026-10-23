@@ -1,5 +1,9 @@
 {
   "@@locale": "zh",
+  "legalViewOnline": "在网页查看最新版本",
+  "@legalViewOnline": {
+    "description": "Link label on the in-app legal document screen that opens the latest online version of the document (GitHub Pages)."
+  },
   "tabPlan": "计划",
   "tabMap": "地图",
   "tabRecords": "记录",
@@ -160,7 +164,7 @@
   "mapAnitabiImageSourceSection": "Anitabi 图片源",
   "mapThumbnailSection": "地图缩略图",
   "mapThumbnailThresholdTitle": "缩略图显示阈值",
-  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时显示缩略图；超过时仅显示圆点。",
+  "mapThumbnailThresholdDesc": "视图内点位不超过 {threshold} 个时全部显示缩略图；更密集时按距视图中心由近到远保留前 {threshold} 个，其余显示为圆点。",
   "mapConcurrentLoadsTitle": "图片同时请求数",
   "mapConcurrentLoadsDesc": "用于地图缩略图显示、导入点位时缓存缩略图，以及批量缓存参考图。数值越大速度可能越快，但网络压力也更高。",
   "mapThumbnailThresholdZeroHint": "阈值为 0 时不会在地图上显示缩略图。",
@@ -2044,5 +2048,254 @@
         "type": "String"
       }
     }
+  },
+  "mapWorkFilterAllLabel": "全部作品 ({total})",
+  "@mapWorkFilterAllLabel": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterSelectedLabel": "作品 {selected}/{total}",
+  "@mapWorkFilterSelectedLabel": {
+    "placeholders": {
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapWorkFilterTitle": "选择想去的作品",
+  "mapWorkFilterSelectAll": "全选",
+  "mapWorkFilterHideUnselected": "隐藏未勾选的作品",
+  "mapWorkFilterProgress": "已打卡 {done}/{total}",
+  "@mapWorkFilterProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotTitle": "该地点有 {count} 部作品",
+  "@mapSpotTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapSpotHint": "勾选想去的作品，地图只高亮已勾选的作品",
+  "mapFocusBanner": "仅显示：{title}",
+  "@mapFocusBanner": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "mapFocusClear": "显示全部作品",
+  "radarTooltip": "周边圣地雷达",
+  "radarScanning": "正在扫描周边圣地...",
+  "radarFoundCount": "附近发现 {count} 处动漫圣地",
+  "@radarFoundCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarNoSpotsFound": "周边 5km 内未收录动漫圣地",
+  "radarRescanArea": "在此区域扫描",
+  "radarClose": "关闭雷达",
+  "radarDistance": "距扫描中心 {distance}",
+  "@radarDistance": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "radarAddToPlan": "导入此作品至计划",
+  "radarAlreadyInPlan": "已在计划中",
+  "radarViewInPlan": "在计划中查看",
+  "radarImportSuccess": "已成功导入 {count} 个巡礼点",
+  "@radarImportSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "radarSpotDetail": "圣地详情",
+  "radarLoadingPoint": "正在加载点位信息...",
+  "reportLocationError": "报告位置错误",
+  "correctionTitle": "上报坐标偏差",
+  "correctionCurrentLocation": "当前坐标",
+  "correctionUseMyLocation": "用我的当前位置",
+  "correctionGettingLocation": "获取定位中…",
+  "correctionSuggestedLocation": "建议坐标",
+  "correctionLatitude": "纬度",
+  "correctionLongitude": "经度",
+  "correctionDescription": "情况说明",
+  "correctionDescriptionHint": "例如：实际取景点在地图标注点往北约50米…",
+  "correctionAddPhoto": "添加照片",
+  "correctionSubmit": "提交",
+  "correctionSubmitting": "提交中…",
+  "correctionSuccessTitle": "已收到反馈",
+  "correctionSuccessBody": "坐标偏差已记录，我们会尽快核对。",
+  "correctionNeedDetail": "请填写说明或添加照片",
+  "correctionLocationDenied": "无法获取定位，请手动输入坐标或填写说明",
+  "correctionQueueTitle": "位置纠错报告",
+  "correctionQueueSubtitle": "查看并导出用户提交的坐标纠错报告",
+  "correctionQueueEmpty": "还没有待处理的纠错报告。当你在地图上发现点位有偏差时，可以在点位详情里「报告位置错误」。",
+  "correctionQueuePending": "{count} 条待处理",
+  "correctionQueueExport": "导出 JSON",
+  "correctionQueueExportHint": "导出后可发送给维护者核实。导出完成会自动标记为已处理，不再出现在待处理列表里。",
+  "correctionQueueDelete": "删除这条报告",
+  "correctionQueueDeleteConfirm": "删除这条纠错报告？",
+  "correctionQueueDeleteConfirmBody": "删除后无法恢复。",
+  "correctionQueueExported": "已导出 {count} 条纠错报告",
+  "correctionQueueNoSuggestion": "未提供建议坐标",
+  "correctionQueueHasPhoto": "含照片",
+  "@correctionQueuePending": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@correctionQueueExported": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cancel": "取消",
+  "delete": "删除",
+  "planCompletionMenu": "巡礼进度",
+  "planCompletionTitle": "巡礼进度",
+  "planCompletionSummary": "已打卡 {completed} / {total} 个点位",
+  "planCompletionAllDone": "全部走完了，恭喜制霸！",
+  "planCompletionGroupSection": "分组进度",
+  "planCompletionVisitedSection": "已打卡点位",
+  "planCompletionRemainingSection": "待巡礼点位",
+  "planCompletionEmptyVisited": "还没有打卡记录。",
+  "planCompletionEmptyPoints": "这个巡礼计划还没有点位。",
+  "planCompletionRemainingCount": "{count} 个点位待巡礼",
+  "@planCompletionSummary": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@planCompletionRemainingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mapOfflineCacheSection": "离线地图",
+  "@mapOfflineCacheSection": {
+    "description": "Settings section for offline map tile caching."
+  },
+  "mapCacheTilesOffline": "缓存地图瓦片（离线可用）",
+  "@mapCacheTilesOffline": {
+    "description": "Toggle to cache map tiles locally for offline use (self-hosted XYZ only)."
+  },
+  "mapCacheTilesOfflineSubtitle": "将您自建 XYZ 源的瓦片保存到本地，无网络时仍可显示地图。第三方底图（OSM / CARTO 等）受版权限制不可离线缓存。",
+  "@mapCacheTilesOfflineSubtitle": {
+    "description": "Explains the ToS limit: third-party basemaps cannot be cached offline."
+  },
+  "mapCacheTilesOnlyCustomXyz": "离线瓦片缓存仅支持「自定义 XYZ」源。请先在上方切换地图源。",
+  "@mapCacheTilesOnlyCustomXyz": {
+    "description": "Note shown when the map source is not a self-hosted Custom XYZ."
+  },
+  "mapClearTileCache": "清除离线瓦片缓存",
+  "@mapClearTileCache": {
+    "description": "Button to clear the offline tile cache."
+  },
+  "mapTileCacheSize": "当前缓存大小：{size}",
+  "@mapTileCacheSize": {
+    "description": "Shows the current offline tile cache size. {size} is a formatted byte count."
+  },
+  "btnClearing": "清除中…",
+  "@btnClearing": {
+    "description": "Label shown on the clear-cache button while clearing is in progress."
+  },
+  "gpsTrackSection": "GPS 轨迹记录",
+  "@gpsTrackSection": {
+    "description": "Settings section title for GPS track recording."
+  },
+  "gpsTrackEnabledTitle": "启用轨迹记录",
+  "@gpsTrackEnabledTitle": {
+    "description": "Master switch that shows the track recording button on the map."
+  },
+  "gpsTrackEnabledSubtitle": "在地图页手动开始记录巡礼足迹。仅在前台记录，切换到其他应用时会自动暂停。",
+  "@gpsTrackEnabledSubtitle": {
+    "description": "Explains that recording is manual and foreground-only."
+  },
+  "gpsTrackTooltipStart": "开始记录轨迹",
+  "@gpsTrackTooltipStart": {
+    "description": "Tooltip for the button that starts track recording."
+  },
+  "gpsTrackTooltipPause": "暂停记录",
+  "@gpsTrackTooltipPause": {
+    "description": "Tooltip for the button that pauses track recording."
+  },
+  "gpsTrackTooltipResume": "继续记录",
+  "@gpsTrackTooltipResume": {
+    "description": "Tooltip for the button that resumes a paused track."
+  },
+  "gpsTrackTooltipStop": "结束并保存轨迹",
+  "@gpsTrackTooltipStop": {
+    "description": "Tooltip for the button that finishes and saves the track."
+  },
+  "gpsTrackDuration": "时长 {value}",
+  "@gpsTrackDuration": {
+    "description": "Recording stats line showing elapsed time. {value} is a formatted duration."
+  },
+  "gpsTrackDistance": "距离 {value}",
+  "@gpsTrackDistance": {
+    "description": "Recording stats line showing total distance. {value} is a formatted distance."
+  },
+  "gpsTrackPointCount": "采样 {value}",
+  "@gpsTrackPointCount": {
+    "description": "Recording stats line showing sample count. {value} is a number."
+  },
+  "gpsTrackRecording": "录制中",
+  "@gpsTrackRecording": {
+    "description": "Status label shown while a track is being recorded."
+  },
+  "gpsTrackPaused": "已暂停",
+  "@gpsTrackPaused": {
+    "description": "Status label shown while recording is paused."
+  },
+  "gpsTrackSaved": "轨迹已保存：{count} 个点，{distance}",
+  "@gpsTrackSaved": {
+    "description": "Snackbar confirming the track was saved. {count} is the sample count, {distance} a formatted distance."
+  },
+  "gpsLocationServiceDisabled": "定位服务未开启，请在系统设置中启用后再记录",
+  "@gpsLocationServiceDisabled": {
+    "description": "Message shown when location services are disabled."
+  },
+  "gpsPermissionDenied": "需要定位权限才能记录轨迹",
+  "@gpsPermissionDenied": {
+    "description": "Message shown when location permission is denied."
+  },
+  "gpsPermissionDeniedForever": "定位权限已被永久拒绝，请在系统设置中开启",
+  "@gpsPermissionDeniedForever": {
+    "description": "Message shown when location permission is permanently denied."
   }
 }
