@@ -34,6 +34,21 @@ jobs:
           cp web/_redirects build/web/
           cp web/_headers build/web/
 
+      - name: Verify Cloudflare secrets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          missing=""
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then missing="$missing CLOUDFLARE_API_TOKEN"; fi
+          if [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then missing="$missing CLOUDFLARE_ACCOUNT_ID"; fi
+          if [ -n "$missing" ]; then
+            echo "::error::Missing required Cloudflare secret(s):$missing"
+            echo "::error::Go to Settings > Secrets and variables > Actions and add them, then re-run this workflow."
+            exit 1
+          fi
+          echo "Cloudflare secrets present."
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
